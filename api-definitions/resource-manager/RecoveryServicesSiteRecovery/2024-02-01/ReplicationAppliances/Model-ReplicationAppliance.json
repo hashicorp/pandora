@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Appliance related data.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationApplianceProperties"
+        "nullable": false,
+        "referenceName": "ReplicationApplianceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

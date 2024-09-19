@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolTransparentDataEncryptionsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SqlPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransparentDataEncryption"
+    "nullable": false,
+    "referenceName": "TransparentDataEncryption",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transparentDataEncryption/current"
 }

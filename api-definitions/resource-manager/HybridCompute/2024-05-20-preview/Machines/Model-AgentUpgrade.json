@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The correlation ID passed in from RSM per upgrade.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the version info w.r.t AgentUpgrade for the machine.",
       "jsonName": "desiredVersion",
       "name": "DesiredVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if RSM should try to upgrade this machine",
       "jsonName": "enableAutomaticUpgrade",
       "name": "EnableAutomaticUpgrade",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the version of the last attempt",
       "jsonName": "lastAttemptDesiredVersion",
       "name": "LastAttemptDesiredVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Failure message of last upgrade attempt if any.",
       "jsonName": "lastAttemptMessage",
       "name": "LastAttemptMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the status of Agent Upgrade.",
       "jsonName": "lastAttemptStatus",
       "name": "LastAttemptStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastAttemptStatusEnum"
+        "nullable": false,
+        "referenceName": "LastAttemptStatusEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp of last upgrade attempt",
       "jsonName": "lastAttemptTimestamp",
       "name": "LastAttemptTimestamp",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

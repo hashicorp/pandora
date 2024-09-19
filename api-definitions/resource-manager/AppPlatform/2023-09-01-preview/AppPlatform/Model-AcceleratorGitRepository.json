@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of the auth setting payload.",
       "jsonName": "authSetting",
       "name": "AuthSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AcceleratorAuthSetting"
+        "nullable": false,
+        "referenceName": "AcceleratorAuthSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repository branch to be used.",
       "jsonName": "branch",
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repository commit to be used.",
       "jsonName": "commit",
       "name": "Commit",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repository tag to be used.",
       "jsonName": "gitTag",
       "name": "GitTag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Interval for checking for updates to Git or image repository.",
       "jsonName": "intervalInSeconds",
       "name": "IntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Folder path inside the git repository to consider as the root of the accelerator or fragment.",
       "jsonName": "subPath",
       "name": "SubPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repository URL for the accelerator.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

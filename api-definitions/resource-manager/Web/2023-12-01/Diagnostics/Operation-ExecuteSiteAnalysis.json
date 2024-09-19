@@ -1,6 +1,7 @@
 {
   "name": "ExecuteSiteAnalysis",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "AnalysisId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticAnalysis"
+    "nullable": false,
+    "referenceName": "DiagnosticAnalysis",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/execute"
 }

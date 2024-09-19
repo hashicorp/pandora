@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state/actions applicable on this job like cancel/retry.",
       "jsonName": "actionsInfo",
       "name": "ActionsInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobSupportedAction"
+          "nullable": false,
+          "referenceName": "JobSupportedAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of cluster/server protecting current backup item, if any.",
       "jsonName": "containerName",
       "name": "ContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of container.",
       "jsonName": "containerType",
       "name": "ContainerType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DPM server name managing the backup item or backup job.",
       "jsonName": "dpmServerName",
       "name": "DpmServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time elapsed for job.",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The errors.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DpmErrorInfo"
+          "nullable": false,
+          "referenceName": "DpmErrorInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information for this job.",
       "jsonName": "extendedInfo",
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DpmJobExtendedInfo"
+        "nullable": false,
+        "referenceName": "DpmJobExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of backup item.",
       "jsonName": "workloadType",
       "name": "WorkloadType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,6 +142,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Job",
   "discriminatedTypeValue": "DpmJob",
   "typeHintIn": "JobType"

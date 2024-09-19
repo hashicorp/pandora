@@ -1,6 +1,7 @@
 {
   "name": "ListByShareSubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ShareSubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataSetMapping"
+    "nullable": false,
+    "referenceName": "DataSetMapping",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dataSetMappings"
 }

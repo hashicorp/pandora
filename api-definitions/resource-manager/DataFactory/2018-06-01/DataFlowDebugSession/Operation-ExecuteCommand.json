@@ -1,6 +1,7 @@
 {
   "name": "ExecuteCommand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "FactoryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataFlowDebugCommandRequest"
+    "nullable": false,
+    "referenceName": "DataFlowDebugCommandRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataFlowDebugCommandResponse"
+    "nullable": false,
+    "referenceName": "DataFlowDebugCommandResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/executeDataFlowDebugCommand"
 }

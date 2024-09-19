@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for Azure Monitor based alerts",
       "jsonName": "azureMonitorAlertSettings",
       "name": "AzureMonitorAlertSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMonitorAlertSettings"
+        "nullable": false,
+        "referenceName": "AzureMonitorAlertSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for classic alerts",
       "jsonName": "classicAlertSettings",
       "name": "ClassicAlertSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassicAlertSettings"
+        "nullable": false,
+        "referenceName": "ClassicAlertSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

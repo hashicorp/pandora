@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Email subscribed to notification.",
       "jsonName": "email",
       "name": "Email",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

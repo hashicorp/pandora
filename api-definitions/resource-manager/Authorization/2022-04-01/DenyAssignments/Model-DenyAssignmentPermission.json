@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Actions to which the deny assignment does not grant access.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The conditions on the Deny assignment permission. This limits the resources it applies to.",
       "jsonName": "condition",
       "name": "Condition",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the condition.",
       "jsonName": "conditionVersion",
       "name": "ConditionVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data actions to which the deny assignment does not grant access.",
       "jsonName": "dataActions",
       "name": "DataActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Actions to exclude from that the deny assignment does not grant access.",
       "jsonName": "notActions",
       "name": "NotActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data actions to exclude from that the deny assignment does not grant access.",
       "jsonName": "notDataActions",
       "name": "NotDataActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -95,5 +121,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

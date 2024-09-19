@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Algorithm used in wrapping and unwrapping of the data encryption key.",
       "jsonName": "algorithm",
       "name": "Algorithm",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of associated KeyEncryptionKey (aka CustomerManagedKey).",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ProviderName of KeyStoreProvider.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reference / link to the KeyEncryptionKey.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

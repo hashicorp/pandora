@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP headers.",
       "jsonName": "httpHeaders",
       "name": "HTTPHeaders",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HTTPHeader"
+          "nullable": false,
+          "referenceName": "HTTPHeader",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path to probe.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port number to probe.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scheme.",
       "jsonName": "scheme",
       "name": "Scheme",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Scheme"
+        "nullable": false,
+        "referenceName": "Scheme",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

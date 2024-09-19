@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "EmailServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TaggedResource"
+    "nullable": false,
+    "referenceName": "TaggedResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EmailServiceResource"
+    "nullable": false,
+    "referenceName": "EmailServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

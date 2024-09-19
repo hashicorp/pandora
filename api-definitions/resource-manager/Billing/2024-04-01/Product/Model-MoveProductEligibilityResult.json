@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error details of the transfer eligibility validation.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MoveProductErrorDetails"
+        "nullable": false,
+        "referenceName": "MoveProductErrorDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the subscription is eligible to be transferred.",
       "jsonName": "isMoveEligible",
       "name": "IsMoveEligible",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Switch cluster protection properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwitchClusterProtectionInputProperties"
+        "nullable": false,
+        "referenceName": "SwitchClusterProtectionInputProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the credential of a worker group.",
       "jsonName": "credential",
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunAsCredentialAssociationProperty"
+        "nullable": false,
+        "referenceName": "RunAsCredentialAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Graphical Runbook content as JSON",
       "jsonName": "graphRunbookJson",
       "name": "GraphRunbookJson",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Raw graphical Runbook content.",
       "jsonName": "rawContent",
       "name": "RawContent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RawGraphicalRunbookContent"
+        "nullable": false,
+        "referenceName": "RawGraphicalRunbookContent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

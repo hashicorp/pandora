@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the incident related entities.",
       "jsonName": "entities",
       "name": "Entities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Entity"
+          "nullable": false,
+          "referenceName": "Entity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata from the incident related entities results.",
       "jsonName": "metaData",
       "name": "MetaData",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncidentEntitiesResultsMetadata"
+          "nullable": false,
+          "referenceName": "IncidentEntitiesResultsMetadata",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage account type used to store backups for this database.",
       "jsonName": "backupStorageRedundancy",
       "name": "BackupStorageRedundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupStorageRedundancy"
+        "nullable": false,
+        "referenceName": "BackupStorageRedundancy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the database (ISO8601 format).",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the database.",
       "jsonName": "databaseName",
       "name": "DatabaseName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The deletion date of the database (ISO8601 format).",
       "jsonName": "deletionDate",
       "name": "DeletionDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -58,11 +70,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The earliest restore date of the database (ISO8601 format).",
       "jsonName": "earliestRestoreDate",
       "name": "EarliestRestoreDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,14 +86,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ids of the user assigned identities to use",
       "jsonName": "keys",
       "name": "Keys",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseKey"
+          "nullable": false,
+          "referenceName": "DatabaseKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,16 +108,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The max size of the database expressed in bytes.",
       "jsonName": "maxSizeBytes",
       "name": "MaxSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "PartnerTransfersGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "CustomerTransferId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransferDetails"
+    "nullable": false,
+    "referenceName": "TransferDetails",
+    "referenceNameIsCommonType": null
   }
 }

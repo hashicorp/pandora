@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key that must be used as FairPlay Application Secret key. This needs to be base64 encoded.",
       "jsonName": "ask",
       "name": "Ask",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Base64 representation of FairPlay certificate in PKCS 12 (pfx) format (including private key).",
       "jsonName": "fairPlayPfx",
       "name": "FairPlayPfx",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The password encrypting FairPlay certificate in PKCS 12 (pfx) format.",
       "jsonName": "fairPlayPfxPassword",
       "name": "FairPlayPfxPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Offline rental policy",
       "jsonName": "offlineRentalConfiguration",
       "name": "OfflineRentalConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyFairPlayOfflineRentalConfiguration"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyFairPlayOfflineRentalConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rental and lease key type.",
       "jsonName": "rentalAndLeaseKeyType",
       "name": "RentalAndLeaseKeyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyFairPlayRentalAndLeaseKeyType"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyFairPlayRentalAndLeaseKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rental duration. Must be greater than or equal to 0.",
       "jsonName": "rentalDuration",
       "name": "RentalDuration",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ContentKeyPolicyConfiguration",
   "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration",
   "typeHintIn": "OdataType"

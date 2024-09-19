@@ -1,6 +1,7 @@
 {
   "name": "SnapshotPoliciesListVolumes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SnapshotPolicyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SnapshotPolicyVolumeList"
+    "nullable": false,
+    "referenceName": "SnapshotPolicyVolumeList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/volumes"
 }

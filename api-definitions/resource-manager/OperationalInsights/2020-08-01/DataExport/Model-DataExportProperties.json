@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest data export rule modification time.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data export rule ID.",
       "jsonName": "dataExportId",
       "name": "DataExportId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "destination properties.",
       "jsonName": "destination",
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Destination"
+        "nullable": false,
+        "referenceName": "Destination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Active when enabled.",
       "jsonName": "enable",
       "name": "Enable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date and time when the export was last modified.",
       "jsonName": "lastModifiedDate",
       "name": "LastModifiedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of tables to export, for example: [“Heartbeat, SecurityEvent”].",
       "jsonName": "tableNames",
       "name": "TableNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -83,5 +103,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

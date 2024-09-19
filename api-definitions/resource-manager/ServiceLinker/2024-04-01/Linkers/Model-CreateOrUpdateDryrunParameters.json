@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication type.",
       "jsonName": "authInfo",
       "name": "AuthInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthInfoBase"
+        "nullable": false,
+        "referenceName": "AuthInfoBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application client type",
       "jsonName": "clientType",
       "name": "ClientType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientType"
+        "nullable": false,
+        "referenceName": "ClientType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection information consumed by applications, including secrets, connection strings.",
       "jsonName": "configurationInfo",
       "name": "ConfigurationInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state. ",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network solution.",
       "jsonName": "publicNetworkSolution",
       "name": "PublicNetworkSolution",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkSolution"
+        "nullable": false,
+        "referenceName": "PublicNetworkSolution",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "connection scope in source service.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An option to store secret value in secure place",
       "jsonName": "secretStore",
       "name": "SecretStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretStore"
+        "nullable": false,
+        "referenceName": "SecretStore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target service properties",
       "jsonName": "targetService",
       "name": "TargetService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetServiceBase"
+        "nullable": false,
+        "referenceName": "TargetServiceBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VNet solution.",
       "jsonName": "vNetSolution",
       "name": "VNetSolution",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VNetSolution"
+        "nullable": false,
+        "referenceName": "VNetSolution",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,6 +146,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DryrunParameters",
   "discriminatedTypeValue": "createOrUpdate",
   "typeHintIn": "ActionName"

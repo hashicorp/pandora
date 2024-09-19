@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.",
       "jsonName": "maxNumberOfRecordSets",
       "name": "MaxNumberOfRecordSets",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.",
       "jsonName": "maxNumberOfRecordsPerRecordSet",
       "name": "MaxNumberOfRecordsPerRecordSet",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.",
       "jsonName": "nameServers",
       "name": "NameServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.",
       "jsonName": "numberOfRecordSets",
       "name": "NumberOfRecordSets",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.",
       "jsonName": "registrationVirtualNetworks",
       "name": "RegistrationVirtualNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.",
       "jsonName": "resolutionVirtualNetworks",
       "name": "ResolutionVirtualNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of this DNS zone (Public or Private).",
       "jsonName": "zoneType",
       "name": "ZoneType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneType"
+        "nullable": false,
+        "referenceName": "ZoneType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the revision of the API. If no value is provided, default revision 1 is created",
       "jsonName": "apiRevision",
       "name": "ApiRevision",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the API Revision.",
       "jsonName": "apiRevisionDescription",
       "name": "ApiRevisionDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of API to create. \n * `http` creates a REST API \n * `soap` creates a SOAP pass-through API  \n * `websocket` creates websocket API \n * `graphql` creates GraphQL API.",
       "jsonName": "apiType",
       "name": "ApiType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoapApiType"
+        "nullable": false,
+        "referenceName": "SoapApiType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the version identifier of the API if the API is versioned",
       "jsonName": "apiVersion",
       "name": "ApiVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the API Version.",
       "jsonName": "apiVersionDescription",
       "name": "ApiVersionDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version set details",
       "jsonName": "apiVersionSet",
       "name": "ApiVersionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiVersionSetContractDetails"
+        "nullable": false,
+        "referenceName": "ApiVersionSetContractDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A resource identifier for the related ApiVersionSet.",
       "jsonName": "apiVersionSetId",
       "name": "ApiVersionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of authentication settings included into this API.",
       "jsonName": "authenticationSettings",
       "name": "AuthenticationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationSettingsContract"
+        "nullable": false,
+        "referenceName": "AuthenticationSettingsContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contact information for the API.",
       "jsonName": "contact",
       "name": "Contact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiContactInformation"
+        "nullable": false,
+        "referenceName": "ApiContactInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the API. May include HTML formatting tags.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "API name. Must be 1 to 300 characters long.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Format of the Content in which the API is getting imported.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentFormat"
+        "nullable": false,
+        "referenceName": "ContentFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if API revision is current api revision.",
       "jsonName": "isCurrent",
       "name": "IsCurrent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if API revision is accessible via the gateway.",
       "jsonName": "isOnline",
       "name": "IsOnline",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License information for the API.",
       "jsonName": "license",
       "name": "License",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiLicenseInformation"
+        "nullable": false,
+        "referenceName": "ApiLicenseInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -211,14 +259,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes on which protocols the operations in this API can be invoked.",
       "jsonName": "protocols",
       "name": "Protocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Protocol"
+          "nullable": false,
+          "referenceName": "Protocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -228,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.",
       "jsonName": "serviceUrl",
       "name": "ServiceUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "API identifier of the source API.",
       "jsonName": "sourceApiId",
       "name": "SourceApiId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocols over which API is made available.",
       "jsonName": "subscriptionKeyParameterNames",
       "name": "SubscriptionKeyParameterNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionKeyParameterNamesContract"
+        "nullable": false,
+        "referenceName": "SubscriptionKeyParameterNamesContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +329,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether an API or Product subscription is required for accessing the API.",
       "jsonName": "subscriptionRequired",
       "name": "SubscriptionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": " A URL to the Terms of Service for the API. MUST be in the format of a URL.",
       "jsonName": "termsOfServiceUrl",
       "name": "TermsOfServiceUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +361,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'",
       "jsonName": "translateRequiredQueryParameters",
       "name": "TranslateRequiredQueryParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TranslateRequiredQueryParametersConduct"
+        "nullable": false,
+        "referenceName": "TranslateRequiredQueryParametersConduct",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,11 +377,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of API.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiType"
+        "nullable": false,
+        "referenceName": "ApiType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -319,11 +393,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Content value when Importing an API.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -332,16 +409,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Criteria to limit import of WSDL to a subset of the document.",
       "jsonName": "wsdlSelector",
       "name": "WsdlSelector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiCreateOrUpdatePropertiesWsdlSelector"
+        "nullable": false,
+        "referenceName": "ApiCreateOrUpdatePropertiesWsdlSelector",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

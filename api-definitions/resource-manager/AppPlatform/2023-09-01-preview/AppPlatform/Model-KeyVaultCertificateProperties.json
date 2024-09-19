@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to automatically synchronize certificate from key vault or not.",
       "jsonName": "autoSync",
       "name": "AutoSync",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultCertificateAutoSync"
+        "nullable": false,
+        "referenceName": "KeyVaultCertificateAutoSync",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The certificate version of key vault.",
       "jsonName": "certVersion",
       "name": "CertVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. If set to true, it will not import private key from key vault.",
       "jsonName": "excludePrivateKey",
       "name": "ExcludePrivateKey",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The certificate name of key vault.",
       "jsonName": "keyVaultCertName",
       "name": "KeyVaultCertName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The vault uri of user key vault.",
       "jsonName": "vaultUri",
       "name": "VaultUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,6 +82,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CertificateProperties",
   "discriminatedTypeValue": "KeyVaultCertificate",
   "typeHintIn": "Type"

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP message content.",
       "jsonName": "content",
       "name": "Content",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

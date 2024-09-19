@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the origin of the configuration.",
       "jsonName": "assignmentSource",
       "name": "AssignmentSource",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.",
       "jsonName": "assignmentType",
       "name": "AssignmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentType"
+        "nullable": false,
+        "referenceName": "AssignmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters for the guest configuration.",
       "jsonName": "configurationParameter",
       "name": "ConfigurationParameter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationParameter"
+          "nullable": false,
+          "referenceName": "ConfigurationParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protected configuration parameters for the guest configuration.",
       "jsonName": "configurationProtectedParameter",
       "name": "ConfigurationProtectedParameter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationParameter"
+          "nullable": false,
+          "referenceName": "ConfigurationParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration setting for the guest configuration.",
       "jsonName": "configurationSetting",
       "name": "ConfigurationSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationSetting"
+        "nullable": false,
+        "referenceName": "ConfigurationSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Combined hash of the guest configuration package and configuration parameters.",
       "jsonName": "contentHash",
       "name": "ContentHash",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the content type of the configuration. Possible values could be Builtin or Custom.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Uri of the storage where guest configuration package is uploaded.",
       "jsonName": "contentUri",
       "name": "ContentUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Kind of the guest configuration. For example:DSC",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Kind"
+        "nullable": false,
+        "referenceName": "Kind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the guest configuration.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,16 +175,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the guest configuration.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

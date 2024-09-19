@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The parameters for the rectangular window with which to crop the input video.",
       "jsonName": "crop",
       "name": "Crop",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Rectangle"
+        "nullable": false,
+        "referenceName": "Rectangle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The de-interlacing settings.",
       "jsonName": "deinterlace",
       "name": "Deinterlace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Deinterlace"
+        "nullable": false,
+        "referenceName": "Deinterlace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of overlays to be applied to the input video. These could be audio, image or video overlays.",
       "jsonName": "overlays",
       "name": "Overlays",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Overlay"
+          "nullable": false,
+          "referenceName": "Overlay",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto",
       "jsonName": "rotation",
       "name": "Rotation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Rotation"
+        "nullable": false,
+        "referenceName": "Rotation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartialBatchDeploymentPartialMinimalTrackedResourceWithProperties"
+    "nullable": false,
+    "referenceName": "PartialBatchDeploymentPartialMinimalTrackedResourceWithProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BatchDeploymentTrackedResource"
+    "nullable": false,
+    "referenceName": "BatchDeploymentTrackedResource",
+    "referenceNameIsCommonType": null
   }
 }

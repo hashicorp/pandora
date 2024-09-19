@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the extension service on the Arc-enabled machine.",
       "jsonName": "extensionService",
       "name": "ExtensionService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceStatus"
+        "nullable": false,
+        "referenceName": "ServiceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the guest configuration service on the Arc-enabled machine.",
       "jsonName": "guestConfigurationService",
       "name": "GuestConfigurationService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceStatus"
+        "nullable": false,
+        "referenceName": "ServiceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

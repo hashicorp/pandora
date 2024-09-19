@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Interval at which backup needs to be triggered. For hourly the value\r\n can be 4/6/8/12",
       "jsonName": "interval",
       "name": "Interval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To specify duration of the backup window",
       "jsonName": "scheduleWindowDuration",
       "name": "ScheduleWindowDuration",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "To specify start time of the backup window",
       "jsonName": "scheduleWindowStartTime",
       "name": "ScheduleWindowStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

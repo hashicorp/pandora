@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique Bastion Shareable Link to the virtual machine.",
       "jsonName": "bsl",
       "name": "Bsl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time when the link was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional field indicating the warning or error message related to the vm in case of partial failure.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reference of the virtual machine resource.",
       "jsonName": "vm",
       "name": "VM",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Resource"
+        "nullable": false,
+        "referenceName": "Resource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

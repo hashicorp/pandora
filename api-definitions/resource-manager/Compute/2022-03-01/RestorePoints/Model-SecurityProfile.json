@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property can be used by user in the request to enable or disable the Host Encryption for the virtual machine or virtual machine scale set. This will enable the encryption for all the disks including Resource/Temp disk at host itself. \u003cbr\u003e\u003cbr\u003e Default: The Encryption at host will be disabled unless this property is set to true for the resource.",
       "jsonName": "encryptionAtHost",
       "name": "EncryptionAtHost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. \u003cbr\u003e\u003cbr\u003e Default: UefiSettings will not be enabled unless this property is set.",
       "jsonName": "securityType",
       "name": "SecurityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityTypes"
+        "nullable": false,
+        "referenceName": "SecurityTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the security settings like secure boot and vTPM used while creating the virtual machine. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2020-12-01",
       "jsonName": "uefiSettings",
       "name": "UefiSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UefiSettings"
+        "nullable": false,
+        "referenceName": "UefiSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data sync option.",
       "jsonName": "dataSyncOption",
       "name": "DataSyncOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataSyncStatus"
+        "nullable": false,
+        "referenceName": "DataSyncStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ALR option.",
       "jsonName": "recoveryVmCreationOption",
       "name": "RecoveryVMCreationOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlternateLocationRecoveryOption"
+        "nullable": false,
+        "referenceName": "AlternateLocationRecoveryOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
   "discriminatedTypeValue": "HyperVReplicaAzureFailback",
   "typeHintIn": "InstanceType"

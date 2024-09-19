@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the exclusions that are applied to all rules in the group.",
       "jsonName": "exclusions",
       "name": "Exclusions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleExclusion"
+          "nullable": false,
+          "referenceName": "ManagedRuleExclusion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the managed rule group to override.",
       "jsonName": "ruleGroupName",
       "name": "RuleGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of rules that will be disabled. If none specified, all rules in the group will be disabled.",
       "jsonName": "rules",
       "name": "Rules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleOverride"
+          "nullable": false,
+          "referenceName": "ManagedRuleOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

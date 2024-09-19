@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention duration of retention Policy.",
       "jsonName": "retentionDuration",
       "name": "RetentionDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDuration"
+        "nullable": false,
+        "referenceName": "RetentionDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Daily retention format for monthly retention policy.",
       "jsonName": "retentionScheduleDaily",
       "name": "RetentionScheduleDaily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailyRetentionFormat"
+        "nullable": false,
+        "referenceName": "DailyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention schedule format type for monthly retention policy.",
       "jsonName": "retentionScheduleFormatType",
       "name": "RetentionScheduleFormatType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionScheduleFormat"
+        "nullable": false,
+        "referenceName": "RetentionScheduleFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weekly retention format for monthly retention policy.",
       "jsonName": "retentionScheduleWeekly",
       "name": "RetentionScheduleWeekly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklyRetentionFormat"
+        "nullable": false,
+        "referenceName": "WeeklyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention times of retention policy.",
       "jsonName": "retentionTimes",
       "name": "RetentionTimes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "DateTime",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +87,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

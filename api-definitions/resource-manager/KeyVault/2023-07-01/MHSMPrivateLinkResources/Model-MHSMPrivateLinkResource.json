@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Resource Manager resource ID for the managed HSM Pool.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "LegacySystemAndUserAssignedIdentityMap",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The supported Azure location where the managed HSM Pool should be created.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the managed HSM Pool.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MHSMPrivateLinkResourceProperties"
+        "nullable": false,
+        "referenceName": "MHSMPrivateLinkResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SKU details",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmSku"
+        "nullable": false,
+        "referenceName": "ManagedHsmSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +102,9 @@
       "name": "SystemData",
       "objectDefinition": {
         "type": "SystemData",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource tags",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +129,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource type of the managed HSM Pool.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allowed models for forecasting task.",
       "jsonName": "allowedTrainingAlgorithms",
       "name": "AllowedTrainingAlgorithms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ForecastingModels"
+          "nullable": false,
+          "referenceName": "ForecastingModels",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Blocked models for forecasting task.",
       "jsonName": "blockedTrainingAlgorithms",
       "name": "BlockedTrainingAlgorithms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ForecastingModels"
+          "nullable": false,
+          "referenceName": "ForecastingModels",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable recommendation of DNN models.",
       "jsonName": "enableDnnTraining",
       "name": "EnableDnnTraining",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to turn on explainability on best model.",
       "jsonName": "enableModelExplainability",
       "name": "EnableModelExplainability",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag for enabling onnx compatible models.",
       "jsonName": "enableOnnxCompatibleModels",
       "name": "EnableOnnxCompatibleModels",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable stack ensemble run.",
       "jsonName": "enableStackEnsemble",
       "name": "EnableStackEnsemble",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable voting ensemble run.",
       "jsonName": "enableVoteEnsemble",
       "name": "EnableVoteEnsemble",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "During VotingEnsemble and StackEnsemble model generation, multiple fitted models from the previous child runs are downloaded.\r\nConfigure this parameter with a higher value than 300 secs, if more time is needed.",
       "jsonName": "ensembleModelDownloadTimeout",
       "name": "EnsembleModelDownloadTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,16 +143,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Stack ensemble settings for stack ensemble run.",
       "jsonName": "stackEnsembleSettings",
       "name": "StackEnsembleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StackEnsembleSettings"
+        "nullable": false,
+        "referenceName": "StackEnsembleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

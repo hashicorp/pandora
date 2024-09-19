@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of the hardware validation execution.",
       "jsonName": "lastValidationTime",
       "name": "LastValidationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The outcome of the hardware validation.",
       "jsonName": "result",
       "name": "Result",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineHardwareValidationResult"
+        "nullable": false,
+        "referenceName": "BareMetalMachineHardwareValidationResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

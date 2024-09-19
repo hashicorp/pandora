@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Remaining hosts quota by sku type",
       "jsonName": "hostsRemaining",
       "name": "HostsRemaining",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host quota is active for current subscription",
       "jsonName": "quotaEnabled",
       "name": "QuotaEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QuotaEnabled"
+        "nullable": false,
+        "referenceName": "QuotaEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

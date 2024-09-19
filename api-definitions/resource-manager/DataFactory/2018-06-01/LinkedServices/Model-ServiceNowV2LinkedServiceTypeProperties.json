@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication type to use.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceNowV2AuthenticationType"
+        "nullable": false,
+        "referenceName": "ServiceNowV2AuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client id for OAuth2 authentication.",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ClientSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint of the ServiceNowV2 server. (i.e. \u003cinstance\u003e.service-now.com)",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GrantType for OAuth2 authentication. Default value is password.",
       "jsonName": "grantType",
       "name": "GrantType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +102,9 @@
       "name": "Password",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +113,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user name used to connect to the ServiceNowV2 server for Basic and OAuth2 authentication.",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

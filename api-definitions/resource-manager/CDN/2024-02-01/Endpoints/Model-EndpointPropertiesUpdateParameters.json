@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of content types on which compression applies. The value should be a valid MIME type.",
       "jsonName": "contentTypesToCompress",
       "name": "ContentTypesToCompress",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A reference to the origin group.",
       "jsonName": "defaultOriginGroup",
       "name": "DefaultOriginGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A policy that specifies the delivery rules to be used for an endpoint.",
       "jsonName": "deliveryPolicy",
       "name": "DeliveryPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointPropertiesUpdateParametersDeliveryPolicy"
+        "nullable": false,
+        "referenceName": "EndpointPropertiesUpdateParametersDeliveryPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/",
       "jsonName": "geoFilters",
       "name": "GeoFilters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GeoFilter"
+          "nullable": false,
+          "referenceName": "GeoFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.",
       "jsonName": "isCompressionEnabled",
       "name": "IsCompressionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.",
       "jsonName": "isHttpAllowed",
       "name": "IsHTTPAllowed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.",
       "jsonName": "isHttpsAllowed",
       "name": "IsHTTPSAllowed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.",
       "jsonName": "optimizationType",
       "name": "OptimizationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptimizationType"
+        "nullable": false,
+        "referenceName": "OptimizationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.",
       "jsonName": "originHostHeader",
       "name": "OriginHostHeader",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.",
       "jsonName": "originPath",
       "name": "OriginPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.",
       "jsonName": "probePath",
       "name": "ProbePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.",
       "jsonName": "queryStringCachingBehavior",
       "name": "QueryStringCachingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryStringCachingBehavior"
+        "nullable": false,
+        "referenceName": "QueryStringCachingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,14 +207,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of keys used to validate the signed URL hashes.",
       "jsonName": "urlSigningKeys",
       "name": "UrlSigningKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UrlSigningKey"
+          "nullable": false,
+          "referenceName": "UrlSigningKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,16 +229,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the Web Application Firewall policy for the endpoint (if applicable)",
       "jsonName": "webApplicationFirewallPolicyLink",
       "name": "WebApplicationFirewallPolicyLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink"
+        "nullable": false,
+        "referenceName": "EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

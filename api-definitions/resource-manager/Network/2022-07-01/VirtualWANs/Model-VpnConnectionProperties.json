@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Expected bandwidth in MBPS.",
       "jsonName": "connectionBandwidth",
       "name": "ConnectionBandwidth",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection status.",
       "jsonName": "connectionStatus",
       "name": "ConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnConnectionStatus"
+        "nullable": false,
+        "referenceName": "VpnConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DPD timeout in seconds for vpn connection.",
       "jsonName": "dpdTimeoutSeconds",
       "name": "DpdTimeoutSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Egress bytes transferred.",
       "jsonName": "egressBytesTransferred",
       "name": "EgressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "EnableBgp flag.",
       "jsonName": "enableBgp",
       "name": "EnableBgp",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable internet security.",
       "jsonName": "enableInternetSecurity",
       "name": "EnableInternetSecurity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "EnableBgp flag.",
       "jsonName": "enableRateLimiting",
       "name": "EnableRateLimiting",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +115,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Policies to be considered by this connection.",
       "jsonName": "ipsecPolicies",
       "name": "IPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress bytes transferred.",
       "jsonName": "ingressBytesTransferred",
       "name": "IngressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +157,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +172,9 @@
       "name": "RemoteVpnSite",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +183,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Routing Configuration indicating the associated and propagated route tables on this connection.",
       "jsonName": "routingConfiguration",
       "name": "RoutingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingConfiguration"
+        "nullable": false,
+        "referenceName": "RoutingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +199,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing weight for vpn connection.",
       "jsonName": "routingWeight",
       "name": "RoutingWeight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SharedKey for the vpn connection.",
       "jsonName": "sharedKey",
       "name": "SharedKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,14 +231,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Traffic Selector Policies to be considered by this connection.",
       "jsonName": "trafficSelectorPolicies",
       "name": "TrafficSelectorPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficSelectorPolicy"
+          "nullable": false,
+          "referenceName": "TrafficSelectorPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -206,11 +253,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Use local azure ip to initiate connection.",
       "jsonName": "useLocalAzureIpAddress",
       "name": "UseLocalAzureIPAddress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +269,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable policy-based traffic selectors.",
       "jsonName": "usePolicyBasedTrafficSelectors",
       "name": "UsePolicyBasedTrafficSelectors",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +289,9 @@
       "name": "VpnConnectionProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,14 +300,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all vpn site link connections to the gateway.",
       "jsonName": "vpnLinkConnections",
       "name": "VpnLinkConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnSiteLinkConnection"
+          "nullable": false,
+          "referenceName": "VpnSiteLinkConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -260,5 +320,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

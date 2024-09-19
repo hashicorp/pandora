@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SKU Family of the managed HSM Pool",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmSkuFamily"
+        "nullable": false,
+        "referenceName": "ManagedHsmSkuFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SKU of the managed HSM Pool",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmSkuName"
+        "nullable": false,
+        "referenceName": "ManagedHsmSkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

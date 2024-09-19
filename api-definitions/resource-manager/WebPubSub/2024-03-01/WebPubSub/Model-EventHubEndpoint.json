@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Event Hub.",
       "jsonName": "eventHubName",
       "name": "EventHubName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified namespace name of the Event Hub resource. For example, \"example.servicebus.windows.net\".",
       "jsonName": "fullyQualifiedNamespace",
       "name": "FullyQualifiedNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventListenerEndpoint",
   "discriminatedTypeValue": "EventHub",
   "typeHintIn": "Type"

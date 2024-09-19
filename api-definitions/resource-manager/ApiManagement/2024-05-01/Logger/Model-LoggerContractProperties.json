@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name and SendRule connection string of the event hub for azureEventHub logger.\nInstrumentation key for applicationInsights logger.",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Logger description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether records are buffered in the logger before publishing. Default is assumed to be true.",
       "jsonName": "isBuffered",
       "name": "IsBuffered",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Logger type.",
       "jsonName": "loggerType",
       "name": "LoggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoggerType"
+        "nullable": false,
+        "referenceName": "LoggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

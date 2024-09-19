@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Maximum number of container replicas. Defaults to 10 if not set.",
       "jsonName": "maxReplicas",
       "name": "MaxReplicas",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Minimum number of container replicas.",
       "jsonName": "minReplicas",
       "name": "MinReplicas",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scaling rules.",
       "jsonName": "rules",
       "name": "Rules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScaleRule"
+          "nullable": false,
+          "referenceName": "ScaleRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

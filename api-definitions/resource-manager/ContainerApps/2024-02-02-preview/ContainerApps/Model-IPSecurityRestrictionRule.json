@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow or Deny rules to determine for incoming IP. Note: Rules can only consist of ALL Allow or ALL Deny",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Action"
+        "nullable": false,
+        "referenceName": "Action",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe the IP restriction rule that is being sent to the container-app. This is an optional field.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CIDR notation to match incoming IP address",
       "jsonName": "ipAddressRange",
       "name": "IPAddressRange",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name for the IP restriction rule.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "confidential VM encryption types",
       "jsonName": "confidentialVMEncryptionType",
       "name": "ConfidentialVMEncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfidentialVMEncryptionType"
+        "nullable": false,
+        "referenceName": "ConfidentialVMEncryptionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "secure VM disk encryption set id",
       "jsonName": "secureVMDiskEncryptionSetId",
       "name": "SecureVMDiskEncryptionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of scaling plan.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Exclusion tag for scaling plan.",
       "jsonName": "exclusionTag",
       "name": "ExclusionTag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User friendly name of scaling plan.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of ScalingHostPoolReference definitions.",
       "jsonName": "hostPoolReferences",
       "name": "HostPoolReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScalingHostPoolReference"
+          "nullable": false,
+          "referenceName": "ScalingHostPoolReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HostPool type for desktop.",
       "jsonName": "hostPoolType",
       "name": "HostPoolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScalingHostPoolType"
+        "nullable": false,
+        "referenceName": "ScalingHostPoolType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ObjectId of scaling plan. (internal use)",
       "jsonName": "objectId",
       "name": "ObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of ScalingSchedule definitions.",
       "jsonName": "schedules",
       "name": "Schedules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScalingSchedule"
+          "nullable": false,
+          "referenceName": "ScalingSchedule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,16 +127,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timezone of the scaling plan.",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

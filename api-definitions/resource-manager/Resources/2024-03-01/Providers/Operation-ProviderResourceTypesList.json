@@ -1,6 +1,7 @@
 {
   "name": "ProviderResourceTypesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SubscriptionProviderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProviderResourceType"
+    "nullable": false,
+    "referenceName": "ProviderResourceType",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resourceTypes"
 }

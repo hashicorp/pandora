@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "These additional options are supplied as arguments to the \"docker create\" command, in addition to those controlled by the Batch Service.",
       "jsonName": "containerRunOptions",
       "name": "ContainerRunOptions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the full image reference, as would be specified to \"docker pull\". If no tag is provided as part of the image name, the tag \":latest\" is used as a default.",
       "jsonName": "imageName",
       "name": "ImageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This setting can be omitted if was already provided at pool creation.",
       "jsonName": "registry",
       "name": "Registry",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerRegistry"
+        "nullable": false,
+        "referenceName": "ContainerRegistry",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +55,15 @@
       "name": "WorkingDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerWorkingDirectory"
+        "nullable": false,
+        "referenceName": "ContainerWorkingDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

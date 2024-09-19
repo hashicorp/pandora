@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment URL of the elasticsearch in Elastic cloud deployment.",
       "jsonName": "deploymentUrl",
       "name": "DeploymentUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk capacity of the elasticsearch in Elastic cloud deployment.",
       "jsonName": "diskCapacity",
       "name": "DiskCapacity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace SaaS Info of the resource.",
       "jsonName": "marketplaceSaasInfo",
       "name": "MarketplaceSaasInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceSaaSInfo"
+        "nullable": false,
+        "referenceName": "MarketplaceSaaSInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RAM capacity of the elasticsearch in Elastic cloud deployment.",
       "jsonName": "memoryCapacity",
       "name": "MemoryCapacity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Elastic deployment status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticDeploymentStatus"
+        "nullable": false,
+        "referenceName": "ElasticDeploymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the elasticsearch in Elastic cloud deployment.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

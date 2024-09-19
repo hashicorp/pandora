@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.",
       "jsonName": "applyToDevices",
       "name": "ApplyToDevices",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether these rules apply for connectivity via IoT Central web portal and APIs.",
       "jsonName": "applyToIoTCentral",
       "name": "ApplyToIoTCentral",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default network action to apply.",
       "jsonName": "defaultAction",
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAction"
+        "nullable": false,
+        "referenceName": "NetworkAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP rules.",
       "jsonName": "ipRules",
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkRuleSetIPRule"
+          "nullable": false,
+          "referenceName": "NetworkRuleSetIPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

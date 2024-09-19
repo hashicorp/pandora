@@ -1,6 +1,7 @@
 {
   "name": "GetRunbookContent",
   "contentType": "text/powershell",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "JobId",
   "responseObject": {
     "type": "String",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/runbookContent"
 }

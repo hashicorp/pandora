@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SAP ODP Resource properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapOdpResourceDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "SapOdpResourceDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "SapOdpResource",
   "typeHintIn": "Type"

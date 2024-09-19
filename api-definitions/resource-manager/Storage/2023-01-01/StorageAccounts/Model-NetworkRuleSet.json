@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, \"Logging, Metrics\"), or None to bypass none of those traffics.",
       "jsonName": "bypass",
       "name": "Bypass",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Bypass"
+        "nullable": false,
+        "referenceName": "Bypass",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the default action of allow or deny when no other rules match.",
       "jsonName": "defaultAction",
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the IP ACL rules",
       "jsonName": "ipRules",
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRule"
+          "nullable": false,
+          "referenceName": "IPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the resource access rules",
       "jsonName": "resourceAccessRules",
       "name": "ResourceAccessRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceAccessRule"
+          "nullable": false,
+          "referenceName": "ResourceAccessRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the virtual network rules",
       "jsonName": "virtualNetworkRules",
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -78,5 +99,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceSubscriptionCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -42,10 +43,14 @@
   "resourceIdName": "WorkspaceSubscriptions2Id",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionCreateParameters"
+    "nullable": false,
+    "referenceName": "SubscriptionCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionContract"
+    "nullable": false,
+    "referenceName": "SubscriptionContract",
+    "referenceNameIsCommonType": null
   }
 }

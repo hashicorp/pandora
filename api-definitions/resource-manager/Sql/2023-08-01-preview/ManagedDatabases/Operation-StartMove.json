@@ -1,6 +1,7 @@
 {
   "name": "StartMove",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlManagedInstanceDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedDatabaseStartMoveDefinition"
+    "nullable": false,
+    "referenceName": "ManagedDatabaseStartMoveDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/startMove"
 }

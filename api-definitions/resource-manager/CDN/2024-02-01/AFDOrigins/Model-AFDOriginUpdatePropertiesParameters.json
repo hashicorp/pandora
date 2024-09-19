@@ -7,7 +7,9 @@
       "name": "AzureOrigin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledState"
+        "nullable": false,
+        "referenceName": "EnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable certificate name check at origin level",
       "jsonName": "enforceCertificateNameCheck",
       "name": "EnforceCertificateNameCheck",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value of the HTTP port. Must be between 1 and 65535.",
       "jsonName": "httpPort",
       "name": "HTTPPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value of the HTTPS port. Must be between 1 and 65535.",
       "jsonName": "httpsPort",
       "name": "HTTPSPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the origin group which contains this origin.",
       "jsonName": "originGroupName",
       "name": "OriginGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint",
       "jsonName": "originHostHeader",
       "name": "OriginHostHeader",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of the private link resource for private origin.",
       "jsonName": "sharedPrivateLinkResource",
       "name": "SharedPrivateLinkResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharedPrivateLinkResourceProperties"
+        "nullable": false,
+        "referenceName": "SharedPrivateLinkResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,16 +162,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weight of the origin in given origin group for load balancing. Must be between 1 and 1000",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

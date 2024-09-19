@@ -7,7 +7,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of selectors.",
       "jsonName": "selectors",
       "name": "Selectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Selector"
+          "nullable": false,
+          "referenceName": "Selector",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of steps.",
       "jsonName": "steps",
       "name": "Steps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Step"
+          "nullable": false,
+          "referenceName": "Step",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -48,5 +60,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

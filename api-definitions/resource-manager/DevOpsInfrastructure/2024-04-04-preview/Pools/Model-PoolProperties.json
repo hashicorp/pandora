@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines how the machine will be handled once it executed a job.",
       "jsonName": "agentProfile",
       "name": "AgentProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentProfile"
+        "nullable": false,
+        "referenceName": "AgentProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the DevCenter Project the pool belongs to.",
       "jsonName": "devCenterProjectResourceId",
       "name": "DevCenterProjectResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the type of fabric the agent will run on.",
       "jsonName": "fabricProfile",
       "name": "FabricProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FabricProfile"
+        "nullable": false,
+        "referenceName": "FabricProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines how many resources can there be created at any given time.",
       "jsonName": "maximumConcurrency",
       "name": "MaximumConcurrency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the organization in which the pool will be used.",
       "jsonName": "organizationProfile",
       "name": "OrganizationProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrganizationProfile"
+        "nullable": false,
+        "referenceName": "OrganizationProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the current operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

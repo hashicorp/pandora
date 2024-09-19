@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace Subscription details",
       "jsonName": "marketplaceSaasInfo",
       "name": "MarketplaceSaasInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceSaaSInfo"
+        "nullable": false,
+        "referenceName": "MarketplaceSaaSInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Partner Billing Entity details: Organization Info",
       "jsonName": "partnerBillingEntity",
       "name": "PartnerBillingEntity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerBillingEntity"
+        "nullable": false,
+        "referenceName": "PartnerBillingEntity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

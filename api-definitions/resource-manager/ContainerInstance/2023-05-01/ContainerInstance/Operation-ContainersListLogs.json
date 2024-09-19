@@ -1,6 +1,7 @@
 {
   "name": "ContainersListLogs",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   "resourceIdName": "ContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Logs"
+    "nullable": false,
+    "referenceName": "Logs",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/logs"
 }

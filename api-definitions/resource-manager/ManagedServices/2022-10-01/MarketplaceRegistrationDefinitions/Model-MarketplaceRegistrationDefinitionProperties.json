@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of authorization objects describing the access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.",
       "jsonName": "authorizations",
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Authorization"
+          "nullable": false,
+          "referenceName": "Authorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of eligible authorization objects describing the just-in-time access Azure Active Directory principals in the managedBy tenant will receive on the delegated resource in the managed tenant.",
       "jsonName": "eligibleAuthorizations",
       "name": "EligibleAuthorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EligibleAuthorization"
+          "nullable": false,
+          "referenceName": "EligibleAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the managedBy tenant.",
       "jsonName": "managedByTenantId",
       "name": "ManagedByTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The marketplace offer display name.",
       "jsonName": "offerDisplayName",
       "name": "OfferDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The marketplace plan display name.",
       "jsonName": "planDisplayName",
       "name": "PlanDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,16 +95,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The marketplace publisher display name.",
       "jsonName": "publisherDisplayName",
       "name": "PublisherDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NVA port ranges to be opened up. One needs to provide specific ports.",
       "jsonName": "destinationPortRange",
       "name": "DestinationPortRange",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol. This should be either TCP or UDP.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InboundSecurityRulesProtocol"
+        "nullable": false,
+        "referenceName": "InboundSecurityRulesProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CIDR or source IP range. Only /30, /31 and /32 Ip ranges are allowed.",
       "jsonName": "sourceAddressPrefix",
       "name": "SourceAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

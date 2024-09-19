@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time when the namespace was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets whether or not the namespace is set as Critical.",
       "jsonName": "critical",
       "name": "Critical",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deprecated.",
       "jsonName": "dataCenter",
       "name": "DataCenter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets whether or not the namespace is currently enabled.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Insights Metrics id.",
       "jsonName": "metricId",
       "name": "MetricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Notification Hubs namespace. This is immutable property, set automatically \r\nby the service when the namespace is created.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +104,9 @@
       "name": "NamespaceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NamespaceType"
+        "nullable": false,
+        "referenceName": "NamespaceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +119,9 @@
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAcls"
+        "nullable": false,
+        "referenceName": "NetworkAcls",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +134,9 @@
       "name": "PnsCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PnsCredentials"
+        "nullable": false,
+        "referenceName": "PnsCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,14 +145,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private Endpoint Connections for namespace",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnectionResource"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnectionResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -142,7 +171,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationProvisioningState"
+        "nullable": false,
+        "referenceName": "OperationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,7 +186,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Region. The value is always set to the same value as Namespace.Location, so we are deprecating\r\nthis property.",
       "jsonName": "region",
       "name": "Region",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,7 +217,9 @@
       "name": "ReplicationRegion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationRegion"
+        "nullable": false,
+        "referenceName": "ReplicationRegion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets scaleUnit where the namespace gets created",
       "jsonName": "scaleUnit",
       "name": "ScaleUnit",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets endpoint you can use to perform NotificationHub\r\noperations.",
       "jsonName": "serviceBusEndpoint",
       "name": "ServiceBusEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,7 +264,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NamespaceStatus"
+        "nullable": false,
+        "referenceName": "NamespaceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -229,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Namespace subscription id.",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,11 +292,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time when the namespace was updated.",
       "jsonName": "updatedAt",
       "name": "UpdatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -260,12 +312,15 @@
       "name": "ZoneRedundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundancyPreference"
+        "nullable": false,
+        "referenceName": "ZoneRedundancyPreference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

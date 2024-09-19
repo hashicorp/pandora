@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network address fully qualified domain name.",
       "jsonName": "domain",
       "name": "Domain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network Address address.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information about the current lifecycle state of the application virtual IP (VIP) address.",
       "jsonName": "lifecycleDetails",
       "name": "LifecycleDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "virtual network address lifecycle state.",
       "jsonName": "lifecycleState",
       "name": "LifecycleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkAddressLifecycleState"
+        "nullable": false,
+        "referenceName": "VirtualNetworkAddressLifecycleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application VIP OCID.",
       "jsonName": "ocid",
       "name": "Ocid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "AzureResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time when the create operation for the application virtual IP (VIP) address completed.",
       "jsonName": "timeAssigned",
       "name": "TimeAssigned",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,16 +116,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Machine OCID.",
       "jsonName": "vmOcid",
       "name": "VMOcid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

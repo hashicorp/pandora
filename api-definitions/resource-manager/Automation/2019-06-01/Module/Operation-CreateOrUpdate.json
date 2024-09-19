@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ModuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ModuleCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "ModuleCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Module"
+    "nullable": false,
+    "referenceName": "Module",
+    "referenceNameIsCommonType": null
   }
 }

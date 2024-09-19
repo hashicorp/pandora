@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the Resource Navigation values for resources the resource depends on.",
       "jsonName": "dependsOn",
       "name": "DependsOn",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DscReportResourceNavigation"
+          "nullable": false,
+          "referenceName": "DscReportResourceNavigation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the duration in seconds for the resource.",
       "jsonName": "durationInSeconds",
       "name": "DurationInSeconds",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the error of the resource.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the module name of the resource.",
       "jsonName": "moduleName",
       "name": "ModuleName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the module version of the resource.",
       "jsonName": "moduleVersion",
       "name": "ModuleVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the ID of the resource.",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the name of the resource.",
       "jsonName": "resourceName",
       "name": "ResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the source info of the resource.",
       "jsonName": "sourceInfo",
       "name": "SourceInfo",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets or sets the start date of the resource.",
       "jsonName": "startDate",
       "name": "StartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,16 +154,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the status of the resource.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

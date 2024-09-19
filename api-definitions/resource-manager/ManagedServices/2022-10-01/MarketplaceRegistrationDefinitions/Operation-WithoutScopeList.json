@@ -1,6 +1,7 @@
 {
   "name": "WithoutScopeList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MarketplaceRegistrationDefinition"
+    "nullable": false,
+    "referenceName": "MarketplaceRegistrationDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ManagedServices/marketplaceRegistrationDefinitions"
 }

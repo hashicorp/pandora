@@ -7,7 +7,9 @@
       "name": "DhGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DhGroup"
+        "nullable": false,
+        "referenceName": "DhGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IPsecEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPsecEncryption"
+        "nullable": false,
+        "referenceName": "IPsecEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IPsecIntegrity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPsecIntegrity"
+        "nullable": false,
+        "referenceName": "IPsecIntegrity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "IkeEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IkeEncryption"
+        "nullable": false,
+        "referenceName": "IkeEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "IkeIntegrity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IkeIntegrity"
+        "nullable": false,
+        "referenceName": "IkeIntegrity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "PfsGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PfsGroup"
+        "nullable": false,
+        "referenceName": "PfsGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +93,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for a site to site VPN tunnel.",
       "jsonName": "saDataSizeKilobytes",
       "name": "SaDataSizeKilobytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,16 +109,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for a site to site VPN tunnel.",
       "jsonName": "saLifeTimeSeconds",
       "name": "SaLifeTimeSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

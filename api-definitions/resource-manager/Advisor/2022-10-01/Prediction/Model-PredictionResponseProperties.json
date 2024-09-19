@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The category of the recommendation.",
       "jsonName": "category",
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Category"
+        "nullable": false,
+        "referenceName": "Category",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extended properties",
       "jsonName": "extendedProperties",
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The business impact of the recommendation.",
       "jsonName": "impact",
       "name": "Impact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Impact"
+        "nullable": false,
+        "referenceName": "Impact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource type identified by Advisor.",
       "jsonName": "impactedField",
       "name": "ImpactedField",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The most recent time that Advisor checked the validity of the recommendation.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the prediction.",
       "jsonName": "predictionType",
       "name": "PredictionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PredictionType"
+        "nullable": false,
+        "referenceName": "PredictionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,16 +100,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A summary of the recommendation.",
       "jsonName": "shortDescription",
       "name": "ShortDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShortDescription"
+        "nullable": false,
+        "referenceName": "ShortDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

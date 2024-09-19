@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup retention days for the server.",
       "jsonName": "backupRetentionDays",
       "name": "BackupRetentionDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable Geo-redundant or not for server backup.",
       "jsonName": "geoRedundantBackup",
       "name": "GeoRedundantBackup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GeoRedundantBackup"
+        "nullable": false,
+        "referenceName": "GeoRedundantBackup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable Storage Auto Grow.",
       "jsonName": "storageAutogrow",
       "name": "StorageAutogrow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAutogrow"
+        "nullable": false,
+        "referenceName": "StorageAutogrow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Max storage allowed for a server.",
       "jsonName": "storageMB",
       "name": "StorageMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mode to apply to the promote operation. Value is optional and default value is 'Switchover'.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PromoteMode"
+        "nullable": false,
+        "referenceName": "PromoteMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The promote option to apply to the operation.",
       "jsonName": "promoteOption",
       "name": "PromoteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PromoteOption"
+        "nullable": false,
+        "referenceName": "PromoteOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

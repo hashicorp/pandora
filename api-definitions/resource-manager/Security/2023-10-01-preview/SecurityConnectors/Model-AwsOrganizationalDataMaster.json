@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the multi cloud account is of membership type organization, list of accounts excluded from offering",
       "jsonName": "excludedAccountIds",
       "name": "ExcludedAccountIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the multi cloud account is of membership type organization, this will be the name of the onboarding stackset",
       "jsonName": "stacksetName",
       "name": "StacksetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AwsOrganizationalData",
   "discriminatedTypeValue": "Organization",
   "typeHintIn": "OrganizationMembershipType"

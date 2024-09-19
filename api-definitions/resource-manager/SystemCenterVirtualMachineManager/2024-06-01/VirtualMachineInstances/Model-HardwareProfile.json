@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the number of vCPUs for the vm.",
       "jsonName": "cpuCount",
       "name": "CpuCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value indicating whether to enable dynamic memory or not.",
       "jsonName": "dynamicMemoryEnabled",
       "name": "DynamicMemoryEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicMemoryEnabled"
+        "nullable": false,
+        "referenceName": "DynamicMemoryEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the max dynamic memory for the vm.",
       "jsonName": "dynamicMemoryMaxMB",
       "name": "DynamicMemoryMaxMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the min dynamic memory for the vm.",
       "jsonName": "dynamicMemoryMinMB",
       "name": "DynamicMemoryMinMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets highly available property.",
       "jsonName": "isHighlyAvailable",
       "name": "IsHighlyAvailable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsHighlyAvailable"
+        "nullable": false,
+        "referenceName": "IsHighlyAvailable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.",
       "jsonName": "limitCpuForMigration",
       "name": "LimitCPUForMigration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LimitCPUForMigration"
+        "nullable": false,
+        "referenceName": "LimitCPUForMigration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MemoryMB is the size of a virtual machine's memory, in MB.",
       "jsonName": "memoryMB",
       "name": "MemoryMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of Azure Health Bot Secrets.",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthBotKey"
+          "nullable": false,
+          "referenceName": "HealthBotKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

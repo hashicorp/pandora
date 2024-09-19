@@ -1,6 +1,7 @@
 {
   "name": "CommitmentPlansCreateOrUpdatePlan",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "CommitmentPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CommitmentPlan"
+    "nullable": false,
+    "referenceName": "CommitmentPlan",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CommitmentPlan"
+    "nullable": false,
+    "referenceName": "CommitmentPlan",
+    "referenceNameIsCommonType": null
   }
 }

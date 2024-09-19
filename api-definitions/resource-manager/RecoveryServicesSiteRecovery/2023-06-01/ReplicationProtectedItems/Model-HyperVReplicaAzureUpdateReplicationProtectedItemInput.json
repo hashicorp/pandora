@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dictionary of disk resource Id to disk encryption set ARM Id.",
       "jsonName": "diskIdToDiskEncryptionMap",
       "name": "DiskIdToDiskEncryptionMap",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery Azure resource group Id for classic deployment.",
       "jsonName": "recoveryAzureV1ResourceGroupId",
       "name": "RecoveryAzureV1ResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery Azure resource group Id for resource manager deployment.",
       "jsonName": "recoveryAzureV2ResourceGroupId",
       "name": "RecoveryAzureV2ResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SQL Server license type.",
       "jsonName": "sqlServerLicenseType",
       "name": "SqlServerLicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlServerLicenseType"
+        "nullable": false,
+        "referenceName": "SqlServerLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target managed disks.",
       "jsonName": "targetManagedDiskTags",
       "name": "TargetManagedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target NICs.",
       "jsonName": "targetNicTags",
       "name": "TargetNicTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target proximity placement group Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM tags.",
       "jsonName": "targetVmTags",
       "name": "TargetVMTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether managed disks should be used during failover.",
       "jsonName": "useManagedDisks",
       "name": "UseManagedDisks",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +187,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of disk update properties.",
       "jsonName": "vmDisks",
       "name": "VMDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateDiskInput"
+          "nullable": false,
+          "referenceName": "UpdateDiskInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -165,6 +208,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "UpdateReplicationProtectedItemProviderInput",
   "discriminatedTypeValue": "HyperVReplicaAzure",
   "typeHintIn": "InstanceType"

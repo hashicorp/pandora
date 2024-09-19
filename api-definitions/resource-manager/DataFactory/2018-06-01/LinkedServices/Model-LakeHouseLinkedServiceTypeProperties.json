@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of Microsoft Fabric LakeHouse artifact. Type: string (or Expression with resultType string).",
       "jsonName": "artifactId",
       "name": "ArtifactId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ServicePrincipalCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalCredentialType",
       "name": "ServicePrincipalCredentialType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the application used to authenticate against Microsoft Fabric LakeHouse. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +86,9 @@
       "name": "ServicePrincipalKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).",
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +113,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of Microsoft Fabric workspace. Type: string (or Expression with resultType string).",
       "jsonName": "workspaceId",
       "name": "WorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

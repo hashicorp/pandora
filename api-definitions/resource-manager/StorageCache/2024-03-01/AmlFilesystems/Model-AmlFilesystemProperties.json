@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client information for the AML file system.",
       "jsonName": "clientInfo",
       "name": "ClientInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemClientInfo"
+        "nullable": false,
+        "referenceName": "AmlFilesystemClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies encryption settings of the AML file system.",
       "jsonName": "encryptionSettings",
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemEncryptionSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemEncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "FilesystemSubnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health of the AML file system.",
       "jsonName": "health",
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemHealth"
+        "nullable": false,
+        "referenceName": "AmlFilesystemHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hydration and archive settings and status",
       "jsonName": "hsm",
       "name": "Hsm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemPropertiesHsm"
+        "nullable": false,
+        "referenceName": "AmlFilesystemPropertiesHsm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Start time of a 30-minute weekly maintenance window.",
       "jsonName": "maintenanceWindow",
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemPropertiesMaintenanceWindow"
+        "nullable": false,
+        "referenceName": "AmlFilesystemPropertiesMaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemProvisioningStateType"
+        "nullable": false,
+        "referenceName": "AmlFilesystemProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies root squash settings of the AML file system.",
       "jsonName": "rootSquashSettings",
       "name": "RootSquashSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemRootSquashSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemRootSquashSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the AML file system, in TiB. This might be rounded up.",
       "jsonName": "storageCapacityTiB",
       "name": "StorageCapacityTiB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,16 +146,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Throughput provisioned in MB per sec, calculated as storageCapacityTiB * per-unit storage throughput",
       "jsonName": "throughputProvisionedMBps",
       "name": "ThroughputProvisionedMBps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

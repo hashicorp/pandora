@@ -1,6 +1,7 @@
 {
   "name": "CheckDnsNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DnsNameAvailabilityResult"
+    "nullable": false,
+    "referenceName": "DnsNameAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkDnsNameAvailability"
 }

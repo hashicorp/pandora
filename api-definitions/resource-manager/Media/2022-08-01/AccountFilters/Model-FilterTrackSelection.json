@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The track selections.",
       "jsonName": "trackSelections",
       "name": "TrackSelections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FilterTrackPropertyCondition"
+          "nullable": false,
+          "referenceName": "FilterTrackPropertyCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +23,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

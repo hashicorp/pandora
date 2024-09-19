@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of aggregation expression to use in the report. The key of each item in the dictionary is the alias for the aggregated column. Report can have up to 2 aggregation clauses.",
       "jsonName": "aggregation",
       "name": "Aggregation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigAggregation"
+          "nullable": false,
+          "referenceName": "ReportConfigAggregation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has configuration information for the data in the report. The configuration will be ignored if aggregation and grouping are provided.",
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "ReportConfigDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has filter expression to use in the report.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigFilter"
+        "nullable": false,
+        "referenceName": "ReportConfigFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The granularity of rows in the report.",
       "jsonName": "granularity",
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportGranularityType"
+        "nullable": false,
+        "referenceName": "ReportGranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of group by expression to use in the report. Report can have up to 2 group by clauses.",
       "jsonName": "grouping",
       "name": "Grouping",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigGrouping"
+          "nullable": false,
+          "referenceName": "ReportConfigGrouping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of order by expression to use in the report.",
       "jsonName": "sorting",
       "name": "Sorting",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigSorting"
+          "nullable": false,
+          "referenceName": "ReportConfigSorting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +115,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

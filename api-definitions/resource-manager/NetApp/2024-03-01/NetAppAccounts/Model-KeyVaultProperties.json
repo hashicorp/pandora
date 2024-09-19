@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of KeyVault key.",
       "jsonName": "keyName",
       "name": "KeyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UUID v4 used to identify the Azure Key Vault configuration",
       "jsonName": "keyVaultId",
       "name": "KeyVaultId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of KeyVault.",
       "jsonName": "keyVaultResourceId",
       "name": "KeyVaultResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Uri of KeyVault.",
       "jsonName": "keyVaultUri",
       "name": "KeyVaultUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the KeyVault connection.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultStatus"
+        "nullable": false,
+        "referenceName": "KeyVaultStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

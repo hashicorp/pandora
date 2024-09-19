@@ -1,6 +1,7 @@
 {
   "name": "ListAtSubscriptionScopePost",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -141,11 +142,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionScopeMetricsRequestBodyParameters"
+    "nullable": false,
+    "referenceName": "SubscriptionScopeMetricsRequestBodyParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Response"
+    "nullable": false,
+    "referenceName": "Response",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/metrics"
 }

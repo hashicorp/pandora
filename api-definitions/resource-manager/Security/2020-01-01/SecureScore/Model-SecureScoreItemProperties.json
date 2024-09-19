@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initiative’s name",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "score object",
       "jsonName": "score",
       "name": "Score",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScoreDetails"
+        "nullable": false,
+        "referenceName": "ScoreDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The relative weight for each subscription. Used when calculating an aggregated secure score for multiple subscriptions.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

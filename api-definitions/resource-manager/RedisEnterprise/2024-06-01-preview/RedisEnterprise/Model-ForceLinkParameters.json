@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the group of linked database resources. This should match the existing replication group name.",
       "jsonName": "groupNickname",
       "name": "GroupNickname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource IDs of the databases that are expected to be linked and included in the replication group. This parameter is used to validate that the linking is to the expected (unlinked) part of the replication group, if it is splintered.",
       "jsonName": "linkedDatabases",
       "name": "LinkedDatabases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedDatabase"
+          "nullable": false,
+          "referenceName": "LinkedDatabase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -31,5 +39,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

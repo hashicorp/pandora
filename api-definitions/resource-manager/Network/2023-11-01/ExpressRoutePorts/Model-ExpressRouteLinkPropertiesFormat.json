@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Administrative state of the physical port.",
       "jsonName": "adminState",
       "name": "AdminState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteLinkAdminState"
+        "nullable": false,
+        "referenceName": "ExpressRouteLinkAdminState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cololocation for ExpressRoute Hybrid Direct.",
       "jsonName": "coloLocation",
       "name": "ColoLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Physical fiber port type.",
       "jsonName": "connectorType",
       "name": "ConnectorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteLinkConnectorType"
+        "nullable": false,
+        "referenceName": "ExpressRouteLinkConnectorType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of Azure router interface.",
       "jsonName": "interfaceName",
       "name": "InterfaceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MacSec configuration.",
       "jsonName": "macSecConfig",
       "name": "MacSecConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteLinkMacSecConfig"
+        "nullable": false,
+        "referenceName": "ExpressRouteLinkMacSecConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping between physical port to patch panel port.",
       "jsonName": "patchPanelId",
       "name": "PatchPanelId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of physical patch panel to rack.",
       "jsonName": "rackId",
       "name": "RackId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +130,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of Azure router associated with physical port.",
       "jsonName": "routerName",
       "name": "RouterName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

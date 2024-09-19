@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.",
       "jsonName": "dataStringComparisonBehavior",
       "name": "DataStringComparisonBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStringComparisonBehavior"
+        "nullable": false,
+        "referenceName": "DataStringComparisonBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of key properties for the reference data set.",
       "jsonName": "keyProperties",
       "name": "KeyProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReferenceDataSetKeyProperty"
+          "nullable": false,
+          "referenceName": "ReferenceDataSetKeyProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -31,5 +39,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

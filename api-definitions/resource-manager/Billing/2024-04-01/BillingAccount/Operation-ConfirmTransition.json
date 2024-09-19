@@ -1,6 +1,7 @@
 {
   "name": "ConfirmTransition",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BillingAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransitionDetails"
+    "nullable": false,
+    "referenceName": "TransitionDetails",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/confirmTransition"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of backup management for the backed up item.",
       "jsonName": "backupManagementType",
       "name": "BackupManagementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupManagementType"
+        "nullable": false,
+        "referenceName": "BackupManagementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the backup set the backup item belongs to",
       "jsonName": "backupSetName",
       "name": "BackupSetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique name of container",
       "jsonName": "containerName",
       "name": "ContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Create mode to indicate recovery of existing soft deleted data source or creation of new data source.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time for deferred deletion in UTC",
       "jsonName": "deferredDeleteTimeInUTC",
       "name": "DeferredDeleteTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time remaining before the DS marked for deferred delete is permanently deleted",
       "jsonName": "deferredDeleteTimeRemaining",
       "name": "DeferredDeleteTimeRemaining",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to identify whether datasource is protected in archive",
       "jsonName": "isArchiveEnabled",
       "name": "IsArchiveEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to identify whether the deferred deleted DS is to be purged soon",
       "jsonName": "isDeferredDeleteScheduleUpcoming",
       "name": "IsDeferredDeleteScheduleUpcoming",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to identify that deferred deleted DS is to be moved into Pause state",
       "jsonName": "isRehydrate",
       "name": "IsRehydrate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to identify whether the DS is scheduled for deferred delete",
       "jsonName": "isScheduledForDeferredDelete",
       "name": "IsScheduledForDeferredDelete",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp when the last (latest) backup copy was created for this backup item.",
       "jsonName": "lastRecoveryPoint",
       "name": "LastRecoveryPoint",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ID of the backup policy with which this item is backed up.",
       "jsonName": "policyId",
       "name": "PolicyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the policy used for protection",
       "jsonName": "policyName",
       "name": "PolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "backup item type.",
       "jsonName": "protectedItemType",
       "name": "ProtectedItemType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -187,14 +229,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ResourceGuardOperationRequests on which LAC check will be performed",
       "jsonName": "resourceGuardOperationRequests",
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -204,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Soft delete retention period in days",
       "jsonName": "softDeleteRetentionPeriodInDays",
       "name": "SoftDeleteRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM ID of the resource to be backed up.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of workload this item represents.",
       "jsonName": "workloadType",
       "name": "WorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataSourceType"
+        "nullable": false,
+        "referenceName": "DataSourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,5 +298,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ProtectedItemType"
 }

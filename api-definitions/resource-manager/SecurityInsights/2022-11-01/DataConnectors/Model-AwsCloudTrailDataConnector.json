@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Amazon Web Services CloudTrail data connector properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AwsCloudTrailDataConnectorProperties"
+        "nullable": false,
+        "referenceName": "AwsCloudTrailDataConnectorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnector",
   "discriminatedTypeValue": "AmazonWebServicesCloudTrail",
   "typeHintIn": "Kind"

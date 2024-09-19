@@ -1,6 +1,7 @@
 {
   "name": "GenerateVpnProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualNetworkGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VpnClientParameters"
+    "nullable": false,
+    "referenceName": "VpnClientParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "String",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generatevpnprofile"
 }

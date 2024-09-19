@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value provides the current capacity of the VM size which was reserved successfully and for which the customer is getting billed. Minimum api-version: 2022-08-01.",
       "jsonName": "currentCapacity",
       "name": "CurrentCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of all virtual machines resource ids allocated against the capacity reservation.",
       "jsonName": "virtualMachinesAllocated",
       "name": "VirtualMachinesAllocated",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceReadOnly"
+          "nullable": false,
+          "referenceName": "SubResourceReadOnly",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

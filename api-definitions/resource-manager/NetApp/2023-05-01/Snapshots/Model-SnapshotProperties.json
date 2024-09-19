@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the snapshot",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure lifecycle management",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UUID v4 used to identify the Snapshot",
       "jsonName": "snapshotId",
       "name": "SnapshotId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

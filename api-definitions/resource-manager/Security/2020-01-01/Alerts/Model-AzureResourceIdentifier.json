@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM resource identifier for the cloud resource being alerted on",
       "jsonName": "azureResourceId",
       "name": "AzureResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ResourceIdentifier",
   "discriminatedTypeValue": "AzureResource",
   "typeHintIn": "Type"

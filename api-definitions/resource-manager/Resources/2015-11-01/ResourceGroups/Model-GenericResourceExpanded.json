@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The changed time of the resource. This is only present if requested via the $expand query parameter.",
       "jsonName": "changedTime",
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The created time of the resource. This is only present if requested via the $expand query parameter.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Id",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource location",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -57,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource name",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the plan of the resource.",
       "jsonName": "plan",
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Plan"
+        "nullable": false,
+        "referenceName": "Plan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the resource properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the resource. This is only present if requested via the $expand query parameter.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource tags",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,16 +149,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource type",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

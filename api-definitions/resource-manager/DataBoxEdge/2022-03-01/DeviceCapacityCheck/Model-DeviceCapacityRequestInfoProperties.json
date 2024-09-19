@@ -3,17 +3,24 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array containing the sizes of the VMs for checking if its feasible to create them on the appliance.",
       "jsonName": "vmPlacementQuery",
       "name": "VMPlacementQuery",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -24,14 +31,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the VMs of the sizes in VmSizes can be provisioned on the appliance.",
       "jsonName": "vmPlacementResults",
       "name": "VMPlacementResults",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMPlacementRequestResult"
+          "nullable": false,
+          "referenceName": "VMPlacementRequestResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -39,5 +51,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

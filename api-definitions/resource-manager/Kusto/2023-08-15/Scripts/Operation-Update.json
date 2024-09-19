@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ScriptId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Script"
+    "nullable": false,
+    "referenceName": "Script",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Script"
+    "nullable": false,
+    "referenceName": "Script",
+    "referenceNameIsCommonType": null
   }
 }

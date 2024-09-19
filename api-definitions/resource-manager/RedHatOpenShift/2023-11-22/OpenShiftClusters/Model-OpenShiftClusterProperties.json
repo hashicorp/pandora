@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster API server profile.",
       "jsonName": "apiserverProfile",
       "name": "ApiserverProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "APIServerProfile"
+        "nullable": false,
+        "referenceName": "APIServerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster profile.",
       "jsonName": "clusterProfile",
       "name": "ClusterProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterProfile"
+        "nullable": false,
+        "referenceName": "ClusterProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The console profile.",
       "jsonName": "consoleProfile",
       "name": "ConsoleProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsoleProfile"
+        "nullable": false,
+        "referenceName": "ConsoleProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster ingress profiles.",
       "jsonName": "ingressProfiles",
       "name": "IngressProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IngressProfile"
+          "nullable": false,
+          "referenceName": "IngressProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster master profile.",
       "jsonName": "masterProfile",
       "name": "MasterProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MasterProfile"
+        "nullable": false,
+        "referenceName": "MasterProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster network profile.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster service principal profile.",
       "jsonName": "servicePrincipalProfile",
       "name": "ServicePrincipalProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipalProfile"
+        "nullable": false,
+        "referenceName": "ServicePrincipalProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster worker profiles.",
       "jsonName": "workerProfiles",
       "name": "WorkerProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkerProfile"
+          "nullable": false,
+          "referenceName": "WorkerProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,14 +159,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster worker profiles status.",
       "jsonName": "workerProfilesStatus",
       "name": "WorkerProfilesStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkerProfile"
+          "nullable": false,
+          "referenceName": "WorkerProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -143,5 +179,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

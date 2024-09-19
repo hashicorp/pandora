@@ -1,6 +1,7 @@
 {
   "name": "DisconnectActiveSessions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "BastionHostId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SessionIds"
+    "nullable": false,
+    "referenceName": "SessionIds",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BastionSessionState"
+    "nullable": false,
+    "referenceName": "BastionSessionState",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/disconnectActiveSessions"
 }

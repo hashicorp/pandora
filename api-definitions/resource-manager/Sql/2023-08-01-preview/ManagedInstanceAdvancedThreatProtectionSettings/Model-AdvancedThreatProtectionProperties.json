@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Specifies the UTC creation time of the policy.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the state of the Advanced Threat Protection, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdvancedThreatProtectionState"
+        "nullable": false,
+        "referenceName": "AdvancedThreatProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

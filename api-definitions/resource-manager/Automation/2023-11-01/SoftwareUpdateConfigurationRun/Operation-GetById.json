@@ -1,6 +1,7 @@
 {
   "name": "GetById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "SoftwareUpdateConfigurationRunId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SoftwareUpdateConfigurationRun"
+    "nullable": false,
+    "referenceName": "SoftwareUpdateConfigurationRun",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to convert numerical type to implied decimal.",
       "jsonName": "convertImpliedDecimal",
       "name": "ConvertImpliedDecimal",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to create empty xml tags for trailing separators.",
       "jsonName": "createEmptyXmlTagsForTrailingSeparators",
       "name": "CreateEmptyXmlTagsForTrailingSeparators",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to mask security information.",
       "jsonName": "maskSecurityInfo",
       "name": "MaskSecurityInfo",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to preserve interchange.",
       "jsonName": "preserveInterchange",
       "name": "PreserveInterchange",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to suspend interchange on error.",
       "jsonName": "suspendInterchangeOnError",
       "name": "SuspendInterchangeOnError",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to use dot as decimal separator.",
       "jsonName": "useDotAsDecimalSeparator",
       "name": "UseDotAsDecimalSeparator",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

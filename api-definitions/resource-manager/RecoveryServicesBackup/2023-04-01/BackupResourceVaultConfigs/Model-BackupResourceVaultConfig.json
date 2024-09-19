@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabled or Disabled.",
       "jsonName": "enhancedSecurityState",
       "name": "EnhancedSecurityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityState"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This flag is no longer in use. Please use 'softDeleteFeatureState' to set the soft delete state for the vault",
       "jsonName": "isSoftDeleteFeatureStateEditable",
       "name": "IsSoftDeleteFeatureStateEditable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ResourceGuard Operation Requests",
       "jsonName": "resourceGuardOperationRequests",
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Soft Delete feature state",
       "jsonName": "softDeleteFeatureState",
       "name": "SoftDeleteFeatureState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteFeatureState"
+        "nullable": false,
+        "referenceName": "SoftDeleteFeatureState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Soft delete retention period in days",
       "jsonName": "softDeleteRetentionPeriodInDays",
       "name": "SoftDeleteRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type.",
       "jsonName": "storageModelType",
       "name": "StorageModelType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type.",
       "jsonName": "storageType",
       "name": "StorageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +121,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked.",
       "jsonName": "storageTypeState",
       "name": "StorageTypeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageTypeState"
+        "nullable": false,
+        "referenceName": "StorageTypeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

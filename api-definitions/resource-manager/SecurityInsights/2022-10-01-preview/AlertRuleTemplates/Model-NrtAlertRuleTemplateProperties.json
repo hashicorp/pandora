@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert details override settings",
       "jsonName": "alertDetailsOverride",
       "name": "AlertDetailsOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertDetailsOverride"
+        "nullable": false,
+        "referenceName": "AlertDetailsOverride",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of string key-value pairs of columns to be attached to the alert",
       "jsonName": "customDetails",
       "name": "CustomDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the entity mappings of the alert rule",
       "jsonName": "entityMappings",
       "name": "EntityMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityMapping"
+          "nullable": false,
+          "referenceName": "EntityMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event grouping settings.",
       "jsonName": "eventGroupingSettings",
       "name": "EventGroupingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGroupingSettings"
+        "nullable": false,
+        "referenceName": "EventGroupingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The query that creates alerts for this rule.",
       "jsonName": "query",
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the sentinel entity mappings of the alert rule",
       "jsonName": "sentinelEntitiesMappings",
       "name": "SentinelEntitiesMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SentinelEntityMapping"
+          "nullable": false,
+          "referenceName": "SentinelEntityMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,7 +121,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,14 +132,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tactics of the alert rule",
       "jsonName": "tactics",
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AttackTactic"
+          "nullable": false,
+          "referenceName": "AttackTactic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,14 +154,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The techniques of the alert rule",
       "jsonName": "techniques",
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,16 +176,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of this template - in format \u003ca.b.c\u003e, where all are numbers. For example \u003c1.0.2\u003e.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

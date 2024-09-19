@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the hostname is a standard or repository hostname.",
       "jsonName": "hostType",
       "name": "HostType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostType"
+        "nullable": false,
+        "referenceName": "HostType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL type.",
       "jsonName": "sslState",
       "name": "SslState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslState"
+        "nullable": false,
+        "referenceName": "SslState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL certificate thumbprint.",
       "jsonName": "thumbprint",
       "name": "Thumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set to \u003ccode\u003etrue\u003c/code\u003e to update existing hostname.",
       "jsonName": "toUpdate",
       "name": "ToUpdate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual IP address assigned to the hostname if IP based SSL is enabled.",
       "jsonName": "virtualIP",
       "name": "VirtualIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

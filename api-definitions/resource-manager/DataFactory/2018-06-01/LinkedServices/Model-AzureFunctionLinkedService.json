@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Function linked service properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFunctionLinkedServiceTypeProperties"
+        "nullable": false,
+        "referenceName": "AzureFunctionLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LinkedService",
   "discriminatedTypeValue": "AzureFunction",
   "typeHintIn": "Type"

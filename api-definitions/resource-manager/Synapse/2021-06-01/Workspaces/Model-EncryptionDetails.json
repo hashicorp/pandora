@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer Managed Key Details",
       "jsonName": "cmk",
       "name": "Cmk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerManagedKeyDetails"
+        "nullable": false,
+        "referenceName": "CustomerManagedKeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Double Encryption enabled",
       "jsonName": "doubleEncryptionEnabled",
       "name": "DoubleEncryptionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

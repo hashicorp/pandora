@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Destination of the view data. Currently only CSV format is supported.",
       "jsonName": "fileFormats",
       "name": "FileFormats",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FileFormat"
+          "nullable": false,
+          "referenceName": "FileFormat",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ReplicationLinkUpdate"
+    "nullable": false,
+    "referenceName": "ReplicationLinkUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplicationLink"
+    "nullable": false,
+    "referenceName": "ReplicationLink",
+    "referenceNameIsCommonType": null
   }
 }

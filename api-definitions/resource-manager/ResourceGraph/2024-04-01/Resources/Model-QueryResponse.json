@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of records returned in the current response. In the case of paging, this is the number of records in the current page.",
       "jsonName": "count",
       "name": "Count",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Query output in JObject array or Table format.",
       "jsonName": "data",
       "name": "Data",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Query facets.",
       "jsonName": "facets",
       "name": "Facets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Facet"
+          "nullable": false,
+          "referenceName": "Facet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the query results are truncated.",
       "jsonName": "resultTruncated",
       "name": "ResultTruncated",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResultTruncated"
+        "nullable": false,
+        "referenceName": "ResultTruncated",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.",
       "jsonName": "$skipToken",
       "name": "SkipToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of total records matching the query.",
       "jsonName": "totalRecords",
       "name": "TotalRecords",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

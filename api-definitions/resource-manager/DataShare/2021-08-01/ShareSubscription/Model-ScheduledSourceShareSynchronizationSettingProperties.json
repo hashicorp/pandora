@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recurrence Interval",
       "jsonName": "recurrenceInterval",
       "name": "RecurrenceInterval",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceInterval"
+        "nullable": false,
+        "referenceName": "RecurrenceInterval",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Synchronization time",
       "jsonName": "synchronizationTime",
       "name": "SynchronizationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

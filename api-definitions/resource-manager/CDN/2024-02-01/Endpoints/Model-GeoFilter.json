@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Action of the geo filter, i.e. allow or block access.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GeoFilterActions"
+        "nullable": false,
+        "referenceName": "GeoFilterActions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Two letter country or region codes defining user country or region access in a geo filter, e.g. AU, MX, US.",
       "jsonName": "countryCodes",
       "name": "CountryCodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Relative path applicable to geo filter. (e.g. '/mypictures', '/mypicture/kitty.jpg', and etc.)",
       "jsonName": "relativePath",
       "name": "RelativePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

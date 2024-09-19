@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "timeline aggregation per kind",
       "jsonName": "aggregations",
       "name": "Aggregations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimelineAggregation"
+          "nullable": false,
+          "referenceName": "TimelineAggregation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "information about the failure queries",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimelineError"
+          "nullable": false,
+          "referenceName": "TimelineError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the total items found for the timeline request",
       "jsonName": "totalCount",
       "name": "TotalCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.",
       "jsonName": "additionalEgressEndpoints",
       "name": "AdditionalEgressEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EgressEndpoint"
+          "nullable": false,
+          "referenceName": "EgressEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator of whether the platform default endpoints are allowed for the egress traffic.",
       "jsonName": "enableDefaultEgressEndpoints",
       "name": "EnableDefaultEgressEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints"
+        "nullable": false,
+        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Name of the alert rule template used to create this rule.",
       "jsonName": "alertRuleTemplateName",
       "name": "AlertRuleTemplateName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the alert rule.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name for alerts created by this alert rule.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the alerts' displayNames on which the cases will not be generated",
       "jsonName": "displayNamesExcludeFilter",
       "name": "DisplayNamesExcludeFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the alerts' displayNames on which the cases will be generated",
       "jsonName": "displayNamesFilter",
       "name": "DisplayNamesFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether this alert rule is enabled or disabled.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -90,11 +112,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time that this alert has been modified.",
       "jsonName": "lastModifiedUtc",
       "name": "LastModifiedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alerts' productName on which the cases will be generated",
       "jsonName": "productFilter",
       "name": "ProductFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MicrosoftSecurityProductName"
+        "nullable": false,
+        "referenceName": "MicrosoftSecurityProductName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -116,14 +144,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the alerts' severities on which the cases will be generated",
       "jsonName": "severitiesFilter",
       "name": "SeveritiesFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlertSeverity"
+          "nullable": false,
+          "referenceName": "AlertSeverity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,5 +164,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

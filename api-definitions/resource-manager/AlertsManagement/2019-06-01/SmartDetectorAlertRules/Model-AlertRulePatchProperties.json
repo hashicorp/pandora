@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule actions.",
       "jsonName": "actionGroups",
       "name": "ActionGroups",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionGroupsInformation"
+        "nullable": false,
+        "referenceName": "ActionGroupsInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule severity.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule state.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertRuleState"
+        "nullable": false,
+        "referenceName": "AlertRuleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule throttling information.",
       "jsonName": "throttling",
       "name": "Throttling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThrottlingInformation"
+        "nullable": false,
+        "referenceName": "ThrottlingInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

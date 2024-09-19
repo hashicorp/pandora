@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The author of the gallery image.",
       "jsonName": "author",
       "name": "Author",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the gallery image.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the gallery image.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this gallery image is enabled.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The icon of the gallery image.",
       "jsonName": "icon",
       "name": "Icon",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The image reference of the gallery image.",
       "jsonName": "imageReference",
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageReference"
+        "nullable": false,
+        "referenceName": "GalleryImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the plan has been authorized for programmatic deployment.",
       "jsonName": "isPlanAuthorized",
       "name": "IsPlanAuthorized",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,16 +116,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The third party plan that applies to this image",
       "jsonName": "planId",
       "name": "PlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

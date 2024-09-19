@@ -1,6 +1,7 @@
 {
   "name": "ListByEnrollmentAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -72,7 +73,9 @@
   "resourceIdName": "EnrollmentAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscription"
+    "nullable": false,
+    "referenceName": "BillingSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/billingSubscriptions"
 }

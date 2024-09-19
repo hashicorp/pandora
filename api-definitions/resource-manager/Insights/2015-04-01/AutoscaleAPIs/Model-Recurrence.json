@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the recurrence frequency. How often the schedule profile should take effect. This value must be Week, meaning each week will have the same set of profiles. For example, to set a daily schedule, set **schedule** to every day of the week. The frequency property specifies that the schedule is repeated weekly.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceFrequency"
+        "nullable": false,
+        "referenceName": "RecurrenceFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the scheduling constraints for when the profile begins.",
       "jsonName": "schedule",
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrentSchedule"
+        "nullable": false,
+        "referenceName": "RecurrentSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The app consistent snapshot frequency (in minutes).",
       "jsonName": "appConsistentFrequencyInMinutes",
       "name": "AppConsistentFrequencyInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The crash consistent snapshot frequency (in minutes).",
       "jsonName": "crashConsistentFrequencyInMinutes",
       "name": "CrashConsistentFrequencyInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PolicyProviderSpecificInput",
   "discriminatedTypeValue": "InMageRcmFailback",
   "typeHintIn": "InstanceType"

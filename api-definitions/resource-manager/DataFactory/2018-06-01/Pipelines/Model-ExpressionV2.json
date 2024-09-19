@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of nested expressions.",
       "jsonName": "operands",
       "name": "Operands",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressionV2"
+          "nullable": false,
+          "referenceName": "ExpressionV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Expression operator value Type: list of strings.",
       "jsonName": "operators",
       "name": "Operators",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of expressions supported by the system. Type: string.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressionV2Type"
+        "nullable": false,
+        "referenceName": "ExpressionV2Type",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value for Constant/Field Type: string.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

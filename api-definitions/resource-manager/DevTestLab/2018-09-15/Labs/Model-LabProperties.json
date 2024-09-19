@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of any lab announcement associated with this lab",
       "jsonName": "announcement",
       "name": "Announcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabAnnouncementProperties"
+        "nullable": false,
+        "referenceName": "LabAnnouncementProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab's artifact storage account.",
       "jsonName": "artifactsStorageAccount",
       "name": "ArtifactsStorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the lab.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab's default premium storage account.",
       "jsonName": "defaultPremiumStorageAccount",
       "name": "DefaultPremiumStorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab's default storage account.",
       "jsonName": "defaultStorageAccount",
       "name": "DefaultStorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access rights to be granted to the user when provisioning an environment",
       "jsonName": "environmentPermission",
       "name": "EnvironmentPermission",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentPermission"
+        "nullable": false,
+        "referenceName": "EnvironmentPermission",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extended properties of the lab used for experimental features",
       "jsonName": "extendedProperties",
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.",
       "jsonName": "labStorageType",
       "name": "LabStorageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The load balancer used to for lab VMs that use shared IP address.",
       "jsonName": "loadBalancerId",
       "name": "LoadBalancerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,14 +154,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.",
       "jsonName": "mandatoryArtifactsResourceIdsLinux",
       "name": "MandatoryArtifactsResourceIdsLinux",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -142,14 +176,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.",
       "jsonName": "mandatoryArtifactsResourceIdsWindows",
       "name": "MandatoryArtifactsResourceIdsWindows",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -159,11 +198,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.",
       "jsonName": "networkSecurityGroupId",
       "name": "NetworkSecurityGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +214,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab's premium data disk storage account.",
       "jsonName": "premiumDataDiskStorageAccount",
       "name": "PremiumDataDiskStorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +230,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The setting to enable usage of premium data disks.\r\nWhen its value is 'Enabled', creation of standard or premium data disks is allowed.\r\nWhen its value is 'Disabled', only creation of standard data disks is allowed.",
       "jsonName": "premiumDataDisks",
       "name": "PremiumDataDisks",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PremiumDataDisk"
+        "nullable": false,
+        "referenceName": "PremiumDataDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +246,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning status of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +262,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public IP address for the lab's load balancer.",
       "jsonName": "publicIpId",
       "name": "PublicIPId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +278,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of any lab support message associated with this lab",
       "jsonName": "support",
       "name": "Support",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabSupportProperties"
+        "nullable": false,
+        "referenceName": "LabSupportProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique immutable identifier of a resource (Guid).",
       "jsonName": "uniqueIdentifier",
       "name": "UniqueIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.",
       "jsonName": "vmCreationResourceGroup",
       "name": "VMCreationResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,16 +326,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab's Key vault.",
       "jsonName": "vaultName",
       "name": "VaultName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diagnostics messages. E.g. message indicating some partitions from the input have no data.",
       "jsonName": "diagnostics",
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error definition properties.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorError"
+        "nullable": false,
+        "referenceName": "ErrorError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A SAS URL to download the sampled input data.",
       "jsonName": "eventsDownloadUrl",
       "name": "EventsDownloadUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The timestamp for the last event in the data. It is in DateTime format.",
       "jsonName": "lastArrivalTime",
       "name": "LastArrivalTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the sample input request.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SampleInputResultStatus"
+        "nullable": false,
+        "referenceName": "SampleInputResultStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom email addresses for this rule notifications",
       "jsonName": "CustomEmails",
       "name": "CustomEmails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag that indicates whether this rule is enabled by the user",
       "jsonName": "Enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last time this rule was updated",
       "jsonName": "LastUpdatedTime",
       "name": "LastUpdatedTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rule name",
       "jsonName": "Name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Static definitions of the ProactiveDetection configuration rule (same values for all components).",
       "jsonName": "RuleDefinitions",
       "name": "RuleDefinitions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions"
+        "nullable": false,
+        "referenceName": "ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag that indicated whether notifications on this rule should be sent to subscription owners",
       "jsonName": "SendEmailsToSubscriptionOwners",
       "name": "SendEmailsToSubscriptionOwners",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

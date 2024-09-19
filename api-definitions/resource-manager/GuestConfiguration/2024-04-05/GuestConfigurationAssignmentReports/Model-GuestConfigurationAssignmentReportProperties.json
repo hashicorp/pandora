@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration details of the guest configuration assignment.",
       "jsonName": "assignment",
       "name": "Assignment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentInfo"
+        "nullable": false,
+        "referenceName": "AssignmentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating compliance status of the machine for the assigned guest configuration.",
       "jsonName": "complianceStatus",
       "name": "ComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the assignment report.",
       "jsonName": "details",
       "name": "Details",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentReportDetails"
+        "nullable": false,
+        "referenceName": "AssignmentReportDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End date and time of the guest configuration assignment compliance status check.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GUID that identifies the guest configuration assignment report under a subscription, resource group.",
       "jsonName": "reportId",
       "name": "ReportId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start date and time of the guest configuration assignment compliance status check.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the VM.",
       "jsonName": "vm",
       "name": "VM",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMInfo"
+        "nullable": false,
+        "referenceName": "VMInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource Id of the VMSS.",
       "jsonName": "vmssResourceId",
       "name": "VMSSResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

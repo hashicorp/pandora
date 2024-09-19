@@ -1,6 +1,7 @@
 {
   "name": "GenerateVerificationCode",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -101,7 +102,9 @@
   "resourceIdName": "CertificateId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VerificationCodeResponse"
+    "nullable": false,
+    "referenceName": "VerificationCodeResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateVerificationCode"
 }

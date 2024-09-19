@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time on which the custom domain was created for the static site.",
       "jsonName": "createdOn",
       "name": "CreatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The domain name for the static site custom domain.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +40,9 @@
       "name": "ErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the custom domain",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDomainStatus"
+        "nullable": false,
+        "referenceName": "CustomDomainStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The TXT record validation token",
       "jsonName": "validationToken",
       "name": "ValidationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

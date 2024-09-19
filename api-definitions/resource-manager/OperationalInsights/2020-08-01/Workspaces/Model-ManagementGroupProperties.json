@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The datetime that the management group was created.",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last datetime that the management group received data.",
       "jsonName": "dataReceived",
       "name": "DataReceived",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique ID of the management group.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value indicating whether the management group is a gateway.",
       "jsonName": "isGateway",
       "name": "IsGateway",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the management group.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of servers connected to the management group.",
       "jsonName": "serverCount",
       "name": "ServerCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU of System Center that is managing the management group.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of System Center that is managing the management group.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

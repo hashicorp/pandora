@@ -1,6 +1,7 @@
 {
   "name": "NetworkProfileGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "MachineId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkProfile"
+    "nullable": false,
+    "referenceName": "NetworkProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/networkProfile"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the amount of time to specify by which instances are launched in advance. It must be between 1 minute and 60 minutes in ISO 8601 format.",
       "jsonName": "scaleLookAheadTime",
       "name": "ScaleLookAheadTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the predictive autoscale mode",
       "jsonName": "scaleMode",
       "name": "ScaleMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PredictiveAutoscalePolicyScaleMode"
+        "nullable": false,
+        "referenceName": "PredictiveAutoscalePolicyScaleMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

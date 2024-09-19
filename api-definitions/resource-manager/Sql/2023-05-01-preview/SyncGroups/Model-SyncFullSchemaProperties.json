@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last update time of the database schema.",
       "jsonName": "lastUpdateTime",
       "name": "LastUpdateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,14 +20,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of tables in the database full schema.",
       "jsonName": "tables",
       "name": "Tables",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SyncFullSchemaTable"
+          "nullable": false,
+          "referenceName": "SyncFullSchemaTable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -32,5 +40,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

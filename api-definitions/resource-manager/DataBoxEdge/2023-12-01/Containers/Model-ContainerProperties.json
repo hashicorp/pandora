@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the container.",
       "jsonName": "containerStatus",
       "name": "ContainerStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerStatus"
+        "nullable": false,
+        "referenceName": "ContainerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC time when container got created.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DataFormat for Container",
       "jsonName": "dataFormat",
       "name": "DataFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureContainerDataFormat"
+        "nullable": false,
+        "referenceName": "AzureContainerDataFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,16 +52,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the refresh job on this container.",
       "jsonName": "refreshDetails",
       "name": "RefreshDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshDetails"
+        "nullable": false,
+        "referenceName": "RefreshDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

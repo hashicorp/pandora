@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the evaluated expressions.",
       "jsonName": "evaluatedExpressions",
       "name": "EvaluatedExpressions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressionEvaluationDetails"
+          "nullable": false,
+          "referenceName": "ExpressionEvaluationDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "IfNotExistsDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IfNotExistsEvaluationDetails"
+        "nullable": false,
+        "referenceName": "IfNotExistsEvaluationDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +40,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the evaluation result.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListByReplicationMigrationItems",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ReplicationMigrationItemId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigrationRecoveryPoint"
+    "nullable": false,
+    "referenceName": "MigrationRecoveryPoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/migrationRecoveryPoints"
 }

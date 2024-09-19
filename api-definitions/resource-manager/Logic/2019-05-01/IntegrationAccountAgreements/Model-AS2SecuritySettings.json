@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for inbound decoded messages.",
       "jsonName": "enableNRRForInboundDecodedMessages",
       "name": "EnableNRRForInboundDecodedMessages",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for inbound encoded messages.",
       "jsonName": "enableNRRForInboundEncodedMessages",
       "name": "EnableNRRForInboundEncodedMessages",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for inbound MDN.",
       "jsonName": "enableNRRForInboundMDN",
       "name": "EnableNRRForInboundMDN",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for outbound decoded messages.",
       "jsonName": "enableNRRForOutboundDecodedMessages",
       "name": "EnableNRRForOutboundDecodedMessages",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for outbound encoded messages.",
       "jsonName": "enableNRRForOutboundEncodedMessages",
       "name": "EnableNRRForOutboundEncodedMessages",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to enable NRR for outbound MDN.",
       "jsonName": "enableNRRForOutboundMDN",
       "name": "EnableNRRForOutboundMDN",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the encryption certificate.",
       "jsonName": "encryptionCertificateName",
       "name": "EncryptionCertificateName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to send or request a MDN.",
       "jsonName": "overrideGroupSigningCertificate",
       "name": "OverrideGroupSigningCertificate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sha2 algorithm format. Valid values are Sha2, ShaHashSize, ShaHyphenHashSize, Sha2UnderscoreHashSize.",
       "jsonName": "sha2AlgorithmFormat",
       "name": "Sha2AlgorithmFormat",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the signing certificate.",
       "jsonName": "signingCertificateName",
       "name": "SigningCertificateName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

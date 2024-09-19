@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the availability zone the pool's primary replica is pinned to.",
       "jsonName": "availabilityZone",
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityZoneType"
+        "nullable": false,
+        "referenceName": "AvailabilityZoneType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the elastic pool (ISO8601 format).",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.",
       "jsonName": "highAvailabilityReplicaCount",
       "name": "HighAvailabilityReplicaCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license type to apply for this elastic pool.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticPoolLicenseType"
+        "nullable": false,
+        "referenceName": "ElasticPoolLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.",
       "jsonName": "maintenanceConfigurationId",
       "name": "MaintenanceConfigurationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage limit for the database elastic pool in bytes.",
       "jsonName": "maxSizeBytes",
       "name": "MaxSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimal capacity that serverless pool will not shrink below, if not paused",
       "jsonName": "minCapacity",
       "name": "MinCapacity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The per database settings for the elastic pool.",
       "jsonName": "perDatabaseSettings",
       "name": "PerDatabaseSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticPoolPerDatabaseSettings"
+        "nullable": false,
+        "referenceName": "ElasticPoolPerDatabaseSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of enclave requested on the elastic pool.",
       "jsonName": "preferredEnclaveType",
       "name": "PreferredEnclaveType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlwaysEncryptedEnclaveType"
+        "nullable": false,
+        "referenceName": "AlwaysEncryptedEnclaveType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the elastic pool.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticPoolState"
+        "nullable": false,
+        "referenceName": "ElasticPoolState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,16 +164,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.",
       "jsonName": "zoneRedundant",
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

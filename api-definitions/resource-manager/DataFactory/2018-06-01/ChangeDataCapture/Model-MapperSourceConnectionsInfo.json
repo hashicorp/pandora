@@ -7,7 +7,9 @@
       "name": "Connection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperConnection"
+        "nullable": false,
+        "referenceName": "MapperConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of source tables for a source connection.",
       "jsonName": "sourceEntities",
       "name": "SourceEntities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MapperTable"
+          "nullable": false,
+          "referenceName": "MapperTable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +38,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

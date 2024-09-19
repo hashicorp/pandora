@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the action performed in this job.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Result of this deployment job for each retry.",
       "jsonName": "history",
       "name": "History",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AssignmentDeploymentJobResult"
+          "nullable": false,
+          "referenceName": "AssignmentDeploymentJobResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of this job.",
       "jsonName": "jobId",
       "name": "JobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of this job.",
       "jsonName": "jobState",
       "name": "JobState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Kind of job.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reference to deployment job resource id.",
       "jsonName": "requestUri",
       "name": "RequestUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,16 +105,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment job result.",
       "jsonName": "result",
       "name": "Result",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentDeploymentJobResult"
+        "nullable": false,
+        "referenceName": "AssignmentDeploymentJobResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

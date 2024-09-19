@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the configuration of the node.",
       "jsonName": "nodeConfiguration",
       "name": "NodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DscNodeConfigurationAssociationProperty"
+        "nullable": false,
+        "referenceName": "DscNodeConfigurationAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the id of the dsc node.",
       "jsonName": "nodeId",
       "name": "NodeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

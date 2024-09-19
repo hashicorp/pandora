@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the user's Azure Active Directory Domain Service.",
       "jsonName": "aaddsResourceId",
       "name": "AaddsResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. The Distinguished Names for cluster user groups",
       "jsonName": "clusterUsersGroupDNs",
       "name": "ClusterUsersGroupDNs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The directory type.",
       "jsonName": "directoryType",
       "name": "DirectoryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DirectoryType"
+        "nullable": false,
+        "referenceName": "DirectoryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The organization's active directory domain.",
       "jsonName": "domain",
       "name": "Domain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The domain admin password.",
       "jsonName": "domainUserPassword",
       "name": "DomainUserPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The domain user account that will have admin privileges on the cluster.",
       "jsonName": "domainUsername",
       "name": "DomainUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The LDAPS protocol URLs to communicate with the Active Directory.",
       "jsonName": "ldapsUrls",
       "name": "LdapsUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User assigned identity that has permissions to read and create cluster-related artifacts in the user's AADDS.",
       "jsonName": "msiResourceId",
       "name": "MsiResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,16 +143,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The organizational unit within the Active Directory to place the cluster and service accounts.",
       "jsonName": "organizationalUnitDN",
       "name": "OrganizationalUnitDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

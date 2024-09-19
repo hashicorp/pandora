@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To determine if address belongs IPv4 or IPv6 family.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPFamily"
+        "nullable": false,
+        "referenceName": "IPFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IPv4 or IPv6 address of the machine",
       "jsonName": "ip",
       "name": "IP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

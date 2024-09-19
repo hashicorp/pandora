@@ -1,6 +1,7 @@
 {
   "name": "GenerateUpgradedDefinition",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "WorkflowId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GenerateUpgradedDefinitionParameters"
+    "nullable": false,
+    "referenceName": "GenerateUpgradedDefinitionParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateUpgradedDefinition"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Created by",
       "jsonName": "createdBy",
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Created time",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the runtime resource",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Informatica serverless runtime id",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment name",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serverless Config Properties",
       "jsonName": "serverlessConfigProperties",
       "name": "ServerlessConfigProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfaServerlessFetchConfigProperties"
+        "nullable": false,
+        "referenceName": "InfaServerlessFetchConfigProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the environment",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display message for the given status",
       "jsonName": "statusLocalized",
       "name": "StatusLocalized",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "status message",
       "jsonName": "statusMessage",
       "name": "StatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment Type",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuntimeType"
+        "nullable": false,
+        "referenceName": "RuntimeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last Updated by",
       "jsonName": "updatedBy",
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -146,16 +179,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Updated Time",
       "jsonName": "updatedTime",
       "name": "UpdatedTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

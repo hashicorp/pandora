@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cosmos DB SQL container resource object",
       "jsonName": "container",
       "name": "Container",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorableSqlContainerPropertiesResourceContainer"
+        "nullable": false,
+        "referenceName": "RestorableSqlContainerPropertiesResourceContainer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The when this container event happened.",
       "jsonName": "eventTimestamp",
       "name": "EventTimestamp",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operation type of this container event.",
       "jsonName": "operationType",
       "name": "OperationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationType"
+        "nullable": false,
+        "referenceName": "OperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of this SQL container.",
       "jsonName": "ownerId",
       "name": "OwnerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of this SQL container.",
       "jsonName": "ownerResourceId",
       "name": "OwnerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A system generated property. A unique identifier.",
       "jsonName": "_rid",
       "name": "Rid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

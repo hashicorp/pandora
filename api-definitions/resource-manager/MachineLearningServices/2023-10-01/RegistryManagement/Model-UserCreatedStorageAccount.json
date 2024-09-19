@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM ResourceId of a resource",
       "jsonName": "armResourceId",
       "name": "ArmResourceId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArmResourceId"
+        "nullable": false,
+        "referenceName": "ArmResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

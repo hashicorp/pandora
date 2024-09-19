@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A records visible for this hostname.",
       "jsonName": "aRecords",
       "name": "ARecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alternate CName records visible for this hostname.",
       "jsonName": "alternateCNameRecords",
       "name": "AlternateCNameRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alternate TXT records visible for this hostname.",
       "jsonName": "alternateTxtRecords",
       "name": "AlternateTxtRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CName records visible for this hostname.",
       "jsonName": "cNameRecords",
       "name": "CNameRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict on the Container App's managed environment level custom domain; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "conflictWithEnvironmentCustomDomain",
       "name": "ConflictWithEnvironmentCustomDomain",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the conflicting Container App on the Managed Environment if it's within the same subscription.",
       "jsonName": "conflictingContainerAppResourceId",
       "name": "ConflictingContainerAppResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +123,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Raw failure information if DNS verification fails.",
       "jsonName": "customDomainVerificationFailureInfo",
       "name": "CustomDomainVerificationFailureInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHostnameAnalysisResultCustomDomainVerificationFailureInfo"
+        "nullable": false,
+        "referenceName": "CustomHostnameAnalysisResultCustomDomainVerificationFailureInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DNS verification test result.",
       "jsonName": "customDomainVerificationTest",
       "name": "CustomDomainVerificationTest",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsVerificationTestResult"
+        "nullable": false,
+        "referenceName": "DnsVerificationTestResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict on the Container App's managed environment; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "hasConflictOnManagedEnvironment",
       "name": "HasConflictOnManagedEnvironment",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host name that was analyzed",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if hostname is already verified; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isHostnameAlreadyVerified",
       "name": "IsHostnameAlreadyVerified",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,14 +203,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TXT records visible for this hostname.",
       "jsonName": "txtRecords",
       "name": "TxtRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -177,5 +223,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

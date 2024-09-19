@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network security group result.",
       "jsonName": "networkSecurityGroupResult",
       "name": "NetworkSecurityGroupResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityGroupResult"
+        "nullable": false,
+        "referenceName": "NetworkSecurityGroupResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network configuration diagnostic profile.",
       "jsonName": "profile",
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfigurationDiagnosticProfile"
+        "nullable": false,
+        "referenceName": "NetworkConfigurationDiagnosticProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

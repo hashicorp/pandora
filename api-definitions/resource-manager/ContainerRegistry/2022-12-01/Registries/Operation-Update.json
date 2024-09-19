@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegistryUpdateParameters"
+    "nullable": false,
+    "referenceName": "RegistryUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Registry"
+    "nullable": false,
+    "referenceName": "Registry",
+    "referenceNameIsCommonType": null
   }
 }

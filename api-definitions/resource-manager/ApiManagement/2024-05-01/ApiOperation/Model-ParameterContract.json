@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default parameter value.",
       "jsonName": "defaultValue",
       "name": "DefaultValue",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +39,14 @@
       "name": "Examples",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ParameterExampleContract"
+          "nullable": false,
+          "referenceName": "ParameterExampleContract",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether parameter is required or not.",
       "jsonName": "required",
       "name": "Required",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Schema identifier.",
       "jsonName": "schemaId",
       "name": "SchemaId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter type.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type name defined by the schema.",
       "jsonName": "typeName",
       "name": "TypeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +136,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter values.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -126,5 +156,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

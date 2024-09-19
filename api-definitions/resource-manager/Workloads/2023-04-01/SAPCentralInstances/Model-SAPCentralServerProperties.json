@@ -7,7 +7,9 @@
       "name": "EnqueueReplicationServerProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnqueueReplicationServerProperties"
+        "nullable": false,
+        "referenceName": "EnqueueReplicationServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnqueueServerProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnqueueServerProperties"
+        "nullable": false,
+        "referenceName": "EnqueueServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the errors related to SAP Central Services Instance resource.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceError"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +53,9 @@
       "name": "GatewayServerProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayServerProperties"
+        "nullable": false,
+        "referenceName": "GatewayServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +68,9 @@
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPHealthState"
+        "nullable": false,
+        "referenceName": "SAPHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The central services instance number.",
       "jsonName": "instanceNo",
       "name": "InstanceNo",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The central services instance Kernel Patch level.",
       "jsonName": "kernelPatch",
       "name": "KernelPatch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The central services instance Kernel Version.",
       "jsonName": "kernelVersion",
       "name": "KernelVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines",
       "jsonName": "loadBalancerDetails",
       "name": "LoadBalancerDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerDetails"
+        "nullable": false,
+        "referenceName": "LoadBalancerDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +147,9 @@
       "name": "MessageServerProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MessageServerProperties"
+        "nullable": false,
+        "referenceName": "MessageServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +162,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapVirtualInstanceProvisioningState"
+        "nullable": false,
+        "referenceName": "SapVirtualInstanceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +177,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceStatus"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The central services instance subnet.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,14 +204,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of virtual machines corresponding to the Central Services instance.",
       "jsonName": "vmDetails",
       "name": "VMDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CentralServerVMDetails"
+          "nullable": false,
+          "referenceName": "CentralServerVMDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,5 +224,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

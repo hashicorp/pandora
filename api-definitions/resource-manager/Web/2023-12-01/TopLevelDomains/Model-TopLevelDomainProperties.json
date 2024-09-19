@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If \u003ccode\u003etrue\u003c/code\u003e, then the top level domain supports domain privacy; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "privacy",
       "name": "Privacy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

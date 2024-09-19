@@ -7,7 +7,9 @@
       "name": "AuthenticationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMode"
+        "nullable": false,
+        "referenceName": "AuthenticationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The password that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SQL server containing the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the table in the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "table",
       "name": "Table",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +82,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user name that will be used to connect to the Azure SQL database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "user",
       "name": "User",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

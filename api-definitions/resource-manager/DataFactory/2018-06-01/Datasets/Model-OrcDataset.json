@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ORC dataset properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrcDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "OrcDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "Orc",
   "typeHintIn": "Type"

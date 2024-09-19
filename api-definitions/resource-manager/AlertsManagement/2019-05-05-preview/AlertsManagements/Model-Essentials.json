@@ -7,7 +7,9 @@
       "name": "ActionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionStatus"
+        "nullable": false,
+        "referenceName": "ActionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rule(monitor) which fired alert instance. Depending on the monitor service,  this would be ARM id or name of the rule.",
       "jsonName": "alertRule",
       "name": "AlertRule",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert object state, which can be modified by the user.",
       "jsonName": "alertState",
       "name": "AlertState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertState"
+        "nullable": false,
+        "referenceName": "AlertState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +67,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last modification time(ISO-8601 format) of alert instance.",
       "jsonName": "lastModifiedDateTime",
       "name": "LastModifiedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User who last modified the alert, in case of monitor service updates user would be 'system', otherwise name of the user.",
       "jsonName": "lastModifiedUserName",
       "name": "LastModifiedUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Condition of the rule at the monitor service. It represents whether the underlying conditions have crossed the defined alert rule thresholds.",
       "jsonName": "monitorCondition",
       "name": "MonitorCondition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorCondition"
+        "nullable": false,
+        "referenceName": "MonitorCondition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +116,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Resolved time(ISO-8601 format) of alert instance. This will be updated when monitor service resolves the alert instance because the rule condition is no longer met.",
       "jsonName": "monitorConditionResolvedDateTime",
       "name": "MonitorConditionResolvedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Monitor service on which the rule(monitor) is set.",
       "jsonName": "monitorService",
       "name": "MonitorService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorService"
+        "nullable": false,
+        "referenceName": "MonitorService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Severity of alert Sev0 being highest and Sev4 being lowest.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of signal the alert is based on, which could be metrics, logs or activity logs.",
       "jsonName": "signalType",
       "name": "SignalType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SignalType"
+        "nullable": false,
+        "referenceName": "SignalType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Id of the smart group",
       "jsonName": "smartGroupId",
       "name": "SmartGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Verbose reason describing the reason why this alert instance is added to a smart group",
       "jsonName": "smartGroupingReason",
       "name": "SmartGroupingReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Id created by monitor service for each alert instance. This could be used to track the issue at the monitor service, in case of Nagios, Zabbix, SCOM etc.",
       "jsonName": "sourceCreatedId",
       "name": "SourceCreatedId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +229,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation time(ISO-8601 format) of alert instance.",
       "jsonName": "startDateTime",
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target ARM resource, on which alert got created.",
       "jsonName": "targetResource",
       "name": "TargetResource",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource group of target ARM resource, on which alert got created.",
       "jsonName": "targetResourceGroup",
       "name": "TargetResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the target ARM resource name, on which alert got created.",
       "jsonName": "targetResourceName",
       "name": "TargetResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,16 +293,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource type of target ARM resource, on which alert got created.",
       "jsonName": "targetResourceType",
       "name": "TargetResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

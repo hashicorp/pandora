@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "dateTime in which alert was closed",
       "jsonName": "closeTime",
       "name": "CloseTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "related budget",
       "jsonName": "costEntityId",
       "name": "CostEntityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "dateTime in which alert was created",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "defines the type of alert",
       "jsonName": "definition",
       "name": "Definition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertPropertiesDefinition"
+        "nullable": false,
+        "referenceName": "AlertPropertiesDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert description",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert details",
       "jsonName": "details",
       "name": "Details",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertPropertiesDetails"
+        "nullable": false,
+        "referenceName": "AlertPropertiesDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "dateTime in which alert was last modified",
       "jsonName": "modificationTime",
       "name": "ModificationTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of alert",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSource"
+        "nullable": false,
+        "referenceName": "AlertSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "alert status",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertStatus"
+        "nullable": false,
+        "referenceName": "AlertStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "dateTime in which the alert status was last modified",
       "jsonName": "statusModificationTime",
       "name": "StatusModificationTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,16 +163,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User who last modified the alert",
       "jsonName": "statusModificationUserName",
       "name": "StatusModificationUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

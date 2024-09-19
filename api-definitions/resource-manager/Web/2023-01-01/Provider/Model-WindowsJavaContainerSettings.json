@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End-of-life date for the minor version.",
       "jsonName": "endOfLifeDate",
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack version is auto-updated; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isAutoUpdate",
       "name": "IsAutoUpdate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack is deprecated; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isDeprecated",
       "name": "IsDeprecated",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the minor version is early-access; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isEarlyAccess",
       "name": "IsEarlyAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack should be hidden; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isHidden",
       "name": "IsHidden",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the stack is in preview; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isPreview",
       "name": "IsPreview",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java container (runtime only).",
       "jsonName": "javaContainer",
       "name": "JavaContainer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,16 +116,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java container version (runtime only).",
       "jsonName": "javaContainerVersion",
       "name": "JavaContainerVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DdosSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DdosSettings"
+        "nullable": false,
+        "referenceName": "DdosSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify what happens to the public IP address when the VM using it is deleted",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAddressDnsSettings"
+        "nullable": false,
+        "referenceName": "PublicIPAddressDnsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address associated with the public IP address resource.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +69,9 @@
       "name": "IPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPConfiguration"
+        "nullable": false,
+        "referenceName": "IPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +80,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of tags associated with the public IP address.",
       "jsonName": "ipTags",
       "name": "IPTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPTag"
+          "nullable": false,
+          "referenceName": "IPTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +102,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The idle timeout of the public IP address.",
       "jsonName": "idleTimeoutInMinutes",
       "name": "IdleTimeoutInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +122,9 @@
       "name": "LinkedPublicIPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAddress"
+        "nullable": false,
+        "referenceName": "PublicIPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Migration phase of Public IP Address.",
       "jsonName": "migrationPhase",
       "name": "MigrationPhase",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAddressMigrationPhase"
+        "nullable": false,
+        "referenceName": "PublicIPAddressMigrationPhase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +153,9 @@
       "name": "NatGateway",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NatGateway"
+        "nullable": false,
+        "referenceName": "NatGateway",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +168,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +183,9 @@
       "name": "PublicIPAddressVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPVersion"
+        "nullable": false,
+        "referenceName": "IPVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +198,9 @@
       "name": "PublicIPAllocationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAllocationMethod"
+        "nullable": false,
+        "referenceName": "IPAllocationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +213,9 @@
       "name": "PublicIPPrefix",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +224,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the public IP address resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,12 +244,15 @@
       "name": "ServicePublicIPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAddress"
+        "nullable": false,
+        "referenceName": "PublicIPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

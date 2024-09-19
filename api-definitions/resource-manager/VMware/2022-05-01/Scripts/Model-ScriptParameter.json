@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User friendly description of the parameter",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The parameter name that the script will expect a parameter value for",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is this parameter required or optional",
       "jsonName": "optional",
       "name": "Optional",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptionalParamEnum"
+        "nullable": false,
+        "referenceName": "OptionalParamEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of parameter the script is expecting. psCredential is a PSCredentialObject",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptParameterTypes"
+        "nullable": false,
+        "referenceName": "ScriptParameterTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Should this parameter be visible to arm and passed in the parameters argument when executing",
       "jsonName": "visibility",
       "name": "Visibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VisibilityParameterEnum"
+        "nullable": false,
+        "referenceName": "VisibilityParameterEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

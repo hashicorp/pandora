@@ -1,6 +1,7 @@
 {
   "name": "DeploymentsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NginxDeployment"
+    "nullable": false,
+    "referenceName": "NginxDeployment",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Nginx.NginxPlus/nginxDeployments"
 }

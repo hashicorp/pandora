@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault Secret Url and vault id of the disk encryption key",
       "jsonName": "diskEncryptionKey",
       "name": "DiskEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultAndSecretReference"
+        "nullable": false,
+        "referenceName": "KeyVaultAndSecretReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.",
       "jsonName": "keyEncryptionKey",
       "name": "KeyEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultAndKeyReference"
+        "nullable": false,
+        "referenceName": "KeyVaultAndKeyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

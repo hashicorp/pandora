@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the iceberg storage. Setting a file name is not allowed for iceberg format.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetLocation"
+        "nullable": false,
+        "referenceName": "DatasetLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

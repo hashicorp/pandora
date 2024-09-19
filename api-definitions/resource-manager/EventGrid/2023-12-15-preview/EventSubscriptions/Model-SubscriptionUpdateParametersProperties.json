@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the delivery configuration of the event subscription.",
       "jsonName": "deliveryConfiguration",
       "name": "DeliveryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryConfiguration"
+        "nullable": false,
+        "referenceName": "DeliveryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event delivery schema for the event subscription.",
       "jsonName": "eventDeliverySchema",
       "name": "EventDeliverySchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliverySchema"
+        "nullable": false,
+        "referenceName": "DeliverySchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the filter for the event subscription.",
       "jsonName": "filtersConfiguration",
       "name": "FiltersConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FiltersConfiguration"
+        "nullable": false,
+        "referenceName": "FiltersConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

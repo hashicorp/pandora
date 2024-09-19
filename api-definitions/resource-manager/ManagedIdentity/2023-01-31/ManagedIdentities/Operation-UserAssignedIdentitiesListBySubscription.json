@@ -1,6 +1,7 @@
 {
   "name": "UserAssignedIdentitiesListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Identity"
+    "nullable": false,
+    "referenceName": "Identity",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ManagedIdentity/userAssignedIdentities"
 }

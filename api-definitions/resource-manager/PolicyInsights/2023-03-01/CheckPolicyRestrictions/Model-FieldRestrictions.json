@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the field. This can be a top-level property like 'name' or 'type' or an Azure Policy field alias.",
       "jsonName": "field",
       "name": "Field",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The restrictions placed on that field by policy.",
       "jsonName": "restrictions",
       "name": "Restrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FieldRestriction"
+          "nullable": false,
+          "referenceName": "FieldRestriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

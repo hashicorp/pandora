@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the account that makes the transaction.",
       "jsonName": "accountName",
       "name": "AccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The email of the account owner that makes the transaction.",
       "jsonName": "accountOwnerEmail",
       "name": "AccountOwnerEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The charge of the transaction.",
       "jsonName": "amount",
       "name": "Amount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the ARM Sku name. It can be used to join with the serviceType field in additional info in usage records.",
       "jsonName": "armSkuName",
       "name": "ArmSkuName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing frequency, which can be either one-time or recurring.",
       "jsonName": "billingFrequency",
       "name": "BillingFrequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing month(yyyyMMdd), on which the event initiated.",
       "jsonName": "billingMonth",
       "name": "BillingMonth",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cost center of this department if it is a department and a cost center is provided.",
       "jsonName": "costCenter",
       "name": "CostCenter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ISO currency in which the transaction is charged, for example, USD.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current enrollment.",
       "jsonName": "currentEnrollment",
       "name": "CurrentEnrollment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The department name.",
       "jsonName": "departmentName",
       "name": "DepartmentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the transaction.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date of the transaction",
       "jsonName": "eventDate",
       "name": "EventDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the transaction (Purchase, Cancel or Refund).",
       "jsonName": "eventType",
       "name": "EventType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The monetary commitment amount at the enrollment scope.",
       "jsonName": "monetaryCommitment",
       "name": "MonetaryCommitment",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The overage amount at the enrollment scope.",
       "jsonName": "overage",
       "name": "Overage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The purchasing enrollment.",
       "jsonName": "purchasingEnrollment",
       "name": "PurchasingEnrollment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,11 +260,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subscription guid that makes the transaction.",
       "jsonName": "purchasingSubscriptionGuid",
       "name": "PurchasingSubscriptionGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,11 +276,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subscription name that makes the transaction.",
       "jsonName": "purchasingSubscriptionName",
       "name": "PurchasingSubscriptionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -238,11 +292,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The quantity of the transaction.",
       "jsonName": "quantity",
       "name": "Quantity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,11 +308,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The region of the transaction.",
       "jsonName": "region",
       "name": "Region",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,11 +324,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reservation order ID is the identifier for a reservation purchase. Each reservation order ID represents a single purchase transaction. A reservation order contains reservations. The reservation order specifies the VM size and region for the reservations.",
       "jsonName": "reservationOrderId",
       "name": "ReservationOrderId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -277,11 +340,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the reservation order.",
       "jsonName": "reservationOrderName",
       "name": "ReservationOrderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,16 +356,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the term of the transaction.",
       "jsonName": "term",
       "name": "Term",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

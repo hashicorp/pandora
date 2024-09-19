@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linked integration runtime type from data factory",
       "jsonName": "linkedInfo",
       "name": "LinkedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedIntegrationRuntimeType"
+        "nullable": false,
+        "referenceName": "LinkedIntegrationRuntimeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

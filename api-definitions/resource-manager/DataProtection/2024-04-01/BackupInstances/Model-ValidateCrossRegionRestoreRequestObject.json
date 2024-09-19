@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cross region restore details.",
       "jsonName": "crossRegionRestoreDetails",
       "name": "CrossRegionRestoreDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CrossRegionRestoreDetails"
+        "nullable": false,
+        "referenceName": "CrossRegionRestoreDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the restore request object.",
       "jsonName": "restoreRequestObject",
       "name": "RestoreRequestObject",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBackupRestoreRequest"
+        "nullable": false,
+        "referenceName": "AzureBackupRestoreRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

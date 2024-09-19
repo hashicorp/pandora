@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "StreamingJobId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StreamingJob"
+    "nullable": false,
+    "referenceName": "StreamingJob",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StreamingJob"
+    "nullable": false,
+    "referenceName": "StreamingJob",
+    "referenceNameIsCommonType": null
   }
 }

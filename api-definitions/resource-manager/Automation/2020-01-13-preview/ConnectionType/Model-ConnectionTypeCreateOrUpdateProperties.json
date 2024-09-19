@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the field definitions of the connection type.",
       "jsonName": "fieldDefinitions",
       "name": "FieldDefinitions",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FieldDefinition"
+          "nullable": false,
+          "referenceName": "FieldDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a Boolean value to indicate if the connection type is global.",
       "jsonName": "isGlobal",
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

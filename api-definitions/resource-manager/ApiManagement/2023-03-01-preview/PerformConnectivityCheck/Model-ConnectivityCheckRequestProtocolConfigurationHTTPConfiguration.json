@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of headers to be included in the request.",
       "jsonName": "headers",
       "name": "Headers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HTTPHeader"
+          "nullable": false,
+          "referenceName": "HTTPHeader",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP method to be used.",
       "jsonName": "method",
       "name": "Method",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Method"
+        "nullable": false,
+        "referenceName": "Method",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of HTTP status codes considered valid for the request response.",
       "jsonName": "validStatusCodes",
       "name": "ValidStatusCodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

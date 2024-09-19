@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Databricks Delta Lake import settings.",
       "jsonName": "importSettings",
       "name": "ImportSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDatabricksDeltaLakeImportCommand"
+        "nullable": false,
+        "referenceName": "AzureDatabricksDeltaLakeImportCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL pre-copy script. Type: string (or Expression with resultType string).",
       "jsonName": "preCopyScript",
       "name": "PreCopyScript",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "AzureDatabricksDeltaLakeSink",
   "typeHintIn": "Type"

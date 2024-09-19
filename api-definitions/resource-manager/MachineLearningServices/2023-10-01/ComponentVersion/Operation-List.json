@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ComponentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ComponentVersionResource"
+    "nullable": false,
+    "referenceName": "ComponentVersionResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

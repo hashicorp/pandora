@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while performing resilient VM creation.",
       "jsonName": "resilientVMCreationPolicy",
       "name": "ResilientVMCreationPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResilientVMCreationPolicy"
+        "nullable": false,
+        "referenceName": "ResilientVMCreationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while performing resilient VM deletion.",
       "jsonName": "resilientVMDeletionPolicy",
       "name": "ResilientVMDeletionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResilientVMDeletionPolicy"
+        "nullable": false,
+        "referenceName": "ResilientVMDeletionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

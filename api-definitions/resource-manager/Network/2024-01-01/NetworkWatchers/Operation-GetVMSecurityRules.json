@@ -1,6 +1,7 @@
 {
   "name": "GetVMSecurityRules",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecurityGroupViewParameters"
+    "nullable": false,
+    "referenceName": "SecurityGroupViewParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityGroupViewResult"
+    "nullable": false,
+    "referenceName": "SecurityGroupViewResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/securityGroupView"
 }

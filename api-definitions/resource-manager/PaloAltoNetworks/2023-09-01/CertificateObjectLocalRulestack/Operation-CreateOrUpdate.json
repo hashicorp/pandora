@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "LocalRulestackCertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CertificateObjectLocalRulestackResource"
+    "nullable": false,
+    "referenceName": "CertificateObjectLocalRulestackResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CertificateObjectLocalRulestackResource"
+    "nullable": false,
+    "referenceName": "CertificateObjectLocalRulestackResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "budget threshold amount",
       "jsonName": "amount",
       "name": "Amount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "company name",
       "jsonName": "companyName",
       "name": "CompanyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "list of emails to contact",
       "jsonName": "contactEmails",
       "name": "ContactEmails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "list of action groups to broadcast to",
       "jsonName": "contactGroups",
       "name": "ContactGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "list of contact roles",
       "jsonName": "contactRoles",
       "name": "ContactRoles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "current spend",
       "jsonName": "currentSpend",
       "name": "CurrentSpend",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "department name",
       "jsonName": "departmentName",
       "name": "DepartmentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "datetime of enrollmentEndDate",
       "jsonName": "enrollmentEndDate",
       "name": "EnrollmentEndDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "enrollment number",
       "jsonName": "enrollmentNumber",
       "name": "EnrollmentNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "datetime of enrollmentStartDate",
       "jsonName": "enrollmentStartDate",
       "name": "EnrollmentStartDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "invoicing threshold",
       "jsonName": "invoicingThreshold",
       "name": "InvoicingThreshold",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,14 +197,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "array of meters to filter by",
       "jsonName": "meterFilter",
       "name": "MeterFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "operator used to compare currentSpend with amount",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertOperator"
+        "nullable": false,
+        "referenceName": "AlertOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "overriding alert",
       "jsonName": "overridingAlert",
       "name": "OverridingAlert",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "datetime of periodStartDate",
       "jsonName": "periodStartDate",
       "name": "PeriodStartDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,14 +267,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "array of resources to filter by",
       "jsonName": "resourceFilter",
       "name": "ResourceFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -231,14 +289,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "array of resourceGroups to filter by",
       "jsonName": "resourceGroupFilter",
       "name": "ResourceGroupFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -248,11 +311,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "tags to filter by",
       "jsonName": "tagFilter",
       "name": "TagFilter",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -261,11 +327,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "notification threshold percentage as a decimal which activated this alert",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -274,11 +343,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of timegrain cadence",
       "jsonName": "timeGrainType",
       "name": "TimeGrainType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertTimeGrainType"
+        "nullable": false,
+        "referenceName": "AlertTimeGrainType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -287,11 +359,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "notificationId that triggered this alert",
       "jsonName": "triggeredBy",
       "name": "TriggeredBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -300,16 +375,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "unit of currency being used",
       "jsonName": "unit",
       "name": "Unit",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

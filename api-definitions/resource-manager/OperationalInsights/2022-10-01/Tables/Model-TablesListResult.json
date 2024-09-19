@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of data tables.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Table"
+          "nullable": false,
+          "referenceName": "Table",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

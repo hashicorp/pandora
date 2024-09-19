@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of databases in the failover group.",
       "jsonName": "databases",
       "name": "Databases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of partner server information for the failover group.",
       "jsonName": "partnerServers",
       "name": "PartnerServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PartnerInfo"
+          "nullable": false,
+          "referenceName": "PartnerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Read-only endpoint of the failover group instance.",
       "jsonName": "readOnlyEndpoint",
       "name": "ReadOnlyEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReadOnlyEndpoint"
+        "nullable": false,
+        "referenceName": "FailoverGroupReadOnlyEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Read-write endpoint of the failover group instance.",
       "jsonName": "readWriteEndpoint",
       "name": "ReadWriteEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReadWriteEndpoint"
+        "nullable": false,
+        "referenceName": "FailoverGroupReadWriteEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Local replication role of the failover group instance.",
       "jsonName": "replicationRole",
       "name": "ReplicationRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReplicationRole"
+        "nullable": false,
+        "referenceName": "FailoverGroupReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Replication state of the failover group instance.",
       "jsonName": "replicationState",
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,16 +111,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Databases secondary type on partner server.",
       "jsonName": "secondaryType",
       "name": "SecondaryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupDatabasesSecondaryType"
+        "nullable": false,
+        "referenceName": "FailoverGroupDatabasesSecondaryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

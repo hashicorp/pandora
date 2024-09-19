@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the upstream pipelines.",
       "jsonName": "dependencyStatus",
       "name": "DependencyStatus",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger error message.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of property name and value related to trigger run. Name, value pair depends on type of trigger.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Run dimension for which trigger was fired.",
       "jsonName": "runDimension",
       "name": "RunDimension",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger run status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerRunStatus"
+        "nullable": false,
+        "referenceName": "TriggerRunStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger name.",
       "jsonName": "triggerName",
       "name": "TriggerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger run id.",
       "jsonName": "triggerRunId",
       "name": "TriggerRunId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +134,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Trigger run start time.",
       "jsonName": "triggerRunTimestamp",
       "name": "TriggerRunTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger type.",
       "jsonName": "triggerType",
       "name": "TriggerType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,14 +166,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of pipeline name and run Id triggered by the trigger run.",
       "jsonName": "triggeredPipelines",
       "name": "TriggeredPipelines",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,5 +186,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

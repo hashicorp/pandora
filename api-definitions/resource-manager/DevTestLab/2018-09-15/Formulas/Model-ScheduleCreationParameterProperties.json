@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the schedule will occur once each day of the week, specify the daily recurrence.",
       "jsonName": "dailyRecurrence",
       "name": "DailyRecurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DayDetails"
+        "nullable": false,
+        "referenceName": "DayDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the schedule will occur multiple times a day, specify the hourly recurrence.",
       "jsonName": "hourlyRecurrence",
       "name": "HourlyRecurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HourDetails"
+        "nullable": false,
+        "referenceName": "HourDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notification settings.",
       "jsonName": "notificationSettings",
       "name": "NotificationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationSettings"
+        "nullable": false,
+        "referenceName": "NotificationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the schedule (i.e. Enabled, Disabled)",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableStatus"
+        "nullable": false,
+        "referenceName": "EnableStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID to which the schedule belongs",
       "jsonName": "targetResourceId",
       "name": "TargetResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).",
       "jsonName": "taskType",
       "name": "TaskType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection\u003cstring\u003e TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)",
       "jsonName": "timeZoneId",
       "name": "TimeZoneId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the schedule will occur only some days of the week, specify the weekly recurrence.",
       "jsonName": "weeklyRecurrence",
       "name": "WeeklyRecurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeekDetails"
+        "nullable": false,
+        "referenceName": "WeekDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

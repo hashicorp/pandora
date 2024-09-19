@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes whether the search service is compliant or not with respect to having non customer encrypted resources. If a service has more than one non customer encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.",
       "jsonName": "encryptionComplianceStatus",
       "name": "EncryptionComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchEncryptionComplianceStatus"
+        "nullable": false,
+        "referenceName": "SearchEncryptionComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes how a search service should enforce having one or more non customer encrypted resources.",
       "jsonName": "enforcement",
       "name": "Enforcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchEncryptionWithCmk"
+        "nullable": false,
+        "referenceName": "SearchEncryptionWithCmk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of branch to use for deployment.",
       "jsonName": "branch",
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to enable deployment rollback; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "deploymentRollbackEnabled",
       "name": "DeploymentRollbackEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If GitHub Action is selected, than the associated configuration.",
       "jsonName": "gitHubActionConfiguration",
       "name": "GitHubActionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionConfiguration"
+        "nullable": false,
+        "referenceName": "GitHubActionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if this is deployed via GitHub action.",
       "jsonName": "isGitHubAction",
       "name": "IsGitHubAction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to limit to manual integration; \u003ccode\u003efalse\u003c/code\u003e to enable continuous integration (which configures webhooks into online repos like GitHub).",
       "jsonName": "isManualIntegration",
       "name": "IsManualIntegration",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e for a Mercurial repository; \u003ccode\u003efalse\u003c/code\u003e for a Git repository.",
       "jsonName": "isMercurial",
       "name": "IsMercurial",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Repository or source control URL.",
       "jsonName": "repoUrl",
       "name": "RepoUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

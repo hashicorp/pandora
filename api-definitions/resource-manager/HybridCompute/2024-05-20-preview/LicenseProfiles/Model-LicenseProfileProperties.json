@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hybrid Compute ESU Profile properties",
       "jsonName": "esuProfile",
       "name": "EsuProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmEsuProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmEsuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hybrid Compute Product Profile properties",
       "jsonName": "productProfile",
       "name": "ProductProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmProductProfileProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmProductProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +55,15 @@
       "name": "SoftwareAssurance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfilePropertiesSoftwareAssurance"
+        "nullable": false,
+        "referenceName": "LicenseProfilePropertiesSoftwareAssurance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

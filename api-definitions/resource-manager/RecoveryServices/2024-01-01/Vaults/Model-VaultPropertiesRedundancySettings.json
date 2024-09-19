@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to show if Cross Region Restore is enabled on the Vault or not",
       "jsonName": "crossRegionRestore",
       "name": "CrossRegionRestore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CrossRegionRestore"
+        "nullable": false,
+        "referenceName": "CrossRegionRestore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage redundancy setting of a vault",
       "jsonName": "standardTierStorageRedundancy",
       "name": "StandardTierStorageRedundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StandardTierStorageRedundancy"
+        "nullable": false,
+        "referenceName": "StandardTierStorageRedundancy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

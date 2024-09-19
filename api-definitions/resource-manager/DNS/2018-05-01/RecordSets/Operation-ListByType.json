@@ -1,6 +1,7 @@
 {
   "name": "ListByType",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,6 +33,8 @@
   "resourceIdName": "ZoneId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecordSet"
+    "nullable": false,
+    "referenceName": "RecordSet",
+    "referenceNameIsCommonType": null
   }
 }

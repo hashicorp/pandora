@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A dictionary that maps feature names to their respective data types.",
       "jsonName": "featureDataTypeOverride",
       "name": "FeatureDataTypeOverride",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringFeatureDataType"
+          "nullable": false,
+          "referenceName": "MonitoringFeatureDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] A list of metrics to calculate and their associated thresholds.",
       "jsonName": "metricThresholds",
       "name": "MetricThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PredictionDriftMetricThresholdBase"
+          "nullable": false,
+          "referenceName": "PredictionDriftMetricThresholdBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The data which drift will be calculated for.",
       "jsonName": "productionData",
       "name": "ProductionData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The data to calculate drift against.",
       "jsonName": "referenceData",
       "name": "ReferenceData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -62,6 +78,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitoringSignalBase",
   "discriminatedTypeValue": "PredictionDrift",
   "typeHintIn": "SignalType"

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the base Content Filters.",
       "jsonName": "basePolicyName",
       "name": "BasePolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of blocklists for completion.",
       "jsonName": "completionBlocklists",
       "name": "CompletionBlocklists",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RaiBlocklistConfig"
+          "nullable": false,
+          "referenceName": "RaiBlocklistConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Content Filters.",
       "jsonName": "contentFilters",
       "name": "ContentFilters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RaiPolicyContentFilter"
+          "nullable": false,
+          "referenceName": "RaiPolicyContentFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Content Filters mode.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RaiPolicyMode"
+        "nullable": false,
+        "referenceName": "RaiPolicyMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Content Filters policy type.",
       "jsonName": "policyType",
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RaiPolicyType"
+        "nullable": false,
+        "referenceName": "RaiPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of blocklists for prompt.",
       "jsonName": "promptBlocklists",
       "name": "PromptBlocklists",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RaiBlocklistConfig"
+          "nullable": false,
+          "referenceName": "RaiBlocklistConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +115,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

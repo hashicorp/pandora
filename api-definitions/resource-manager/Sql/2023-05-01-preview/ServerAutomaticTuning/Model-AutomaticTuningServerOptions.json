@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automatic tuning option actual state.",
       "jsonName": "actualState",
       "name": "ActualState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningOptionModeActual"
+        "nullable": false,
+        "referenceName": "AutomaticTuningOptionModeActual",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automatic tuning option desired state.",
       "jsonName": "desiredState",
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningOptionModeDesired"
+        "nullable": false,
+        "referenceName": "AutomaticTuningOptionModeDesired",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason code if desired and actual state are different.",
       "jsonName": "reasonCode",
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason description if desired and actual state are different.",
       "jsonName": "reasonDesc",
       "name": "ReasonDesc",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningServerReason"
+        "nullable": false,
+        "referenceName": "AutomaticTuningServerReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

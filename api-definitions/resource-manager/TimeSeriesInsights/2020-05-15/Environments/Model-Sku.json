@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity of the sku. For Gen1 environments, this value can be changed to support scale out of environments after they have been created.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of this SKU.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuName"
+        "nullable": false,
+        "referenceName": "SkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

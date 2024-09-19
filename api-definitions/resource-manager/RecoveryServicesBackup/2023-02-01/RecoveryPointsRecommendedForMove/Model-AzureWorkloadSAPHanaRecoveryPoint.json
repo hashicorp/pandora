@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Eligibility of RP to be moved to another tier",
       "jsonName": "recoveryPointMoveReadinessInfo",
       "name": "RecoveryPointMoveReadinessInfo",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointMoveReadinessInfo"
+          "nullable": false,
+          "referenceName": "RecoveryPointMoveReadinessInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of Recovery Point",
       "jsonName": "recoveryPointProperties",
       "name": "RecoveryPointProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointProperties"
+        "nullable": false,
+        "referenceName": "RecoveryPointProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery point tier information.",
       "jsonName": "recoveryPointTierDetails",
       "name": "RecoveryPointTierDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointTierInformationV2"
+          "nullable": false,
+          "referenceName": "RecoveryPointTierInformationV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,11 +64,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "UTC time at which recovery point was created",
       "jsonName": "recoveryPointTimeInUTC",
       "name": "RecoveryPointTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of restore point",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePointType"
+        "nullable": false,
+        "referenceName": "RestorePointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,6 +95,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPoint",
   "discriminatedTypeValue": "AzureWorkloadSAPHanaRecoveryPoint",
   "typeHintIn": "ObjectType"

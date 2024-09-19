@@ -7,7 +7,9 @@
       "name": "AuthenticationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMode"
+        "nullable": false,
+        "referenceName": "AuthenticationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This is the name of the database that output will be written to.",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This query is used to fetch incremental changes from the SQL database. To use this option, we recommend using temporal tables in Azure SQL Database.",
       "jsonName": "deltaSnapshotQuery",
       "name": "DeltaSnapshotQuery",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This query is used to fetch data from the sql database.",
       "jsonName": "fullSnapshotQuery",
       "name": "FullSnapshotQuery",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This is the password that will be used to connect to the SQL Database instance.",
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This indicates how frequently the data will be fetched from the database. It is of DateTime format.",
       "jsonName": "refreshRate",
       "name": "RefreshRate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the type of data refresh option.",
       "jsonName": "refreshType",
       "name": "RefreshType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshType"
+        "nullable": false,
+        "referenceName": "RefreshType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This is the name of the server that contains the database that will be written to.",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +130,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This element is associated with the datasource element. This is the user name that will be used to connect to the SQL Database instance.",
       "jsonName": "user",
       "name": "User",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

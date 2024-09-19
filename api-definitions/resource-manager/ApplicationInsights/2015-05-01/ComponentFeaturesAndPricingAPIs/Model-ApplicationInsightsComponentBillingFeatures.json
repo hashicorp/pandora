@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.",
       "jsonName": "CurrentBillingFeatures",
       "name": "CurrentBillingFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An Application Insights component daily data volume cap",
       "jsonName": "DataVolumeCap",
       "name": "DataVolumeCap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsightsComponentDataVolumeCap"
+        "nullable": false,
+        "referenceName": "ApplicationInsightsComponentDataVolumeCap",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

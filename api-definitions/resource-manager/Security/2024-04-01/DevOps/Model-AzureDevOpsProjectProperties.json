@@ -7,7 +7,9 @@
       "name": "ActionableRemediation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionableRemediation"
+        "nullable": false,
+        "referenceName": "ActionableRemediation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OnboardingState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnboardingState"
+        "nullable": false,
+        "referenceName": "OnboardingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets parent Azure DevOps Organization name.",
       "jsonName": "parentOrgName",
       "name": "ParentOrgName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets Azure DevOps Project id.",
       "jsonName": "projectId",
       "name": "ProjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +69,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevOpsProvisioningState"
+        "nullable": false,
+        "referenceName": "DevOpsProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets resource status message.",
       "jsonName": "provisioningStatusMessage",
       "name": "ProvisioningStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,16 +97,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets or sets time when resource was last checked.",
       "jsonName": "provisioningStatusUpdateTimeUtc",
       "name": "ProvisioningStatusUpdateTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to application gateways.",
       "jsonName": "applicationGateways",
       "name": "ApplicationGateways",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGateway"
+          "nullable": false,
+          "referenceName": "ApplicationGateway",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom rules inside the policy.",
       "jsonName": "customRules",
       "name": "CustomRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebApplicationFirewallCustomRule"
+          "nullable": false,
+          "referenceName": "WebApplicationFirewallCustomRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to application gateway http listeners.",
       "jsonName": "httpListeners",
       "name": "HTTPListeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the managedRules structure.",
       "jsonName": "managedRules",
       "name": "ManagedRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRulesDefinition"
+        "nullable": false,
+        "referenceName": "ManagedRulesDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to application gateway path rules.",
       "jsonName": "pathBasedRules",
       "name": "PathBasedRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The PolicySettings for policy.",
       "jsonName": "policySettings",
       "name": "PolicySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettings"
+        "nullable": false,
+        "referenceName": "PolicySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,7 +127,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,16 +138,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource status of the policy.",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPolicyResourceState"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPolicyResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.",
       "jsonName": "additionalProperties",
       "name": "AdditionalProperties",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the way the update content can be downloaded.",
       "jsonName": "availabilityType",
       "name": "AvailabilityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityType"
+        "nullable": false,
+        "referenceName": "AvailabilityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of component versions for a Solution Bundle update, and an empty array otherwise.  ",
       "jsonName": "componentVersions",
       "name": "ComponentVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PackageVersionInfo"
+          "nullable": false,
+          "referenceName": "PackageVersionInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the update.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the Update",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time the package-specific checks were run.",
       "jsonName": "healthCheckDate",
       "name": "HealthCheckDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,14 +106,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of PrecheckResult objects.",
       "jsonName": "healthCheckResult",
       "name": "HealthCheckResult",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrecheckResult"
+          "nullable": false,
+          "referenceName": "PrecheckResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overall health state for update-specific health checks.",
       "jsonName": "healthState",
       "name": "HealthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthState"
+        "nullable": false,
+        "referenceName": "HealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date that the update was installed.",
       "jsonName": "installedDate",
       "name": "InstalledDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Path where the update package is available.",
       "jsonName": "packagePath",
       "name": "PackagePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.",
       "jsonName": "packageSizeInMb",
       "name": "PackageSizeInMb",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer-visible type of the update.",
       "jsonName": "packageType",
       "name": "PackageType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,14 +209,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.",
       "jsonName": "prerequisites",
       "name": "Prerequisites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdatePrerequisite"
+          "nullable": false,
+          "referenceName": "UpdatePrerequisite",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -186,11 +231,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Updates proxy resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publisher of the update package.",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,7 +267,9 @@
       "name": "RebootRequired",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RebootRequirement"
+        "nullable": false,
+        "referenceName": "RebootRequirement",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,11 +278,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link to release notes for the update.",
       "jsonName": "releaseLink",
       "name": "ReleaseLink",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -238,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the update as it relates to this stamp.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "State"
+        "nullable": false,
+        "referenceName": "State",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information regarding the state of the update. See definition of UpdateStateProperties type below for more details on this property.",
       "jsonName": "updateStateProperties",
       "name": "UpdateStateProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateStateProperties"
+        "nullable": false,
+        "referenceName": "UpdateStateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,16 +326,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the update.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

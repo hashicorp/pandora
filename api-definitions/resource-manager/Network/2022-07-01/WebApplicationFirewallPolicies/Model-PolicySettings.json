@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, customer can override the response body. The body must be specified in base64 encoding.",
       "jsonName": "customBlockResponseBody",
       "name": "CustomBlockResponseBody",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, customer can override the response status code.",
       "jsonName": "customBlockResponseStatusCode",
       "name": "CustomBlockResponseStatusCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum file upload size in Mb for WAF.",
       "jsonName": "fileUploadLimitInMb",
       "name": "FileUploadLimitInMb",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum request body size in Kb for WAF.",
       "jsonName": "maxRequestBodySizeInKb",
       "name": "MaxRequestBodySizeInKb",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mode of the policy.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallMode"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to allow WAF to check request Body.",
       "jsonName": "requestBodyCheck",
       "name": "RequestBodyCheck",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the policy.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallEnabledState"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

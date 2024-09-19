@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backend port of the target virtual machine.",
       "jsonName": "backendPort",
       "name": "BackendPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol type of the port.",
       "jsonName": "transportProtocol",
       "name": "TransportProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TransportProtocol"
+        "nullable": false,
+        "referenceName": "TransportProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

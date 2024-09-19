@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network dependency category type.",
       "jsonName": "category",
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyCategoryType"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyCategoryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoints.",
       "jsonName": "endpoints",
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IntegrationServiceEnvironmentNetworkEndpoint"
+          "nullable": false,
+          "referenceName": "IntegrationServiceEnvironmentNetworkEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Queue based scaling.",
       "jsonName": "azureQueue",
       "name": "AzureQueue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueScaleRule"
+        "nullable": false,
+        "referenceName": "QueueScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom scale rule.",
       "jsonName": "custom",
       "name": "Custom",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomScaleRule"
+        "nullable": false,
+        "referenceName": "CustomScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP requests based scaling.",
       "jsonName": "http",
       "name": "HTTP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPScaleRule"
+        "nullable": false,
+        "referenceName": "HTTPScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scale Rule Name",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

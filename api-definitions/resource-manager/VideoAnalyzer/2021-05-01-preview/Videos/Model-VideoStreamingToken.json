@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The streaming token expiration date in ISO8601 format (eg. 2021-01-01T00:00:00Z).",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The streaming token value to be added to the video streaming URL as the value for a \"token\" query string parameter. The token is specific to a single video.",
       "jsonName": "token",
       "name": "Token",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

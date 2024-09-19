@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.",
       "jsonName": "aadAudience",
       "name": "AadAudience",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.",
       "jsonName": "aadIssuer",
       "name": "AadIssuer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication.",
       "jsonName": "aadTenant",
       "name": "AadTenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The radius server address property of the VirtualNetworkGateway resource for vpn client connection.",
       "jsonName": "radiusServerAddress",
       "name": "RadiusServerAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The radius secret property of the VirtualNetworkGateway resource for vpn client connection.",
       "jsonName": "radiusServerSecret",
       "name": "RadiusServerSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The radiusServers property for multiple radius server configuration.",
       "jsonName": "radiusServers",
       "name": "RadiusServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RadiusServer"
+          "nullable": false,
+          "referenceName": "RadiusServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "per ip address pool connection policy for virtual network gateway P2S client.",
       "jsonName": "vngClientConnectionConfigurations",
       "name": "VngClientConnectionConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VngClientConnectionConfiguration"
+          "nullable": false,
+          "referenceName": "VngClientConnectionConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN authentication types for the virtual network gateway..",
       "jsonName": "vpnAuthenticationTypes",
       "name": "VpnAuthenticationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnAuthenticationType"
+          "nullable": false,
+          "referenceName": "VpnAuthenticationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,7 +153,9 @@
       "name": "VpnClientAddressPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,14 +164,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnClientIpsecPolicies for virtual network gateway P2S client.",
       "jsonName": "vpnClientIpsecPolicies",
       "name": "VpnClientIPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,14 +186,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnClientProtocols for Virtual network gateway.",
       "jsonName": "vpnClientProtocols",
       "name": "VpnClientProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientProtocol"
+          "nullable": false,
+          "referenceName": "VpnClientProtocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,14 +208,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnClientRevokedCertificate for Virtual network gateway.",
       "jsonName": "vpnClientRevokedCertificates",
       "name": "VpnClientRevokedCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientRevokedCertificate"
+          "nullable": false,
+          "referenceName": "VpnClientRevokedCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -183,14 +230,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnClientRootCertificate for virtual network gateway.",
       "jsonName": "vpnClientRootCertificates",
       "name": "VpnClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientRootCertificate"
+          "nullable": false,
+          "referenceName": "VpnClientRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -198,5 +250,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

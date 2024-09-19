@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of capabilities of this SKU, such as throughput or ops/sec.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSkuCapabilities"
+          "nullable": false,
+          "referenceName": "ResourceSkuCapabilities",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of locations where the SKU is available.",
       "jsonName": "locationInfo",
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSkuLocationInfo"
+          "nullable": false,
+          "referenceName": "ResourceSkuLocationInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of locations where the SKU is available. This is the supported and registered Azure Geo Regions (e.g., West US, East US, Southeast Asia, etc.).",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of this SKU.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of resource the SKU applies to.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The restrictions preventing this SKU from being used. This is empty if there are no restrictions.",
       "jsonName": "restrictions",
       "name": "Restrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Restriction"
+          "nullable": false,
+          "referenceName": "Restriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -95,5 +121,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

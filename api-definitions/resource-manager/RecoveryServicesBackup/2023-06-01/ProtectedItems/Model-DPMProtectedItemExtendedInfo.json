@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used Disk storage in bytes.",
       "jsonName": "diskStorageUsedInBytes",
       "name": "DiskStorageUsedInBytes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To check if backup item is collocated.",
       "jsonName": "isCollocated",
       "name": "IsCollocated",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To check if backup item is cloud protected.",
       "jsonName": "isPresentOnCloud",
       "name": "IsPresentOnCloud",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last backup status information on backup item.",
       "jsonName": "lastBackupStatus",
       "name": "LastBackupStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last refresh time on backup item.",
       "jsonName": "lastRefreshedAt",
       "name": "LastRefreshedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Oldest cloud recovery point time.",
       "jsonName": "oldestRecoveryPoint",
       "name": "OldestRecoveryPoint",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +102,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "latest disk recovery point time.",
       "jsonName": "onPremiseLatestRecoveryPoint",
       "name": "OnPremiseLatestRecoveryPoint",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +119,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Oldest disk recovery point time.",
       "jsonName": "onPremiseOldestRecoveryPoint",
       "name": "OnPremiseOldestRecoveryPoint",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "disk recovery point count.",
       "jsonName": "onPremiseRecoveryPointCount",
       "name": "OnPremiseRecoveryPointCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,14 +151,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Attribute to provide information on various DBs.",
       "jsonName": "protectableObjectLoadPath",
       "name": "ProtectableObjectLoadPath",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,11 +173,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To check if backup item is disk protected.",
       "jsonName": "protected",
       "name": "Protected",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protection group name of the backup item.",
       "jsonName": "protectionGroupName",
       "name": "ProtectionGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "cloud recovery point count.",
       "jsonName": "recoveryPointCount",
       "name": "RecoveryPointCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,16 +221,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "total Disk storage in bytes.",
       "jsonName": "totalDiskStorageSizeInBytes",
       "name": "TotalDiskStorageSizeInBytes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

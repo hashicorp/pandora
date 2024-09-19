@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the assessment mode.",
       "jsonName": "assessmentMode",
       "name": "AssessmentMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssessmentModeTypes"
+        "nullable": false,
+        "referenceName": "AssessmentModeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the patch mode.",
       "jsonName": "patchMode",
       "name": "PatchMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchModeTypes"
+        "nullable": false,
+        "referenceName": "PatchModeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

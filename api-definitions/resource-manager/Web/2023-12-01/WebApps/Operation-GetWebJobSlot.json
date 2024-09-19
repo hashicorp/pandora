@@ -1,6 +1,7 @@
 {
   "name": "GetWebJobSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotWebJobId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WebJob"
+    "nullable": false,
+    "referenceName": "WebJob",
+    "referenceNameIsCommonType": null
   }
 }

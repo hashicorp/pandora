@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application used to execute the statement.",
       "jsonName": "applicationName",
       "name": "ApplicationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address of the client who executed the statement.",
       "jsonName": "clientIp",
       "name": "ClientIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database name",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the security event occurred.",
       "jsonName": "eventTime",
       "name": "EventTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The principal user who executed the statement",
       "jsonName": "principalName",
       "name": "PrincipalName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sql injection additional properties, populated only if the type of the security event is sql injection.",
       "jsonName": "securityEventSqlInjectionAdditionalProperties",
       "name": "SecurityEventSqlInjectionAdditionalProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityEventSqlInjectionAdditionalProperties"
+        "nullable": false,
+        "referenceName": "SecurityEventSqlInjectionAdditionalProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the security event.",
       "jsonName": "securityEventType",
       "name": "SecurityEventType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityEventType"
+        "nullable": false,
+        "referenceName": "SecurityEventType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The server name",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,16 +132,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subscription name",
       "jsonName": "subscription",
       "name": "Subscription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

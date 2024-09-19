@@ -1,6 +1,7 @@
 {
   "name": "SuspendBackups",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "BackupInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SuspendBackupRequest"
+    "nullable": false,
+    "referenceName": "SuspendBackupRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/suspendBackups"
 }

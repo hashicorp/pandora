@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TrackSelections is a track property condition list which can specify track(s)",
       "jsonName": "trackSelections",
       "name": "TrackSelections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackPropertyCondition"
+          "nullable": false,
+          "referenceName": "TrackPropertyCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

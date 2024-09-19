@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of capture description",
       "jsonName": "captureDescription",
       "name": "CaptureDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CaptureDescription"
+        "nullable": false,
+        "referenceName": "CaptureDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Exact time the Event Hub was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of days to retain the events for this Event Hub, value should be 1 to 7 days",
       "jsonName": "messageRetentionInDays",
       "name": "MessageRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.",
       "jsonName": "partitionCount",
       "name": "PartitionCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,14 +68,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current number of shards on the Event Hub.",
       "jsonName": "partitionIds",
       "name": "PartitionIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Event Hub retention settings",
       "jsonName": "retentionDescription",
       "name": "RetentionDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDescription"
+        "nullable": false,
+        "referenceName": "RetentionDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enumerates the possible values for the status of the Event Hub.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityStatus"
+        "nullable": false,
+        "referenceName": "EntityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,11 +123,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The exact time the message was updated.",
       "jsonName": "updatedAt",
       "name": "UpdatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,16 +139,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets and Sets Metadata of User.",
       "jsonName": "userMetadata",
       "name": "UserMetadata",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

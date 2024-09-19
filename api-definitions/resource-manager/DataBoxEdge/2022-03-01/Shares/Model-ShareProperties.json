@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Access protocol to be used by the share.",
       "jsonName": "accessProtocol",
       "name": "AccessProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareAccessProtocol"
+        "nullable": false,
+        "referenceName": "ShareAccessProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure container mapping for the share.",
       "jsonName": "azureContainerInfo",
       "name": "AzureContainerInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureContainerInfo"
+        "nullable": false,
+        "referenceName": "AzureContainerInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP addresses and corresponding access rights on the share(required for NFS protocol).",
       "jsonName": "clientAccessRights",
       "name": "ClientAccessRights",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientAccessRight"
+          "nullable": false,
+          "referenceName": "ClientAccessRight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data policy of the share.",
       "jsonName": "dataPolicy",
       "name": "DataPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataPolicy"
+        "nullable": false,
+        "referenceName": "DataPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description for the share.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current monitoring status of the share.",
       "jsonName": "monitoringStatus",
       "name": "MonitoringStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringStatus"
+        "nullable": false,
+        "referenceName": "MonitoringStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the refresh job on this share.",
       "jsonName": "refreshDetails",
       "name": "RefreshDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshDetails"
+        "nullable": false,
+        "referenceName": "RefreshDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Share mount point to the role.",
       "jsonName": "shareMappings",
       "name": "ShareMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountPointMap"
+          "nullable": false,
+          "referenceName": "MountPointMap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the share.",
       "jsonName": "shareStatus",
       "name": "ShareStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareStatus"
+        "nullable": false,
+        "referenceName": "ShareStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -128,14 +159,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of users and corresponding access rights on the share (required for SMB protocol).",
       "jsonName": "userAccessRights",
       "name": "UserAccessRights",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAccessRight"
+          "nullable": false,
+          "referenceName": "UserAccessRight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -143,5 +179,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

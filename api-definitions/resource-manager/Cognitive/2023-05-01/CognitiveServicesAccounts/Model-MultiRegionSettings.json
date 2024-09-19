@@ -7,10 +7,14 @@
       "name": "Regions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegionSetting"
+          "nullable": false,
+          "referenceName": "RegionSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +24,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Multiregion routing methods.",
       "jsonName": "routingMethod",
       "name": "RoutingMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingMethods"
+        "nullable": false,
+        "referenceName": "RoutingMethods",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

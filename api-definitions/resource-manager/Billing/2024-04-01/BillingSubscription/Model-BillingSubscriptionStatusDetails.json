@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The suspension effective date for a subscription. This field is not available for Enterprise Agreement billing accounts.",
       "jsonName": "effectiveDate",
       "name": "EffectiveDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The suspension reason for a subscription. This field is not available for Enterprise Agreement billing accounts.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionStatusReason"
+        "nullable": false,
+        "referenceName": "SubscriptionStatusReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

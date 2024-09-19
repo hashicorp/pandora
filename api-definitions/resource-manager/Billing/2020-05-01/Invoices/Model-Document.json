@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the document.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DocumentType"
+        "nullable": false,
+        "referenceName": "DocumentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source of the document. ENF for Brazil and DRS for rest of the world.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DocumentSource"
+        "nullable": false,
+        "referenceName": "DocumentSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Document URL.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

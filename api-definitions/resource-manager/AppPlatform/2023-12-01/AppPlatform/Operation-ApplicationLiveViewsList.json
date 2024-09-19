@@ -1,6 +1,7 @@
 {
   "name": "ApplicationLiveViewsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SpringCloudServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationLiveViewResource"
+    "nullable": false,
+    "referenceName": "ApplicationLiveViewResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/applicationLiveViews"
 }

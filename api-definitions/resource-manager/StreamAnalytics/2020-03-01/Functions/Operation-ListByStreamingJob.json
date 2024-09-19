@@ -1,6 +1,7 @@
 {
   "name": "ListByStreamingJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "StreamingJobId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Function"
+    "nullable": false,
+    "referenceName": "Function",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/functions"
 }

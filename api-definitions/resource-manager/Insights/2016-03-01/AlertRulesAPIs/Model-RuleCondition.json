@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the resource from which the rule collects its data. For this type dataSource will always be of type RuleMetricDataSource.",
       "jsonName": "dataSource",
       "name": "DataSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleDataSource"
+        "nullable": false,
+        "referenceName": "RuleDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "specifies the type of condition. This can be one of three types: ManagementEventRuleCondition (occurrences of management events), LocationThresholdRuleCondition (based on the number of failures of a web test), and ThresholdRuleCondition (based on the threshold of a metric).",
       "jsonName": "odata.type",
       "name": "OdataType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +34,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "OdataType"
 }

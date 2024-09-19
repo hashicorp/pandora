@@ -7,7 +7,9 @@
       "name": "AzureDnsZone",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PreValidatedCustomDomainResourceId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the profile which holds the domain.",
       "jsonName": "profileName",
       "name": "ProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +49,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.",
       "jsonName": "tlsSettings",
       "name": "TlsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AFDDomainHTTPSParameters"
+        "nullable": false,
+        "referenceName": "AFDDomainHTTPSParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

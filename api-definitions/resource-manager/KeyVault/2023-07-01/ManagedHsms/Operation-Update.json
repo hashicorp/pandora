@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ManagedHSMId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedHsm"
+    "nullable": false,
+    "referenceName": "ManagedHsm",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedHsm"
+    "nullable": false,
+    "referenceName": "ManagedHsm",
+    "referenceNameIsCommonType": null
   }
 }

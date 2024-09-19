@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parquet dataset properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParquetDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "ParquetDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "Parquet",
   "typeHintIn": "Type"

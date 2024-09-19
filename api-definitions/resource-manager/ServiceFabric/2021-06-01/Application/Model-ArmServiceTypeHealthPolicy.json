@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum percentage of partitions per service allowed to be unhealthy before your application is considered in error.\n",
       "jsonName": "maxPercentUnhealthyPartitionsPerService",
       "name": "MaxPercentUnhealthyPartitionsPerService",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum percentage of replicas per partition allowed to be unhealthy before your application is considered in error.\n",
       "jsonName": "maxPercentUnhealthyReplicasPerPartition",
       "name": "MaxPercentUnhealthyReplicasPerPartition",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum percentage of services allowed to be unhealthy before your application is considered in error.\n",
       "jsonName": "maxPercentUnhealthyServices",
       "name": "MaxPercentUnhealthyServices",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

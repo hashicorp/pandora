@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Valid values are 'true' and 'false'",
       "jsonName": "balance-similar-node-groups",
       "name": "BalanceSimilarNodeGroups",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.",
       "jsonName": "daemonset-eviction-for-empty-nodes",
       "name": "DaemonsetEvictionForEmptyNodes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.",
       "jsonName": "daemonset-eviction-for-occupied-nodes",
       "name": "DaemonsetEvictionForOccupiedNodes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Available values are: 'least-waste', 'most-pods', 'priority', 'random'.",
       "jsonName": "expander",
       "name": "Expander",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Expander"
+        "nullable": false,
+        "referenceName": "Expander",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Available values are: 'least-waste', 'most-pods', 'priority', 'random'. If multiple expanders are configured, they will be considered in the order in which they are listed, with the first one being considered first.",
       "jsonName": "expanders",
       "name": "Expanders",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Expander"
+          "nullable": false,
+          "referenceName": "Expander",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.",
       "jsonName": "ignore-daemonsets-utilization",
       "name": "IgnoreDaemonsetsUtilization",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is 10.",
       "jsonName": "max-empty-bulk-delete",
       "name": "MaxEmptyBulkDelete",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is 600.",
       "jsonName": "max-graceful-termination-sec",
       "name": "MaxGracefulTerminationSec",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "max-node-provision-time",
       "name": "MaxNodeProvisionTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is 45. The maximum is 100 and the minimum is 0.",
       "jsonName": "max-total-unready-percentage",
       "name": "MaxTotalUnreadyPercentage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).",
       "jsonName": "new-pod-scale-up-delay",
       "name": "NewPodScaleUpDelay",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This must be an integer. The default is 3.",
       "jsonName": "ok-total-unready-count",
       "name": "OkTotalUnreadyCount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-add",
       "name": "ScaleDownDelayAfterAdd",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-delete",
       "name": "ScaleDownDelayAfterDelete",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-failure",
       "name": "ScaleDownDelayAfterFailure",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-unneeded-time",
       "name": "ScaleDownUnneededTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-unready-time",
       "name": "ScaleDownUnreadyTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '0.5'.",
       "jsonName": "scale-down-utilization-threshold",
       "name": "ScaleDownUtilizationThreshold",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is '10'. Values must be an integer number of seconds.",
       "jsonName": "scan-interval",
       "name": "ScanInterval",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is true.",
       "jsonName": "skip-nodes-with-local-storage",
       "name": "SkipNodesWithLocalStorage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,16 +329,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is true.",
       "jsonName": "skip-nodes-with-system-pods",
       "name": "SkipNodesWithSystemPods",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

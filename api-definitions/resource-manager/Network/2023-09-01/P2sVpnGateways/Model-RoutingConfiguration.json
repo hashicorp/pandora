@@ -7,7 +7,9 @@
       "name": "AssociatedRouteTable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InboundRouteMap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "OutboundRouteMap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of RouteTables to advertise the routes to.",
       "jsonName": "propagatedRouteTables",
       "name": "PropagatedRouteTables",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PropagatedRouteTable"
+        "nullable": false,
+        "referenceName": "PropagatedRouteTable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +64,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of routes that control routing from VirtualHub into a virtual network connection.",
       "jsonName": "vnetRoutes",
       "name": "VnetRoutes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetRoute"
+        "nullable": false,
+        "referenceName": "VnetRoute",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

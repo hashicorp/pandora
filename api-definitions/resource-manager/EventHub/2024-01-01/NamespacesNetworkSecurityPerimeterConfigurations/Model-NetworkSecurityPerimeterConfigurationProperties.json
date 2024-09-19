@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates that the NSP controls related to backing association are only applicable to a specific feature in backing resource's data plane.",
       "jsonName": "applicableFeatures",
       "name": "ApplicableFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if the EventHub namespace is backed by another Azure resource and not visible to end users.",
       "jsonName": "isBackingResource",
       "name": "IsBackingResource",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +45,9 @@
       "name": "NetworkSecurityPerimeter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeter"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source Resource Association name",
       "jsonName": "parentAssociationName",
       "name": "ParentAssociationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about current network profile",
       "jsonName": "profile",
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +88,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Provisioning Issues if any",
       "jsonName": "provisioningIssues",
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProvisioningIssue"
+          "nullable": false,
+          "referenceName": "ProvisioningIssue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of NetworkSecurityPerimeter configuration propagation",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +126,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about resource association",
       "jsonName": "resourceAssociation",
       "name": "ResourceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,16 +142,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM Id of source resource",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

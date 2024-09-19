@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine extension handler instance view.",
       "jsonName": "extensionHandlers",
       "name": "ExtensionHandlers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineExtensionHandlerInstanceView"
+          "nullable": false,
+          "referenceName": "VirtualMachineExtensionHandlerInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource status information.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VM Agent full version.",
       "jsonName": "vmAgentVersion",
       "name": "VMAgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "GatewayProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SettingsGatewayProperties"
+        "nullable": false,
+        "referenceName": "SettingsGatewayProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure resource tenant Id",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

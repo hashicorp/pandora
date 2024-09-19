@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of this policy's fabric.",
       "jsonName": "fabricName",
       "name": "FabricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of sub-protection policies which includes schedule and retention",
       "jsonName": "subProtectionPolicy",
       "name": "SubProtectionPolicy",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubProtectionPolicy"
+          "nullable": false,
+          "referenceName": "SubProtectionPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,6 +56,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionPolicy",
   "discriminatedTypeValue": "GenericProtectionPolicy",
   "typeHintIn": "BackupManagementType"

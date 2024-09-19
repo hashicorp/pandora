@@ -7,7 +7,9 @@
       "name": "AlternativeOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlternativeOption"
+        "nullable": false,
+        "referenceName": "AlternativeOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the state of the image.",
       "jsonName": "imageState",
       "name": "ImageState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageState"
+        "nullable": false,
+        "referenceName": "ImageState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +35,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time, in future, at which this image will be marked as deprecated. This scheduled time is chosen by the Publisher.",
       "jsonName": "scheduledDeprecationTime",
       "name": "ScheduledDeprecationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

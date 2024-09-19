@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceUpdateParameters"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementServiceResource"
+    "nullable": false,
+    "referenceName": "ApiManagementServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

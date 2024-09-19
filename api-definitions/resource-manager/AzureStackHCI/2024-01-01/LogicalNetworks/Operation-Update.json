@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "LogicalNetworkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LogicalNetworksUpdateRequest"
+    "nullable": false,
+    "referenceName": "LogicalNetworksUpdateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LogicalNetworks"
+    "nullable": false,
+    "referenceName": "LogicalNetworks",
+    "referenceNameIsCommonType": null
   }
 }

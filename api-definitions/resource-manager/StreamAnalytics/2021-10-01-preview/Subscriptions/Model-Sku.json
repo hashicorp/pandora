@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity of the SKU.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SKU. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuName"
+        "nullable": false,
+        "referenceName": "SkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

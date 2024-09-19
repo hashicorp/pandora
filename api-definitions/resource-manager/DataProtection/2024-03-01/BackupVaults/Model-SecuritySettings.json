@@ -7,7 +7,9 @@
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionSettings"
+        "nullable": false,
+        "referenceName": "EncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ImmutabilitySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImmutabilitySettings"
+        "nullable": false,
+        "referenceName": "ImmutabilitySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SoftDeleteSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteSettings"
+        "nullable": false,
+        "referenceName": "SoftDeleteSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

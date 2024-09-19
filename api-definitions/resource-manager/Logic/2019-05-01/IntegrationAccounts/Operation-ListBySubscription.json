@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccount"
+    "nullable": false,
+    "referenceName": "IntegrationAccount",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Logic/integrationAccounts"
 }

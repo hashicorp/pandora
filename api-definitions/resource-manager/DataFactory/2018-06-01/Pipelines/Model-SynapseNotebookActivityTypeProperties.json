@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configuration properties, which will override the 'conf' of the notebook you provide.",
       "jsonName": "conf",
       "name": "Conf",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the spark config.",
       "jsonName": "configurationType",
       "name": "ConfigurationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationType"
+        "nullable": false,
+        "referenceName": "ConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).",
       "jsonName": "driverSize",
       "name": "DriverSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).",
       "jsonName": "executorSize",
       "name": "ExecutorSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Synapse notebook reference.",
       "jsonName": "notebook",
       "name": "Notebook",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SynapseNotebookReference"
+        "nullable": false,
+        "referenceName": "SynapseNotebookReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).",
       "jsonName": "numExecutors",
       "name": "NumExecutors",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +99,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notebook parameters.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NotebookParameter"
+          "nullable": false,
+          "referenceName": "NotebookParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configuration property.",
       "jsonName": "sparkConfig",
       "name": "SparkConfig",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the big data pool which will be used to execute the notebook.",
       "jsonName": "sparkPool",
       "name": "SparkPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BigDataPoolParametrizationReference"
+        "nullable": false,
+        "referenceName": "BigDataPoolParametrizationReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,16 +159,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The spark configuration of the spark job.",
       "jsonName": "targetSparkConfiguration",
       "name": "TargetSparkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkConfigurationParametrizationReference"
+        "nullable": false,
+        "referenceName": "SparkConfigurationParametrizationReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

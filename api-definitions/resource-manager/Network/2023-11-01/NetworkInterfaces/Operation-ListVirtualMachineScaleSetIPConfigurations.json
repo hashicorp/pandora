@@ -1,6 +1,7 @@
 {
   "name": "ListVirtualMachineScaleSetIPConfigurations",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "VirtualMachineScaleSetNetworkInterfaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkInterfaceIPConfiguration"
+    "nullable": false,
+    "referenceName": "NetworkInterfaceIPConfiguration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/ipConfigurations"
 }

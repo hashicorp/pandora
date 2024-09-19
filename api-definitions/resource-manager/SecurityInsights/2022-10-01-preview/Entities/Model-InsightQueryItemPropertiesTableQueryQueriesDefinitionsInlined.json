@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Insight column header.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Insight column header.",
       "jsonName": "linkColumnsDefinitions",
       "name": "LinkColumnsDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlinedLinkColumnsDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlinedLinkColumnsDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Insight column header.",
       "jsonName": "project",
       "name": "Project",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Insight column header.",
       "jsonName": "summarize",
       "name": "Summarize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

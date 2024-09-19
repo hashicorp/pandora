@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container level read, write, list SAS",
       "jsonName": "blobReferenceForConsumption",
       "name": "BlobReferenceForConsumption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobReferenceForConsumptionDto"
+        "nullable": false,
+        "referenceName": "BlobReferenceForConsumptionDto",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ID for this upload request",
       "jsonName": "pendingUploadId",
       "name": "PendingUploadId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TemporaryBlobReference is the only supported type",
       "jsonName": "pendingUploadType",
       "name": "PendingUploadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PendingUploadType"
+        "nullable": false,
+        "referenceName": "PendingUploadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

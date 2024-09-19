@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Product feature name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the new status of the product feature.",
       "jsonName": "subscriptionStatus",
       "name": "SubscriptionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileSubscriptionStatusUpdate"
+        "nullable": false,
+        "referenceName": "LicenseProfileSubscriptionStatusUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

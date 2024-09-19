@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Applications of the AppsAndRoles.",
       "jsonName": "applications",
       "name": "Applications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Application"
+          "nullable": false,
+          "referenceName": "Application",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "BizTalkServers of the AppsAndRoles.",
       "jsonName": "bizTalkServers",
       "name": "BizTalkServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BizTalkServer"
+          "nullable": false,
+          "referenceName": "BizTalkServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ExchangeServers of the AppsAndRoles.",
       "jsonName": "exchangeServers",
       "name": "ExchangeServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExchangeServer"
+          "nullable": false,
+          "referenceName": "ExchangeServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Features of the AppsAndRoles.",
       "jsonName": "features",
       "name": "Features",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Feature"
+          "nullable": false,
+          "referenceName": "Feature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OtherDatabaseServers of the AppsAndRoles.",
       "jsonName": "otherDatabases",
       "name": "OtherDatabases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OtherDatabase"
+          "nullable": false,
+          "referenceName": "OtherDatabase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,14 +113,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SharePointServers of the AppsAndRoles.",
       "jsonName": "sharePointServers",
       "name": "SharePointServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharePointServer"
+          "nullable": false,
+          "referenceName": "SharePointServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -105,14 +135,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQLServers of the AppsAndRoles.",
       "jsonName": "sqlServers",
       "name": "SqlServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SQLServer"
+          "nullable": false,
+          "referenceName": "SQLServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,14 +157,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SystemCenters of the AppsAndRoles.",
       "jsonName": "systemCenters",
       "name": "SystemCenters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SystemCenter"
+          "nullable": false,
+          "referenceName": "SystemCenter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -139,14 +179,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "WebApplications of the AppsAndRoles.",
       "jsonName": "webApplications",
       "name": "WebApplications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebApplication"
+          "nullable": false,
+          "referenceName": "WebApplication",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,5 +199,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

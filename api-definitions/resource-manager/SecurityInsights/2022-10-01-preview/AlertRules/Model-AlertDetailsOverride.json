@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the format containing columns name(s) to override the alert description",
       "jsonName": "alertDescriptionFormat",
       "name": "AlertDescriptionFormat",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the format containing columns name(s) to override the alert name",
       "jsonName": "alertDisplayNameFormat",
       "name": "AlertDisplayNameFormat",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of additional dynamic properties to override",
       "jsonName": "alertDynamicProperties",
       "name": "AlertDynamicProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlertPropertyMapping"
+          "nullable": false,
+          "referenceName": "AlertPropertyMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the column name to take the alert severity from",
       "jsonName": "alertSeverityColumnName",
       "name": "AlertSeverityColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the column name to take the alert tactics from",
       "jsonName": "alertTacticsColumnName",
       "name": "AlertTacticsColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

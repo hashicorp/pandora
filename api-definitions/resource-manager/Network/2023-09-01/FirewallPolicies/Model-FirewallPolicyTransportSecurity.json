@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CA used for intermediate CA generation.",
       "jsonName": "certificateAuthority",
       "name": "CertificateAuthority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyCertificateAuthority"
+        "nullable": false,
+        "referenceName": "FirewallPolicyCertificateAuthority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "MyWorkbooksCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "MyWorkbookId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MyWorkbook"
+    "nullable": false,
+    "referenceName": "MyWorkbook",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MyWorkbook"
+    "nullable": false,
+    "referenceName": "MyWorkbook",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Describes the kind of connector to be checked.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorKind"
+        "nullable": false,
+        "referenceName": "DataConnectorKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Kind"
 }

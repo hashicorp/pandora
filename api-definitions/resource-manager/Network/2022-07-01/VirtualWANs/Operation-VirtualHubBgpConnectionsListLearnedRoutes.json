@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubBgpConnectionsListLearnedRoutes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualHubBGPConnectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PeerRouteList"
+    "nullable": false,
+    "referenceName": "PeerRouteList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/learnedRoutes"
 }

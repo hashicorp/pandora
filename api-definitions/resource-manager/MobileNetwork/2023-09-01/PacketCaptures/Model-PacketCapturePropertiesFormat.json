@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of bytes captured per packet, the remaining bytes are truncated. The default \"0\" means the entire packet is captured.",
       "jsonName": "bytesToCapturePerPacket",
       "name": "BytesToCapturePerPacket",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time of the packet capture session.",
       "jsonName": "captureStartTime",
       "name": "CaptureStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of network interfaces to capture on.",
       "jsonName": "networkInterfaces",
       "name": "NetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,14 +58,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of output files of a packet capture session.",
       "jsonName": "outputFiles",
       "name": "OutputFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -68,7 +84,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason the current packet capture session state.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the packet capture session.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PacketCaptureStatus"
+        "nullable": false,
+        "referenceName": "PacketCaptureStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum duration of the capture session in seconds.",
       "jsonName": "timeLimitInSeconds",
       "name": "TimeLimitInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,16 +143,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum size of the capture output.",
       "jsonName": "totalBytesPerSession",
       "name": "TotalBytesPerSession",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

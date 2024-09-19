@@ -7,7 +7,9 @@
       "name": "AccessToken",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AccessTokenSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The company ID of the QuickBooks company to authorize.",
       "jsonName": "companyId",
       "name": "CompanyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties used to connect to QuickBooks. It is mutually exclusive with any other properties in the linked service. Type: object.",
       "jsonName": "connectionProperties",
       "name": "ConnectionProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The consumer key for OAuth 1.0 authentication.",
       "jsonName": "consumerKey",
       "name": "ConsumerKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +85,9 @@
       "name": "ConsumerSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint of the QuickBooks server. (i.e. quickbooks.api.intuit.com)",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +128,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.",
       "jsonName": "useEncryptedEndpoints",
       "name": "UseEncryptedEndpoints",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

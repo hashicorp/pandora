@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert type.",
       "jsonName": "alertType",
       "name": "AlertType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "UTC time when the alert appeared.",
       "jsonName": "appearedAtDateTime",
       "name": "AppearedAtDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert details.",
       "jsonName": "detailedInformation",
       "name": "DetailedInformation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error details of the alert.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertErrorDetails"
+        "nullable": false,
+        "referenceName": "AlertErrorDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert recommendation.",
       "jsonName": "recommendation",
       "name": "Recommendation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Severity of the alert.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,16 +106,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alert title.",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

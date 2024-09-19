@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AdminPassword - admin password",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AdminUsername - admin username",
       "jsonName": "adminUsername",
       "name": "AdminUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ComputerName - name of the compute",
       "jsonName": "computerName",
       "name": "ComputerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "LinuxConfiguration - linux specific configuration values for the virtual machine instance",
       "jsonName": "linuxConfiguration",
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfileLinuxConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileLinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows Configuration for the virtual machine instance ",
       "jsonName": "windowsConfiguration",
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

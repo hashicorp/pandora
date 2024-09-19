@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The convention used when determining the session cookie's expiration.",
       "jsonName": "convention",
       "name": "Convention",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CookieExpirationConvention"
+        "nullable": false,
+        "referenceName": "CookieExpirationConvention",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time after the request is made when the session cookie should expire.",
       "jsonName": "timeToExpiration",
       "name": "TimeToExpiration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

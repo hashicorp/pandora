@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation time of job error.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error level of error.",
       "jsonName": "errorLevel",
       "name": "ErrorLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Provider error details.",
       "jsonName": "providerErrorDetails",
       "name": "ProviderErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProviderError"
+        "nullable": false,
+        "referenceName": "ProviderError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Service error details.",
       "jsonName": "serviceErrorDetails",
       "name": "ServiceErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceError"
+        "nullable": false,
+        "referenceName": "ServiceError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,16 +68,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the task.",
       "jsonName": "taskId",
       "name": "TaskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

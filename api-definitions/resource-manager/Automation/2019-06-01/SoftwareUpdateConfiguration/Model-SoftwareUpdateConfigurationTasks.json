@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Post task properties.",
       "jsonName": "postTask",
       "name": "PostTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskProperties"
+        "nullable": false,
+        "referenceName": "TaskProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pre task properties.",
       "jsonName": "preTask",
       "name": "PreTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskProperties"
+        "nullable": false,
+        "referenceName": "TaskProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

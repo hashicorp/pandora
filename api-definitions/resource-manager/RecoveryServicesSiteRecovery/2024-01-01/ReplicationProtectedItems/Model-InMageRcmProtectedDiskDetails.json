@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk capacity in bytes.",
       "jsonName": "capacityInBytes",
       "name": "CapacityInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom target Azure disk name.",
       "jsonName": "customTargetDiskName",
       "name": "CustomTargetDiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data pending at source agent in MB.",
       "jsonName": "dataPendingAtSourceAgentInMB",
       "name": "DataPendingAtSourceAgentInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data pending in log data store in MB.",
       "jsonName": "dataPendingInLogDataStoreInMB",
       "name": "DataPendingInLogDataStoreInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DiskEncryptionSet ARM Id.",
       "jsonName": "diskEncryptionSetId",
       "name": "DiskEncryptionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk Id.",
       "jsonName": "diskId",
       "name": "DiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk name.",
       "jsonName": "diskName",
       "name": "DiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk state.",
       "jsonName": "diskState",
       "name": "DiskState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskState"
+        "nullable": false,
+        "referenceName": "DiskState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +135,9 @@
       "name": "DiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskAccountType"
+        "nullable": false,
+        "referenceName": "DiskAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication details.",
       "jsonName": "irDetails",
       "name": "IrDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmSyncDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmSyncDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether initial replication is complete or not.",
       "jsonName": "isInitialReplicationComplete",
       "name": "IsInitialReplicationComplete",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the disk is the OS disk.",
       "jsonName": "isOSDisk",
       "name": "IsOSDisk",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +194,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The log storage account ARM Id.",
       "jsonName": "logStorageAccountId",
       "name": "LogStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +210,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync details.",
       "jsonName": "resyncDetails",
       "name": "ResyncDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmSyncDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmSyncDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The logical sector size (in bytes), 512 by default.",
       "jsonName": "sectorSizeInBytes",
       "name": "SectorSizeInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +242,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The uri of the seed blob.",
       "jsonName": "seedBlobUri",
       "name": "SeedBlobUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +258,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the seed managed disk.",
       "jsonName": "seedManagedDiskId",
       "name": "SeedManagedDiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,16 +274,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the target managed disk.",
       "jsonName": "targetManagedDiskId",
       "name": "TargetManagedDiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

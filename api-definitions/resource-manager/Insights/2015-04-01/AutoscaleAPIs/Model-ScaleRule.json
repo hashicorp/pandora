@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the trigger that results in a scaling action.",
       "jsonName": "metricTrigger",
       "name": "MetricTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricTrigger"
+        "nullable": false,
+        "referenceName": "MetricTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the parameters for the scaling action.",
       "jsonName": "scaleAction",
       "name": "ScaleAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleAction"
+        "nullable": false,
+        "referenceName": "ScaleAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

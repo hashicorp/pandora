@@ -1,6 +1,7 @@
 {
   "name": "ActionGroupsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ActionGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ActionGroupResource"
+    "nullable": false,
+    "referenceName": "ActionGroupResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ActionGroupResource"
+    "nullable": false,
+    "referenceName": "ActionGroupResource",
+    "referenceNameIsCommonType": null
   }
 }

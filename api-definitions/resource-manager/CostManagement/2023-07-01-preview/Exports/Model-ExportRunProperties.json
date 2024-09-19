@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end datetime for the export.",
       "jsonName": "endDate",
       "name": "EndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +24,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorDetails"
+        "nullable": false,
+        "referenceName": "ErrorDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the export run.",
       "jsonName": "executionType",
       "name": "ExecutionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutionType"
+        "nullable": false,
+        "referenceName": "ExecutionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the exported file.",
       "jsonName": "fileName",
       "name": "FileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The manifest file location(URI location) for the exported files.",
       "jsonName": "manifestFile",
       "name": "ManifestFile",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +84,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the export run finished.",
       "jsonName": "processingEndTime",
       "name": "ProcessingEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +101,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when export was picked up to be run.",
       "jsonName": "processingStartTime",
       "name": "ProcessingStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The export settings that were in effect for this run.",
       "jsonName": "runSettings",
       "name": "RunSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommonExportProperties"
+        "nullable": false,
+        "referenceName": "CommonExportProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +134,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start datetime for the export.",
       "jsonName": "startDate",
       "name": "StartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last known status of the export run.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutionStatus"
+        "nullable": false,
+        "referenceName": "ExecutionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +166,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier for the entity that triggered the export. For on-demand runs it is the user email. For scheduled runs it is 'System'.",
       "jsonName": "submittedBy",
       "name": "SubmittedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,16 +183,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when export was queued to be run.",
       "jsonName": "submittedTime",
       "name": "SubmittedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

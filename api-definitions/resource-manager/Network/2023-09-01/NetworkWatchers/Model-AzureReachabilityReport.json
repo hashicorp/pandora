@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The aggregation level of Azure reachability report. Can be Country, State or City.",
       "jsonName": "aggregationLevel",
       "name": "AggregationLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters that define a geographic location.",
       "jsonName": "providerLocation",
       "name": "ProviderLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureReachabilityReportLocation"
+        "nullable": false,
+        "referenceName": "AzureReachabilityReportLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Azure reachability report items.",
       "jsonName": "reachabilityReport",
       "name": "ReachabilityReport",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureReachabilityReportItem"
+          "nullable": false,
+          "referenceName": "AzureReachabilityReportItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -44,5 +55,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

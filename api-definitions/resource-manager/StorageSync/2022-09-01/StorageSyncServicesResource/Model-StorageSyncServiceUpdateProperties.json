@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Incoming Traffic Policy",
       "jsonName": "incomingTrafficPolicy",
       "name": "IncomingTrafficPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncomingTrafficPolicy"
+        "nullable": false,
+        "referenceName": "IncomingTrafficPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Use Identity authorization when customer have finished setup RBAC permissions.",
       "jsonName": "useIdentity",
       "name": "UseIdentity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

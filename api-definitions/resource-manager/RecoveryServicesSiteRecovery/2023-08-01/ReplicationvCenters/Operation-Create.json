@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationvCenterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AddVCenterRequest"
+    "nullable": false,
+    "referenceName": "AddVCenterRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VCenter"
+    "nullable": false,
+    "referenceName": "VCenter",
+    "referenceNameIsCommonType": null
   }
 }

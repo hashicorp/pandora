@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster load balancer profile.",
       "jsonName": "loadBalancerProfile",
       "name": "LoadBalancerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerProfile"
+        "nullable": false,
+        "referenceName": "LoadBalancerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OutboundType used for egress traffic.",
       "jsonName": "outboundType",
       "name": "OutboundType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutboundType"
+        "nullable": false,
+        "referenceName": "OutboundType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CIDR used for OpenShift/Kubernetes Pods.",
       "jsonName": "podCidr",
       "name": "PodCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether subnets are pre-attached with an NSG",
       "jsonName": "preconfiguredNSG",
       "name": "PreconfiguredNSG",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreconfiguredNSG"
+        "nullable": false,
+        "referenceName": "PreconfiguredNSG",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CIDR used for OpenShift/Kubernetes Services.",
       "jsonName": "serviceCidr",
       "name": "ServiceCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

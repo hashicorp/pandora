@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Amount charged in Billing currency. Tax not included. Is null for future payments",
       "jsonName": "billingCurrencyTotal",
       "name": "BillingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date when the payment needs to be done.",
       "jsonName": "dueDate",
       "name": "DueDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ExtendedStatusInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedStatusInfo"
+        "nullable": false,
+        "referenceName": "ExtendedStatusInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date when the transaction is completed. Null when it is scheduled.",
       "jsonName": "paymentDate",
       "name": "PaymentDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Amount in pricing currency. Tax not included.",
       "jsonName": "pricingCurrencyTotal",
       "name": "PricingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +86,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentStatus"
+        "nullable": false,
+        "referenceName": "PaymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

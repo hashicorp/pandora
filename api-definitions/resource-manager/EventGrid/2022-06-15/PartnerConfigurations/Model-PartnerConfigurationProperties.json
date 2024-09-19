@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of authorized partners.",
       "jsonName": "partnerAuthorization",
       "name": "PartnerAuthorization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerAuthorization"
+        "nullable": false,
+        "referenceName": "PartnerAuthorization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the partner configuration.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerConfigurationProvisioningState"
+        "nullable": false,
+        "referenceName": "PartnerConfigurationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Policy evaluation results against the given resource content. This will indicate if the partial content that was provided will be denied as-is.",
       "jsonName": "policyEvaluations",
       "name": "PolicyEvaluations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PolicyEvaluationResult"
+          "nullable": false,
+          "referenceName": "PolicyEvaluationResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

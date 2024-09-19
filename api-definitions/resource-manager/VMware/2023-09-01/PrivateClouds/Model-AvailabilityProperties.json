@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secondary availability zone for the private cloud",
       "jsonName": "secondaryZone",
       "name": "SecondaryZone",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The availability strategy for the private cloud",
       "jsonName": "strategy",
       "name": "Strategy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityStrategy"
+        "nullable": false,
+        "referenceName": "AvailabilityStrategy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary availability zone for the private cloud",
       "jsonName": "zone",
       "name": "Zone",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

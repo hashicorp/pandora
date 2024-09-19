@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Paypal Service linked service properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaypalLinkedServiceTypeProperties"
+        "nullable": false,
+        "referenceName": "PaypalLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LinkedService",
   "discriminatedTypeValue": "Paypal",
   "typeHintIn": "Type"

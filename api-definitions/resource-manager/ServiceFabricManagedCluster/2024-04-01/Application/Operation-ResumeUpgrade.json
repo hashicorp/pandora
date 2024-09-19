@@ -1,6 +1,7 @@
 {
   "name": "ResumeUpgrade",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ApplicationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RuntimeResumeApplicationUpgradeParameters"
+    "nullable": false,
+    "referenceName": "RuntimeResumeApplicationUpgradeParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resumeUpgrade"
 }

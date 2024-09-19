@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this IP configuration is primary for the corresponding NIC.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address.",
       "jsonName": "privateIPAddress",
       "name": "PrivateIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The method that private IP address is allocated.",
       "jsonName": "privateIPAllocationMethod",
       "name": "PrivateIPAllocationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateIPAllocationMethod"
+        "nullable": false,
+        "referenceName": "PrivateIPAllocationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The private link configuration provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLinkConfigurationProvisioningState"
+        "nullable": false,
+        "referenceName": "PrivateLinkConfigurationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subnet resource id.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceId"
+        "nullable": false,
+        "referenceName": "ResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

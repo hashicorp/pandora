@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualClusterUpdate"
+    "nullable": false,
+    "referenceName": "VirtualClusterUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualCluster"
+    "nullable": false,
+    "referenceName": "VirtualCluster",
+    "referenceNameIsCommonType": null
   }
 }

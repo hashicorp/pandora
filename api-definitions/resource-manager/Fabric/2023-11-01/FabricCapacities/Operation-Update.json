@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CapacityId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FabricCapacityUpdate"
+    "nullable": false,
+    "referenceName": "FabricCapacityUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FabricCapacity"
+    "nullable": false,
+    "referenceName": "FabricCapacity",
+    "referenceNameIsCommonType": null
   }
 }

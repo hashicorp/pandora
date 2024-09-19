@@ -1,6 +1,7 @@
 {
   "name": "ListDeploymentsAtResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ProviderRemediationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RemediationDeployment"
+    "nullable": false,
+    "referenceName": "RemediationDeployment",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listDeployments"
 }

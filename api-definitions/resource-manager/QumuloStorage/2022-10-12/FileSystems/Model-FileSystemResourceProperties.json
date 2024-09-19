@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Initial administrator password of the resource",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Availability zone",
       "jsonName": "availabilityZone",
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Zone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "File system Id of the resource",
       "jsonName": "clusterLoginUrl",
       "name": "ClusterLoginUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Delegated subnet id for Vnet injection",
       "jsonName": "delegatedSubnetId",
       "name": "DelegatedSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage capacity in TB",
       "jsonName": "initialCapacity",
       "name": "InitialCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace details",
       "jsonName": "marketplaceDetails",
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetails"
+        "nullable": false,
+        "referenceName": "MarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,14 +99,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private IPs of the resource",
       "jsonName": "privateIPs",
       "name": "PrivateIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of the resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage Sku",
       "jsonName": "storageSku",
       "name": "StorageSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSku"
+        "nullable": false,
+        "referenceName": "StorageSku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,16 +153,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Details",
       "jsonName": "userDetails",
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserDetails"
+        "nullable": false,
+        "referenceName": "UserDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

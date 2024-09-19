@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Representing supported protocols",
       "jsonName": "enabledProtocols",
       "name": "EnabledProtocols",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledProtocols"
+        "nullable": false,
+        "referenceName": "EnabledProtocols",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

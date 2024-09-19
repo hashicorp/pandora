@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IPs associated with the Firewall",
       "jsonName": "dnsServers",
       "name": "DnsServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddress"
+          "nullable": false,
+          "referenceName": "IPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable DNS proxy, disabled by default",
       "jsonName": "enableDnsProxy",
       "name": "EnableDnsProxy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DNSProxy"
+        "nullable": false,
+        "referenceName": "DNSProxy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabled DNS proxy type, disabled by default",
       "jsonName": "enabledDnsType",
       "name": "EnabledDnsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledDNSType"
+        "nullable": false,
+        "referenceName": "EnabledDNSType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

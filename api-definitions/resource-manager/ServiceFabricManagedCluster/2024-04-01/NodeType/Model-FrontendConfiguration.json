@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource Id of application gateway backend address pool. The format of the resource Id is '/subscriptions/\u003csubscriptionId\u003e/resourceGroups/\u003cresourceGroupName\u003e/providers/Microsoft.Network/applicationGateways/\u003capplicationGatewayName\u003e/backendAddressPools/\u003cbackendAddressPoolName\u003e'.",
       "jsonName": "applicationGatewayBackendAddressPoolId",
       "name": "ApplicationGatewayBackendAddressPoolId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address type of this frontend configuration. If omitted the default value is IPv4.",
       "jsonName": "ipAddressType",
       "name": "IPAddressType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddressType"
+        "nullable": false,
+        "referenceName": "IPAddressType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource Id of the Load Balancer backend address pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/\u003csubscriptionId\u003e/resourceGroups/\u003cresourceGroupName\u003e/providers/Microsoft.Network/loadBalancers/\u003cloadBalancerName\u003e/backendAddressPools/\u003cbackendAddressPoolName\u003e'.",
       "jsonName": "loadBalancerBackendAddressPoolId",
       "name": "LoadBalancerBackendAddressPoolId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource Id of the Load Balancer inbound NAT pool that the VM instances of the node type are associated with. The format of the resource Id is '/subscriptions/\u003csubscriptionId\u003e/resourceGroups/\u003cresourceGroupName\u003e/providers/Microsoft.Network/loadBalancers/\u003cloadBalancerName\u003e/inboundNatPools/\u003cinboundNatPoolName\u003e'.",
       "jsonName": "loadBalancerInboundNatPoolId",
       "name": "LoadBalancerInboundNatPoolId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

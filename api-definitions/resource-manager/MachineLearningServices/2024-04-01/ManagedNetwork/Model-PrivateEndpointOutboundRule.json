@@ -7,7 +7,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateEndpointDestination"
+        "nullable": false,
+        "referenceName": "PrivateEndpointDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutboundRule",
   "discriminatedTypeValue": "PrivateEndpoint",
   "typeHintIn": "Type"

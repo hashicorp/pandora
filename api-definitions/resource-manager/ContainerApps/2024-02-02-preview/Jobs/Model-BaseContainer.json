@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container start command arguments.",
       "jsonName": "args",
       "name": "Args",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container start command.",
       "jsonName": "command",
       "name": "Command",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container environment variables.",
       "jsonName": "env",
       "name": "Env",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EnvironmentVar"
+          "nullable": false,
+          "referenceName": "EnvironmentVar",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container image tag.",
       "jsonName": "image",
       "name": "Image",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the image. Set to CloudBuild to let the system manages the image, where user will not be able to update image through image field. Set to ContainerImage for user provided image.",
       "jsonName": "imageType",
       "name": "ImageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageType"
+        "nullable": false,
+        "referenceName": "ImageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom container name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +121,9 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerResources"
+        "nullable": false,
+        "referenceName": "ContainerResources",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,14 +132,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container volume mounts.",
       "jsonName": "volumeMounts",
       "name": "VolumeMounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VolumeMount"
+          "nullable": false,
+          "referenceName": "VolumeMount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -121,5 +152,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

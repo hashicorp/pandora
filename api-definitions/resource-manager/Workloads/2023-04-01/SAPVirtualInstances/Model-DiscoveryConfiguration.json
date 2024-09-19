@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The geo-location where the SAP system exists.",
       "jsonName": "appLocation",
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine ID of the Central Server.",
       "jsonName": "centralServerVmId",
       "name": "CentralServerVMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom storage account name for the storage account created by the service in the managed resource group created as part of VIS deployment.\u003cbr\u003e\u003cbr\u003eRefer to the storage account naming rules [here](https://learn.microsoft.com/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage).\u003cbr\u003e\u003cbr\u003eIf not provided, the service will create the storage account with a random name.",
       "jsonName": "managedRgStorageAccountName",
       "name": "ManagedRgStorageAccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SAPConfiguration",
   "discriminatedTypeValue": "Discovery",
   "typeHintIn": "ConfigurationType"

@@ -1,6 +1,7 @@
 {
   "name": "StorageTaskAssignmentInstancesReportList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "StorageTaskAssignmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageTaskReportInstance"
+    "nullable": false,
+    "referenceName": "StorageTaskReportInstance",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reports"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the filter condition for the 'where' clause which will be run on main query's result, just before the actual faceting.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The column name or query expression to sort on. Defaults to count if not present.",
       "jsonName": "sortBy",
       "name": "SortBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sorting order by the selected column (count by default).",
       "jsonName": "sortOrder",
       "name": "SortOrder",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FacetSortOrder"
+        "nullable": false,
+        "referenceName": "FacetSortOrder",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of facet rows that should be returned.",
       "jsonName": "$top",
       "name": "Top",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

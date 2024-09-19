@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the capability not being available.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the capability.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported job agent versions.",
       "jsonName": "supportedJobAgentVersions",
       "name": "SupportedJobAgentVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobAgentVersionCapability"
+          "nullable": false,
+          "referenceName": "JobAgentVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported managed instance versions.",
       "jsonName": "supportedManagedInstanceVersions",
       "name": "SupportedManagedInstanceVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedInstanceVersionCapability"
+          "nullable": false,
+          "referenceName": "ManagedInstanceVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported server versions.",
       "jsonName": "supportedServerVersions",
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapability"
+          "nullable": false,
+          "referenceName": "ServerVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +115,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

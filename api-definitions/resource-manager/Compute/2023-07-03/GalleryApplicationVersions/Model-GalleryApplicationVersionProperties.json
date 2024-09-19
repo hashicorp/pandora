@@ -7,7 +7,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryProvisioningState"
+        "nullable": false,
+        "referenceName": "GalleryProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PublishingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryApplicationVersionPublishingProfile"
+        "nullable": false,
+        "referenceName": "GalleryApplicationVersionPublishingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ReplicationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationStatus"
+        "nullable": false,
+        "referenceName": "ReplicationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SafetyProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryArtifactSafetyProfileBase"
+        "nullable": false,
+        "referenceName": "GalleryArtifactSafetyProfileBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

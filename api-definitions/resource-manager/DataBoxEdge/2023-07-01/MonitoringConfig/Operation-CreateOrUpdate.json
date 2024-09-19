@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "RoleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MonitoringMetricConfiguration"
+    "nullable": false,
+    "referenceName": "MonitoringMetricConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitoringMetricConfiguration"
+    "nullable": false,
+    "referenceName": "MonitoringMetricConfiguration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/monitoringConfig/default"
 }

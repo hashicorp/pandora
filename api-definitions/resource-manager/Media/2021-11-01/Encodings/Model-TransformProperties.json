@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An optional verbose description of the Transform.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.",
       "jsonName": "lastModified",
       "name": "LastModified",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,14 +53,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of one or more TransformOutputs that the Transform should generate.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TransformOutput"
+          "nullable": false,
+          "referenceName": "TransformOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -59,5 +73,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

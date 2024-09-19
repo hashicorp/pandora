@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of source and target servers configured to talk to this CS.",
       "jsonName": "agentCount",
       "name": "AgentCount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Agent expiry date.",
       "jsonName": "agentExpiryDate",
       "name": "AgentExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent Version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version details.",
       "jsonName": "agentVersionDetails",
       "name": "AgentVersionDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VersionDetails"
+        "nullable": false,
+        "referenceName": "VersionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available memory.",
       "jsonName": "availableMemoryInBytes",
       "name": "AvailableMemoryInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The available space.",
       "jsonName": "availableSpaceInBytes",
       "name": "AvailableSpaceInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of the CPU load.",
       "jsonName": "cpuLoad",
       "name": "CpuLoad",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CPU load status.",
       "jsonName": "cpuLoadStatus",
       "name": "CpuLoadStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CS service status.",
       "jsonName": "csServiceStatus",
       "name": "CsServiceStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database server load.",
       "jsonName": "databaseServerLoad",
       "name": "DatabaseServerLoad",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database server load status.",
       "jsonName": "databaseServerLoadStatus",
       "name": "DatabaseServerLoadStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host name.",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last heartbeat received from CS server.",
       "jsonName": "lastHeartbeat",
       "name": "LastHeartbeat",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,14 +229,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Master Target servers associated with the fabric.",
       "jsonName": "masterTargetServers",
       "name": "MasterTargetServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MasterTargetServer"
+          "nullable": false,
+          "referenceName": "MasterTargetServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -204,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The memory usage status.",
       "jsonName": "memoryUsageStatus",
       "name": "MemoryUsageStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of process servers.",
       "jsonName": "processServerCount",
       "name": "ProcessServerCount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,14 +283,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Process Servers associated with the fabric.",
       "jsonName": "processServers",
       "name": "ProcessServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProcessServer"
+          "nullable": false,
+          "referenceName": "ProcessServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -247,11 +305,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of protected servers.",
       "jsonName": "protectedServers",
       "name": "ProtectedServers",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -260,11 +321,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "PS template version.",
       "jsonName": "psTemplateVersion",
       "name": "PsTemplateVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -273,11 +337,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of replication pairs configured in this CS.",
       "jsonName": "replicationPairCount",
       "name": "ReplicationPairCount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -286,14 +353,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of run as accounts created on the server.",
       "jsonName": "runAsAccounts",
       "name": "RunAsAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunAsAccount"
+          "nullable": false,
+          "referenceName": "RunAsAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -303,11 +375,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The space usage status.",
       "jsonName": "spaceUsageStatus",
       "name": "SpaceUsageStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -317,11 +392,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "CS SSL cert expiry date.",
       "jsonName": "sslCertExpiryDate",
       "name": "SslCertExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -330,11 +408,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CS SSL cert expiry date.",
       "jsonName": "sslCertExpiryRemainingDays",
       "name": "SslCertExpiryRemainingDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -343,14 +424,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The switch provider blocking error information.",
       "jsonName": "switchProviderBlockingErrorDetails",
       "name": "SwitchProviderBlockingErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageFabricSwitchProviderBlockingErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageFabricSwitchProviderBlockingErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -360,11 +446,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of the system load.",
       "jsonName": "systemLoad",
       "name": "SystemLoad",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -373,11 +462,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The system load status.",
       "jsonName": "systemLoadStatus",
       "name": "SystemLoadStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -386,11 +478,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total memory.",
       "jsonName": "totalMemoryInBytes",
       "name": "TotalMemoryInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -399,11 +494,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total space.",
       "jsonName": "totalSpaceInBytes",
       "name": "TotalSpaceInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -412,11 +510,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version status.",
       "jsonName": "versionStatus",
       "name": "VersionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -425,11 +526,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The web load.",
       "jsonName": "webLoad",
       "name": "WebLoad",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -438,11 +542,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The web load status.",
       "jsonName": "webLoadStatus",
       "name": "WebLoadStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -450,6 +557,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FabricSpecificDetails",
   "discriminatedTypeValue": "VMware",
   "typeHintIn": "InstanceType"

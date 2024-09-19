@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cosmos DB resource auto-upgrade policy",
       "jsonName": "autoUpgradePolicy",
       "name": "AutoUpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpgradePolicyResource"
+        "nullable": false,
+        "referenceName": "AutoUpgradePolicyResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents maximum throughput container can scale up to.",
       "jsonName": "maxThroughput",
       "name": "MaxThroughput",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents target maximum throughput container can scale up to once offer is no longer in pending state.",
       "jsonName": "targetMaxThroughput",
       "name": "TargetMaxThroughput",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

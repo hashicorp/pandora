@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).",
       "jsonName": "aadResourceId",
       "name": "AadResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the credential type (key or cert) is used for service principal.",
       "jsonName": "aadServicePrincipalCredentialType",
       "name": "AadServicePrincipalCredentialType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ODataAadServicePrincipalCredentialType"
+        "nullable": false,
+        "referenceName": "ODataAadServicePrincipalCredentialType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).",
       "jsonName": "authHeaders",
       "name": "AuthHeaders",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of authentication used to connect to the OData service.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ODataAuthenticationType"
+        "nullable": false,
+        "referenceName": "ODataAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).",
       "jsonName": "azureCloudType",
       "name": "AzureCloudType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +109,9 @@
       "name": "Password",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +124,9 @@
       "name": "ServicePrincipalEmbeddedCert",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +139,9 @@
       "name": "ServicePrincipalEmbeddedCertPassword",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the application id of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +170,9 @@
       "name": "ServicePrincipalKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).",
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the OData service endpoint. Type: string (or Expression with resultType string).",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -176,16 +213,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User name of the OData service. Type: string (or Expression with resultType string).",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

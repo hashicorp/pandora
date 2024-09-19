@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk capacity in bytes.",
       "jsonName": "diskCapacityInBytes",
       "name": "DiskCapacityInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk id.",
       "jsonName": "diskId",
       "name": "DiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk name.",
       "jsonName": "diskName",
       "name": "DiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether disk is resized.",
       "jsonName": "diskResized",
       "name": "DiskResized",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The file system capacity in bytes.",
       "jsonName": "fileSystemCapacityInBytes",
       "name": "FileSystemCapacityInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health error code for the disk.",
       "jsonName": "healthErrorCode",
       "name": "HealthErrorCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last RPO calculated time.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Progress Health.",
       "jsonName": "progressHealth",
       "name": "ProgressHealth",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Progress Status.",
       "jsonName": "progressStatus",
       "name": "ProgressStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection stage.",
       "jsonName": "protectionStage",
       "name": "ProtectionStage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The PS data transit in MB.",
       "jsonName": "psDataInMB",
       "name": "PsDataInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync duration in seconds.",
       "jsonName": "resyncDurationInSeconds",
       "name": "ResyncDurationInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync last 15 minutes transferred bytes.",
       "jsonName": "resyncLast15MinutesTransferredBytes",
       "name": "ResyncLast15MinutesTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last data transfer time in UTC.",
       "jsonName": "resyncLastDataTransferTimeUTC",
       "name": "ResyncLastDataTransferTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync processed bytes.",
       "jsonName": "resyncProcessedBytes",
       "name": "ResyncProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress percentage.",
       "jsonName": "resyncProgressPercentage",
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether resync is required for this disk.",
       "jsonName": "resyncRequired",
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +278,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The resync start time.",
       "jsonName": "resyncStartTime",
       "name": "ResyncStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync total transferred bytes.",
       "jsonName": "resyncTotalTransferredBytes",
       "name": "ResyncTotalTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RPO in seconds.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +326,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source data transit in MB.",
       "jsonName": "sourceDataInMB",
       "name": "SourceDataInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,16 +342,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target data transit in MB.",
       "jsonName": "targetDataInMB",
       "name": "TargetDataInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The content of this item",
       "jsonName": "Content",
       "name": "Content",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Internally assigned unique id of the item definition.",
       "jsonName": "Id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user-defined name of the item.",
       "jsonName": "Name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsightsComponentAnalyticsItemProperties"
+        "nullable": false,
+        "referenceName": "ApplicationInsightsComponentAnalyticsItemProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.",
       "jsonName": "Scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ItemScope"
+        "nullable": false,
+        "referenceName": "ItemScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date and time in UTC when this item was created.",
       "jsonName": "TimeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date and time in UTC of the last modification that was made to this item.",
       "jsonName": "TimeModified",
       "name": "TimeModified",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enum indicating the type of the Analytics item.",
       "jsonName": "Type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ItemType"
+        "nullable": false,
+        "referenceName": "ItemType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +130,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This instance's version of the data model. This can change as new features are added.",
       "jsonName": "Version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

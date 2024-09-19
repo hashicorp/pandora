@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customs permissions required for the connector",
       "jsonName": "customs",
       "name": "Customs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomsPermission"
+          "nullable": false,
+          "referenceName": "CustomsPermission",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource provider permissions required for the connector",
       "jsonName": "resourceProvider",
       "name": "ResourceProvider",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceProvider"
+          "nullable": false,
+          "referenceName": "ResourceProvider",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

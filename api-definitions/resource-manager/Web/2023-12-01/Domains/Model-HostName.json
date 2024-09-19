@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name.",
       "jsonName": "azureResourceName",
       "name": "AzureResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the Azure resource the hostname is assigned to.",
       "jsonName": "azureResourceType",
       "name": "AzureResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourceType"
+        "nullable": false,
+        "referenceName": "AzureResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the DNS record.",
       "jsonName": "customHostNameDnsRecordType",
       "name": "CustomHostNameDnsRecordType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHostNameDnsRecordType"
+        "nullable": false,
+        "referenceName": "CustomHostNameDnsRecordType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the hostname.",
       "jsonName": "hostNameType",
       "name": "HostNameType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostNameType"
+        "nullable": false,
+        "referenceName": "HostNameType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the hostname.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager.",
       "jsonName": "siteNames",
       "name": "SiteNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -83,5 +103,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

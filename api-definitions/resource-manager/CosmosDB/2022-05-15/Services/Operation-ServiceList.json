@@ -1,6 +1,7 @@
 {
   "name": "ServiceList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServiceResourceListResult"
+    "nullable": false,
+    "referenceName": "ServiceResourceListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/services"
 }

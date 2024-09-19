@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.",
       "jsonName": "maxDegreeOfParallelismPerJob",
       "name": "MaxDegreeOfParallelismPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.",
       "jsonName": "minPriorityPerJob",
       "name": "MinPriorityPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AAD object identifier for the entity to create a policy for.",
       "jsonName": "objectId",
       "name": "ObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of AAD object the object identifier refers to.",
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AADObjectType"
+        "nullable": false,
+        "referenceName": "AADObjectType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

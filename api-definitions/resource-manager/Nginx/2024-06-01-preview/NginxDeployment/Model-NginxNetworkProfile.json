@@ -7,7 +7,9 @@
       "name": "FrontEndIPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxFrontendIPConfiguration"
+        "nullable": false,
+        "referenceName": "NginxFrontendIPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "NetworkInterfaceConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxNetworkInterfaceConfiguration"
+        "nullable": false,
+        "referenceName": "NginxNetworkInterfaceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

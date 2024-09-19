@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation time of the software update configuration, which only appears in the response.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +24,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleFrequency"
+        "nullable": false,
+        "referenceName": "ScheduleFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time software update configuration was modified, which only appears in the response.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,11 +53,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "ext run time of the update.",
       "jsonName": "nextRun",
       "name": "NextRun",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -58,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state for the software update configuration, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +86,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "the start time of the update.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +102,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pre and Post Tasks defined",
       "jsonName": "tasks",
       "name": "Tasks",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareUpdateConfigurationTasks"
+        "nullable": false,
+        "referenceName": "SoftwareUpdateConfigurationTasks",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +118,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Update specific properties of the software update configuration.",
       "jsonName": "updateConfiguration",
       "name": "UpdateConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateConfiguration"
+        "nullable": false,
+        "referenceName": "UpdateConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

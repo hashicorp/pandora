@@ -7,7 +7,9 @@
       "name": "AttributeReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperAttributeReference"
+        "nullable": false,
+        "referenceName": "MapperAttributeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only.",
       "jsonName": "attributeReferences",
       "name": "AttributeReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MapperAttributeReference"
+          "nullable": false,
+          "referenceName": "MapperAttributeReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Expression used for 'Aggregate' and 'Derived' type mapping.",
       "jsonName": "expression",
       "name": "Expression",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the function used for 'Aggregate' and 'Derived' (except 'Advanced') type mapping.",
       "jsonName": "functionName",
       "name": "FunctionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the target column.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +88,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MappingType"
+        "nullable": false,
+        "referenceName": "MappingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

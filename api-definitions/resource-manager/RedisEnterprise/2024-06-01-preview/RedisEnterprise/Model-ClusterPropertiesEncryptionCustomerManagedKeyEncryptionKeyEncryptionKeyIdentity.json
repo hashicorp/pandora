@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Only userAssignedIdentity is supported in this API version; other types may be supported in the future",
       "jsonName": "identityType",
       "name": "IdentityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmkIdentityType"
+        "nullable": false,
+        "referenceName": "CmkIdentityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/\u003csub uuid\u003e/resourceGroups/\u003cresource group\u003e/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.",
       "jsonName": "userAssignedIdentityResourceId",
       "name": "UserAssignedIdentityResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

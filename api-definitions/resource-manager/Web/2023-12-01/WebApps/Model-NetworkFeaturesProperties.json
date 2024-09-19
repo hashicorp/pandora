@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Hybrid Connections summary view.",
       "jsonName": "hybridConnections",
       "name": "HybridConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RelayServiceConnectionEntity"
+          "nullable": false,
+          "referenceName": "RelayServiceConnectionEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Hybrid Connection V2 (Service Bus) view.",
       "jsonName": "hybridConnectionsV2",
       "name": "HybridConnectionsV2",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HybridConnection"
+          "nullable": false,
+          "referenceName": "HybridConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "VirtualNetworkConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetInfo"
+        "nullable": false,
+        "referenceName": "VnetInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +62,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Virtual Network name.",
       "jsonName": "virtualNetworkName",
       "name": "VirtualNetworkName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

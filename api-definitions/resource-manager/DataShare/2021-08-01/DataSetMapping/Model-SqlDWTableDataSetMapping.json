@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sql DW data set mapping properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlDWTableDataSetMappingProperties"
+        "nullable": false,
+        "referenceName": "SqlDWTableDataSetMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSetMapping",
   "discriminatedTypeValue": "SqlDWTable",
   "typeHintIn": "Kind"

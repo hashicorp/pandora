@@ -7,10 +7,14 @@
       "name": "AcceleratorTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +24,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the customized accelerator.",
       "jsonName": "acceleratorType",
       "name": "AcceleratorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomizedAcceleratorType"
+        "nullable": false,
+        "referenceName": "CustomizedAcceleratorType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +44,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +59,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +74,9 @@
       "name": "GitRepository",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AcceleratorGitRepository"
+        "nullable": false,
+        "referenceName": "AcceleratorGitRepository",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,7 +89,9 @@
       "name": "IconUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Imports references all imports that this accelerator/fragment depends upon.",
       "jsonName": "imports",
       "name": "Imports",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,16 +122,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the customized accelerator.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomizedAcceleratorProvisioningState"
+        "nullable": false,
+        "referenceName": "CustomizedAcceleratorProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

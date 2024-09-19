@@ -3,17 +3,24 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of filter values.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Float",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -23,6 +30,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AdvancedFilter",
   "discriminatedTypeValue": "NumberInRange",
   "typeHintIn": "OperatorType"

@@ -1,6 +1,7 @@
 {
   "name": "Clone",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SimGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SimClone"
+    "nullable": false,
+    "referenceName": "SimClone",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AsyncOperationStatus"
+    "nullable": false,
+    "referenceName": "AsyncOperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/cloneSims"
 }

@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the location is primary or failover",
       "jsonName": "role",
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Role"
+        "nullable": false,
+        "referenceName": "Role",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

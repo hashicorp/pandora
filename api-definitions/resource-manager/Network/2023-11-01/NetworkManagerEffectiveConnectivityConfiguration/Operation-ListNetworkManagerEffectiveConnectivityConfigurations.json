@@ -1,6 +1,7 @@
 {
   "name": "ListNetworkManagerEffectiveConnectivityConfigurations",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "VirtualNetworkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QueryRequestOptions"
+    "nullable": false,
+    "referenceName": "QueryRequestOptions",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerEffectiveConnectivityConfigurationListResult"
+    "nullable": false,
+    "referenceName": "NetworkManagerEffectiveConnectivityConfigurationListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listNetworkManagerEffectiveConnectivityConfigurations"
 }

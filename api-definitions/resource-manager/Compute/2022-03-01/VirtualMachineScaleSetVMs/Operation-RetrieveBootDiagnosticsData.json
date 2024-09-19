@@ -1,6 +1,7 @@
 {
   "name": "RetrieveBootDiagnosticsData",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RetrieveBootDiagnosticsDataResult"
+    "nullable": false,
+    "referenceName": "RetrieveBootDiagnosticsDataResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/retrieveBootDiagnosticsData"
 }

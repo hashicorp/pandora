@@ -1,6 +1,7 @@
 {
   "name": "AdhocBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BackupInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TriggerBackupRequest"
+    "nullable": false,
+    "referenceName": "TriggerBackupRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationJobExtendedInfo"
+    "nullable": false,
+    "referenceName": "OperationJobExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backup"
 }

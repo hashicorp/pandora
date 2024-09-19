@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End time of the downtime",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,14 +20,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Possible Cause of downtime",
       "jsonName": "events",
       "name": "Events",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DetectorAbnormalTimePeriod"
+          "nullable": false,
+          "referenceName": "DetectorAbnormalTimePeriod",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,14 +42,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of proposed solutions",
       "jsonName": "solutions",
       "name": "Solutions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Solution"
+          "nullable": false,
+          "referenceName": "Solution",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,16 +65,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start time of the downtime",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

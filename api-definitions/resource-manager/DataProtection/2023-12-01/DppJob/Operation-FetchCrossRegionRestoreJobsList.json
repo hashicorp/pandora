@@ -1,6 +1,7 @@
 {
   "name": "FetchCrossRegionRestoreJobsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,11 +23,15 @@
   "resourceIdName": "ProviderLocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CrossRegionRestoreJobsRequest"
+    "nullable": false,
+    "referenceName": "CrossRegionRestoreJobsRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupJobResource"
+    "nullable": false,
+    "referenceName": "AzureBackupJobResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/fetchCrossRegionRestoreJobs"
 }

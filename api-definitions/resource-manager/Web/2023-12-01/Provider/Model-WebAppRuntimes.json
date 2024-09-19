@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linux-specific settings associated with the Java container minor version.",
       "jsonName": "linuxContainerSettings",
       "name": "LinuxContainerSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxJavaContainerSettings"
+        "nullable": false,
+        "referenceName": "LinuxJavaContainerSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linux-specific settings associated with the minor version.",
       "jsonName": "linuxRuntimeSettings",
       "name": "LinuxRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "WebAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows-specific settings associated with the Java container minor version.",
       "jsonName": "windowsContainerSettings",
       "name": "WindowsContainerSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsJavaContainerSettings"
+        "nullable": false,
+        "referenceName": "WindowsJavaContainerSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows-specific settings associated with the minor version.",
       "jsonName": "windowsRuntimeSettings",
       "name": "WindowsRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "WebAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Include path in the redirected url.",
       "jsonName": "includePath",
       "name": "IncludePath",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Include query string in the redirected url.",
       "jsonName": "includeQueryString",
       "name": "IncludeQueryString",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Path rules specifying redirect configuration.",
       "jsonName": "pathRules",
       "name": "PathRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +61,9 @@
       "name": "RedirectType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayRedirectType"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayRedirectType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +72,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Request routing specifying redirect configuration.",
       "jsonName": "requestRoutingRules",
       "name": "RequestRoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +98,9 @@
       "name": "TargetListener",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +109,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Url to redirect the request to.",
       "jsonName": "targetUrl",
       "name": "TargetUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +125,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Url path maps specifying default redirect configuration.",
       "jsonName": "urlPathMaps",
       "name": "UrlPathMaps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -117,5 +145,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

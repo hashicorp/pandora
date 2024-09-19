@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties that are associated with an event grid input containing stream data.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGridStreamInputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "EventGridStreamInputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "StreamInputDataSource",
   "discriminatedTypeValue": "Microsoft.EventGrid/EventSubscriptions",
   "typeHintIn": "Type"

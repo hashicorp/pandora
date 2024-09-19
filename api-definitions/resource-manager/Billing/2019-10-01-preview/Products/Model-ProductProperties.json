@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The availability of the product.",
       "jsonName": "availabilityId",
       "name": "AvailabilityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The frequency at which the product will be billed.",
       "jsonName": "billingFrequency",
       "name": "BillingFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingFrequency"
+        "nullable": false,
+        "referenceName": "BillingFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile to which the product is billed.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the billing profile to which the product is billed.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the customer for whom the product was purchased. The field is applicable only for Microsoft Partner Agreement billing account.",
       "jsonName": "customerDisplayName",
       "name": "CustomerDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the customer for whom the product was purchased. The field is applicable only for Microsoft Partner Agreement billing account.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the product.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date when the product will be renewed or canceled.",
       "jsonName": "endDate",
       "name": "EndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the invoice section to which the product is billed.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the invoice section to which the product is billed.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last month charges.",
       "jsonName": "lastCharge",
       "name": "LastCharge",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date of the last charge.",
       "jsonName": "lastChargeDate",
       "name": "LastChargeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent product Id.",
       "jsonName": "parentProductId",
       "name": "ParentProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the type of product.",
       "jsonName": "productType",
       "name": "ProductType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the type of product.",
       "jsonName": "productTypeId",
       "name": "ProductTypeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +246,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date when the product was purchased.",
       "jsonName": "purchaseDate",
       "name": "PurchaseDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +262,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The quantity purchased for the product.",
       "jsonName": "quantity",
       "name": "Quantity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +278,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reseller for this product.",
       "jsonName": "reseller",
       "name": "Reseller",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Reseller"
+        "nullable": false,
+        "referenceName": "Reseller",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sku description of the product.",
       "jsonName": "skuDescription",
       "name": "SkuDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sku ID of the product.",
       "jsonName": "skuId",
       "name": "SkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +326,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current status of the product.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductStatusType"
+        "nullable": false,
+        "referenceName": "ProductStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,16 +342,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of the tenant in which the product is used.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

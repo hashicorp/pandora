@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "GroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GroupUpdateParameters"
+    "nullable": false,
+    "referenceName": "GroupUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GroupContract"
+    "nullable": false,
+    "referenceName": "GroupContract",
+    "referenceNameIsCommonType": null
   }
 }

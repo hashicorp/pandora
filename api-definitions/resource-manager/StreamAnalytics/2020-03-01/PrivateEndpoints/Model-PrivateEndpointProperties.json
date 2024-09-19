@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date when this private endpoint was created.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of connections to the remote resource. Immutable after it is set.",
       "jsonName": "manualPrivateLinkServiceConnections",
       "name": "ManualPrivateLinkServiceConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceConnection"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

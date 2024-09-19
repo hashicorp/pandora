@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total amount of cost without reserved instances.",
       "jsonName": "costWithNoReservedInstances",
       "name": "CostWithNoReservedInstances",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The usage date for looking back.",
       "jsonName": "firstUsageDate",
       "name": "FirstUsageDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance Flexibility Group.",
       "jsonName": "instanceFlexibilityGroup",
       "name": "InstanceFlexibilityGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance Flexibility Ratio.",
       "jsonName": "instanceFlexibilityRatio",
       "name": "InstanceFlexibilityRatio",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of days of usage to look back for recommendation.",
       "jsonName": "lookBackPeriod",
       "name": "LookBackPeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The meter id (GUID)",
       "jsonName": "meterId",
       "name": "MeterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total estimated savings with reserved instances.",
       "jsonName": "netSavings",
       "name": "NetSavings",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The normalized Size.",
       "jsonName": "normalizedSize",
       "name": "NormalizedSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recommended quality for reserved instances.",
       "jsonName": "recommendedQuantity",
       "name": "RecommendedQuantity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recommended Quantity Normalized.",
       "jsonName": "recommendedQuantityNormalized",
       "name": "RecommendedQuantityNormalized",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The azure resource type.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Shared or single recommendation.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,14 +196,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of sku properties",
       "jsonName": "skuProperties",
       "name": "SkuProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuProperty"
+          "nullable": false,
+          "referenceName": "SkuProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -177,11 +218,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RI recommendations in one or three year terms.",
       "jsonName": "term",
       "name": "Term",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,16 +234,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total amount of cost with reserved instances.",
       "jsonName": "totalCostWithReservedInstances",
       "name": "TotalCostWithReservedInstances",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

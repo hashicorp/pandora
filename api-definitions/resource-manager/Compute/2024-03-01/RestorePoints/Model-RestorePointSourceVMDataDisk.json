@@ -7,7 +7,9 @@
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains Disk Restore Point properties.",
       "jsonName": "diskRestorePoint",
       "name": "DiskRestorePoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskRestorePointAttributes"
+        "nullable": false,
+        "referenceName": "DiskRestorePointAttributes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the initial disk size in GB for blank data disks, and the new desired size for existing OS and Data disks.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the logical unit number.",
       "jsonName": "lun",
       "name": "Lun",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "ManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the disk name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +97,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Shows true if the disk is write-accelerator enabled.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

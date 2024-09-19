@@ -1,6 +1,7 @@
 {
   "name": "RegistryComponentVersionsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RegistryComponentVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ComponentVersionResource"
+    "nullable": false,
+    "referenceName": "ComponentVersionResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ComponentVersionResource"
+    "nullable": false,
+    "referenceName": "ComponentVersionResource",
+    "referenceNameIsCommonType": null
   }
 }

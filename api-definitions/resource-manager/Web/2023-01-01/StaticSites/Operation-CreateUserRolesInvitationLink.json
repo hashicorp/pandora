@@ -1,6 +1,7 @@
 {
   "name": "CreateUserRolesInvitationLink",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "StaticSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserInvitationRequestResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserInvitationRequestResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserInvitationResponseResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserInvitationResponseResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createUserInvitation"
 }

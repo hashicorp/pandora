@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The machine configuration of the run agent.",
       "jsonName": "agentConfiguration",
       "name": "AgentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentProperties"
+        "nullable": false,
+        "referenceName": "AgentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dedicated agent pool for the run.",
       "jsonName": "agentPoolName",
       "name": "AgentPoolName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the run was scheduled.",
       "jsonName": "createTime",
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of custom registries that were logged in during this run.",
       "jsonName": "customRegistries",
       "name": "CustomRegistries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,11 +75,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the run finished.",
       "jsonName": "finishTime",
       "name": "FinishTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The image update trigger that caused the run. This is applicable if the task has base image trigger configured.",
       "jsonName": "imageUpdateTrigger",
       "name": "ImageUpdateTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageUpdateTrigger"
+        "nullable": false,
+        "referenceName": "ImageUpdateTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +107,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value that indicates whether archiving is enabled or not.",
       "jsonName": "isArchiveEnabled",
       "name": "IsArchiveEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,11 +124,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last updated time for the run.",
       "jsonName": "lastUpdatedTime",
       "name": "LastUpdatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The image description for the log artifact.",
       "jsonName": "logArtifact",
       "name": "LogArtifact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageDescriptor"
+        "nullable": false,
+        "referenceName": "ImageDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,14 +156,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of all images that were generated from the run. This is applicable if the run generates base image dependencies.",
       "jsonName": "outputImages",
       "name": "OutputImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ImageDescriptor"
+          "nullable": false,
+          "referenceName": "ImageDescriptor",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -144,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The platform properties against which the run will happen.",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformProperties"
+        "nullable": false,
+        "referenceName": "PlatformProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,11 +194,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of a run.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,11 +210,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The error message received from backend systems after the run is scheduled.",
       "jsonName": "runErrorMessage",
       "name": "RunErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the run.",
       "jsonName": "runId",
       "name": "RunId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,11 +242,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of run.",
       "jsonName": "runType",
       "name": "RunType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunType"
+        "nullable": false,
+        "referenceName": "RunType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,11 +258,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scope of the credentials that were used to login to the source registry during this run.",
       "jsonName": "sourceRegistryAuth",
       "name": "SourceRegistryAuth",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,11 +274,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source trigger that caused the run.",
       "jsonName": "sourceTrigger",
       "name": "SourceTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceTriggerDescriptor"
+        "nullable": false,
+        "referenceName": "SourceTriggerDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,11 +291,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the run started.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,11 +307,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current status of the run.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunStatus"
+        "nullable": false,
+        "referenceName": "RunStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,11 +323,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The task against which run was scheduled.",
       "jsonName": "task",
       "name": "Task",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,11 +339,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The timer trigger that caused the run.",
       "jsonName": "timerTrigger",
       "name": "TimerTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimerTriggerDescriptor"
+        "nullable": false,
+        "referenceName": "TimerTriggerDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,16 +355,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The update trigger token passed for the Run.",
       "jsonName": "updateTriggerToken",
       "name": "UpdateTriggerToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

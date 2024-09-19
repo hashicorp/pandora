@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table category.",
       "jsonName": "categories",
       "name": "Categories",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of table custom columns.",
       "jsonName": "columns",
       "name": "Columns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Column"
+          "nullable": false,
+          "referenceName": "Column",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table labels.",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of solutions the table is affiliated with",
       "jsonName": "solutions",
       "name": "Solutions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table's creator.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceEnum"
+        "nullable": false,
+        "referenceName": "SourceEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,14 +155,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of table standard columns.",
       "jsonName": "standardColumns",
       "name": "StandardColumns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Column"
+          "nullable": false,
+          "referenceName": "Column",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subtype describes what APIs can be used to interact with the table, and what features are available against it.",
       "jsonName": "tableSubType",
       "name": "TableSubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableSubTypeEnum"
+        "nullable": false,
+        "referenceName": "TableSubTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,16 +193,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table's creator.",
       "jsonName": "tableType",
       "name": "TableType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableTypeEnum"
+        "nullable": false,
+        "referenceName": "TableTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

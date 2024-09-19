@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Sub-assessment resource type",
       "jsonName": "assessedResourceType",
       "name": "AssessedResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssessedResourceType"
+        "nullable": false,
+        "referenceName": "AssessedResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "AssessedResourceType"
 }

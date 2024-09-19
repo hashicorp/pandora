@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of action detail",
       "jsonName": "actionDetails",
       "name": "ActionDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ActionDetail"
+          "nullable": false,
+          "referenceName": "ActionDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The completed time",
       "jsonName": "completedTime",
       "name": "CompletedTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +45,9 @@
       "name": "Context",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Context"
+        "nullable": false,
+        "referenceName": "Context",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The created time",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +72,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The overall state",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

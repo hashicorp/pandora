@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "On-premises agent details.",
       "jsonName": "agentDetails",
       "name": "AgentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteAgentProperties"
+        "nullable": false,
+        "referenceName": "SiteAgentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Appliance Name.",
       "jsonName": "applianceName",
       "name": "ApplianceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM ID of migration hub solution for SDS.",
       "jsonName": "discoverySolutionId",
       "name": "DiscoverySolutionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Service endpoint.",
       "jsonName": "serviceEndpoint",
       "name": "ServiceEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Service principal identity details used by agent for communication to the service.",
       "jsonName": "servicePrincipalIdentityDetails",
       "name": "ServicePrincipalIdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteSpnProperties"
+        "nullable": false,
+        "referenceName": "SiteSpnProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

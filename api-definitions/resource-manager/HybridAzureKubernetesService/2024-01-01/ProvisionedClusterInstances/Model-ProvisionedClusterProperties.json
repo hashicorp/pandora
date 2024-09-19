@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent pool properties for the provisioned cluster.",
       "jsonName": "agentPoolProfiles",
       "name": "AgentPoolProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NamedAgentPoolProfile"
+          "nullable": false,
+          "referenceName": "NamedAgentPoolProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to be applied to the cluster-autoscaler when auto scaling is enabled for the provisioned cluster.",
       "jsonName": "autoScalerProfile",
       "name": "AutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterPropertiesAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterPropertiesAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile for the underlying cloud infrastructure provider for the provisioned cluster.",
       "jsonName": "cloudProviderProfile",
       "name": "CloudProviderProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudProviderProfile"
+        "nullable": false,
+        "referenceName": "CloudProviderProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SSH restricted access profile for the VMs in the provisioned cluster.",
       "jsonName": "clusterVMAccessProfile",
       "name": "ClusterVMAccessProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterVMAccessProfile"
+        "nullable": false,
+        "referenceName": "ClusterVMAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile for control plane of the provisioned cluster.",
       "jsonName": "controlPlane",
       "name": "ControlPlane",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlPlaneProfile"
+        "nullable": false,
+        "referenceName": "ControlPlaneProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of Kubernetes in use by the provisioned cluster.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license profile of the provisioned cluster.",
       "jsonName": "licenseProfile",
       "name": "LicenseProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterLicenseProfile"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterLicenseProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile for Linux VMs in the provisioned cluster.",
       "jsonName": "linuxProfile",
       "name": "LinuxProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxProfileProperties"
+        "nullable": false,
+        "referenceName": "LinuxProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network configuration profile for the provisioned cluster.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the latest long running operation for the provisioned cluster.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The observed status of the provisioned cluster.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterPropertiesStatus"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterPropertiesStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,16 +185,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage configuration profile for the provisioned cluster.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

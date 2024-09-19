@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GraphAPICompute endpoint for the service.",
       "jsonName": "graphApiComputeEndpoint",
       "name": "GraphApiComputeEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array that contains all of the locations for the service.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GraphAPIComputeRegionalServiceResource"
+          "nullable": false,
+          "referenceName": "GraphAPIComputeRegionalServiceResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ServiceResourceProperties",
   "discriminatedTypeValue": "GraphAPICompute",
   "typeHintIn": "ServiceType"

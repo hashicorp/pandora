@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not removing this Gallery Image Version from replicated regions is allowed.",
       "jsonName": "allowDeletionOfReplicatedLocations",
       "name": "AllowDeletionOfReplicatedLocations",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of Policy Violations that have been reported for this Gallery Image Version.",
       "jsonName": "policyViolations",
       "name": "PolicyViolations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PolicyViolation"
+          "nullable": false,
+          "referenceName": "PolicyViolation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this image has been reported as violating Microsoft's policies.",
       "jsonName": "reportedForPolicyViolation",
       "name": "ReportedForPolicyViolation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

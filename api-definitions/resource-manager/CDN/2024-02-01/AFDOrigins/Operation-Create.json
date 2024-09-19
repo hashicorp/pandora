@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "OriginGroupOriginId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AFDOrigin"
+    "nullable": false,
+    "referenceName": "AFDOrigin",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AFDOrigin"
+    "nullable": false,
+    "referenceName": "AFDOrigin",
+    "referenceNameIsCommonType": null
   }
 }

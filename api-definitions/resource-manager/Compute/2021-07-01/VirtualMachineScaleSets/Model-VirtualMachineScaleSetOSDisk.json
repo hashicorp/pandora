@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the caching requirements. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **None** \u003cbr\u003e\u003cbr\u003e **ReadOnly** \u003cbr\u003e\u003cbr\u003e **ReadWrite** \u003cbr\u003e\u003cbr\u003e Default: **None for Standard storage. ReadOnly for Premium storage**",
       "jsonName": "caching",
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies how the virtual machines in the scale set should be created.\u003cbr\u003e\u003cbr\u003e The only allowed value is: **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.",
       "jsonName": "createOption",
       "name": "CreateOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskCreateOptionTypes"
+        "nullable": false,
+        "referenceName": "DiskCreateOptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ephemeral disk Settings for the operating system disk used by the virtual machine scale set.",
       "jsonName": "diffDiskSettings",
       "name": "DiffDiskSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskSettings"
+        "nullable": false,
+        "referenceName": "DiffDiskSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. \u003cbr\u003e\u003cbr\u003e This value cannot be larger than 1023 GB",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies information about the unmanaged user image to base the scale set on.",
       "jsonName": "image",
       "name": "Image",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualHardDisk"
+        "nullable": false,
+        "referenceName": "VirtualHardDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed disk parameters.",
       "jsonName": "managedDisk",
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **Windows** \u003cbr\u003e\u003cbr\u003e **Linux**",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the container urls that are used to store operating system disks for the scale set.",
       "jsonName": "vhdContainers",
       "name": "VhdContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,16 +153,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

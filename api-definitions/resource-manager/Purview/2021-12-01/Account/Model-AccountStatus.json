@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the account status code.",
       "jsonName": "accountProvisioningState",
       "name": "AccountProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountProvisioningState"
+        "nullable": false,
+        "referenceName": "AccountProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the account error details.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorModel"
+        "nullable": false,
+        "referenceName": "ErrorModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

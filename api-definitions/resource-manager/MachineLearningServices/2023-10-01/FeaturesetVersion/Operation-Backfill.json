@@ -1,6 +1,7 @@
 {
   "name": "Backfill",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "FeatureSetVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FeaturesetVersionBackfillRequest"
+    "nullable": false,
+    "referenceName": "FeaturesetVersionBackfillRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FeaturesetVersionBackfillResponse"
+    "nullable": false,
+    "referenceName": "FeaturesetVersionBackfillResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backfill"
 }

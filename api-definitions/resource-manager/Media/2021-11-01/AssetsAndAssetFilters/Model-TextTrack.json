@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the text track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The file name to the source file. This file is located in the storage container of the asset.",
       "jsonName": "fileName",
       "name": "FileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HLS specific setting for the text track.",
       "jsonName": "hlsSettings",
       "name": "HlsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HlsSettings"
+        "nullable": false,
+        "referenceName": "HlsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RFC5646 language code for the text track.",
       "jsonName": "languageCode",
       "name": "LanguageCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When PlayerVisibility is set to \"Visible\", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to \"Hidden\", the text will not be available to the client. The default value is \"Visible\".",
       "jsonName": "playerVisibility",
       "name": "PlayerVisibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Visibility"
+        "nullable": false,
+        "referenceName": "Visibility",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,6 +82,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TrackBase",
   "discriminatedTypeValue": "#Microsoft.Media.TextTrack",
   "typeHintIn": "OdataType"

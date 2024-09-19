@@ -1,6 +1,7 @@
 {
   "name": "ResendRequestEmails",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CertificateOrderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NameIdentifier"
+    "nullable": false,
+    "referenceName": "NameIdentifier",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resendRequestEmails"
 }

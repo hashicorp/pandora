@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of role assignments.",
       "jsonName": "count",
       "name": "Count",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "list of role assignments",
       "jsonName": "roleAssignmentResponse",
       "name": "RoleAssignmentResponse",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoleAssignmentDetail"
+          "nullable": false,
+          "referenceName": "RoleAssignmentDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -31,5 +39,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

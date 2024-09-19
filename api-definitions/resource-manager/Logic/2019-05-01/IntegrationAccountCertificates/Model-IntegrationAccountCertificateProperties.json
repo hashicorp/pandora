@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The changed time.",
       "jsonName": "changedTime",
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The created time.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key details in the key vault.",
       "jsonName": "key",
       "name": "Key",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultKeyReference"
+        "nullable": false,
+        "referenceName": "KeyVaultKeyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,16 +69,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public certificate.",
       "jsonName": "publicCertificate",
       "name": "PublicCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

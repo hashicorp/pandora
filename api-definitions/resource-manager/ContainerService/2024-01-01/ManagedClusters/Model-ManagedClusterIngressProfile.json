@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App Routing settings for the ingress profile. You can find an overview and onboarding guide for this feature at https://learn.microsoft.com/en-us/azure/aks/app-routing?tabs=default%2Cdeploy-app-default.",
       "jsonName": "webAppRouting",
       "name": "WebAppRouting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterIngressProfileWebAppRouting"
+        "nullable": false,
+        "referenceName": "ManagedClusterIngressProfileWebAppRouting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

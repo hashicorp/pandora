@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure resource id",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Azure resources that the resource has inbound allowed connection from",
       "jsonName": "inboundConnectedResources",
       "name": "InboundConnectedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectedResource"
+          "nullable": false,
+          "referenceName": "ConnectedResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Azure resources that the resource has outbound allowed connection to",
       "jsonName": "outboundConnectedResources",
       "name": "OutboundConnectedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectedResource"
+          "nullable": false,
+          "referenceName": "ConnectedResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SshPublicKeyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SshPublicKeyUpdateResource"
+    "nullable": false,
+    "referenceName": "SshPublicKeyUpdateResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SshPublicKeyResource"
+    "nullable": false,
+    "referenceName": "SshPublicKeyResource",
+    "referenceNameIsCommonType": null
   }
 }

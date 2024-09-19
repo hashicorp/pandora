@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "EventSourceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EventSourceUpdateParameters"
+    "nullable": false,
+    "referenceName": "EventSourceUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSourceResource"
+    "nullable": false,
+    "referenceName": "EventSourceResource",
+    "referenceNameIsCommonType": null
   }
 }

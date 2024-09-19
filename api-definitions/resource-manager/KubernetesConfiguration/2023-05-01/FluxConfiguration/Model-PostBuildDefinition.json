@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key/value pairs holding the variables to be substituted in this Kustomization.",
       "jsonName": "substitute",
       "name": "Substitute",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization.",
       "jsonName": "substituteFrom",
       "name": "SubstituteFrom",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubstituteFromDefinition"
+          "nullable": false,
+          "referenceName": "SubstituteFromDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

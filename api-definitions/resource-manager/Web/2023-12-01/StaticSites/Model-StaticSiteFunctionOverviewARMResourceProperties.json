@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name for the function",
       "jsonName": "functionName",
       "name": "FunctionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The trigger type of the function",
       "jsonName": "triggerType",
       "name": "TriggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerTypes"
+        "nullable": false,
+        "referenceName": "TriggerTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

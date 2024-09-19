@@ -1,6 +1,7 @@
 {
   "name": "OperationListByTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ApiId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagResourceContract"
+    "nullable": false,
+    "referenceName": "TagResourceContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/operationsByTags"
 }

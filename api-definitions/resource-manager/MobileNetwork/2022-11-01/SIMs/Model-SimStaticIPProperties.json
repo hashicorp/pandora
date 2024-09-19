@@ -7,7 +7,9 @@
       "name": "AttachedDataNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AttachedDataNetworkResourceId"
+        "nullable": false,
+        "referenceName": "AttachedDataNetworkResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Slice",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SliceResourceId"
+        "nullable": false,
+        "referenceName": "SliceResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +33,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The static IP configuration for the SIM to use at the defined network scope.",
       "jsonName": "staticIp",
       "name": "StaticIP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SimStaticIPPropertiesStaticIP"
+        "nullable": false,
+        "referenceName": "SimStaticIPPropertiesStaticIP",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

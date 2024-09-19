@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "LabId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetwork"
+    "nullable": false,
+    "referenceName": "VirtualNetwork",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/virtualNetworks"
 }

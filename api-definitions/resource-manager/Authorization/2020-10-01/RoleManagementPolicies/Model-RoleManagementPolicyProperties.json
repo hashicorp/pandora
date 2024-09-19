@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The role management policy description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The role management policy display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The readonly computed rule applied to the policy.",
       "jsonName": "effectiveRules",
       "name": "EffectiveRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoleManagementPolicyRule"
+          "nullable": false,
+          "referenceName": "RoleManagementPolicyRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The role management policy is default policy.",
       "jsonName": "isOrganizationDefault",
       "name": "IsOrganizationDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +77,9 @@
       "name": "LastModifiedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Principal"
+        "nullable": false,
+        "referenceName": "Principal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +89,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last modified date time.",
       "jsonName": "lastModifiedDateTime",
       "name": "LastModifiedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional properties of scope",
       "jsonName": "policyProperties",
       "name": "PolicyProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyProperties"
+        "nullable": false,
+        "referenceName": "PolicyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rule applied to the policy.",
       "jsonName": "rules",
       "name": "Rules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoleManagementPolicyRule"
+          "nullable": false,
+          "referenceName": "RoleManagementPolicyRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -116,16 +143,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The role management policy scope.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

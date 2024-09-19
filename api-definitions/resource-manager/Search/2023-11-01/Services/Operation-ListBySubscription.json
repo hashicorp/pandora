@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SearchService"
+    "nullable": false,
+    "referenceName": "SearchService",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Search/searchServices"
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "BackupFabricId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectableContainerResource"
+    "nullable": false,
+    "referenceName": "ProtectableContainerResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/protectableContainers"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -112,7 +113,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ActionRule"
+    "nullable": false,
+    "referenceName": "ActionRule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AlertsManagement/actionRules"
 }

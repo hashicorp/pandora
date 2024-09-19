@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Port number for the protocol, cannot be greater than 64000.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol type.",
       "jsonName": "protocolType",
       "name": "ProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyRuleApplicationProtocolType"
+        "nullable": false,
+        "referenceName": "FirewallPolicyRuleApplicationProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

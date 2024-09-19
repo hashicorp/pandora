@@ -1,6 +1,7 @@
 {
   "name": "RegistryCodeContainersGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "RegistryCodeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CodeContainerResource"
+    "nullable": false,
+    "referenceName": "CodeContainerResource",
+    "referenceNameIsCommonType": null
   }
 }

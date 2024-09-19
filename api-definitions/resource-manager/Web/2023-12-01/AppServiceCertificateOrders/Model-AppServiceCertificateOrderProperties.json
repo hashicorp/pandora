@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reasons why App Service Certificate is not renewable at the current moment.",
       "jsonName": "appServiceCertificateNotRenewableReasons",
       "name": "AppServiceCertificateNotRenewableReasons",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceNotRenewableReason"
+          "nullable": false,
+          "referenceName": "ResourceNotRenewableReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the certificate should be automatically renewed when it expires; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "autoRenew",
       "name": "AutoRenew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the Key Vault secret.",
       "jsonName": "certificates",
       "name": "Certificates",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AppServiceCertificate"
+          "nullable": false,
+          "referenceName": "AppServiceCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contact info",
       "jsonName": "contact",
       "name": "Contact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateOrderContact"
+        "nullable": false,
+        "referenceName": "CertificateOrderContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last CSR that was created for this order.",
       "jsonName": "csr",
       "name": "Csr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Certificate distinguished name.",
       "jsonName": "distinguishedName",
       "name": "DistinguishedName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Domain verification token.",
       "jsonName": "domainVerificationToken",
       "name": "DomainVerificationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +128,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Certificate expiration time.",
       "jsonName": "expirationTime",
       "name": "ExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Intermediate certificate.",
       "jsonName": "intermediate",
       "name": "Intermediate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDetails"
+        "nullable": false,
+        "referenceName": "CertificateDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if private key is external; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "isPrivateKeyExternal",
       "name": "IsPrivateKeyExternal",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,11 +176,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Certificate key size.",
       "jsonName": "keySize",
       "name": "KeySize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +193,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Certificate last issuance time.",
       "jsonName": "lastCertificateIssuanceTime",
       "name": "LastCertificateIssuanceTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,11 +210,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time stamp when the certificate would be auto renewed next",
       "jsonName": "nextAutoRenewalTimeStamp",
       "name": "NextAutoRenewalTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Certificate product type.",
       "jsonName": "productType",
       "name": "ProductType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateProductType"
+        "nullable": false,
+        "referenceName": "CertificateProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -196,11 +242,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of certificate order.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,11 +258,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Root certificate.",
       "jsonName": "root",
       "name": "Root",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDetails"
+        "nullable": false,
+        "referenceName": "CertificateDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,11 +274,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current serial number of the certificate.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -235,11 +290,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Signed certificate.",
       "jsonName": "signedCertificate",
       "name": "SignedCertificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDetails"
+        "nullable": false,
+        "referenceName": "CertificateDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -248,11 +306,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current order status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateOrderStatus"
+        "nullable": false,
+        "referenceName": "CertificateOrderStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -261,16 +322,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Duration in years (must be 1).",
       "jsonName": "validityInYears",
       "name": "ValidityInYears",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

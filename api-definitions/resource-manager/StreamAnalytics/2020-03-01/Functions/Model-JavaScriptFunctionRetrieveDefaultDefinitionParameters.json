@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The binding retrieval properties associated with a JavaScript function.",
       "jsonName": "bindingRetrievalProperties",
       "name": "BindingRetrievalProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JavaScriptFunctionBindingRetrievalProperties"
+        "nullable": false,
+        "referenceName": "JavaScriptFunctionBindingRetrievalProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
   "discriminatedTypeValue": "Microsoft.StreamAnalytics/JavascriptUdf",
   "typeHintIn": "BindingType"

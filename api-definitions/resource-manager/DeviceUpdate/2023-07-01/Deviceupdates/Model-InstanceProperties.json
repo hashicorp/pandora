@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent Device Update Account name which Instance belongs to.",
       "jsonName": "accountName",
       "name": "AccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "DiagnosticStorageProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticStorageProperties"
+        "nullable": false,
+        "referenceName": "DiagnosticStorageProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables or Disables the diagnostic logs collection",
       "jsonName": "enableDiagnostics",
       "name": "EnableDiagnostics",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IoT Hubs associated with the account.",
       "jsonName": "iotHubs",
       "name": "IotHubs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IotHubSettings"
+          "nullable": false,
+          "referenceName": "IotHubSettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,16 +72,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

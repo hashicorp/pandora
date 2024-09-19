@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ReplicationRecoveryPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateRecoveryPlanInput"
+    "nullable": false,
+    "referenceName": "UpdateRecoveryPlanInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryPlan"
+    "nullable": false,
+    "referenceName": "RecoveryPlan",
+    "referenceNameIsCommonType": null
   }
 }

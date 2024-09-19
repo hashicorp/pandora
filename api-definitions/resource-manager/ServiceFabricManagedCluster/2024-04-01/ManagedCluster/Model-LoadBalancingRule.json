@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port used for internal connections on the endpoint. Acceptable values are between 1 and 65535.",
       "jsonName": "backendPort",
       "name": "BackendPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values are between 1 and 65534.",
       "jsonName": "frontendPort",
       "name": "FrontendPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The load distribution policy for this rule.",
       "jsonName": "loadDistribution",
       "name": "LoadDistribution",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The prob port used by the load balancing rule. Acceptable values are between 1 and 65535.",
       "jsonName": "probePort",
       "name": "ProbePort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the reference to the load balancer probe used by the load balancing rule.",
       "jsonName": "probeProtocol",
       "name": "ProbeProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProbeProtocol"
+        "nullable": false,
+        "referenceName": "ProbeProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The probe request path. Only supported for HTTP/HTTPS probes.",
       "jsonName": "probeRequestPath",
       "name": "ProbeRequestPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the transport protocol used by the load balancing rule.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Protocol"
+        "nullable": false,
+        "referenceName": "Protocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

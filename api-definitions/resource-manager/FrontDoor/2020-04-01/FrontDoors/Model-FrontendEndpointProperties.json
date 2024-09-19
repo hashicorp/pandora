@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration specifying how to enable HTTPS",
       "jsonName": "customHttpsConfiguration",
       "name": "CustomHTTPSConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSConfiguration"
+        "nullable": false,
+        "referenceName": "CustomHTTPSConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning status of Custom Https of the frontendEndpoint.",
       "jsonName": "customHttpsProvisioningState",
       "name": "CustomHTTPSProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningState"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.",
       "jsonName": "customHttpsProvisioningSubstate",
       "name": "CustomHTTPSProvisioningSubstate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningSubstate"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningSubstate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host name of the frontendEndpoint. Must be a domain name.",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource status.",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'",
       "jsonName": "sessionAffinityEnabledState",
       "name": "SessionAffinityEnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionAffinityEnabledState"
+        "nullable": false,
+        "referenceName": "SessionAffinityEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UNUSED. This field will be ignored. The TTL to use in seconds for session affinity, if applicable.",
       "jsonName": "sessionAffinityTtlSeconds",
       "name": "SessionAffinityTtlSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the Web Application Firewall policy for each host (if applicable)",
       "jsonName": "webApplicationFirewallPolicyLink",
       "name": "WebApplicationFirewallPolicyLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink"
+        "nullable": false,
+        "referenceName": "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

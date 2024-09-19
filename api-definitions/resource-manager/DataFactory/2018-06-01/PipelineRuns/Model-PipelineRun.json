@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration of a pipeline run.",
       "jsonName": "durationInMs",
       "name": "DurationInMs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Entity that started the pipeline run.",
       "jsonName": "invokedBy",
       "name": "InvokedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineRunInvokedBy"
+        "nullable": false,
+        "referenceName": "PipelineRunInvokedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the recovered pipeline run is the latest in its group.",
       "jsonName": "isLatest",
       "name": "IsLatest",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last updated timestamp for the pipeline run event in ISO8601 format.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The message from a pipeline run.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,14 +84,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The full or partial list of parameter name, value pair used in the pipeline run.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pipeline name.",
       "jsonName": "pipelineName",
       "name": "PipelineName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,14 +122,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Run dimensions emitted by Pipeline run.",
       "jsonName": "runDimensions",
       "name": "RunDimensions",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -117,11 +145,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time of a pipeline run in ISO8601 format.",
       "jsonName": "runEnd",
       "name": "RunEnd",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifier that correlates all the recovery runs of a pipeline run.",
       "jsonName": "runGroupId",
       "name": "RunGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifier of a run.",
       "jsonName": "runId",
       "name": "RunId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,11 +194,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time of a pipeline run in ISO8601 format.",
       "jsonName": "runStart",
       "name": "RunStart",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,16 +210,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of a pipeline run. Possible values: Queued, InProgress, Succeeded, Failed, Canceling, Cancelled",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

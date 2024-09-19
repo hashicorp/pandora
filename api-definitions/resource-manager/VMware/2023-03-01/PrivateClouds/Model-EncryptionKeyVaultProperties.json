@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto-detected version of the key if versionType is auto-detected.",
       "jsonName": "autoDetectedKeyVersion",
       "name": "AutoDetectedKeyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the key.",
       "jsonName": "keyName",
       "name": "KeyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of key provided",
       "jsonName": "keyState",
       "name": "KeyState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeyStatus"
+        "nullable": false,
+        "referenceName": "EncryptionKeyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the vault.",
       "jsonName": "keyVaultUrl",
       "name": "KeyVaultUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the key.",
       "jsonName": "keyVersion",
       "name": "KeyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property of the key if user provided or auto detected",
       "jsonName": "versionType",
       "name": "VersionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionVersionType"
+        "nullable": false,
+        "referenceName": "EncryptionVersionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

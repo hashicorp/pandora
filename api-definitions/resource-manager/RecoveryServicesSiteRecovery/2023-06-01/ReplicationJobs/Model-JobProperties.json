@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activity id.",
       "jsonName": "activityId",
       "name": "ActivityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Allowed action the job.",
       "jsonName": "allowedActions",
       "name": "AllowedActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom job details like test failover job details.",
       "jsonName": "customDetails",
       "name": "CustomDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobDetails"
+        "nullable": false,
+        "referenceName": "JobDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +58,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,14 +74,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The errors.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobErrorDetails"
+          "nullable": false,
+          "referenceName": "JobErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -77,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DisplayName.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ScenarioName.",
       "jsonName": "scenarioName",
       "name": "ScenarioName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -104,11 +129,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the Job. It is one of these values - NotStarted, InProgress, Succeeded, Failed, Cancelled, Suspended or Other.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the state of the Job. For e.g. - For Succeeded state, description can be Completed, PartiallySucceeded, CompletedWithInformation or Skipped.",
       "jsonName": "stateDescription",
       "name": "StateDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the affected object which is of Microsoft.Azure.SiteRecovery.V2015_11_10.AffectedObjectType class.",
       "jsonName": "targetInstanceType",
       "name": "TargetInstanceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The affected Object Id.",
       "jsonName": "targetObjectId",
       "name": "TargetObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,11 +209,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the affected object.",
       "jsonName": "targetObjectName",
       "name": "TargetObjectName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,14 +225,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tasks.",
       "jsonName": "tasks",
       "name": "Tasks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ASRTask"
+          "nullable": false,
+          "referenceName": "ASRTask",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,5 +245,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

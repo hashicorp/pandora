@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures this gateway to accept traffic from non Virtual WAN networks.",
       "jsonName": "allowNonVirtualWanTraffic",
       "name": "AllowNonVirtualWanTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration for auto scaling.",
       "jsonName": "autoScaleConfiguration",
       "name": "AutoScaleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfiguration"
+        "nullable": false,
+        "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of ExpressRoute connections to the ExpressRoute gateway.",
       "jsonName": "expressRouteConnections",
       "name": "ExpressRouteConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressRouteConnection"
+          "nullable": false,
+          "referenceName": "ExpressRouteConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +61,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +72,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Virtual Hub where the ExpressRoute gateway is or will be deployed.",
       "jsonName": "virtualHub",
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualHubId"
+        "nullable": false,
+        "referenceName": "VirtualHubId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

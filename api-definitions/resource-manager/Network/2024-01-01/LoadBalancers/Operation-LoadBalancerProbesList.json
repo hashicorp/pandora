@@ -1,6 +1,7 @@
 {
   "name": "LoadBalancerProbesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ProviderLoadBalancerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Probe"
+    "nullable": false,
+    "referenceName": "Probe",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/probes"
 }

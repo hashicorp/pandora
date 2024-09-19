@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field for a given condition.",
       "jsonName": "field",
       "name": "Field",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Field"
+        "nullable": false,
+        "referenceName": "Field",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operator for a given condition.",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Operator"
+        "nullable": false,
+        "referenceName": "Operator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of values to match for a given condition.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has comparison expression for a dimension",
       "jsonName": "dimensions",
       "name": "Dimensions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetComparisonExpression"
+        "nullable": false,
+        "referenceName": "BudgetComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has comparison expression for a tag",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetComparisonExpression"
+        "nullable": false,
+        "referenceName": "BudgetComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

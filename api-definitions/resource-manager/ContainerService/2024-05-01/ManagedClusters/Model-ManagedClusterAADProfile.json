@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of AAD group object IDs that will have admin role of the cluster.",
       "jsonName": "adminGroupObjectIDs",
       "name": "AdminGroupObjectIDs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.",
       "jsonName": "clientAppID",
       "name": "ClientAppID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable Azure RBAC for Kubernetes authorization.",
       "jsonName": "enableAzureRBAC",
       "name": "EnableAzureRBAC",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable managed AAD.",
       "jsonName": "managed",
       "name": "Managed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(DEPRECATED) The server AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.",
       "jsonName": "serverAppID",
       "name": "ServerAppID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(DEPRECATED) The server AAD application secret. Learn more at https://aka.ms/aks/aad-legacy.",
       "jsonName": "serverAppSecret",
       "name": "ServerAppSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,16 +105,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AAD tenant ID to use for authentication. If not specified, will use the tenant of the deployment subscription.",
       "jsonName": "tenantID",
       "name": "TenantID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

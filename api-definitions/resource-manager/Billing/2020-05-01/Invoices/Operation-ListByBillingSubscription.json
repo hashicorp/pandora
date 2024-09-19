@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingSubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "BillingSubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Invoice"
+    "nullable": false,
+    "referenceName": "Invoice",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/invoices"
 }

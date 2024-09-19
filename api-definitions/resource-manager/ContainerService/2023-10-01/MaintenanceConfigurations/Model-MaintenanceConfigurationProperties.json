@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maintenance window for the maintenance configuration.",
       "jsonName": "maintenanceWindow",
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceWindow"
+        "nullable": false,
+        "referenceName": "MaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time slots on which upgrade is not allowed.",
       "jsonName": "notAllowedTime",
       "name": "NotAllowedTime",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeSpan"
+          "nullable": false,
+          "referenceName": "TimeSpan",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.",
       "jsonName": "timeInWeek",
       "name": "TimeInWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeInWeek"
+          "nullable": false,
+          "referenceName": "TimeInWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

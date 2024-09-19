@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Standard error output stream from the powershell execution",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error message if the script was able to run, but if the script itself had\nerrors or powershell threw an exception",
       "jsonName": "failureReason",
       "name": "FailureReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time the script execution was finished",
       "jsonName": "finishedAt",
       "name": "FinishedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,14 +58,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters that will be hidden/not visible to ARM, such as passwords and\ncredentials",
       "jsonName": "hiddenParameters",
       "name": "HiddenParameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScriptExecutionParameter"
+          "nullable": false,
+          "referenceName": "ScriptExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -64,14 +80,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Standard information out stream from the powershell execution",
       "jsonName": "information",
       "name": "Information",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -81,14 +102,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User-defined dictionary.",
       "jsonName": "namedOutputs",
       "name": "NamedOutputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,14 +124,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Standard output stream from the powershell execution",
       "jsonName": "output",
       "name": "Output",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,14 +146,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters the script will accept",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScriptExecutionParameter"
+          "nullable": false,
+          "referenceName": "ScriptExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,11 +168,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the script execution resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptExecutionProvisioningState"
+        "nullable": false,
+        "referenceName": "ScriptExecutionProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +184,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time to live for the resource. If not provided, will be available for 60 days",
       "jsonName": "retention",
       "name": "Retention",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +200,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A reference to the script cmdlet resource if user is running a AVS script",
       "jsonName": "scriptCmdletId",
       "name": "ScriptCmdletId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +217,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time the script execution was started",
       "jsonName": "startedAt",
       "name": "StartedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +234,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time the script execution was submitted",
       "jsonName": "submittedAt",
       "name": "SubmittedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +250,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time limit for execution",
       "jsonName": "timeout",
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -212,14 +266,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Standard warning out stream from the powershell execution",
       "jsonName": "warnings",
       "name": "Warnings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -227,5 +286,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data type for indicators connection.",
       "jsonName": "indicators",
       "name": "Indicators",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

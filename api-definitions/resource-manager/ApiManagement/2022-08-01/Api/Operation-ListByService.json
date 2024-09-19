@@ -1,6 +1,7 @@
 {
   "name": "ListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -62,7 +63,9 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiContract"
+    "nullable": false,
+    "referenceName": "ApiContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/apis"
 }

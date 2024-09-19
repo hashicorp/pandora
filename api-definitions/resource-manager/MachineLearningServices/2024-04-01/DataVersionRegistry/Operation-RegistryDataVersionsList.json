@@ -1,6 +1,7 @@
 {
   "name": "RegistryDataVersionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -62,7 +63,9 @@
   "resourceIdName": "DataId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataVersionBaseResource"
+    "nullable": false,
+    "referenceName": "DataVersionBaseResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

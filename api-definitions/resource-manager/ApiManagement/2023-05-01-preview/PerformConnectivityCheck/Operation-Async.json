@@ -1,6 +1,7 @@
 {
   "name": "Async",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectivityCheckRequest"
+    "nullable": false,
+    "referenceName": "ConnectivityCheckRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectivityCheckResponse"
+    "nullable": false,
+    "referenceName": "ConnectivityCheckResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/connectivityCheck"
 }

@@ -1,6 +1,7 @@
 {
   "name": "BareMetalMachineKeySetsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BareMetalMachineKeySetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachineKeySetPatchParameters"
+    "nullable": false,
+    "referenceName": "BareMetalMachineKeySetPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachineKeySet"
+    "nullable": false,
+    "referenceName": "BareMetalMachineKeySet",
+    "referenceNameIsCommonType": null
   }
 }

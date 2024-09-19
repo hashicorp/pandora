@@ -1,6 +1,7 @@
 {
   "name": "ListSupportedOptimizationTypes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportedOptimizationTypesListResult"
+    "nullable": false,
+    "referenceName": "SupportedOptimizationTypesListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getSupportedOptimizationTypes"
 }

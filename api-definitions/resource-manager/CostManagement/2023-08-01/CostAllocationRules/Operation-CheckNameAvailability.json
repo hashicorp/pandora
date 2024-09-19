@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CostAllocationRuleCheckNameAvailabilityRequest"
+    "nullable": false,
+    "referenceName": "CostAllocationRuleCheckNameAvailabilityRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CostAllocationRuleCheckNameAvailabilityResponse"
+    "nullable": false,
+    "referenceName": "CostAllocationRuleCheckNameAvailabilityResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/costAllocationRules/checkNameAvailability"
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceNotificationRecipientUserListByNotification",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "NotificationNotificationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecipientUserContract"
+    "nullable": false,
+    "referenceName": "RecipientUserContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/recipientUsers"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The API key used to authenticate with Request-Response endpoint.",
       "jsonName": "apiKey",
       "name": "ApiKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number between 1 and 10000 describing maximum number of rows for every Azure ML RRS execute request. Default is 1000.",
       "jsonName": "batchSize",
       "name": "BatchSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Request-Response execute endpoint of the Azure Machine Learning web service.",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Label for the input request object.",
       "jsonName": "inputRequestName",
       "name": "InputRequestName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The inputs for the Azure Machine Learning web service endpoint.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureMachineLearningServiceInputColumn"
+          "nullable": false,
+          "referenceName": "AzureMachineLearningServiceInputColumn",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of parallel requests that will be sent per partition of your job to the machine learning service. Default is 1.",
       "jsonName": "numberOfParallelRequests",
       "name": "NumberOfParallelRequests",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Label for the output request object.",
       "jsonName": "outputResponseName",
       "name": "OutputResponseName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of outputs from the Azure Machine Learning web service endpoint execution.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureMachineLearningServiceOutputColumn"
+          "nullable": false,
+          "referenceName": "AzureMachineLearningServiceOutputColumn",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,5 +141,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

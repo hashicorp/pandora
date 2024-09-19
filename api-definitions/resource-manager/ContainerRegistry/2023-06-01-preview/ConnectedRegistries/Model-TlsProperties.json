@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The certificate used to configure HTTPS for the login server.",
       "jsonName": "certificate",
       "name": "Certificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsCertificateProperties"
+        "nullable": false,
+        "referenceName": "TlsCertificateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether HTTPS is enabled for the login server.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsStatus"
+        "nullable": false,
+        "referenceName": "TlsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Associated resources.",
       "jsonName": "association",
       "name": "Association",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EffectiveNetworkSecurityGroupAssociation"
+        "nullable": false,
+        "referenceName": "EffectiveNetworkSecurityGroupAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of effective security rules.",
       "jsonName": "effectiveSecurityRules",
       "name": "EffectiveSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EffectiveNetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "EffectiveNetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +45,9 @@
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,17 +56,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of tags to list of IP Addresses included within the tag.",
       "jsonName": "tagMap",
       "name": "TagMap",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -65,5 +82,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

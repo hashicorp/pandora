@@ -1,6 +1,7 @@
 {
   "name": "TriggerRehydrate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "BackupInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupRehydrationRequest"
+    "nullable": false,
+    "referenceName": "AzureBackupRehydrationRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/rehydrate"
 }

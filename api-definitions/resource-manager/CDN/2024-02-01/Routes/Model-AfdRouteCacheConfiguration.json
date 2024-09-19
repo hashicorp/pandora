@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "compression settings.",
       "jsonName": "compressionSettings",
       "name": "CompressionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompressionSettings"
+        "nullable": false,
+        "referenceName": "CompressionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "query parameters to include or exclude (comma separated).",
       "jsonName": "queryParameters",
       "name": "QueryParameters",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.",
       "jsonName": "queryStringCachingBehavior",
       "name": "QueryStringCachingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdQueryStringCachingBehavior"
+        "nullable": false,
+        "referenceName": "AfdQueryStringCachingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

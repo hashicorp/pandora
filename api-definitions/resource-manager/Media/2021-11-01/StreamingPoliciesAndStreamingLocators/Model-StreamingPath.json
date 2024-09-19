@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Encryption scheme",
       "jsonName": "encryptionScheme",
       "name": "EncryptionScheme",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionScheme"
+        "nullable": false,
+        "referenceName": "EncryptionScheme",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Streaming paths for each protocol and encryptionScheme pair",
       "jsonName": "paths",
       "name": "Paths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Streaming protocol",
       "jsonName": "streamingProtocol",
       "name": "StreamingProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingPolicyStreamingProtocol"
+        "nullable": false,
+        "referenceName": "StreamingPolicyStreamingProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties describing how the cloud is distributed across availability zones",
       "jsonName": "availability",
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityProperties"
+        "nullable": false,
+        "referenceName": "AvailabilityProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An ExpressRoute Circuit",
       "jsonName": "circuit",
       "name": "Circuit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Circuit"
+        "nullable": false,
+        "referenceName": "Circuit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer managed key encryption, can be enabled or disabled",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoints",
       "jsonName": "endpoints",
       "name": "Endpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Endpoints"
+        "nullable": false,
+        "referenceName": "Endpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of cloud link IDs from other clouds that connect to this one",
       "jsonName": "externalCloudLinks",
       "name": "ExternalCloudLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "vCenter Single Sign On Identity Sources",
       "jsonName": "identitySources",
       "name": "IdentitySources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IdentitySource"
+          "nullable": false,
+          "referenceName": "IdentitySource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connectivity to internet is enabled or disabled",
       "jsonName": "internet",
       "name": "Internet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InternetEnum"
+        "nullable": false,
+        "referenceName": "InternetEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default cluster used for management",
       "jsonName": "managementCluster",
       "name": "ManagementCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommonClusterProperties"
+        "nullable": false,
+        "referenceName": "CommonClusterProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network used to access vCenter Server and NSX-T Manager",
       "jsonName": "managementNetwork",
       "name": "ManagementNetwork",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22",
       "jsonName": "networkBlock",
       "name": "NetworkBlock",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024",
       "jsonName": "nsxPublicIpQuotaRaised",
       "name": "NsxPublicIPQuotaRaised",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NsxPublicIPQuotaRaisedEnum"
+        "nullable": false,
+        "referenceName": "NsxPublicIPQuotaRaisedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Thumbprint of the NSX-T Manager SSL certificate",
       "jsonName": "nsxtCertificateThumbprint",
       "name": "NsxtCertificateThumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optionally, set the NSX-T Manager password when the private cloud is created",
       "jsonName": "nsxtPassword",
       "name": "NsxtPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used for virtual machine cold migration, cloning, and snapshot migration",
       "jsonName": "provisioningNetwork",
       "name": "ProvisioningNetwork",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateCloudProvisioningState"
+        "nullable": false,
+        "referenceName": "PrivateCloudProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud",
       "jsonName": "secondaryCircuit",
       "name": "SecondaryCircuit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Circuit"
+        "nullable": false,
+        "referenceName": "Circuit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +271,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used for live migration of virtual machines",
       "jsonName": "vmotionNetwork",
       "name": "VMotionNetwork",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +287,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Thumbprint of the vCenter Server SSL certificate",
       "jsonName": "vcenterCertificateThumbprint",
       "name": "VcenterCertificateThumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,16 +303,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optionally, set the vCenter admin password when the private cloud is created",
       "jsonName": "vcenterPassword",
       "name": "VcenterPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

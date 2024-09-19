@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unhealthy replica information",
       "jsonName": "unhealthyReplicaInfo",
       "name": "UnhealthyReplicaInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UnhealthyReplicaInfo"
+        "nullable": false,
+        "referenceName": "UnhealthyReplicaInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

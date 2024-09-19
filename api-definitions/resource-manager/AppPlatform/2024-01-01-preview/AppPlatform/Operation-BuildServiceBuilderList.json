@@ -1,6 +1,7 @@
 {
   "name": "BuildServiceBuilderList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "BuildServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BuilderResource"
+    "nullable": false,
+    "referenceName": "BuilderResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/builders"
 }

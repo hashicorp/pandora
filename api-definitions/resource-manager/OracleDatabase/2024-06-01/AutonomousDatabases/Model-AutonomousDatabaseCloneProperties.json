@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Autonomous Database clone type.",
       "jsonName": "cloneType",
       "name": "CloneType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloneType"
+        "nullable": false,
+        "referenceName": "CloneType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the refreshable clone can be reconnected to its source database.",
       "jsonName": "isReconnectCloneEnabled",
       "name": "IsReconnectCloneEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the Autonomous Database is a refreshable clone.",
       "jsonName": "isRefreshableClone",
       "name": "IsRefreshableClone",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The refresh mode of the clone.",
       "jsonName": "refreshableModel",
       "name": "RefreshableModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshableModelType"
+        "nullable": false,
+        "referenceName": "RefreshableModelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The refresh status of the clone.",
       "jsonName": "refreshableStatus",
       "name": "RefreshableStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshableStatusType"
+        "nullable": false,
+        "referenceName": "RefreshableStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source of the database.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceType"
+        "nullable": false,
+        "referenceName": "SourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure ID of the Autonomous Database that was cloned to create the current Autonomous Database.",
       "jsonName": "sourceId",
       "name": "SourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time and date as an RFC3339 formatted string, e.g., 2022-01-01T12:00:00.000Z, to set the limit for a refreshable clone to be reconnected to its source database.",
       "jsonName": "timeUntilReconnectCloneEnabled",
       "name": "TimeUntilReconnectCloneEnabled",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,6 +130,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutonomousDatabaseBaseProperties",
   "discriminatedTypeValue": "Clone",
   "typeHintIn": "DataBaseType"

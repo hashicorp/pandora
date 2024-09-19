@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. Minimum api-version: 2020-06-01.",
       "jsonName": "assignedHost",
       "name": "AssignedHost",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "BootDiagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BootDiagnosticsInstanceView"
+        "nullable": false,
+        "referenceName": "BootDiagnosticsInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the host OS name of the virtual machine. \u003cbr\u003e\u003cbr\u003e This name cannot be updated after the VM is created. \u003cbr\u003e\u003cbr\u003e **Max-length (Windows):** 15 characters \u003cbr\u003e\u003cbr\u003e **Max-length (Linux):** 64 characters. \u003cbr\u003e\u003cbr\u003e For naming conventions and restrictions see [Azure infrastructure services implementation guidelines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-infrastructure-subscription-accounts-guidelines?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#1-naming-conventions).",
       "jsonName": "computerName",
       "name": "ComputerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disks information.",
       "jsonName": "disks",
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskInstanceView"
+          "nullable": false,
+          "referenceName": "DiskInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +72,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extensions information.",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineExtensionInstanceView"
+          "nullable": false,
+          "referenceName": "VirtualMachineExtensionInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hypervisor generation of the Virtual Machine [V1, V2]",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +114,9 @@
       "name": "MaintenanceRedeployStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceRedeployStatus"
+        "nullable": false,
+        "referenceName": "MaintenanceRedeployStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +125,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Operating System running on the hybrid machine.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +141,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of Operating System running on the hybrid machine.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +157,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId.",
       "jsonName": "placementGroupId",
       "name": "PlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +173,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Fault Domain count.",
       "jsonName": "platformFaultDomain",
       "name": "PlatformFaultDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Update Domain count.",
       "jsonName": "platformUpdateDomain",
       "name": "PlatformUpdateDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Remote desktop certificate thumbprint.",
       "jsonName": "rdpThumbPrint",
       "name": "RdpThumbPrint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +221,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource status information.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,7 +247,9 @@
       "name": "VMAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineAgentInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineAgentInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,12 +262,15 @@
       "name": "VMHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineHealthStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineHealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

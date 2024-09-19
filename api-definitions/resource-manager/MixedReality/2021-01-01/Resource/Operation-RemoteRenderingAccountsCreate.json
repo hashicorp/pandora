@@ -1,6 +1,7 @@
 {
   "name": "RemoteRenderingAccountsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RemoteRenderingAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RemoteRenderingAccount"
+    "nullable": false,
+    "referenceName": "RemoteRenderingAccount",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RemoteRenderingAccount"
+    "nullable": false,
+    "referenceName": "RemoteRenderingAccount",
+    "referenceNameIsCommonType": null
   }
 }

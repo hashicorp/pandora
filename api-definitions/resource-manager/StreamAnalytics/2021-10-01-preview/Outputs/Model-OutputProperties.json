@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "datasource",
       "name": "Datasource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputDataSource"
+        "nullable": false,
+        "referenceName": "OutputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Diagnostics"
+        "nullable": false,
+        "referenceName": "Diagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.",
       "jsonName": "etag",
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of the last output event times for each output partition. The index of the array corresponds to the partition number.",
       "jsonName": "lastOutputEventTimestamps",
       "name": "LastOutputEventTimestamps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LastOutputEventTimestamp"
+          "nullable": false,
+          "referenceName": "LastOutputEventTimestamp",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +76,9 @@
       "name": "Serialization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Serialization"
+        "nullable": false,
+        "referenceName": "Serialization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +87,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size window to constrain a Stream Analytics output to.",
       "jsonName": "sizeWindow",
       "name": "SizeWindow",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +103,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time frame for filtering Stream Analytics job outputs.",
       "jsonName": "timeWindow",
       "name": "TimeWindow",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +119,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings which determine whether to send watermarks to downstream.",
       "jsonName": "watermarkSettings",
       "name": "WatermarkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputWatermarkProperties"
+        "nullable": false,
+        "referenceName": "OutputWatermarkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

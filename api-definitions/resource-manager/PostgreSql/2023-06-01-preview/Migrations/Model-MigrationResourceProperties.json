@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To trigger cancel for entire migration we need to send this flag as True",
       "jsonName": "cancel",
       "name": "Cancel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CancelEnum"
+        "nullable": false,
+        "referenceName": "CancelEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of migration",
       "jsonName": "currentStatus",
       "name": "CurrentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationStatus"
+        "nullable": false,
+        "referenceName": "MigrationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When you want to trigger cancel for specific databases send cancel flag as True and database names in this array",
       "jsonName": "dbsToCancelMigrationOn",
       "name": "DbsToCancelMigrationOn",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of databases to migrate",
       "jsonName": "dbsToMigrate",
       "name": "DbsToMigrate",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array",
       "jsonName": "dbsToTriggerCutoverOn",
       "name": "DbsToTriggerCutoverOn",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ID for migration, a GUID.",
       "jsonName": "migrationId",
       "name": "MigrationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "There are two types of migration modes Online and Offline",
       "jsonName": "migrationMode",
       "name": "MigrationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationMode"
+        "nullable": false,
+        "referenceName": "MigrationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This indicates the supported Migration option for the migration",
       "jsonName": "migrationOption",
       "name": "MigrationOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationOption"
+        "nullable": false,
+        "referenceName": "MigrationOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +150,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End time in UTC for migration window",
       "jsonName": "migrationWindowEndTimeInUtc",
       "name": "MigrationWindowEndTimeInUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +167,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start time in UTC for migration window",
       "jsonName": "migrationWindowStartTimeInUtc",
       "name": "MigrationWindowStartTimeInUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +183,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.",
       "jsonName": "overwriteDbsInTarget",
       "name": "OverwriteDbsInTarget",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OverwriteDbsInTargetEnum"
+        "nullable": false,
+        "referenceName": "OverwriteDbsInTargetEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +199,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Migration secret parameters",
       "jsonName": "secretParameters",
       "name": "SecretParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationSecretParameters"
+        "nullable": false,
+        "referenceName": "MigrationSecretParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to setup LogicalReplicationOnSourceDb, if needed",
       "jsonName": "setupLogicalReplicationOnSourceDbIfNeeded",
       "name": "SetupLogicalReplicationOnSourceDbIfNeeded",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogicalReplicationOnSourceDbEnum"
+        "nullable": false,
+        "referenceName": "LogicalReplicationOnSourceDbEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +231,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection",
       "jsonName": "sourceDbServerFullyQualifiedDomainName",
       "name": "SourceDbServerFullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata of the source database server",
       "jsonName": "sourceDbServerMetadata",
       "name": "SourceDbServerMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DbServerMetadata"
+        "nullable": false,
+        "referenceName": "DbServerMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,11 +263,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username",
       "jsonName": "sourceDbServerResourceId",
       "name": "SourceDbServerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,11 +279,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "migration source server type : OnPremises, AWS, GCP, AzureVM or PostgreSQLSingleServer",
       "jsonName": "sourceType",
       "name": "SourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceType"
+        "nullable": false,
+        "referenceName": "SourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -238,11 +295,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types",
       "jsonName": "sslMode",
       "name": "SslMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslMode"
+        "nullable": false,
+        "referenceName": "SslMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,11 +311,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the data migration should start right away",
       "jsonName": "startDataMigration",
       "name": "StartDataMigration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StartDataMigrationEnum"
+        "nullable": false,
+        "referenceName": "StartDataMigrationEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,11 +327,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection",
       "jsonName": "targetDbServerFullyQualifiedDomainName",
       "name": "TargetDbServerFullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -277,11 +343,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata of the target database server",
       "jsonName": "targetDbServerMetadata",
       "name": "TargetDbServerMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DbServerMetadata"
+        "nullable": false,
+        "referenceName": "DbServerMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,11 +359,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ResourceId of the source database server",
       "jsonName": "targetDbServerResourceId",
       "name": "TargetDbServerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -303,16 +375,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To trigger cutover for entire migration we need to send this flag as True",
       "jsonName": "triggerCutover",
       "name": "TriggerCutover",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerCutoverEnum"
+        "nullable": false,
+        "referenceName": "TriggerCutoverEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

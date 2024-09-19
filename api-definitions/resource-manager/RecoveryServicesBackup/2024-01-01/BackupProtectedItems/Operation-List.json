@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "VaultId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectedItemResource"
+    "nullable": false,
+    "referenceName": "ProtectedItemResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupProtectedItems"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Trigger",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ProtectedItemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupRequestResource"
+    "nullable": false,
+    "referenceName": "BackupRequestResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backup"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListByManagedInstance",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -82,7 +83,9 @@
   "resourceIdName": "SqlManagedInstanceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TopQueries"
+    "nullable": false,
+    "referenceName": "TopQueries",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/topqueries"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not private link is enabled.",
       "jsonName": "privateLink",
       "name": "PrivateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLink"
+        "nullable": false,
+        "referenceName": "PrivateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The direction for the resource provider connection.",
       "jsonName": "resourceProviderConnection",
       "name": "ResourceProviderConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProviderConnection"
+        "nullable": false,
+        "referenceName": "ResourceProviderConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

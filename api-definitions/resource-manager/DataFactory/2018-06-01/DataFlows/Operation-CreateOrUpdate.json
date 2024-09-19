@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "DataflowId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataFlowResource"
+    "nullable": false,
+    "referenceName": "DataFlowResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataFlowResource"
+    "nullable": false,
+    "referenceName": "DataFlowResource",
+    "referenceNameIsCommonType": null
   }
 }

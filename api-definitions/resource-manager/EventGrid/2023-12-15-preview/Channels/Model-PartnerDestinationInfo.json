@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure subscription ID of the subscriber. The partner destination associated with the channel will be\r\ncreated under this Azure subscription.",
       "jsonName": "azureSubscriptionId",
       "name": "AzureSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional context of the partner destination endpoint.",
       "jsonName": "endpointServiceContext",
       "name": "EndpointServiceContext",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Type of the endpoint for the partner destination",
       "jsonName": "endpointType",
       "name": "EndpointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerEndpointType"
+        "nullable": false,
+        "referenceName": "PartnerEndpointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the partner destination associated with the channel.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Resource Group of the subscriber. The partner destination associated with the channel will be\r\ncreated under this resource group.",
       "jsonName": "resourceGroupName",
       "name": "ResourceGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Change history of the resource move.",
       "jsonName": "resourceMoveChangeHistory",
       "name": "ResourceMoveChangeHistory",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceMoveChangeHistory"
+          "nullable": false,
+          "referenceName": "ResourceMoveChangeHistory",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,5 +104,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "EndpointType"
 }

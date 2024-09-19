@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of content validation properties",
       "jsonName": "ContentValidation",
       "name": "ContentValidation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebTestPropertiesValidationRulesContentValidation"
+        "nullable": false,
+        "referenceName": "WebTestPropertiesValidationRulesContentValidation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Validate that the WebTest returns the http status code provided.",
       "jsonName": "ExpectedHttpStatusCode",
       "name": "ExpectedHTTPStatusCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When set, validation will ignore the status code.",
       "jsonName": "IgnoreHttpStatusCode",
       "name": "IgnoreHTTPStatusCode",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A number of days to check still remain before the the existing SSL cert expires.  Value must be positive and the SSLCheck must be set to true.",
       "jsonName": "SSLCertRemainingLifetimeCheck",
       "name": "SSLCertRemainingLifetimeCheck",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Checks to see if the SSL cert is still valid.",
       "jsonName": "SSLCheck",
       "name": "SSLCheck",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

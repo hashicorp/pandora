@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Instance count for the service.",
       "jsonName": "instanceCount",
       "name": "InstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "InstanceSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceSize"
+        "nullable": false,
+        "referenceName": "ServiceSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "ServiceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceType"
+        "nullable": false,
+        "referenceName": "ServiceType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +48,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ServiceType"
 }

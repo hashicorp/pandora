@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the class type.",
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source tier from where RP needs to be moved",
       "jsonName": "sourceTierType",
       "name": "SourceTierType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointTierType"
+        "nullable": false,
+        "referenceName": "RecoveryPointTierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target tier where RP needs to be moved",
       "jsonName": "targetTierType",
       "name": "TargetTierType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointTierType"
+        "nullable": false,
+        "referenceName": "RecoveryPointTierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

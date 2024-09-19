@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of processes per MPI node.",
       "jsonName": "processCountPerInstance",
       "name": "ProcessCountPerInstance",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DistributionConfiguration",
   "discriminatedTypeValue": "Mpi",
   "typeHintIn": "DistributionType"

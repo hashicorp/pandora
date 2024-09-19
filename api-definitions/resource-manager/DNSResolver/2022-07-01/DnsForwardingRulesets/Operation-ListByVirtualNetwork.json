@@ -1,6 +1,7 @@
 {
   "name": "ListByVirtualNetwork",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "VirtualNetworkId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkDnsForwardingRuleset"
+    "nullable": false,
+    "referenceName": "VirtualNetworkDnsForwardingRuleset",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listDnsForwardingRulesets"
 }

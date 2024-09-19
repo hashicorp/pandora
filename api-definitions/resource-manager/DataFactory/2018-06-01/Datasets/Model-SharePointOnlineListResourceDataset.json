@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sharepoint online list dataset properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharePointOnlineListDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "SharePointOnlineListDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "SharePointOnlineListResource",
   "typeHintIn": "Type"

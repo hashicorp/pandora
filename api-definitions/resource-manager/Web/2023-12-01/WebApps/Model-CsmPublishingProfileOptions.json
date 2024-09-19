@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the format. Valid values are: \nFileZilla3\nWebDeploy -- default\nFtp",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublishingProfileFormat"
+        "nullable": false,
+        "referenceName": "PublishingProfileFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Include the DisasterRecover endpoint if true",
       "jsonName": "includeDisasterRecoveryEndpoints",
       "name": "IncludeDisasterRecoveryEndpoints",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

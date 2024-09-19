@@ -1,6 +1,7 @@
 {
   "name": "ScheduleRun",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "RegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RunRequest"
+    "nullable": false,
+    "referenceName": "RunRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Run"
+    "nullable": false,
+    "referenceName": "Run",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/scheduleRun"
 }

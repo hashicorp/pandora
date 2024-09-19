@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year",
       "jsonName": "cacheDuration",
       "name": "CacheDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to use dynamic compression for cached content",
       "jsonName": "dynamicCompression",
       "name": "DynamicCompression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicCompressionEnabled"
+        "nullable": false,
+        "referenceName": "DynamicCompressionEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Treatment of URL query terms when forming the cache key.",
       "jsonName": "queryParameterStripDirective",
       "name": "QueryParameterStripDirective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorQuery"
+        "nullable": false,
+        "referenceName": "FrontDoorQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "query parameters to include or exclude (comma separated).",
       "jsonName": "queryParameters",
       "name": "QueryParameters",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

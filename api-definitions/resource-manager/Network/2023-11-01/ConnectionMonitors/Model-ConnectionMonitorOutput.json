@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connection monitor output destination type. Currently, only \"Workspace\" is supported.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputType"
+        "nullable": false,
+        "referenceName": "OutputType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the settings for producing output into a log analytics workspace.",
       "jsonName": "workspaceSettings",
       "name": "WorkspaceSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorWorkspaceSettings"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorWorkspaceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time the factory was created in ISO8601 format.",
       "jsonName": "createTime",
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties to enable Customer Managed Key for the factory.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionConfiguration"
+        "nullable": false,
+        "referenceName": "EncryptionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of parameters for factory.",
       "jsonName": "globalParameters",
       "name": "GlobalParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GlobalParameterSpecification"
+          "nullable": false,
+          "referenceName": "GlobalParameterSpecification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Factory provisioning state, example Succeeded.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not public network access is allowed for the data factory.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purview information of the factory.",
       "jsonName": "purviewConfiguration",
       "name": "PurviewConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurviewConfiguration"
+        "nullable": false,
+        "referenceName": "PurviewConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repo information of the factory.",
       "jsonName": "repoConfiguration",
       "name": "RepoConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FactoryRepoConfiguration"
+        "nullable": false,
+        "referenceName": "FactoryRepoConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,16 +122,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the factory.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM resource ID of the code asset.",
       "jsonName": "codeId",
       "name": "CodeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The command to execute on startup of the job. eg. \"python train.py\"",
       "jsonName": "command",
       "name": "Command",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null.",
       "jsonName": "distribution",
       "name": "Distribution",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DistributionConfiguration"
+        "nullable": false,
+        "referenceName": "DistributionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The ARM resource ID of the Environment specification for the job.",
       "jsonName": "environmentId",
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment variables included in the job.",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of input data bindings used in the job.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobInput"
+          "nullable": false,
+          "referenceName": "JobInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Command Job limit.",
       "jsonName": "limits",
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobLimits"
+        "nullable": false,
+        "referenceName": "JobLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of output data bindings used in the job.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input parameters.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Queue settings for the job",
       "jsonName": "queueSettings",
       "name": "QueueSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueSettings"
+        "nullable": false,
+        "referenceName": "QueueSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute Resource configuration for the job.",
       "jsonName": "resources",
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobResourceConfiguration"
+        "nullable": false,
+        "referenceName": "JobResourceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,6 +196,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobBase",
   "discriminatedTypeValue": "Command",
   "typeHintIn": "JobType"

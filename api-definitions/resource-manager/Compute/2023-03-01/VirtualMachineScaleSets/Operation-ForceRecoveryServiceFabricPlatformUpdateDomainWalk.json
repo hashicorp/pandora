@@ -1,6 +1,7 @@
 {
   "name": "ForceRecoveryServiceFabricPlatformUpdateDomainWalk",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "VirtualMachineScaleSetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryWalkResponse"
+    "nullable": false,
+    "referenceName": "RecoveryWalkResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/forceRecoveryServiceFabricPlatformUpdateDomainWalk"
 }

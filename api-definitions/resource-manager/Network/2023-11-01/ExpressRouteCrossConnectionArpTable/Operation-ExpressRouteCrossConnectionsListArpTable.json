@@ -1,6 +1,7 @@
 {
   "name": "ExpressRouteCrossConnectionsListArpTable",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -11,6 +12,8 @@
   "resourceIdName": "PeeringArpTableId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExpressRouteCircuitArpTable"
+    "nullable": false,
+    "referenceName": "ExpressRouteCircuitArpTable",
+    "referenceNameIsCommonType": null
   }
 }

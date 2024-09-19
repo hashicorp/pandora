@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RSA algorithm to be used: RS256, RS384 or RS512.",
       "jsonName": "alg",
       "name": "Alg",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessPolicyRsaAlgo"
+        "nullable": false,
+        "referenceName": "AccessPolicyRsaAlgo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RSA public key exponent.",
       "jsonName": "e",
       "name": "E",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "RSA public key modulus.",
       "jsonName": "n",
       "name": "N",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TokenKey",
   "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.RsaTokenKey",
   "typeHintIn": "Type"

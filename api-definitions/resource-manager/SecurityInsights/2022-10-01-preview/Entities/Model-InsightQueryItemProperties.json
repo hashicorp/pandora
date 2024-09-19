@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activity query definitions.",
       "jsonName": "additionalQuery",
       "name": "AdditionalQuery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesAdditionalQuery"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesAdditionalQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The base query of the insight.",
       "jsonName": "baseQuery",
       "name": "BaseQuery",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight chart query.",
       "jsonName": "chartQuery",
       "name": "ChartQuery",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data types for template",
       "jsonName": "dataTypes",
       "name": "DataTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityQueryItemPropertiesDataTypesInlined"
+          "nullable": false,
+          "referenceName": "EntityQueryItemPropertiesDataTypesInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight chart query.",
       "jsonName": "defaultTimeRange",
       "name": "DefaultTimeRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesDefaultTimeRange"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesDefaultTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The query applied only to entities matching to all filters",
       "jsonName": "entitiesFilter",
       "name": "EntitiesFilter",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +141,9 @@
       "name": "InputEntityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityType"
+        "nullable": false,
+        "referenceName": "EntityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +152,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight chart query.",
       "jsonName": "referenceTimeRange",
       "name": "ReferenceTimeRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesReferenceTimeRange"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesReferenceTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,17 +168,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data types for template",
       "jsonName": "requiredInputFieldsSets",
       "name": "RequiredInputFieldsSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -158,16 +196,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight table query.",
       "jsonName": "tableQuery",
       "name": "TableQuery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesTableQuery"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesTableQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

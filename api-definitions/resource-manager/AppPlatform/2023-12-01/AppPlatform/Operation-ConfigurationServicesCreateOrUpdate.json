@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationServicesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ConfigurationServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationServiceResource"
+    "nullable": false,
+    "referenceName": "ConfigurationServiceResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationServiceResource"
+    "nullable": false,
+    "referenceName": "ConfigurationServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

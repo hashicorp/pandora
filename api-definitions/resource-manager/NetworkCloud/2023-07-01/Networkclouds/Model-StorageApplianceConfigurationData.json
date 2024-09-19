@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The credentials of the administrative interface on this storage appliance.",
       "jsonName": "adminCredentials",
       "name": "AdminCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdministrativeCredentials"
+        "nullable": false,
+        "referenceName": "AdministrativeCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The slot that storage appliance is in the rack based on the BOM configuration.",
       "jsonName": "rackSlot",
       "name": "RackSlot",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The serial number of the appliance.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user-provided name for the storage appliance that will be created from this specification.",
       "jsonName": "storageApplianceName",
       "name": "StorageApplianceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

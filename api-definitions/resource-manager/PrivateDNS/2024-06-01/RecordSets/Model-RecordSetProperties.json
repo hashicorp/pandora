@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of A records in the record set.",
       "jsonName": "aRecords",
       "name": "ARecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ARecord"
+          "nullable": false,
+          "referenceName": "ARecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of AAAA records in the record set.",
       "jsonName": "aaaaRecords",
       "name": "AaaaRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AaaaRecord"
+          "nullable": false,
+          "referenceName": "AaaaRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CNAME record in the record set.",
       "jsonName": "cnameRecord",
       "name": "CnameRecord",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CnameRecord"
+        "nullable": false,
+        "referenceName": "CnameRecord",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified domain name of the record set.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is the record set auto-registered in the Private DNS zone through a virtual network link?",
       "jsonName": "isAutoRegistered",
       "name": "IsAutoRegistered",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata attached to the record set.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of MX records in the record set.",
       "jsonName": "mxRecords",
       "name": "MxRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MxRecord"
+          "nullable": false,
+          "referenceName": "MxRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +139,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of PTR records in the record set.",
       "jsonName": "ptrRecords",
       "name": "PtrRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PtrRecord"
+          "nullable": false,
+          "referenceName": "PtrRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SOA record in the record set.",
       "jsonName": "soaRecord",
       "name": "SoaRecord",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoaRecord"
+        "nullable": false,
+        "referenceName": "SoaRecord",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,14 +177,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of SRV records in the record set.",
       "jsonName": "srvRecords",
       "name": "SrvRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SrvRecord"
+          "nullable": false,
+          "referenceName": "SrvRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -157,11 +199,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The TTL (time-to-live) of the records in the record set.",
       "jsonName": "ttl",
       "name": "Ttl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,14 +215,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of TXT records in the record set.",
       "jsonName": "txtRecords",
       "name": "TxtRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TxtRecord"
+          "nullable": false,
+          "referenceName": "TxtRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -185,5 +235,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

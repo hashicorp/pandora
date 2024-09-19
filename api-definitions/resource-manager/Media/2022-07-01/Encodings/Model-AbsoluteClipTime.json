@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time position on the timeline of the input media. It is usually specified as an ISO8601 period. e.g PT30S for 30 seconds.",
       "jsonName": "time",
       "name": "Time",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ClipTime",
   "discriminatedTypeValue": "#Microsoft.Media.AbsoluteClipTime",
   "typeHintIn": "OdataType"

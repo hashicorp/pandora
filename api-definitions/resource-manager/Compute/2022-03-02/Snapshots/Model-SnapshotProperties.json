@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Percentage complete for the background copy when a resource is created via the CopyStart operation.",
       "jsonName": "completionPercent",
       "name": "CompletionPercent",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "CopyCompletionError",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyCompletionError"
+        "nullable": false,
+        "referenceName": "CopyCompletionError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "CreationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreationData"
+        "nullable": false,
+        "referenceName": "CreationData",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +53,9 @@
       "name": "DataAccessAuthMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataAccessAuthMode"
+        "nullable": false,
+        "referenceName": "DataAccessAuthMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +64,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the DiskAccess resource for using private endpoints on disks.",
       "jsonName": "diskAccessId",
       "name": "DiskAccessId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the disk in bytes. This field is read only.",
       "jsonName": "diskSizeBytes",
       "name": "DiskSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +116,9 @@
       "name": "DiskState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskState"
+        "nullable": false,
+        "referenceName": "DiskState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +131,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +146,9 @@
       "name": "EncryptionSettingsCollection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionSettingsCollection"
+        "nullable": false,
+        "referenceName": "EncryptionSettingsCollection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +157,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hypervisor generation of the Virtual Machine. Applicable to OS disks only.",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +173,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.",
       "jsonName": "incremental",
       "name": "Incremental",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +193,9 @@
       "name": "NetworkAccessPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAccessPolicy"
+        "nullable": false,
+        "referenceName": "NetworkAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Operating System type.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +220,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,7 +240,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,7 +255,9 @@
       "name": "PurchasePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurchasePlan"
+        "nullable": false,
+        "referenceName": "PurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,7 +270,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskSecurityProfile"
+        "nullable": false,
+        "referenceName": "DiskSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,7 +285,9 @@
       "name": "SupportedCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedCapabilities"
+        "nullable": false,
+        "referenceName": "SupportedCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +296,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the OS on a snapshot supports hibernation.",
       "jsonName": "supportsHibernation",
       "name": "SupportsHibernation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -264,11 +313,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the snapshot was created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -277,16 +329,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Guid identifying the resource.",
       "jsonName": "uniqueId",
       "name": "UniqueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

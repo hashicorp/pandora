@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint of the Azure CosmosDB account. Type: string (or Expression with resultType string)",
       "jsonName": "accountEndpoint",
       "name": "AccountEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "AccountKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).",
       "jsonName": "azureCloudType",
       "name": "AzureCloudType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection mode used to access CosmosDB account. Type: string.",
       "jsonName": "connectionMode",
       "name": "ConnectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CosmosDbConnectionMode"
+        "nullable": false,
+        "referenceName": "CosmosDbConnectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection string. Type: string, SecureString or AzureKeyVaultSecretReference.",
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +86,9 @@
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CredentialReference"
+        "nullable": false,
+        "referenceName": "CredentialReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the database. Type: string (or Expression with resultType string)",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +133,9 @@
       "name": "ServicePrincipalCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretBase"
+        "nullable": false,
+        "referenceName": "SecretBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service principal credential type to use in Server-To-Server authentication. 'ServicePrincipalKey' for key/secret, 'ServicePrincipalCert' for certificate. Type: string.",
       "jsonName": "servicePrincipalCredentialType",
       "name": "ServicePrincipalCredentialType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client ID of the application in Azure Active Directory used for Server-To-Server authentication. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +176,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name or ID of the tenant to which the service principal belongs. Type: string (or Expression with resultType string).",
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

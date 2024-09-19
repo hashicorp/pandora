@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify what happens to the network interface when the VM is deleted",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the primary network interface in case the virtual machine has more than 1 network interface.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

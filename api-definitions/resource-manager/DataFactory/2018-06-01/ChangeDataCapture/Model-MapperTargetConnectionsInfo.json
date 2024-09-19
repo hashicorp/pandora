@@ -7,7 +7,9 @@
       "name": "Connection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperConnection"
+        "nullable": false,
+        "referenceName": "MapperConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of table mappings.",
       "jsonName": "dataMapperMappings",
       "name": "DataMapperMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataMapperMapping"
+          "nullable": false,
+          "referenceName": "DataMapperMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of relationship info among the tables.",
       "jsonName": "relationships",
       "name": "Relationships",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +62,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of source tables for a target connection.",
       "jsonName": "targetEntities",
       "name": "TargetEntities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MapperTable"
+          "nullable": false,
+          "referenceName": "MapperTable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,5 +82,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

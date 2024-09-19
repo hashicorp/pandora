@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Estimated Install Time for the update",
       "jsonName": "estimatedInstallTimeInMins",
       "name": "EstimatedInstallTimeInMins",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly Version Number",
       "jsonName": "friendlyVersionNumber",
       "name": "FriendlyVersionNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Impact of Installing an updateType",
       "jsonName": "installationImpact",
       "name": "InstallationImpact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallationImpact"
+        "nullable": false,
+        "referenceName": "InstallationImpact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if updates are available and at least one of the updates needs a reboot.",
       "jsonName": "rebootBehavior",
       "name": "RebootBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallRebootBehavior"
+        "nullable": false,
+        "referenceName": "InstallRebootBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the update.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateStatus"
+        "nullable": false,
+        "referenceName": "UpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target Version number",
       "jsonName": "targetVersion",
       "name": "TargetVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the update(In Bytes)",
       "jsonName": "updateSize",
       "name": "UpdateSize",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Title of the Update",
       "jsonName": "updateTitle",
       "name": "UpdateTitle",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,16 +131,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the Update",
       "jsonName": "updateType",
       "name": "UpdateType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateType"
+        "nullable": false,
+        "referenceName": "UpdateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ProviderAssessmentMetadataId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecurityAssessmentMetadata"
+    "nullable": false,
+    "referenceName": "SecurityAssessmentMetadata",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityAssessmentMetadata"
+    "nullable": false,
+    "referenceName": "SecurityAssessmentMetadata",
+    "referenceNameIsCommonType": null
   }
 }

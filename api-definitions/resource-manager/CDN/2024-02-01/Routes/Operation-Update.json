@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "RouteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RouteUpdateParameters"
+    "nullable": false,
+    "referenceName": "RouteUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Route"
+    "nullable": false,
+    "referenceName": "Route",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input Asset Delivery Mode.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputDeliveryMode"
+        "nullable": false,
+        "referenceName": "InputDeliveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Input Asset URI.",
       "jsonName": "uri",
       "name": "Uri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobInput",
   "discriminatedTypeValue": "uri_folder",
   "typeHintIn": "JobInputType"

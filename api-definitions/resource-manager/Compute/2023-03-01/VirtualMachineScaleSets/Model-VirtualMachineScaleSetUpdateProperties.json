@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "AdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Policy for automatic repairs.",
       "jsonName": "automaticRepairsPolicy",
       "name": "AutomaticRepairsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticRepairsPolicy"
+        "nullable": false,
+        "referenceName": "AutomaticRepairsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.",
       "jsonName": "doNotRunExtensionsOnOverprovisionedVMs",
       "name": "DoNotRunExtensionsOnOverprovisionedVMs",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned.",
       "jsonName": "overprovision",
       "name": "Overprovision",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.",
       "jsonName": "priorityMixPolicy",
       "name": "PriorityMixPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PriorityMixPolicy"
+        "nullable": false,
+        "referenceName": "PriorityMixPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +86,9 @@
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.",
       "jsonName": "scaleInPolicy",
       "name": "ScaleInPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleInPolicy"
+        "nullable": false,
+        "referenceName": "ScaleInPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.",
       "jsonName": "singlePlacementGroup",
       "name": "SinglePlacementGroup",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +129,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Spot Restore properties for the virtual machine scale set.",
       "jsonName": "spotRestorePolicy",
       "name": "SpotRestorePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpotRestorePolicy"
+        "nullable": false,
+        "referenceName": "SpotRestorePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +145,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The upgrade policy.",
       "jsonName": "upgradePolicy",
       "name": "UpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradePolicy"
+        "nullable": false,
+        "referenceName": "UpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,16 +161,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine profile.",
       "jsonName": "virtualMachineProfile",
       "name": "VirtualMachineProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateVMProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateVMProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

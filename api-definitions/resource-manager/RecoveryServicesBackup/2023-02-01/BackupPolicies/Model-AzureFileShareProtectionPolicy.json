@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention policy with the details on backup copy retention ranges.",
       "jsonName": "retentionPolicy",
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup schedule specified as part of backup policy.",
       "jsonName": "schedulePolicy",
       "name": "SchedulePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchedulePolicy"
+        "nullable": false,
+        "referenceName": "SchedulePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of workload for the backup management",
       "jsonName": "workLoadType",
       "name": "WorkLoadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadType"
+        "nullable": false,
+        "referenceName": "WorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionPolicy",
   "discriminatedTypeValue": "AzureStorage",
   "typeHintIn": "BackupManagementType"

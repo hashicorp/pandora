@@ -1,6 +1,7 @@
 {
   "name": "AutoscaleSettingsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AutoScaleSettingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AutoscaleSettingResourcePatch"
+    "nullable": false,
+    "referenceName": "AutoscaleSettingResourcePatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AutoscaleSettingResource"
+    "nullable": false,
+    "referenceName": "AutoscaleSettingResource",
+    "referenceNameIsCommonType": null
   }
 }

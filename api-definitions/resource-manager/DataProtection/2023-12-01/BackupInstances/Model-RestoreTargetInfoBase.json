@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Type of Datasource object, used to initialize the right inherited type",
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery Option",
       "jsonName": "recoveryOption",
       "name": "RecoveryOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryOption"
+        "nullable": false,
+        "referenceName": "RecoveryOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target Restore region",
       "jsonName": "restoreLocation",
       "name": "RestoreLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,5 +50,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ObjectType"
 }

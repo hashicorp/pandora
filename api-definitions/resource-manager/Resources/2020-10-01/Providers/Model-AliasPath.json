@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The API versions.",
       "jsonName": "apiVersions",
       "name": "ApiVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata of the alias path. If missing, fall back to the default metadata of the alias.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AliasPathMetadata"
+        "nullable": false,
+        "referenceName": "AliasPathMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path of an alias.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pattern for an alias path.",
       "jsonName": "pattern",
       "name": "Pattern",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AliasPattern"
+        "nullable": false,
+        "referenceName": "AliasPattern",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

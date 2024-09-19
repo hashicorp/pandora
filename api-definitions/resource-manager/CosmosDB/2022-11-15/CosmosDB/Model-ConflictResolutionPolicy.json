@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The conflict resolution path in the case of LastWriterWins mode.",
       "jsonName": "conflictResolutionPath",
       "name": "ConflictResolutionPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The procedure to resolve conflicts in the case of custom mode.",
       "jsonName": "conflictResolutionProcedure",
       "name": "ConflictResolutionProcedure",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the conflict resolution mode.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConflictResolutionMode"
+        "nullable": false,
+        "referenceName": "ConflictResolutionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

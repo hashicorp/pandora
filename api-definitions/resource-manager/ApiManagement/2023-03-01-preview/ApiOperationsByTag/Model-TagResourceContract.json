@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "API associated with the tag.",
       "jsonName": "api",
       "name": "Api",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "ApiTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation associated with the tag.",
       "jsonName": "operation",
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "OperationTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Product associated with the tag.",
       "jsonName": "product",
       "name": "Product",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "ProductTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tag associated with the resource.",
       "jsonName": "tag",
       "name": "Tag",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TagTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "TagTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

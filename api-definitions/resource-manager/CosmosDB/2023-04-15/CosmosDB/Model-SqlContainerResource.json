@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Analytical TTL.",
       "jsonName": "analyticalStorageTtl",
       "name": "AnalyticalStorageTtl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client encryption policy for the container.",
       "jsonName": "clientEncryptionPolicy",
       "name": "ClientEncryptionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientEncryptionPolicy"
+        "nullable": false,
+        "referenceName": "ClientEncryptionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The conflict resolution policy for the container.",
       "jsonName": "conflictResolutionPolicy",
       "name": "ConflictResolutionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConflictResolutionPolicy"
+        "nullable": false,
+        "referenceName": "ConflictResolutionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default time to live",
       "jsonName": "defaultTtl",
       "name": "DefaultTtl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Cosmos DB SQL container",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container",
       "jsonName": "indexingPolicy",
       "name": "IndexingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndexingPolicy"
+        "nullable": false,
+        "referenceName": "IndexingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of the partition key to be used for partitioning data into multiple partitions",
       "jsonName": "partitionKey",
       "name": "PartitionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerPartitionKey"
+        "nullable": false,
+        "referenceName": "ContainerPartitionKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.",
       "jsonName": "uniqueKeyPolicy",
       "name": "UniqueKeyPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UniqueKeyPolicy"
+        "nullable": false,
+        "referenceName": "UniqueKeyPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

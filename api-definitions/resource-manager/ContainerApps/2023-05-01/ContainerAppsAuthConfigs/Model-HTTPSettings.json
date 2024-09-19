@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of a forward proxy used to make the requests.",
       "jsonName": "forwardProxy",
       "name": "ForwardProxy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardProxy"
+        "nullable": false,
+        "referenceName": "ForwardProxy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003efalse\u003c/code\u003e if the authentication/authorization responses not having the HTTPS scheme are permissible; otherwise, \u003ccode\u003etrue\u003c/code\u003e.",
       "jsonName": "requireHttps",
       "name": "RequireHTTPS",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the paths HTTP requests.",
       "jsonName": "routes",
       "name": "Routes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSettingsRoutes"
+        "nullable": false,
+        "referenceName": "HTTPSettingsRoutes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The factory resource id.",
       "jsonName": "factoryResourceId",
       "name": "FactoryResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git repo information of the factory.",
       "jsonName": "repoConfiguration",
       "name": "RepoConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FactoryRepoConfiguration"
+        "nullable": false,
+        "referenceName": "FactoryRepoConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

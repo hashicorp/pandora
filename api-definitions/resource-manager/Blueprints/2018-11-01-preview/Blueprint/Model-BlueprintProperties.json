@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Multi-line explain this resource.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "One-liner string explain this resource.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Layout view of the blueprint definition for UI reference.",
       "jsonName": "layout",
       "name": "Layout",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters required by this blueprint definition.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ParameterDefinition"
+          "nullable": false,
+          "referenceName": "ParameterDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource group placeholders defined by this blueprint definition.",
       "jsonName": "resourceGroups",
       "name": "ResourceGroups",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceGroupDefinition"
+          "nullable": false,
+          "referenceName": "ResourceGroupDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the blueprint. This field is readonly.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlueprintResourceStatusBase"
+        "nullable": false,
+        "referenceName": "BlueprintResourceStatusBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scope where this blueprint definition can be assigned.",
       "jsonName": "targetScope",
       "name": "TargetScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlueprintTargetScope"
+        "nullable": false,
+        "referenceName": "BlueprintTargetScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,16 +127,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Published versions of this blueprint definition.",
       "jsonName": "versions",
       "name": "Versions",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

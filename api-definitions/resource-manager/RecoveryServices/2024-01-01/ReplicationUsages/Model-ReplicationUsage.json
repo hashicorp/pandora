@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of the replication jobs data for this vault.",
       "jsonName": "jobsSummary",
       "name": "JobsSummary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobsSummary"
+        "nullable": false,
+        "referenceName": "JobsSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of the replication monitoring data for this vault.",
       "jsonName": "monitoringSummary",
       "name": "MonitoringSummary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSummary"
+        "nullable": false,
+        "referenceName": "MonitoringSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of replication protected items for this vault.",
       "jsonName": "protectedItemCount",
       "name": "ProtectedItemCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of replication recovery plans for this vault.",
       "jsonName": "recoveryPlanCount",
       "name": "RecoveryPlanCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication type of recovery service providers in the vault.",
       "jsonName": "recoveryServicesProviderAuthType",
       "name": "RecoveryServicesProviderAuthType",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of servers registered to this vault.",
       "jsonName": "registeredServersCount",
       "name": "RegisteredServersCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Device Mappings.",
       "jsonName": "deviceMapping",
       "name": "DeviceMapping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotMappingProperties"
+        "nullable": false,
+        "referenceName": "IotMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source configuration.",
       "jsonName": "ingestionEndpointConfiguration",
       "name": "IngestionEndpointConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotEventHubIngestionEndpointConfiguration"
+        "nullable": false,
+        "referenceName": "IotEventHubIngestionEndpointConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

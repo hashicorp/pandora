@@ -1,6 +1,7 @@
 {
   "name": "PrivateLinkHubGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "PrivateLinkHubPrivateEndpointConnectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionForPrivateLinkHub"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionForPrivateLinkHub",
+    "referenceNameIsCommonType": null
   }
 }

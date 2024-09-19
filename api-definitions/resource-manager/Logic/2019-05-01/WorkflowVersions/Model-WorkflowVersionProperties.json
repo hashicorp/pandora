@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access control configuration.",
       "jsonName": "accessControl",
       "name": "AccessControl",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowAccessControlConfiguration"
+        "nullable": false,
+        "referenceName": "FlowAccessControlConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the access endpoint.",
       "jsonName": "accessEndpoint",
       "name": "AccessEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the changed time.",
       "jsonName": "changedTime",
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the created time.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The definition.",
       "jsonName": "definition",
       "name": "Definition",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoints configuration.",
       "jsonName": "endpointsConfiguration",
       "name": "EndpointsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowEndpointsConfiguration"
+        "nullable": false,
+        "referenceName": "FlowEndpointsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The integration account.",
       "jsonName": "integrationAccount",
       "name": "IntegrationAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The parameters.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkflowParameter"
+          "nullable": false,
+          "referenceName": "WorkflowParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkflowProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sku.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowState"
+        "nullable": false,
+        "referenceName": "WorkflowState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,16 +187,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for overrides.",
       "jsonName": "overrideSettings",
       "name": "OverrideSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeOverrideSettings"
+        "nullable": false,
+        "referenceName": "UpgradeOverrideSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

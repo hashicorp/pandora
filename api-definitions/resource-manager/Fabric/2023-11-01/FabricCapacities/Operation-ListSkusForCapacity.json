@@ -1,6 +1,7 @@
 {
   "name": "ListSkusForCapacity",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "CapacityId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RpSkuDetailsForExistingResource"
+    "nullable": false,
+    "referenceName": "RpSkuDetailsForExistingResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/skus"
 }

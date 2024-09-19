@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time to wait (in seconds) while trying to execute a command before terminating the attempt and generating an error. Set to zero for infinity. Type: integer.",
       "jsonName": "commandTimeout",
       "name": "CommandTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time to wait (in seconds) while trying to establish a connection before terminating the attempt and generating an error. Type: integer.",
       "jsonName": "connectionTimeout",
       "name": "ConnectionTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database name for connection. Type: string.",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. Type: string",
       "jsonName": "encoding",
       "name": "Encoding",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When enabled, parameter values are logged when commands are executed. Type: boolean.",
       "jsonName": "logParameters",
       "name": "LogParameters",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +103,9 @@
       "name": "Password",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSecretReference"
+        "nullable": false,
+        "referenceName": "AzureKeyVaultSecretReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether connection pooling should be used. Type: boolean.",
       "jsonName": "pooling",
       "name": "Pooling",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port for the connection. Type: integer.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines the size of the internal buffer uses when reading. Increasing may improve performance if transferring large values from the database. Type: integer.",
       "jsonName": "readBufferSize",
       "name": "ReadBufferSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the schema search path. Type: string.",
       "jsonName": "schema",
       "name": "Schema",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server name for connection. Type: string.",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -159,11 +194,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Location of a client certificate to be sent to the server. Type: string.",
       "jsonName": "sslCertificate",
       "name": "SslCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +210,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Location of a client key for a client certificate to be sent to the server. Type: string.",
       "jsonName": "sslKey",
       "name": "SslKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL mode for connection. Type: integer. 0: disable, 1:allow, 2: prefer, 3: require, 4: verify-ca, 5: verify-full. Type: integer.",
       "jsonName": "sslMode",
       "name": "SslMode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -198,11 +242,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Password for a key for a client certificate. Type: string.",
       "jsonName": "sslPassword",
       "name": "SslPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +258,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the session timezone. Type: string.",
       "jsonName": "timezone",
       "name": "Timezone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +274,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to trust the server certificate without validating it. Type: boolean.",
       "jsonName": "trustServerCertificate",
       "name": "TrustServerCertificate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,16 +290,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Username for authentication. Type: string.",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

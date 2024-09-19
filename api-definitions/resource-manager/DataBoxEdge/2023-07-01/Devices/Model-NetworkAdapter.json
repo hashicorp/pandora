@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Instance ID of network adapter.",
       "jsonName": "adapterId",
       "name": "AdapterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hardware position of network adapter.",
       "jsonName": "adapterPosition",
       "name": "AdapterPosition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAdapterPosition"
+        "nullable": false,
+        "referenceName": "NetworkAdapterPosition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether this adapter has DHCP enabled.",
       "jsonName": "dhcpStatus",
       "name": "DhcpStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAdapterDHCPStatus"
+        "nullable": false,
+        "referenceName": "NetworkAdapterDHCPStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of DNS Servers of the device.",
       "jsonName": "dnsServers",
       "name": "DnsServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPv4 configuration of the network adapter.",
       "jsonName": "ipv4Configuration",
       "name": "IPv4Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPv4Config"
+        "nullable": false,
+        "referenceName": "IPv4Config",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPv6 configuration of the network adapter.",
       "jsonName": "ipv6Configuration",
       "name": "IPv6Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPv6Config"
+        "nullable": false,
+        "referenceName": "IPv6Config",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPv6 local address.",
       "jsonName": "ipv6LinkLocalAddress",
       "name": "IPv6LinkLocalAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Logical index of the adapter.",
       "jsonName": "index",
       "name": "Index",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hardware label for the adapter.",
       "jsonName": "label",
       "name": "Label",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link speed.",
       "jsonName": "linkSpeed",
       "name": "LinkSpeed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MAC address.",
       "jsonName": "macAddress",
       "name": "MacAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network adapter name.",
       "jsonName": "networkAdapterName",
       "name": "NetworkAdapterName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Node ID of the network adapter.",
       "jsonName": "nodeId",
       "name": "NodeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether this adapter is RDMA capable.",
       "jsonName": "rdmaStatus",
       "name": "RdmaStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAdapterRDMAStatus"
+        "nullable": false,
+        "referenceName": "NetworkAdapterRDMAStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,16 +233,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether this adapter is valid.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAdapterStatus"
+        "nullable": false,
+        "referenceName": "NetworkAdapterStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

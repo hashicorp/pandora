@@ -7,7 +7,9 @@
       "name": "BackendPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The caching configuration associated with this rule.",
       "jsonName": "cacheConfiguration",
       "name": "CacheConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheConfiguration"
+        "nullable": false,
+        "referenceName": "CacheConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path.",
       "jsonName": "customForwardingPath",
       "name": "CustomForwardingPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol this rule will use when forwarding traffic to backends.",
       "jsonName": "forwardingProtocol",
       "name": "ForwardingProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorForwardingProtocol"
+        "nullable": false,
+        "referenceName": "FrontDoorForwardingProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +65,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RouteConfiguration",
   "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
   "typeHintIn": "OdataType"

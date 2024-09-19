@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AS2 one-way receive agreement.",
       "jsonName": "receiveAgreement",
       "name": "ReceiveAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AS2OneWayAgreement"
+        "nullable": false,
+        "referenceName": "AS2OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AS2 one-way send agreement.",
       "jsonName": "sendAgreement",
       "name": "SendAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AS2OneWayAgreement"
+        "nullable": false,
+        "referenceName": "AS2OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

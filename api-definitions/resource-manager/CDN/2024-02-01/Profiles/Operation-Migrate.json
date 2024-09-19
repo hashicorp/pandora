@@ -1,6 +1,7 @@
 {
   "name": "Migrate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ResourceGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MigrationParameters"
+    "nullable": false,
+    "referenceName": "MigrationParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigrateResult"
+    "nullable": false,
+    "referenceName": "MigrateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CDN/migrate"
 }

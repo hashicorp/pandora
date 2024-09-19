@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of aad vpn authentication parameters.",
       "jsonName": "aadAuthenticationParameters",
       "name": "AadAuthenticationParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AadAuthenticationParameters"
+        "nullable": false,
+        "referenceName": "AadAuthenticationParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all VpnServerConfigurationPolicyGroups.",
       "jsonName": "configurationPolicyGroups",
       "name": "ConfigurationPolicyGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigurationPolicyGroup"
+          "nullable": false,
+          "referenceName": "VpnServerConfigurationPolicyGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A unique read-only string that changes whenever the resource is updated.",
       "jsonName": "etag",
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the VpnServerConfiguration that is unique within a resource group.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of references to P2SVpnGateways.",
       "jsonName": "p2SVpnGateways",
       "name": "P2sVpnGateways",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "P2SVpnGateway"
+          "nullable": false,
+          "referenceName": "P2SVpnGateway",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the VpnServerConfiguration resource. Possible values are: 'Updating', 'Deleting', and 'Failed'.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Radius client root certificate of VpnServerConfiguration.",
       "jsonName": "radiusClientRootCertificates",
       "name": "RadiusClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigRadiusClientRootCertificate"
+          "nullable": false,
+          "referenceName": "VpnServerConfigRadiusClientRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The radius server address property of the VpnServerConfiguration resource for point to site client connection.",
       "jsonName": "radiusServerAddress",
       "name": "RadiusServerAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Radius Server root certificate of VpnServerConfiguration.",
       "jsonName": "radiusServerRootCertificates",
       "name": "RadiusServerRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigRadiusServerRootCertificate"
+          "nullable": false,
+          "referenceName": "VpnServerConfigRadiusServerRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The radius secret property of the VpnServerConfiguration resource for point to site client connection.",
       "jsonName": "radiusServerSecret",
       "name": "RadiusServerSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +187,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Multiple Radius Server configuration for VpnServerConfiguration.",
       "jsonName": "radiusServers",
       "name": "RadiusServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RadiusServer"
+          "nullable": false,
+          "referenceName": "RadiusServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,14 +209,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN authentication types for the VpnServerConfiguration.",
       "jsonName": "vpnAuthenticationTypes",
       "name": "VpnAuthenticationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnAuthenticationType"
+          "nullable": false,
+          "referenceName": "VpnAuthenticationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -183,14 +231,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VpnClientIpsecPolicies for VpnServerConfiguration.",
       "jsonName": "vpnClientIpsecPolicies",
       "name": "VpnClientIPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -200,14 +253,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN client revoked certificate of VpnServerConfiguration.",
       "jsonName": "vpnClientRevokedCertificates",
       "name": "VpnClientRevokedCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigVpnClientRevokedCertificate"
+          "nullable": false,
+          "referenceName": "VpnServerConfigVpnClientRevokedCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -217,14 +275,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN client root certificate of VpnServerConfiguration.",
       "jsonName": "vpnClientRootCertificates",
       "name": "VpnClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigVpnClientRootCertificate"
+          "nullable": false,
+          "referenceName": "VpnServerConfigVpnClientRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -234,14 +297,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN protocols for the VpnServerConfiguration.",
       "jsonName": "vpnProtocols",
       "name": "VpnProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnGatewayTunnelingProtocol"
+          "nullable": false,
+          "referenceName": "VpnGatewayTunnelingProtocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -249,5 +317,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

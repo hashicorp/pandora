@@ -7,7 +7,9 @@
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedPrivateEndpointConnectionState"
+        "nullable": false,
+        "referenceName": "ManagedPrivateEndpointConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The group Ids of the managed private endpoint.",
       "jsonName": "groupIds",
       "name": "GroupIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM resource ID of the resource for which the managed private endpoint is pointing to.",
       "jsonName": "privateLinkResourceId",
       "name": "PrivateLinkResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The region of the resource to which the managed private endpoint is pointing to.",
       "jsonName": "privateLinkResourceRegion",
       "name": "PrivateLinkResourceRegion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The private IP of private endpoint after approval. This property is empty before connection is approved.",
       "jsonName": "privateLinkServicePrivateIP",
       "name": "PrivateLinkServicePrivateIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port.",
       "jsonName": "privateLinkServiceUrl",
       "name": "PrivateLinkServiceUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +120,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User input request message of the managed private endpoint.",
       "jsonName": "requestMessage",
       "name": "RequestMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

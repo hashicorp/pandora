@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The recovery point time.",
       "jsonName": "recoveryPointTime",
       "name": "RecoveryPointTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery point type.",
       "jsonName": "recoveryPointType",
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationRecoveryPointType"
+        "nullable": false,
+        "referenceName": "MigrationRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

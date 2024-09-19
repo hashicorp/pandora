@@ -1,6 +1,7 @@
 {
   "name": "PowerShell72ModuleUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PowerShell72ModuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ModuleUpdateParameters"
+    "nullable": false,
+    "referenceName": "ModuleUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Module"
+    "nullable": false,
+    "referenceName": "Module",
+    "referenceNameIsCommonType": null
   }
 }

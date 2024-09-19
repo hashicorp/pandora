@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether Self-hosted integration runtime auto update has been turned on.",
       "jsonName": "autoUpdate",
       "name": "AutoUpdate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeAutoUpdate"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeAutoUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The estimated time when the self-hosted integration runtime will be updated.",
       "jsonName": "autoUpdateETA",
       "name": "AutoUpdateETA",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Object with additional information about integration runtime capabilities.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,11 +59,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the integration runtime was created, in ISO8601 format.",
       "jsonName": "createTime",
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,11 +75,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "It is used to set the encryption mode for node-node communication channel (when more than 2 self-hosted integration runtime nodes exist).",
       "jsonName": "internalChannelEncryption",
       "name": "InternalChannelEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeInternalChannelEncryptionMode"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeInternalChannelEncryptionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest version on download center.",
       "jsonName": "latestVersion",
       "name": "LatestVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,14 +107,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of linked integration runtimes that are created to share with this integration runtime.",
       "jsonName": "links",
       "name": "Links",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedIntegrationRuntime"
+          "nullable": false,
+          "referenceName": "LinkedIntegrationRuntime",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -104,11 +129,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The local time zone offset in hours.",
       "jsonName": "localTimeZoneOffset",
       "name": "LocalTimeZoneOffset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,14 +145,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of nodes for this integration runtime.",
       "jsonName": "nodes",
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SelfHostedIntegrationRuntimeNode"
+          "nullable": false,
+          "referenceName": "SelfHostedIntegrationRuntimeNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -134,11 +167,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version that the integration runtime is going to update to.",
       "jsonName": "pushedVersion",
       "name": "PushedVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +184,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date at which the integration runtime will be scheduled to update, in ISO8601 format.",
       "jsonName": "scheduledUpdateDate",
       "name": "ScheduledUpdateDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +200,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.",
       "jsonName": "selfContainedInteractiveAuthoringEnabled",
       "name": "SelfContainedInteractiveAuthoringEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,14 +216,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URLs for the services used in integration runtime backend service.",
       "jsonName": "serviceUrls",
       "name": "ServiceUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -191,11 +238,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The task queue id of the integration runtime.",
       "jsonName": "taskQueueId",
       "name": "TaskQueueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +254,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time in the date scheduled by service to update the integration runtime, e.g., PT03H is 3 hours",
       "jsonName": "updateDelayOffset",
       "name": "UpdateDelayOffset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +270,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the integration runtime.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,16 +286,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the integration runtime version.",
       "jsonName": "versionStatus",
       "name": "VersionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

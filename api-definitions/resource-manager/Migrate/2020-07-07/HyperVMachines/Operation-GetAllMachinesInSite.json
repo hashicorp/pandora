@@ -1,6 +1,7 @@
 {
   "name": "GetAllMachinesInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "HyperVSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVMachine"
+    "nullable": false,
+    "referenceName": "HyperVMachine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/machines"
 }

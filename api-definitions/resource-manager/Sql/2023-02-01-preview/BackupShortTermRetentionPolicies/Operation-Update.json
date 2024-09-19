@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupShortTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "BackupShortTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupShortTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "BackupShortTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupShortTermRetentionPolicies/default"
 }

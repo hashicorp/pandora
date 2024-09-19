@@ -7,7 +7,9 @@
       "name": "FailureCondition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CircuitBreakerFailureCondition"
+        "nullable": false,
+        "referenceName": "CircuitBreakerFailureCondition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rule name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +34,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration for which the circuit will be tripped.",
       "jsonName": "tripDuration",
       "name": "TripDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

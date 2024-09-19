@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hours.",
       "jsonName": "hours",
       "name": "Hours",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minutes.",
       "jsonName": "minutes",
       "name": "Minutes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The month days.",
       "jsonName": "monthDays",
       "name": "MonthDays",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The monthly occurrences.",
       "jsonName": "monthlyOccurrences",
       "name": "MonthlyOccurrences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecurrenceScheduleOccurrence"
+          "nullable": false,
+          "referenceName": "RecurrenceScheduleOccurrence",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The days of the week.",
       "jsonName": "weekDays",
       "name": "WeekDays",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DaysOfWeek"
+          "nullable": false,
+          "referenceName": "DaysOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -86,5 +111,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

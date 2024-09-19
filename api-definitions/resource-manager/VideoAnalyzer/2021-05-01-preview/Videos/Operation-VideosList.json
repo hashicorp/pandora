@@ -1,6 +1,7 @@
 {
   "name": "VideosList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "VideoAnalyzerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VideoEntity"
+    "nullable": false,
+    "referenceName": "VideoEntity",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/videos"
 }

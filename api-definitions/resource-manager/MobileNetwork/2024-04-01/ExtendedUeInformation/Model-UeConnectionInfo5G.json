@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allowed Network Slice Selection Assistance Information",
       "jsonName": "allowedNssai",
       "name": "AllowedNssai",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Snssai"
+          "nullable": false,
+          "referenceName": "Snssai",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AMF UE NGAP ID",
       "jsonName": "amfUeNgapId",
       "name": "AmfUeNgapId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +45,9 @@
       "name": "GlobalRanNodeId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GlobalRanNodeId"
+        "nullable": false,
+        "referenceName": "GlobalRanNodeId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -47,11 +57,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of last activity of UE (UTC).",
       "jsonName": "lastActivityTime",
       "name": "LastActivityTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last Visited TAI",
       "jsonName": "lastVisitedTai",
       "name": "LastVisitedTai",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +93,9 @@
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeLocationInfo"
+        "nullable": false,
+        "referenceName": "UeLocationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Per-UE transport network layer association",
       "jsonName": "perUeTnla",
       "name": "PerUeTnla",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RAN UE NGAP ID",
       "jsonName": "ranUeNgapId",
       "name": "RanUeNgapId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -116,7 +140,9 @@
       "name": "RrcEstablishmentCause",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RrcEstablishmentCause"
+        "nullable": false,
+        "referenceName": "RrcEstablishmentCause",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -129,7 +155,9 @@
       "name": "UeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeState"
+        "nullable": false,
+        "referenceName": "UeState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -142,12 +170,15 @@
       "name": "UeUsageSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeUsageSetting"
+        "nullable": false,
+        "referenceName": "UeUsageSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

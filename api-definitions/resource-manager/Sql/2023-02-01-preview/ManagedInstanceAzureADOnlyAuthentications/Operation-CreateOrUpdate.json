@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SqlManagedInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceAzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "ManagedInstanceAzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceAzureADOnlyAuthentication"
+    "nullable": false,
+    "referenceName": "ManagedInstanceAzureADOnlyAuthentication",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/azureADOnlyAuthentications/default"
 }

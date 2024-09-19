@@ -7,7 +7,9 @@
       "name": "DdosProtectionPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DDoS protection mode of the public IP",
       "jsonName": "protectionMode",
       "name": "ProtectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DdosSettingsProtectionMode"
+        "nullable": false,
+        "referenceName": "DdosSettingsProtectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

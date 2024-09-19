@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the patch detection.",
       "jsonName": "detectionStatus",
       "name": "DetectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DetectionStatus"
+        "nullable": false,
+        "referenceName": "DetectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The UTC timestamp that describes the latest detection was done.",
       "jsonName": "lastDetectionTime",
       "name": "LastDetectionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the new image created by the patch.",
       "jsonName": "newImageName",
       "name": "NewImageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "New layer update details in the target image.",
       "jsonName": "newLayer",
       "name": "NewLayer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchDetailsNewLayer"
+        "nullable": false,
+        "referenceName": "PatchDetailsNewLayer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The old layer details in the target image.",
       "jsonName": "oldLayer",
       "name": "OldLayer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchDetailsOldLayer"
+        "nullable": false,
+        "referenceName": "PatchDetailsOldLayer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type for the patch.",
       "jsonName": "patchType",
       "name": "PatchType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchType"
+        "nullable": false,
+        "referenceName": "PatchType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the target container for the patch.",
       "jsonName": "targetContainerName",
       "name": "TargetContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -95,16 +116,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the target image for the patch.",
       "jsonName": "targetImage",
       "name": "TargetImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

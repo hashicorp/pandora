@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detail description of current health of the Firewall",
       "jsonName": "healthReason",
       "name": "HealthReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the Firewall",
       "jsonName": "healthStatus",
       "name": "HealthStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthStatus"
+        "nullable": false,
+        "referenceName": "HealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Panorama Managed: Default is False. Default will be CloudSec managed",
       "jsonName": "isPanoramaManaged",
       "name": "IsPanoramaManaged",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Panorama Status",
       "jsonName": "panoramaStatus",
       "name": "PanoramaStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PanoramaStatus"
+        "nullable": false,
+        "referenceName": "PanoramaStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadOnlyProvisioningState"
+        "nullable": false,
+        "referenceName": "ReadOnlyProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

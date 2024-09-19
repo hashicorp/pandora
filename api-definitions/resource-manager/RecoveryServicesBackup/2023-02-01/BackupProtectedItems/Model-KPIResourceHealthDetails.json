@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Health Status",
       "jsonName": "resourceHealthDetails",
       "name": "ResourceHealthDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceHealthDetails"
+          "nullable": false,
+          "referenceName": "ResourceHealthDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Health Status",
       "jsonName": "resourceHealthStatus",
       "name": "ResourceHealthStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthStatus"
+        "nullable": false,
+        "referenceName": "ResourceHealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

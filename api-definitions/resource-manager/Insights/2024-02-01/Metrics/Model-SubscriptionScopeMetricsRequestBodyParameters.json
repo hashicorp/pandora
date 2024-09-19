@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of aggregation types (comma separated) to retrieve.",
       "jsonName": "aggregation",
       "name": "Aggregation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When set to true, if the timespan passed in is not supported by this metric, the API will return the result using the closest supported timespan. When set to false, an error is returned for invalid timespan parameters. Defaults to false.",
       "jsonName": "autoAdjustTimegrain",
       "name": "AutoAdjustTimegrain",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The **$filter** is used to reduce the set of metric data returned.\u003cbr\u003eExample:\u003cbr\u003eMetric contains metadata A, B and C.\u003cbr\u003e- Return all time series of C where A = a1 and B = b1 or b2\u003cbr\u003e**$filter=A eq ‘a1’ and B eq ‘b1’ or B eq ‘b2’ and C eq ‘*’**\u003cbr\u003e- Invalid variant:\u003cbr\u003e**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘*’ or B = ‘b2’**\u003cbr\u003eThis is invalid because the logical or operator cannot separate two different metadata names.\u003cbr\u003e- Return all time series where A = a1, B = b1 and C = c1:\u003cbr\u003e**$filter=A eq ‘a1’ and B eq ‘b1’ and C eq ‘c1’**\u003cbr\u003e- Return all time series where A = a1\u003cbr\u003e**$filter=A eq ‘a1’ and B eq ‘*’ and C eq ‘*’**.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The interval (i.e. timegrain) of the query in ISO 8601 duration format. Defaults to PT1M. Special case for 'FULL' value that returns single datapoint for entire time span requested.\n*Examples: PT15M, PT1H, P1D, FULL*",
       "jsonName": "interval",
       "name": "Interval",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The names of the metrics (comma separated) to retrieve.",
       "jsonName": "metricNames",
       "name": "MetricNames",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metric namespace where the metrics you want reside.",
       "jsonName": "metricNamespace",
       "name": "MetricNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The aggregation to use for sorting results and the direction of the sort.\nOnly one order can be specified.\nExamples: sum asc.",
       "jsonName": "orderBy",
       "name": "OrderBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reduces the set of data collected. The syntax allowed depends on the operation. See the operation's description for details.",
       "jsonName": "resultType",
       "name": "ResultType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricResultType"
+        "nullable": false,
+        "referenceName": "MetricResultType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dimension name(s) to rollup results by. For example if you only want to see metric values with a filter like 'City eq Seattle or City eq Tacoma' but don't want to see separate values for each city, you can specify 'RollUpBy=City' to see the results for Seattle and Tacoma rolled up into one timeseries.",
       "jsonName": "rollUpBy",
       "name": "RollUpBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The timespan of the query. It is a string with the following format 'startDateTime_ISO/endDateTime_ISO'.",
       "jsonName": "timespan",
       "name": "Timespan",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of records to retrieve.\nValid only if $filter is specified.\nDefaults to 10.",
       "jsonName": "top",
       "name": "Top",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +179,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When set to false, invalid filter parameter values will be ignored. When set to true, an error is returned for invalid filter parameters. Defaults to true.",
       "jsonName": "validateDimensions",
       "name": "ValidateDimensions",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

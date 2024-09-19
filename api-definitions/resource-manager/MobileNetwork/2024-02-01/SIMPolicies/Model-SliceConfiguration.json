@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.",
       "jsonName": "dataNetworkConfigurations",
       "name": "DataNetworkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataNetworkConfiguration"
+          "nullable": false,
+          "referenceName": "DataNetworkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +29,9 @@
       "name": "DefaultDataNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataNetworkResourceId"
+        "nullable": false,
+        "referenceName": "DataNetworkResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,12 +44,15 @@
       "name": "Slice",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SliceResourceId"
+        "nullable": false,
+        "referenceName": "SliceResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

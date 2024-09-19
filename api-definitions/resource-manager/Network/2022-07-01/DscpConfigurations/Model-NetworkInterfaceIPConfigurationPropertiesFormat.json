@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to ApplicationGatewayBackendAddressPool resource.",
       "jsonName": "applicationGatewayBackendAddressPools",
       "name": "ApplicationGatewayBackendAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendAddressPool"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application security groups in which the IP configuration is included.",
       "jsonName": "applicationSecurityGroups",
       "name": "ApplicationSecurityGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationSecurityGroup"
+          "nullable": false,
+          "referenceName": "ApplicationSecurityGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "GatewayLoadBalancer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +62,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to LoadBalancerBackendAddressPool resource.",
       "jsonName": "loadBalancerBackendAddressPools",
       "name": "LoadBalancerBackendAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BackendAddressPool"
+          "nullable": false,
+          "referenceName": "BackendAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +84,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references of LoadBalancerInboundNatRules.",
       "jsonName": "loadBalancerInboundNatRules",
       "name": "LoadBalancerInboundNatRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InboundNatRule"
+          "nullable": false,
+          "referenceName": "InboundNatRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether this is a primary customer address on the network interface.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private IP address of the IP configuration.",
       "jsonName": "privateIPAddress",
       "name": "PrivateIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,7 +142,9 @@
       "name": "PrivateIPAddressVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPVersion"
+        "nullable": false,
+        "referenceName": "IPVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,7 +157,9 @@
       "name": "PrivateIPAllocationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAllocationMethod"
+        "nullable": false,
+        "referenceName": "IPAllocationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,7 +172,9 @@
       "name": "PrivateLinkConnectionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceIPConfigurationPrivateLinkConnectionProperties"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceIPConfigurationPrivateLinkConnectionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,7 +187,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,7 +202,9 @@
       "name": "PublicIPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAddress"
+        "nullable": false,
+        "referenceName": "PublicIPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +217,9 @@
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Subnet"
+        "nullable": false,
+        "referenceName": "Subnet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,14 +228,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to Virtual Network Taps.",
       "jsonName": "virtualNetworkTaps",
       "name": "VirtualNetworkTaps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkTap"
+          "nullable": false,
+          "referenceName": "VirtualNetworkTap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -203,5 +248,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

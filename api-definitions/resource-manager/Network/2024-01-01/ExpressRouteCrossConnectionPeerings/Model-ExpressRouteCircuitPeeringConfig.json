@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The communities of bgp peering. Specified for microsoft peering.",
       "jsonName": "advertisedCommunities",
       "name": "AdvertisedCommunities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to AdvertisedPublicPrefixes.",
       "jsonName": "advertisedPublicPrefixes",
       "name": "AdvertisedPublicPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The advertised public prefix state of the Peering resource.",
       "jsonName": "advertisedPublicPrefixesState",
       "name": "AdvertisedPublicPrefixesState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitPeeringAdvertisedPublicPrefixState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CustomerASN of the peering.",
       "jsonName": "customerASN",
       "name": "CustomerASN",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The legacy mode of the peering.",
       "jsonName": "legacyMode",
       "name": "LegacyMode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,16 +95,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RoutingRegistryName of the configuration.",
       "jsonName": "routingRegistryName",
       "name": "RoutingRegistryName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

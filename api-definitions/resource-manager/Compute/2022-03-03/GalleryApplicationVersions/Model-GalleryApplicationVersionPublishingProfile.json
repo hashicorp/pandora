@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Additional settings to pass to the vm-application-manager extension. For advanced use only.",
       "jsonName": "advancedSettings",
       "name": "AdvancedSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of custom actions that can be performed with this Gallery Application Version.",
       "jsonName": "customActions",
       "name": "CustomActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryApplicationCustomAction"
+          "nullable": false,
+          "referenceName": "GalleryApplicationCustomAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Whether or not this application reports health.",
       "jsonName": "enableHealthCheck",
       "name": "EnableHealthCheck",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,11 +64,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end of life date of the gallery image version. This property can be used for decommissioning purposes. This property is updatable.",
       "jsonName": "endOfLifeDate",
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version.",
       "jsonName": "excludeFromLatest",
       "name": "ExcludeFromLatest",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,7 +100,9 @@
       "name": "ManageActions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactManage"
+        "nullable": false,
+        "referenceName": "UserArtifactManage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,11 +112,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp for when the gallery image version is published.",
       "jsonName": "publishedDate",
       "name": "PublishedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -104,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of replicas of the Image Version to be created per region. This property would take effect for a region when regionalReplicaCount is not specified. This property is updatable.",
       "jsonName": "replicaCount",
       "name": "ReplicaCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional parameter which specifies the mode to be used for replication. This property is not updatable.",
       "jsonName": "replicationMode",
       "name": "ReplicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationMode"
+        "nullable": false,
+        "referenceName": "ReplicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,7 +164,9 @@
       "name": "Settings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactSettings"
+        "nullable": false,
+        "referenceName": "UserArtifactSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,7 +179,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactSource"
+        "nullable": false,
+        "referenceName": "UserArtifactSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -156,11 +190,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the storage account type to be used to store the image. This property is not updatable.",
       "jsonName": "storageAccountType",
       "name": "StorageAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccountType"
+        "nullable": false,
+        "referenceName": "StorageAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,14 +206,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target extended locations where the Image Version is going to be replicated to. This property is updatable.",
       "jsonName": "targetExtendedLocations",
       "name": "TargetExtendedLocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryTargetExtendedLocation"
+          "nullable": false,
+          "referenceName": "GalleryTargetExtendedLocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -186,14 +228,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target regions where the Image Version is going to be replicated to. This property is updatable.",
       "jsonName": "targetRegions",
       "name": "TargetRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetRegion"
+          "nullable": false,
+          "referenceName": "TargetRegion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,5 +248,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

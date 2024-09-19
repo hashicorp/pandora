@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by alert context (payload)",
       "jsonName": "alertContext",
       "name": "AlertContext",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by alert rule id",
       "jsonName": "alertRuleId",
       "name": "AlertRuleId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by alert rule name",
       "jsonName": "alertRuleName",
       "name": "AlertRuleName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by alert rule description",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by monitor condition",
       "jsonName": "monitorCondition",
       "name": "MonitorCondition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by monitor service",
       "jsonName": "monitorService",
       "name": "MonitorService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by severity",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "filter alerts by target resource type",
       "jsonName": "targetResourceType",
       "name": "TargetResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Condition"
+        "nullable": false,
+        "referenceName": "Condition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

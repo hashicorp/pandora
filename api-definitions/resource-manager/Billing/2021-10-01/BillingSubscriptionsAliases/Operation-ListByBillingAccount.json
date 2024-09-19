@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "BillingAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscriptionAlias"
+    "nullable": false,
+    "referenceName": "BillingSubscriptionAlias",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/billingSubscriptionAliases"
 }

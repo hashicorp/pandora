@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel",
       "jsonName": "actualThroughputMibps",
       "name": "ActualThroughputMibps",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose",
       "jsonName": "avsDataStore",
       "name": "AvsDataStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvsDataStore"
+        "nullable": false,
+        "referenceName": "AvsDataStore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource identifier used to identify the Backup.",
       "jsonName": "backupId",
       "name": "BackupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Baremetal Tenant Identifier.",
       "jsonName": "baremetalTenantId",
       "name": "BaremetalTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pool Resource Id used in case of creating a volume through volume group",
       "jsonName": "capacityPoolResourceId",
       "name": "CapacityPoolResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning.",
       "jsonName": "cloneProgress",
       "name": "CloneProgress",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether Cool Access(tiering) is enabled for the volume.",
       "jsonName": "coolAccess",
       "name": "CoolAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +119,9 @@
       "name": "CoolAccessRetrievalPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoolAccessRetrievalPolicy"
+        "nullable": false,
+        "referenceName": "CoolAccessRetrievalPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the number of days after which data that is not accessed by clients will be tiered.",
       "jsonName": "coolnessPeriod",
       "name": "CoolnessPeriod",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A unique file path for the volume. Used when creating mount targets",
       "jsonName": "creationToken",
       "name": "CreationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DataProtection type volumes include an object containing details of the replication",
       "jsonName": "dataProtection",
       "name": "DataProtection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePropertiesDataProtection"
+        "nullable": false,
+        "referenceName": "VolumePropertiesDataProtection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,14 +178,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data store resource unique identifier",
       "jsonName": "dataStoreResourceId",
       "name": "DataStoreResourceId",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -163,11 +200,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.",
       "jsonName": "defaultGroupQuotaInKiBs",
       "name": "DefaultGroupQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +216,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .",
       "jsonName": "defaultUserQuotaInKiBs",
       "name": "DefaultUserQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +232,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false",
       "jsonName": "deleteBaseSnapshot",
       "name": "DeleteBaseSnapshot",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +248,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag indicating whether subvolume operations are enabled on the volume",
       "jsonName": "enableSubvolumes",
       "name": "EnableSubvolumes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableSubvolumes"
+        "nullable": false,
+        "referenceName": "EnableSubvolumes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +264,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.",
       "jsonName": "encrypted",
       "name": "Encrypted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +280,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'",
       "jsonName": "encryptionKeySource",
       "name": "EncryptionKeySource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeySource"
+        "nullable": false,
+        "referenceName": "EncryptionKeySource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +296,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of export policy rules",
       "jsonName": "exportPolicy",
       "name": "ExportPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePropertiesExportPolicy"
+        "nullable": false,
+        "referenceName": "VolumePropertiesExportPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +312,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.",
       "jsonName": "fileAccessLogs",
       "name": "FileAccessLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileAccessLogs"
+        "nullable": false,
+        "referenceName": "FileAccessLogs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +328,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique FileSystem Identifier.",
       "jsonName": "fileSystemId",
       "name": "FileSystemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +344,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if default quota is enabled for the volume.",
       "jsonName": "isDefaultQuotaEnabled",
       "name": "IsDefaultQuotaEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +360,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether volume is a Large Volume or Regular Volume.",
       "jsonName": "isLargeVolume",
       "name": "IsLargeVolume",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,11 +376,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restoring",
       "jsonName": "isRestoring",
       "name": "IsRestoring",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -319,11 +392,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later",
       "jsonName": "kerberosEnabled",
       "name": "KerberosEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -332,11 +408,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.",
       "jsonName": "keyVaultPrivateEndpointResourceId",
       "name": "KeyVaultPrivateEndpointResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -345,11 +424,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether LDAP is enabled or not for a given NFS volume.",
       "jsonName": "ldapEnabled",
       "name": "LdapEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -358,11 +440,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.",
       "jsonName": "maximumNumberOfFiles",
       "name": "MaximumNumberOfFiles",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -371,14 +456,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of mount targets",
       "jsonName": "mountTargets",
       "name": "MountTargets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountTargetProperties"
+          "nullable": false,
+          "referenceName": "MountTargetProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -392,7 +482,9 @@
       "name": "NetworkFeatures",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkFeatures"
+        "nullable": false,
+        "referenceName": "NetworkFeatures",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -401,11 +493,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network Sibling Set ID for the the group of volumes sharing networking resources.",
       "jsonName": "networkSiblingSetId",
       "name": "NetworkSiblingSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -414,11 +509,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the snapshot or backup that the volume is restored from.",
       "jsonName": "originatingResourceId",
       "name": "OriginatingResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -427,14 +525,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application specific placement rules for the particular volume",
       "jsonName": "placementRules",
       "name": "PlacementRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PlacementKeyValuePairs"
+          "nullable": false,
+          "referenceName": "PlacementKeyValuePairs",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -444,14 +547,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of protocol types, default NFSv3, CIFS for SMB protocol",
       "jsonName": "protocolTypes",
       "name": "ProtocolTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -461,11 +569,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.",
       "jsonName": "provisionedAvailabilityZone",
       "name": "ProvisionedAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -474,11 +585,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure lifecycle management",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -487,11 +601,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Proximity placement group associated with the volume",
       "jsonName": "proximityPlacementGroup",
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -500,11 +617,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol",
       "jsonName": "securityStyle",
       "name": "SecurityStyle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityStyle"
+        "nullable": false,
+        "referenceName": "SecurityStyle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -517,7 +637,9 @@
       "name": "ServiceLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceLevel"
+        "nullable": false,
+        "referenceName": "ServiceLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -530,7 +652,9 @@
       "name": "SmbAccessBasedEnumeration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbAccessBasedEnumeration"
+        "nullable": false,
+        "referenceName": "SmbAccessBasedEnumeration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -539,11 +663,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables continuously available share property for smb volume. Only applicable for SMB volume",
       "jsonName": "smbContinuouslyAvailable",
       "name": "SmbContinuouslyAvailable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -552,11 +679,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later",
       "jsonName": "smbEncryption",
       "name": "SmbEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -569,7 +699,9 @@
       "name": "SmbNonBrowsable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbNonBrowsable"
+        "nullable": false,
+        "referenceName": "SmbNonBrowsable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -578,11 +710,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).",
       "jsonName": "snapshotDirectoryVisible",
       "name": "SnapshotDirectoryVisible",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -591,11 +726,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource identifier used to identify the Snapshot.",
       "jsonName": "snapshotId",
       "name": "SnapshotId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -604,11 +742,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provides storage to network proximity information for the volume.",
       "jsonName": "storageToNetworkProximity",
       "name": "StorageToNetworkProximity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeStorageToNetworkProximity"
+        "nullable": false,
+        "referenceName": "VolumeStorageToNetworkProximity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -617,11 +758,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -630,11 +774,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "T2 network information",
       "jsonName": "t2Network",
       "name": "T2Network",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -647,7 +794,9 @@
       "name": "ThroughputMibps",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -656,11 +805,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.",
       "jsonName": "unixPermissions",
       "name": "UnixPermissions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -669,11 +821,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume or 2400Tib for LargeVolume on exceptional basis. Specified in bytes.",
       "jsonName": "usageThreshold",
       "name": "UsageThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -682,11 +837,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Volume Group Name",
       "jsonName": "volumeGroupName",
       "name": "VolumeGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -695,11 +853,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log",
       "jsonName": "volumeSpecName",
       "name": "VolumeSpecName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -708,16 +869,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection",
       "jsonName": "volumeType",
       "name": "VolumeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

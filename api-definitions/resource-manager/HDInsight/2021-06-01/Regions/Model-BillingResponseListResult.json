@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing and managed disk billing resources for a region.",
       "jsonName": "billingResources",
       "name": "BillingResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingResources"
+          "nullable": false,
+          "referenceName": "BillingResources",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine filtering mode. Effectively this can enabling or disabling the virtual machine sizes in a particular set.",
       "jsonName": "vmSizeFilters",
       "name": "VMSizeFilters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSizeCompatibilityFilterV2"
+          "nullable": false,
+          "referenceName": "VMSizeCompatibilityFilterV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The vm size properties.",
       "jsonName": "vmSizeProperties",
       "name": "VMSizeProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSizeProperty"
+          "nullable": false,
+          "referenceName": "VMSizeProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine sizes to include or exclude.",
       "jsonName": "vmSizes",
       "name": "VMSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The vm sizes which enable encryption at host.",
       "jsonName": "vmSizesWithEncryptionAtHost",
       "name": "VMSizesWithEncryptionAtHost",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -86,5 +111,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

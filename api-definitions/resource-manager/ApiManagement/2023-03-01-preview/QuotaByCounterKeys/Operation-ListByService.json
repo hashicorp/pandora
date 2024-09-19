@@ -1,6 +1,7 @@
 {
   "name": "ListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,6 +11,8 @@
   "resourceIdName": "QuotaId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QuotaCounterContract"
+    "nullable": false,
+    "referenceName": "QuotaCounterContract",
+    "referenceNameIsCommonType": null
   }
 }

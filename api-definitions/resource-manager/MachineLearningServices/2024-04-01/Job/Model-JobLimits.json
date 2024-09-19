@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] JobLimit type.",
       "jsonName": "jobLimitsType",
       "name": "JobLimitsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobLimitsType"
+        "nullable": false,
+        "referenceName": "JobLimitsType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds.",
       "jsonName": "timeout",
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,5 +34,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "JobLimitsType"
 }

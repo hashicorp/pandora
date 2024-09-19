@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Windows Azure Search Service linked service properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureSearchLinkedServiceTypeProperties"
+        "nullable": false,
+        "referenceName": "AzureSearchLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LinkedService",
   "discriminatedTypeValue": "AzureSearch",
   "typeHintIn": "Type"

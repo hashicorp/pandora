@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The match value for the condition of the delivery rule",
       "jsonName": "matchValues",
       "name": "MatchValues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if this is negate condition or not",
       "jsonName": "negateCondition",
       "name": "NegateCondition",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes operator to be matched",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UrlFileExtensionOperator"
+        "nullable": false,
+        "referenceName": "UrlFileExtensionOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of transforms",
       "jsonName": "transforms",
       "name": "Transforms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Transform"
+          "nullable": false,
+          "referenceName": "Transform",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -62,6 +78,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleConditionParameters",
   "discriminatedTypeValue": "DeliveryRuleUrlFileExtensionMatchConditionParameters",
   "typeHintIn": "TypeName"

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timespan applied to the start time of a tumbling window when evaluating dependency.",
       "jsonName": "offset",
       "name": "Offset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Referenced trigger.",
       "jsonName": "referenceTrigger",
       "name": "ReferenceTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerReference"
+        "nullable": false,
+        "referenceName": "TriggerReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the window when evaluating the dependency. If undefined the frequency of the tumbling window will be used.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DependencyReference",
   "discriminatedTypeValue": "TumblingWindowTriggerDependencyReference",
   "typeHintIn": "Type"

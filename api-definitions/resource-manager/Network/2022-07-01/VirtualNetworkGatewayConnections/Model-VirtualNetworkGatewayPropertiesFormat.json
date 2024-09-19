@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ActiveActive flag.",
       "jsonName": "activeActive",
       "name": "ActiveActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.",
       "jsonName": "allowRemoteVnetTraffic",
       "name": "AllowRemoteVnetTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures this gateway to accept traffic from remote Virtual WAN networks.",
       "jsonName": "allowVirtualWanTraffic",
       "name": "AllowVirtualWanTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network gateway's BGP speaker settings.",
       "jsonName": "bgpSettings",
       "name": "BgpSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BgpSettings"
+        "nullable": false,
+        "referenceName": "BgpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +71,9 @@
       "name": "CustomRoutes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "disableIPSecReplayProtection flag.",
       "jsonName": "disableIPSecReplayProtection",
       "name": "DisableIPSecReplayProtection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether BGP is enabled for this virtual network gateway or not.",
       "jsonName": "enableBgp",
       "name": "EnableBgp",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "EnableBgpRouteTranslationForNat flag.",
       "jsonName": "enableBgpRouteTranslationForNat",
       "name": "EnableBgpRouteTranslationForNat",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether dns forwarding is enabled or not.",
       "jsonName": "enableDnsForwarding",
       "name": "EnableDnsForwarding",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether private IP needs to be enabled on this gateway for connections or not.",
       "jsonName": "enablePrivateIpAddress",
       "name": "EnablePrivateIPAddress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +166,9 @@
       "name": "GatewayDefaultSite",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of this virtual network gateway.",
       "jsonName": "gatewayType",
       "name": "GatewayType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,14 +193,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IP configurations for virtual network gateway.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -176,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address allocated by the gateway to which dns requests can be sent.",
       "jsonName": "inboundDnsForwardingEndpoint",
       "name": "InboundDnsForwardingEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,14 +231,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NatRules for virtual network gateway.",
       "jsonName": "natRules",
       "name": "NatRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayNatRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayNatRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,7 +257,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +268,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the virtual network gateway resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +284,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewaySku"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewaySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,11 +300,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.",
       "jsonName": "vNetExtendedLocationResourceId",
       "name": "VNetExtendedLocationResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,14 +316,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.",
       "jsonName": "virtualNetworkGatewayPolicyGroups",
       "name": "VirtualNetworkGatewayPolicyGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayPolicyGroup"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayPolicyGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -275,11 +338,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.",
       "jsonName": "vpnClientConfiguration",
       "name": "VpnClientConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnClientConfiguration"
+        "nullable": false,
+        "referenceName": "VpnClientConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,11 +354,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.",
       "jsonName": "vpnGatewayGeneration",
       "name": "VpnGatewayGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnGatewayGeneration"
+        "nullable": false,
+        "referenceName": "VpnGatewayGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,16 +370,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of this virtual network gateway.",
       "jsonName": "vpnType",
       "name": "VpnType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnType"
+        "nullable": false,
+        "referenceName": "VpnType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties specific to SAP ODP linked service type.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapOdpLinkedServiceTypeProperties"
+        "nullable": false,
+        "referenceName": "SapOdpLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LinkedService",
   "discriminatedTypeValue": "SapOdp",
   "typeHintIn": "Type"

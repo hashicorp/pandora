@@ -1,6 +1,7 @@
 {
   "name": "PartnerTransfersInitiate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "CustomerTransferId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartnerInitiateTransferRequest"
+    "nullable": false,
+    "referenceName": "PartnerInitiateTransferRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PartnerTransferDetails"
+    "nullable": false,
+    "referenceName": "PartnerTransferDetails",
+    "referenceNameIsCommonType": null
   }
 }

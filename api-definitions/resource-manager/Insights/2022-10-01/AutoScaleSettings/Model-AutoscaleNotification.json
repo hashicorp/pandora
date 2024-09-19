@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the email notification.",
       "jsonName": "email",
       "name": "Email",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EmailNotification"
+        "nullable": false,
+        "referenceName": "EmailNotification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the operation associated with the notification and its value must be \"scale\"",
       "jsonName": "operation",
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationType"
+        "nullable": false,
+        "referenceName": "OperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the collection of webhook notifications.",
       "jsonName": "webhooks",
       "name": "WebHooks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebhookNotification"
+          "nullable": false,
+          "referenceName": "WebhookNotification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Columns to use for CVSplit data.",
       "jsonName": "cvSplitColumnNames",
       "name": "CvSplitColumnNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Featurization inputs needed for AutoML job.",
       "jsonName": "featurizationSettings",
       "name": "FeaturizationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableVerticalFeaturizationSettings"
+        "nullable": false,
+        "referenceName": "TableVerticalFeaturizationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Execution constraints for AutoMLJob.",
       "jsonName": "limitSettings",
       "name": "LimitSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableVerticalLimitSettings"
+        "nullable": false,
+        "referenceName": "TableVerticalLimitSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of cross validation folds to be applied on training dataset\r\nwhen validation dataset is not provided.",
       "jsonName": "nCrossValidations",
       "name": "NCrossValidations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NCrossValidations"
+        "nullable": false,
+        "referenceName": "NCrossValidations",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Positive label for binary metrics calculation.",
       "jsonName": "positiveLabel",
       "name": "PositiveLabel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Primary metric for the task.",
       "jsonName": "primaryMetric",
       "name": "PrimaryMetric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassificationPrimaryMetrics"
+        "nullable": false,
+        "referenceName": "ClassificationPrimaryMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Test data input.",
       "jsonName": "testData",
       "name": "TestData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fraction of test dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
       "jsonName": "testDataSize",
       "name": "TestDataSize",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Inputs for training phase for an AutoML Job.",
       "jsonName": "trainingSettings",
       "name": "TrainingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassificationTrainingSettings"
+        "nullable": false,
+        "referenceName": "ClassificationTrainingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Validation data inputs.",
       "jsonName": "validationData",
       "name": "ValidationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided.",
       "jsonName": "validationDataSize",
       "name": "ValidationDataSize",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down.",
       "jsonName": "weightColumnName",
       "name": "WeightColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,6 +200,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutoMLVertical",
   "discriminatedTypeValue": "Classification",
   "typeHintIn": "TaskType"

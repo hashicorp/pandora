@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTHubEventSourceCreationProperties"
+        "nullable": false,
+        "referenceName": "IoTHubEventSourceCreationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSourceCreateOrUpdateParameters",
   "discriminatedTypeValue": "Microsoft.IoTHub",
   "typeHintIn": "Kind"

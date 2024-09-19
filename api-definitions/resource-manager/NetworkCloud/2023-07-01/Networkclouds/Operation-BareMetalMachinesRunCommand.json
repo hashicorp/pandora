@@ -1,6 +1,7 @@
 {
   "name": "BareMetalMachinesRunCommand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "BareMetalMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachineRunCommandParameters"
+    "nullable": false,
+    "referenceName": "BareMetalMachineRunCommandParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/runCommand"
 }

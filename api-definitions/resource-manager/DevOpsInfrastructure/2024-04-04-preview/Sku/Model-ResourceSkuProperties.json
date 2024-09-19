@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name value pairs to describe the capability.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSkuCapabilities"
+          "nullable": false,
+          "referenceName": "ResourceSkuCapabilities",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The family of the SKU.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of locations and availability zones in those locations where the SKU is available",
       "jsonName": "locationInfo",
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSkuLocationInfo"
+          "nullable": false,
+          "referenceName": "ResourceSkuLocationInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of locations that the SKU is available.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of resource the SKU applies to.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The restrictions of the SKU.",
       "jsonName": "restrictions",
       "name": "Restrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceSkuRestrictions"
+          "nullable": false,
+          "referenceName": "ResourceSkuRestrictions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -97,11 +123,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the SKU.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -110,16 +139,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tier of virtual machines in a scale set",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DedicatedGatewayType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DedicatedGatewayType"
+        "nullable": false,
+        "referenceName": "DedicatedGatewayType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array that contains all of the locations for the service.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SqlDedicatedGatewayRegionalServiceResource"
+          "nullable": false,
+          "referenceName": "SqlDedicatedGatewayRegionalServiceResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SqlDedicatedGateway endpoint for the service.",
       "jsonName": "sqlDedicatedGatewayEndpoint",
       "name": "SqlDedicatedGatewayEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,6 +55,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ServiceResourceProperties",
   "discriminatedTypeValue": "SqlDedicatedGateway",
   "typeHintIn": "ServiceType"

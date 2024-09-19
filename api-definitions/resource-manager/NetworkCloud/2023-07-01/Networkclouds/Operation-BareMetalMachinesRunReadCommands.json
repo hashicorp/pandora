@@ -1,6 +1,7 @@
 {
   "name": "BareMetalMachinesRunReadCommands",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "BareMetalMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachineRunReadCommandsParameters"
+    "nullable": false,
+    "referenceName": "BareMetalMachineRunReadCommandsParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/runReadCommands"
 }

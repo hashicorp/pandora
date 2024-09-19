@@ -1,6 +1,7 @@
 {
   "name": "ResetAADProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "KubernetesClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedClusterAADProfile"
+    "nullable": false,
+    "referenceName": "ManagedClusterAADProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resetAADProfile"
 }

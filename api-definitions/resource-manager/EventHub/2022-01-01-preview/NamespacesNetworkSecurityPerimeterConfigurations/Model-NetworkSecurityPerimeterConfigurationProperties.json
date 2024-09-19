@@ -7,7 +7,9 @@
       "name": "NetworkSecurityPerimeter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeter"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about current network profile",
       "jsonName": "profile",
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Provisioning Issues if any",
       "jsonName": "provisioningIssues",
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProvisioningIssue"
+          "nullable": false,
+          "referenceName": "ProvisioningIssue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of NetworkSecurityPerimeter configuration propagation",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +72,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about resource association",
       "jsonName": "resourceAssociation",
       "name": "ResourceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

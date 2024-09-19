@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing address.",
       "jsonName": "address",
       "name": "Address",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies which services and purchases are paid by a billing profile.",
       "jsonName": "billingRelationshipType",
       "name": "BillingRelationshipType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingRelationshipType"
+        "nullable": false,
+        "referenceName": "BillingRelationshipType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The currency in which the charges for the billing profile are billed.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the enabled azure plans.",
       "jsonName": "enabledAzurePlans",
       "name": "EnabledAzurePlans",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzurePlan"
+          "nullable": false,
+          "referenceName": "AzurePlan",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the billing profile that is linked to another billing profile in indirect purchase motion.",
       "jsonName": "indirectRelationshipInfo",
       "name": "IndirectRelationshipInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndirectRelationshipInfo"
+        "nullable": false,
+        "referenceName": "IndirectRelationshipInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The day of the month when the invoice for the billing profile is generated.",
       "jsonName": "invoiceDay",
       "name": "InvoiceDay",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag controlling whether the invoices for the billing profile are sent through email.",
       "jsonName": "invoiceEmailOptIn",
       "name": "InvoiceEmailOptIn",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The invoice sections associated to the billing profile.",
       "jsonName": "invoiceSections",
       "name": "InvoiceSections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InvoiceSection"
+          "nullable": false,
+          "referenceName": "InvoiceSection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The purchase order name that will appear on the invoices generated for the billing profile.",
       "jsonName": "poNumber",
       "name": "PoNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing profile spending limit.",
       "jsonName": "spendingLimit",
       "name": "SpendingLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpendingLimit"
+        "nullable": false,
+        "referenceName": "SpendingLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the billing profile.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatus"
+        "nullable": false,
+        "referenceName": "BillingProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified billing profile status.",
       "jsonName": "statusReasonCode",
       "name": "StatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusReasonCode"
+        "nullable": false,
+        "referenceName": "StatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the cloud environments that are associated with a billing profile. This is a system managed optional field and gets updated as the billing profile gets associated with accounts in various clouds.",
       "jsonName": "targetClouds",
       "name": "TargetClouds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetCloud"
+          "nullable": false,
+          "referenceName": "TargetCloud",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -195,5 +243,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

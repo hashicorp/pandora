@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Conditions that must be met for a request to be retried",
       "jsonName": "matches",
       "name": "Matches",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPRetryPolicyMatches"
+        "nullable": false,
+        "referenceName": "HTTPRetryPolicyMatches",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of times a request will retry",
       "jsonName": "maxRetries",
       "name": "MaxRetries",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for retry backoff characteristics",
       "jsonName": "retryBackOff",
       "name": "RetryBackOff",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPRetryPolicyRetryBackOff"
+        "nullable": false,
+        "referenceName": "HTTPRetryPolicyRetryBackOff",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

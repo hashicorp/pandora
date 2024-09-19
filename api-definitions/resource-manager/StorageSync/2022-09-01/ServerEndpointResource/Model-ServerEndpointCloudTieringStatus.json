@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding how well the local cache on the server is performing.",
       "jsonName": "cachePerformance",
       "name": "CachePerformance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringCachePerformance"
+        "nullable": false,
+        "referenceName": "CloudTieringCachePerformance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the date policy",
       "jsonName": "datePolicyStatus",
       "name": "DatePolicyStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringDatePolicyStatus"
+        "nullable": false,
+        "referenceName": "CloudTieringDatePolicyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding files that failed to be tiered",
       "jsonName": "filesNotTiering",
       "name": "FilesNotTiering",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringFilesNotTiering"
+        "nullable": false,
+        "referenceName": "CloudTieringFilesNotTiering",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cloud tiering health state.",
       "jsonName": "health",
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last updated timestamp of health state",
       "jsonName": "healthLastUpdatedTimestamp",
       "name": "HealthLastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last cloud tiering result (HResult)",
       "jsonName": "lastCloudTieringResult",
       "name": "LastCloudTieringResult",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last cloud tiering success timestamp",
       "jsonName": "lastSuccessTimestamp",
       "name": "LastSuccessTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +118,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last updated timestamp",
       "jsonName": "lastUpdatedTimestamp",
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,11 +134,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding the low disk mode state",
       "jsonName": "lowDiskMode",
       "name": "LowDiskMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringLowDiskMode"
+        "nullable": false,
+        "referenceName": "CloudTieringLowDiskMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding how much local space cloud tiering is saving.",
       "jsonName": "spaceSavings",
       "name": "SpaceSavings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringSpaceSavings"
+        "nullable": false,
+        "referenceName": "CloudTieringSpaceSavings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,16 +166,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the volume free space policy",
       "jsonName": "volumeFreeSpacePolicyStatus",
       "name": "VolumeFreeSpacePolicyStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudTieringVolumeFreeSpacePolicyStatus"
+        "nullable": false,
+        "referenceName": "CloudTieringVolumeFreeSpacePolicyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

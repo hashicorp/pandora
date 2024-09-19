@@ -1,6 +1,7 @@
 {
   "name": "BackendReconnect",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BackendId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackendReconnectContract"
+    "nullable": false,
+    "referenceName": "BackendReconnectContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reconnect"
 }

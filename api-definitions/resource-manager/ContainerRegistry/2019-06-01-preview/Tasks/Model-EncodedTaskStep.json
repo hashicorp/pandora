@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Base64 encoded value of the template/definition file content.",
       "jsonName": "encodedTaskContent",
       "name": "EncodedTaskContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Base64 encoded value of the parameters/values file content.",
       "jsonName": "encodedValuesContent",
       "name": "EncodedValuesContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of overridable values that can be passed when running a task.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SetValue"
+          "nullable": false,
+          "referenceName": "SetValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -45,6 +56,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TaskStepProperties",
   "discriminatedTypeValue": "EncodedTask",
   "typeHintIn": "Type"

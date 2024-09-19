@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of add-on features to enable on the cluster.",
       "jsonName": "addonFeatures",
       "name": "AddonFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterAddOnFeature"
+          "nullable": false,
+          "referenceName": "ManagedClusterAddOnFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VM admin user password.",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VM admin user name.",
       "jsonName": "adminUserName",
       "name": "AdminUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.",
       "jsonName": "allowRdpAccess",
       "name": "AllowRdpAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy used to clean up unused versions.",
       "jsonName": "applicationTypeVersionsCleanupPolicy",
       "name": "ApplicationTypeVersionsCleanupPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationTypeVersionsCleanupPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationTypeVersionsCleanupPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auxiliary subnets for the cluster.",
       "jsonName": "auxiliarySubnets",
       "name": "AuxiliarySubnets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Subnet"
+          "nullable": false,
+          "referenceName": "Subnet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AAD authentication settings of the cluster.",
       "jsonName": "azureActiveDirectory",
       "name": "AzureActiveDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectory"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port used for client connections to the cluster.",
       "jsonName": "clientConnectionPort",
       "name": "ClientConnectionPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client certificates that are allowed to manage the cluster.",
       "jsonName": "clients",
       "name": "Clients",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificate"
+          "nullable": false,
+          "referenceName": "ClientCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,14 +165,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of thumbprints of the cluster certificates.",
       "jsonName": "clusterCertificateThumbprints",
       "name": "ClusterCertificateThumbprints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.",
       "jsonName": "clusterCodeVersion",
       "name": "ClusterCodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A service generated unique identifier for the cluster resource.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the cluster.",
       "jsonName": "clusterState",
       "name": "ClusterState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterState"
+        "nullable": false,
+        "referenceName": "ClusterState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.",
       "jsonName": "clusterUpgradeCadence",
       "name": "ClusterUpgradeCadence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeCadence"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeCadence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +255,9 @@
       "name": "ClusterUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeMode"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +266,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.",
       "jsonName": "ddosProtectionPlanId",
       "name": "DdosProtectionPlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +282,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster dns name.",
       "jsonName": "dnsName",
       "name": "DnsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -240,11 +298,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.",
       "jsonName": "enableAutoOSUpgrade",
       "name": "EnableAutoOSUpgrade",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +314,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.",
       "jsonName": "enableHttpGatewayExclusiveAuthMode",
       "name": "EnableHTTPGatewayExclusiveAuthMode",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +330,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.",
       "jsonName": "enableIpv6",
       "name": "EnableIPv6",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +346,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.",
       "jsonName": "enableServicePublicIP",
       "name": "EnableServicePublicIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,14 +362,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of custom fabric settings to configure the cluster.",
       "jsonName": "fabricSettings",
       "name": "FabricSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SettingsSectionDescription"
+          "nullable": false,
+          "referenceName": "SettingsSectionDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -309,11 +384,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified domain name associated with the public load balancer of the cluster.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -322,11 +400,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port used for HTTP connections to the cluster.",
       "jsonName": "httpGatewayConnectionPort",
       "name": "HTTPGatewayConnectionPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,11 +416,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.",
       "jsonName": "httpGatewayTokenAuthConnectionPort",
       "name": "HTTPGatewayTokenAuthConnectionPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -348,14 +432,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of IP tags associated with the default public IP address of the cluster.",
       "jsonName": "ipTags",
       "name": "IPTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPTag"
+          "nullable": false,
+          "referenceName": "IPTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -365,11 +454,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPv4 address associated with the public load balancer of the cluster.",
       "jsonName": "ipv4Address",
       "name": "IPv4Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -378,11 +470,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IPv6 address for the cluster if IPv6 is enabled.",
       "jsonName": "ipv6Address",
       "name": "IPv6Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -391,14 +486,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancing rules that are applied to the public load balancer of the cluster.",
       "jsonName": "loadBalancingRules",
       "name": "LoadBalancingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancingRule"
+          "nullable": false,
+          "referenceName": "LoadBalancingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -408,14 +508,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom Network Security Rules that are applied to the Virtual Network of the cluster.",
       "jsonName": "networkSecurityRules",
       "name": "NetworkSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "NetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -425,11 +530,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the managed cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -438,11 +546,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.",
       "jsonName": "publicIPPrefixId",
       "name": "PublicIPPrefixId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -451,11 +562,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.",
       "jsonName": "publicIPv6PrefixId",
       "name": "PublicIPv6PrefixId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -464,14 +578,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Service endpoints for subnets in the cluster.",
       "jsonName": "serviceEndpoints",
       "name": "ServiceEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpoint"
+          "nullable": false,
+          "referenceName": "ServiceEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -481,11 +600,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -494,11 +616,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy to use when upgrading the cluster.",
       "jsonName": "upgradeDescription",
       "name": "UpgradeDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradePolicy"
+        "nullable": false,
+        "referenceName": "ClusterUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -507,11 +632,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.",
       "jsonName": "useCustomVnet",
       "name": "UseCustomVnet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -520,11 +648,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the cluster has zone resiliency.",
       "jsonName": "zonalResiliency",
       "name": "ZonalResiliency",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -533,16 +664,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the update mode for Cross Az clusters.",
       "jsonName": "zonalUpdateMode",
       "name": "ZonalUpdateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZonalUpdateMode"
+        "nullable": false,
+        "referenceName": "ZonalUpdateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "FHIR Mappings",
       "jsonName": "fhirMapping",
       "name": "FhirMapping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotMappingProperties"
+        "nullable": false,
+        "referenceName": "IotMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource id of the FHIR service to connect to.",
       "jsonName": "fhirServiceResourceId",
       "name": "FhirServiceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines how resource identity is resolved on the destination.",
       "jsonName": "resourceIdentityResolutionType",
       "name": "ResourceIdentityResolutionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotIdentityResolutionType"
+        "nullable": false,
+        "referenceName": "IotIdentityResolutionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

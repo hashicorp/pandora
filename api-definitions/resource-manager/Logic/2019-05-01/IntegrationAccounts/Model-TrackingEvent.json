@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The error.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackingEventErrorInfo"
+        "nullable": false,
+        "referenceName": "TrackingEventErrorInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event level.",
       "jsonName": "eventLevel",
       "name": "EventLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventLevel"
+        "nullable": false,
+        "referenceName": "EventLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The event time.",
       "jsonName": "eventTime",
       "name": "EventTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The record.",
       "jsonName": "record",
       "name": "Record",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,16 +68,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The record type.",
       "jsonName": "recordType",
       "name": "RecordType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackingRecordType"
+        "nullable": false,
+        "referenceName": "TrackingRecordType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

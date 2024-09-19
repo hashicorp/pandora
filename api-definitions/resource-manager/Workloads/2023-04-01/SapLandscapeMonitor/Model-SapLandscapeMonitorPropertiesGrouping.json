@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the list of landscape to SID mappings.",
       "jsonName": "landscape",
       "name": "Landscape",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SapLandscapeMonitorSidMapping"
+          "nullable": false,
+          "referenceName": "SapLandscapeMonitorSidMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the list of Sap Applications to SID mappings.",
       "jsonName": "sapApplication",
       "name": "SapApplication",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SapLandscapeMonitorSidMapping"
+          "nullable": false,
+          "referenceName": "SapLandscapeMonitorSidMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

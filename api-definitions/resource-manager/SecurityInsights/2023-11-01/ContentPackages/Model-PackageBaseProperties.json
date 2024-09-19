@@ -7,7 +7,9 @@
       "name": "Author",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataAuthor"
+        "nullable": false,
+        "referenceName": "MetadataAuthor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Categories",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataCategories"
+        "nullable": false,
+        "referenceName": "MetadataCategories",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ContentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ContentKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PackageKind"
+        "nullable": false,
+        "referenceName": "PackageKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package",
       "jsonName": "contentProductId",
       "name": "ContentProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +83,9 @@
       "name": "ContentSchemaVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +98,9 @@
       "name": "Dependencies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataDependencies"
+        "nullable": false,
+        "referenceName": "MetadataDependencies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +109,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the package",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +129,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +144,9 @@
       "name": "FirstPublishDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +159,9 @@
       "name": "Icon",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +174,9 @@
       "name": "IsDeprecated",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Flag"
+        "nullable": false,
+        "referenceName": "Flag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +189,9 @@
       "name": "IsFeatured",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Flag"
+        "nullable": false,
+        "referenceName": "Flag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +204,9 @@
       "name": "IsNew",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Flag"
+        "nullable": false,
+        "referenceName": "Flag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,7 +219,9 @@
       "name": "IsPreview",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Flag"
+        "nullable": false,
+        "referenceName": "Flag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,7 +234,9 @@
       "name": "LastPublishDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,10 +249,14 @@
       "name": "Providers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -232,7 +270,9 @@
       "name": "PublisherDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,7 +285,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataSource"
+        "nullable": false,
+        "referenceName": "MetadataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,7 +300,9 @@
       "name": "Support",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataSupport"
+        "nullable": false,
+        "referenceName": "MetadataSupport",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,10 +315,14 @@
       "name": "ThreatAnalysisTactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -288,10 +336,14 @@
       "name": "ThreatAnalysisTechniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -305,12 +357,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

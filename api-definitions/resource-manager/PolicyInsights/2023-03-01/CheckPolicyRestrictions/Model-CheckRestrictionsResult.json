@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Evaluation results for the provided partial resource content.",
       "jsonName": "contentEvaluationResult",
       "name": "ContentEvaluationResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CheckRestrictionsResultContentEvaluationResult"
+        "nullable": false,
+        "referenceName": "CheckRestrictionsResultContentEvaluationResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The restrictions that will be placed on various fields in the resource by policy.",
       "jsonName": "fieldRestrictions",
       "name": "FieldRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FieldRestrictions"
+          "nullable": false,
+          "referenceName": "FieldRestrictions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

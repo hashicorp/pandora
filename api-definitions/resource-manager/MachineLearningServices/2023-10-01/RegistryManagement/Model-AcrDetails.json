@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of system created ACR account to be used for the Registry",
       "jsonName": "systemCreatedAcrAccount",
       "name": "SystemCreatedAcrAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SystemCreatedAcrAccount"
+        "nullable": false,
+        "referenceName": "SystemCreatedAcrAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of user created ACR account to be used for the Registry",
       "jsonName": "userCreatedAcrAccount",
       "name": "UserCreatedAcrAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserCreatedAcrAccount"
+        "nullable": false,
+        "referenceName": "UserCreatedAcrAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

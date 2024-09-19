@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network configuration name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +23,15 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetNetworkConfigurationProperties"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetNetworkConfigurationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

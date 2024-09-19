@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets validation error.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceManagementErrorWithDetails"
+        "nullable": false,
+        "referenceName": "ResourceManagementErrorWithDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the template deployment properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentPropertiesExtended"
+        "nullable": false,
+        "referenceName": "DeploymentPropertiesExtended",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

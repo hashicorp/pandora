@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the ORC data storage.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetLocation"
+        "nullable": false,
+        "referenceName": "DatasetLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data orcCompressionCodec. Type: string (or Expression with resultType string).",
       "jsonName": "orcCompressionCodec",
       "name": "OrcCompressionCodec",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

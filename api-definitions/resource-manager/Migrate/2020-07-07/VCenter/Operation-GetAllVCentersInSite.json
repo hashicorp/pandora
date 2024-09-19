@@ -1,6 +1,7 @@
 {
   "name": "GetAllVCentersInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "VMwareSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VCenter"
+    "nullable": false,
+    "referenceName": "VCenter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/vCenters"
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "LiveEventId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LiveOutput"
+    "nullable": false,
+    "referenceName": "LiveOutput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/liveOutputs"
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingAccount"
+    "nullable": false,
+    "referenceName": "BillingAccount",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Billing/billingAccounts"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AdmCredential of the created NotificationHub",
       "jsonName": "admCredential",
       "name": "AdmCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdmCredential"
+        "nullable": false,
+        "referenceName": "AdmCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ApnsCredential of the created NotificationHub",
       "jsonName": "apnsCredential",
       "name": "ApnsCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApnsCredential"
+        "nullable": false,
+        "referenceName": "ApnsCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AuthorizationRules of the created NotificationHub",
       "jsonName": "authorizationRules",
       "name": "AuthorizationRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharedAccessAuthorizationRuleProperties"
+          "nullable": false,
+          "referenceName": "SharedAccessAuthorizationRuleProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The BaiduCredential of the created NotificationHub",
       "jsonName": "baiduCredential",
       "name": "BaiduCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BaiduCredential"
+        "nullable": false,
+        "referenceName": "BaiduCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The GcmCredential of the created NotificationHub",
       "jsonName": "gcmCredential",
       "name": "GcmCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GcmCredential"
+        "nullable": false,
+        "referenceName": "GcmCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The MpnsCredential of the created NotificationHub",
       "jsonName": "mpnsCredential",
       "name": "MpnsCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MpnsCredential"
+        "nullable": false,
+        "referenceName": "MpnsCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The NotificationHub name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RegistrationTtl of the created NotificationHub",
       "jsonName": "registrationTtl",
       "name": "RegistrationTtl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The WnsCredential of the created NotificationHub",
       "jsonName": "wnsCredential",
       "name": "WnsCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WnsCredential"
+        "nullable": false,
+        "referenceName": "WnsCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

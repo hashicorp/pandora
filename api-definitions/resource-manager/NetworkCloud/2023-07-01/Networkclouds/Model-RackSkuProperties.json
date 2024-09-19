@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of machine SKUs and associated rack slot for the compute-dedicated machines in this rack model.",
       "jsonName": "computeMachines",
       "name": "ComputeMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MachineSkuSlot"
+          "nullable": false,
+          "referenceName": "MachineSkuSlot",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of machine SKUs and associated rack slot for the control-plane dedicated machines in this rack model.",
       "jsonName": "controllerMachines",
       "name": "ControllerMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MachineSkuSlot"
+          "nullable": false,
+          "referenceName": "MachineSkuSlot",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The free-form text describing the rack.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of compute racks supported by an aggregator rack. 0 if this is a compute rack or a rack for a single rack cluster(rackType=\"Single\").",
       "jsonName": "maxClusterSlots",
       "name": "MaxClusterSlots",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the rack SKU resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackSkuProvisioningState"
+        "nullable": false,
+        "referenceName": "RackSkuProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the rack.",
       "jsonName": "rackType",
       "name": "RackType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackSkuType"
+        "nullable": false,
+        "referenceName": "RackSkuType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of appliance SKUs and associated rack slot for the storage appliance(s) in this rack model.",
       "jsonName": "storageAppliances",
       "name": "StorageAppliances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageApplianceSkuSlot"
+          "nullable": false,
+          "referenceName": "StorageApplianceSkuSlot",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported SKUs if the rack is an aggregator.",
       "jsonName": "supportedRackSkuIds",
       "name": "SupportedRackSkuIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -121,5 +153,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

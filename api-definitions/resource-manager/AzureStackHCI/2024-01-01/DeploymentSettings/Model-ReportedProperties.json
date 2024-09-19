@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment status of AzureStackHCI Cluster Deployment.",
       "jsonName": "deploymentStatus",
       "name": "DeploymentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStatus"
+        "nullable": false,
+        "referenceName": "DeploymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "validation status of AzureStackHCI Cluster Deployment.",
       "jsonName": "validationStatus",
       "name": "ValidationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationStatus"
+        "nullable": false,
+        "referenceName": "ValidationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

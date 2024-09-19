@@ -1,6 +1,7 @@
 {
   "name": "OpenAIList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "MonitorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OpenAIIntegrationRPModel"
+    "nullable": false,
+    "referenceName": "OpenAIIntegrationRPModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/openAIIntegrations"
 }

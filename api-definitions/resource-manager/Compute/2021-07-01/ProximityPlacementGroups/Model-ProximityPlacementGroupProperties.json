@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to all availability sets in the proximity placement group.",
       "jsonName": "availabilitySets",
       "name": "AvailabilitySets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes colocation status of the Proximity Placement Group.",
       "jsonName": "colocationStatus",
       "name": "ColocationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceViewStatus"
+        "nullable": false,
+        "referenceName": "InstanceViewStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the type of the proximity placement group. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **Standard** : Co-locate resources within an Azure region or Availability Zone. \u003cbr\u003e\u003cbr\u003e **Ultra** : For future use.",
       "jsonName": "proximityPlacementGroupType",
       "name": "ProximityPlacementGroupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProximityPlacementGroupType"
+        "nullable": false,
+        "referenceName": "ProximityPlacementGroupType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to all virtual machine scale sets in the proximity placement group.",
       "jsonName": "virtualMachineScaleSets",
       "name": "VirtualMachineScaleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to all virtual machines in the proximity placement group.",
       "jsonName": "virtualMachines",
       "name": "VirtualMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -78,5 +99,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

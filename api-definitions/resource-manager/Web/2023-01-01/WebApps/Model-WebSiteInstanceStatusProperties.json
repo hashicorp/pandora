@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link to the console to web app instance",
       "jsonName": "consoleUrl",
       "name": "ConsoleUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +23,14 @@
       "name": "Containers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerInfo"
+          "nullable": false,
+          "referenceName": "ContainerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link to the Diagnose and Solve Portal",
       "jsonName": "detectorUrl",
       "name": "DetectorUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link to the console to web app instance",
       "jsonName": "healthCheckUrl",
       "name": "HealthCheckUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +76,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteRuntimeState"
+        "nullable": false,
+        "referenceName": "SiteRuntimeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +87,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link to the GetStatusApi in Kudu",
       "jsonName": "statusUrl",
       "name": "StatusUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

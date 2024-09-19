@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for an Azure DevOps catalog type.",
       "jsonName": "adoGit",
       "name": "AdoGit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for a GitHub catalog type.",
       "jsonName": "gitHub",
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

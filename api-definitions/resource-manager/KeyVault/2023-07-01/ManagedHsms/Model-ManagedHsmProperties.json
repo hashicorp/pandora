@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The create mode to indicate whether the resource is being created or is being recovered from a deleted resource.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible.",
       "jsonName": "enablePurgeProtection",
       "name": "EnablePurgeProtection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable.",
       "jsonName": "enableSoftDelete",
       "name": "EnableSoftDelete",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI of the managed hsm pool for performing operations on keys.",
       "jsonName": "hsmUri",
       "name": "HsmUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of initial administrators object ids for this managed hsm pool.",
       "jsonName": "initialAdminObjectIds",
       "name": "InitialAdminObjectIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rules governing the accessibility of the key vault from specific network locations.",
       "jsonName": "networkAcls",
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MHSMNetworkRuleSet"
+        "nullable": false,
+        "referenceName": "MHSMNetworkRuleSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private endpoint connections associated with the managed hsm pool.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MHSMPrivateEndpointConnectionItem"
+          "nullable": false,
+          "referenceName": "MHSMPrivateEndpointConnectionItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Control permission to the managed HSM from public networks.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,14 +159,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all regions associated with the managed hsm pool.",
       "jsonName": "regions",
       "name": "Regions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MHSMGeoReplicatedRegion"
+          "nullable": false,
+          "referenceName": "MHSMGeoReplicatedRegion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -146,11 +182,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The scheduled purge date in UTC.",
       "jsonName": "scheduledPurgeDate",
       "name": "ScheduledPurgeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +198,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed HSM security domain properties.",
       "jsonName": "securityDomainProperties",
       "name": "SecurityDomainProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHSMSecurityDomainProperties"
+        "nullable": false,
+        "referenceName": "ManagedHSMSecurityDomainProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +214,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.",
       "jsonName": "softDeleteRetentionInDays",
       "name": "SoftDeleteRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +230,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Status Message.",
       "jsonName": "statusMessage",
       "name": "StatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,16 +246,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

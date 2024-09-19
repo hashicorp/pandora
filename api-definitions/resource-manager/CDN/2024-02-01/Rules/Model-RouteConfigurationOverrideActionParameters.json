@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The caching configuration associated with this rule. To disable caching, do not provide a cacheConfiguration object.",
       "jsonName": "cacheConfiguration",
       "name": "CacheConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheConfiguration"
+        "nullable": false,
+        "referenceName": "CacheConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A reference to the origin group override configuration. Leave empty to use the default origin group on route.",
       "jsonName": "originGroupOverride",
       "name": "OriginGroupOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OriginGroupOverride"
+        "nullable": false,
+        "referenceName": "OriginGroupOverride",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleRouteConfigurationOverrideActionParameters",
   "typeHintIn": "TypeName"

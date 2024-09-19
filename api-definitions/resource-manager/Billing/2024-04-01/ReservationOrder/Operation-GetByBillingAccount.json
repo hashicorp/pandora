@@ -1,6 +1,7 @@
 {
   "name": "GetByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "ReservationOrderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReservationOrder"
+    "nullable": false,
+    "referenceName": "ReservationOrder",
+    "referenceNameIsCommonType": null
   }
 }

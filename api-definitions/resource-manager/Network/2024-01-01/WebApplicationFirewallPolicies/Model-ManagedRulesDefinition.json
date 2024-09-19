@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Exclusions that are applied on the policy.",
       "jsonName": "exclusions",
       "name": "Exclusions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OwaspCrsExclusionEntry"
+          "nullable": false,
+          "referenceName": "OwaspCrsExclusionEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed rule sets that are associated with the policy.",
       "jsonName": "managedRuleSets",
       "name": "ManagedRuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleSet"
+          "nullable": false,
+          "referenceName": "ManagedRuleSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -35,5 +45,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

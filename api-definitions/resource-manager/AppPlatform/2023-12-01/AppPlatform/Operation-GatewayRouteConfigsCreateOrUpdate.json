@@ -1,6 +1,7 @@
 {
   "name": "GatewayRouteConfigsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RouteConfigId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GatewayRouteConfigResource"
+    "nullable": false,
+    "referenceName": "GatewayRouteConfigResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewayRouteConfigResource"
+    "nullable": false,
+    "referenceName": "GatewayRouteConfigResource",
+    "referenceNameIsCommonType": null
   }
 }

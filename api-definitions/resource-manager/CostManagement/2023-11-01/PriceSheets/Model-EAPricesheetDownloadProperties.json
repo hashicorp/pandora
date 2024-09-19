@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties in downloaded file",
       "jsonName": "downloadFileProperties",
       "name": "DownloadFileProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EAPriceSheetProperties"
+        "nullable": false,
+        "referenceName": "EAPriceSheetProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The link (url) to download the pricesheet.",
       "jsonName": "downloadUrl",
       "name": "DownloadUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Download link validity.",
       "jsonName": "validTill",
       "name": "ValidTill",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

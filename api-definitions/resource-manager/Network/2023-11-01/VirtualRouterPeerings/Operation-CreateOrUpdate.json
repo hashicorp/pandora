@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualRouterPeeringId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualRouterPeering"
+    "nullable": false,
+    "referenceName": "VirtualRouterPeering",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualRouterPeering"
+    "nullable": false,
+    "referenceName": "VirtualRouterPeering",
+    "referenceNameIsCommonType": null
   }
 }

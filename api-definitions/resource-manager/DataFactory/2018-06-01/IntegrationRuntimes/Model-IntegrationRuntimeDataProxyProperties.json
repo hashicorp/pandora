@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The self-hosted integration runtime reference.",
       "jsonName": "connectVia",
       "name": "ConnectVia",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityReference"
+        "nullable": false,
+        "referenceName": "EntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path to contain the staged data in the Blob storage.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The staging linked service reference.",
       "jsonName": "stagingLinkedService",
       "name": "StagingLinkedService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityReference"
+        "nullable": false,
+        "referenceName": "EntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

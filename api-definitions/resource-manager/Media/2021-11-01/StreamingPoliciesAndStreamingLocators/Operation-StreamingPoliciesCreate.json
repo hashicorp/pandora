@@ -1,6 +1,7 @@
 {
   "name": "StreamingPoliciesCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "StreamingPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StreamingPolicy"
+    "nullable": false,
+    "referenceName": "StreamingPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StreamingPolicy"
+    "nullable": false,
+    "referenceName": "StreamingPolicy",
+    "referenceNameIsCommonType": null
   }
 }

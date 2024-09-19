@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The canonical path to the signed resource.",
       "jsonName": "canonicalizedResource",
       "name": "CanonicalizedResource",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The end of partition key.",
       "jsonName": "endPk",
       "name": "EndPk",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The end of row key.",
       "jsonName": "endRk",
       "name": "EndRk",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key to sign the account SAS token with.",
       "jsonName": "keyToSign",
       "name": "KeyToSign",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The response header override for cache control.",
       "jsonName": "rscc",
       "name": "Rscc",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The response header override for content disposition.",
       "jsonName": "rscd",
       "name": "Rscd",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The response header override for content encoding.",
       "jsonName": "rsce",
       "name": "Rsce",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The response header override for content language.",
       "jsonName": "rscl",
       "name": "Rscl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The response header override for content type.",
       "jsonName": "rsct",
       "name": "Rsct",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the shared access signature becomes invalid.",
       "jsonName": "signedExpiry",
       "name": "SignedExpiry",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An IP address or a range of IP addresses from which to accept requests.",
       "jsonName": "signedIp",
       "name": "SignedIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table.",
       "jsonName": "signedIdentifier",
       "name": "SignedIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).",
       "jsonName": "signedPermission",
       "name": "SignedPermission",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Permissions"
+        "nullable": false,
+        "referenceName": "Permissions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protocol permitted for a request made with the account SAS.",
       "jsonName": "signedProtocol",
       "name": "SignedProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPProtocol"
+        "nullable": false,
+        "referenceName": "HTTPProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s).",
       "jsonName": "signedResource",
       "name": "SignedResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SignedResource"
+        "nullable": false,
+        "referenceName": "SignedResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,11 +245,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the SAS becomes valid.",
       "jsonName": "signedStart",
       "name": "SignedStart",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The start of partition key.",
       "jsonName": "startPk",
       "name": "StartPk",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,16 +277,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The start of row key.",
       "jsonName": "startRk",
       "name": "StartRk",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

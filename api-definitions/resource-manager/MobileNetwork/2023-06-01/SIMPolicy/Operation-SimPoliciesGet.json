@@ -1,6 +1,7 @@
 {
   "name": "SimPoliciesGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SimPolicyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SimPolicy"
+    "nullable": false,
+    "referenceName": "SimPolicy",
+    "referenceNameIsCommonType": null
   }
 }

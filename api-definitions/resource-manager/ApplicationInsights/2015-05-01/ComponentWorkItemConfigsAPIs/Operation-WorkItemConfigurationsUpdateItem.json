@@ -1,6 +1,7 @@
 {
   "name": "WorkItemConfigurationsUpdateItem",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "WorkItemConfigId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkItemCreateConfiguration"
+    "nullable": false,
+    "referenceName": "WorkItemCreateConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkItemConfiguration"
+    "nullable": false,
+    "referenceName": "WorkItemConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

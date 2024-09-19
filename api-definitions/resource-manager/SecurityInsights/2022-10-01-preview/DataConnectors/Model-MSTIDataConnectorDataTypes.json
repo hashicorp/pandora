@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data type for Microsoft Threat Intelligence Platforms data connector.",
       "jsonName": "bingSafetyPhishingURL",
       "name": "BingSafetyPhishingURL",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MSTIDataConnectorDataTypesBingSafetyPhishingURL"
+        "nullable": false,
+        "referenceName": "MSTIDataConnectorDataTypesBingSafetyPhishingURL",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data type for Microsoft Threat Intelligence Platforms data connector.",
       "jsonName": "microsoftEmergingThreatFeed",
       "name": "MicrosoftEmergingThreatFeed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed"
+        "nullable": false,
+        "referenceName": "MSTIDataConnectorDataTypesMicrosoftEmergingThreatFeed",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

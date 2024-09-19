@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is audit logs pipeline auto provisioning enabled",
       "jsonName": "autoProvisioning",
       "name": "AutoProvisioning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cloudwatch to kinesis connection configuration",
       "jsonName": "cloudWatchToKinesis",
       "name": "CloudWatchToKinesis",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingCloudWatchToKinesis"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingCloudWatchToKinesis",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The container vulnerability assessment configuration",
       "jsonName": "containerVulnerabilityAssessment",
       "name": "ContainerVulnerabilityAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessment"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The container vulnerability assessment task configuration",
       "jsonName": "containerVulnerabilityAssessmentTask",
       "name": "ContainerVulnerabilityAssessmentTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTask"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTask",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable container vulnerability assessment feature",
       "jsonName": "enableContainerVulnerabilityAssessment",
       "name": "EnableContainerVulnerabilityAssessment",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kinesis to s3 connection configuration",
       "jsonName": "kinesisToS3",
       "name": "KinesisToS3",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKinesisToS3"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKinesisToS3",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The retention time in days of kube audit logs set on the CloudWatch log group",
       "jsonName": "kubeAuditRetentionTime",
       "name": "KubeAuditRetentionTime",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kubernetes to scuba connection configuration",
       "jsonName": "kubernetesScubaReader",
       "name": "KubernetesScubaReader",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKubernetesScubaReader"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesScubaReader",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kubernetes service connection configuration",
       "jsonName": "kubernetesService",
       "name": "KubernetesService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKubernetesService"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender container agentless discovery K8s configuration",
       "jsonName": "mdcContainersAgentlessDiscoveryK8s",
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender container image assessment configuration",
       "jsonName": "mdcContainersImageAssessment",
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The externalId used by the data reader to prevent the confused deputy attack",
       "jsonName": "scubaExternalId",
       "name": "ScubaExternalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,6 +194,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForContainersAws",
   "typeHintIn": "OfferingType"

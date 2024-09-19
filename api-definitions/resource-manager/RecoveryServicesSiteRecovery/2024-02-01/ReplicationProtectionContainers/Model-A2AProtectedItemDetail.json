@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery disk encryption information.",
       "jsonName": "diskEncryptionInfo",
       "name": "DiskEncryptionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionInfo"
+        "nullable": false,
+        "referenceName": "DiskEncryptionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery availability set.",
       "jsonName": "recoveryAvailabilitySetId",
       "name": "RecoveryAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery availability zone.",
       "jsonName": "recoveryAvailabilityZone",
       "name": "RecoveryAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The boot diagnostic storage account.",
       "jsonName": "recoveryBootDiagStorageAccountId",
       "name": "RecoveryBootDiagStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery capacity reservation group Id.",
       "jsonName": "recoveryCapacityReservationGroupId",
       "name": "RecoveryCapacityReservationGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery proximity placement group Id.",
       "jsonName": "recoveryProximityPlacementGroupId",
       "name": "RecoveryProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery resource group Id.",
       "jsonName": "recoveryResourceGroupId",
       "name": "RecoveryResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set id.",
       "jsonName": "recoveryVirtualMachineScaleSetId",
       "name": "RecoveryVirtualMachineScaleSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Replication Protected item name.",
       "jsonName": "replicationProtectedItemName",
       "name": "ReplicationProtectedItemName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,14 +147,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of vm managed disk details.",
       "jsonName": "vmManagedDisks",
       "name": "VMManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AVMManagedDiskInputDetails"
+          "nullable": false,
+          "referenceName": "A2AVMManagedDiskInputDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,5 +167,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

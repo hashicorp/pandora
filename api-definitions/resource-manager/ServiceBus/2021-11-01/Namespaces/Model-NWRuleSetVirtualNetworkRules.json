@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value that indicates whether to ignore missing VNet Service Endpoint",
       "jsonName": "ignoreMissingVnetServiceEndpoint",
       "name": "IgnoreMissingVnetServiceEndpoint",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subnet properties",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Subnet"
+        "nullable": false,
+        "referenceName": "Subnet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

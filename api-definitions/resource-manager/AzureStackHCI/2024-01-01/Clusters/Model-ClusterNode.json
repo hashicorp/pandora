@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of physical cores on the cluster node.",
       "jsonName": "coreCount",
       "name": "CoreCount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Edge Hardware Center Resource Id",
       "jsonName": "ehcResourceId",
       "name": "EhcResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the node in the cluster.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Most recent licensing timestamp.",
       "jsonName": "lastLicensingTimestamp",
       "name": "LastLicensingTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Manufacturer of the cluster node hardware.",
       "jsonName": "manufacturer",
       "name": "Manufacturer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total available memory on the cluster node (in GiB).",
       "jsonName": "memoryInGiB",
       "name": "MemoryInGiB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Model name of the cluster node hardware.",
       "jsonName": "model",
       "name": "Model",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the cluster node.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the cluster node hardware.",
       "jsonName": "nodeType",
       "name": "NodeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterNodeType"
+        "nullable": false,
+        "referenceName": "ClusterNodeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OEM activation status of the node.",
       "jsonName": "oemActivation",
       "name": "OemActivation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OemActivation"
+        "nullable": false,
+        "referenceName": "OemActivation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display version of the operating system running on the cluster node.",
       "jsonName": "osDisplayVersion",
       "name": "OsDisplayVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operating system running on the cluster node.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the operating system running on the cluster node.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Immutable id of the cluster node.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,16 +228,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of Windows Server Subscription.",
       "jsonName": "windowsServerSubscription",
       "name": "WindowsServerSubscription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsServerSubscription"
+        "nullable": false,
+        "referenceName": "WindowsServerSubscription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

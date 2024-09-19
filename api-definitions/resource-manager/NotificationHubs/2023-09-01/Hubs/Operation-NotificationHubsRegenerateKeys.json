@@ -1,6 +1,7 @@
 {
   "name": "NotificationHubsRegenerateKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NotificationHubAuthorizationRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PolicyKeyResource"
+    "nullable": false,
+    "referenceName": "PolicyKeyResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourceListKeys"
+    "nullable": false,
+    "referenceName": "ResourceListKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKeys"
 }

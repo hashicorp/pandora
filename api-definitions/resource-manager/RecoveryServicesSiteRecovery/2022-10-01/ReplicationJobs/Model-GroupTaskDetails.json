@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The child tasks.",
       "jsonName": "childTasks",
       "name": "ChildTasks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ASRTask"
+          "nullable": false,
+          "referenceName": "ASRTask",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The type of task details.",
       "jsonName": "instanceType",
       "name": "InstanceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -32,5 +40,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "InstanceType"
 }

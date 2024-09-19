@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default value for tracking history across all resources.",
       "jsonName": "default",
       "name": "Default",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirResourceVersionPolicy"
+        "nullable": false,
+        "referenceName": "FhirResourceVersionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of FHIR Resources and their version policy overrides.",
       "jsonName": "resourceTypeOverrides",
       "name": "ResourceTypeOverrides",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FhirResourceVersionPolicy"
+          "nullable": false,
+          "referenceName": "FhirResourceVersionPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

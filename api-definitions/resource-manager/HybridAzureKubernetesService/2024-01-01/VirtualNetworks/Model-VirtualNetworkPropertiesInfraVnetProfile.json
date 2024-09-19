@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Infrastructure network profile for HCI platform",
       "jsonName": "hci",
       "name": "Hci",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPropertiesInfraVnetProfileHci"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPropertiesInfraVnetProfileHci",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

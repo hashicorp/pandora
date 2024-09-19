@@ -1,6 +1,7 @@
 {
   "name": "TransformsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "MediaServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Transform"
+    "nullable": false,
+    "referenceName": "Transform",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transforms"
 }

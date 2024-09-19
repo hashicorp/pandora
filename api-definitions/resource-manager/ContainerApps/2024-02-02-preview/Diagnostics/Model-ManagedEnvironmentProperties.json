@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment level Application Insights configuration",
       "jsonName": "appInsightsConfiguration",
       "name": "AppInsightsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppInsightsConfiguration"
+        "nullable": false,
+        "referenceName": "AppInsightsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cluster configuration which enables the log daemon to export\napp logs to a destination. Currently only \"log-analytics\" is\nsupported",
       "jsonName": "appLogsConfiguration",
       "name": "AppLogsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppLogsConfiguration"
+        "nullable": false,
+        "referenceName": "AppLogsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "CustomDomainConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDomainConfiguration"
+        "nullable": false,
+        "referenceName": "CustomDomainConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insights connection string used by Dapr to export Service to Service communication telemetry",
       "jsonName": "daprAIConnectionString",
       "name": "DaprAIConnectionString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry",
       "jsonName": "daprAIInstrumentationKey",
       "name": "DaprAIInstrumentationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of Dapr component.",
       "jsonName": "daprConfiguration",
       "name": "DaprConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprConfiguration"
+        "nullable": false,
+        "referenceName": "DaprConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default Domain Name for the cluster",
       "jsonName": "defaultDomain",
       "name": "DefaultDomain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Any errors that occurred during deployment or deployment validation",
       "jsonName": "deploymentErrors",
       "name": "DeploymentErrors",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint of the eventstream of the Environment.",
       "jsonName": "eventStreamEndpoint",
       "name": "EventStreamEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.",
       "jsonName": "infrastructureResourceGroup",
       "name": "InfrastructureResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of Keda component.",
       "jsonName": "kedaConfiguration",
       "name": "KedaConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KedaConfiguration"
+        "nullable": false,
+        "referenceName": "KedaConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment Open Telemetry configuration",
       "jsonName": "openTelemetryConfiguration",
       "name": "OpenTelemetryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenTelemetryConfiguration"
+        "nullable": false,
+        "referenceName": "OpenTelemetryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +194,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Peer authentication settings for the Managed Environment",
       "jsonName": "peerAuthentication",
       "name": "PeerAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedEnvironmentPropertiesPeerAuthentication"
+        "nullable": false,
+        "referenceName": "ManagedEnvironmentPropertiesPeerAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +210,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Peer traffic settings for the Managed Environment",
       "jsonName": "peerTrafficConfiguration",
       "name": "PeerTrafficConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedEnvironmentPropertiesPeerTrafficConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedEnvironmentPropertiesPeerTrafficConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,14 +226,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private endpoint connections to the resource.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -202,11 +248,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Environment.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentProvisioningState"
+        "nullable": false,
+        "referenceName": "EnvironmentProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +264,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +280,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Static IP of the Environment",
       "jsonName": "staticIp",
       "name": "StaticIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +296,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vnet configuration for the environment",
       "jsonName": "vnetConfiguration",
       "name": "VnetConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetConfiguration"
+        "nullable": false,
+        "referenceName": "VnetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,14 +312,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workload profiles configured for the Managed Environment.",
       "jsonName": "workloadProfiles",
       "name": "WorkloadProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkloadProfile"
+          "nullable": false,
+          "referenceName": "WorkloadProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -271,16 +334,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not this Managed Environment is zone-redundant.",
       "jsonName": "zoneRedundant",
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

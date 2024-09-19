@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateDatabaseRestorePointDefinition"
+    "nullable": false,
+    "referenceName": "CreateDatabaseRestorePointDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorePoint"
+    "nullable": false,
+    "referenceName": "RestorePoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorePoints"
 }

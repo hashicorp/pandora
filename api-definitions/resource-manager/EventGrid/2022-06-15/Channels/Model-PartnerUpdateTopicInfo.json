@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Event type info for the partner topic",
       "jsonName": "eventTypeInfo",
       "name": "EventTypeInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventTypeInfo"
+        "nullable": false,
+        "referenceName": "EventTypeInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "LegacySystemAndUserAssignedIdentityMap",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitorComputeIdentityBase",
   "discriminatedTypeValue": "ManagedIdentity",
   "typeHintIn": "ComputeIdentityType"

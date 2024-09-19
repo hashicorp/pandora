@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The identity scheme leveraged to by the spark jobs running on serverless Spark.",
       "jsonName": "computeIdentity",
       "name": "ComputeIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorComputeIdentityBase"
+        "nullable": false,
+        "referenceName": "MonitorComputeIdentityBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The instance type running the Spark job.",
       "jsonName": "instanceType",
       "name": "InstanceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The Spark runtime version.",
       "jsonName": "runtimeVersion",
       "name": "RuntimeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitorComputeConfigurationBase",
   "discriminatedTypeValue": "ServerlessSpark",
   "typeHintIn": "ComputeType"

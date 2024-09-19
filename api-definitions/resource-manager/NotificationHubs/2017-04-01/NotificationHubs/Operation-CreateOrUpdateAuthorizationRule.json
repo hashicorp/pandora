@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateAuthorizationRule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "NotificationHubAuthorizationRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SharedAccessAuthorizationRuleCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "SharedAccessAuthorizationRuleCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SharedAccessAuthorizationRuleResource"
+    "nullable": false,
+    "referenceName": "SharedAccessAuthorizationRuleResource",
+    "referenceNameIsCommonType": null
   }
 }

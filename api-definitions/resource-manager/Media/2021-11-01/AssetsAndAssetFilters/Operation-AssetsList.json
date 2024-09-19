@@ -1,6 +1,7 @@
 {
   "name": "AssetsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -42,7 +43,9 @@
   "resourceIdName": "MediaServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Asset"
+    "nullable": false,
+    "referenceName": "Asset",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/assets"
 }

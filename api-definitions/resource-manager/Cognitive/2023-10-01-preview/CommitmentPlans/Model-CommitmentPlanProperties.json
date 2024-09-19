@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AutoRenew commitment plan.",
       "jsonName": "autoRenew",
       "name": "AutoRenew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Commitment plan guid.",
       "jsonName": "commitmentPlanGuid",
       "name": "CommitmentPlanGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "Current",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Account hosting model.",
       "jsonName": "hostingModel",
       "name": "HostingModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostingModel"
+        "nullable": false,
+        "referenceName": "HostingModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "Last",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +85,9 @@
       "name": "Next",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Commitment plan type.",
       "jsonName": "planType",
       "name": "PlanType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +112,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ProvisioningIssue.",
       "jsonName": "provisioningIssues",
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,16 +134,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the status of the resource at the time the operation was called.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPlanProvisioningState"
+        "nullable": false,
+        "referenceName": "CommitmentPlanProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "HybridIdentityMetadataListByCluster",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridIdentityMetadata"
+    "nullable": false,
+    "referenceName": "HybridIdentityMetadata",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata"
 }

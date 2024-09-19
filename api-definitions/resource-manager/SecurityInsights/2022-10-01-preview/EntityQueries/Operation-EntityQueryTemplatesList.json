@@ -1,6 +1,7 @@
 {
   "name": "EntityQueryTemplatesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityQueryTemplate"
+    "nullable": false,
+    "referenceName": "EntityQueryTemplate",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.SecurityInsights/entityQueryTemplates"
 }

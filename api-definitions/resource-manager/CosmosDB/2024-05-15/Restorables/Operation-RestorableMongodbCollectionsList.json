@@ -1,6 +1,7 @@
 {
   "name": "RestorableMongodbCollectionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "RestorableDatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorableMongodbCollectionsListResult"
+    "nullable": false,
+    "referenceName": "RestorableMongodbCollectionsListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorableMongodbCollections"
 }

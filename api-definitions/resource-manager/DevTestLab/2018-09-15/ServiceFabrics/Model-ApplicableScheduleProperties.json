@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto-shutdown schedule, if one has been set at the lab or lab resource level.",
       "jsonName": "labVmsShutdown",
       "name": "LabVMsShutdown",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schedule"
+        "nullable": false,
+        "referenceName": "Schedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto-startup schedule, if one has been set at the lab or lab resource level.",
       "jsonName": "labVmsStartup",
       "name": "LabVMsStartup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schedule"
+        "nullable": false,
+        "referenceName": "Schedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

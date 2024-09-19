@@ -7,7 +7,9 @@
       "name": "AuthCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the domain should be automatically renewed; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "autoRenew",
       "name": "AutoRenew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Legal agreement consent.",
       "jsonName": "consent",
       "name": "Consent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainPurchaseConsent"
+        "nullable": false,
+        "referenceName": "DomainPurchaseConsent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Administrative contact.",
       "jsonName": "contactAdmin",
       "name": "ContactAdmin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing contact.",
       "jsonName": "contactBilling",
       "name": "ContactBilling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Registrant contact.",
       "jsonName": "contactRegistrant",
       "name": "ContactRegistrant",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Technical contact.",
       "jsonName": "contactTech",
       "name": "ContactTech",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -95,11 +115,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Domain creation timestamp.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current DNS type",
       "jsonName": "dnsType",
       "name": "DnsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsType"
+        "nullable": false,
+        "referenceName": "DnsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure DNS Zone to use",
       "jsonName": "dnsZoneId",
       "name": "DnsZoneId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,14 +163,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reasons why domain is not renewable.",
       "jsonName": "domainNotRenewableReasons",
       "name": "DomainNotRenewableReasons",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceNotRenewableReason"
+          "nullable": false,
+          "referenceName": "ResourceNotRenewableReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -152,11 +186,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Domain expiration timestamp.",
       "jsonName": "expirationTime",
       "name": "ExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,11 +203,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp when the domain was renewed last time.",
       "jsonName": "lastRenewedTime",
       "name": "LastRenewedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,14 +219,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "All hostnames derived from the domain and assigned to Azure resources.",
       "jsonName": "managedHostNames",
       "name": "ManagedHostNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostName"
+          "nullable": false,
+          "referenceName": "HostName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -196,14 +241,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name servers.",
       "jsonName": "nameServers",
       "name": "NameServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -213,11 +263,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if domain privacy is enabled for this domain; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "privacy",
       "name": "Privacy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,11 +279,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Domain provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,11 +295,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if Azure can assign this domain to App Service apps; otherwise, \u003ccode\u003efalse\u003c/code\u003e. This value will be \u003ccode\u003etrue\u003c/code\u003e if domain registration status is active and \n it is hosted on name servers Azure has programmatic access to.",
       "jsonName": "readyForDnsRecordManagement",
       "name": "ReadyForDnsRecordManagement",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -252,11 +311,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Domain registration status.",
       "jsonName": "registrationStatus",
       "name": "RegistrationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainStatus"
+        "nullable": false,
+        "referenceName": "DomainStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,16 +327,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target DNS type (would be used for migration)",
       "jsonName": "targetDnsType",
       "name": "TargetDnsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsType"
+        "nullable": false,
+        "referenceName": "DnsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

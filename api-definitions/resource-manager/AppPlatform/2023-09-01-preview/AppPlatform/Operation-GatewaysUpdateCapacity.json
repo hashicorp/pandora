@@ -1,6 +1,7 @@
 {
   "name": "GatewaysUpdateCapacity",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "GatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SkuObject"
+    "nullable": false,
+    "referenceName": "SkuObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewayResource"
+    "nullable": false,
+    "referenceName": "GatewayResource",
+    "referenceNameIsCommonType": null
   }
 }

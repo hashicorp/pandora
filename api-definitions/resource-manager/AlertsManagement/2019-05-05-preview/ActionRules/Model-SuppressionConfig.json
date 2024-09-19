@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies when the suppression should be applied",
       "jsonName": "recurrenceType",
       "name": "RecurrenceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuppressionType"
+        "nullable": false,
+        "referenceName": "SuppressionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "suppression schedule configuration",
       "jsonName": "schedule",
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuppressionSchedule"
+        "nullable": false,
+        "referenceName": "SuppressionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

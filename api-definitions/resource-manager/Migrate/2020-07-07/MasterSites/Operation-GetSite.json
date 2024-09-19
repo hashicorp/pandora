@@ -1,6 +1,7 @@
 {
   "name": "GetSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "MasterSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MasterSite"
+    "nullable": false,
+    "referenceName": "MasterSite",
+    "referenceNameIsCommonType": null
   }
 }

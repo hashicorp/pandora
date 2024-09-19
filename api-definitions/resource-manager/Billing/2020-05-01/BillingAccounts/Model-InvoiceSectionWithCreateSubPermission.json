@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile for the invoice section.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the billing profile for the invoice section.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing profile spending limit.",
       "jsonName": "billingProfileSpendingLimit",
       "name": "BillingProfileSpendingLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpendingLimitForBillingProfile"
+        "nullable": false,
+        "referenceName": "SpendingLimitForBillingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the billing profile.",
       "jsonName": "billingProfileStatus",
       "name": "BillingProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatus"
+        "nullable": false,
+        "referenceName": "BillingProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified billing profile status.",
       "jsonName": "billingProfileStatusReasonCode",
       "name": "BillingProfileStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusReasonCodeForBillingProfile"
+        "nullable": false,
+        "referenceName": "StatusReasonCodeForBillingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The system generated unique identifier for a billing profile.",
       "jsonName": "billingProfileSystemId",
       "name": "BillingProfileSystemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +99,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabled azure plans for the associated billing profile.",
       "jsonName": "enabledAzurePlans",
       "name": "EnabledAzurePlans",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzurePlan"
+          "nullable": false,
+          "referenceName": "AzurePlan",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the invoice section.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the invoice section.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,16 +153,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The system generated unique identifier for an invoice section.",
       "jsonName": "invoiceSectionSystemId",
       "name": "InvoiceSectionSystemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

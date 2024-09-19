@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The command to be executed.",
       "jsonName": "command",
       "name": "Command",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the terminal.",
       "jsonName": "terminalSize",
       "name": "TerminalSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerExecRequestTerminalSize"
+        "nullable": false,
+        "referenceName": "ContainerExecRequestTerminalSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

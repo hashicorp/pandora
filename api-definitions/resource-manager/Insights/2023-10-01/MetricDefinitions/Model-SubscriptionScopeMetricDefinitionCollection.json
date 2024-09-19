@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The values for the metric definitions.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubscriptionScopeMetricDefinition"
+          "nullable": false,
+          "referenceName": "SubscriptionScopeMetricDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +23,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

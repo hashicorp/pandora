@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current status of the billing account.",
       "jsonName": "accountStatus",
       "name": "AccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountStatus"
+        "nullable": false,
+        "referenceName": "AccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified billing account status.",
       "jsonName": "accountStatusReasonCode",
       "name": "AccountStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingAccountStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingAccountStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tier of the account.",
       "jsonName": "accountSubType",
       "name": "AccountSubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountSubType"
+        "nullable": false,
+        "referenceName": "AccountSubType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of customer.",
       "jsonName": "accountType",
       "name": "AccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountType"
+        "nullable": false,
+        "referenceName": "AccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of agreement.",
       "jsonName": "agreementType",
       "name": "AgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the billing relationships represented by a billing account. The billing relationship may be between Microsoft, the customer, and/or a third-party.",
       "jsonName": "billingRelationshipTypes",
       "name": "BillingRelationshipTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingRelationshipType"
+          "nullable": false,
+          "referenceName": "BillingRelationshipType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing account name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties of an enrollment.",
       "jsonName": "enrollmentDetails",
       "name": "EnrollmentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrollmentDetails"
+        "nullable": false,
+        "referenceName": "EnrollmentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether or not the billing account has any billing profiles.",
       "jsonName": "hasNoBillingProfiles",
       "name": "HasNoBillingProfiles",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether user has read access to the billing account.",
       "jsonName": "hasReadAccess",
       "name": "HasReadAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notification email address for legacy account. Available for agreement type Microsoft Online Services Program.",
       "jsonName": "notificationEmailAddress",
       "name": "NotificationEmailAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tenant that was used to set up the billing account. By default, only users from this tenant can get role assignments on the billing account and all purchases are provisioned in this tenant.",
       "jsonName": "primaryBillingTenantId",
       "name": "PrimaryBillingTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the resource during a long-running operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,14 +217,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Qualifications for pricing on a billing account. Values may be Commercial, Education, Charity or Government.",
       "jsonName": "qualifications",
       "name": "Qualifications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the registration number of the organization linked with the billing account.",
       "jsonName": "registrationNumber",
       "name": "RegistrationNumber",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegistrationNumber"
+        "nullable": false,
+        "referenceName": "RegistrationNumber",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The address of the individual or organization that is responsible for the billing account.",
       "jsonName": "soldTo",
       "name": "SoldTo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,14 +271,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of tax identifiers for the billing account.",
       "jsonName": "taxIds",
       "name": "TaxIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TaxIdentifier"
+          "nullable": false,
+          "referenceName": "TaxIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -234,5 +291,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

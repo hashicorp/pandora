@@ -7,7 +7,9 @@
       "name": "GitProperty",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationServiceGitProperty"
+        "nullable": false,
+        "referenceName": "ConfigurationServiceGitProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How often (in seconds) to check repository updates. Minimum value is 0.",
       "jsonName": "refreshIntervalInSeconds",
       "name": "RefreshIntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

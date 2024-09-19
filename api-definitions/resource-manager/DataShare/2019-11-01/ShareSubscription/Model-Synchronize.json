@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mode of synchronization used in triggers and snapshot sync. Incremental by default",
       "jsonName": "synchronizationMode",
       "name": "SynchronizationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SynchronizationMode"
+        "nullable": false,
+        "referenceName": "SynchronizationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

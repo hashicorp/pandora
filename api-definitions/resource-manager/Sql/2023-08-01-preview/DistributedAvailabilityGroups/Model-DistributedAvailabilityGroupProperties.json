@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Databases in the distributed availability group",
       "jsonName": "databases",
       "name": "Databases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DistributedAvailabilityGroupDatabase"
+          "nullable": false,
+          "referenceName": "DistributedAvailabilityGroupDatabase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ID of the distributed availability group",
       "jsonName": "distributedAvailabilityGroupId",
       "name": "DistributedAvailabilityGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the distributed availability group",
       "jsonName": "distributedAvailabilityGroupName",
       "name": "DistributedAvailabilityGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.",
       "jsonName": "failoverMode",
       "name": "FailoverMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverModeType"
+        "nullable": false,
+        "referenceName": "FailoverModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed instance side availability group name",
       "jsonName": "instanceAvailabilityGroupName",
       "name": "InstanceAvailabilityGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed instance side link role",
       "jsonName": "instanceLinkRole",
       "name": "InstanceLinkRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkRole"
+        "nullable": false,
+        "referenceName": "LinkRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL server side availability group name",
       "jsonName": "partnerAvailabilityGroupName",
       "name": "PartnerAvailabilityGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL server side endpoint - IP or DNS resolvable name",
       "jsonName": "partnerEndpoint",
       "name": "PartnerEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL server side link role",
       "jsonName": "partnerLinkRole",
       "name": "PartnerLinkRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkRole"
+        "nullable": false,
+        "referenceName": "LinkRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Replication mode of the link",
       "jsonName": "replicationMode",
       "name": "ReplicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationModeType"
+        "nullable": false,
+        "referenceName": "ReplicationModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,16 +169,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database seeding mode – can be Automatic (default), or Manual for supported scenarios.",
       "jsonName": "seedingMode",
       "name": "SeedingMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SeedingModeType"
+        "nullable": false,
+        "referenceName": "SeedingModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

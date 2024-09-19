@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time position on the timeline of the input media based on Utc time.",
       "jsonName": "time",
       "name": "Time",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,6 +19,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ClipTime",
   "discriminatedTypeValue": "#Microsoft.Media.UtcClipTime",
   "typeHintIn": "OdataType"

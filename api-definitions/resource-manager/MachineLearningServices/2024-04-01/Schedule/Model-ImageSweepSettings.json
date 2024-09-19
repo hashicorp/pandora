@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of early termination policy.",
       "jsonName": "earlyTermination",
       "name": "EarlyTermination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicy"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Type of the hyperparameter sampling algorithms.",
       "jsonName": "samplingAlgorithm",
       "name": "SamplingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingAlgorithmType"
+        "nullable": false,
+        "referenceName": "SamplingAlgorithmType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

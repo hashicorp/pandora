@@ -1,6 +1,7 @@
 {
   "name": "GenerateUploadUri",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LabId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GenerateUploadUriParameter"
+    "nullable": false,
+    "referenceName": "GenerateUploadUriParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GenerateUploadUriResponse"
+    "nullable": false,
+    "referenceName": "GenerateUploadUriResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateUploadUri"
 }

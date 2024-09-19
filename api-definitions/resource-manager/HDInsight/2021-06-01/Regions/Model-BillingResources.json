@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing meter information.",
       "jsonName": "billingMeters",
       "name": "BillingMeters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingMeters"
+          "nullable": false,
+          "referenceName": "BillingMeters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed disk billing information.",
       "jsonName": "diskBillingMeters",
       "name": "DiskBillingMeters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskBillingMeters"
+          "nullable": false,
+          "referenceName": "DiskBillingMeters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The region or location.",
       "jsonName": "region",
       "name": "Region",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Autoscale settings. Note: Either throughput or autoscaleSettings is required, but not both.",
       "jsonName": "autoscaleSettings",
       "name": "AutoScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleSettings"
+        "nullable": false,
+        "referenceName": "AutoScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Request Units per second. For example, \"throughput\": 10000.",
       "jsonName": "throughput",
       "name": "Throughput",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

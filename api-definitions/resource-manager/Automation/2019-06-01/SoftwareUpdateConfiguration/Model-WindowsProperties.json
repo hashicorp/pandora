@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "KB numbers excluded from the software update configuration.",
       "jsonName": "excludedKbNumbers",
       "name": "ExcludedKbNumbers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "KB numbers included from the software update configuration.",
       "jsonName": "includedKbNumbers",
       "name": "IncludedKbNumbers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Update classification included in the software update configuration. A comma separated string with required values",
       "jsonName": "includedUpdateClassifications",
       "name": "IncludedUpdateClassifications",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsUpdateClasses"
+        "nullable": false,
+        "referenceName": "WindowsUpdateClasses",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reboot setting for the software update configuration.",
       "jsonName": "rebootSetting",
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

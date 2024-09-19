@@ -1,6 +1,7 @@
 {
   "name": "VMSSDelete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "GuestConfigurationAssignmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GuestConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "GuestConfigurationAssignment",
+    "referenceNameIsCommonType": null
   }
 }

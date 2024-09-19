@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of identity to use within the monitoring jobs.",
       "jsonName": "computeIdentityType",
       "name": "ComputeIdentityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorComputeIdentityType"
+        "nullable": false,
+        "referenceName": "MonitorComputeIdentityType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ComputeIdentityType"
 }

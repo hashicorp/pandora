@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "On-demand charges for each hour between firstConsumptionDate and lastConsumptionDate that were used for computing benefit recommendations.",
       "jsonName": "charges",
       "name": "Charges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Float",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The grain of the usage. Supported values: 'Hourly'",
       "jsonName": "usageGrain",
       "name": "UsageGrain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Grain"
+        "nullable": false,
+        "referenceName": "Grain",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

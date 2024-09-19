@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity reservation level in Gigabytes for this cluster.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Capacity"
+        "nullable": false,
+        "referenceName": "Capacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU (tier) of a cluster.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterSkuNameEnum"
+        "nullable": false,
+        "referenceName": "ClusterSkuNameEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

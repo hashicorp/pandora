@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service access policies.",
       "jsonName": "accessPolicies",
       "name": "AccessPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FhirServiceAccessPolicyEntry"
+          "nullable": false,
+          "referenceName": "FhirServiceAccessPolicyEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service Azure container registry configuration.",
       "jsonName": "acrConfiguration",
       "name": "AcrConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceAcrConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceAcrConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service authentication configuration.",
       "jsonName": "authenticationConfiguration",
       "name": "AuthenticationConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceAuthenticationConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceAuthenticationConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service Cors configuration.",
       "jsonName": "corsConfiguration",
       "name": "CorsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceCorsConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceCorsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service event support status.",
       "jsonName": "eventState",
       "name": "EventState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceEventState"
+        "nullable": false,
+        "referenceName": "ServiceEventState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service export configuration.",
       "jsonName": "exportConfiguration",
       "name": "ExportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceExportConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceExportConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Implementation Guides configuration.",
       "jsonName": "implementationGuidesConfiguration",
       "name": "ImplementationGuidesConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImplementationGuidesConfiguration"
+        "nullable": false,
+        "referenceName": "ImplementationGuidesConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fhir Service import configuration.",
       "jsonName": "importConfiguration",
       "name": "ImportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceImportConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceImportConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of private endpoint connections that are set up for this resource.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,16 +191,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines tracking of history for resources.",
       "jsonName": "resourceVersionPolicyConfiguration",
       "name": "ResourceVersionPolicyConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceVersionPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "ResourceVersionPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

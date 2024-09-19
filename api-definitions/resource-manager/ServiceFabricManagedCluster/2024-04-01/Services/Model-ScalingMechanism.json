@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Specifies the mechanism associated with this scaling policy.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceScalingMechanismKind"
+        "nullable": false,
+        "referenceName": "ServiceScalingMechanismKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Kind"
 }

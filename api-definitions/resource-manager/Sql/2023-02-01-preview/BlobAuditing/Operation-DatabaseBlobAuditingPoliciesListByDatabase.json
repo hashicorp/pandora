@@ -1,6 +1,7 @@
 {
   "name": "DatabaseBlobAuditingPoliciesListByDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabaseBlobAuditingPolicy"
+    "nullable": false,
+    "referenceName": "DatabaseBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/auditingSettings"
 }

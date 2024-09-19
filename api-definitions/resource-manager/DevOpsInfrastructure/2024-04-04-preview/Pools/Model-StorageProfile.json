@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of empty data disks to attach.",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDisk"
+          "nullable": false,
+          "referenceName": "DataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure SKU name of the machines in the pool.",
       "jsonName": "osDiskStorageAccountType",
       "name": "OsDiskStorageAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsDiskStorageAccountType"
+        "nullable": false,
+        "referenceName": "OsDiskStorageAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.",
       "jsonName": "associatedResourceIds",
       "name": "AssociatedResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Network Cloud cluster this L3 network is associated with.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The more detailed status of the L3 network.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "L3NetworkDetailedStatus"
+        "nullable": false,
+        "referenceName": "L3NetworkDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.",
       "jsonName": "hybridAksClustersAssociatedIds",
       "name": "HybridAksClustersAssociatedIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.",
       "jsonName": "hybridAksIpamEnabled",
       "name": "HybridAksIPamEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HybridAksIPamEnabled"
+        "nullable": false,
+        "referenceName": "HybridAksIPamEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.",
       "jsonName": "hybridAksPluginType",
       "name": "HybridAksPluginType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HybridAksPluginType"
+        "nullable": false,
+        "referenceName": "HybridAksPluginType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the IP address allocation, defaulted to \"DualStack\".",
       "jsonName": "ipAllocationType",
       "name": "IPAllocationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAllocationType"
+        "nullable": false,
+        "referenceName": "IPAllocationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type\nis IPV4 or DualStack.",
       "jsonName": "ipv4ConnectedPrefix",
       "name": "IPv4ConnectedPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type\nis IPV6 or DualStack.",
       "jsonName": "ipv6ConnectedPrefix",
       "name": "IPv6ConnectedPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.",
       "jsonName": "interfaceName",
       "name": "InterfaceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Network Fabric l3IsolationDomain.",
       "jsonName": "l3IsolationDomainId",
       "name": "L3IsolationDomainId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the L3 network.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "L3NetworkProvisioningState"
+        "nullable": false,
+        "referenceName": "L3NetworkProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.",
       "jsonName": "virtualMachinesAssociatedIds",
       "name": "VirtualMachinesAssociatedIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,16 +245,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VLAN from the l3IsolationDomain that is used for this network.",
       "jsonName": "vlan",
       "name": "Vlan",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database of UEFI keys for this image version.",
       "jsonName": "db",
       "name": "Db",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UefiKey"
+          "nullable": false,
+          "referenceName": "UefiKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database of revoked UEFI keys for this image version.",
       "jsonName": "dbx",
       "name": "Dbx",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UefiKey"
+          "nullable": false,
+          "referenceName": "UefiKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Key Encryption Keys of this image version.",
       "jsonName": "kek",
       "name": "Kek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UefiKey"
+          "nullable": false,
+          "referenceName": "UefiKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,16 +69,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Platform Key of this image version.",
       "jsonName": "pk",
       "name": "Pk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UefiKey"
+        "nullable": false,
+        "referenceName": "UefiKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "AttachedNetworksListByProject",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ProjectId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AttachedNetworkConnection"
+    "nullable": false,
+    "referenceName": "AttachedNetworkConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/attachednetworks"
 }

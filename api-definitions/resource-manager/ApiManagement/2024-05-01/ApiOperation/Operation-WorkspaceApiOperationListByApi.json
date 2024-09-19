@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiOperationListByApi",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "WorkspaceApiId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationContract"
+    "nullable": false,
+    "referenceName": "OperationContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/operations"
 }

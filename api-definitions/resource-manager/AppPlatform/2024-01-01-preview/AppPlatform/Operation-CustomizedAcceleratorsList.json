@@ -1,6 +1,7 @@
 {
   "name": "CustomizedAcceleratorsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ApplicationAcceleratorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomizedAcceleratorResource"
+    "nullable": false,
+    "referenceName": "CustomizedAcceleratorResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/customizedAccelerators"
 }

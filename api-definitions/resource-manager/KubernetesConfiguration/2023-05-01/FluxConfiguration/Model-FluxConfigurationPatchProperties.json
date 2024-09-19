@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the AzureBlob source kind type.",
       "jsonName": "azureBlob",
       "name": "AzureBlob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobPatchDefinition"
+        "nullable": false,
+        "referenceName": "AzureBlobPatchDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the Bucket source kind type.",
       "jsonName": "bucket",
       "name": "Bucket",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BucketPatchDefinition"
+        "nullable": false,
+        "referenceName": "BucketPatchDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key-value pairs of protected configuration settings for the configuration",
       "jsonName": "configurationProtectedSettings",
       "name": "ConfigurationProtectedSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the GitRepository source kind type.",
       "jsonName": "gitRepository",
       "name": "GitRepository",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitRepositoryPatchDefinition"
+        "nullable": false,
+        "referenceName": "GitRepositoryPatchDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.",
       "jsonName": "kustomizations",
       "name": "Kustomizations",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KustomizationPatchDefinition"
+          "nullable": false,
+          "referenceName": "KustomizationPatchDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source Kind to pull the configuration data from.",
       "jsonName": "sourceKind",
       "name": "SourceKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceKindType"
+        "nullable": false,
+        "referenceName": "SourceKindType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,16 +111,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether this configuration should suspend its reconciliation of its kustomizations and sources.",
       "jsonName": "suspend",
       "name": "Suspend",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

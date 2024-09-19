@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "PolicySetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Policy"
+    "nullable": false,
+    "referenceName": "Policy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/policies"
 }

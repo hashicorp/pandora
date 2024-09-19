@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The affected object properties like source server, source cloud, target server, target cloud etc. based on the workflow object details.",
       "jsonName": "affectedObjectDetails",
       "name": "AffectedObjectDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Gets the type of job details (see JobDetailsTypes enum for possible values).",
       "jsonName": "instanceType",
       "name": "InstanceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -32,5 +40,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "InstanceType"
 }

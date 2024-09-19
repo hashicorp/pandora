@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application notification endpoint.",
       "jsonName": "notificationEndpoints",
       "name": "NotificationEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationNotificationEndpoint"
+          "nullable": false,
+          "referenceName": "ApplicationNotificationEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +23,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

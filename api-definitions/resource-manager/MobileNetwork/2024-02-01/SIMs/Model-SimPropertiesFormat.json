@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Ki value for the SIM.",
       "jsonName": "authenticationKey",
       "name": "AuthenticationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.",
       "jsonName": "deviceType",
       "name": "DeviceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The integrated circuit card ID (ICCID) for the SIM.",
       "jsonName": "integratedCircuitCardIdentifier",
       "name": "IntegratedCircuitCardIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The international mobile subscriber identity (IMSI) for the SIM.",
       "jsonName": "internationalMobileSubscriberIdentity",
       "name": "InternationalMobileSubscriberIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Opc value for the SIM.",
       "jsonName": "operatorKeyCode",
       "name": "OperatorKeyCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +87,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +102,9 @@
       "name": "SimPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SimPolicyResourceId"
+        "nullable": false,
+        "referenceName": "SimPolicyResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +117,9 @@
       "name": "SimState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SimState"
+        "nullable": false,
+        "referenceName": "SimState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +132,14 @@
       "name": "SiteProvisioningState",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SiteProvisioningState"
+          "nullable": false,
+          "referenceName": "SiteProvisioningState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.",
       "jsonName": "staticIpConfiguration",
       "name": "StaticIPConfiguration",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SimStaticIPProperties"
+          "nullable": false,
+          "referenceName": "SimStaticIPProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public key fingerprint of the SIM vendor who provided this SIM, if any.",
       "jsonName": "vendorKeyFingerprint",
       "name": "VendorKeyFingerprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,16 +187,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SIM vendor who provided this SIM, if any.",
       "jsonName": "vendorName",
       "name": "VendorName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

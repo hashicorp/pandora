@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Office 365 breakout categories.",
       "jsonName": "breakOutCategories",
       "name": "BreakOutCategories",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BreakOutCategoryPolicies"
+        "nullable": false,
+        "referenceName": "BreakOutCategoryPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

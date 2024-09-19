@@ -1,6 +1,7 @@
 {
   "name": "RestorableSqlResourcesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   "resourceIdName": "RestorableDatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorableSqlResourcesListResult"
+    "nullable": false,
+    "referenceName": "RestorableSqlResourcesListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorableSqlResources"
 }

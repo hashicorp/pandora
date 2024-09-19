@@ -1,6 +1,7 @@
 {
   "name": "ListGuardrailsVersions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GuardrailsAvailableVersion"
+    "nullable": false,
+    "referenceName": "GuardrailsAvailableVersion",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/guardrailsVersions"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption function of the blob storage service.",
       "jsonName": "blob",
       "name": "Blob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionService"
+        "nullable": false,
+        "referenceName": "EncryptionService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption function of the file storage service.",
       "jsonName": "file",
       "name": "File",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionService"
+        "nullable": false,
+        "referenceName": "EncryptionService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption function of the queue storage service.",
       "jsonName": "queue",
       "name": "Queue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionService"
+        "nullable": false,
+        "referenceName": "EncryptionService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption function of the table storage service.",
       "jsonName": "table",
       "name": "Table",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionService"
+        "nullable": false,
+        "referenceName": "EncryptionService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

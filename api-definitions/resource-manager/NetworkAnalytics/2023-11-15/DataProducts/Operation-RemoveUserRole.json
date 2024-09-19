@@ -1,6 +1,7 @@
 {
   "name": "RemoveUserRole",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignmentDetail"
+    "nullable": false,
+    "referenceName": "RoleAssignmentDetail",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/removeUserRole"
 }

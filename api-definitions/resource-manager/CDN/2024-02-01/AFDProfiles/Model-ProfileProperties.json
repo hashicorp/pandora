@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key-Value pair representing additional properties for profiles.",
       "jsonName": "extendedProperties",
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the frontdoor.",
       "jsonName": "frontDoorId",
       "name": "FrontDoorId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +45,9 @@
       "name": "LogScrubbing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileLogScrubbing"
+        "nullable": false,
+        "referenceName": "ProfileLogScrubbing",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.",
       "jsonName": "originResponseTimeoutSeconds",
       "name": "OriginResponseTimeoutSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning status of the profile.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileProvisioningState"
+        "nullable": false,
+        "referenceName": "ProfileProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +88,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource status of the profile.",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileResourceState"
+        "nullable": false,
+        "referenceName": "ProfileResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

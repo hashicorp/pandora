@@ -1,6 +1,7 @@
 {
   "name": "ListApplicableSchedules",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "VirtualMachineId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicableSchedule"
+    "nullable": false,
+    "referenceName": "ApplicableSchedule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listApplicableSchedules"
 }

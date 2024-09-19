@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ManagedEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedEnvironmentStoragesCollection"
+    "nullable": false,
+    "referenceName": "ManagedEnvironmentStoragesCollection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/storages"
 }

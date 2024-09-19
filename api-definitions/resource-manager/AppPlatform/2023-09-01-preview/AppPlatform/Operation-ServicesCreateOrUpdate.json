@@ -1,6 +1,7 @@
 {
   "name": "ServicesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServiceResource"
+    "nullable": false,
+    "referenceName": "ServiceResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServiceResource"
+    "nullable": false,
+    "referenceName": "ServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

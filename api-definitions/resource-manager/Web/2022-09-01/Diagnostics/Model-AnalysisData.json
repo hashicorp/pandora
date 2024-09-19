@@ -3,17 +3,24 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional Source Data",
       "jsonName": "data",
       "name": "Data",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "NameValuePair"
+            "nullable": false,
+            "referenceName": "NameValuePair",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -24,11 +31,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detector Definition",
       "jsonName": "detectorDefinition",
       "name": "DetectorDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DetectorDefinition"
+        "nullable": false,
+        "referenceName": "DetectorDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detector Meta Data",
       "jsonName": "detectorMetaData",
       "name": "DetectorMetaData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResponseMetaData"
+        "nullable": false,
+        "referenceName": "ResponseMetaData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source Metrics",
       "jsonName": "metrics",
       "name": "Metrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiagnosticMetricSet"
+          "nullable": false,
+          "referenceName": "DiagnosticMetricSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,16 +85,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Detector",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202,
@@ -23,6 +24,8 @@
   "resourceIdName": "TimeSeriesDatabaseConnectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TimeSeriesDatabaseConnection"
+    "nullable": false,
+    "referenceName": "TimeSeriesDatabaseConnection",
+    "referenceNameIsCommonType": null
   }
 }

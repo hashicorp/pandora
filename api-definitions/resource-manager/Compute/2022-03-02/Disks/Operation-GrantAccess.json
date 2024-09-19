@@ -1,6 +1,7 @@
 {
   "name": "GrantAccess",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ManagedDiskId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GrantAccessData"
+    "nullable": false,
+    "referenceName": "GrantAccessData",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessUri"
+    "nullable": false,
+    "referenceName": "AccessUri",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/beginGetAccess"
 }

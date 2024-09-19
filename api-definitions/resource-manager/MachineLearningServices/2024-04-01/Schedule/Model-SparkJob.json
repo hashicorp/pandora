@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Archive files used in the job.",
       "jsonName": "archives",
       "name": "Archives",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Arguments for the job.",
       "jsonName": "args",
       "name": "Args",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] arm-id of the code asset.",
       "jsonName": "codeId",
       "name": "CodeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configured properties.",
       "jsonName": "conf",
       "name": "Conf",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The entry to execute on startup of the job.",
       "jsonName": "entry",
       "name": "Entry",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkJobEntry"
+        "nullable": false,
+        "referenceName": "SparkJobEntry",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM resource ID of the Environment specification for the job.",
       "jsonName": "environmentId",
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment variables included in the job.",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Files used in the job.",
       "jsonName": "files",
       "name": "Files",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,14 +155,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of input data bindings used in the job.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobInput"
+          "nullable": false,
+          "referenceName": "JobInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,14 +177,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Jar files used in the job.",
       "jsonName": "jars",
       "name": "Jars",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -157,14 +199,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of output data bindings used in the job.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -174,14 +221,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Python files used in the job.",
       "jsonName": "pyFiles",
       "name": "PyFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -191,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Queue settings for the job",
       "jsonName": "queueSettings",
       "name": "QueueSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueSettings"
+        "nullable": false,
+        "referenceName": "QueueSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute Resource configuration for the job.",
       "jsonName": "resources",
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkResourceConfiguration"
+        "nullable": false,
+        "referenceName": "SparkResourceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,6 +274,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobBase",
   "discriminatedTypeValue": "Spark",
   "typeHintIn": "JobType"

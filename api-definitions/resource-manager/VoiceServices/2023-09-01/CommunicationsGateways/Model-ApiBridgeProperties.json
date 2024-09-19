@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allowed source IP addresses or CIDR ranges for accessing the API Bridge",
       "jsonName": "allowedAddressPrefixes",
       "name": "AllowedAddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activation state of the API Bridge for this Communications Gateway",
       "jsonName": "configureApiBridge",
       "name": "ConfigureApiBridge",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiBridgeActivationState"
+        "nullable": false,
+        "referenceName": "ApiBridgeActivationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "FQDNs for sending requests to the API Bridge endpoint",
       "jsonName": "endpointFqdns",
       "name": "EndpointFqdns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

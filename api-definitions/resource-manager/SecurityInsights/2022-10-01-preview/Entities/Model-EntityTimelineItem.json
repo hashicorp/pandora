@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The entity query kind type.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityTimelineKind"
+        "nullable": false,
+        "referenceName": "EntityTimelineKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Kind"
 }

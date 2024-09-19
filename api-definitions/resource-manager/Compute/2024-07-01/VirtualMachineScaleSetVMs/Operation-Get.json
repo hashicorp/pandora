@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineScaleSetVM"
+    "nullable": false,
+    "referenceName": "VirtualMachineScaleSetVM",
+    "referenceNameIsCommonType": null
   }
 }

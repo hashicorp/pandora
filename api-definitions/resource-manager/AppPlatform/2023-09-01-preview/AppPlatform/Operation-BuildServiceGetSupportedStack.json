@@ -1,6 +1,7 @@
 {
   "name": "BuildServiceGetSupportedStack",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SupportedStackId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportedStackResource"
+    "nullable": false,
+    "referenceName": "SupportedStackResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "DeploymentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentOperation"
+    "nullable": false,
+    "referenceName": "DeploymentOperation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/operations"
 }

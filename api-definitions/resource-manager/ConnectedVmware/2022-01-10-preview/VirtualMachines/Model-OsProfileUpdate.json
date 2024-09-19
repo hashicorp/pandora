@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the linux configuration for update management.",
       "jsonName": "linuxConfiguration",
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfileUpdateLinuxConfiguration"
+        "nullable": false,
+        "referenceName": "OsProfileUpdateLinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the windows configuration for update management.",
       "jsonName": "windowsConfiguration",
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfileUpdateWindowsConfiguration"
+        "nullable": false,
+        "referenceName": "OsProfileUpdateWindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

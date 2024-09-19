@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the blob which contains data for this backup.",
       "jsonName": "blobName",
       "name": "BlobName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of the backup creation.",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of databases included in the backup.",
       "jsonName": "databases",
       "name": "Databases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseBackupSetting"
+          "nullable": false,
+          "referenceName": "DatabaseBackupSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,11 +75,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp when this backup finished.",
       "jsonName": "finishedTimeStamp",
       "name": "FinishedTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the backup.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,11 +108,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of a last restore operation which used this backup.",
       "jsonName": "lastRestoreTimeStamp",
       "name": "LastRestoreTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,11 +124,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details regarding this backup. Might contain an error message.",
       "jsonName": "log",
       "name": "Log",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of this backup.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,11 +156,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if this backup has been created due to a schedule being triggered.",
       "jsonName": "scheduled",
       "name": "Scheduled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,11 +172,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the backup in bytes.",
       "jsonName": "sizeInBytes",
       "name": "SizeInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupItemStatus"
+        "nullable": false,
+        "referenceName": "BackupItemStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SAS URL for the storage account container which contains this backup.",
       "jsonName": "storageAccountUrl",
       "name": "StorageAccountUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,16 +220,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the original web app which has been backed up.",
       "jsonName": "websiteSizeInBytes",
       "name": "WebsiteSizeInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

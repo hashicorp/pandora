@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SqlManagedInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceUpdate"
+    "nullable": false,
+    "referenceName": "ManagedInstanceUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstance"
+    "nullable": false,
+    "referenceName": "ManagedInstance",
+    "referenceNameIsCommonType": null
   }
 }

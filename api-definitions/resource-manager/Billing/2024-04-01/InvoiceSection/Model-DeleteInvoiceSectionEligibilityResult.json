@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of delete invoice section eligibility result details.",
       "jsonName": "eligibilityDetails",
       "name": "EligibilityDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeleteInvoiceSectionEligibilityDetail"
+          "nullable": false,
+          "referenceName": "DeleteInvoiceSectionEligibilityDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status describing if invoice section is eligible to be deleted.",
       "jsonName": "eligibilityStatus",
       "name": "EligibilityStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteInvoiceSectionEligibilityStatus"
+        "nullable": false,
+        "referenceName": "DeleteInvoiceSectionEligibilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

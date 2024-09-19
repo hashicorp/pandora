@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of this Datacenter.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +23,14 @@
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CassandraClusterPublicStatusDataCentersInlinedNodesInlined"
+          "nullable": false,
+          "referenceName": "CassandraClusterPublicStatusDataCentersInlinedNodesInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of all seed nodes in the cluster, managed and unmanaged.",
       "jsonName": "seedNodes",
       "name": "SeedNodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +60,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

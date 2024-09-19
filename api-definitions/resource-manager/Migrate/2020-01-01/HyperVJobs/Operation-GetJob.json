@@ -1,6 +1,7 @@
 {
   "name": "GetJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "HyperVSiteJobId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVJob"
+    "nullable": false,
+    "referenceName": "HyperVJob",
+    "referenceNameIsCommonType": null
   }
 }

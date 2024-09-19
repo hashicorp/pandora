@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BackupVaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PatchResourceRequestInput"
+    "nullable": false,
+    "referenceName": "PatchResourceRequestInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupVaultResource"
+    "nullable": false,
+    "referenceName": "BackupVaultResource",
+    "referenceNameIsCommonType": null
   }
 }

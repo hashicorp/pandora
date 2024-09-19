@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.",
       "jsonName": "armRoleReceivers",
       "name": "ArmRoleReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ArmRoleReceiver"
+          "nullable": false,
+          "referenceName": "ArmRoleReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of AutomationRunbook receivers that are part of this action group.",
       "jsonName": "automationRunbookReceivers",
       "name": "AutomationRunbookReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRunbookReceiver"
+          "nullable": false,
+          "referenceName": "AutomationRunbookReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of AzureAppPush receivers that are part of this action group.",
       "jsonName": "azureAppPushReceivers",
       "name": "AzureAppPushReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureAppPushReceiver"
+          "nullable": false,
+          "referenceName": "AzureAppPushReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of azure function receivers that are part of this action group.",
       "jsonName": "azureFunctionReceivers",
       "name": "AzureFunctionReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFunctionReceiver"
+          "nullable": false,
+          "referenceName": "AzureFunctionReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of email receivers that are part of this action group.",
       "jsonName": "emailReceivers",
       "name": "EmailReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EmailReceiver"
+          "nullable": false,
+          "referenceName": "EmailReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -101,14 +129,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of event hub receivers that are part of this action group.",
       "jsonName": "eventHubReceivers",
       "name": "EventHubReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubReceiver"
+          "nullable": false,
+          "referenceName": "EventHubReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -118,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The short name of the action group. This will be used in SMS messages.",
       "jsonName": "groupShortName",
       "name": "GroupShortName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -131,14 +167,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ITSM receivers that are part of this action group.",
       "jsonName": "itsmReceivers",
       "name": "ItsmReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ItsmReceiver"
+          "nullable": false,
+          "referenceName": "ItsmReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,14 +189,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of logic app receivers that are part of this action group.",
       "jsonName": "logicAppReceivers",
       "name": "LogicAppReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LogicAppReceiver"
+          "nullable": false,
+          "referenceName": "LogicAppReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -165,14 +211,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of SMS receivers that are part of this action group.",
       "jsonName": "smsReceivers",
       "name": "SmsReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmsReceiver"
+          "nullable": false,
+          "referenceName": "SmsReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -182,14 +233,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of voice receivers that are part of this action group.",
       "jsonName": "voiceReceivers",
       "name": "VoiceReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VoiceReceiver"
+          "nullable": false,
+          "referenceName": "VoiceReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -199,14 +255,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of webhook receivers that are part of this action group.",
       "jsonName": "webhookReceivers",
       "name": "WebhookReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebhookReceiver"
+          "nullable": false,
+          "referenceName": "WebhookReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -214,5 +275,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total amount of cost to track with the budget",
       "jsonName": "amount",
       "name": "Amount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The category of the budget, whether the budget tracks cost or usage.",
       "jsonName": "category",
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoryType"
+        "nullable": false,
+        "referenceName": "CategoryType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current amount of cost which is being tracked for a budget.",
       "jsonName": "currentSpend",
       "name": "CurrentSpend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CurrentSpend"
+        "nullable": false,
+        "referenceName": "CurrentSpend",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "May be used to filter budgets by user-specified dimensions and/or tags.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetFilter"
+        "nullable": false,
+        "referenceName": "BudgetFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The forecasted cost which is being tracked for a budget.",
       "jsonName": "forecastSpend",
       "name": "ForecastSpend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastSpend"
+        "nullable": false,
+        "referenceName": "ForecastSpend",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of notifications associated with the budget. Budget can have up to five notifications.",
       "jsonName": "notifications",
       "name": "Notifications",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Notification"
+          "nullable": false,
+          "referenceName": "Notification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers",
       "jsonName": "timeGrain",
       "name": "TimeGrain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeGrainType"
+        "nullable": false,
+        "referenceName": "TimeGrainType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,16 +121,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.",
       "jsonName": "timePeriod",
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetTimePeriod"
+        "nullable": false,
+        "referenceName": "BudgetTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

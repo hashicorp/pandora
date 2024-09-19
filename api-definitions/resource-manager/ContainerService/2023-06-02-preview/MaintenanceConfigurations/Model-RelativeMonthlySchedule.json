@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies on which day of the week the maintenance occurs.",
       "jsonName": "dayOfWeek",
       "name": "DayOfWeek",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeekDay"
+        "nullable": false,
+        "referenceName": "WeekDay",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the number of months between each set of occurrences.",
       "jsonName": "intervalMonths",
       "name": "IntervalMonths",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs.",
       "jsonName": "weekIndex",
       "name": "WeekIndex",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Type"
+        "nullable": false,
+        "referenceName": "Type",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

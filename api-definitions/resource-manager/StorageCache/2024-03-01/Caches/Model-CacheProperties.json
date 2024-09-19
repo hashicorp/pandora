@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of this Cache, in GB.",
       "jsonName": "cacheSizeGB",
       "name": "CacheSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies Directory Services settings of the cache.",
       "jsonName": "directoryServicesSettings",
       "name": "DirectoryServicesSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheDirectorySettings"
+        "nullable": false,
+        "referenceName": "CacheDirectorySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies encryption settings of the cache.",
       "jsonName": "encryptionSettings",
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheEncryptionSettings"
+        "nullable": false,
+        "referenceName": "CacheEncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health of the cache.",
       "jsonName": "health",
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheHealth"
+        "nullable": false,
+        "referenceName": "CacheHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of IPv4 addresses that can be used by clients mounting this cache.",
       "jsonName": "mountAddresses",
       "name": "MountAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies network settings of the cache.",
       "jsonName": "networkSettings",
       "name": "NetworkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheNetworkSettings"
+        "nullable": false,
+        "referenceName": "CacheNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the priming jobs defined in the cache.",
       "jsonName": "primingJobs",
       "name": "PrimingJobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrimingJob"
+          "nullable": false,
+          "referenceName": "PrimingJob",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateType"
+        "nullable": false,
+        "referenceName": "ProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies security settings of the cache.",
       "jsonName": "securitySettings",
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheSecuritySettings"
+        "nullable": false,
+        "referenceName": "CacheSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,14 +159,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the space allocation percentage for each storage target in the cache.",
       "jsonName": "spaceAllocation",
       "name": "SpaceAllocation",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageTargetSpaceAllocation"
+          "nullable": false,
+          "referenceName": "StorageTargetSpaceAllocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subnet used for the cache.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upgrade settings of the cache.",
       "jsonName": "upgradeSettings",
       "name": "UpgradeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheUpgradeSettings"
+        "nullable": false,
+        "referenceName": "CacheUpgradeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Upgrade status of the cache.",
       "jsonName": "upgradeStatus",
       "name": "UpgradeStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheUpgradeStatus"
+        "nullable": false,
+        "referenceName": "CacheUpgradeStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,16 +229,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Availability zones for resources. This field should only contain a single element in the array.",
       "jsonName": "zones",
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionNetworkManagerConnectionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerConnection"
+    "nullable": false,
+    "referenceName": "NetworkManagerConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/networkManagerConnections"
 }

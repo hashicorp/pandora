@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter value as reference type.",
       "jsonName": "reference",
       "name": "Reference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretValueReference"
+        "nullable": false,
+        "referenceName": "SecretValueReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter value. Any valid JSON value is allowed including objects, arrays, strings, numbers and booleans.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Create incidents from alerts triggered by this analytics rule",
       "jsonName": "createIncident",
       "name": "CreateIncident",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set how the alerts that are triggered by this analytics rule, are grouped into incidents",
       "jsonName": "groupingConfiguration",
       "name": "GroupingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GroupingConfiguration"
+        "nullable": false,
+        "referenceName": "GroupingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

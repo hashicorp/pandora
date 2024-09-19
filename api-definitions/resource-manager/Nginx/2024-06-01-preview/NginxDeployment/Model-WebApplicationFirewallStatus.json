@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package containing attack signatures for the NGINX App Protect Web Application Firewall (WAF).",
       "jsonName": "attackSignaturesPackage",
       "name": "AttackSignaturesPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package containing bot signatures for the NGINX App Protect Web Application Firewall (WAF).",
       "jsonName": "botSignaturesPackage",
       "name": "BotSignaturesPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Versions of the NGINX App Protect Web Application Firewall (WAF) components.",
       "jsonName": "componentVersions",
       "name": "ComponentVersions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallComponentVersions"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallComponentVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package containing threat campaigns for the NGINX App Protect Web Application Firewall (WAF).",
       "jsonName": "threatCampaignsPackage",
       "name": "ThreatCampaignsPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

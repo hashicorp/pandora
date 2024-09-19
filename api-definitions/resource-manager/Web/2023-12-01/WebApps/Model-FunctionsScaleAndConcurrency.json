@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "'Always Ready' configuration for the function app.",
       "jsonName": "alwaysReady",
       "name": "AlwaysReady",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FunctionsAlwaysReadyConfig"
+          "nullable": false,
+          "referenceName": "FunctionsAlwaysReadyConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set the amount of memory allocated to each instance of the function app in MB. CPU and network bandwidth are allocated proportionally.",
       "jsonName": "instanceMemoryMB",
       "name": "InstanceMemoryMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of instances for the function app.",
       "jsonName": "maximumInstanceCount",
       "name": "MaximumInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scale and concurrency settings for the function app triggers.",
       "jsonName": "triggers",
       "name": "Triggers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsScaleAndConcurrencyTriggers"
+        "nullable": false,
+        "referenceName": "FunctionsScaleAndConcurrencyTriggers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

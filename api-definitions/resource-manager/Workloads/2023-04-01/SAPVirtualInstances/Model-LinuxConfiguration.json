@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether password authentication should be disabled.",
       "jsonName": "disablePasswordAuthentication",
       "name": "DisablePasswordAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)",
       "jsonName": "ssh",
       "name": "Ssh",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshConfiguration"
+        "nullable": false,
+        "referenceName": "SshConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SSH Key-pair used to authenticate with the VM's.",
       "jsonName": "sshKeyPair",
       "name": "SshKeyPair",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshKeyPair"
+        "nullable": false,
+        "referenceName": "SshKeyPair",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OSConfiguration",
   "discriminatedTypeValue": "Linux",
   "typeHintIn": "OsType"

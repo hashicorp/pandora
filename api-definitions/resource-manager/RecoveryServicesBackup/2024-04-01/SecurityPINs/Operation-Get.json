@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SecurityPinBase"
+    "nullable": false,
+    "referenceName": "SecurityPinBase",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TokenInformation"
+    "nullable": false,
+    "referenceName": "TokenInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupSecurityPIN"
 }

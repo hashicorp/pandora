@@ -1,6 +1,7 @@
 {
   "name": "ListByHostGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DedicatedHostGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHost"
+    "nullable": false,
+    "referenceName": "DedicatedHost",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hosts"
 }

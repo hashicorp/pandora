@@ -1,6 +1,7 @@
 {
   "name": "Acquire",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ManagedInstanceDnsAliasId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerDnsAliasAcquisition"
+    "nullable": false,
+    "referenceName": "ManagedServerDnsAliasAcquisition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerDnsAlias"
+    "nullable": false,
+    "referenceName": "ManagedServerDnsAlias",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/acquire"
 }

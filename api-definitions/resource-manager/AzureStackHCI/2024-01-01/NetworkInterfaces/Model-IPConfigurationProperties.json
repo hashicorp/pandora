@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gateway for network interface",
       "jsonName": "gateway",
       "name": "Gateway",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "prefixLength for network interface",
       "jsonName": "prefixLength",
       "name": "PrefixLength",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "PrivateIPAddress - Private IP address of the IP configuration.",
       "jsonName": "privateIPAddress",
       "name": "PrivateIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subnet - Name of Subnet bound to the IP configuration.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPConfigurationPropertiesSubnet"
+        "nullable": false,
+        "referenceName": "IPConfigurationPropertiesSubnet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the access mode of ingestion through the specified private endpoint connection in the exclusion.",
       "jsonName": "ingestionAccessMode",
       "name": "IngestionAccessMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessMode"
+        "nullable": false,
+        "referenceName": "AccessMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The private endpoint connection name associated to the private endpoint on which we want to apply the specific access mode settings.",
       "jsonName": "privateEndpointConnectionName",
       "name": "PrivateEndpointConnectionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the access mode of queries through the specified private endpoint connection in the exclusion.",
       "jsonName": "queryAccessMode",
       "name": "QueryAccessMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessMode"
+        "nullable": false,
+        "referenceName": "AccessMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

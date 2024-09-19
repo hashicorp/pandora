@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The UserCustomCode container.",
       "jsonName": "container",
       "name": "Container",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The UserCustomCode path.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The refresh parameters for any/all updatable user defined functions present in the job config.",
       "jsonName": "refreshConfiguration",
       "name": "RefreshConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshConfiguration"
+        "nullable": false,
+        "referenceName": "RefreshConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +55,15 @@
       "name": "StorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccount"
+        "nullable": false,
+        "referenceName": "StorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

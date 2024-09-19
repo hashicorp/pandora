@@ -1,6 +1,7 @@
 {
   "name": "ListSynchronizationDetails",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,11 +33,15 @@
   "resourceIdName": "ShareId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ShareSynchronization"
+    "nullable": false,
+    "referenceName": "ShareSynchronization",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SynchronizationDetails"
+    "nullable": false,
+    "referenceName": "SynchronizationDetails",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listSynchronizationDetails"
 }

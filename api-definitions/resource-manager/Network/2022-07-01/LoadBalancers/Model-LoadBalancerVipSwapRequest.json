@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of frontend IP configuration resources that should swap VIPs.",
       "jsonName": "frontendIPConfigurations",
       "name": "FrontendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancerVipSwapRequestFrontendIPConfiguration"
+          "nullable": false,
+          "referenceName": "LoadBalancerVipSwapRequestFrontendIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

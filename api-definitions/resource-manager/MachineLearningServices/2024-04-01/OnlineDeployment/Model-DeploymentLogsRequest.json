@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of container to retrieve logs from.",
       "jsonName": "containerType",
       "name": "ContainerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerType"
+        "nullable": false,
+        "referenceName": "ContainerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of lines to tail.",
       "jsonName": "tail",
       "name": "Tail",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

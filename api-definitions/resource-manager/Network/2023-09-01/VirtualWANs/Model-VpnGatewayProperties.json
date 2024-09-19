@@ -7,7 +7,9 @@
       "name": "BgpSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BgpSettings"
+        "nullable": false,
+        "referenceName": "BgpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all vpn connections to the gateway.",
       "jsonName": "connections",
       "name": "Connections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnConnection"
+          "nullable": false,
+          "referenceName": "VpnConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable BGP routes translation for NAT on this VpnGateway.",
       "jsonName": "enableBgpRouteTranslationForNat",
       "name": "EnableBgpRouteTranslationForNat",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +56,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all IPs configured on the gateway.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "VpnGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable Routing Preference property for the Public IP Interface of the VpnGateway.",
       "jsonName": "isRoutingPreferenceInternet",
       "name": "IsRoutingPreferenceInternet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +94,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all the nat Rules associated with the gateway.",
       "jsonName": "natRules",
       "name": "NatRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnGatewayNatRule"
+          "nullable": false,
+          "referenceName": "VpnGatewayNatRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,7 +120,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +135,9 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,16 +146,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scale unit for this vpn gateway.",
       "jsonName": "vpnGatewayScaleUnit",
       "name": "VpnGatewayScaleUnit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

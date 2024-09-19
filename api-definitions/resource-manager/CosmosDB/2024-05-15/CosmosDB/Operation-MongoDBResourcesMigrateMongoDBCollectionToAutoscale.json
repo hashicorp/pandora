@@ -1,6 +1,7 @@
 {
   "name": "MongoDBResourcesMigrateMongoDBCollectionToAutoscale",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "MongodbDatabaseCollectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ThroughputSettingsGetResults"
+    "nullable": false,
+    "referenceName": "ThroughputSettingsGetResults",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
 }

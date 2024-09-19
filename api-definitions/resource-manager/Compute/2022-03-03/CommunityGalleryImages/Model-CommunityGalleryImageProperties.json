@@ -7,7 +7,9 @@
       "name": "Architecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Architecture"
+        "nullable": false,
+        "referenceName": "Architecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Disallowed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Disallowed"
+        "nullable": false,
+        "referenceName": "Disallowed",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +34,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.",
       "jsonName": "endOfLifeDate",
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "End-user license agreement for the current community gallery image.",
       "jsonName": "eula",
       "name": "Eula",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,14 +66,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of gallery image features.",
       "jsonName": "features",
       "name": "Features",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryImageFeature"
+          "nullable": false,
+          "referenceName": "GalleryImageFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -73,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hypervisor generation of the Virtual Machine. Applicable to OS disks only.",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +108,9 @@
       "name": "Identifier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommunityGalleryImageIdentifier"
+        "nullable": false,
+        "referenceName": "CommunityGalleryImageIdentifier",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.",
       "jsonName": "osState",
       "name": "OsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemStateTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemStateTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -112,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **Windows** \u003cbr\u003e\u003cbr\u003e **Linux**",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -125,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Privacy statement uri for the current community gallery image.",
       "jsonName": "privacyStatementUri",
       "name": "PrivacyStatementUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,7 +171,9 @@
       "name": "PurchasePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImagePurchasePlan"
+        "nullable": false,
+        "referenceName": "ImagePurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,12 +186,15 @@
       "name": "Recommended",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedMachineConfiguration"
+        "nullable": false,
+        "referenceName": "RecommendedMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

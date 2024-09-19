@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The circuit bandwidth In Mbps.",
       "jsonName": "bandwidthInMbps",
       "name": "BandwidthInMbps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ExpressRouteCircuit.",
       "jsonName": "expressRouteCircuit",
       "name": "ExpressRouteCircuit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitReference"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The peering location of the ExpressRoute circuit.",
       "jsonName": "peeringLocation",
       "name": "PeeringLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of peerings.",
       "jsonName": "peerings",
       "name": "Peerings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressRouteCrossConnectionPeering"
+          "nullable": false,
+          "referenceName": "ExpressRouteCrossConnectionPeering",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the primary port.",
       "jsonName": "primaryAzurePort",
       "name": "PrimaryAzurePort",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +93,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the circuit traffic.",
       "jsonName": "sTag",
       "name": "STag",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the secondary port.",
       "jsonName": "secondaryAzurePort",
       "name": "SecondaryAzurePort",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +136,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional read only notes set by the connectivity provider.",
       "jsonName": "serviceProviderNotes",
       "name": "ServiceProviderNotes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,12 +156,15 @@
       "name": "ServiceProviderProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceProviderProvisioningState"
+        "nullable": false,
+        "referenceName": "ServiceProviderProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

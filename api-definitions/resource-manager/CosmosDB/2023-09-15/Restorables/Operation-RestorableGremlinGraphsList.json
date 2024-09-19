@@ -1,6 +1,7 @@
 {
   "name": "RestorableGremlinGraphsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "RestorableDatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorableGremlinGraphsListResult"
+    "nullable": false,
+    "referenceName": "RestorableGremlinGraphsListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorableGraphs"
 }

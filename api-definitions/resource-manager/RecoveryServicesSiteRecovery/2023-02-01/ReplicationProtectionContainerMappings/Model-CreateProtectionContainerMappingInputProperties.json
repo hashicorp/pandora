@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Applicable policy.",
       "jsonName": "policyId",
       "name": "PolicyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provider specific input for pairing.",
       "jsonName": "providerSpecificInput",
       "name": "ProviderSpecificInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationProviderSpecificContainerMappingInput"
+        "nullable": false,
+        "referenceName": "ReplicationProviderSpecificContainerMappingInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target unique protection container name.",
       "jsonName": "targetProtectionContainerId",
       "name": "TargetProtectionContainerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

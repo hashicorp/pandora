@@ -7,7 +7,9 @@
       "name": "EnableDiagnosticsSupport",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address of the deployment.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxLogging"
+        "nullable": false,
+        "referenceName": "NginxLogging",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed resource group to deploy VNet injection related network resources.",
       "jsonName": "managedResourceGroup",
       "name": "ManagedResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +69,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxNetworkProfile"
+        "nullable": false,
+        "referenceName": "NginxNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +84,9 @@
       "name": "NginxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +99,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +114,9 @@
       "name": "ScalingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentScalingProperties"
+        "nullable": false,
+        "referenceName": "NginxDeploymentScalingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +129,15 @@
       "name": "UserProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentUserProfile"
+        "nullable": false,
+        "referenceName": "NginxDeploymentUserProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

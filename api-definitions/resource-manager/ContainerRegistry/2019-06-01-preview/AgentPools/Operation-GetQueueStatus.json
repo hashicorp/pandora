@@ -1,6 +1,7 @@
 {
   "name": "GetQueueStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AgentPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AgentPoolQueueStatus"
+    "nullable": false,
+    "referenceName": "AgentPoolQueueStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listQueueStatus"
 }

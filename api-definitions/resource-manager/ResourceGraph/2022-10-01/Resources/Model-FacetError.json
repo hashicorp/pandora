@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array containing detected facet errors with details.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ErrorDetails"
+          "nullable": false,
+          "referenceName": "ErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Facet",
   "discriminatedTypeValue": "FacetError",
   "typeHintIn": "ResultType"

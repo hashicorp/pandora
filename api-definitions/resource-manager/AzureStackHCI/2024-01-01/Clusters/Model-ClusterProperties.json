@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Object id of cluster AAD identity.",
       "jsonName": "aadApplicationObjectId",
       "name": "AadApplicationObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App id of cluster AAD identity.",
       "jsonName": "aadClientId",
       "name": "AadClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of cluster identity service principal.",
       "jsonName": "aadServicePrincipalObjectId",
       "name": "AadServicePrincipalObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tenant id of cluster AAD identity.",
       "jsonName": "aadTenantId",
       "name": "AadTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of billing applied to the resource.",
       "jsonName": "billingModel",
       "name": "BillingModel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique, immutable resource id.",
       "jsonName": "cloudId",
       "name": "CloudId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Endpoint configured for management from the Azure portal.",
       "jsonName": "cloudManagementEndpoint",
       "name": "CloudManagementEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overall connectivity status for the cluster resource.",
       "jsonName": "connectivityStatus",
       "name": "ConnectivityStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityStatus"
+        "nullable": false,
+        "referenceName": "ConnectivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Desired properties of the cluster.",
       "jsonName": "desiredProperties",
       "name": "DesiredProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterDesiredProperties"
+        "nullable": false,
+        "referenceName": "ClusterDesiredProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.",
       "jsonName": "isolatedVmAttestationConfiguration",
       "name": "IsolatedVMAttestationConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsolatedVMAttestationConfiguration"
+        "nullable": false,
+        "referenceName": "IsolatedVMAttestationConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Most recent billing meter timestamp.",
       "jsonName": "lastBillingTimestamp",
       "name": "LastBillingTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Most recent cluster sync timestamp.",
       "jsonName": "lastSyncTimestamp",
       "name": "LastSyncTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,11 +214,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "First cluster sync timestamp.",
       "jsonName": "registrationTimestamp",
       "name": "RegistrationTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +230,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties reported by cluster agent.",
       "jsonName": "reportedProperties",
       "name": "ReportedProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterReportedProperties"
+        "nullable": false,
+        "referenceName": "ClusterReportedProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +246,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Object id of RP Service Principal",
       "jsonName": "resourceProviderObjectId",
       "name": "ResourceProviderObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +262,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Region specific DataPath Endpoint of the cluster.",
       "jsonName": "serviceEndpoint",
       "name": "ServiceEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +278,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Software Assurance properties of the cluster.",
       "jsonName": "softwareAssuranceProperties",
       "name": "SoftwareAssuranceProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareAssuranceProperties"
+        "nullable": false,
+        "referenceName": "SoftwareAssuranceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the cluster agent.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Status"
+        "nullable": false,
+        "referenceName": "Status",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,16 +310,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of days remaining in the trial period.",
       "jsonName": "trialDaysRemaining",
       "name": "TrialDaysRemaining",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

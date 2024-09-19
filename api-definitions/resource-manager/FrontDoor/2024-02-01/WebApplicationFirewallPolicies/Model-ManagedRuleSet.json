@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the exclusions that are applied to all rules in the set.",
       "jsonName": "exclusions",
       "name": "Exclusions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleExclusion"
+          "nullable": false,
+          "referenceName": "ManagedRuleExclusion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the rule group overrides to apply to the rule set.",
       "jsonName": "ruleGroupOverrides",
       "name": "RuleGroupOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleGroupOverride"
+          "nullable": false,
+          "referenceName": "ManagedRuleGroupOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the rule set action.",
       "jsonName": "ruleSetAction",
       "name": "RuleSetAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleSetActionType"
+        "nullable": false,
+        "referenceName": "ManagedRuleSetActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the rule set type to use.",
       "jsonName": "ruleSetType",
       "name": "RuleSetType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,16 +79,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the version of the rule set to use.",
       "jsonName": "ruleSetVersion",
       "name": "RuleSetVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

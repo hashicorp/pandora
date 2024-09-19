@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ReplicationProviderSettings.",
       "jsonName": "replicationProviderSettings",
       "name": "ReplicationProviderSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyProviderSpecificInput"
+        "nullable": false,
+        "referenceName": "PolicyProviderSpecificInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

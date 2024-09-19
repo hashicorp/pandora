@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Selection of how the type evaluation is applied to the cluster calculation.",
       "jsonName": "grouping",
       "name": "Grouping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThresholdGrouping"
+        "nullable": false,
+        "referenceName": "ValidationThresholdGrouping",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Selection of how the threshold should be evaluated.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThresholdType"
+        "nullable": false,
+        "referenceName": "ValidationThresholdType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The numeric threshold value.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

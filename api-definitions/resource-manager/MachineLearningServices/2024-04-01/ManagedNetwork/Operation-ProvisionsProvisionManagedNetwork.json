@@ -1,6 +1,7 @@
 {
   "name": "ProvisionsProvisionManagedNetwork",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedNetworkProvisionOptions"
+    "nullable": false,
+    "referenceName": "ManagedNetworkProvisionOptions",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedNetworkProvisionStatus"
+    "nullable": false,
+    "referenceName": "ManagedNetworkProvisionStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/provisionManagedNetwork"
 }

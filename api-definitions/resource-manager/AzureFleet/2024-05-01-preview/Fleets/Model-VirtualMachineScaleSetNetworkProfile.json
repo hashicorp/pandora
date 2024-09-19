@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A reference to a load balancer probe used to determine the health of an\ninstance in the virtual machine scale set. The reference will be in the form:\n'/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/loadBalancers/{loadBalancerName}/probes/{probeName}'.",
       "jsonName": "healthProbe",
       "name": "HealthProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiEntityReference"
+        "nullable": false,
+        "referenceName": "ApiEntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "specifies the Microsoft.Network API version used when creating networking\nresources in the Network Interface Configurations for Virtual Machine Scale Set\nwith orchestration mode 'Flexible'",
       "jsonName": "networkApiVersion",
       "name": "NetworkApiVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkApiVersion"
+        "nullable": false,
+        "referenceName": "NetworkApiVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of network configurations.",
       "jsonName": "networkInterfaceConfigurations",
       "name": "NetworkInterfaceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetNetworkConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetNetworkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

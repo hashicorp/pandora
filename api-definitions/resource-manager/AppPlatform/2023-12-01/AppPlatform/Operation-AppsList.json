@@ -1,6 +1,7 @@
 {
   "name": "AppsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SpringCloudServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppResource"
+    "nullable": false,
+    "referenceName": "AppResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/apps"
 }

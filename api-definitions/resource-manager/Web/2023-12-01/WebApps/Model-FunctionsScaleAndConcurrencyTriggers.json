@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scale and concurrency settings for the HTTP trigger.",
       "jsonName": "http",
       "name": "HTTP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsScaleAndConcurrencyTriggersHTTP"
+        "nullable": false,
+        "referenceName": "FunctionsScaleAndConcurrencyTriggersHTTP",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify what happens to the network interface when the VM is deleted",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dns settings to be applied on the network interfaces.",
       "jsonName": "dnsSettings",
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetNetworkConfigurationDnsSettings"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetNetworkConfigurationDnsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is accelerated networking-enabled.",
       "jsonName": "enableAcceleratedNetworking",
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is FPGA networking-enabled.",
       "jsonName": "enableFpga",
       "name": "EnableFpga",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether IP forwarding enabled on this NIC.",
       "jsonName": "enableIPForwarding",
       "name": "EnableIPForwarding",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the IP configurations of the network interface.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetIPConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network security group.",
       "jsonName": "networkSecurityGroup",
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +121,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the primary network interface in case the virtual machine has more than 1 network interface.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

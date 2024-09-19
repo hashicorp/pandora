@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the parameters that are used to add data disks to the virtual machines in the scale set. \u003cbr\u003e\u003cbr\u003e For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetDataDisk"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetDataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.",
       "jsonName": "imageReference",
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies information about the operating system disk used by the virtual machines in the scale set. \u003cbr\u003e\u003cbr\u003e For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetOSDisk"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetOSDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

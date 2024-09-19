@@ -1,6 +1,7 @@
 {
   "name": "UpdateCustomer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "CustomerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomerPolicy"
+    "nullable": false,
+    "referenceName": "CustomerPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomerPolicy"
+    "nullable": false,
+    "referenceName": "CustomerPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/policies/default"
 }

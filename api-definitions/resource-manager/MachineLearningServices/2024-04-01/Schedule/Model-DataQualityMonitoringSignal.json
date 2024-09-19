@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A dictionary that maps feature names to their respective data types.",
       "jsonName": "featureDataTypeOverride",
       "name": "FeatureDataTypeOverride",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringFeatureDataType"
+          "nullable": false,
+          "referenceName": "MonitoringFeatureDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for computing feature importance.",
       "jsonName": "featureImportanceSettings",
       "name": "FeatureImportanceSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureImportanceSettings"
+        "nullable": false,
+        "referenceName": "FeatureImportanceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The features to calculate drift over.",
       "jsonName": "features",
       "name": "Features",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringFeatureFilterBase"
+        "nullable": false,
+        "referenceName": "MonitoringFeatureFilterBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] A list of metrics to calculate and their associated thresholds.",
       "jsonName": "metricThresholds",
       "name": "MetricThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataQualityMetricThresholdBase"
+          "nullable": false,
+          "referenceName": "DataQualityMetricThresholdBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The data produced by the production service which drift will be calculated for.",
       "jsonName": "productionData",
       "name": "ProductionData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The data to calculate drift against.",
       "jsonName": "referenceData",
       "name": "ReferenceData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -88,6 +110,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitoringSignalBase",
   "discriminatedTypeValue": "DataQuality",
   "typeHintIn": "SignalType"

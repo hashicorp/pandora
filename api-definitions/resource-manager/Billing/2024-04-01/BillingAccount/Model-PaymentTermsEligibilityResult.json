@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the payment terms eligibility.",
       "jsonName": "eligibilityDetails",
       "name": "EligibilityDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PaymentTermsEligibilityDetail"
+          "nullable": false,
+          "referenceName": "PaymentTermsEligibilityDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the eligibility status of the payment terms.",
       "jsonName": "eligibilityStatus",
       "name": "EligibilityStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentTermsEligibilityStatus"
+        "nullable": false,
+        "referenceName": "PaymentTermsEligibilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

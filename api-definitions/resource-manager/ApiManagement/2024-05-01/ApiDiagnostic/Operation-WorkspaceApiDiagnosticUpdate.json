@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiDiagnosticUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "WorkspaceApiDiagnosticId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticUpdateContract"
+    "nullable": false,
+    "referenceName": "DiagnosticUpdateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticContract"
+    "nullable": false,
+    "referenceName": "DiagnosticContract",
+    "referenceNameIsCommonType": null
   }
 }

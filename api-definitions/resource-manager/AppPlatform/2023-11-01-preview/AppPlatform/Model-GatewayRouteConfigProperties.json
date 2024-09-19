@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource Id of the Azure Spring Apps app, required unless route defines `uri`.",
       "jsonName": "appResourceId",
       "name": "AppResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To modify the request before sending it to the target endpoint, or the received response in app level.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +45,9 @@
       "name": "OpenApi",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayRouteConfigOpenApiProperties"
+        "nullable": false,
+        "referenceName": "GatewayRouteConfigOpenApiProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +56,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.",
       "jsonName": "predicates",
       "name": "Predicates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol of routed Azure Spring Apps applications.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayRouteConfigProtocol"
+        "nullable": false,
+        "referenceName": "GatewayRouteConfigProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the Spring Cloud Gateway route config.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayProvisioningState"
+        "nullable": false,
+        "referenceName": "GatewayProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,14 +110,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.",
       "jsonName": "routes",
       "name": "Routes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayApiRoute"
+          "nullable": false,
+          "referenceName": "GatewayApiRoute",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,16 +132,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable Single Sign-On in app level.",
       "jsonName": "ssoEnabled",
       "name": "SsoEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

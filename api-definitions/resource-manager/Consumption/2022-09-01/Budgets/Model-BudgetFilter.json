@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The logical \"AND\" expression. Must have at least 2 items.",
       "jsonName": "and",
       "name": "And",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BudgetFilterProperties"
+          "nullable": false,
+          "referenceName": "BudgetFilterProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has comparison expression for a dimension",
       "jsonName": "dimensions",
       "name": "Dimensions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetComparisonExpression"
+        "nullable": false,
+        "referenceName": "BudgetComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has comparison expression for a tag",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetComparisonExpression"
+        "nullable": false,
+        "referenceName": "BudgetComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

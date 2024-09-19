@@ -1,6 +1,7 @@
 {
   "name": "CheckPrivateLinkServiceVisibility",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckPrivateLinkServiceVisibilityRequest"
+    "nullable": false,
+    "referenceName": "CheckPrivateLinkServiceVisibilityRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkServiceVisibility"
+    "nullable": false,
+    "referenceName": "PrivateLinkServiceVisibility",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkPrivateLinkServiceVisibility"
 }

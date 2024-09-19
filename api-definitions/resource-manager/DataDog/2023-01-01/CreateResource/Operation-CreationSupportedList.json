@@ -1,6 +1,7 @@
 {
   "name": "CreationSupportedList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CreateResourceSupportedResponseList"
+    "nullable": false,
+    "referenceName": "CreateResourceSupportedResponseList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Datadog/subscriptionStatuses"
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of contextual service endpoint policy.",
       "jsonName": "contextualServiceEndpointPolicies",
       "name": "ContextualServiceEndpointPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the service endpoint policy resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alias indicating if the policy belongs to a service",
       "jsonName": "serviceAlias",
       "name": "ServiceAlias",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +72,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of service endpoint policy definitions of the service endpoint policy.",
       "jsonName": "serviceEndpointPolicyDefinitions",
       "name": "ServiceEndpointPolicyDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpointPolicyDefinition"
+          "nullable": false,
+          "referenceName": "ServiceEndpointPolicyDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +94,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to subnets.",
       "jsonName": "subnets",
       "name": "Subnets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Subnet"
+          "nullable": false,
+          "referenceName": "Subnet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +114,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

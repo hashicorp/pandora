@@ -1,6 +1,7 @@
 {
   "name": "ResolveHealthErrors",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationProtectedItemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ResolveHealthInput"
+    "nullable": false,
+    "referenceName": "ResolveHealthInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplicationProtectedItem"
+    "nullable": false,
+    "referenceName": "ReplicationProtectedItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resolveHealthErrors"
 }

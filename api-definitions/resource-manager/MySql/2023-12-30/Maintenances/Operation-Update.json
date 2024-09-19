@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "MaintenanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MaintenanceUpdate"
+    "nullable": false,
+    "referenceName": "MaintenanceUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Maintenance"
+    "nullable": false,
+    "referenceName": "Maintenance",
+    "referenceNameIsCommonType": null
   }
 }

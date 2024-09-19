@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of months of year of yearly retention policy.",
       "jsonName": "monthsOfYear",
       "name": "MonthsOfYear",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonthOfYear"
+          "nullable": false,
+          "referenceName": "MonthOfYear",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention duration of retention Policy.",
       "jsonName": "retentionDuration",
       "name": "RetentionDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDuration"
+        "nullable": false,
+        "referenceName": "RetentionDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Daily retention format for yearly retention policy.",
       "jsonName": "retentionScheduleDaily",
       "name": "RetentionScheduleDaily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailyRetentionFormat"
+        "nullable": false,
+        "referenceName": "DailyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention schedule format for yearly retention policy.",
       "jsonName": "retentionScheduleFormatType",
       "name": "RetentionScheduleFormatType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionScheduleFormat"
+        "nullable": false,
+        "referenceName": "RetentionScheduleFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weekly retention format for yearly retention policy.",
       "jsonName": "retentionScheduleWeekly",
       "name": "RetentionScheduleWeekly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklyRetentionFormat"
+        "nullable": false,
+        "referenceName": "WeeklyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention times of retention policy.",
       "jsonName": "retentionTimes",
       "name": "RetentionTimes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "DateTime",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -87,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

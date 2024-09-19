@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the deployment mode.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentMode"
+        "nullable": false,
+        "referenceName": "DeploymentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment parameters. Use only one of Parameters or ParametersLink.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the URI referencing the parameters. Use only one of Parameters or ParametersLink.",
       "jsonName": "parametersLink",
       "name": "ParametersLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParametersLink"
+        "nullable": false,
+        "referenceName": "ParametersLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the template content. Use only one of Template or TemplateLink.",
       "jsonName": "template",
       "name": "Template",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the URI referencing the template. Use only one of Template or TemplateLink.",
       "jsonName": "templateLink",
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemplateLink"
+        "nullable": false,
+        "referenceName": "TemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

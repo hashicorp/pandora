@@ -1,6 +1,7 @@
 {
   "name": "VpnSitesConfigurationDownload",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualWANId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GetVpnSitesConfigurationRequest"
+    "nullable": false,
+    "referenceName": "GetVpnSitesConfigurationRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/vpnConfiguration"
 }

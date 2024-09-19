@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Priority of the Firewall Policy Rule Collection Group resource.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Group of Firewall Policy rule collections.",
       "jsonName": "ruleCollections",
       "name": "RuleCollections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallPolicyRuleCollection"
+          "nullable": false,
+          "referenceName": "FirewallPolicyRuleCollection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,16 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A read-only string that represents the size of the FirewallPolicyRuleCollectionGroupProperties in MB. (ex 1.2MB)",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

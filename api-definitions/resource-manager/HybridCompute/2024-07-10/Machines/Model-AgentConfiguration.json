@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of configuration mode to use. Modes are pre-defined configurations of security controls, extension allowlists and guest configuration, maintained by Microsoft.",
       "jsonName": "configMode",
       "name": "ConfigMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentConfigurationMode"
+        "nullable": false,
+        "referenceName": "AgentConfigurationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of extensions that are allowed to be installed or updated.",
       "jsonName": "extensionsAllowList",
       "name": "ExtensionsAllowList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationExtension"
+          "nullable": false,
+          "referenceName": "ConfigurationExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of extensions that are blocked (cannot be installed or updated)",
       "jsonName": "extensionsBlockList",
       "name": "ExtensionsBlockList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationExtension"
+          "nullable": false,
+          "referenceName": "ConfigurationExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the extension service is enabled or disabled.",
       "jsonName": "extensionsEnabled",
       "name": "ExtensionsEnabled",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specified whether the guest configuration service is enabled or disabled.",
       "jsonName": "guestConfigurationEnabled",
       "name": "GuestConfigurationEnabled",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the list of ports that the agent will be able to listen on.",
       "jsonName": "incomingConnectionsPorts",
       "name": "IncomingConnectionsPorts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of service names which should not use the specified proxy server.",
       "jsonName": "proxyBypass",
       "name": "ProxyBypass",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,16 +139,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the URL of the proxy to be used.",
       "jsonName": "proxyUrl",
       "name": "ProxyUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

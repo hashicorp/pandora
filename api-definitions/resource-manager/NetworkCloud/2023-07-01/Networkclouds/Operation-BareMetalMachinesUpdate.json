@@ -1,6 +1,7 @@
 {
   "name": "BareMetalMachinesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BareMetalMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachinePatchParameters"
+    "nullable": false,
+    "referenceName": "BareMetalMachinePatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BareMetalMachine"
+    "nullable": false,
+    "referenceName": "BareMetalMachine",
+    "referenceNameIsCommonType": null
   }
 }

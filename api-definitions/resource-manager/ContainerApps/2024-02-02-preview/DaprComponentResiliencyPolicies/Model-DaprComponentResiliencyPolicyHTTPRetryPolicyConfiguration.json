@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The optional maximum number of retries",
       "jsonName": "maxRetries",
       "name": "MaxRetries",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The optional retry backoff configuration",
       "jsonName": "retryBackOff",
       "name": "RetryBackOff",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyHTTPRetryBackOffConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyHTTPRetryBackOffConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

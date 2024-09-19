@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activation state of the WAF. Use 'Enabled' to enable the WAF and 'Disabled' to disable it.",
       "jsonName": "activationState",
       "name": "ActivationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivationState"
+        "nullable": false,
+        "referenceName": "ActivationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

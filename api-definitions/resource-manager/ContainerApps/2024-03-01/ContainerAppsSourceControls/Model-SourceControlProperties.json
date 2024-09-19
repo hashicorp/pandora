@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The branch which will trigger the auto deployment",
       "jsonName": "branch",
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container App Revision Template with all possible settings and the\ndefaults if user did not provide them. The defaults are populated\nas they were at the creation time",
       "jsonName": "githubActionConfiguration",
       "name": "GitHubActionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GithubActionConfiguration"
+        "nullable": false,
+        "referenceName": "GithubActionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current provisioning State of the operation",
       "jsonName": "operationState",
       "name": "OperationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceControlOperationState"
+        "nullable": false,
+        "referenceName": "SourceControlOperationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The repo url which will be integrated to ContainerApp.",
       "jsonName": "repoUrl",
       "name": "RepoUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

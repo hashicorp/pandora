@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "IdentityProviderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IdentityProviderUpdateParameters"
+    "nullable": false,
+    "referenceName": "IdentityProviderUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IdentityProviderContract"
+    "nullable": false,
+    "referenceName": "IdentityProviderContract",
+    "referenceNameIsCommonType": null
   }
 }

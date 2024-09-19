@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication type.",
       "jsonName": "authType",
       "name": "AuthType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthType"
+        "nullable": false,
+        "referenceName": "AuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value indicating whether the connection is available or not",
       "jsonName": "isConnectionAvailable",
       "name": "IsConnectionAvailable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The linker name.",
       "jsonName": "linkerName",
       "name": "LinkerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time of the validation report.",
       "jsonName": "reportEndTimeUtc",
       "name": "ReportEndTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time of the validation report.",
       "jsonName": "reportStartTimeUtc",
       "name": "ReportStartTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the linker source application.",
       "jsonName": "sourceId",
       "name": "SourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource Id of target service.",
       "jsonName": "targetId",
       "name": "TargetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The detail of validation result",
       "jsonName": "validationDetail",
       "name": "ValidationDetail",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ValidationResultItem"
+          "nullable": false,
+          "referenceName": "ValidationResultItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,5 +137,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

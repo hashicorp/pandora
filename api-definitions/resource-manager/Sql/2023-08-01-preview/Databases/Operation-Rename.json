@@ -1,6 +1,7 @@
 {
   "name": "Rename",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ResourceMoveDefinition"
+    "nullable": false,
+    "referenceName": "ResourceMoveDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/move"
 }

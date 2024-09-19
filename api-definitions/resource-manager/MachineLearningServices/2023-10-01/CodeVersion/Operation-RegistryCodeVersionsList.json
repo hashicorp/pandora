@@ -1,6 +1,7 @@
 {
   "name": "RegistryCodeVersionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -42,7 +43,9 @@
   "resourceIdName": "RegistryCodeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CodeVersionResource"
+    "nullable": false,
+    "referenceName": "CodeVersionResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

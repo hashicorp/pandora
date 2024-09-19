@@ -1,6 +1,7 @@
 {
   "name": "UpdateIdentityCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "HDInsightClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateClusterIdentityCertificateParameters"
+    "nullable": false,
+    "referenceName": "UpdateClusterIdentityCertificateParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateClusterIdentityCertificate"
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Symmetric key for authentication.",
       "jsonName": "symmetricKey",
       "name": "SymmetricKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SymmetricKey"
+        "nullable": false,
+        "referenceName": "SymmetricKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

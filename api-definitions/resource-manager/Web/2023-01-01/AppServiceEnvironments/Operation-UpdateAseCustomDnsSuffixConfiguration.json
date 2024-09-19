@@ -1,6 +1,7 @@
 {
   "name": "UpdateAseCustomDnsSuffixConfiguration",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomDnsSuffixConfiguration"
+    "nullable": false,
+    "referenceName": "CustomDnsSuffixConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomDnsSuffixConfiguration"
+    "nullable": false,
+    "referenceName": "CustomDnsSuffixConfiguration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configurations/customdnssuffix"
 }

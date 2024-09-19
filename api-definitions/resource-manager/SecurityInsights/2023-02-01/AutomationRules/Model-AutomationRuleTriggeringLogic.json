@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The conditions to evaluate to determine if the automation rule should be triggered on a given object.",
       "jsonName": "conditions",
       "name": "Conditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRuleCondition"
+          "nullable": false,
+          "referenceName": "AutomationRuleCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,11 +26,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Determines when the automation rule should automatically expire and be disabled.",
       "jsonName": "expirationTimeUtc",
       "name": "ExpirationTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +42,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether the automation rule is enabled or disabled.",
       "jsonName": "isEnabled",
       "name": "IsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -51,7 +62,9 @@
       "name": "TriggersOn",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggersOn"
+        "nullable": false,
+        "referenceName": "TriggersOn",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -64,12 +77,15 @@
       "name": "TriggersWhen",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggersWhen"
+        "nullable": false,
+        "referenceName": "TriggersWhen",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

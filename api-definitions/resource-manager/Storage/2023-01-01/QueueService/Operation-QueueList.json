@@ -1,6 +1,7 @@
 {
   "name": "QueueList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "StorageAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ListQueue"
+    "nullable": false,
+    "referenceName": "ListQueue",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queueServices/default/queues"
 }

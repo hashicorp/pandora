@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Expiration time of the channel. If this timer expires while the corresponding partner topic or partner destination is never activated,\r\nthe channel and corresponding partner topic or partner destination are deleted.",
       "jsonName": "expirationTimeIfNotActivatedUtc",
       "name": "ExpirationTimeIfNotActivatedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Partner topic properties which can be updated if the channel is of type PartnerTopic.",
       "jsonName": "partnerTopicInfo",
       "name": "PartnerTopicInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerUpdateTopicInfo"
+        "nullable": false,
+        "referenceName": "PartnerUpdateTopicInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

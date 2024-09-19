@@ -7,7 +7,9 @@
       "name": "CustomerManagedKeyEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerManagedKeyEncryption"
+        "nullable": false,
+        "referenceName": "CustomerManagedKeyEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Values are enabled and disabled.",
       "jsonName": "infrastructureEncryption",
       "name": "InfrastructureEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureEncryption"
+        "nullable": false,
+        "referenceName": "InfrastructureEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

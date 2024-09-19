@@ -1,6 +1,7 @@
 {
   "name": "ByExternalCloudProviderType",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,7 +42,9 @@
   "resourceIdName": "ExternalCloudProviderTypeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DimensionsListResult"
+    "nullable": false,
+    "referenceName": "DimensionsListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dimensions"
 }

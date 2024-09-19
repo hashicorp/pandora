@@ -1,6 +1,7 @@
 {
   "name": "VpnSitesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VpnSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VpnSite"
+    "nullable": false,
+    "referenceName": "VpnSite",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnSite"
+    "nullable": false,
+    "referenceName": "VpnSite",
+    "referenceNameIsCommonType": null
   }
 }

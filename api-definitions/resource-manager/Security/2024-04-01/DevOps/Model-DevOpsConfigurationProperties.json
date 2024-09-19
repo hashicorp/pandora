@@ -7,7 +7,9 @@
       "name": "Authorization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Authorization"
+        "nullable": false,
+        "referenceName": "Authorization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoDiscovery"
+        "nullable": false,
+        "referenceName": "AutoDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +33,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of capabilities assigned to the DevOps configuration during the discovery process.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DevOpsCapability"
+          "nullable": false,
+          "referenceName": "DevOpsCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +59,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevOpsProvisioningState"
+        "nullable": false,
+        "referenceName": "DevOpsProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +70,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets resource status message.",
       "jsonName": "provisioningStatusMessage",
       "name": "ProvisioningStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +87,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets or sets time when resource was last checked.",
       "jsonName": "provisioningStatusUpdateTimeUtc",
       "name": "ProvisioningStatusUpdateTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,14 +103,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of top-level inventory to select when AutoDiscovery is disabled.\r\nThis field is ignored when AutoDiscovery is enabled.",
       "jsonName": "topLevelInventoryList",
       "name": "TopLevelInventoryList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,5 +123,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

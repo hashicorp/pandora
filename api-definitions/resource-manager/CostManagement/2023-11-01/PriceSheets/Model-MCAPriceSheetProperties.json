@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unit price at the time the customer signs on or the unit price at the time of service meter GA launch if it is after sign-on.\n\n This is applicable for Enterprise Agreement users",
       "jsonName": "basePrice",
       "name": "BasePrice",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the billing account.",
       "jsonName": "billingAccountID",
       "name": "BillingAccountID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile.",
       "jsonName": "billingAccountName",
       "name": "BillingAccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Currency in which charges are posted.",
       "jsonName": "billingCurrency",
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the billing profile.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile.",
       "jsonName": "billingProfileName",
       "name": "BillingProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Currency in which all the prices are reflected.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Effective end date of the Price Sheet billing period",
       "jsonName": "effectiveEndDate",
       "name": "EffectiveEndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Effective start date of the Price Sheet billing period",
       "jsonName": "effectiveStartDate",
       "name": "EffectiveStartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current list price for a given product or service. This price is without any negotiations and is based on your Microsoft Agreement type.\n\n For PriceType Consumption, market price is reflected as the pay-as-you-go price.\n\n For PriceType Savings Plan, market price reflects the Savings plan benefit on top of pay-as-you-go price for the corresponding commitment term.\n\n For PriceType ReservedInstance, market price reflects the total price of the 1 or 3-year commitment.",
       "jsonName": "marketPrice",
       "name": "MarketPrice",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the classification category for the meter. For example, Cloud services, Networking, etc. ",
       "jsonName": "meterCategory",
       "name": "MeterCategory",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the meter. The meter represents the deployable resource of an Azure service.",
       "jsonName": "meterName",
       "name": "MeterName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Azure region where the meter for the service is available.",
       "jsonName": "meterRegion",
       "name": "MeterRegion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the meter subclassification category.",
       "jsonName": "meterSubCategory",
       "name": "MeterSubCategory",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the meter type",
       "jsonName": "meterType",
       "name": "MeterType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Price type for a product. For example, an Azure resource with a pay-as-you-go rate with priceType as Consumption. Other price types include ReservedInstance and Savings Plan.",
       "jsonName": "priceType",
       "name": "PriceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the product accruing the charges.",
       "jsonName": "product",
       "name": "Product",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the product whose meter is consumed.",
       "jsonName": "productId",
       "name": "ProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of Azure service. For example, Compute, Analytics, and Security.",
       "jsonName": "serviceFamily",
       "name": "ServiceFamily",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -252,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the SKU",
       "jsonName": "skuId",
       "name": "SkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,11 +325,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Term length for Azure Savings Plan or Reservation term – one year or three years (P1Y or P3Y)",
       "jsonName": "term",
       "name": "Term",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,11 +341,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0.",
       "jsonName": "tierMinimumUnits",
       "name": "TierMinimumUnits",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -291,11 +357,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How usage is measured for the service",
       "jsonName": "unitOfMeasure",
       "name": "UnitOfMeasure",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -304,16 +373,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The per-unit price at the time of billing for a given product or service, inclusive of any negotiated discounts on top of the market price.\n\n For PriceType ReservedInstance, unit price reflects the total cost of the 1 or 3-year commitment including discounts.\n\n Note: The unit price isn't the same as the effective price in usage details downloads when services have differential prices across tiers.\n\n If services have multi-tiered pricing, the effective price is a blended rate across the tiers and doesn't show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers (where each tier has a specific unit price).",
       "jsonName": "unitPrice",
       "name": "UnitPrice",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

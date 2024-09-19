@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,10 +23,14 @@
   "resourceIdName": "NamedValueId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NamedValueUpdateParameters"
+    "nullable": false,
+    "referenceName": "NamedValueUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NamedValueContract"
+    "nullable": false,
+    "referenceName": "NamedValueContract",
+    "referenceNameIsCommonType": null
   }
 }

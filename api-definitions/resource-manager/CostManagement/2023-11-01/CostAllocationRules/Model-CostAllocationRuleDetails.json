@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source resources for cost allocation. At this time, this list can contain no more than one element.",
       "jsonName": "sourceResources",
       "name": "SourceResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SourceCostAllocationResource"
+          "nullable": false,
+          "referenceName": "SourceCostAllocationResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target resources for cost allocation. At this time, this list can contain no more than one element.",
       "jsonName": "targetResources",
       "name": "TargetResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetCostAllocationResource"
+          "nullable": false,
+          "referenceName": "TargetCostAllocationResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

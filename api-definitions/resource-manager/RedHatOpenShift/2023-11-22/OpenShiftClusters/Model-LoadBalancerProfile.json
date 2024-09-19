@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of effective outbound IP addresses of the public load balancer.",
       "jsonName": "effectiveOutboundIps",
       "name": "EffectiveOutboundIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EffectiveOutboundIP"
+          "nullable": false,
+          "referenceName": "EffectiveOutboundIP",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The desired managed outbound IPs for the cluster public load balancer.",
       "jsonName": "managedOutboundIps",
       "name": "ManagedOutboundIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedOutboundIPs"
+        "nullable": false,
+        "referenceName": "ManagedOutboundIPs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

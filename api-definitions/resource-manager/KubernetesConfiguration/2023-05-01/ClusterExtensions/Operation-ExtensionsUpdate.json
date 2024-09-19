@@ -1,6 +1,7 @@
 {
   "name": "ExtensionsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedExtensionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PatchExtension"
+    "nullable": false,
+    "referenceName": "PatchExtension",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Extension"
+    "nullable": false,
+    "referenceName": "Extension",
+    "referenceNameIsCommonType": null
   }
 }

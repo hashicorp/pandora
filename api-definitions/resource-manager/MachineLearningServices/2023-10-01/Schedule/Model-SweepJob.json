@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Early termination policies enable canceling poor-performing runs before they complete",
       "jsonName": "earlyTermination",
       "name": "EarlyTermination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicy"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of input data bindings used in the job.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobInput"
+          "nullable": false,
+          "referenceName": "JobInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sweep Job limit.",
       "jsonName": "limits",
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SweepJobLimits"
+        "nullable": false,
+        "referenceName": "SweepJobLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Optimization objective.",
       "jsonName": "objective",
       "name": "Objective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Objective"
+        "nullable": false,
+        "referenceName": "Objective",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapping of output data bindings used in the job.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Queue settings for the job",
       "jsonName": "queueSettings",
       "name": "QueueSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueSettings"
+        "nullable": false,
+        "referenceName": "QueueSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The hyperparameter sampling algorithm",
       "jsonName": "samplingAlgorithm",
       "name": "SamplingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingAlgorithm"
+        "nullable": false,
+        "referenceName": "SamplingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter",
       "jsonName": "searchSpace",
       "name": "SearchSpace",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Trial component definition.",
       "jsonName": "trial",
       "name": "Trial",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrialComponent"
+        "nullable": false,
+        "referenceName": "TrialComponent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -127,6 +158,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobBase",
   "discriminatedTypeValue": "Sweep",
   "typeHintIn": "JobType"

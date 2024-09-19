@@ -1,6 +1,7 @@
 {
   "name": "ArcSettingsListByCluster",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ArcSetting"
+    "nullable": false,
+    "referenceName": "ArcSetting",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/arcSettings"
 }

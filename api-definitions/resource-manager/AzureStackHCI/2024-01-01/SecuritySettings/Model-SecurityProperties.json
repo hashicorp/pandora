@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the last operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Secured Core Compliance Assignment",
       "jsonName": "securedCoreComplianceAssignment",
       "name": "SecuredCoreComplianceAssignment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceAssignmentType"
+        "nullable": false,
+        "referenceName": "ComplianceAssignmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Security Compliance Status",
       "jsonName": "securityComplianceStatus",
       "name": "SecurityComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityComplianceStatus"
+        "nullable": false,
+        "referenceName": "SecurityComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

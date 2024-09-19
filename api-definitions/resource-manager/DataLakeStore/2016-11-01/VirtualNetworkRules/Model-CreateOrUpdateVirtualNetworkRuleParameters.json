@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual network rule properties to use when creating a new virtual network rule.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateOrUpdateVirtualNetworkRuleProperties"
+        "nullable": false,
+        "referenceName": "CreateOrUpdateVirtualNetworkRuleProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

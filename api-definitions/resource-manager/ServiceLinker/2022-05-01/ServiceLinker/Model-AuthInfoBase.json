@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The authentication type.",
       "jsonName": "authType",
       "name": "AuthType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthType"
+        "nullable": false,
+        "referenceName": "AuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "AuthType"
 }

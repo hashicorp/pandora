@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "type of datastore; Operational/Vault/Archive",
       "jsonName": "dataStoreType",
       "name": "DataStoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStoreTypes"
+        "nullable": false,
+        "referenceName": "DataStoreTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Type of the specific object - used for deserializing",
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +34,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ObjectType"
 }

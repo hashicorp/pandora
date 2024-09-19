@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event request message sent to the service URI.",
       "jsonName": "eventRequestMessage",
       "name": "EventRequestMessage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventRequestMessage"
+        "nullable": false,
+        "referenceName": "EventRequestMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event response message received from the service URI.",
       "jsonName": "eventResponseMessage",
       "name": "EventResponseMessage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventResponseMessage"
+        "nullable": false,
+        "referenceName": "EventResponseMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event ID.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

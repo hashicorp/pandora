@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If specified, setup is performed on each node in the pool to allow tasks to run in containers. All regular tasks and job manager tasks run on this pool must specify the containerSettings property, and all other tasks may specify it.",
       "jsonName": "containerConfiguration",
       "name": "ContainerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerConfiguration"
+        "nullable": false,
+        "referenceName": "ContainerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property must be specified if the compute nodes in the pool need to have empty data disks attached to them.",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDisk"
+          "nullable": false,
+          "referenceName": "DataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If specified, encryption is performed on each node in the pool during node provisioning.",
       "jsonName": "diskEncryptionConfiguration",
       "name": "DiskEncryptionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionConfiguration"
+        "nullable": false,
+        "referenceName": "DiskEncryptionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If specified, the extensions mentioned in this configuration will be installed on each node.",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VmExtension"
+          "nullable": false,
+          "referenceName": "VmExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +83,9 @@
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This only applies to images that contain the Windows operating system, and should only be used when you hold valid on-premises licenses for the nodes which will be deployed. If omitted, no on-premises licensing discount is applied. Values are:\n\n Windows_Server - The on-premises license is for Windows Server.\n Windows_Client - The on-premises license is for Windows Client.\n",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Batch node agent is a program that runs on each node in the pool, and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. You must specify a node agent SKU which matches the selected image reference. To get the list of supported node agent SKUs along with their list of verified image references, see the 'List supported node agent SKUs' operation.",
       "jsonName": "nodeAgentSkuId",
       "name": "NodeAgentSkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,11 +126,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This configuration will specify rules on how nodes in the pool will be physically allocated.",
       "jsonName": "nodePlacementConfiguration",
       "name": "NodePlacementConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodePlacementConfiguration"
+        "nullable": false,
+        "referenceName": "NodePlacementConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains configuration for ephemeral OSDisk settings.",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDisk"
+        "nullable": false,
+        "referenceName": "OSDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +162,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +173,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service artifact reference id in the form of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/serviceArtifacts/{serviceArtifactName}/vmArtifactsProfiles/{vmArtifactsProfilesName}",
       "jsonName": "serviceArtifactReference",
       "name": "ServiceArtifactReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceArtifactReference"
+        "nullable": false,
+        "referenceName": "ServiceArtifactReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,16 +189,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property must not be specified if the imageReference specifies a Linux OS image.",
       "jsonName": "windowsConfiguration",
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsConfiguration"
+        "nullable": false,
+        "referenceName": "WindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetByBillingPeriod",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   "resourceIdName": "BillingPeriodId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PriceSheetResult"
+    "nullable": false,
+    "referenceName": "PriceSheetResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Consumption/pricesheets/default"
 }

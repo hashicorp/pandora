@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL referencing a key encryption key in key vault.",
       "jsonName": "keyUrl",
       "name": "KeyUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes a resource Id to source key vault.",
       "jsonName": "sourceVault",
       "name": "SourceVault",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultKeyReferenceSourceVault"
+        "nullable": false,
+        "referenceName": "KeyVaultKeyReferenceSourceVault",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

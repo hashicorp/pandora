@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "WorkloadGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadGroup"
+    "nullable": false,
+    "referenceName": "WorkloadGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadGroup"
+    "nullable": false,
+    "referenceName": "WorkloadGroup",
+    "referenceNameIsCommonType": null
   }
 }

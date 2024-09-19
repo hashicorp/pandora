@@ -1,6 +1,7 @@
 {
   "name": "GetVirtualMachineScaleSetNetworkInterface",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,6 +22,8 @@
   "resourceIdName": "VirtualMachineScaleSetNetworkInterfaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkInterface"
+    "nullable": false,
+    "referenceName": "NetworkInterface",
+    "referenceNameIsCommonType": null
   }
 }

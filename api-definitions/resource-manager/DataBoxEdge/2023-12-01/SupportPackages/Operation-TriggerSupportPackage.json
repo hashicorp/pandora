@@ -1,6 +1,7 @@
 {
   "name": "TriggerSupportPackage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TriggerSupportPackageRequest"
+    "nullable": false,
+    "referenceName": "TriggerSupportPackageRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/triggerSupportPackage"
 }

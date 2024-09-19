@@ -1,6 +1,7 @@
 {
   "name": "CertificatesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "CertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CertificateResource"
+    "nullable": false,
+    "referenceName": "CertificateResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CertificateResource"
+    "nullable": false,
+    "referenceName": "CertificateResource",
+    "referenceNameIsCommonType": null
   }
 }

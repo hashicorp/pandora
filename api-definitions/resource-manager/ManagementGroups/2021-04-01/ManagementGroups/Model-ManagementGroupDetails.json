@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ancestors of the management group.",
       "jsonName": "managementGroupAncestors",
       "name": "ManagementGroupAncestors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ancestors of the management group displayed in reversed order, from immediate parent to the root.",
       "jsonName": "managementGroupAncestorsChain",
       "name": "ManagementGroupAncestorsChain",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagementGroupPathElement"
+          "nullable": false,
+          "referenceName": "ManagementGroupPathElement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "Parent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParentGroupInfo"
+        "nullable": false,
+        "referenceName": "ParentGroupInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +62,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path from the root to the current group.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagementGroupPathElement"
+          "nullable": false,
+          "referenceName": "ManagementGroupPathElement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity of the principal or process that updated the object.",
       "jsonName": "updatedBy",
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +101,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date and time when this object was last updated.",
       "jsonName": "updatedTime",
       "name": "UpdatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version number of the object.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

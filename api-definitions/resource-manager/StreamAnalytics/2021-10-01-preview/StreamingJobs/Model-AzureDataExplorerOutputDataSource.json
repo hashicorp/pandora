@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties that are associated with an Azure Data Explorer output. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDataExplorerOutputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "AzureDataExplorerOutputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutputDataSource",
   "discriminatedTypeValue": "Microsoft.Kusto/clusters/databases",
   "typeHintIn": "Type"

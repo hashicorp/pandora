@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The application server configuration.",
       "jsonName": "applicationServer",
       "name": "ApplicationServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationServerConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationServerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The central server configuration.",
       "jsonName": "centralServer",
       "name": "CentralServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CentralServerConfiguration"
+        "nullable": false,
+        "referenceName": "CentralServerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of custom names to be used for underlying azure resources that are part of the SAP system.",
       "jsonName": "customResourceNames",
       "name": "CustomResourceNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreeTierCustomResourceNames"
+        "nullable": false,
+        "referenceName": "ThreeTierCustomResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database configuration.",
       "jsonName": "databaseServer",
       "name": "DatabaseServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseConfiguration"
+        "nullable": false,
+        "referenceName": "DatabaseConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The high availability configuration.",
       "jsonName": "highAvailabilityConfig",
       "name": "HighAvailabilityConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailabilityConfiguration"
+        "nullable": false,
+        "referenceName": "HighAvailabilityConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network configuration common to all servers",
       "jsonName": "networkConfiguration",
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage configuration.",
       "jsonName": "storageConfiguration",
       "name": "StorageConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageConfiguration"
+        "nullable": false,
+        "referenceName": "StorageConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,6 +114,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InfrastructureConfiguration",
   "discriminatedTypeValue": "ThreeTier",
   "typeHintIn": "DeploymentType"

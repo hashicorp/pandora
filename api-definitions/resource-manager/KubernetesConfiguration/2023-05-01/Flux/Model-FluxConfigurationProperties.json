@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the AzureBlob source kind type.",
       "jsonName": "azureBlob",
       "name": "AzureBlob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobDefinition"
+        "nullable": false,
+        "referenceName": "AzureBlobDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the Bucket source kind type.",
       "jsonName": "bucket",
       "name": "Bucket",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BucketDefinition"
+        "nullable": false,
+        "referenceName": "BucketDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.",
       "jsonName": "complianceState",
       "name": "ComplianceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FluxComplianceState"
+        "nullable": false,
+        "referenceName": "FluxComplianceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key-value pairs of protected configuration settings for the configuration",
       "jsonName": "configurationProtectedSettings",
       "name": "ConfigurationProtectedSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error message returned to the user in the case of provisioning failure.",
       "jsonName": "errorMessage",
       "name": "ErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters to reconcile to the GitRepository source kind type.",
       "jsonName": "gitRepository",
       "name": "GitRepository",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitRepositoryDefinition"
+        "nullable": false,
+        "referenceName": "GitRepositoryDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.",
       "jsonName": "kustomizations",
       "name": "Kustomizations",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KustomizationDefinition"
+          "nullable": false,
+          "referenceName": "KustomizationDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.",
       "jsonName": "namespace",
       "name": "Namespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +147,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +158,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D",
       "jsonName": "reconciliationWaitDuration",
       "name": "ReconciliationWaitDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +174,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).",
       "jsonName": "repositoryPublicKey",
       "name": "RepositoryPublicKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +190,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scope at which the operator will be installed.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScopeType"
+        "nullable": false,
+        "referenceName": "ScopeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +206,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source Kind to pull the configuration data from.",
       "jsonName": "sourceKind",
       "name": "SourceKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceKindType"
+        "nullable": false,
+        "referenceName": "SourceKindType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +222,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Branch and/or SHA of the source commit synced with the cluster.",
       "jsonName": "sourceSyncedCommitId",
       "name": "SourceSyncedCommitId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,11 +239,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Datetime the fluxConfiguration synced its source on the cluster.",
       "jsonName": "sourceUpdatedAt",
       "name": "SourceUpdatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,11 +256,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Datetime the fluxConfiguration synced its status on the cluster with Azure.",
       "jsonName": "statusUpdatedAt",
       "name": "StatusUpdatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,14 +272,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ObjectStatusDefinition"
+          "nullable": false,
+          "referenceName": "ObjectStatusDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -238,11 +294,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether this configuration should suspend its reconciliation of its kustomizations and sources.",
       "jsonName": "suspend",
       "name": "Suspend",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,16 +310,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.",
       "jsonName": "waitForReconciliation",
       "name": "WaitForReconciliation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

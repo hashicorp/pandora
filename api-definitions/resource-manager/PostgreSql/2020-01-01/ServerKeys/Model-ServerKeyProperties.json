@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The key creation date.",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key type like 'AzureKeyVault'.",
       "jsonName": "serverKeyType",
       "name": "ServerKeyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerKeyType"
+        "nullable": false,
+        "referenceName": "ServerKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,16 +36,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI of the key.",
       "jsonName": "uri",
       "name": "Uri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

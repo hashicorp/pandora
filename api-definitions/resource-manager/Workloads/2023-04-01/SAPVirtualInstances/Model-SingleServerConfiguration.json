@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of custom names to be used for underlying azure resources that are part of the SAP system.",
       "jsonName": "customResourceNames",
       "name": "CustomResourceNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SingleServerCustomResourceNames"
+        "nullable": false,
+        "referenceName": "SingleServerCustomResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database type.",
       "jsonName": "databaseType",
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseType"
+        "nullable": false,
+        "referenceName": "SAPDatabaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the disk configuration.",
       "jsonName": "dbDiskConfiguration",
       "name": "DbDiskConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskConfiguration"
+        "nullable": false,
+        "referenceName": "DiskConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network configuration for the server",
       "jsonName": "networkConfiguration",
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subnet id.",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the virtual machine configuration.",
       "jsonName": "virtualMachineConfiguration",
       "name": "VirtualMachineConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InfrastructureConfiguration",
   "discriminatedTypeValue": "SingleServer",
   "typeHintIn": "DeploymentType"

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow classic operations.",
       "jsonName": "allowClassicOperations",
       "name": "AllowClassicOperations",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authorizationKey.",
       "jsonName": "authorizationKey",
       "name": "AuthorizationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authorization status of the Circuit.",
       "jsonName": "authorizationStatus",
       "name": "AuthorizationStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of authorizations.",
       "jsonName": "authorizations",
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressRouteCircuitAuthorization"
+          "nullable": false,
+          "referenceName": "ExpressRouteCircuitAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.",
       "jsonName": "bandwidthInGbps",
       "name": "BandwidthInGbps",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CircuitProvisioningState state of the resource.",
       "jsonName": "circuitProvisioningState",
       "name": "CircuitProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.",
       "jsonName": "enableDirectPortRateLimit",
       "name": "EnableDirectPortRateLimit",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +125,9 @@
       "name": "ExpressRoutePort",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +136,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The GatewayManager Etag.",
       "jsonName": "gatewayManagerEtag",
       "name": "GatewayManagerEtag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +152,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag denoting global reach status.",
       "jsonName": "globalReachEnabled",
       "name": "GlobalReachEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +168,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of peerings.",
       "jsonName": "peerings",
       "name": "Peerings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressRouteCircuitPeering"
+          "nullable": false,
+          "referenceName": "ExpressRouteCircuitPeering",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,7 +194,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ServiceKey.",
       "jsonName": "serviceKey",
       "name": "ServiceKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +221,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ServiceProviderNotes.",
       "jsonName": "serviceProviderNotes",
       "name": "ServiceProviderNotes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +237,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ServiceProviderProperties.",
       "jsonName": "serviceProviderProperties",
       "name": "ServiceProviderProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitServiceProviderProperties"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitServiceProviderProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +253,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ServiceProviderProvisioningState state of the resource.",
       "jsonName": "serviceProviderProvisioningState",
       "name": "ServiceProviderProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceProviderProvisioningState"
+        "nullable": false,
+        "referenceName": "ServiceProviderProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,16 +269,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the circuit traffic. Outer tag for QinQ encapsulation.",
       "jsonName": "stag",
       "name": "Stag",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

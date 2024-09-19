@@ -7,7 +7,9 @@
       "name": "BackendAddressPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BackendHTTPSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host name to send the probe to.",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Criterion for classifying a healthy probe response.",
       "jsonName": "match",
       "name": "Match",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayProbeHealthResponseMatch"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayProbeHealthResponseMatch",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Relative path of probe. Valid path starts from '/'. Probe is sent to \u003cProtocol\u003e://\u003chost\u003e:\u003cport\u003e\u003cpath\u003e.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the host header should be picked from the backend http settings. Default value is false.",
       "jsonName": "pickHostNameFromBackendHttpSettings",
       "name": "PickHostNameFromBackendHTTPSettings",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protocol used for the probe.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayProtocol"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +113,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.",
       "jsonName": "timeout",
       "name": "Timeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

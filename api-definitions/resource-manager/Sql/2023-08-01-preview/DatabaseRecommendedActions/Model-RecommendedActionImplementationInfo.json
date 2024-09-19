@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the method in which this recommended action can be manually implemented. e.g., TSql, AzurePowerShell.",
       "jsonName": "method",
       "name": "Method",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImplementationMethod"
+        "nullable": false,
+        "referenceName": "ImplementationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the manual implementation script. e.g., T-SQL script that could be executed on the database.",
       "jsonName": "script",
       "name": "Script",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

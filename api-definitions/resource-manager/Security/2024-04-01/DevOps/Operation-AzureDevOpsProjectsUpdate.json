@@ -1,6 +1,7 @@
 {
   "name": "AzureDevOpsProjectsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ProjectId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureDevOpsProject"
+    "nullable": false,
+    "referenceName": "AzureDevOpsProject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureDevOpsProject"
+    "nullable": false,
+    "referenceName": "AzureDevOpsProject",
+    "referenceNameIsCommonType": null
   }
 }

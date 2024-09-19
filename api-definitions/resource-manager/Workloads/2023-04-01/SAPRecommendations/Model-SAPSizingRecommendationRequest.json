@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The geo-location where the resource is to be created.",
       "jsonName": "appLocation",
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database type.",
       "jsonName": "databaseType",
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseType"
+        "nullable": false,
+        "referenceName": "SAPDatabaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database memory configuration.",
       "jsonName": "dbMemory",
       "name": "DbMemory",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DB scale method.",
       "jsonName": "dbScaleMethod",
       "name": "DbScaleMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseScaleMethod"
+        "nullable": false,
+        "referenceName": "SAPDatabaseScaleMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deployment type. Eg: SingleServer/ThreeTier",
       "jsonName": "deploymentType",
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDeploymentType"
+        "nullable": false,
+        "referenceName": "SAPDeploymentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +87,9 @@
       "name": "Environment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPEnvironmentType"
+        "nullable": false,
+        "referenceName": "SAPEnvironmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The high availability type.",
       "jsonName": "highAvailabilityType",
       "name": "HighAvailabilityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPHighAvailabilityType"
+        "nullable": false,
+        "referenceName": "SAPHighAvailabilityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +118,9 @@
       "name": "SapProduct",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPProductType"
+        "nullable": false,
+        "referenceName": "SAPProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,16 +129,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SAP Application Performance Standard measurement.",
       "jsonName": "saps",
       "name": "Saps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

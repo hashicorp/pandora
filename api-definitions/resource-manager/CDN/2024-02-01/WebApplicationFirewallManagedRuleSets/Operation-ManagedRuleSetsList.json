@@ -1,6 +1,7 @@
 {
   "name": "ManagedRuleSetsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedRuleSetDefinition"
+    "nullable": false,
+    "referenceName": "ManagedRuleSetDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CDN/cdnWebApplicationFirewallManagedRuleSets"
 }

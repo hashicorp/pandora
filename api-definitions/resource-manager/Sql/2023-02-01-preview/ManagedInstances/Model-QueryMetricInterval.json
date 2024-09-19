@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Execution count of a query in this interval.",
       "jsonName": "executionCount",
       "name": "ExecutionCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The start time for the metric interval (ISO-8601 format).",
       "jsonName": "intervalStartTime",
       "name": "IntervalStartTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Interval type (length).",
       "jsonName": "intervalType",
       "name": "IntervalType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryTimeGrainType"
+        "nullable": false,
+        "referenceName": "QueryTimeGrainType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of metric objects for this interval",
       "jsonName": "metrics",
       "name": "Metrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryMetricProperties"
+          "nullable": false,
+          "referenceName": "QueryMetricProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

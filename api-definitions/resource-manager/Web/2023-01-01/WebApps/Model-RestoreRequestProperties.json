@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if SiteConfig.ConnectionStrings should be set in new app; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "adjustConnectionStrings",
       "name": "AdjustConnectionStrings",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify app service plan that will own restored site.",
       "jsonName": "appServicePlan",
       "name": "AppServicePlan",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of a blob which contains the backup.",
       "jsonName": "blobName",
       "name": "BlobName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of databases which should be restored. This list has to match the list of databases included in the backup.",
       "jsonName": "databases",
       "name": "Databases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseBackupSetting"
+          "nullable": false,
+          "referenceName": "DatabaseBackupSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App Service Environment name, if needed (only when restoring an app to an App Service Environment).",
       "jsonName": "hostingEnvironment",
       "name": "HostingEnvironment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Changes a logic when restoring an app with custom domains. \u003ccode\u003etrue\u003c/code\u003e to remove custom domains automatically. If \u003ccode\u003efalse\u003c/code\u003e, custom domains are added to \nthe app's object when it is being restored, but that might fail due to conflicts during the operation.",
       "jsonName": "ignoreConflictingHostNames",
       "name": "IgnoreConflictingHostNames",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ignore the databases and only restore the site content",
       "jsonName": "ignoreDatabases",
       "name": "IgnoreDatabases",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation type.",
       "jsonName": "operationType",
       "name": "OperationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupRestoreOperationType"
+        "nullable": false,
+        "referenceName": "BackupRestoreOperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if the restore operation can overwrite target app; otherwise, \u003ccode\u003efalse\u003c/code\u003e. \u003ccode\u003etrue\u003c/code\u003e is needed if trying to restore over an existing app.",
       "jsonName": "overwrite",
       "name": "Overwrite",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of an app.",
       "jsonName": "siteName",
       "name": "SiteName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,16 +169,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SAS URL to the container.",
       "jsonName": "storageAccountUrl",
       "name": "StorageAccountUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

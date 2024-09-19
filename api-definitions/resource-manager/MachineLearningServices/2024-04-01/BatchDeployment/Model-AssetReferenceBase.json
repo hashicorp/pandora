@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of asset reference.",
       "jsonName": "referenceType",
       "name": "ReferenceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReferenceType"
+        "nullable": false,
+        "referenceName": "ReferenceType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ReferenceType"
 }

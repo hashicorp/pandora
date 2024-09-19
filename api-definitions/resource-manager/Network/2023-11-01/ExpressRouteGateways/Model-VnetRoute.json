@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of references to HubBgpConnection objects.",
       "jsonName": "bgpConnections",
       "name": "BgpConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all Static Routes.",
       "jsonName": "staticRoutes",
       "name": "StaticRoutes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticRoute"
+          "nullable": false,
+          "referenceName": "StaticRoute",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration for static routes on this HubVnetConnection.",
       "jsonName": "staticRoutesConfig",
       "name": "StaticRoutesConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StaticRoutesConfig"
+        "nullable": false,
+        "referenceName": "StaticRoutesConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

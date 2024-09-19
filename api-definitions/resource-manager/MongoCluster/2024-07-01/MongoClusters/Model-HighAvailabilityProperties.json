@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target high availability mode requested for the cluster.",
       "jsonName": "targetMode",
       "name": "TargetMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailabilityMode"
+        "nullable": false,
+        "referenceName": "HighAvailabilityMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

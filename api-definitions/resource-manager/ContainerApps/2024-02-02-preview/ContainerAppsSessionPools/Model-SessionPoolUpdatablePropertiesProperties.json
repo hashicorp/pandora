@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom container configuration if the containerType is CustomContainer.",
       "jsonName": "customContainerTemplate",
       "name": "CustomContainerTemplate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomContainerTemplate"
+        "nullable": false,
+        "referenceName": "CustomContainerTemplate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pool configuration if the poolManagementType is dynamic.",
       "jsonName": "dynamicPoolConfiguration",
       "name": "DynamicPoolConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicPoolConfiguration"
+        "nullable": false,
+        "referenceName": "DynamicPoolConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scale configuration of the session pool.",
       "jsonName": "scaleConfiguration",
       "name": "ScaleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleConfiguration"
+        "nullable": false,
+        "referenceName": "ScaleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secrets of the session pool.",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SessionPoolSecret"
+          "nullable": false,
+          "referenceName": "SessionPoolSecret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network configuration of the sessions in the session pool.",
       "jsonName": "sessionNetworkConfiguration",
       "name": "SessionNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "SessionNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

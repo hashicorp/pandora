@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The trigger based on base image dependencies.",
       "jsonName": "baseImageTrigger",
       "name": "BaseImageTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BaseImageTriggerUpdateParameters"
+        "nullable": false,
+        "referenceName": "BaseImageTriggerUpdateParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of triggers based on source code repository.",
       "jsonName": "sourceTriggers",
       "name": "SourceTriggers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SourceTriggerUpdateParameters"
+          "nullable": false,
+          "referenceName": "SourceTriggerUpdateParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of timer triggers.",
       "jsonName": "timerTriggers",
       "name": "TimerTriggers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimerTriggerUpdateParameters"
+          "nullable": false,
+          "referenceName": "TimerTriggerUpdateParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

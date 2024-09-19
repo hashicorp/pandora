@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the override action to be applied when rule matches.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionType"
+        "nullable": false,
+        "referenceName": "ActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleEnabledState"
+        "nullable": false,
+        "referenceName": "ManagedRuleEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifier for the managed rule.",
       "jsonName": "ruleId",
       "name": "RuleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

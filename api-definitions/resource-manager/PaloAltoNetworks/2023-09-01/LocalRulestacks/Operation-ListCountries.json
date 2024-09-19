@@ -1,6 +1,7 @@
 {
   "name": "ListCountries",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "LocalRulestackId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Country"
+    "nullable": false,
+    "referenceName": "Country",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listCountries"
 }

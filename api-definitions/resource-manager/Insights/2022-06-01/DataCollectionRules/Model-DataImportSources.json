@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Definition of Event Hub configuration.",
       "jsonName": "eventHub",
       "name": "EventHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubDataSource"
+        "nullable": false,
+        "referenceName": "EventHubDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

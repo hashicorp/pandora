@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The raw data field of a certificate in PKCS 12 format (X509Certificate2 in .NET)",
       "jsonName": "rawBody",
       "name": "RawBody",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
   "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyX509CertificateTokenKey",
   "typeHintIn": "OdataType"

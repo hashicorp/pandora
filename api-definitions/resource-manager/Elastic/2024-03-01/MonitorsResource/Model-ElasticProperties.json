@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the elastic cloud deployment.",
       "jsonName": "elasticCloudDeployment",
       "name": "ElasticCloudDeployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticCloudDeployment"
+        "nullable": false,
+        "referenceName": "ElasticCloudDeployment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the user's elastic account.",
       "jsonName": "elasticCloudUser",
       "name": "ElasticCloudUser",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticCloudUser"
+        "nullable": false,
+        "referenceName": "ElasticCloudUser",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

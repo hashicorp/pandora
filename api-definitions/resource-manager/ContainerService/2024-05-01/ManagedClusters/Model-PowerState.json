@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tells whether the cluster is Running or Stopped",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Code"
+        "nullable": false,
+        "referenceName": "Code",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

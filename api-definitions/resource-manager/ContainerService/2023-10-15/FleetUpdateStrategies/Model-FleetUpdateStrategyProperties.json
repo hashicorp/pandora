@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the UpdateStrategy resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FleetUpdateStrategyProvisioningState"
+        "nullable": false,
+        "referenceName": "FleetUpdateStrategyProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the update sequence of the clusters.",
       "jsonName": "strategy",
       "name": "Strategy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateRunStrategy"
+        "nullable": false,
+        "referenceName": "UpdateRunStrategy",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

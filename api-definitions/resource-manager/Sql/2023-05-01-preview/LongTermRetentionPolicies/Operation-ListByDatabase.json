@@ -1,6 +1,7 @@
 {
   "name": "ListByDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LongTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "LongTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupLongTermRetentionPolicies"
 }

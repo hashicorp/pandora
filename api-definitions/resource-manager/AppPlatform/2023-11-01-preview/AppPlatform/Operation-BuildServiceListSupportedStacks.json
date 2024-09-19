@@ -1,6 +1,7 @@
 {
   "name": "BuildServiceListSupportedStacks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "BuildServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportedStackResource"
+    "nullable": false,
+    "referenceName": "SupportedStackResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/supportedStacks"
 }

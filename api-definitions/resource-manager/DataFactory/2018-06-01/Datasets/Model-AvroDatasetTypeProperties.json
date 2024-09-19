@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data avroCompressionCodec. Type: string (or Expression with resultType string).",
       "jsonName": "avroCompressionCodec",
       "name": "AvroCompressionCodec",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "AvroCompressionLevel",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +34,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the avro storage.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetLocation"
+        "nullable": false,
+        "referenceName": "DatasetLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

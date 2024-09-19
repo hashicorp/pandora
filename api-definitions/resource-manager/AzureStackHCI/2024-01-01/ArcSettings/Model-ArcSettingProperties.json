@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Aggregate state of Arc agent across the nodes in this HCI cluster.",
       "jsonName": "aggregateState",
       "name": "AggregateState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArcSettingAggregateState"
+        "nullable": false,
+        "referenceName": "ArcSettingAggregateState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App id of arc AAD identity.",
       "jsonName": "arcApplicationClientId",
       "name": "ArcApplicationClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Object id of arc AAD identity.",
       "jsonName": "arcApplicationObjectId",
       "name": "ArcApplicationObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tenant id of arc AAD identity.",
       "jsonName": "arcApplicationTenantId",
       "name": "ArcApplicationTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.",
       "jsonName": "arcInstanceResourceGroup",
       "name": "ArcInstanceResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Object id of arc AAD service principal.",
       "jsonName": "arcServicePrincipalObjectId",
       "name": "ArcServicePrincipalObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "contains connectivity related configuration for ARC resources",
       "jsonName": "connectivityProperties",
       "name": "ConnectivityProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +115,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for each of the default extensions category",
       "jsonName": "defaultExtensions",
       "name": "DefaultExtensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DefaultExtensionDetails"
+          "nullable": false,
+          "referenceName": "DefaultExtensionDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of Arc agent in each of the nodes.",
       "jsonName": "perNodeDetails",
       "name": "PerNodeDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PerNodeState"
+          "nullable": false,
+          "referenceName": "PerNodeState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,16 +159,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the ArcSetting proxy resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

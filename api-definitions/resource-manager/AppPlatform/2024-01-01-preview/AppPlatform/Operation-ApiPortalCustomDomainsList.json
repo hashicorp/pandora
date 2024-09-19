@@ -1,6 +1,7 @@
 {
   "name": "ApiPortalCustomDomainsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ApiPortalId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiPortalCustomDomainResource"
+    "nullable": false,
+    "referenceName": "ApiPortalCustomDomainResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/domains"
 }

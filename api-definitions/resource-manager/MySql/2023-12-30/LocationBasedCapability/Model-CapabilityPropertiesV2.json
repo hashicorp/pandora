@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of supported flexible server editions.",
       "jsonName": "supportedFlexibleServerEditions",
       "name": "SupportedFlexibleServerEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerEditionCapabilityV2"
+          "nullable": false,
+          "referenceName": "ServerEditionCapabilityV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "supported geo backup regions",
       "jsonName": "supportedGeoBackupRegions",
       "name": "SupportedGeoBackupRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of supported server versions.",
       "jsonName": "supportedServerVersions",
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapabilityV2"
+          "nullable": false,
+          "referenceName": "ServerVersionCapabilityV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

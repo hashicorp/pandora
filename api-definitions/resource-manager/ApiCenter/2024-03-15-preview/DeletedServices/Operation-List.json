@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeletedService"
+    "nullable": false,
+    "referenceName": "DeletedService",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ApiCenter/deletedServices"
 }

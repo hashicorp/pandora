@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.",
       "jsonName": "dataIntegrationUnits",
       "name": "DataIntegrationUnits",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enableSkipIncompatibleRow",
       "name": "EnableSkipIncompatibleRow",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enableStaging",
       "name": "EnableStaging",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log settings customer needs provide when enabling log.",
       "jsonName": "logSettings",
       "name": "LogSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogSettings"
+        "nullable": false,
+        "referenceName": "LogSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.",
       "jsonName": "logStorageSettings",
       "name": "LogStorageSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogStorageSettings"
+        "nullable": false,
+        "referenceName": "LogStorageSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.",
       "jsonName": "parallelCopies",
       "name": "ParallelCopies",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +99,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Preserve rules.",
       "jsonName": "preserve",
       "name": "Preserve",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Preserve Rules.",
       "jsonName": "preserveRules",
       "name": "PreserveRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Redirect incompatible row settings when EnableSkipIncompatibleRow is true.",
       "jsonName": "redirectIncompatibleRowSettings",
       "name": "RedirectIncompatibleRowSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RedirectIncompatibleRowSettings"
+        "nullable": false,
+        "referenceName": "RedirectIncompatibleRowSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy activity sink.",
       "jsonName": "sink",
       "name": "Sink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopySink"
+        "nullable": false,
+        "referenceName": "CopySink",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify the fault tolerance for data consistency.",
       "jsonName": "skipErrorFile",
       "name": "SkipErrorFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkipErrorFile"
+        "nullable": false,
+        "referenceName": "SkipErrorFile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy activity source.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopySource"
+        "nullable": false,
+        "referenceName": "CopySource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies interim staging settings when EnableStaging is true.",
       "jsonName": "stagingSettings",
       "name": "StagingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StagingSettings"
+        "nullable": false,
+        "referenceName": "StagingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy activity translator. If not specified, tabular translator is used.",
       "jsonName": "translator",
       "name": "Translator",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,16 +239,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "validateDataConsistency",
       "name": "ValidateDataConsistency",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.",
       "jsonName": "allowAclAuthorization",
       "name": "AllowAclAuthorization",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Supplementary group membership. Only applicable for local users enabled for NFSv3 access.",
       "jsonName": "extendedGroups",
       "name": "ExtendedGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An identifier for associating a group of users.",
       "jsonName": "groupId",
       "name": "GroupId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether shared key exists. Set it to false to remove existing shared key.",
       "jsonName": "hasSharedKey",
       "name": "HasSharedKey",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether ssh key exists. Set it to false to remove existing SSH key.",
       "jsonName": "hasSshKey",
       "name": "HasSshKey",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether ssh password exists. Set it to false to remove existing SSH password.",
       "jsonName": "hasSshPassword",
       "name": "HasSshPassword",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional, local user home directory.",
       "jsonName": "homeDirectory",
       "name": "HomeDirectory",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the local user is enabled for access with NFSv3 protocol.",
       "jsonName": "isNFSv3Enabled",
       "name": "IsNFSv3Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +137,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The permission scopes of the local user.",
       "jsonName": "permissionScopes",
       "name": "PermissionScopes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PermissionScope"
+          "nullable": false,
+          "referenceName": "PermissionScope",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A unique Security Identifier that is generated by the server.",
       "jsonName": "sid",
       "name": "Sid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,10 +179,14 @@
       "name": "SshAuthorizedKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SshPublicKey"
+          "nullable": false,
+          "referenceName": "SshPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,16 +196,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A unique Identifier that is generated by the server.",
       "jsonName": "userId",
       "name": "UserId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

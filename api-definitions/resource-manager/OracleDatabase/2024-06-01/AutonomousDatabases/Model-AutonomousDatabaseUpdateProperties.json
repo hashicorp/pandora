@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Admin password.",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maintenance schedule type of the Autonomous Database Serverless.",
       "jsonName": "autonomousMaintenanceScheduleType",
       "name": "AutonomousMaintenanceScheduleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutonomousMaintenanceScheduleType"
+        "nullable": false,
+        "referenceName": "AutonomousMaintenanceScheduleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention period, in days, for long-term backups",
       "jsonName": "backupRetentionPeriodInDays",
       "name": "BackupRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compute amount (CPUs) available to the database.",
       "jsonName": "computeCount",
       "name": "ComputeCount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of CPU cores to be made available to the database.",
       "jsonName": "cpuCoreCount",
       "name": "CpuCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer Contacts.",
       "jsonName": "customerContacts",
       "name": "CustomerContacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomerContact"
+          "nullable": false,
+          "referenceName": "CustomerContact",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size, in gigabytes, of the data volume that will be created and attached to the database.",
       "jsonName": "dataStorageSizeInGbs",
       "name": "DataStorageSizeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The quantity of data in the database, in terabytes.",
       "jsonName": "dataStorageSizeInTbs",
       "name": "DataStorageSizeInTbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Oracle Database Edition that applies to the Autonomous databases.",
       "jsonName": "databaseEdition",
       "name": "DatabaseEdition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseEditionType"
+        "nullable": false,
+        "referenceName": "DatabaseEditionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user-friendly name for the Autonomous Database.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if auto scaling is enabled for the Autonomous Database CPU core count.",
       "jsonName": "isAutoScalingEnabled",
       "name": "IsAutoScalingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if auto scaling is enabled for the Autonomous Database storage.",
       "jsonName": "isAutoScalingForStorageEnabled",
       "name": "IsAutoScalingForStorageEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the Autonomous Database has local or called in-region Data Guard enabled.",
       "jsonName": "isLocalDataGuardEnabled",
       "name": "IsLocalDataGuardEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if the Autonomous Database requires mTLS connections.",
       "jsonName": "isMtlsConnectionRequired",
       "name": "IsMtlsConnectionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Oracle license model that applies to the Oracle Autonomous Database. The default is LICENSE_INCLUDED.",
       "jsonName": "licenseModel",
       "name": "LicenseModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseModel"
+        "nullable": false,
+        "referenceName": "LicenseModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameter that allows users to select an acceptable maximum data loss limit in seconds, up to which Automatic Failover will be triggered when necessary for a Local Autonomous Data Guard",
       "jsonName": "localAdgAutoFailoverMaxDataLossLimit",
       "name": "LocalAdgAutoFailoverMaxDataLossLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details for the long-term backup schedule.",
       "jsonName": "longTermBackupSchedule",
       "name": "LongTermBackupSchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LongTermBackUpScheduleDetails"
+        "nullable": false,
+        "referenceName": "LongTermBackUpScheduleDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Autonomous Database mode.",
       "jsonName": "openMode",
       "name": "OpenMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenModeType"
+        "nullable": false,
+        "referenceName": "OpenModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The database OCID of the Disaster Recovery peer database, which is located in a different region from the current peer database.",
       "jsonName": "peerDbId",
       "name": "PeerDbId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Autonomous Database permission level.",
       "jsonName": "permissionLevel",
       "name": "PermissionLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PermissionLevelType"
+        "nullable": false,
+        "referenceName": "PermissionLevelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +329,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.",
       "jsonName": "role",
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleType"
+        "nullable": false,
+        "referenceName": "RoleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of scheduled operations.",
       "jsonName": "scheduledOperations",
       "name": "ScheduledOperations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledOperationsTypeUpdate"
+        "nullable": false,
+        "referenceName": "ScheduledOperationsTypeUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,14 +361,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client IP access control list (ACL). This is an array of CIDR notations and/or IP addresses. Values should be separate strings, separated by commas. Example: ['1.1.1.1','1.1.1.0/24','1.1.2.25']",
       "jsonName": "whitelistedIps",
       "name": "WhitelistedIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -308,5 +381,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

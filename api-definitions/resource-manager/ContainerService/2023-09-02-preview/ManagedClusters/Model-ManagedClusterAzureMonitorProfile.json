@@ -7,7 +7,9 @@
       "name": "Logs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileLogs"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileLogs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Metrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfileMetrics"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version string of the firmware currently installed on this cache.",
       "jsonName": "currentFirmwareVersion",
       "name": "CurrentFirmwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time at which the pending firmware update will automatically be installed on the cache.",
       "jsonName": "firmwareUpdateDeadline",
       "name": "FirmwareUpdateDeadline",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.",
       "jsonName": "firmwareUpdateStatus",
       "name": "FirmwareUpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirmwareStatusType"
+        "nullable": false,
+        "referenceName": "FirmwareStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time of the last successful firmware update.",
       "jsonName": "lastFirmwareUpdate",
       "name": "LastFirmwareUpdate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,16 +69,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When firmwareUpdateAvailable is true, this field holds the version string for the update.",
       "jsonName": "pendingFirmwareVersion",
       "name": "PendingFirmwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

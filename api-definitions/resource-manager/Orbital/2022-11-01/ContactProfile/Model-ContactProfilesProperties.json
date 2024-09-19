@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auto-tracking configuration.",
       "jsonName": "autoTrackingConfiguration",
       "name": "AutoTrackingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoTrackingConfiguration"
+        "nullable": false,
+        "referenceName": "AutoTrackingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.",
       "jsonName": "eventHubUri",
       "name": "EventHubUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.",
       "jsonName": "links",
       "name": "Links",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContactProfileLink"
+          "nullable": false,
+          "referenceName": "ContactProfileLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.",
       "jsonName": "minimumElevationDegrees",
       "name": "MinimumElevationDegrees",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.",
       "jsonName": "minimumViableContactDuration",
       "name": "MinimumViableContactDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network configuration of customer virtual network.",
       "jsonName": "networkConfiguration",
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContactProfilesPropertiesNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "ContactProfilesPropertiesNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the resource's creation, deletion, or modification.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.",
       "jsonName": "thirdPartyConfigurations",
       "name": "ThirdPartyConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContactProfileThirdPartyConfiguration"
+          "nullable": false,
+          "referenceName": "ContactProfileThirdPartyConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,5 +141,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

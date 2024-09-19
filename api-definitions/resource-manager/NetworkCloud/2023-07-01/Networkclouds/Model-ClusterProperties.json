@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.",
       "jsonName": "aggregatorOrSingleRackDefinition",
       "name": "AggregatorOrSingleRackDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackDefinition"
+        "nullable": false,
+        "referenceName": "RackDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.",
       "jsonName": "analyticsWorkspaceId",
       "name": "AnalyticsWorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of cluster runtime version upgrades available for this cluster.",
       "jsonName": "availableUpgradeVersions",
       "name": "AvailableUpgradeVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClusterAvailableUpgradeVersion"
+          "nullable": false,
+          "referenceName": "ClusterAvailableUpgradeVersion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity supported by this cluster.",
       "jsonName": "clusterCapacity",
       "name": "ClusterCapacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterCapacity"
+        "nullable": false,
+        "referenceName": "ClusterCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest heartbeat status between the cluster manager and the cluster.",
       "jsonName": "clusterConnectionStatus",
       "name": "ClusterConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterConnectionStatus"
+        "nullable": false,
+        "referenceName": "ClusterConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.",
       "jsonName": "clusterExtendedLocation",
       "name": "ClusterExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedLocation"
+        "nullable": false,
+        "referenceName": "ExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customer-provided location information to identify where the cluster resides.",
       "jsonName": "clusterLocation",
       "name": "ClusterLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest connectivity status between cluster manager and the cluster.",
       "jsonName": "clusterManagerConnectionStatus",
       "name": "ClusterManagerConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterManagerConnectionStatus"
+        "nullable": false,
+        "referenceName": "ClusterManagerConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.",
       "jsonName": "clusterManagerId",
       "name": "ClusterManagerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service principal to be used by the cluster during Arc Appliance installation.",
       "jsonName": "clusterServicePrincipal",
       "name": "ClusterServicePrincipal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipalInformation"
+        "nullable": false,
+        "referenceName": "ServicePrincipalInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of rack configuration for the cluster.",
       "jsonName": "clusterType",
       "name": "ClusterType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterType"
+        "nullable": false,
+        "referenceName": "ClusterType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current runtime version of the cluster.",
       "jsonName": "clusterVersion",
       "name": "ClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.",
       "jsonName": "computeDeploymentThreshold",
       "name": "ComputeDeploymentThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThreshold"
+        "nullable": false,
+        "referenceName": "ValidationThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,14 +217,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of rack definitions for the compute racks in a multi-rack\ncluster, or an empty list in a single-rack cluster.",
       "jsonName": "computeRackDefinitions",
       "name": "ComputeRackDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RackDefinition"
+          "nullable": false,
+          "referenceName": "RackDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current detailed status of the cluster.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterDetailedStatus"
+        "nullable": false,
+        "referenceName": "ClusterDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The descriptive message about the detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +271,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).",
       "jsonName": "hybridAksExtendedLocation",
       "name": "HybridAksExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedLocation"
+        "nullable": false,
+        "referenceName": "ExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +287,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of the managed resource group associated with the resource.",
       "jsonName": "managedResourceGroupConfiguration",
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,11 +303,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The count of Manual Action Taken (MAT) events that have not been validated.",
       "jsonName": "manualActionCount",
       "name": "ManualActionCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,11 +319,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Network Fabric associated with the cluster.",
       "jsonName": "networkFabricId",
       "name": "NetworkFabricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -271,11 +335,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the cluster.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterProvisioningState"
+        "nullable": false,
+        "referenceName": "ClusterProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,11 +351,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The support end date of the runtime version of the cluster.",
       "jsonName": "supportExpiryDate",
       "name": "SupportExpiryDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -297,14 +367,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of workload resource IDs that are hosted within this cluster.",
       "jsonName": "workloadResourceIds",
       "name": "WorkloadResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -312,5 +387,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

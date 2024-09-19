@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The continuation token for getting the next page of results. Null for first page.",
       "jsonName": "continuationToken",
       "name": "ContinuationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of filters.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunQueryFilter"
+          "nullable": false,
+          "referenceName": "RunQueryFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at or after which the run event was updated in 'ISO 8601' format.",
       "jsonName": "lastUpdatedAfter",
       "name": "LastUpdatedAfter",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -48,11 +59,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at or before which the run event was updated in 'ISO 8601' format.",
       "jsonName": "lastUpdatedBefore",
       "name": "LastUpdatedBefore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -61,14 +75,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of OrderBy option.",
       "jsonName": "orderBy",
       "name": "OrderBy",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunQueryOrderBy"
+          "nullable": false,
+          "referenceName": "RunQueryOrderBy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,5 +95,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

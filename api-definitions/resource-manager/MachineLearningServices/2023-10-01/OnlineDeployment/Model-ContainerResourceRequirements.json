@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container resource limit info:",
       "jsonName": "containerResourceLimits",
       "name": "ContainerResourceLimits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerResourceSettings"
+        "nullable": false,
+        "referenceName": "ContainerResourceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container resource request info:",
       "jsonName": "containerResourceRequests",
       "name": "ContainerResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerResourceSettings"
+        "nullable": false,
+        "referenceName": "ContainerResourceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

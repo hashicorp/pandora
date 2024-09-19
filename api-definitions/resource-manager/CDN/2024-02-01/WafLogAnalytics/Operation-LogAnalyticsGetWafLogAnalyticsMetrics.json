@@ -1,6 +1,7 @@
 {
   "name": "LogAnalyticsGetWafLogAnalyticsMetrics",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -97,7 +98,9 @@
   "resourceIdName": "ProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WafMetricsResponse"
+    "nullable": false,
+    "referenceName": "WafMetricsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getWafLogAnalyticsMetrics"
 }

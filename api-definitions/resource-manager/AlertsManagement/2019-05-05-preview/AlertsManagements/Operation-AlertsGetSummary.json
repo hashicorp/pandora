@@ -1,6 +1,7 @@
 {
   "name": "AlertsGetSummary",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -131,7 +132,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AlertsSummary"
+    "nullable": false,
+    "referenceName": "AlertsSummary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AlertsManagement/alertsSummary"
 }

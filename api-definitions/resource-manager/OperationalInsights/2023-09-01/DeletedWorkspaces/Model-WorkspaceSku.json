@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity reservation level in GB for this workspace, when CapacityReservation sku is selected.",
       "jsonName": "capacityReservationLevel",
       "name": "CapacityReservationLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapacityReservationLevel"
+        "nullable": false,
+        "referenceName": "CapacityReservationLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last time when the sku was updated.",
       "jsonName": "lastSkuUpdate",
       "name": "LastSkuUpdate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SKU.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceSkuNameEnum"
+        "nullable": false,
+        "referenceName": "WorkspaceSkuNameEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

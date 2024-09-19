@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Track property condition operation",
       "jsonName": "operation",
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackPropertyCompareOperation"
+        "nullable": false,
+        "referenceName": "TrackPropertyCompareOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Track property type",
       "jsonName": "property",
       "name": "Property",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackPropertyType"
+        "nullable": false,
+        "referenceName": "TrackPropertyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Track property value",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

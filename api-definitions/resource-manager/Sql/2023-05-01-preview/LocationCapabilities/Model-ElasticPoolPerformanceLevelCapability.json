@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The included (free) max size for this performance level.",
       "jsonName": "includedMaxSize",
       "name": "IncludedMaxSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of databases supported.",
       "jsonName": "maxDatabaseCount",
       "name": "MaxDatabaseCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The performance level for the pool.",
       "jsonName": "performanceLevel",
       "name": "PerformanceLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PerformanceLevelCapability"
+        "nullable": false,
+        "referenceName": "PerformanceLevelCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the capability not being available.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +71,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the capability.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Supported time range for auto pause delay",
       "jsonName": "supportedAutoPauseDelay",
       "name": "SupportedAutoPauseDelay",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoPauseDelayTimeRange"
+        "nullable": false,
+        "referenceName": "AutoPauseDelayTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +114,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported license types.",
       "jsonName": "supportedLicenseTypes",
       "name": "SupportedLicenseTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LicenseTypeCapability"
+          "nullable": false,
+          "referenceName": "LicenseTypeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,14 +136,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported maintenance configurations",
       "jsonName": "supportedMaintenanceConfigurations",
       "name": "SupportedMaintenanceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaintenanceConfigurationCapability"
+          "nullable": false,
+          "referenceName": "MaintenanceConfigurationCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,14 +158,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported max sizes.",
       "jsonName": "supportedMaxSizes",
       "name": "SupportedMaxSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaxSizeRangeCapability"
+          "nullable": false,
+          "referenceName": "MaxSizeRangeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,14 +180,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported min capacities",
       "jsonName": "supportedMinCapacities",
       "name": "SupportedMinCapacities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MinCapacityCapability"
+          "nullable": false,
+          "referenceName": "MinCapacityCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,11 +202,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Supported time range for per database auto pause delay",
       "jsonName": "supportedPerDatabaseAutoPauseDelay",
       "name": "SupportedPerDatabaseAutoPauseDelay",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PerDatabaseAutoPauseDelayTimeRange"
+        "nullable": false,
+        "referenceName": "PerDatabaseAutoPauseDelayTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,14 +218,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported per database max performance levels.",
       "jsonName": "supportedPerDatabaseMaxPerformanceLevels",
       "name": "SupportedPerDatabaseMaxPerformanceLevels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ElasticPoolPerDatabaseMaxPerformanceLevelCapability"
+          "nullable": false,
+          "referenceName": "ElasticPoolPerDatabaseMaxPerformanceLevelCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -192,14 +240,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported per database max sizes.",
       "jsonName": "supportedPerDatabaseMaxSizes",
       "name": "SupportedPerDatabaseMaxSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaxSizeRangeCapability"
+          "nullable": false,
+          "referenceName": "MaxSizeRangeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -209,16 +262,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not zone redundancy is supported for the performance level.",
       "jsonName": "zoneRedundant",
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

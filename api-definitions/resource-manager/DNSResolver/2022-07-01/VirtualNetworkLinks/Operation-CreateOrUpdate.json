@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -33,10 +34,14 @@
   "resourceIdName": "VirtualNetworkLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkLink"
+    "nullable": false,
+    "referenceName": "VirtualNetworkLink",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkLink"
+    "nullable": false,
+    "referenceName": "VirtualNetworkLink",
+    "referenceNameIsCommonType": null
   }
 }

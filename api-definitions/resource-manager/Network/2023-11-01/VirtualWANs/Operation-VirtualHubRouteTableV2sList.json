@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubRouteTableV2sList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualHubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualHubRouteTableV2"
+    "nullable": false,
+    "referenceName": "VirtualHubRouteTableV2",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/routeTables"
 }

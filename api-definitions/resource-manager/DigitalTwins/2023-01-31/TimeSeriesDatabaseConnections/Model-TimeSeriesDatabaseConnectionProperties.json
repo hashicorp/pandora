@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The type of time series connection resource.",
       "jsonName": "connectionType",
       "name": "ConnectionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionType"
+        "nullable": false,
+        "referenceName": "ConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed identity properties for the time series database connection resource.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityReference"
+        "nullable": false,
+        "referenceName": "ManagedIdentityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeSeriesDatabaseConnectionState"
+        "nullable": false,
+        "referenceName": "TimeSeriesDatabaseConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,5 +50,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ConnectionType"
 }

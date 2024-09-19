@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Account credentials.",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreCredentials"
+        "nullable": false,
+        "referenceName": "DatastoreCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Storage type backing the datastore.",
       "jsonName": "datastoreType",
       "name": "DatastoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreType"
+        "nullable": false,
+        "referenceName": "DatastoreType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The asset description text.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Readonly property to indicate if datastore is the workspace default datastore",
       "jsonName": "isDefault",
       "name": "IsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The asset property dictionary.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tag dictionary. Tags can be added, removed, and updated.",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,5 +104,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DatastoreType"
 }

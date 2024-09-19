@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time at which the share subscription was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The expiration date of the share subscription.",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The invitation id.",
       "jsonName": "invitationId",
       "name": "InvitationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email of the provider who created the resource",
       "jsonName": "providerEmail",
       "name": "ProviderEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the provider who created the resource",
       "jsonName": "providerName",
       "name": "ProviderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tenant name of the provider who created the resource",
       "jsonName": "providerTenantName",
       "name": "ProviderTenantName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the share subscription",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of share",
       "jsonName": "shareDescription",
       "name": "ShareDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Kind of share",
       "jsonName": "shareKind",
       "name": "ShareKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareKind"
+        "nullable": false,
+        "referenceName": "ShareKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the share",
       "jsonName": "shareName",
       "name": "ShareName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the current status of share subscription.",
       "jsonName": "shareSubscriptionStatus",
       "name": "ShareSubscriptionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareSubscriptionStatus"
+        "nullable": false,
+        "referenceName": "ShareSubscriptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Terms of a share",
       "jsonName": "shareTerms",
       "name": "ShareTerms",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source share location.",
       "jsonName": "sourceShareLocation",
       "name": "SourceShareLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email of the user who created the resource",
       "jsonName": "userEmail",
       "name": "UserEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,16 +229,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the user who created the resource",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

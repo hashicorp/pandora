@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The categorical prediction drift metric to calculate.",
       "jsonName": "metric",
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoricalPredictionDriftMetric"
+        "nullable": false,
+        "referenceName": "CategoricalPredictionDriftMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PredictionDriftMetricThresholdBase",
   "discriminatedTypeValue": "Categorical",
   "typeHintIn": "DataType"

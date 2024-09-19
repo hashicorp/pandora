@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.",
       "jsonName": "initialName",
       "name": "InitialName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog",
       "jsonName": "initialType",
       "name": "InitialType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InitialType"
+        "nullable": false,
+        "referenceName": "InitialType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

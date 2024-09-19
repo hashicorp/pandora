@@ -7,7 +7,9 @@
       "name": "AzureStackEdgeDevice",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureStackEdgeDeviceResourceId"
+        "nullable": false,
+        "referenceName": "AzureStackEdgeDeviceResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Stack Edge devices where the packet core is deployed. If the packet core is deployed across multiple devices, all devices will appear in this list.",
       "jsonName": "azureStackEdgeDevices",
       "name": "AzureStackEdgeDevices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureStackEdgeDeviceResourceId"
+          "nullable": false,
+          "referenceName": "AzureStackEdgeDeviceResourceId",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +44,9 @@
       "name": "AzureStackHciCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureStackHCIClusterResourceId"
+        "nullable": false,
+        "referenceName": "AzureStackHCIClusterResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +59,9 @@
       "name": "ConnectedCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectedClusterResourceId"
+        "nullable": false,
+        "referenceName": "ConnectedClusterResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +74,9 @@
       "name": "CustomLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomLocationResourceId"
+        "nullable": false,
+        "referenceName": "CustomLocationResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +85,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The platform type where packet core is deployed.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

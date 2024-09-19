@@ -1,6 +1,7 @@
 {
   "name": "RacksUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "RackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RackPatchParameters"
+    "nullable": false,
+    "referenceName": "RackPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Rack"
+    "nullable": false,
+    "referenceName": "Rack",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timeout for connecting to the LDAP server in miliseconds. The default is 5000 ms.",
       "jsonName": "connectionTimeoutInMs",
       "name": "ConnectionTimeoutInMs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Distinguished name of the object to start the recursive search of users from.",
       "jsonName": "searchBaseDistinguishedName",
       "name": "SearchBaseDistinguishedName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Template to use for searching. Defaults to (cn=%s) where %s will be replaced by the username used to login.",
       "jsonName": "searchFilterTemplate",
       "name": "SearchFilterTemplate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +55,14 @@
       "name": "ServerCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Certificate"
+          "nullable": false,
+          "referenceName": "Certificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname of the LDAP server.",
       "jsonName": "serverHostname",
       "name": "ServerHostname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Port of the LDAP server.",
       "jsonName": "serverPort",
       "name": "ServerPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Distinguished name of the look up user account, who can look up user details on authentication.",
       "jsonName": "serviceUserDistinguishedName",
       "name": "ServiceUserDistinguishedName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,16 +120,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Password of the look up user.",
       "jsonName": "serviceUserPassword",
       "name": "ServiceUserPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

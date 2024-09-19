@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 one-way receive agreement.",
       "jsonName": "receiveAgreement",
       "name": "ReceiveAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12OneWayAgreement"
+        "nullable": false,
+        "referenceName": "X12OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 one-way send agreement.",
       "jsonName": "sendAgreement",
       "name": "SendAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12OneWayAgreement"
+        "nullable": false,
+        "referenceName": "X12OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Compression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Compression"
+        "nullable": false,
+        "referenceName": "Compression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Diagnostics"
+        "nullable": false,
+        "referenceName": "Diagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current entity tag for the input. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.",
       "jsonName": "etag",
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "partitionKey Describes a key in the input data which is used for partitioning the input data",
       "jsonName": "partitionKey",
       "name": "PartitionKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +69,9 @@
       "name": "Serialization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Serialization"
+        "nullable": false,
+        "referenceName": "Serialization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Indicates whether the input is a source of reference data or stream data. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +100,9 @@
       "name": "WatermarkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputWatermarkProperties"
+        "nullable": false,
+        "referenceName": "InputWatermarkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,5 +110,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Type"
 }

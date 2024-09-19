@@ -7,7 +7,9 @@
       "name": "MetaData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpansionResultsMetadata"
+        "nullable": false,
+        "referenceName": "ExpansionResultsMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The expansion result values.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BookmarkExpandResponseValue"
+        "nullable": false,
+        "referenceName": "BookmarkExpandResponseValue",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

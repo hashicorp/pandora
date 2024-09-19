@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of networks being attached to the cluster for use by the workloads that run on this Kubernetes cluster.",
       "jsonName": "attachedNetworkConfiguration",
       "name": "AttachedNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AttachedNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "AttachedNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of the BGP service load balancer for this Kubernetes cluster.",
       "jsonName": "bgpServiceLoadBalancerConfiguration",
       "name": "BgpServiceLoadBalancerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BgpServiceLoadBalancerConfiguration"
+        "nullable": false,
+        "referenceName": "BgpServiceLoadBalancerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the associated Cloud Services network.",
       "jsonName": "cloudServicesNetworkId",
       "name": "CloudServicesNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Layer 3 network that is used for creation of the Container Networking Interface network.",
       "jsonName": "cniNetworkId",
       "name": "CniNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in service CIDR.",
       "jsonName": "dnsServiceIp",
       "name": "DnsServiceIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.",
       "jsonName": "podCidrs",
       "name": "PodCidrs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CIDR notation IP ranges from which to assign service IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.",
       "jsonName": "serviceCidrs",
       "name": "ServiceCidrs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -100,5 +125,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

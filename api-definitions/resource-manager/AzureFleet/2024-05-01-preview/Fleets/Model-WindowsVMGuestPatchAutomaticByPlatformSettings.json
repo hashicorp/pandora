@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables customer to schedule patching without accidental upgrades",
       "jsonName": "bypassPlatformSafetyChecksOnUserSchedule",
       "name": "BypassPlatformSafetyChecksOnUserSchedule",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the reboot setting for all AutomaticByPlatform patch installation\noperations.",
       "jsonName": "rebootSetting",
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsVMGuestPatchAutomaticByPlatformRebootSetting"
+        "nullable": false,
+        "referenceName": "WindowsVMGuestPatchAutomaticByPlatformRebootSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

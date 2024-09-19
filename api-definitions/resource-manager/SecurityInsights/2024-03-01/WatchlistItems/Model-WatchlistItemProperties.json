@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the watchlist item was created",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +24,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInfo"
+        "nullable": false,
+        "referenceName": "UserInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "key-value pairs for a watchlist item entity mapping",
       "jsonName": "entityMapping",
       "name": "EntityMapping",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag that indicates if the watchlist item is deleted or not",
       "jsonName": "isDeleted",
       "name": "IsDeleted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "key-value pairs for a watchlist item",
       "jsonName": "itemsKeyValue",
       "name": "ItemsKeyValue",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -69,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tenantId to which the watchlist item belongs to",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +100,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time the watchlist item was updated",
       "jsonName": "updated",
       "name": "Updated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +120,9 @@
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInfo"
+        "nullable": false,
+        "referenceName": "UserInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id (a Guid) of the watchlist item",
       "jsonName": "watchlistItemId",
       "name": "WatchlistItemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the watchlist item",
       "jsonName": "watchlistItemType",
       "name": "WatchlistItemType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

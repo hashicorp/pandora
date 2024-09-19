@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the provider instance errors.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Error"
+        "nullable": false,
+        "referenceName": "Error",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the provider specific properties.",
       "jsonName": "providerSettings",
       "name": "ProviderSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProviderSpecificProperties"
+        "nullable": false,
+        "referenceName": "ProviderSpecificProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of provisioning of the provider instance",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadMonitorProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkloadMonitorProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

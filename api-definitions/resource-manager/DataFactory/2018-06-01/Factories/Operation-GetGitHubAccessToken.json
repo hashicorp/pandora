@@ -1,6 +1,7 @@
 {
   "name": "GetGitHubAccessToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "FactoryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GitHubAccessTokenRequest"
+    "nullable": false,
+    "referenceName": "GitHubAccessTokenRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GitHubAccessTokenResponse"
+    "nullable": false,
+    "referenceName": "GitHubAccessTokenResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getGitHubAccessToken"
 }

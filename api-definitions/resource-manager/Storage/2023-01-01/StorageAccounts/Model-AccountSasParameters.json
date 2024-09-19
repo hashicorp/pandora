@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key to sign the account SAS token with.",
       "jsonName": "keyToSign",
       "name": "KeyToSign",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the shared access signature becomes invalid.",
       "jsonName": "signedExpiry",
       "name": "SignedExpiry",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An IP address or a range of IP addresses from which to accept requests.",
       "jsonName": "signedIp",
       "name": "SignedIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).",
       "jsonName": "signedPermission",
       "name": "SignedPermission",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Permissions"
+        "nullable": false,
+        "referenceName": "Permissions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protocol permitted for a request made with the account SAS.",
       "jsonName": "signedProtocol",
       "name": "SignedProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPProtocol"
+        "nullable": false,
+        "referenceName": "HTTPProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.",
       "jsonName": "signedResourceTypes",
       "name": "SignedResourceTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SignedResourceTypes"
+        "nullable": false,
+        "referenceName": "SignedResourceTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).",
       "jsonName": "signedServices",
       "name": "SignedServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Services"
+        "nullable": false,
+        "referenceName": "Services",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -96,16 +117,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the SAS becomes valid.",
       "jsonName": "signedStart",
       "name": "SignedStart",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

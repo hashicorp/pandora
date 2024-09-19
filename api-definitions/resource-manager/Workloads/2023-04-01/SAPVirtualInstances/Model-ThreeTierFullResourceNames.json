@@ -7,7 +7,9 @@
       "name": "ApplicationServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationServerFullResourceNames"
+        "nullable": false,
+        "referenceName": "ApplicationServerFullResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CentralServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CentralServerFullResourceNames"
+        "nullable": false,
+        "referenceName": "CentralServerFullResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DatabaseServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseServerFullResourceNames"
+        "nullable": false,
+        "referenceName": "DatabaseServerFullResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SharedStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharedStorageResourceNames"
+        "nullable": false,
+        "referenceName": "SharedStorageResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ThreeTierCustomResourceNames",
   "discriminatedTypeValue": "FullResourceName",
   "typeHintIn": "NamingPatternType"

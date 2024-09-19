@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARC autoprovisioning configuration",
       "jsonName": "arcAutoProvisioning",
       "name": "ArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Defender for servers connection configuration",
       "jsonName": "defenderForServers",
       "name": "DefenderForServers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingDefenderForServers"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingDefenderForServers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender for Endpoint autoprovisioning configuration",
       "jsonName": "mdeAutoProvisioning",
       "name": "MdeAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingMdeAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingMdeAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "configuration for the servers offering subPlan",
       "jsonName": "subPlan",
       "name": "SubPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingSubPlan"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingSubPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Defender for Server VM scanning configuration",
       "jsonName": "vmScanners",
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Vulnerability Assessment autoprovisioning configuration",
       "jsonName": "vaAutoProvisioning",
       "name": "VaAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingVaAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingVaAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForServersAws",
   "typeHintIn": "OfferingType"

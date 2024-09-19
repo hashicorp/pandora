@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Company Details",
       "jsonName": "companyDetails",
       "name": "CompanyDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompanyDetailsUpdate"
+        "nullable": false,
+        "referenceName": "CompanyDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Existing Resource Id",
       "jsonName": "existingResourceId",
       "name": "ExistingResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Informatica Organization properties",
       "jsonName": "informaticaOrganizationProperties",
       "name": "InformaticaOrganizationProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InformaticaOrganizationResourceUpdate"
+        "nullable": false,
+        "referenceName": "InformaticaOrganizationResourceUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace details",
       "jsonName": "marketplaceDetails",
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetailsUpdate"
+        "nullable": false,
+        "referenceName": "MarketplaceDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User details",
       "jsonName": "userDetails",
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserDetailsUpdate"
+        "nullable": false,
+        "referenceName": "UserDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

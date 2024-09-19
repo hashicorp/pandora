@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of data directory paths during restore operation.",
       "jsonName": "dataDirectoryPaths",
       "name": "DataDirectoryPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SQLDataDirectory"
+          "nullable": false,
+          "referenceName": "SQLDataDirectory",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,16 +26,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "UTC time at which data directory info was captured",
       "jsonName": "dataDirectoryTimeInUTC",
       "name": "DataDirectoryTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

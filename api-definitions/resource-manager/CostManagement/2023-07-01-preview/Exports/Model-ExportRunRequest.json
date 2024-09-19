@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has time period for pulling data for the export.",
       "jsonName": "timePeriod",
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportTimePeriod"
+        "nullable": false,
+        "referenceName": "ExportTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

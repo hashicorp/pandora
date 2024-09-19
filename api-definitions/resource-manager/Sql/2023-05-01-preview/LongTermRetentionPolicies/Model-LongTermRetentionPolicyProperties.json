@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The BackupStorageAccessTier for the LTR backups",
       "jsonName": "backupStorageAccessTier",
       "name": "BackupStorageAccessTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupStorageAccessTier"
+        "nullable": false,
+        "referenceName": "BackupStorageAccessTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The setting whether to make LTR backups immutable",
       "jsonName": "makeBackupsImmutable",
       "name": "MakeBackupsImmutable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The monthly retention policy for an LTR backup in an ISO 8601 format.",
       "jsonName": "monthlyRetention",
       "name": "MonthlyRetention",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The week of year to take the yearly backup in an ISO 8601 format.",
       "jsonName": "weekOfYear",
       "name": "WeekOfYear",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The weekly retention policy for an LTR backup in an ISO 8601 format.",
       "jsonName": "weeklyRetention",
       "name": "WeeklyRetention",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The yearly retention policy for an LTR backup in an ISO 8601 format.",
       "jsonName": "yearlyRetention",
       "name": "YearlyRetention",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

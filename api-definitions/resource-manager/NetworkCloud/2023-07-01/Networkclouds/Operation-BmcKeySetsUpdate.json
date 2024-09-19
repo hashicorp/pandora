@@ -1,6 +1,7 @@
 {
   "name": "BmcKeySetsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BmcKeySetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BmcKeySetPatchParameters"
+    "nullable": false,
+    "referenceName": "BmcKeySetPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BmcKeySet"
+    "nullable": false,
+    "referenceName": "BmcKeySet",
+    "referenceNameIsCommonType": null
   }
 }

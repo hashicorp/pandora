@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Linux OS information of the VM.",
       "jsonName": "linuxOsInfo",
       "name": "LinuxOsInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxOsInfo"
+        "nullable": false,
+        "referenceName": "LinuxOsInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source vm identifier.",
       "jsonName": "sourceVmId",
       "name": "SourceVMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Windows OS information of the VM.",
       "jsonName": "windowsOsInfo",
       "name": "WindowsOsInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsOsInfo"
+        "nullable": false,
+        "referenceName": "WindowsOsInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

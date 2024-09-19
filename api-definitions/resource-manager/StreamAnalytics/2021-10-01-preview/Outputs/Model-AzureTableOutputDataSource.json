@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties that are associated with an Azure Table output. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureTableOutputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "AzureTableOutputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutputDataSource",
   "discriminatedTypeValue": "Microsoft.Storage/Table",
   "typeHintIn": "Type"

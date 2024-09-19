@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The definition for data in the export.",
       "jsonName": "dataSet",
       "name": "DataSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDataset"
+        "nullable": false,
+        "referenceName": "ExportDataset",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has time period for pulling data for the export.",
       "jsonName": "timePeriod",
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportTimePeriod"
+        "nullable": false,
+        "referenceName": "ExportTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time frame for pulling data for the export. If custom, then a specific time period must be provided.",
       "jsonName": "timeframe",
       "name": "Timeframe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeframeType"
+        "nullable": false,
+        "referenceName": "TimeframeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportType"
+        "nullable": false,
+        "referenceName": "ExportType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

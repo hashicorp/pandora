@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the Auxiliary mode is enabled for the Network Interface resource.",
       "jsonName": "auxiliaryMode",
       "name": "AuxiliaryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceAuxiliaryMode"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceAuxiliaryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the Auxiliary sku is enabled for the Network Interface resource.",
       "jsonName": "auxiliarySku",
       "name": "AuxiliarySku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceAuxiliarySku"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceAuxiliarySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify what happens to the network interface when the VM is deleted",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is disabled for tcp state tracking.",
       "jsonName": "disableTcpStateTracking",
       "name": "DisableTcpStateTracking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dns settings to be applied on the network interfaces.",
       "jsonName": "dnsSettings",
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetNetworkConfigurationDnsSettings"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetNetworkConfigurationDnsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is accelerated networking-enabled.",
       "jsonName": "enableAcceleratedNetworking",
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the network interface is FPGA networking-enabled.",
       "jsonName": "enableFpga",
       "name": "EnableFpga",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether IP forwarding enabled on this NIC.",
       "jsonName": "enableIPForwarding",
       "name": "EnableIPForwarding",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set IP Configuration.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetUpdateIPConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetUpdateIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,7 +157,9 @@
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,16 +168,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether this is a primary NIC on a virtual machine.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

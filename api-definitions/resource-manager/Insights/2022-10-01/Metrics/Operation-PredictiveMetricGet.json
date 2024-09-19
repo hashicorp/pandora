@@ -1,6 +1,7 @@
 {
   "name": "PredictiveMetricGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -61,7 +62,9 @@
   "resourceIdName": "AutoScaleSettingId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PredictiveResponse"
+    "nullable": false,
+    "referenceName": "PredictiveResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/predictiveMetrics"
 }

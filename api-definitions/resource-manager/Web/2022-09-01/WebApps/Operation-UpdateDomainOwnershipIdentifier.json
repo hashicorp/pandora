@@ -1,6 +1,7 @@
 {
   "name": "UpdateDomainOwnershipIdentifier",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DomainOwnershipIdentifierId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
+    "nullable": false,
+    "referenceName": "Identifier",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
+    "nullable": false,
+    "referenceName": "Identifier",
+    "referenceNameIsCommonType": null
   }
 }

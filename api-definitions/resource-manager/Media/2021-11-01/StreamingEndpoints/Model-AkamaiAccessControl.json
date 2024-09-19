@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "authentication key list",
       "jsonName": "akamaiSignatureHeaderAuthenticationKeyList",
       "name": "AkamaiSignatureHeaderAuthenticationKeyList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AkamaiSignatureHeaderAuthenticationKey"
+          "nullable": false,
+          "referenceName": "AkamaiSignatureHeaderAuthenticationKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

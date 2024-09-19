@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.",
       "jsonName": "complexity",
       "name": "Complexity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "H265Complexity"
+        "nullable": false,
+        "referenceName": "H265Complexity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting.",
       "jsonName": "keyFrameInterval",
       "name": "KeyFrameInterval",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of output H.265 layers to be produced by the encoder.",
       "jsonName": "layers",
       "name": "Layers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "H265Layer"
+          "nullable": false,
+          "referenceName": "H265Layer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video.",
       "jsonName": "sceneChangeDetection",
       "name": "SceneChangeDetection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize",
       "jsonName": "stretchMode",
       "name": "StretchMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StretchMode"
+        "nullable": false,
+        "referenceName": "StretchMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Video Sync Mode",
       "jsonName": "syncMode",
       "name": "SyncMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VideoSyncMode"
+        "nullable": false,
+        "referenceName": "VideoSyncMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,6 +104,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Codec",
   "discriminatedTypeValue": "#Microsoft.Media.H265Video",
   "typeHintIn": "OdataType"

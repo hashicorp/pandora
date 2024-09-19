@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of server level validations",
       "jsonName": "dbLevelValidationDetails",
       "name": "DbLevelValidationDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DbLevelValidationStatus"
+          "nullable": false,
+          "referenceName": "DbLevelValidationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of server level validations",
       "jsonName": "serverLevelValidationDetails",
       "name": "ServerLevelValidationDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ValidationSummaryItem"
+          "nullable": false,
+          "referenceName": "ValidationSummaryItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationState"
+        "nullable": false,
+        "referenceName": "ValidationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,11 +63,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Validation End date-time in UTC",
       "jsonName": "validationEndTimeInUtc",
       "name": "ValidationEndTimeInUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -65,16 +80,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Validation Start date-time in UTC",
       "jsonName": "validationStartTimeInUtc",
       "name": "ValidationStartTimeInUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

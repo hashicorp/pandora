@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Day of the week.",
       "jsonName": "dayOfWeek",
       "name": "DayOfWeek",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DayOfWeek"
+        "nullable": false,
+        "referenceName": "DayOfWeek",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The update start hour of the day. (0 - 23)",
       "jsonName": "hour",
       "name": "Hour",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

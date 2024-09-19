@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Currency and amount that customer will be charged in customer's local currency for renewal purchase. Tax is not included.",
       "jsonName": "billingCurrencyTotal",
       "name": "BillingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Amount that Microsoft uses for record. Used during refund for calculating refund limit. Tax is not included. This is locked price 30 days before expiry.",
       "jsonName": "pricingCurrencyTotal",
       "name": "PricingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +39,15 @@
       "name": "PurchaseProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchaseRequest"
+        "nullable": false,
+        "referenceName": "ReservationPurchaseRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A base-64 encoded string of custom data.",
       "jsonName": "customData",
       "name": "CustomData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxConfiguration"
+        "nullable": false,
+        "referenceName": "LinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The List of certificates for addition to the VM.",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VaultSecretGroup"
+          "nullable": false,
+          "referenceName": "VaultSecretGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,12 +60,15 @@
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsConfiguration"
+        "nullable": false,
+        "referenceName": "WindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

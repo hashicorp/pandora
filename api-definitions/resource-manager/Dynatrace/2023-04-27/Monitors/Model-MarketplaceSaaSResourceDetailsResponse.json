@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the Marketplace SaaS Resource",
       "jsonName": "marketplaceSaaSResourceId",
       "name": "MarketplaceSaaSResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace subscription status",
       "jsonName": "marketplaceSubscriptionStatus",
       "name": "MarketplaceSubscriptionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceSubscriptionStatus"
+        "nullable": false,
+        "referenceName": "MarketplaceSubscriptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the plan",
       "jsonName": "planId",
       "name": "PlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

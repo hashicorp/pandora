@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.",
       "jsonName": "authenticationMethod",
       "name": "AuthenticationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMethod"
+        "nullable": false,
+        "referenceName": "AuthenticationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether Cassandra audit logging is enabled",
       "jsonName": "cassandraAuditLoggingEnabled",
       "name": "CassandraAuditLoggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.",
       "jsonName": "cassandraVersion",
       "name": "CassandraVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property.",
       "jsonName": "clientCertificates",
       "name": "ClientCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Certificate"
+          "nullable": false,
+          "referenceName": "Certificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property.",
       "jsonName": "clusterNameOverride",
       "name": "ClusterNameOverride",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the cluster and associated data centers has been deallocated.",
       "jsonName": "deallocated",
       "name": "Deallocated",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/\u003csubscription id\u003e/resourceGroups/\u003cresource group\u003e/providers/Microsoft.Network/virtualNetworks/\u003cvirtual network\u003e/subnets/\u003csubnet\u003e'",
       "jsonName": "delegatedManagementSubnetId",
       "name": "DelegatedManagementSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property.",
       "jsonName": "externalGossipCertificates",
       "name": "ExternalGossipCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Certificate"
+          "nullable": false,
+          "referenceName": "Certificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes.",
       "jsonName": "externalSeedNodes",
       "name": "ExternalSeedNodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SeedNode"
+          "nullable": false,
+          "referenceName": "SeedNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,14 +165,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property.",
       "jsonName": "gossipCertificates",
       "name": "GossipCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Certificate"
+          "nullable": false,
+          "referenceName": "Certificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.",
       "jsonName": "hoursBetweenBackups",
       "name": "HoursBetweenBackups",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'.",
       "jsonName": "initialCassandraAdminPassword",
       "name": "InitialCassandraAdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached.",
       "jsonName": "prometheusEndpoint",
       "name": "PrometheusEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SeedNode"
+        "nullable": false,
+        "referenceName": "SeedNode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +239,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedCassandraProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedCassandraProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +250,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs.",
       "jsonName": "repairEnabled",
       "name": "RepairEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +266,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup.",
       "jsonName": "restoreFromBackupId",
       "name": "RestoreFromBackupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,14 +282,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes.",
       "jsonName": "seedNodes",
       "name": "SeedNodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SeedNode"
+          "nullable": false,
+          "referenceName": "SeedNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -242,5 +302,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

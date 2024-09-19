@@ -7,7 +7,9 @@
       "name": "InstantRPDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstantRPAdditionalDetails"
+        "nullable": false,
+        "referenceName": "InstantRPAdditionalDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Instant RP retention policy range in days",
       "jsonName": "instantRpRetentionRangeInDays",
       "name": "InstantRpRetentionRangeInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IAASVMPolicyType"
+        "nullable": false,
+        "referenceName": "IAASVMPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention policy with the details on backup copy retention ranges.",
       "jsonName": "retentionPolicy",
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup schedule specified as part of backup policy.",
       "jsonName": "schedulePolicy",
       "name": "SchedulePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchedulePolicy"
+        "nullable": false,
+        "referenceName": "SchedulePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +85,9 @@
       "name": "SnapshotConsistencyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IaasVMSnapshotConsistencyType"
+        "nullable": false,
+        "referenceName": "IaasVMSnapshotConsistencyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +96,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tiering policy to automatically move RPs to another tier\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier.",
       "jsonName": "tieringPolicy",
       "name": "TieringPolicy",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TieringPolicy"
+          "nullable": false,
+          "referenceName": "TieringPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,11 +118,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\".",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,6 +133,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionPolicy",
   "discriminatedTypeValue": "AzureIaasVM",
   "typeHintIn": "BackupManagementType"

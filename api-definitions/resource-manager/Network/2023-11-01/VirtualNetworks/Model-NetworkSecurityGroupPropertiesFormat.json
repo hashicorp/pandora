@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default security rules of network security group.",
       "jsonName": "defaultSecurityRules",
       "name": "DefaultSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SecurityRule"
+          "nullable": false,
+          "referenceName": "SecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to flow log resources.",
       "jsonName": "flowLogs",
       "name": "FlowLogs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FlowLog"
+          "nullable": false,
+          "referenceName": "FlowLog",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.",
       "jsonName": "flushConnection",
       "name": "FlushConnection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to network interfaces.",
       "jsonName": "networkInterfaces",
       "name": "NetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterface"
+          "nullable": false,
+          "referenceName": "NetworkInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +89,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the network security group resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,14 +116,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of security rules of the network security group.",
       "jsonName": "securityRules",
       "name": "SecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SecurityRule"
+          "nullable": false,
+          "referenceName": "SecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +138,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to subnets.",
       "jsonName": "subnets",
       "name": "Subnets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Subnet"
+          "nullable": false,
+          "referenceName": "Subnet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -125,5 +158,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

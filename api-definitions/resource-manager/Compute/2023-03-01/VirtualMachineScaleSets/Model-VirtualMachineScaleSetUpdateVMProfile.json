@@ -7,7 +7,9 @@
       "name": "BillingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfile"
+        "nullable": false,
+        "referenceName": "BillingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DiagnosticsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsProfile"
+        "nullable": false,
+        "referenceName": "DiagnosticsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set extension profile.",
       "jsonName": "extensionProfile",
       "name": "ExtensionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetExtensionProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetExtensionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hardware profile related details of a scale set. Minimum api-version: 2021-11-01.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetHardwareProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetHardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license type, which is for bring your own license scenario.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set network profile.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set OS profile.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateOSProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateOSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +117,9 @@
       "name": "ScheduledEventsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsProfile"
+        "nullable": false,
+        "referenceName": "ScheduledEventsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +132,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine scale set storage profile.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateStorageProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,16 +159,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

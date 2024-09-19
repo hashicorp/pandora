@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the DateTime when the reservation benefit started.",
       "jsonName": "benefitStartTime",
       "name": "BenefitStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing account Id associated to this reservation order.",
       "jsonName": "billingAccountId",
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +40,9 @@
       "name": "BillingPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationBillingPlan"
+        "nullable": false,
+        "referenceName": "ReservationBillingPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing profile Id associated to this reservation order.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the DateTime when the reservation order was created.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully-qualified identifier of the customerId where the benefit is applied. Present only for Enterprise Agreement PartnerLed customers.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name for user to easily identified the reservation order.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enrollment id of the reservation order.",
       "jsonName": "enrollmentId",
       "name": "EnrollmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the date when the reservation order will expire.",
       "jsonName": "expiryDate",
       "name": "ExpiryDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,11 +149,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the date-time when the reservation order will expire.",
       "jsonName": "expiryDateTime",
       "name": "ExpiryDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,7 +169,9 @@
       "name": "ExtendedStatusInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationExtendedStatusInfo"
+        "nullable": false,
+        "referenceName": "ReservationExtendedStatusInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total original quantity of the skus purchased in the reservation order.",
       "jsonName": "originalQuantity",
       "name": "OriginalQuantity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,7 +200,9 @@
       "name": "PlanInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationOrderBillingPlanInformation"
+        "nullable": false,
+        "referenceName": "ReservationOrderBillingPlanInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +215,9 @@
       "name": "ProductCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the reservation, e.g. Succeeded",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +243,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the DateTime when the reservation order was initially requested for purchase.",
       "jsonName": "requestDateTime",
       "name": "RequestDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,10 +263,14 @@
       "name": "Reservations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Reservation"
+          "nullable": false,
+          "referenceName": "Reservation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -233,11 +281,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "This is the date-time when the Azure Hybrid Benefit needs to be reviewed.",
       "jsonName": "reviewDateTime",
       "name": "ReviewDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -246,16 +297,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The term of the reservation, e.g. P1Y",
       "jsonName": "term",
       "name": "Term",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

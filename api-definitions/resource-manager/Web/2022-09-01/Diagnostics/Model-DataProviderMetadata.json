@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings for the data provider",
       "jsonName": "propertyBag",
       "name": "PropertyBag",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeyValuePairStringObject"
+          "nullable": false,
+          "referenceName": "KeyValuePairStringObject",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "ProviderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

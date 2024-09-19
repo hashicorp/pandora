@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.",
       "jsonName": "accessTier",
       "name": "AccessTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessTier"
+        "nullable": false,
+        "referenceName": "AccessTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.",
       "jsonName": "allowBlobPublicAccess",
       "name": "AllowBlobPublicAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.",
       "jsonName": "allowCrossTenantReplication",
       "name": "AllowCrossTenantReplication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.",
       "jsonName": "allowSharedKeyAccess",
       "name": "AllowSharedKeyAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.",
       "jsonName": "allowedCopyScope",
       "name": "AllowedCopyScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowedCopyScope"
+        "nullable": false,
+        "referenceName": "AllowedCopyScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provides the identity based authentication settings for Azure Files.",
       "jsonName": "azureFilesIdentityBasedAuthentication",
       "name": "AzureFilesIdentityBasedAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFilesIdentityBasedAuthentication"
+        "nullable": false,
+        "referenceName": "AzureFilesIdentityBasedAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User domain assigned to the storage account. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.",
       "jsonName": "customDomain",
       "name": "CustomDomain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDomain"
+        "nullable": false,
+        "referenceName": "CustomDomain",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.",
       "jsonName": "defaultToOAuthAuthentication",
       "name": "DefaultToOAuthAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.",
       "jsonName": "dnsEndpointType",
       "name": "DnsEndpointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsEndpointType"
+        "nullable": false,
+        "referenceName": "DnsEndpointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Encryption settings to be used for server-side encryption for the storage account.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the new containers in the account by default.",
       "jsonName": "immutableStorageWithVersioning",
       "name": "ImmutableStorageWithVersioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImmutableStorageAccount"
+        "nullable": false,
+        "referenceName": "ImmutableStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Account HierarchicalNamespace enabled if sets to true.",
       "jsonName": "isHnsEnabled",
       "name": "IsHnsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables local users feature, if set to true",
       "jsonName": "isLocalUserEnabled",
       "name": "IsLocalUserEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NFS 3.0 protocol support enabled if set to true.",
       "jsonName": "isNfsV3Enabled",
       "name": "IsNfsV3Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables Secure File Transfer Protocol, if set to true",
       "jsonName": "isSftpEnabled",
       "name": "IsSftpEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "KeyPolicy assigned to the storage account.",
       "jsonName": "keyPolicy",
       "name": "KeyPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyPolicy"
+        "nullable": false,
+        "referenceName": "KeyPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.",
       "jsonName": "largeFileSharesState",
       "name": "LargeFileSharesState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LargeFileSharesState"
+        "nullable": false,
+        "referenceName": "LargeFileSharesState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.",
       "jsonName": "minimumTlsVersion",
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimumTlsVersion"
+        "nullable": false,
+        "referenceName": "MinimumTlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +291,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network rule set",
       "jsonName": "networkAcls",
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleSet"
+        "nullable": false,
+        "referenceName": "NetworkRuleSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +307,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,11 +323,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maintains information about the network routing choice opted by the user for data transfer",
       "jsonName": "routingPreference",
       "name": "RoutingPreference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingPreference"
+        "nullable": false,
+        "referenceName": "RoutingPreference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,11 +339,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SasPolicy assigned to the storage account.",
       "jsonName": "sasPolicy",
       "name": "SasPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SasPolicy"
+        "nullable": false,
+        "referenceName": "SasPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -289,16 +355,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allows https traffic only to storage service if sets to true. The default value is true since API version 2019-04-01.",
       "jsonName": "supportsHttpsTrafficOnly",
       "name": "SupportsHTTPSTrafficOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

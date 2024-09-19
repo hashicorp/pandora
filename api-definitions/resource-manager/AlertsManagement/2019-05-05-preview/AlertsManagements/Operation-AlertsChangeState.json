@@ -1,6 +1,7 @@
 {
   "name": "AlertsChangeState",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "AlertId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Comments"
+    "nullable": false,
+    "referenceName": "Comments",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Alert"
+    "nullable": false,
+    "referenceName": "Alert",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/changestate"
 }

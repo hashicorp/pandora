@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User specified arguments to HDInsightActivity.",
       "jsonName": "arguments",
       "name": "Arguments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Combiner executable name. Type: string (or Expression with resultType string).",
       "jsonName": "combiner",
       "name": "Combiner",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Command line environment values.",
       "jsonName": "commandEnvironment",
       "name": "CommandEnvironment",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allows user to specify defines for streaming job request.",
       "jsonName": "defines",
       "name": "Defines",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +89,9 @@
       "name": "FileLinkedService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Paths to streaming job files. Can be directories.",
       "jsonName": "filePaths",
       "name": "FilePaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -97,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Debug info option.",
       "jsonName": "getDebugInfo",
       "name": "GetDebugInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HDInsightActivityDebugInfoOption"
+        "nullable": false,
+        "referenceName": "HDInsightActivityDebugInfoOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input blob path. Type: string (or Expression with resultType string).",
       "jsonName": "input",
       "name": "Input",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -123,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mapper executable name. Type: string (or Expression with resultType string).",
       "jsonName": "mapper",
       "name": "Mapper",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -136,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Output blob path. Type: string (or Expression with resultType string).",
       "jsonName": "output",
       "name": "Output",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -149,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reducer executable name. Type: string (or Expression with resultType string).",
       "jsonName": "reducer",
       "name": "Reducer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -162,14 +202,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage linked service references.",
       "jsonName": "storageLinkedServices",
       "name": "StorageLinkedServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedServiceReference"
+          "nullable": false,
+          "referenceName": "LinkedServiceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -177,5 +222,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

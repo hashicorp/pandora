@@ -1,6 +1,7 @@
 {
   "name": "GetFeatureValue",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExposureControlRequest"
+    "nullable": false,
+    "referenceName": "ExposureControlRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExposureControlResponse"
+    "nullable": false,
+    "referenceName": "ExposureControlResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getFeatureValue"
 }

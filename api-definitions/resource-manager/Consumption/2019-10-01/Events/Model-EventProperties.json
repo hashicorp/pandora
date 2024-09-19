@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Adjustments amount.",
       "jsonName": "adjustments",
       "name": "Adjustments",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current balance.",
       "jsonName": "adjustmentsInBillingCurrency",
       "name": "AdjustmentsInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Billing Currency.",
       "jsonName": "billingCurrency",
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Charges amount.",
       "jsonName": "charges",
       "name": "Charges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current balance.",
       "jsonName": "chargesInBillingCurrency",
       "name": "ChargesInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Closed balance.",
       "jsonName": "closedBalance",
       "name": "ClosedBalance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current balance.",
       "jsonName": "closedBalanceInBillingCurrency",
       "name": "ClosedBalanceInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Credit Currency",
       "jsonName": "creditCurrency",
       "name": "CreditCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Credit expired.",
       "jsonName": "creditExpired",
       "name": "CreditExpired",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current balance.",
       "jsonName": "creditExpiredInBillingCurrency",
       "name": "CreditExpiredInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Transaction description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of event.",
       "jsonName": "eventType",
       "name": "EventType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventType"
+        "nullable": false,
+        "referenceName": "EventType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Invoice number.",
       "jsonName": "invoiceNumber",
       "name": "InvoiceNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "New Credit.",
       "jsonName": "newCredit",
       "name": "NewCredit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current balance.",
       "jsonName": "newCreditInBillingCurrency",
       "name": "NewCreditInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reseller details.",
       "jsonName": "reseller",
       "name": "Reseller",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Reseller"
+        "nullable": false,
+        "referenceName": "Reseller",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,16 +260,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Transaction date.",
       "jsonName": "transactionDate",
       "name": "TransactionDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

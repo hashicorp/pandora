@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.",
       "jsonName": "accessTier",
       "name": "AccessTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareAccessTier"
+        "nullable": false,
+        "referenceName": "ShareAccessTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Indicates the last modification time for share access tier.",
       "jsonName": "accessTierChangeTime",
       "name": "AccessTierChangeTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if there is a pending transition for access tier.",
       "jsonName": "accessTierStatus",
       "name": "AccessTierStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the share was deleted.",
       "jsonName": "deleted",
       "name": "Deleted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The deleted time if the share was deleted.",
       "jsonName": "deletedTime",
       "name": "DeletedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication protocol that is used for the file share. Can only be specified when creating a share.",
       "jsonName": "enabledProtocols",
       "name": "EnabledProtocols",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledProtocols"
+        "nullable": false,
+        "referenceName": "EnabledProtocols",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +102,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Returns the date and time the share was last modified.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,11 +118,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.",
       "jsonName": "leaseDuration",
       "name": "LeaseDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseDuration"
+        "nullable": false,
+        "referenceName": "LeaseDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,11 +134,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Lease state of the share.",
       "jsonName": "leaseState",
       "name": "LeaseState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseState"
+        "nullable": false,
+        "referenceName": "LeaseState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lease status of the share.",
       "jsonName": "leaseStatus",
       "name": "LeaseStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseStatus"
+        "nullable": false,
+        "referenceName": "LeaseStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,14 +166,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A name-value pair to associate with the share as metadata.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -153,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Remaining retention days for share that was soft deleted.",
       "jsonName": "remainingRetentionDays",
       "name": "RemainingRetentionDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The property is for NFS share only. The default is NoRootSquash.",
       "jsonName": "rootSquash",
       "name": "RootSquash",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RootSquashType"
+        "nullable": false,
+        "referenceName": "RootSquashType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,11 +220,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.",
       "jsonName": "shareQuota",
       "name": "ShareQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,11 +236,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.",
       "jsonName": "shareUsageBytes",
       "name": "ShareUsageBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,14 +252,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of stored access policies specified on the share.",
       "jsonName": "signedIdentifiers",
       "name": "SignedIdentifiers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignedIdentifier"
+          "nullable": false,
+          "referenceName": "SignedIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -223,11 +275,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation time of share snapshot returned in the response of list shares with expand param \"snapshots\".",
       "jsonName": "snapshotTime",
       "name": "SnapshotTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,16 +291,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the share.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

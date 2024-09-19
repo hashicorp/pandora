@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The account endpoint used to interact with the Batch service.",
       "jsonName": "accountEndpoint",
       "name": "AccountEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "ActiveJobAndJobScheduleQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.",
       "jsonName": "allowedAuthenticationModes",
       "name": "AllowedAuthenticationModes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AuthenticationMode"
+          "nullable": false,
+          "referenceName": "AuthenticationMode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +60,9 @@
       "name": "AutoStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoStorageProperties"
+        "nullable": false,
+        "referenceName": "AutoStorageProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +71,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.",
       "jsonName": "dedicatedCoreQuota",
       "name": "DedicatedCoreQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +87,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.",
       "jsonName": "dedicatedCoreQuotaPerVMFamily",
       "name": "DedicatedCoreQuotaPerVMFamily",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineFamilyCoreQuota"
+          "nullable": false,
+          "referenceName": "VirtualMachineFamilyCoreQuota",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +109,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.",
       "jsonName": "dedicatedCoreQuotaPerVMFamilyEnforced",
       "name": "DedicatedCoreQuotaPerVMFamilyEnforced",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +125,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionProperties"
+        "nullable": false,
+        "referenceName": "EncryptionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +145,9 @@
       "name": "KeyVaultReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultReference"
+        "nullable": false,
+        "referenceName": "KeyVaultReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +156,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.",
       "jsonName": "lowPriorityCoreQuota",
       "name": "LowPriorityCoreQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +172,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network profile only takes effect when publicNetworkAccess is enabled.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint used by compute node to connect to the Batch node management service.",
       "jsonName": "nodeManagementEndpoint",
       "name": "NodeManagementEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +208,9 @@
       "name": "PoolAllocationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PoolAllocationMode"
+        "nullable": false,
+        "referenceName": "PoolAllocationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +223,9 @@
       "name": "PoolQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,14 +234,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private endpoint connections associated with the Batch account",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,11 +256,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioned state of the resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,16 +272,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If not specified, the default value is 'enabled'.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessType"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

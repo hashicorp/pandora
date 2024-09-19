@@ -1,6 +1,7 @@
 {
   "name": "SharedPrivateLinkResourcesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "WebPubSubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SharedPrivateLinkResource"
+    "nullable": false,
+    "referenceName": "SharedPrivateLinkResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sharedPrivateLinkResources"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the type of identity framework.",
       "jsonName": "identityType",
       "name": "IdentityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityConfigurationType"
+        "nullable": false,
+        "referenceName": "IdentityConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "IdentityType"
 }

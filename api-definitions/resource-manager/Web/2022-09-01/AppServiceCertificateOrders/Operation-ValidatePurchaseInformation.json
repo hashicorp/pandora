@@ -1,6 +1,7 @@
 {
   "name": "ValidatePurchaseInformation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateOrder"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateOrder",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CertificateRegistration/validateCertificateRegistrationInformation"
 }

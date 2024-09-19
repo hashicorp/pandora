@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "loadBalancerSku for managed cluster snapshot.",
       "jsonName": "loadBalancerSku",
       "name": "LoadBalancerSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerSku"
+        "nullable": false,
+        "referenceName": "LoadBalancerSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "networkMode for managed cluster snapshot.",
       "jsonName": "networkMode",
       "name": "NetworkMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkMode"
+        "nullable": false,
+        "referenceName": "NetworkMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "networkPlugin for managed cluster snapshot.",
       "jsonName": "networkPlugin",
       "name": "NetworkPlugin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPlugin"
+        "nullable": false,
+        "referenceName": "NetworkPlugin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NetworkPluginMode for managed cluster snapshot.",
       "jsonName": "networkPluginMode",
       "name": "NetworkPluginMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPluginMode"
+        "nullable": false,
+        "referenceName": "NetworkPluginMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "networkPolicy for managed cluster snapshot.",
       "jsonName": "networkPolicy",
       "name": "NetworkPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPolicy"
+        "nullable": false,
+        "referenceName": "NetworkPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

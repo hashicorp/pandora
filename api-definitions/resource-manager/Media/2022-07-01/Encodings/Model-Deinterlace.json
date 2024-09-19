@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deinterlacing mode. Defaults to AutoPixelAdaptive.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeinterlaceMode"
+        "nullable": false,
+        "referenceName": "DeinterlaceMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The field parity for de-interlacing, defaults to Auto.",
       "jsonName": "parity",
       "name": "Parity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeinterlaceParity"
+        "nullable": false,
+        "referenceName": "DeinterlaceParity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

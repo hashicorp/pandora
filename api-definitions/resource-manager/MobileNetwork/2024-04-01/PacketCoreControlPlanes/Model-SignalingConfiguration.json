@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An ordered list of NAS encryption algorithms, used to encrypt control plane traffic between the UE and packet core, in order from most to least preferred. If not specified, the packet core will use a built-in default ordering.",
       "jsonName": "nasEncryption",
       "name": "NasEncryption",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NasEncryptionType"
+          "nullable": false,
+          "referenceName": "NasEncryptionType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration enabling 4G NAS reroute.",
       "jsonName": "nasReroute",
       "name": "NasReroute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NASRerouteConfiguration"
+        "nullable": false,
+        "referenceName": "NASRerouteConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The field/property in the event based on which you want to filter.",
       "jsonName": "key",
       "name": "Key",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.",
       "jsonName": "operatorType",
       "name": "OperatorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdvancedFilterOperatorType"
+        "nullable": false,
+        "referenceName": "AdvancedFilterOperatorType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +34,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "OperatorType"
 }

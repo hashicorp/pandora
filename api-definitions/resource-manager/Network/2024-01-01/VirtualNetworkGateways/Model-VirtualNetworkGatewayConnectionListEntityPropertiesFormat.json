@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authorizationKey.",
       "jsonName": "authorizationKey",
       "name": "AuthorizationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection mode for this connection.",
       "jsonName": "connectionMode",
       "name": "ConnectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionMode"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connection protocol used for this connection.",
       "jsonName": "connectionProtocol",
       "name": "ConnectionProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Network Gateway connection status.",
       "jsonName": "connectionStatus",
       "name": "ConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionStatus"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gateway connection type.",
       "jsonName": "connectionType",
       "name": "ConnectionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The egress bytes transferred in this connection.",
       "jsonName": "egressBytesTransferred",
       "name": "EgressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "EnableBgp flag.",
       "jsonName": "enableBgp",
       "name": "EnableBgp",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.",
       "jsonName": "enablePrivateLinkFastPath",
       "name": "EnablePrivateLinkFastPath",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bypass ExpressRoute Gateway for data forwarding.",
       "jsonName": "expressRouteGatewayBypass",
       "name": "ExpressRouteGatewayBypass",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,14 +147,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.",
       "jsonName": "gatewayCustomBgpIpAddresses",
       "name": "GatewayCustomBgpIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayCustomBgpIPAddressIPConfiguration"
+          "nullable": false,
+          "referenceName": "GatewayCustomBgpIPAddressIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -137,14 +169,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Policies to be considered by this connection.",
       "jsonName": "ipsecPolicies",
       "name": "IPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ingress bytes transferred in this connection.",
       "jsonName": "ingressBytesTransferred",
       "name": "IngressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to local network gateway resource.",
       "jsonName": "localNetworkGateway2",
       "name": "LocalNetworkGateway2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +227,9 @@
       "name": "Peer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +242,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +253,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the virtual network gateway connection resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +269,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The routing weight.",
       "jsonName": "routingWeight",
       "name": "RoutingWeight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +285,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec shared key.",
       "jsonName": "sharedKey",
       "name": "SharedKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,14 +301,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Traffic Selector Policies to be considered by this connection.",
       "jsonName": "trafficSelectorPolicies",
       "name": "TrafficSelectorPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficSelectorPolicy"
+          "nullable": false,
+          "referenceName": "TrafficSelectorPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -262,14 +323,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of all tunnels' connection health status.",
       "jsonName": "tunnelConnectionStatus",
       "name": "TunnelConnectionStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TunnelConnectionHealth"
+          "nullable": false,
+          "referenceName": "TunnelConnectionHealth",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -279,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable policy-based traffic selectors.",
       "jsonName": "usePolicyBasedTrafficSelectors",
       "name": "UsePolicyBasedTrafficSelectors",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +361,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to virtual network gateway resource.",
       "jsonName": "virtualNetworkGateway1",
       "name": "VirtualNetworkGateway1",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -305,16 +377,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to virtual network gateway resource.",
       "jsonName": "virtualNetworkGateway2",
       "name": "VirtualNetworkGateway2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

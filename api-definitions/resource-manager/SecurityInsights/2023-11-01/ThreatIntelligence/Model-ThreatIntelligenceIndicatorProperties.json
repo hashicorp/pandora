@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A bag of custom fields that should be part of the entity and will be presented to the user.",
       "jsonName": "additionalData",
       "name": "AdditionalData",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Confidence of threat intelligence entity",
       "jsonName": "confidence",
       "name": "Confidence",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Created by",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Created by reference of threat intelligence entity",
       "jsonName": "createdByRef",
       "name": "CreatedByRef",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is threat intelligence entity defanged",
       "jsonName": "defanged",
       "name": "Defanged",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of a threat intelligence entity",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name of a threat intelligence entity",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extensions map",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "External ID of threat intelligence entity",
       "jsonName": "externalId",
       "name": "ExternalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "External last updated time in UTC",
       "jsonName": "externalLastUpdatedTimeUtc",
       "name": "ExternalLastUpdatedTimeUtc",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,14 +163,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "External References",
       "jsonName": "externalReferences",
       "name": "ExternalReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceExternalReference"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceExternalReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The graph item display name which is a short humanly readable description of the graph item instance. This property is optional and might be system generated.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,14 +201,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Granular Markings",
       "jsonName": "granularMarkings",
       "name": "GranularMarkings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceGranularMarkingModel"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceGranularMarkingModel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicator types of threat intelligence entities",
       "jsonName": "indicatorTypes",
       "name": "IndicatorTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,14 +245,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Kill chain phases",
       "jsonName": "killChainPhases",
       "name": "KillChainPhases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceKillChainPhase"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceKillChainPhase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -214,14 +267,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Labels  of threat intelligence entity",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -231,11 +289,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Language of threat intelligence entity",
       "jsonName": "language",
       "name": "Language",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,11 +305,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last updated time in UTC",
       "jsonName": "lastUpdatedTimeUtc",
       "name": "LastUpdatedTimeUtc",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -257,11 +321,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Modified by",
       "jsonName": "modified",
       "name": "Modified",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -270,14 +337,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Threat intelligence entity object marking references",
       "jsonName": "objectMarkingRefs",
       "name": "ObjectMarkingRefs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -287,14 +359,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parsed patterns",
       "jsonName": "parsedPattern",
       "name": "ParsedPattern",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceParsedPattern"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceParsedPattern",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -304,11 +381,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pattern of a threat intelligence entity",
       "jsonName": "pattern",
       "name": "Pattern",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -317,11 +397,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pattern type of a threat intelligence entity",
       "jsonName": "patternType",
       "name": "PatternType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -330,11 +413,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Pattern version of a threat intelligence entity",
       "jsonName": "patternVersion",
       "name": "PatternVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -343,11 +429,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is threat intelligence entity revoked",
       "jsonName": "revoked",
       "name": "Revoked",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -356,11 +445,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source of a threat intelligence entity",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -369,14 +461,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of tags",
       "jsonName": "threatIntelligenceTags",
       "name": "ThreatIntelligenceTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -386,14 +483,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Threat types",
       "jsonName": "threatTypes",
       "name": "ThreatTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -403,11 +505,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Valid from",
       "jsonName": "validFrom",
       "name": "ValidFrom",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -416,16 +521,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Valid until",
       "jsonName": "validUntil",
       "name": "ValidUntil",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

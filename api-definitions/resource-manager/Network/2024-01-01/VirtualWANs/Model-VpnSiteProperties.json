@@ -7,7 +7,9 @@
       "name": "AddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BgpProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BgpSettings"
+        "nullable": false,
+        "referenceName": "BgpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The device properties.",
       "jsonName": "deviceProperties",
       "name": "DeviceProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeviceProperties"
+        "nullable": false,
+        "referenceName": "DeviceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ip-address for the vpn-site.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IsSecuritySite flag.",
       "jsonName": "isSecuritySite",
       "name": "IsSecuritySite",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Office365 Policy.",
       "jsonName": "o365Policy",
       "name": "O365Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "O365PolicyProperties"
+        "nullable": false,
+        "referenceName": "O365PolicyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +101,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key for vpn-site that can be used for connections.",
       "jsonName": "siteKey",
       "name": "SiteKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +132,9 @@
       "name": "VirtualWAN",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all vpn site links.",
       "jsonName": "vpnSiteLinks",
       "name": "VpnSiteLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnSiteLink"
+          "nullable": false,
+          "referenceName": "VpnSiteLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,5 +163,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

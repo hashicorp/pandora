@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "SyncAgentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SyncAgent"
+    "nullable": false,
+    "referenceName": "SyncAgent",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncAgent"
+    "nullable": false,
+    "referenceName": "SyncAgent",
+    "referenceNameIsCommonType": null
   }
 }

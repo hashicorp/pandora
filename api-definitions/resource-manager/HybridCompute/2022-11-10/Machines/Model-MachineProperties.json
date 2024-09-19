@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the AD fully qualified display name.",
       "jsonName": "adFqdn",
       "name": "AdFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.",
       "jsonName": "agentConfiguration",
       "name": "AgentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentConfiguration"
+        "nullable": false,
+        "referenceName": "AgentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hybrid machine agent full version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public Key that the client provides to be used during initial resource onboarding",
       "jsonName": "clientPublicKey",
       "name": "ClientPublicKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata of the cloud environment (Azure/GCP/AWS/OCI...).",
       "jsonName": "cloudMetadata",
       "name": "CloudMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudMetadata"
+        "nullable": false,
+        "referenceName": "CloudMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detected properties from the machine.",
       "jsonName": "detectedProperties",
       "name": "DetectedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hybrid machine display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the DNS fully qualified display name.",
       "jsonName": "dnsFqdn",
       "name": "DnsFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Windows domain name.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,14 +153,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details about the error state.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ErrorDetail"
+          "nullable": false,
+          "referenceName": "ErrorDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,14 +175,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Machine Extensions information (deprecated field)",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MachineExtensionInstanceView"
+          "nullable": false,
+          "referenceName": "MachineExtensionInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -159,11 +198,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time of the last status change.",
       "jsonName": "lastStatusChange",
       "name": "LastStatusChange",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +218,9 @@
       "name": "LocationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocationData"
+        "nullable": false,
+        "referenceName": "LocationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hybrid machine FQDN.",
       "jsonName": "machineFqdn",
       "name": "MachineFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether any MS SQL instance is discovered on the machine.",
       "jsonName": "mssqlDiscovered",
       "name": "MssqlDiscovered",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Operating System running on the hybrid machine.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the operating system settings for the hybrid machine.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfile"
+        "nullable": false,
+        "referenceName": "OSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Operating System product SKU.",
       "jsonName": "osSku",
       "name": "OsSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of Operating System (windows/linux).",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,11 +325,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of Operating System running on the hybrid machine.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,11 +341,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.",
       "jsonName": "parentClusterResourceId",
       "name": "ParentClusterResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -289,11 +357,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the private link scope this machine is assigned to, if any.",
       "jsonName": "privateLinkScopeResourceId",
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -302,11 +373,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -315,11 +389,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Statuses of dependent services that are reported back to ARM.",
       "jsonName": "serviceStatuses",
       "name": "ServiceStatuses",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceStatuses"
+        "nullable": false,
+        "referenceName": "ServiceStatuses",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -328,11 +405,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the hybrid machine agent.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusTypes"
+        "nullable": false,
+        "referenceName": "StatusTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -341,11 +421,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hybrid machine unique ID.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -354,16 +437,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Arc Machine's unique SMBIOS ID",
       "jsonName": "vmUuid",
       "name": "VMUuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

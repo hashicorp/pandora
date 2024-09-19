@@ -1,6 +1,7 @@
 {
   "name": "HierarchySettingsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ManagementGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateOrUpdateSettingsRequest"
+    "nullable": false,
+    "referenceName": "CreateOrUpdateSettingsRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HierarchySettings"
+    "nullable": false,
+    "referenceName": "HierarchySettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/settings/default"
 }

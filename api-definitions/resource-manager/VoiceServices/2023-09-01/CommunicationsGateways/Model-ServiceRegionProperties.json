@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the region in which the resources needed for Teams Calling will be deployed.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration used in this region as primary, and other regions as backup.",
       "jsonName": "primaryRegionProperties",
       "name": "PrimaryRegionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrimaryRegionProperties"
+        "nullable": false,
+        "referenceName": "PrimaryRegionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

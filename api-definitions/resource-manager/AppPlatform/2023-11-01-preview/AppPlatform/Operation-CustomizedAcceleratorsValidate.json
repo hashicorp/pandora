@@ -1,6 +1,7 @@
 {
   "name": "CustomizedAcceleratorsValidate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "CustomizedAcceleratorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomizedAcceleratorProperties"
+    "nullable": false,
+    "referenceName": "CustomizedAcceleratorProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomizedAcceleratorValidateResult"
+    "nullable": false,
+    "referenceName": "CustomizedAcceleratorValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

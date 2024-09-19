@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An entity the metadata schema is requested for.",
       "jsonName": "assignedTo",
       "name": "AssignedTo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetadataAssignmentEntity"
+        "nullable": false,
+        "referenceName": "MetadataAssignmentEntity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

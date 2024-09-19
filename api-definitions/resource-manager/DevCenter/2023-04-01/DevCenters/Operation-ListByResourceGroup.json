@@ -1,6 +1,7 @@
 {
   "name": "ListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DevCenter"
+    "nullable": false,
+    "referenceName": "DevCenter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.DevCenter/devCenters"
 }

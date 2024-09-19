@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether project catalogs associated with projects in this dev center can be configured to sync catalog items.",
       "jsonName": "catalogItemSyncEnableStatus",
       "name": "CatalogItemSyncEnableStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogItemSyncEnableStatus"
+        "nullable": false,
+        "referenceName": "CatalogItemSyncEnableStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

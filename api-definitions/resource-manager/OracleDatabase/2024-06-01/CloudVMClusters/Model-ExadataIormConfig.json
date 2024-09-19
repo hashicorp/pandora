@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of IORM settings for all the database in the Exadata DB system.",
       "jsonName": "dbPlans",
       "name": "DbPlans",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DbIormConfig"
+          "nullable": false,
+          "referenceName": "DbIormConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional information about the current lifecycleState.",
       "jsonName": "lifecycleDetails",
       "name": "LifecycleDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of IORM configuration for the Exadata DB system.",
       "jsonName": "lifecycleState",
       "name": "LifecycleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IormLifecycleState"
+        "nullable": false,
+        "referenceName": "IormLifecycleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current value for the IORM objective. The default is AUTO.",
       "jsonName": "objective",
       "name": "Objective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Objective"
+        "nullable": false,
+        "referenceName": "Objective",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

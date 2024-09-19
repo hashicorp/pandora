@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the data plane components(log stream, app connect, remote debugging) in vnet injection instance could be accessed from internet.",
       "jsonName": "dataPlanePublicEndpoint",
       "name": "DataPlanePublicEndpoint",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the log stream in vnet injection instance could be accessed from internet.",
       "jsonName": "logStreamPublicEndpoint",
       "name": "LogStreamPublicEndpoint",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

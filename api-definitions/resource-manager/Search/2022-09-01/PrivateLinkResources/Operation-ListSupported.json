@@ -1,6 +1,7 @@
 {
   "name": "ListSupported",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "SearchServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkResourcesResult"
+    "nullable": false,
+    "referenceName": "PrivateLinkResourcesResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateLinkResources"
 }

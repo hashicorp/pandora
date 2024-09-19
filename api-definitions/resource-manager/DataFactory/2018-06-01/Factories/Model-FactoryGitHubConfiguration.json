@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub bring your own app client id.",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub bring your own app client secret information.",
       "jsonName": "clientSecret",
       "name": "ClientSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubClientSecret"
+        "nullable": false,
+        "referenceName": "GitHubClientSecret",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub Enterprise host name. For example: `https://github.mydomain.com`",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FactoryRepoConfiguration",
   "discriminatedTypeValue": "FactoryGitHubConfiguration",
   "typeHintIn": "Type"

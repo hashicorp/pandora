@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolMaintenanceWindowsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "SqlPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MaintenanceWindows"
+    "nullable": false,
+    "referenceName": "MaintenanceWindows",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/maintenancewindows/current"
 }

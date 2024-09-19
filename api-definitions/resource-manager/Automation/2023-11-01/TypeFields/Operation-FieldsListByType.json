@@ -1,6 +1,7 @@
 {
   "name": "FieldsListByType",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "TypeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TypeFieldListResult"
+    "nullable": false,
+    "referenceName": "TypeFieldListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/fields"
 }

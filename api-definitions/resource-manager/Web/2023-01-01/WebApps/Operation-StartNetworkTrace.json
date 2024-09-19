@@ -1,6 +1,7 @@
 {
   "name": "StartNetworkTrace",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -42,10 +43,14 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "NetworkTrace"
+      "nullable": false,
+      "referenceName": "NetworkTrace",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/startNetworkTrace"

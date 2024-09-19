@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceGroupUserCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "WorkspaceGroupUserId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserContract"
+    "nullable": false,
+    "referenceName": "UserContract",
+    "referenceNameIsCommonType": null
   }
 }

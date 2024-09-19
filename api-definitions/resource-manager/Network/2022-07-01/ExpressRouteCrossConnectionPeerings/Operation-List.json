@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ExpressRouteCrossConnectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExpressRouteCrossConnectionPeering"
+    "nullable": false,
+    "referenceName": "ExpressRouteCrossConnectionPeering",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/peerings"
 }

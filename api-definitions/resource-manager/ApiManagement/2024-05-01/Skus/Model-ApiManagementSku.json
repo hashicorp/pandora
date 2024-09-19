@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The api versions that support this SKU.",
       "jsonName": "apiVersions",
       "name": "ApiVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A name value pair to describe the capability.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiManagementSkuCapabilities"
+          "nullable": false,
+          "referenceName": "ApiManagementSkuCapabilities",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the number of virtual machines in the scale set.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuCapacity"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata for retrieving price info.",
       "jsonName": "costs",
       "name": "Costs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiManagementSkuCosts"
+          "nullable": false,
+          "referenceName": "ApiManagementSkuCosts",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Family of this particular SKU.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Kind of resources that are supported in this SKU.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of locations and availability zones in those locations where the SKU is available.",
       "jsonName": "locationInfo",
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiManagementSkuLocationInfo"
+          "nullable": false,
+          "referenceName": "ApiManagementSkuLocationInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +139,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of locations that the SKU is available.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of SKU.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of resource the SKU applies to.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,14 +193,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The restrictions because of which SKU cannot be used. This is empty if there are no restrictions.",
       "jsonName": "restrictions",
       "name": "Restrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiManagementSkuRestrictions"
+          "nullable": false,
+          "referenceName": "ApiManagementSkuRestrictions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -170,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Size of the SKU.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,16 +231,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the tier of virtual machines in a scale set.\u003cbr /\u003e\u003cbr /\u003e Possible Values:\u003cbr /\u003e\u003cbr /\u003e **Standard**\u003cbr /\u003e\u003cbr /\u003e **Basic**",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

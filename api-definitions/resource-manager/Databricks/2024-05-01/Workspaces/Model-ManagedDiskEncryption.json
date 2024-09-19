@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault",
       "jsonName": "keySource",
       "name": "KeySource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeySource"
+        "nullable": false,
+        "referenceName": "EncryptionKeySource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault input properties for encryption.",
       "jsonName": "keyVaultProperties",
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedDiskEncryptionKeyVaultProperties"
+        "nullable": false,
+        "referenceName": "ManagedDiskEncryptionKeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicate whether the latest key version should be automatically used for Managed Disk Encryption.",
       "jsonName": "rotationToLatestKeyVersionEnabled",
       "name": "RotationToLatestKeyVersionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of weekly repeating recurrences of the WAN-link upload limit schedule.",
       "jsonName": "weeklyRecurrences",
       "name": "WeeklyRecurrences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UploadLimitWeeklyRecurrence"
+          "nullable": false,
+          "referenceName": "UploadLimitWeeklyRecurrence",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

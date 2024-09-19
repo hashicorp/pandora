@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] The algorithm used for generating hyperparameter values, along with configuration properties",
       "jsonName": "samplingAlgorithmType",
       "name": "SamplingAlgorithmType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingAlgorithmType"
+        "nullable": false,
+        "referenceName": "SamplingAlgorithmType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "SamplingAlgorithmType"
 }

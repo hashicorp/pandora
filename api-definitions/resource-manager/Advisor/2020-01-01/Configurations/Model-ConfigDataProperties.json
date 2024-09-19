@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Advisor digest configuration. Valid only for subscriptions",
       "jsonName": "digests",
       "name": "Digests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DigestConfig"
+          "nullable": false,
+          "referenceName": "DigestConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Exclude the resource from Advisor evaluations. Valid values: False (default) or True.",
       "jsonName": "exclude",
       "name": "Exclude",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum percentage threshold for Advisor low CPU utilization evaluation. Valid only for subscriptions. Valid values: 5 (default), 10, 15 or 20.",
       "jsonName": "lowCpuThreshold",
       "name": "LowCPUThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CPUThreshold"
+        "nullable": false,
+        "referenceName": "CPUThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

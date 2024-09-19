@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of codecs to be used when encoding the input video.",
       "jsonName": "codecs",
       "name": "Codecs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Codec"
+          "nullable": false,
+          "referenceName": "Codec",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "One or more filtering operations that are applied to the input media before encoding.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Filters"
+        "nullable": false,
+        "referenceName": "Filters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of outputs to be produced by the encoder.",
       "jsonName": "formats",
       "name": "Formats",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Format"
+          "nullable": false,
+          "referenceName": "Format",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -49,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Preset",
   "discriminatedTypeValue": "#Microsoft.Media.StandardEncoderPreset",
   "typeHintIn": "OdataType"

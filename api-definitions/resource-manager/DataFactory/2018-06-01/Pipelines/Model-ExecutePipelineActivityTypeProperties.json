@@ -7,10 +7,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Pipeline",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineReference"
+        "nullable": false,
+        "referenceName": "PipelineReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,16 +39,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether activity execution will wait for the dependent pipeline execution to finish. Default is false.",
       "jsonName": "waitOnCompletion",
       "name": "WaitOnCompletion",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

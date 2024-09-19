@@ -1,6 +1,7 @@
 {
   "name": "Acquire",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DnsAliasId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerDnsAliasAcquisition"
+    "nullable": false,
+    "referenceName": "ServerDnsAliasAcquisition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerDnsAlias"
+    "nullable": false,
+    "referenceName": "ServerDnsAlias",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/acquire"
 }

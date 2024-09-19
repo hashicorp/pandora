@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Delivery mode of the event subscription.",
       "jsonName": "deliveryMode",
       "name": "DeliveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryMode"
+        "nullable": false,
+        "referenceName": "DeliveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property should be populated when deliveryMode is push and represents information about the push subscription.",
       "jsonName": "push",
       "name": "Push",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PushInfo"
+        "nullable": false,
+        "referenceName": "PushInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property should be populated when deliveryMode is queue and represents information about the queue subscription.",
       "jsonName": "queue",
       "name": "Queue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueInfo"
+        "nullable": false,
+        "referenceName": "QueueInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

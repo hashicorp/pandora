@@ -1,6 +1,7 @@
 {
   "name": "MediaservicesSyncStorageKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "MediaServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SyncStorageKeysInput"
+    "nullable": false,
+    "referenceName": "SyncStorageKeysInput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/syncStorageKeys"
 }

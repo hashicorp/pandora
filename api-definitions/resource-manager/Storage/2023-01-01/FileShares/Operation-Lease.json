@@ -1,6 +1,7 @@
 {
   "name": "Lease",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "ShareId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LeaseShareRequest"
+    "nullable": false,
+    "referenceName": "LeaseShareRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LeaseShareResponse"
+    "nullable": false,
+    "referenceName": "LeaseShareResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/lease"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If Enabled, Azure Active Directory authentication is enabled.",
       "jsonName": "activeDirectoryAuth",
       "name": "ActiveDirectoryAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActiveDirectoryAuthEnum"
+        "nullable": false,
+        "referenceName": "ActiveDirectoryAuthEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If Enabled, Password authentication is enabled.",
       "jsonName": "passwordAuth",
       "name": "PasswordAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PasswordAuthEnum"
+        "nullable": false,
+        "referenceName": "PasswordAuthEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tenant id of the server.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "EntityQueryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomEntityQuery"
+    "nullable": false,
+    "referenceName": "CustomEntityQuery",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityQuery"
+    "nullable": false,
+    "referenceName": "EntityQuery",
+    "referenceNameIsCommonType": null
   }
 }

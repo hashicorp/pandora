@@ -1,6 +1,7 @@
 {
   "name": "WhatIf",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ResourceGroupProviderDeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DeploymentWhatIf"
+    "nullable": false,
+    "referenceName": "DeploymentWhatIf",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WhatIfOperationResult"
+    "nullable": false,
+    "referenceName": "WhatIfOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/whatIf"
 }

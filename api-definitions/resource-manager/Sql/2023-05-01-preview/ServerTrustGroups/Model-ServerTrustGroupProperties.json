@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Group members information for the server trust group.",
       "jsonName": "groupMembers",
       "name": "GroupMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerInfo"
+          "nullable": false,
+          "referenceName": "ServerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trust scope of the server trust group.",
       "jsonName": "trustScopes",
       "name": "TrustScopes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrustScopes"
+          "nullable": false,
+          "referenceName": "TrustScopes",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -35,5 +45,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

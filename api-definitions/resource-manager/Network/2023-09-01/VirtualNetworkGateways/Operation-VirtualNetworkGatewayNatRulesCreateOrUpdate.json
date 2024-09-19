@@ -1,6 +1,7 @@
 {
   "name": "VirtualNetworkGatewayNatRulesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualNetworkGatewayNatRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkGatewayNatRule"
+    "nullable": false,
+    "referenceName": "VirtualNetworkGatewayNatRule",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkGatewayNatRule"
+    "nullable": false,
+    "referenceName": "VirtualNetworkGatewayNatRule",
+    "referenceNameIsCommonType": null
   }
 }

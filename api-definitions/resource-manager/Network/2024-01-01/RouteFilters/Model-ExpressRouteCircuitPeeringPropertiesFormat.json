@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure ASN.",
       "jsonName": "azureASN",
       "name": "AzureASN",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of circuit connections associated with Azure Private Peering for this circuit.",
       "jsonName": "connections",
       "name": "Connections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExpressRouteCircuitConnection"
+          "nullable": false,
+          "referenceName": "ExpressRouteCircuitConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +45,9 @@
       "name": "ExpressRouteConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteConnectionId"
+        "nullable": false,
+        "referenceName": "ExpressRouteConnectionId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The GatewayManager Etag.",
       "jsonName": "gatewayManagerEtag",
       "name": "GatewayManagerEtag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +76,9 @@
       "name": "IPv6PeeringConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPv6ExpressRouteCircuitPeeringConfig"
+        "nullable": false,
+        "referenceName": "IPv6ExpressRouteCircuitPeeringConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +87,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Who was the last to modify the peering.",
       "jsonName": "lastModifiedBy",
       "name": "LastModifiedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +107,9 @@
       "name": "MicrosoftPeeringConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitPeeringConfig"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitPeeringConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +118,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The peer ASN.",
       "jsonName": "peerASN",
       "name": "PeerASN",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +134,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of peered circuit connections associated with Azure Private Peering for this circuit.",
       "jsonName": "peeredConnections",
       "name": "PeeredConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PeerExpressRouteCircuitConnection"
+          "nullable": false,
+          "referenceName": "PeerExpressRouteCircuitConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,7 +160,9 @@
       "name": "PeeringType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRoutePeeringType"
+        "nullable": false,
+        "referenceName": "ExpressRoutePeeringType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary port.",
       "jsonName": "primaryAzurePort",
       "name": "PrimaryAzurePort",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary address prefix.",
       "jsonName": "primaryPeerAddressPrefix",
       "name": "PrimaryPeerAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +207,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +222,9 @@
       "name": "RouteFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secondary port.",
       "jsonName": "secondaryAzurePort",
       "name": "SecondaryAzurePort",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secondary address prefix.",
       "jsonName": "secondaryPeerAddressPrefix",
       "name": "SecondaryPeerAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The shared key.",
       "jsonName": "sharedKey",
       "name": "SharedKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +285,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRoutePeeringState"
+        "nullable": false,
+        "referenceName": "ExpressRoutePeeringState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +300,9 @@
       "name": "Stats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitStats"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitStats",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,16 +311,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VLAN ID.",
       "jsonName": "vlanId",
       "name": "VlanId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used only for Stateless services. The default amount of load, as a number, that this service creates for this metric.",
       "jsonName": "defaultLoad",
       "name": "DefaultLoad",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the metric. If the service chooses to report load during runtime, the load metric name should match the name that is specified in Name exactly. Note that metric names are case sensitive.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Primary replica.",
       "jsonName": "primaryDefaultLoad",
       "name": "PrimaryDefaultLoad",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used only for Stateful services. The default amount of load, as a number, that this service creates for this metric when it is a Secondary replica.",
       "jsonName": "secondaryDefaultLoad",
       "name": "SecondaryDefaultLoad",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The service load metric relative weight, compared to other metrics configured for this service, as a number.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceLoadMetricWeight"
+        "nullable": false,
+        "referenceName": "ServiceLoadMetricWeight",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

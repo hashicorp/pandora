@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 character set.",
       "jsonName": "characterSet",
       "name": "CharacterSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12CharacterSet"
+        "nullable": false,
+        "referenceName": "X12CharacterSet",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The component separator.",
       "jsonName": "componentSeparator",
       "name": "ComponentSeparator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data element separator.",
       "jsonName": "dataElementSeparator",
       "name": "DataElementSeparator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replacement character.",
       "jsonName": "replaceCharacter",
       "name": "ReplaceCharacter",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to replace separators in payload.",
       "jsonName": "replaceSeparatorsInPayload",
       "name": "ReplaceSeparatorsInPayload",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The segment terminator.",
       "jsonName": "segmentTerminator",
       "name": "SegmentTerminator",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The segment terminator suffix.",
       "jsonName": "segmentTerminatorSuffix",
       "name": "SegmentTerminatorSuffix",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SegmentTerminatorSuffix"
+        "nullable": false,
+        "referenceName": "SegmentTerminatorSuffix",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

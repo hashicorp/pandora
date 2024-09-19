@@ -1,6 +1,7 @@
 {
   "name": "SourceControllistRepositories",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RepositoryAccessProperties"
+    "nullable": false,
+    "referenceName": "RepositoryAccessProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Repo"
+    "nullable": false,
+    "referenceName": "Repo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.SecurityInsights/listRepositories"
 }

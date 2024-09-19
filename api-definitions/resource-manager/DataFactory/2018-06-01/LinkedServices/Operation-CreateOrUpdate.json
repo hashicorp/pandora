@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "LinkedServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LinkedServiceResource"
+    "nullable": false,
+    "referenceName": "LinkedServiceResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LinkedServiceResource"
+    "nullable": false,
+    "referenceName": "LinkedServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

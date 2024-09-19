@@ -1,6 +1,7 @@
 {
   "name": "ListCustomHostNameAnalysis",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "ContainerAppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomHostnameAnalysisResult"
+    "nullable": false,
+    "referenceName": "CustomHostnameAnalysisResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listCustomHostNameAnalysis"
 }

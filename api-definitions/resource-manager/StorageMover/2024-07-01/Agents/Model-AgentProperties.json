@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Agent status.",
       "jsonName": "agentStatus",
       "name": "AgentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentStatus"
+        "nullable": false,
+        "referenceName": "AgentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Agent version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified resource ID of the Hybrid Compute resource for the Agent.",
       "jsonName": "arcResourceId",
       "name": "ArcResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VM UUID of the Hybrid Compute resource for the Agent.",
       "jsonName": "arcVmUuid",
       "name": "ArcVMUuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A description for the Agent.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +87,9 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentPropertiesErrorDetails"
+        "nullable": false,
+        "referenceName": "AgentPropertiesErrorDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +99,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last updated time of the Agent status.",
       "jsonName": "lastStatusUpdate",
       "name": "LastStatusUpdate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Local IP address reported by the Agent.",
       "jsonName": "localIPAddress",
       "name": "LocalIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Available memory reported by the Agent, in MB.",
       "jsonName": "memoryInMB",
       "name": "MemoryInMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Available compute cores reported by the Agent.",
       "jsonName": "numberOfCores",
       "name": "NumberOfCores",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of this resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent's local time zone represented in Windows format.",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.",
       "jsonName": "uploadLimitSchedule",
       "name": "UploadLimitSchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UploadLimitSchedule"
+        "nullable": false,
+        "referenceName": "UploadLimitSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,16 +211,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Uptime of the Agent in seconds.",
       "jsonName": "uptimeInSeconds",
       "name": "UptimeInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

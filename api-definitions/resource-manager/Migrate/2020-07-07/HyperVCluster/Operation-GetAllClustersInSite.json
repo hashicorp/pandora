@@ -1,6 +1,7 @@
 {
   "name": "GetAllClustersInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "HyperVSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVCluster"
+    "nullable": false,
+    "referenceName": "HyperVCluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/clusters"
 }

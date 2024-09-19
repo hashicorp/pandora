@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Defines supported metric goals for hyperparameter tuning",
       "jsonName": "goal",
       "name": "Goal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Goal"
+        "nullable": false,
+        "referenceName": "Goal",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Name of the metric to optimize.",
       "jsonName": "primaryMetric",
       "name": "PrimaryMetric",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkGatewayConnection"
+    "nullable": false,
+    "referenceName": "VirtualNetworkGatewayConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkGatewayConnection"
+    "nullable": false,
+    "referenceName": "VirtualNetworkGatewayConnection",
+    "referenceNameIsCommonType": null
   }
 }

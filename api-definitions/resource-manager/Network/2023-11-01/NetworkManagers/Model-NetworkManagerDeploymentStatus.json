@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Commit Time.",
       "jsonName": "commitTime",
       "name": "CommitTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,14 +20,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of configuration ids.",
       "jsonName": "configurationIds",
       "name": "ConfigurationIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,11 +42,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment Status.",
       "jsonName": "deploymentStatus",
       "name": "DeploymentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStatus"
+        "nullable": false,
+        "referenceName": "DeploymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +62,9 @@
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationType"
+        "nullable": false,
+        "referenceName": "ConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error Message.",
       "jsonName": "errorMessage",
       "name": "ErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Region Name.",
       "jsonName": "region",
       "name": "Region",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

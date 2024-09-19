@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SyncSetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SyncSetUpdate"
+    "nullable": false,
+    "referenceName": "SyncSetUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncSet"
+    "nullable": false,
+    "referenceName": "SyncSet",
+    "referenceNameIsCommonType": null
   }
 }

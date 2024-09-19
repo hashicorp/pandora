@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "InstanceFailoverGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "InstanceFailoverGroup"
+    "nullable": false,
+    "referenceName": "InstanceFailoverGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "InstanceFailoverGroup"
+    "nullable": false,
+    "referenceName": "InstanceFailoverGroup",
+    "referenceNameIsCommonType": null
   }
 }

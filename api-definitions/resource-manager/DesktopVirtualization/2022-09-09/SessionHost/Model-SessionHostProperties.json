@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of agent on SessionHost.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allow a new session.",
       "jsonName": "allowNewSession",
       "name": "AllowNewSession",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User assigned to SessionHost.",
       "jsonName": "assignedUser",
       "name": "AssignedUser",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name of SessionHost",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last heart beat from SessionHost.",
       "jsonName": "lastHeartBeat",
       "name": "LastHeartBeat",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of the last update.",
       "jsonName": "lastUpdateTime",
       "name": "LastUpdateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ObjectId of SessionHost. (internal use)",
       "jsonName": "objectId",
       "name": "ObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the OS on the session host.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Id of SessionHost's underlying virtual machine.",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of SessionHostHealthCheckReports",
       "jsonName": "sessionHostHealthCheckResults",
       "name": "SessionHostHealthCheckResults",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SessionHostHealthCheckReport"
+          "nullable": false,
+          "referenceName": "SessionHostHealthCheckReport",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -139,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of sessions on SessionHost.",
       "jsonName": "sessions",
       "name": "Sessions",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status for a SessionHost.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Status"
+        "nullable": false,
+        "referenceName": "Status",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,11 +204,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The timestamp of the status.",
       "jsonName": "statusTimestamp",
       "name": "StatusTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,11 +220,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the side by side stack on the session host.",
       "jsonName": "sxSStackVersion",
       "name": "SxSStackVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,11 +236,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The error message.",
       "jsonName": "updateErrorMessage",
       "name": "UpdateErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,11 +252,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Update state of a SessionHost.",
       "jsonName": "updateState",
       "name": "UpdateState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateState"
+        "nullable": false,
+        "referenceName": "UpdateState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,16 +268,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Machine Id of SessionHost's underlying virtual machine.",
       "jsonName": "virtualMachineId",
       "name": "VirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

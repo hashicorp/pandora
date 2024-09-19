@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes custom rules inside the policy.",
       "jsonName": "customRules",
       "name": "CustomRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomRuleList"
+        "nullable": false,
+        "referenceName": "CustomRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes Frontend Endpoints associated with this Web Application Firewall policy.",
       "jsonName": "frontendEndpointLinks",
       "name": "FrontendEndpointLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendEndpointLink"
+          "nullable": false,
+          "referenceName": "FrontendEndpointLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes managed rules inside the policy.",
       "jsonName": "managedRules",
       "name": "ManagedRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleSetList"
+        "nullable": false,
+        "referenceName": "ManagedRuleSetList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes settings for the policy.",
       "jsonName": "policySettings",
       "name": "PolicySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettings"
+        "nullable": false,
+        "referenceName": "PolicySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the policy.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +93,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyResourceState"
+        "nullable": false,
+        "referenceName": "PolicyResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +104,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes Routing Rules associated with this Web Application Firewall policy.",
       "jsonName": "routingRuleLinks",
       "name": "RoutingRuleLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoutingRuleLink"
+          "nullable": false,
+          "referenceName": "RoutingRuleLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,14 +126,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes Security Policy associated with this Web Application Firewall policy.",
       "jsonName": "securityPolicyLinks",
       "name": "SecurityPolicyLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SecurityPolicyLink"
+          "nullable": false,
+          "referenceName": "SecurityPolicyLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -117,5 +146,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

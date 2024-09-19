@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mutually exclusive with the \"allowedSourceAddressPrefixes\" parameter. Should be an IP address or CIDR, for example \"192.168.0.3\" or \"192.168.0.0/16\".",
       "jsonName": "allowedSourceAddressPrefix",
       "name": "AllowedSourceAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mutually exclusive with the \"allowedSourceAddressPrefix\" parameter.",
       "jsonName": "allowedSourceAddressPrefixes",
       "name": "AllowedSourceAddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date \u0026 time at which the request ends in UTC",
       "jsonName": "endTimeUtc",
       "name": "EndTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port which is mapped to this port's `number` in the Azure Firewall, if applicable",
       "jsonName": "mappedPort",
       "name": "MappedPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +78,9 @@
       "name": "Number",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -73,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the port",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Status"
+        "nullable": false,
+        "referenceName": "Status",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -86,16 +105,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A description of why the `status` has its value",
       "jsonName": "statusReason",
       "name": "StatusReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusReason"
+        "nullable": false,
+        "referenceName": "StatusReason",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

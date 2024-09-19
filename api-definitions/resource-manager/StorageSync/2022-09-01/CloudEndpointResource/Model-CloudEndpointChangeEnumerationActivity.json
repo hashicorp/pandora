@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Progress percentage for processing deletes. This is done separately from the rest of the enumeration run",
       "jsonName": "deletesProgressPercent",
       "name": "DeletesProgressPercent",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last updated timestamp",
       "jsonName": "lastUpdatedTimestamp",
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Estimate of time remaining for the enumeration run",
       "jsonName": "minutesRemaining",
       "name": "MinutesRemaining",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Change enumeration operation state",
       "jsonName": "operationState",
       "name": "OperationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointChangeEnumerationActivityState"
+        "nullable": false,
+        "referenceName": "CloudEndpointChangeEnumerationActivityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of directories processed",
       "jsonName": "processedDirectoriesCount",
       "name": "ProcessedDirectoriesCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Count of files processed",
       "jsonName": "processedFilesCount",
       "name": "ProcessedFilesCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Progress percentage for change enumeration run, excluding processing of deletes",
       "jsonName": "progressPercent",
       "name": "ProgressPercent",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp when change enumeration started",
       "jsonName": "startedTimestamp",
       "name": "StartedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When non-zero, indicates an issue that is delaying change enumeration",
       "jsonName": "statusCode",
       "name": "StatusCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Change enumeration total counts state",
       "jsonName": "totalCountsState",
       "name": "TotalCountsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointChangeEnumerationTotalCountsState"
+        "nullable": false,
+        "referenceName": "CloudEndpointChangeEnumerationTotalCountsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total count of directories enumerated",
       "jsonName": "totalDirectoriesCount",
       "name": "TotalDirectoriesCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total count of files enumerated",
       "jsonName": "totalFilesCount",
       "name": "TotalFilesCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,16 +197,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total enumerated size in bytes",
       "jsonName": "totalSizeBytes",
       "name": "TotalSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

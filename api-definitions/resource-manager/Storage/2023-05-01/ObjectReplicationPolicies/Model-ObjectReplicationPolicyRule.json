@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required. Destination container name.",
       "jsonName": "destinationContainer",
       "name": "DestinationContainer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. An object that defines the filter set.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ObjectReplicationPolicyFilter"
+        "nullable": false,
+        "referenceName": "ObjectReplicationPolicyFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rule Id is auto-generated for each new rule on destination account. It is required for put policy on source account.",
       "jsonName": "ruleId",
       "name": "RuleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required. Source container name.",
       "jsonName": "sourceContainer",
       "name": "SourceContainer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

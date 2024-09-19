@@ -7,7 +7,9 @@
       "name": "Dataset",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetReference"
+        "nullable": false,
+        "referenceName": "DatasetReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to return first row or all rows. Default value is true. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "firstRowOnly",
       "name": "FirstRowOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +34,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dataset-specific source properties, same as copy activity source.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopySource"
+        "nullable": false,
+        "referenceName": "CopySource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

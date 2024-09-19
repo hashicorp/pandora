@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allowed request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
       "jsonName": "allow",
       "name": "Allow",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignalRRequestType"
+          "nullable": false,
+          "referenceName": "SignalRRequestType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Denied request types. The value can be one or more of: ClientConnection, ServerConnection, RESTAPI.",
       "jsonName": "deny",
       "name": "Deny",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignalRRequestType"
+          "nullable": false,
+          "referenceName": "SignalRRequestType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

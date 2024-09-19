@@ -7,7 +7,9 @@
       "name": "AzureQueue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueScaleRule"
+        "nullable": false,
+        "referenceName": "QueueScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Custom",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomScaleRule"
+        "nullable": false,
+        "referenceName": "CustomScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HTTP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPScaleRule"
+        "nullable": false,
+        "referenceName": "HTTPScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scale Rule Name",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +68,15 @@
       "name": "Tcp",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TcpScaleRule"
+        "nullable": false,
+        "referenceName": "TcpScaleRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

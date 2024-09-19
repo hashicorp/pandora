@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "OnboardingStateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SentinelOnboardingState"
+    "nullable": false,
+    "referenceName": "SentinelOnboardingState",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SentinelOnboardingState"
+    "nullable": false,
+    "referenceName": "SentinelOnboardingState",
+    "referenceNameIsCommonType": null
   }
 }

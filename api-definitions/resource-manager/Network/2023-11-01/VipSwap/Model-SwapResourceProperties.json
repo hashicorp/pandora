@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies slot info on a cloud service",
       "jsonName": "slotType",
       "name": "SlotType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SlotType"
+        "nullable": false,
+        "referenceName": "SlotType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

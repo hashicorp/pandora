@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CustomDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AFDDomainUpdateParameters"
+    "nullable": false,
+    "referenceName": "AFDDomainUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AFDDomain"
+    "nullable": false,
+    "referenceName": "AFDDomain",
+    "referenceNameIsCommonType": null
   }
 }

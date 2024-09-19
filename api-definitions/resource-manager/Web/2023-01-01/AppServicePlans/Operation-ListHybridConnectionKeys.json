@@ -1,6 +1,7 @@
 {
   "name": "ListHybridConnectionKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "HybridConnectionNamespaceRelayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridConnectionKey"
+    "nullable": false,
+    "referenceName": "HybridConnectionKey",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listKeys"
 }

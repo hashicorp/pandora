@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Discovery URL for the Registry",
       "jsonName": "discoveryUrl",
       "name": "DiscoveryUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IntellectualPropertyPublisher for the registry",
       "jsonName": "intellectualPropertyPublisher",
       "name": "IntellectualPropertyPublisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ResourceId of the managed RG if the registry has system created resources",
       "jsonName": "managedResourceGroup",
       "name": "ManagedResourceGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArmResourceId"
+        "nullable": false,
+        "referenceName": "ArmResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MLFlow Registry URI for the Registry",
       "jsonName": "mlFlowRegistryUri",
       "name": "MlFlowRegistryUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is the Registry accessible from the internet?\r\nPossible values: \"Enabled\" or \"Disabled\"",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of each region the registry is in",
       "jsonName": "regionDetails",
       "name": "RegionDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryRegionArmDetails"
+          "nullable": false,
+          "referenceName": "RegistryRegionArmDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,14 +105,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private endpoint connections info used for pending connections in private link portal",
       "jsonName": "registryPrivateEndpointConnections",
       "name": "RegistryPrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryPrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "RegistryPrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -100,5 +125,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

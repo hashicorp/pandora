@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The aggregated grouping fields.",
       "jsonName": "aggregatedGroupingFields",
       "name": "AggregatedGroupingFields",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The aggregated value field.",
       "jsonName": "aggregatedValueField",
       "name": "AggregatedValueField",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The core summaries.",
       "jsonName": "coreSummaries",
       "name": "CoreSummaries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CoreSummary"
+          "nullable": false,
+          "referenceName": "CoreSummary",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ETag of the search results.",
       "jsonName": "eTag",
       "name": "ETag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of the search results request.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time of last update.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The max of all aggregates returned in the result set.",
       "jsonName": "max",
       "name": "Max",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The request id of the search.",
       "jsonName": "requestId",
       "name": "RequestId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The request time.",
       "jsonName": "requestTime",
       "name": "RequestTime",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The search result type.",
       "jsonName": "resultType",
       "name": "ResultType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The schema.",
       "jsonName": "schema",
       "name": "Schema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchMetadataSchema"
+        "nullable": false,
+        "referenceName": "SearchMetadataSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,14 +186,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How the results are sorted.",
       "jsonName": "sort",
       "name": "Sort",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SearchSort"
+          "nullable": false,
+          "referenceName": "SearchSort",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -169,11 +209,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time for the search.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,11 +225,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the search results.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -195,11 +241,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sum of all aggregates returned in the result set.",
       "jsonName": "sum",
       "name": "Sum",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,11 +257,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of top search results.",
       "jsonName": "top",
       "name": "Top",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,16 +273,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of search results.",
       "jsonName": "total",
       "name": "Total",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

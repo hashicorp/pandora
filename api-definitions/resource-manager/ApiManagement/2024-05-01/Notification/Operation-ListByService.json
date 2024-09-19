@@ -1,6 +1,7 @@
 {
   "name": "ListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NotificationContract"
+    "nullable": false,
+    "referenceName": "NotificationContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/notifications"
 }

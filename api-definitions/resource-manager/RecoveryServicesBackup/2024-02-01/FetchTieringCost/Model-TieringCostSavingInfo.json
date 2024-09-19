@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source tier retail cost per GB per month",
       "jsonName": "retailSourceTierCostPerGBPerMonth",
       "name": "RetailSourceTierCostPerGBPerMonth",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target tier retail cost per GB per month",
       "jsonName": "retailTargetTierCostPerGBPerMonth",
       "name": "RetailTargetTierCostPerGBPerMonth",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Source tier size reduction in bytes after moving all the recommended backup points to target tier",
       "jsonName": "sourceTierSizeReductionInBytes",
       "name": "SourceTierSizeReductionInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target tier size increase in bytes after moving all the recommended backup points to target tier",
       "jsonName": "targetTierSizeIncreaseInBytes",
       "name": "TargetTierSizeIncreaseInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TieringCostInfo",
   "discriminatedTypeValue": "TieringCostSavingInfo",
   "typeHintIn": "ObjectType"

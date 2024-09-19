@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has definition for data in this forecast.",
       "jsonName": "dataset",
       "name": "Dataset",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastDataset"
+        "nullable": false,
+        "referenceName": "ForecastDataset",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean determining if actualCost will be included.",
       "jsonName": "includeActualCost",
       "name": "IncludeActualCost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean determining if FreshPartialCost will be included.",
       "jsonName": "includeFreshPartialCost",
       "name": "IncludeFreshPartialCost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has time period for pulling data for the forecast.",
       "jsonName": "timePeriod",
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastTimePeriod"
+        "nullable": false,
+        "referenceName": "ForecastTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time frame for pulling data for the forecast. If custom, then a specific time period must be provided.",
       "jsonName": "timeframe",
       "name": "Timeframe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastTimeframe"
+        "nullable": false,
+        "referenceName": "ForecastTimeframe",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the forecast.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastType"
+        "nullable": false,
+        "referenceName": "ForecastType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alias of the private link service.",
       "jsonName": "alias",
       "name": "Alias",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto-approval list of the private link service.",
       "jsonName": "autoApproval",
       "name": "AutoApproval",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceSet"
+        "nullable": false,
+        "referenceName": "ResourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the private link service is enabled for proxy protocol or not.",
       "jsonName": "enableProxyProtocol",
       "name": "EnableProxyProtocol",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Fqdn.",
       "jsonName": "fqdns",
       "name": "Fqdns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of private link service IP configurations.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceIPConfiguration"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to the load balancer IP configurations.",
       "jsonName": "loadBalancerFrontendIpConfigurations",
       "name": "LoadBalancerFrontendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendIPConfiguration"
+          "nullable": false,
+          "referenceName": "FrontendIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to the network interfaces created for this private link service.",
       "jsonName": "networkInterfaces",
       "name": "NetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterface"
+          "nullable": false,
+          "referenceName": "NetworkInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +139,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of list about connections to the private endpoint.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,7 +165,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,16 +176,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The visibility list of the private link service.",
       "jsonName": "visibility",
       "name": "Visibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceSet"
+        "nullable": false,
+        "referenceName": "ResourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

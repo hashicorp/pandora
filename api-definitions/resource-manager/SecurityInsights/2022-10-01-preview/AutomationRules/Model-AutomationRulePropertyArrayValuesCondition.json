@@ -7,7 +7,9 @@
       "name": "ArrayConditionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayConditionType"
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayConditionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ArrayType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayType"
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyArrayConditionSupportedArrayType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ItemConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRuleCondition"
+          "nullable": false,
+          "referenceName": "AutomationRuleCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

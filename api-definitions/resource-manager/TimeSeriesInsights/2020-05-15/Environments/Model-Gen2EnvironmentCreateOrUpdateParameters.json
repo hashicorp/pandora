@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Gen2EnvironmentCreationProperties"
+        "nullable": false,
+        "referenceName": "Gen2EnvironmentCreationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EnvironmentCreateOrUpdateParameters",
   "discriminatedTypeValue": "Gen2",
   "typeHintIn": "Kind"

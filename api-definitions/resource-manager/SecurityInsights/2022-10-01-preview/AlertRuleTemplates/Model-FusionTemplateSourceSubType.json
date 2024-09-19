@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Severity configuration available for a source subtype consumed in fusion detection.",
       "jsonName": "severityFilter",
       "name": "SeverityFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FusionTemplateSubTypeSeverityFilter"
+        "nullable": false,
+        "referenceName": "FusionTemplateSubTypeSeverityFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of source subtype under a source signal consumed in Fusion detection.",
       "jsonName": "sourceSubTypeDisplayName",
       "name": "SourceSubTypeDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of source subtype under a source signal consumed in Fusion detection.",
       "jsonName": "sourceSubTypeName",
       "name": "SourceSubTypeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

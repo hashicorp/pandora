@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the SID groupings by landscape and Environment.",
       "jsonName": "grouping",
       "name": "Grouping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapLandscapeMonitorPropertiesGrouping"
+        "nullable": false,
+        "referenceName": "SapLandscapeMonitorPropertiesGrouping",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of provisioning of the SAP monitor.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapLandscapeMonitorProvisioningState"
+        "nullable": false,
+        "referenceName": "SapLandscapeMonitorProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the list Top Metric Thresholds for SAP Landscape Monitor Dashboard",
       "jsonName": "topMetricsThresholds",
       "name": "TopMetricsThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SapLandscapeMonitorMetricThresholds"
+          "nullable": false,
+          "referenceName": "SapLandscapeMonitorMetricThresholds",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +55,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

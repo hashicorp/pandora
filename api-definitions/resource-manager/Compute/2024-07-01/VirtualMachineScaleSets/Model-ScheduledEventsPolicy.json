@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while publishing scheduledEventsAdditionalPublishingTargets.",
       "jsonName": "scheduledEventsAdditionalPublishingTargets",
       "name": "ScheduledEventsAdditionalPublishingTargets",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsAdditionalPublishingTargets"
+        "nullable": false,
+        "referenceName": "ScheduledEventsAdditionalPublishingTargets",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while creating userInitiatedReboot scheduled event setting creation.",
       "jsonName": "userInitiatedReboot",
       "name": "UserInitiatedReboot",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInitiatedReboot"
+        "nullable": false,
+        "referenceName": "UserInitiatedReboot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration parameters used while creating userInitiatedRedeploy scheduled event setting creation.",
       "jsonName": "userInitiatedRedeploy",
       "name": "UserInitiatedRedeploy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInitiatedRedeploy"
+        "nullable": false,
+        "referenceName": "UserInitiatedRedeploy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

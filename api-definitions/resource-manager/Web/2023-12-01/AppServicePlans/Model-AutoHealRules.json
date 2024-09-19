@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Actions to be executed when a rule is triggered.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealActions"
+        "nullable": false,
+        "referenceName": "AutoHealActions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Conditions that describe when to execute the auto-heal actions.",
       "jsonName": "triggers",
       "name": "Triggers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealTriggers"
+        "nullable": false,
+        "referenceName": "AutoHealTriggers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

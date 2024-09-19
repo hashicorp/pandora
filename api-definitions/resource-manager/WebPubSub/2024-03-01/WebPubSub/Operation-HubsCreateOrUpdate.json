@@ -1,6 +1,7 @@
 {
   "name": "HubsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "HubId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WebPubSubHub"
+    "nullable": false,
+    "referenceName": "WebPubSubHub",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WebPubSubHub"
+    "nullable": false,
+    "referenceName": "WebPubSubHub",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Layer 2 Networks and related configuration for attachment.",
       "jsonName": "l2Networks",
       "name": "L2Networks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "L2NetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "L2NetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Layer 3 Networks and related configuration for attachment.",
       "jsonName": "l3Networks",
       "name": "L3Networks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "L3NetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "L3NetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Trunked Networks and related configuration for attachment.",
       "jsonName": "trunkedNetworks",
       "name": "TrunkedNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrunkedNetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "TrunkedNetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

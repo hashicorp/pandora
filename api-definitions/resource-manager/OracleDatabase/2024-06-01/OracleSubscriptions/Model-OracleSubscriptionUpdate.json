@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the resource plan.",
       "jsonName": "plan",
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanUpdate"
+        "nullable": false,
+        "referenceName": "PlanUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource-specific properties for this resource.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OracleSubscriptionUpdateProperties"
+        "nullable": false,
+        "referenceName": "OracleSubscriptionUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

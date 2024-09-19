@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input parameters specific to patching Linux machine. For Windows machines, do not pass this property.",
       "jsonName": "linuxParameters",
       "name": "LinuxParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputLinuxParameters"
+        "nullable": false,
+        "referenceName": "InputLinuxParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed.",
       "jsonName": "rebootSetting",
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RebootOptions"
+        "nullable": false,
+        "referenceName": "RebootOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property.",
       "jsonName": "windowsParameters",
       "name": "WindowsParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputWindowsParameters"
+        "nullable": false,
+        "referenceName": "InputWindowsParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

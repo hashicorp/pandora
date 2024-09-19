@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "CacheId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CacheUpdateParameters"
+    "nullable": false,
+    "referenceName": "CacheUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CacheContract"
+    "nullable": false,
+    "referenceName": "CacheContract",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.",
       "jsonName": "alertSensitivity",
       "name": "AlertSensitivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdSensitivity"
+        "nullable": false,
+        "referenceName": "DynamicThresholdSensitivity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of violations required within the selected lookback time window required to raise an alert.",
       "jsonName": "failingPeriods",
       "name": "FailingPeriods",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdFailingPeriods"
+        "nullable": false,
+        "referenceName": "DynamicThresholdFailingPeriods",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)",
       "jsonName": "ignoreDataBefore",
       "name": "IgnoreDataBefore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operator used to compare the metric value against the threshold.",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdOperator"
+        "nullable": false,
+        "referenceName": "DynamicThresholdOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,6 +67,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MultiMetricCriteria",
   "discriminatedTypeValue": "DynamicThresholdCriterion",
   "typeHintIn": "CriterionType"

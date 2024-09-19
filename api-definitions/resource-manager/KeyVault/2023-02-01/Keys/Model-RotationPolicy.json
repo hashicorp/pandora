@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The attributes of key rotation policy.",
       "jsonName": "attributes",
       "name": "Attributes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyRotationPolicyAttributes"
+        "nullable": false,
+        "referenceName": "KeyRotationPolicyAttributes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lifetimeActions for key rotation action.",
       "jsonName": "lifetimeActions",
       "name": "LifetimeActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LifetimeAction"
+          "nullable": false,
+          "referenceName": "LifetimeAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

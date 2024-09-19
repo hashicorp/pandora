@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.",
       "jsonName": "customerManagedKeyEncryption",
       "name": "CustomerManagedKeyEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterPropertiesEncryptionCustomerManagedKeyEncryption"
+        "nullable": false,
+        "referenceName": "ClusterPropertiesEncryptionCustomerManagedKeyEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

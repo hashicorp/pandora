@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default owner group for all new folders and files created in the Data Lake Store account.",
       "jsonName": "defaultGroup",
       "name": "DefaultGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used for rotation of user managed Key Vault keys. Can only be used to rotate a user managed encryption Key Vault key.",
       "jsonName": "encryptionConfig",
       "name": "EncryptionConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateEncryptionConfig"
+        "nullable": false,
+        "referenceName": "UpdateEncryptionConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.",
       "jsonName": "firewallAllowAzureIps",
       "name": "FirewallAllowAzureIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallAllowAzureIPsState"
+        "nullable": false,
+        "referenceName": "FirewallAllowAzureIPsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of firewall rules associated with this Data Lake Store account.",
       "jsonName": "firewallRules",
       "name": "FirewallRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateFirewallRuleWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateFirewallRuleWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the IP address firewall for this Data Lake Store account. Disabling the firewall does not remove existing rules, they will just be ignored until the firewall is re-enabled.",
       "jsonName": "firewallState",
       "name": "FirewallState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallState"
+        "nullable": false,
+        "referenceName": "FirewallState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The commitment tier to use for next month.",
       "jsonName": "newTier",
       "name": "NewTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TierType"
+        "nullable": false,
+        "referenceName": "TierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the trusted identity provider feature for this Data Lake Store account. Disabling trusted identity provider functionality does not remove the providers, they will just be ignored until this feature is re-enabled.",
       "jsonName": "trustedIdProviderState",
       "name": "TrustedIdProviderState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrustedIdProviderState"
+        "nullable": false,
+        "referenceName": "TrustedIdProviderState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of trusted identity providers associated with this Data Lake Store account.",
       "jsonName": "trustedIdProviders",
       "name": "TrustedIdProviders",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateTrustedIdProviderWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateTrustedIdProviderWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of virtual network rules associated with this Data Lake Store account.",
       "jsonName": "virtualNetworkRules",
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateVirtualNetworkRuleWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateVirtualNetworkRuleWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -130,5 +163,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

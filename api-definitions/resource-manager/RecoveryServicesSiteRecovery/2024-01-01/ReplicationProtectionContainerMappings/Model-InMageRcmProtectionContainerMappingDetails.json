@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the flag for enable agent auto upgrade.",
       "jsonName": "enableAgentAutoUpgrade",
       "name": "EnableAgentAutoUpgrade",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionContainerMappingProviderSpecificDetails",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

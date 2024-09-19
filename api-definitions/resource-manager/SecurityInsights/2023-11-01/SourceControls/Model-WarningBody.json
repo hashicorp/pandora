@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An identifier for the warning. Codes are invariant and are intended to be consumed programmatically.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WarningCode"
+        "nullable": false,
+        "referenceName": "WarningCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +23,14 @@
       "name": "Details",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WarningBody"
+          "nullable": false,
+          "referenceName": "WarningBody",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +40,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A message describing the warning, intended to be suitable for display in a user interface.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

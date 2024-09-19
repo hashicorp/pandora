@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the security settings like secure boot used while creating the virtual machine.",
       "jsonName": "uefiSettings",
       "name": "UefiSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UefiSettings"
+        "nullable": false,
+        "referenceName": "UefiSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

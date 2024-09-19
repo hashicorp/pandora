@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ephemeral disk settings for operating system disk.",
       "jsonName": "option",
       "name": "Option",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskOptions"
+        "nullable": false,
+        "referenceName": "DiffDiskOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ephemeral disk placement for operating system disk.\u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **CacheDisk** \u003cbr\u003e\u003cbr\u003e **ResourceDisk** \u003cbr\u003e\u003cbr\u003e Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.\u003cbr\u003e\u003cbr\u003e Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.",
       "jsonName": "placement",
       "name": "Placement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskPlacement"
+        "nullable": false,
+        "referenceName": "DiffDiskPlacement",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

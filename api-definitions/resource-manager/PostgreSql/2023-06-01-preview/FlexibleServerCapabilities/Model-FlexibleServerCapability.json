@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets a value indicating whether fast provisioning is supported. \"Enabled\" means fast provisioning is supported. \"Disabled\" stands for fast provisioning is not supported.",
       "jsonName": "fastProvisioningSupported",
       "name": "FastProvisioningSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FastProvisioningSupportedEnum"
+        "nullable": false,
+        "referenceName": "FastProvisioningSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines if geo-backup is supported in this region. \"Enabled\" means geo-backup is supported. \"Disabled\" stands for geo-back is not supported.",
       "jsonName": "geoBackupSupported",
       "name": "GeoBackupSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GeoBackupSupportedEnum"
+        "nullable": false,
+        "referenceName": "GeoBackupSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of flexible servers capability",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether online resize is supported in this region for the given subscription. \"Enabled\" means storage online resize is supported. \"Disabled\" means storage online resize is not supported.",
       "jsonName": "onlineResizeSupported",
       "name": "OnlineResizeSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnlineResizeSupportedEnum"
+        "nullable": false,
+        "referenceName": "OnlineResizeSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the capability not being available.",
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether this region is restricted. \"Enabled\" means region is restricted. \"Disabled\" stands for region is not restricted.",
       "jsonName": "restricted",
       "name": "Restricted",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestrictedEnum"
+        "nullable": false,
+        "referenceName": "RestrictedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the capability.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether storage auto-grow is supported in this region. \"Enabled\" means storage auto-grow is supported. \"Disabled\" stands for storage auto-grow is not supported.",
       "jsonName": "storageAutoGrowthSupported",
       "name": "StorageAutoGrowthSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAutoGrowthSupportedEnum"
+        "nullable": false,
+        "referenceName": "StorageAutoGrowthSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported server editions for fast provisioning",
       "jsonName": "supportedFastProvisioningEditions",
       "name": "SupportedFastProvisioningEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FastProvisioningEditionCapability"
+          "nullable": false,
+          "referenceName": "FastProvisioningEditionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,14 +153,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported flexible server editions",
       "jsonName": "supportedServerEditions",
       "name": "SupportedServerEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FlexibleServerEditionCapability"
+          "nullable": false,
+          "referenceName": "FlexibleServerEditionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,14 +175,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of server versions supported for this capability.",
       "jsonName": "supportedServerVersions",
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapability"
+          "nullable": false,
+          "referenceName": "ServerVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether Zone Redundant HA and Geo-backup is supported in this region. \"Enabled\" means zone redundant HA and geo-backup is supported. \"Disabled\" stands for zone redundant HA and geo-backup is not supported.",
       "jsonName": "zoneRedundantHaAndGeoBackupSupported",
       "name": "ZoneRedundantHaAndGeoBackupSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum"
+        "nullable": false,
+        "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,16 +213,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether Zone Redundant HA is supported in this region. \"Enabled\" means zone redundant HA is supported. \"Disabled\" stands for zone redundant HA is not supported.",
       "jsonName": "zoneRedundantHaSupported",
       "name": "ZoneRedundantHaSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundantHaSupportedEnum"
+        "nullable": false,
+        "referenceName": "ZoneRedundantHaSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

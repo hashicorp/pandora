@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alternative authentication name sources related to client authentication settings for namespace resource.",
       "jsonName": "alternativeAuthenticationNameSources",
       "name": "AlternativeAuthenticationNameSources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlternativeAuthenticationNameSource"
+          "nullable": false,
+          "referenceName": "AlternativeAuthenticationNameSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of a Dev Box definition in parent Project of this Pool",
       "jsonName": "devBoxDefinitionName",
       "name": "DevBoxDefinitionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseType"
+        "nullable": false,
+        "referenceName": "LicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.",
       "jsonName": "localAdministrator",
       "name": "LocalAdministrator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalAdminStatus"
+        "nullable": false,
+        "referenceName": "LocalAdminStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of a Network Connection in parent Project of this Pool",
       "jsonName": "networkConnectionName",
       "name": "NetworkConnectionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Stop on disconnect configuration settings for Dev Boxes created in this pool.",
       "jsonName": "stopOnDisconnect",
       "name": "StopOnDisconnect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StopOnDisconnectConfiguration"
+        "nullable": false,
+        "referenceName": "StopOnDisconnectConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

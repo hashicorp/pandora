@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of dimension conditions. For example: [{\"DimensionName\":\"AppName\",\"Operator\":\"Equals\",\"Values\":[\"App1\"]},{\"DimensionName\":\"Deployment\",\"Operator\":\"Equals\",\"Values\":[\"default\"]}].",
       "jsonName": "dimensions",
       "name": "Dimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScaleRuleMetricDimension"
+          "nullable": false,
+          "referenceName": "ScaleRuleMetricDimension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "a value indicating whether metric should divide per instance.",
       "jsonName": "dividePerInstance",
       "name": "DividePerInstance",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the name of the metric that defines what the rule monitors.",
       "jsonName": "metricName",
       "name": "MetricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the namespace of the metric that defines what the rule monitors.",
       "jsonName": "metricNamespace",
       "name": "MetricNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the location of the resource the rule monitors.",
       "jsonName": "metricResourceLocation",
       "name": "MetricResourceLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the resource identifier of the resource the rule monitors.",
       "jsonName": "metricResourceUri",
       "name": "MetricResourceUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the operator that is used to compare the metric data and the threshold.",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComparisonOperationType"
+        "nullable": false,
+        "referenceName": "ComparisonOperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the metric statistic type. How the metrics from multiple instances are combined.",
       "jsonName": "statistic",
       "name": "Statistic",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricStatisticType"
+        "nullable": false,
+        "referenceName": "MetricStatisticType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the threshold of the metric that triggers the scale action.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "time aggregation type. How the data that is collected should be combined over time. The default value is Average.",
       "jsonName": "timeAggregation",
       "name": "TimeAggregation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeAggregationType"
+        "nullable": false,
+        "referenceName": "TimeAggregationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute.",
       "jsonName": "timeGrain",
       "name": "TimeGrain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -150,16 +185,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes.",
       "jsonName": "timeWindow",
       "name": "TimeWindow",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty.",
       "jsonName": "logAnalyticsWorkspaceResourceId",
       "name": "LogAnalyticsWorkspaceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft Defender threat detection for Cloud settings for the security profile.",
       "jsonName": "securityMonitoring",
       "name": "SecurityMonitoring",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileDefenderSecurityMonitoring"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileDefenderSecurityMonitoring",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

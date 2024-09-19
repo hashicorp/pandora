@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The access policies of the service instance.",
       "jsonName": "accessPolicies",
       "name": "AccessPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceAccessPolicyEntry"
+          "nullable": false,
+          "referenceName": "ServiceAccessPolicyEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The azure container registry settings used for convert data operation of the service instance.",
       "jsonName": "acrConfiguration",
       "name": "AcrConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceAcrConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceAcrConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The authentication configuration for the service instance.",
       "jsonName": "authenticationConfiguration",
       "name": "AuthenticationConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceAuthenticationConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceAuthenticationConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for the CORS configuration of the service instance.",
       "jsonName": "corsConfiguration",
       "name": "CorsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceCorsConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceCorsConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for the Cosmos DB database backing the service.",
       "jsonName": "cosmosDbConfiguration",
       "name": "CosmosDbConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceCosmosDbConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceCosmosDbConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for the export operation of the service instance.",
       "jsonName": "exportConfiguration",
       "name": "ExportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceExportConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceExportConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for the import operation of the service instance.",
       "jsonName": "importConfiguration",
       "name": "ImportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceImportConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceImportConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of private endpoint connections that are set up for this resource.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,16 +159,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

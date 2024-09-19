@@ -1,6 +1,7 @@
 {
   "name": "DetachDataDisk",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DetachDataDiskProperties"
+    "nullable": false,
+    "referenceName": "DetachDataDiskProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/detachDataDisk"
 }

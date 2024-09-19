@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The remediation correlation Id. Can be used to find events related to the remediation in the activity log.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the remediation was created.",
       "jsonName": "createdOn",
       "name": "CreatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deployment status summary for all deployments created by the remediation.",
       "jsonName": "deploymentStatus",
       "name": "DeploymentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemediationDeploymentSummary"
+        "nullable": false,
+        "referenceName": "RemediationDeploymentSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The remediation failure threshold settings",
       "jsonName": "failureThreshold",
       "name": "FailureThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemediationPropertiesFailureThreshold"
+        "nullable": false,
+        "referenceName": "RemediationPropertiesFailureThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The filters that will be applied to determine which resources to remediate.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemediationFilters"
+        "nullable": false,
+        "referenceName": "RemediationFilters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time at which the remediation was last updated.",
       "jsonName": "lastUpdatedOn",
       "name": "LastUpdatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.",
       "jsonName": "parallelDeployments",
       "name": "ParallelDeployments",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the policy assignment that should be remediated.",
       "jsonName": "policyAssignmentId",
       "name": "PolicyAssignmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.",
       "jsonName": "policyDefinitionReferenceId",
       "name": "PolicyDefinitionReferenceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.",
       "jsonName": "resourceCount",
       "name": "ResourceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.",
       "jsonName": "resourceDiscoveryMode",
       "name": "ResourceDiscoveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceDiscoveryMode"
+        "nullable": false,
+        "referenceName": "ResourceDiscoveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,16 +197,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The remediation status message. Provides additional details regarding the state of the remediation.",
       "jsonName": "statusMessage",
       "name": "StatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

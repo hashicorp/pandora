@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingestion Sources.",
       "jsonName": "ingestionSources",
       "name": "IngestionSources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IngestionSourcesPropertiesFormat"
+          "nullable": false,
+          "referenceName": "IngestionSourcesPropertiesFormat",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ingestion type.",
       "jsonName": "ingestionType",
       "name": "IngestionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngestionType"
+        "nullable": false,
+        "referenceName": "IngestionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

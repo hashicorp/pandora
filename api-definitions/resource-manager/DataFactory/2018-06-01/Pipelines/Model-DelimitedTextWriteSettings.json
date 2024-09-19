@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The file extension used to create the files. Type: string (or Expression with resultType string).",
       "jsonName": "fileExtension",
       "name": "FileExtension",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the file name pattern \u003cfileNamePrefix\u003e_\u003cfileIndex\u003e.\u003cfileExtension\u003e when copy from non-file based store without partitionOptions. Type: string (or Expression with resultType string).",
       "jsonName": "fileNamePrefix",
       "name": "FileNamePrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Limit the written file's row count to be smaller than or equal to the specified count. Type: integer (or Expression with resultType integer).",
       "jsonName": "maxRowsPerFile",
       "name": "MaxRowsPerFile",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether string values should always be enclosed with quotes. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "quoteAllText",
       "name": "QuoteAllText",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FormatWriteSettings",
   "discriminatedTypeValue": "DelimitedTextWriteSettings",
   "typeHintIn": "Type"

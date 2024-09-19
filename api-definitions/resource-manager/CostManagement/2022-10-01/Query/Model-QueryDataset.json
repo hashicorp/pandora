@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of aggregation expression to use in the query. The key of each item in the dictionary is the alias for the aggregated column. Query can have up to 2 aggregation clauses.",
       "jsonName": "aggregation",
       "name": "Aggregation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryAggregation"
+          "nullable": false,
+          "referenceName": "QueryAggregation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.",
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "QueryDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The filter expression to use in the query. Please reference our Query API REST documentation for how to properly format the filter.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryFilter"
+        "nullable": false,
+        "referenceName": "QueryFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The granularity of rows in the query.",
       "jsonName": "granularity",
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GranularityType"
+        "nullable": false,
+        "referenceName": "GranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of group by expression to use in the query. Query can have up to 2 group by clauses.",
       "jsonName": "grouping",
       "name": "Grouping",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryGrouping"
+          "nullable": false,
+          "referenceName": "QueryGrouping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -74,5 +93,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

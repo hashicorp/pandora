@@ -7,7 +7,9 @@
       "name": "AuthenticationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMethod"
+        "nullable": false,
+        "referenceName": "AuthenticationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of client root certificates public certificate data encoded as Base-64 strings. Optional parameter for external radius based authentication with EAPTLS.",
       "jsonName": "clientRootCertificates",
       "name": "ClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VPN client Processor Architecture.",
       "jsonName": "processorArchitecture",
       "name": "ProcessorArchitecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProcessorArchitecture"
+        "nullable": false,
+        "referenceName": "ProcessorArchitecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public certificate data for the radius server authentication certificate as a Base-64 encoded string. Required only if external radius authentication has been configured with EAPTLS authentication.",
       "jsonName": "radiusServerAuthCertificate",
       "name": "RadiusServerAuthCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

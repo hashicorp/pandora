@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AATP (Azure Advanced Threat Protection) requirements check properties.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorTenantId"
+        "nullable": false,
+        "referenceName": "DataConnectorTenantId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnectorsCheckRequirements",
   "discriminatedTypeValue": "AzureAdvancedThreatProtection",
   "typeHintIn": "Kind"

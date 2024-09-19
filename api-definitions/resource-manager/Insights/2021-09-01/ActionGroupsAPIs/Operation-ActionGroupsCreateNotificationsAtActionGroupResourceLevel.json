@@ -1,6 +1,7 @@
 {
   "name": "ActionGroupsCreateNotificationsAtActionGroupResourceLevel",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ActionGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NotificationRequestBody"
+    "nullable": false,
+    "referenceName": "NotificationRequestBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TestNotificationDetailsResponse"
+    "nullable": false,
+    "referenceName": "TestNotificationDetailsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createNotifications"
 }

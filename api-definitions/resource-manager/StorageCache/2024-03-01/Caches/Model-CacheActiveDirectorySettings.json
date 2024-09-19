@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. Length must 1-15 characters from the class [-0-9a-zA-Z].",
       "jsonName": "cacheNetBiosName",
       "name": "CacheNetBiosName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Active Directory admin credentials used to join the HPC Cache to a domain.",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheActiveDirectorySettingsCredentials"
+        "nullable": false,
+        "referenceName": "CacheActiveDirectorySettingsCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if the HPC Cache is joined to the Active Directory domain.",
       "jsonName": "domainJoined",
       "name": "DomainJoined",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainJoinedType"
+        "nullable": false,
+        "referenceName": "DomainJoinedType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified domain name of the Active Directory domain controller.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Active Directory domain's NetBIOS name.",
       "jsonName": "domainNetBiosName",
       "name": "DomainNetBiosName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Primary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.",
       "jsonName": "primaryDnsIpAddress",
       "name": "PrimaryDnsIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Secondary DNS IP address used to resolve the Active Directory domain controller's fully qualified domain name.",
       "jsonName": "secondaryDnsIpAddress",
       "name": "SecondaryDnsIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

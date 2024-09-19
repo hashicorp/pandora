@@ -7,7 +7,9 @@
       "name": "ConnectionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeConnectionInfo5G"
+        "nullable": false,
+        "referenceName": "UeConnectionInfo5G",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FivegGuti",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Guti5G"
+        "nullable": false,
+        "referenceName": "Guti5G",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Pei",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "SessionInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UeSessionInfo5G"
+          "nullable": false,
+          "referenceName": "UeSessionInfo5G",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,12 +73,15 @@
       "name": "Supi",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

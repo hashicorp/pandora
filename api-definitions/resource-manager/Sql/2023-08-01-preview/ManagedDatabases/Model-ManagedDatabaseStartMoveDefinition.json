@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The destination managed database ID",
       "jsonName": "destinationManagedDatabaseId",
       "name": "DestinationManagedDatabaseId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The move operation mode.",
       "jsonName": "operationMode",
       "name": "OperationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MoveOperationMode"
+        "nullable": false,
+        "referenceName": "MoveOperationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

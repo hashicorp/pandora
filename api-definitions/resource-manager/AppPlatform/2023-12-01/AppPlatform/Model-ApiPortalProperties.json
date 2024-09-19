@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the API try-out feature is enabled or disabled. When enabled, users can try out the API by sending requests and viewing responses in API portal. When disabled, users cannot try out the API.",
       "jsonName": "apiTryOutEnabledState",
       "name": "ApiTryOutEnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalApiTryOutEnabledState"
+        "nullable": false,
+        "referenceName": "ApiPortalApiTryOutEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The array of resource Ids of gateway to integrate with API portal.",
       "jsonName": "gatewayIds",
       "name": "GatewayIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicate if only https is allowed.",
       "jsonName": "httpsOnly",
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of instances belong to API portal.",
       "jsonName": "instances",
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiPortalInstance"
+          "nullable": false,
+          "referenceName": "ApiPortalInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the API portal.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalProvisioningState"
+        "nullable": false,
+        "referenceName": "ApiPortalProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the API portal exposes endpoint.",
       "jsonName": "public",
       "name": "Public",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The requested resource quantity for required CPU and Memory.",
       "jsonName": "resourceRequests",
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalResourceRequests"
+        "nullable": false,
+        "referenceName": "ApiPortalResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of OpenAPI source URL locations.",
       "jsonName": "sourceUrls",
       "name": "SourceUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,7 +153,9 @@
       "name": "SsoProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SsoProperties"
+        "nullable": false,
+        "referenceName": "SsoProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,16 +164,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "URL of the API portal, exposed when 'public' is true.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

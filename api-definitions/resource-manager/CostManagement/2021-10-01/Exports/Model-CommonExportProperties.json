@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has the definition for the export.",
       "jsonName": "definition",
       "name": "Definition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDefinition"
+        "nullable": false,
+        "referenceName": "ExportDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Has delivery information for the export.",
       "jsonName": "deliveryInfo",
       "name": "DeliveryInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDeliveryInfo"
+        "nullable": false,
+        "referenceName": "ExportDeliveryInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The format of the export being delivered. Currently only 'Csv' is supported.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FormatType"
+        "nullable": false,
+        "referenceName": "FormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "If the export has an active schedule, provides an estimate of the next execution time.",
       "jsonName": "nextRunTimeEstimate",
       "name": "NextRunTimeEstimate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for modern commerce scopes.",
       "jsonName": "partitionData",
       "name": "PartitionData",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,16 +84,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If requested, has the most recent execution history for the export.",
       "jsonName": "runHistory",
       "name": "RunHistory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportExecutionListResult"
+        "nullable": false,
+        "referenceName": "ExportExecutionListResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

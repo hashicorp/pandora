@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The BGP speaker's ASN.",
       "jsonName": "asn",
       "name": "Asn",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The BGP peering address and BGP identifier of this BGP speaker.",
       "jsonName": "bgpPeeringAddress",
       "name": "BgpPeeringAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "BGP peering address with IP configuration ID for virtual network gateway.",
       "jsonName": "bgpPeeringAddresses",
       "name": "BgpPeeringAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPConfigurationBgpPeeringAddress"
+          "nullable": false,
+          "referenceName": "IPConfigurationBgpPeeringAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The weight added to routes learned from this BGP speaker.",
       "jsonName": "peerWeight",
       "name": "PeerWeight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

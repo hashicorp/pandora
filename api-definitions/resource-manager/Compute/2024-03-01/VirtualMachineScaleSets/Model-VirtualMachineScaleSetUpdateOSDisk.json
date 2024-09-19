@@ -7,7 +7,9 @@
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskDeleteOptionTypes"
+        "nullable": false,
+        "referenceName": "DiskDeleteOptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DiffDiskSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskSettings"
+        "nullable": false,
+        "referenceName": "DiffDiskSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. \u003cbr\u003e\u003cbr\u003e diskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +68,9 @@
       "name": "Image",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualHardDisk"
+        "nullable": false,
+        "referenceName": "VirtualHardDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed disk parameters.",
       "jsonName": "managedDisk",
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of virtual hard disk container uris.",
       "jsonName": "vhdContainers",
       "name": "VhdContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

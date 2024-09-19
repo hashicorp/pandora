@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent resource information.",
       "jsonName": "managedBy",
       "name": "ManagedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedByInfo"
+        "nullable": false,
+        "referenceName": "ManagedByInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Volume size.",
       "jsonName": "sizeGiB",
       "name": "SizeGiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replication link state of the replica cluster.",
       "jsonName": "replicationState",
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationState"
+        "nullable": false,
+        "referenceName": "ReplicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replication role of the cluster",
       "jsonName": "role",
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationRole"
+        "nullable": false,
+        "referenceName": "ReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id the source cluster for the replica cluster.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

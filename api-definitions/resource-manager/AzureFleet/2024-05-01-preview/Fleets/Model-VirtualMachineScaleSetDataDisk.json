@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the caching requirements. Possible values are: **None,**\n**ReadOnly,** **ReadWrite.** The default values are: **None for Standard\nstorage. ReadOnly for Premium storage.**",
       "jsonName": "caching",
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The create option.",
       "jsonName": "createOption",
       "name": "CreateOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskCreateOptionTypes"
+        "nullable": false,
+        "referenceName": "DiskCreateOptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether data disk should be deleted or detached upon VMSS Flex\ndeletion (This feature is available for VMSS with Flexible OrchestrationMode\nonly).\u003cbr\u003e\u003cbr\u003e Possible values: \u003cbr\u003e\u003cbr\u003e **Delete** If this value is used, the\ndata disk is deleted when the VMSS Flex VM is deleted.\u003cbr\u003e\u003cbr\u003e **Detach** If\nthis value is used, the data disk is retained after VMSS Flex VM is\ndeleted.\u003cbr\u003e\u003cbr\u003e The default value is set to **Delete**.",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskDeleteOptionTypes"
+        "nullable": false,
+        "referenceName": "DiskDeleteOptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the Read-Write IOPS for the managed disk. Should be used only when\nStorageAccountType is UltraSSD_LRS. If not specified, a default value would be\nassigned based on diskSizeGB.",
       "jsonName": "diskIOPSReadWrite",
       "name": "DiskIOPSReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the bandwidth in MB per second for the managed disk. Should be used\nonly when StorageAccountType is UltraSSD_LRS. If not specified, a default value\nwould be assigned based on diskSizeGB.",
       "jsonName": "diskMBpsReadWrite",
       "name": "DiskMBpsReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the size of an empty data disk in gigabytes. This element can be used\nto overwrite the size of the disk in a virtual machine image. The property\ndiskSizeGB is the number of bytes x 1024^3 for the disk and the value cannot be\nlarger than 1023.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the logical unit number of the data disk. This value is used to\nidentify data disks within the VM and therefore must be unique for each data\ndisk attached to a VM.",
       "jsonName": "lun",
       "name": "Lun",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed disk parameters.",
       "jsonName": "managedDisk",
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

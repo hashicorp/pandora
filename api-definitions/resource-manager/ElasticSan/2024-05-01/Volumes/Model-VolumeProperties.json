@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the operation on the resource.",
       "jsonName": "creationData",
       "name": "CreationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceCreationData"
+        "nullable": false,
+        "referenceName": "SourceCreationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parent resource information.",
       "jsonName": "managedBy",
       "name": "ManagedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedByInfo"
+        "nullable": false,
+        "referenceName": "ManagedByInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the operation on the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStates"
+        "nullable": false,
+        "referenceName": "ProvisioningStates",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Volume size.",
       "jsonName": "sizeGiB",
       "name": "SizeGiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage target information",
       "jsonName": "storageTarget",
       "name": "StorageTarget",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IscsiTargetInfo"
+        "nullable": false,
+        "referenceName": "IscsiTargetInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Id of the volume in GUID format",
       "jsonName": "volumeId",
       "name": "VolumeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

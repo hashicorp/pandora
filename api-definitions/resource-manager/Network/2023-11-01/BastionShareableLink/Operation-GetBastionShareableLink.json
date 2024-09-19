@@ -1,6 +1,7 @@
 {
   "name": "GetBastionShareableLink",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "BastionHostId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BastionShareableLinkListRequest"
+    "nullable": false,
+    "referenceName": "BastionShareableLinkListRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BastionShareableLink"
+    "nullable": false,
+    "referenceName": "BastionShareableLink",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getShareableLinks"
 }

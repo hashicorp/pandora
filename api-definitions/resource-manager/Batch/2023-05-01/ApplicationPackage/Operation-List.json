@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ApplicationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationPackage"
+    "nullable": false,
+    "referenceName": "ApplicationPackage",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

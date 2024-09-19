@@ -1,6 +1,7 @@
 {
   "name": "ExternalCloudProviderUsage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "ExternalCloudProviderTypeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ForecastDefinition"
+    "nullable": false,
+    "referenceName": "ForecastDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ForecastResult"
+    "nullable": false,
+    "referenceName": "ForecastResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/forecast"
 }

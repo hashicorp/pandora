@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Location of the backend (IP address or FQDN)",
       "jsonName": "address",
       "name": "Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.",
       "jsonName": "backendHostHeader",
       "name": "BackendHostHeader",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendEnabledState"
+        "nullable": false,
+        "referenceName": "BackendEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTP TCP port number. Must be between 1 and 65535.",
       "jsonName": "httpPort",
       "name": "HTTPPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTPS TCP port number. Must be between 1 and 65535.",
       "jsonName": "httpsPort",
       "name": "HTTPSPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Approval status for the connection to the Private Link",
       "jsonName": "privateEndpointStatus",
       "name": "PrivateEndpointStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateEndpointStatus"
+        "nullable": false,
+        "referenceName": "PrivateEndpointStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
       "jsonName": "privateLinkAlias",
       "name": "PrivateLinkAlias",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A custom message to be included in the approval request to connect to the Private Link",
       "jsonName": "privateLinkApprovalMessage",
       "name": "PrivateLinkApprovalMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated",
       "jsonName": "privateLinkLocation",
       "name": "PrivateLinkLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
       "jsonName": "privateLinkResourceId",
       "name": "PrivateLinkResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +179,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Weight of this endpoint for load balancing purposes.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

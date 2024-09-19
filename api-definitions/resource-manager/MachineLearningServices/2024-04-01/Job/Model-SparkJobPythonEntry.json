@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Relative python file path for job entry point.",
       "jsonName": "file",
       "name": "File",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SparkJobEntry",
   "discriminatedTypeValue": "SparkJobPythonEntry",
   "typeHintIn": "SparkJobEntryType"

@@ -1,6 +1,7 @@
 {
   "name": "RegionalCheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityParameters"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NameAvailabilityStatus"
+    "nullable": false,
+    "referenceName": "NameAvailabilityStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkNameAvailability"
 }

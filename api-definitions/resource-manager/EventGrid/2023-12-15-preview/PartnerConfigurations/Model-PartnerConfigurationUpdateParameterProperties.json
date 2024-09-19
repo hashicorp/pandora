@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default time used to validate the maximum expiration time for each authorized partners in days. Allowed values ar between 1 and 365 days.",
       "jsonName": "defaultMaximumExpirationTimeInDays",
       "name": "DefaultMaximumExpirationTimeInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

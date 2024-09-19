@@ -1,6 +1,7 @@
 {
   "name": "Reset",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "VpnGatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnGateway"
+    "nullable": false,
+    "referenceName": "VpnGateway",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reset"
 }

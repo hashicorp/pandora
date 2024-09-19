@@ -7,7 +7,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AsyncOperationId"
+        "nullable": false,
+        "referenceName": "AsyncOperationId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Installation state",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallationState"
+        "nullable": false,
+        "referenceName": "InstallationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

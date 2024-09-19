@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines a point on the timeline of the input media at which processing will end. Defaults to the end of the input media.",
       "jsonName": "end",
       "name": "End",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClipTime"
+        "nullable": false,
+        "referenceName": "ClipTime",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of files. Required for JobInputHttp. Maximum of 4000 characters each. Query strings will not be returned in service responses to prevent sensitive data exposure.",
       "jsonName": "files",
       "name": "Files",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines a list of InputDefinitions. For each InputDefinition, it defines a list of track selections and related metadata.",
       "jsonName": "inputDefinitions",
       "name": "InputDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InputDefinition"
+          "nullable": false,
+          "referenceName": "InputDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A label that is assigned to a JobInputClip, that is used to satisfy a reference used in the Transform. For example, a Transform can be authored so as to take an image file with the label 'xyz' and apply it as an overlay onto the input video before it is encoded. When submitting a Job, exactly one of the JobInputs should be the image file, and it should have the label 'xyz'.",
       "jsonName": "label",
       "name": "Label",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines a point on the timeline of the input media at which processing will start. Defaults to the beginning of the input media.",
       "jsonName": "start",
       "name": "Start",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClipTime"
+        "nullable": false,
+        "referenceName": "ClipTime",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -75,6 +94,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobInput",
   "discriminatedTypeValue": "#Microsoft.Media.JobInputClip",
   "typeHintIn": "OdataType"

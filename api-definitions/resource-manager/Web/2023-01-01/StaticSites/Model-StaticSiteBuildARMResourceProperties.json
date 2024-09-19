@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An identifier for the static site build.",
       "jsonName": "buildId",
       "name": "BuildId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When this build was created.",
       "jsonName": "createdTimeUtc",
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database connections for the static site build",
       "jsonName": "databaseConnections",
       "name": "DatabaseConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseConnectionOverview"
+          "nullable": false,
+          "referenceName": "DatabaseConnectionOverview",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,11 +58,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hostname for a static site build.",
       "jsonName": "hostname",
       "name": "Hostname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,11 +75,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When this build was updated.",
       "jsonName": "lastUpdatedOn",
       "name": "LastUpdatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backends linked to the static side build",
       "jsonName": "linkedBackends",
       "name": "LinkedBackends",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteLinkedBackend"
+          "nullable": false,
+          "referenceName": "StaticSiteLinkedBackend",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The title of a pull request that a static site build is related to.",
       "jsonName": "pullRequestTitle",
       "name": "PullRequestTitle",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -104,11 +129,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source branch.",
       "jsonName": "sourceBranch",
       "name": "SourceBranch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the static site build.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BuildStatus"
+        "nullable": false,
+        "referenceName": "BuildStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,14 +161,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User provided function apps registered with the static site build",
       "jsonName": "userProvidedFunctionApps",
       "name": "UserProvidedFunctionApps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteUserProvidedFunctionApp"
+          "nullable": false,
+          "referenceName": "StaticSiteUserProvidedFunctionApp",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,5 +181,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

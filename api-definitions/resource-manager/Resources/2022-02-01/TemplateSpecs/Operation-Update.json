@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "TemplateSpecId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TemplateSpecUpdateModel"
+    "nullable": false,
+    "referenceName": "TemplateSpecUpdateModel",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TemplateSpec"
+    "nullable": false,
+    "referenceName": "TemplateSpec",
+    "referenceNameIsCommonType": null
   }
 }

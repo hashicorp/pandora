@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Candidate public key details",
       "jsonName": "candidatePublicKey",
       "name": "CandidatePublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyDetails"
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current public key details",
       "jsonName": "clientPublicKey",
       "name": "ClientPublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyDetails"
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "contactEmails",
       "name": "ContactEmails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "contactGroups",
       "name": "ContactGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "contactRoles",
       "name": "ContactRoles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The notification is enabled or not.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).\n\n Supported for CategoryType(s): ReservationUtilization.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Frequency"
+        "nullable": false,
+        "referenceName": "Frequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Language in which the recipient will receive the notification, \n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "locale",
       "name": "Locale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CultureCode"
+        "nullable": false,
+        "referenceName": "CultureCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The comparison operator.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n Supported operators for **CategoryType: Cost**\n- GreaterThan\n- GreaterThanOrEqualTo\n\n Supported operators for **CategoryType: ReservationUtilization**\n- LessThan",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetNotificationOperatorType"
+        "nullable": false,
+        "referenceName": "BudgetNotificationOperatorType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.\n\n **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,16 +149,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of threshold.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "thresholdType",
       "name": "ThresholdType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThresholdType"
+        "nullable": false,
+        "referenceName": "ThresholdType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

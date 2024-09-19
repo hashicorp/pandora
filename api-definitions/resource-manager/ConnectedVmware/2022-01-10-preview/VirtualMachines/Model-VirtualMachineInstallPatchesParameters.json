@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input for InstallPatches on a Linux VM, as directly received by the API",
       "jsonName": "linuxParameters",
       "name": "LinuxParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxParameters"
+        "nullable": false,
+        "referenceName": "LinuxParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the maximum amount of time that the operation will run. It must be an ISO 8601-compliant duration string such as PT4H (4 hours)",
       "jsonName": "maximumDuration",
       "name": "MaximumDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines when it is acceptable to reboot a VM during a software update operation.",
       "jsonName": "rebootSetting",
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMGuestPatchRebootSetting"
+        "nullable": false,
+        "referenceName": "VMGuestPatchRebootSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Input for InstallPatches on a Windows VM, as directly received by the API",
       "jsonName": "windowsParameters",
       "name": "WindowsParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsParameters"
+        "nullable": false,
+        "referenceName": "WindowsParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

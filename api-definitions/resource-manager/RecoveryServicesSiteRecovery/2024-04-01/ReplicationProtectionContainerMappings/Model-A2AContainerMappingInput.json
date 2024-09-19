@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the auto update is enabled.",
       "jsonName": "agentAutoUpdateStatus",
       "name": "AgentAutoUpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentAutoUpdateStatus"
+        "nullable": false,
+        "referenceName": "AgentAutoUpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The automation account arm id.",
       "jsonName": "automationAccountArmId",
       "name": "AutomationAccountArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating the type authentication to use for automation Account.",
       "jsonName": "automationAccountAuthenticationType",
       "name": "AutomationAccountAuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationAccountAuthenticationType"
+        "nullable": false,
+        "referenceName": "AutomationAccountAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificContainerMappingInput",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

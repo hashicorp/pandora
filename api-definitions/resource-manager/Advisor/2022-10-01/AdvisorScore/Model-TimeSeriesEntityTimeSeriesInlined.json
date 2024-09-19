@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The aggregation level of the score. ",
       "jsonName": "aggregationLevel",
       "name": "AggregationLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Aggregated"
+        "nullable": false,
+        "referenceName": "Aggregated",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The past score data",
       "jsonName": "scoreHistory",
       "name": "ScoreHistory",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScoreEntity"
+          "nullable": false,
+          "referenceName": "ScoreEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

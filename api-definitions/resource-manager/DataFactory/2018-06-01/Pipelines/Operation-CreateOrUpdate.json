@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "PipelineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PipelineResource"
+    "nullable": false,
+    "referenceName": "PipelineResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PipelineResource"
+    "nullable": false,
+    "referenceName": "PipelineResource",
+    "referenceNameIsCommonType": null
   }
 }

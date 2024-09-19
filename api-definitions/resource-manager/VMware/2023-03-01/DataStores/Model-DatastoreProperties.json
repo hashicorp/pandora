@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An iSCSI volume",
       "jsonName": "diskPoolVolume",
       "name": "DiskPoolVolume",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskPoolVolume"
+        "nullable": false,
+        "referenceName": "DiskPoolVolume",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An Azure NetApp Files volume",
       "jsonName": "netAppVolume",
       "name": "NetAppVolume",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetAppVolume"
+        "nullable": false,
+        "referenceName": "NetAppVolume",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the datastore provisioning",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreProvisioningState"
+        "nullable": false,
+        "referenceName": "DatastoreProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operational status of the datastore",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreStatus"
+        "nullable": false,
+        "referenceName": "DatastoreStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

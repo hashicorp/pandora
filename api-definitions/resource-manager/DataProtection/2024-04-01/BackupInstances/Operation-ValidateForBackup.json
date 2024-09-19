@@ -1,6 +1,7 @@
 {
   "name": "ValidateForBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BackupVaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ValidateForBackupRequest"
+    "nullable": false,
+    "referenceName": "ValidateForBackupRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationJobExtendedInfo"
+    "nullable": false,
+    "referenceName": "OperationJobExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateForBackup"
 }

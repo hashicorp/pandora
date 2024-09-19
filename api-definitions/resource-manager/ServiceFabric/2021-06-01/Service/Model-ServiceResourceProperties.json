@@ -7,10 +7,14 @@
       "name": "CorrelationScheme",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceCorrelationDescription"
+          "nullable": false,
+          "referenceName": "ServiceCorrelationDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "DefaultMoveCost",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MoveCost"
+        "nullable": false,
+        "referenceName": "MoveCost",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "PartitionDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartitionSchemeDescription"
+        "nullable": false,
+        "referenceName": "PartitionSchemeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +54,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following: \"NodeColor == blue)\".",
       "jsonName": "placementConstraints",
       "name": "PlacementConstraints",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +70,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current deployment or provisioning state, which only appears in the response",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +86,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dns name used for the service. If this is specified, then the service can be accessed via its DNS name instead of service name.",
       "jsonName": "serviceDnsName",
       "name": "ServiceDnsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +106,9 @@
       "name": "ServiceKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceKind"
+        "nullable": false,
+        "referenceName": "ServiceKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,10 +121,14 @@
       "name": "ServiceLoadMetrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceLoadMetricDescription"
+          "nullable": false,
+          "referenceName": "ServiceLoadMetricDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activation Mode of the service package",
       "jsonName": "servicePackageActivationMode",
       "name": "ServicePackageActivationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArmServicePackageActivationMode"
+        "nullable": false,
+        "referenceName": "ArmServicePackageActivationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,10 +158,14 @@
       "name": "ServicePlacementPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServicePlacementPolicyDescription"
+          "nullable": false,
+          "referenceName": "ServicePlacementPolicyDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the service type",
       "jsonName": "serviceTypeName",
       "name": "ServiceTypeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,5 +190,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ServiceKind"
 }

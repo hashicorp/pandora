@@ -1,6 +1,7 @@
 {
   "name": "KubernetesClustersUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "KubernetesClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "KubernetesClusterPatchParameters"
+    "nullable": false,
+    "referenceName": "KubernetesClusterPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "KubernetesCluster"
+    "nullable": false,
+    "referenceName": "KubernetesCluster",
+    "referenceNameIsCommonType": null
   }
 }

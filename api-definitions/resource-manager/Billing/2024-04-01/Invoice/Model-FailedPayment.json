@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The date when the payment was attempted.",
       "jsonName": "date",
       "name": "Date",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason that the payment failed.",
       "jsonName": "failedPaymentReason",
       "name": "FailedPaymentReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailedPaymentReason"
+        "nullable": false,
+        "referenceName": "FailedPaymentReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceProductGroupLinkCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ProductGroupLinkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProductGroupLinkContract"
+    "nullable": false,
+    "referenceName": "ProductGroupLinkContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductGroupLinkContract"
+    "nullable": false,
+    "referenceName": "ProductGroupLinkContract",
+    "referenceNameIsCommonType": null
   }
 }

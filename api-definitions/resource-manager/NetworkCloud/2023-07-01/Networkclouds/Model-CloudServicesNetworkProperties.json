@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.",
       "jsonName": "additionalEgressEndpoints",
       "name": "AdditionalEgressEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EgressEndpoint"
+          "nullable": false,
+          "referenceName": "EgressEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.",
       "jsonName": "associatedResourceIds",
       "name": "AssociatedResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the Network Cloud cluster this cloud services network is associated with.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The more detailed status of the cloud services network.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServicesNetworkDetailedStatus"
+        "nullable": false,
+        "referenceName": "CloudServicesNetworkDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator of whether the platform default endpoints are allowed for the egress traffic.",
       "jsonName": "enableDefaultEgressEndpoints",
       "name": "EnableDefaultEgressEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints"
+        "nullable": false,
+        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The full list of additional and default egress endpoints that are currently enabled.",
       "jsonName": "enabledEgressEndpoints",
       "name": "EnabledEgressEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EgressEndpoint"
+          "nullable": false,
+          "referenceName": "EgressEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.",
       "jsonName": "hybridAksClustersAssociatedIds",
       "name": "HybridAksClustersAssociatedIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the interface that will be present in the virtual machine to represent this network.",
       "jsonName": "interfaceName",
       "name": "InterfaceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the cloud services network.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServicesNetworkProvisioningState"
+        "nullable": false,
+        "referenceName": "CloudServicesNetworkProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,14 +187,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.",
       "jsonName": "virtualMachinesAssociatedIds",
       "name": "VirtualMachinesAssociatedIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -164,5 +207,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

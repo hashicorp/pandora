@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health policy used by default to evaluate the health of a service type.",
       "jsonName": "defaultServiceTypeHealthPolicy",
       "name": "DefaultServiceTypeHealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceTypeHealthPolicy"
+        "nullable": false,
+        "referenceName": "ServiceTypeHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The map with service type health policy per service type name. The map is empty by default.",
       "jsonName": "serviceTypeHealthPolicies",
       "name": "ServiceTypeHealthPolicies",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceTypeHealthPolicy"
+          "nullable": false,
+          "referenceName": "ServiceTypeHealthPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

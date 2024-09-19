@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of time a VM will stay running after a user disconnects if this behavior is enabled.",
       "jsonName": "disconnectDelay",
       "name": "DisconnectDelay",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of time a VM will idle before it is shutdown if this behavior is enabled.",
       "jsonName": "idleDelay",
       "name": "IdleDelay",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of time a VM will stay running before it is shutdown if no connection is made and this behavior is enabled.",
       "jsonName": "noConnectDelay",
       "name": "NoConnectDelay",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "ShutdownOnDisconnect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableState"
+        "nullable": false,
+        "referenceName": "EnableState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "ShutdownOnIdle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShutdownOnIdleMode"
+        "nullable": false,
+        "referenceName": "ShutdownOnIdleMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +85,15 @@
       "name": "ShutdownWhenNotConnected",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableState"
+        "nullable": false,
+        "referenceName": "EnableState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

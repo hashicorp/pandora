@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Company details.",
       "jsonName": "companyDetails",
       "name": "CompanyDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompanyDetails"
+        "nullable": false,
+        "referenceName": "CompanyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Informatica Organization properties.",
       "jsonName": "informaticaProperties",
       "name": "InformaticaProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InformaticaProperties"
+        "nullable": false,
+        "referenceName": "InformaticaProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link Organization",
       "jsonName": "linkOrganization",
       "name": "LinkOrganization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkOrganization"
+        "nullable": false,
+        "referenceName": "LinkOrganization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Marketplace details.",
       "jsonName": "marketplaceDetails",
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetails"
+        "nullable": false,
+        "referenceName": "MarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User details",
       "jsonName": "userDetails",
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserDetails"
+        "nullable": false,
+        "referenceName": "UserDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

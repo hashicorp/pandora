@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Specifies how the service is partitioned.",
       "jsonName": "partitionScheme",
       "name": "PartitionScheme",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartitionScheme"
+        "nullable": false,
+        "referenceName": "PartitionScheme",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "PartitionScheme"
 }

@@ -1,6 +1,7 @@
 {
   "name": "TatusGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ScopedQuotaRequestId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QuotaRequestDetails"
+    "nullable": false,
+    "referenceName": "QuotaRequestDetails",
+    "referenceNameIsCommonType": null
   }
 }

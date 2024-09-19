@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "ProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProductUpdateParameters"
+    "nullable": false,
+    "referenceName": "ProductUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductContract"
+    "nullable": false,
+    "referenceName": "ProductContract",
+    "referenceNameIsCommonType": null
   }
 }

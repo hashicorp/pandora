@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
       "jsonName": "autoUpgradeMinorVersion",
       "name": "AutoUpgradeMinorVersion",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.",
       "jsonName": "enableAutomaticUpgrade",
       "name": "EnableAutomaticUpgrade",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How the extension handler should be forced to update even if the extension configuration has not changed.",
       "jsonName": "forceUpdateTag",
       "name": "ForceUpdateTag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineExtensionInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineExtensionInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.",
       "jsonName": "protectedSettings",
       "name": "ProtectedSettings",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +86,9 @@
       "name": "ProtectedSettingsFromKeyVault",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultSecretReference"
+        "nullable": false,
+        "referenceName": "KeyVaultSecretReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +97,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of extension names after which this extension needs to be provisioned.",
       "jsonName": "provisionAfterExtensions",
       "name": "ProvisionAfterExtensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the extension handler publisher.",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Json formatted public settings for the extension.",
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +167,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.",
       "jsonName": "suppressFailures",
       "name": "SuppressFailures",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +183,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\".",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,16 +199,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the version of the script handler.",
       "jsonName": "typeHandlerVersion",
       "name": "TypeHandlerVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

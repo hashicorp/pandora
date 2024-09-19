@@ -1,6 +1,7 @@
 {
   "name": "UpdateSegments",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SegmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkSegment"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkSegment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkSegment"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkSegment",
+    "referenceNameIsCommonType": null
   }
 }

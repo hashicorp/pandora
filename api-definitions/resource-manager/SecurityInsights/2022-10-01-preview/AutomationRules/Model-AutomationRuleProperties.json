@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The actions to execute when the automation rule is triggered.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRuleAction"
+          "nullable": false,
+          "referenceName": "AutomationRuleAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +29,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientInfo"
+        "nullable": false,
+        "referenceName": "ClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +41,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the automation rule was created.",
       "jsonName": "createdTimeUtc",
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the automation rule.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -64,7 +77,9 @@
       "name": "LastModifiedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientInfo"
+        "nullable": false,
+        "referenceName": "ClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +89,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time the automation rule was updated.",
       "jsonName": "lastModifiedTimeUtc",
       "name": "LastModifiedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The order of execution of the automation rule.",
       "jsonName": "order",
       "name": "Order",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -104,12 +125,15 @@
       "name": "TriggeringLogic",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRuleTriggeringLogic"
+        "nullable": false,
+        "referenceName": "AutomationRuleTriggeringLogic",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

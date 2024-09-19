@@ -7,7 +7,9 @@
       "name": "LinkedServiceName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Activity policy.",
       "jsonName": "policy",
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivityPolicy"
+        "nullable": false,
+        "referenceName": "ActivityPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HDInsight streaming activity properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HDInsightStreamingActivityTypeProperties"
+        "nullable": false,
+        "referenceName": "HDInsightStreamingActivityTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +49,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Activity",
   "discriminatedTypeValue": "HDInsightStreaming",
   "typeHintIn": "Type"

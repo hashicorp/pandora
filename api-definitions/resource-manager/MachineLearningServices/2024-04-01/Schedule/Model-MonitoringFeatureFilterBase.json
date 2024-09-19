@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.",
       "jsonName": "filterType",
       "name": "FilterType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringFeatureFilterType"
+        "nullable": false,
+        "referenceName": "MonitoringFeatureFilterType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "FilterType"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BatchEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartialMinimalTrackedResourceWithIdentity"
+    "nullable": false,
+    "referenceName": "PartialMinimalTrackedResourceWithIdentity",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BatchEndpointTrackedResource"
+    "nullable": false,
+    "referenceName": "BatchEndpointTrackedResource",
+    "referenceNameIsCommonType": null
   }
 }

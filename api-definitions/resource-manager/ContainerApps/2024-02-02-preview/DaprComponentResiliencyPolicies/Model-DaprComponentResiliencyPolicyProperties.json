@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The optional inbound component resiliency policy configuration",
       "jsonName": "inboundPolicy",
       "name": "InboundPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The optional outbound component resiliency policy configuration",
       "jsonName": "outboundPolicy",
       "name": "OutboundPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprComponentResiliencyPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "DaprComponentResiliencyPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatabaseAdvancedThreatProtection"
+    "nullable": false,
+    "referenceName": "DatabaseAdvancedThreatProtection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabaseAdvancedThreatProtection"
+    "nullable": false,
+    "referenceName": "DatabaseAdvancedThreatProtection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/advancedThreatProtectionSettings/default"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.",
       "jsonName": "deadLetterDestination",
       "name": "DeadLetterDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterDestination"
+        "nullable": false,
+        "referenceName": "DeadLetterDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity to use when dead-lettering events.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionIdentity"
+        "nullable": false,
+        "referenceName": "EventSubscriptionIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The contact details.",
       "jsonName": "contactInformation",
       "name": "ContactInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContactDetails"
+        "nullable": false,
+        "referenceName": "ContactDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current status of the order.",
       "jsonName": "currentStatus",
       "name": "CurrentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrderStatus"
+        "nullable": false,
+        "referenceName": "OrderStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tracking information for the package delivered to the customer whether it has an original or a replacement device.",
       "jsonName": "deliveryTrackingInfo",
       "name": "DeliveryTrackingInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackingInfo"
+          "nullable": false,
+          "referenceName": "TrackingInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of status changes in the order.",
       "jsonName": "orderHistory",
       "name": "OrderHistory",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OrderStatus"
+          "nullable": false,
+          "referenceName": "OrderStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "It specify the order resource id.",
       "jsonName": "orderId",
       "name": "OrderId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tracking information for the package returned from the customer whether it has an original or a replacement device.",
       "jsonName": "returnTrackingInfo",
       "name": "ReturnTrackingInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackingInfo"
+          "nullable": false,
+          "referenceName": "TrackingInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Serial number of the device.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ShipmentType of the order",
       "jsonName": "shipmentType",
       "name": "ShipmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShipmentType"
+        "nullable": false,
+        "referenceName": "ShipmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,16 +149,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The shipping address.",
       "jsonName": "shippingAddress",
       "name": "ShippingAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Address"
+        "nullable": false,
+        "referenceName": "Address",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

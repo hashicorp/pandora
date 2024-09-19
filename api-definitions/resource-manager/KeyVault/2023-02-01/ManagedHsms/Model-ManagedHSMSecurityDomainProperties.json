@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Activation Status",
       "jsonName": "activationStatus",
       "name": "ActivationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivationStatus"
+        "nullable": false,
+        "referenceName": "ActivationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Activation Status Message.",
       "jsonName": "activationStatusMessage",
       "name": "ActivationStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

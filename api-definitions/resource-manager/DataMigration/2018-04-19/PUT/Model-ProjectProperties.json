@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "UTC Date and time when project was created",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,14 +20,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of DatabaseInfo",
       "jsonName": "databasesInfo",
       "name": "DatabasesInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseInfo"
+          "nullable": false,
+          "referenceName": "DatabaseInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,11 +42,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The project's provisioning state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProjectProvisioningState"
+        "nullable": false,
+        "referenceName": "ProjectProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +62,9 @@
       "name": "SourceConnectionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionInfo"
+        "nullable": false,
+        "referenceName": "ConnectionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +77,9 @@
       "name": "SourcePlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProjectSourcePlatform"
+        "nullable": false,
+        "referenceName": "ProjectSourcePlatform",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -77,7 +92,9 @@
       "name": "TargetConnectionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionInfo"
+        "nullable": false,
+        "referenceName": "ConnectionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,12 +107,15 @@
       "name": "TargetPlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProjectTargetPlatform"
+        "nullable": false,
+        "referenceName": "ProjectTargetPlatform",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

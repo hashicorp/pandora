@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.",
       "jsonName": "notificationChannel",
       "name": "NotificationChannel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationChannel"
+        "nullable": false,
+        "referenceName": "NotificationChannel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of targets that subscribe to the notification.",
       "jsonName": "receivers",
       "name": "Receivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -31,5 +39,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

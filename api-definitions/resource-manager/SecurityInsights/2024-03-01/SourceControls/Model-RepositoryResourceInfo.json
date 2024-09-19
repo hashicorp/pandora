@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resources created in Azure DevOps for this source-control.",
       "jsonName": "azureDevOpsResourceInfo",
       "name": "AzureDevOpsResourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDevOpsResourceInfo"
+        "nullable": false,
+        "referenceName": "AzureDevOpsResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resources created in GitHub for this source-control.",
       "jsonName": "gitHubResourceInfo",
       "name": "GitHubResourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubResourceInfo"
+        "nullable": false,
+        "referenceName": "GitHubResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The webhook object created for the source-control.",
       "jsonName": "webhook",
       "name": "Webhook",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Webhook"
+        "nullable": false,
+        "referenceName": "Webhook",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

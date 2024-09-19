@@ -1,6 +1,7 @@
 {
   "name": "CapacitiesListSkus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SkuEnumerationForNewResourceResult"
+    "nullable": false,
+    "referenceName": "SkuEnumerationForNewResourceResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.PowerBIDedicated/skus"
 }

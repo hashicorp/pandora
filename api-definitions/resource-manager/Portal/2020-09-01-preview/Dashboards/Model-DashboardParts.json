@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dashboard part's metadata.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashboardPartMetadata"
+        "nullable": false,
+        "referenceName": "DashboardPartMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dashboard's part position.",
       "jsonName": "position",
       "name": "Position",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashboardPartsPosition"
+        "nullable": false,
+        "referenceName": "DashboardPartsPosition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

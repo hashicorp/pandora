@@ -7,7 +7,9 @@
       "name": "ActiveImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate",
       "jsonName": "hibernateSupport",
       "name": "HibernateSupport",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HibernateSupport"
+        "nullable": false,
+        "referenceName": "HibernateSupport",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +38,9 @@
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +53,9 @@
       "name": "ImageValidationErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageValidationErrorDetails"
+        "nullable": false,
+        "referenceName": "ImageValidationErrorDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +68,9 @@
       "name": "ImageValidationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageValidationStatus"
+        "nullable": false,
+        "referenceName": "ImageValidationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage type used for the Operating System disk of Dev Boxes created using this definition.",
       "jsonName": "osStorageType",
       "name": "OsStorageType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +99,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +114,15 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

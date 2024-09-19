@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the operation refers to the primary or secondary key.",
       "jsonName": "keyType",
       "name": "KeyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyType"
+        "nullable": false,
+        "referenceName": "KeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

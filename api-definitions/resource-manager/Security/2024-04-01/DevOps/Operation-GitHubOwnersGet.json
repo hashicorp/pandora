@@ -1,6 +1,7 @@
 {
   "name": "GitHubOwnersGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "GitHubOwnerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GitHubOwner"
+    "nullable": false,
+    "referenceName": "GitHubOwner",
+    "referenceNameIsCommonType": null
   }
 }

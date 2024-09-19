@@ -1,6 +1,7 @@
 {
   "name": "ListByReplicationProtectionContainers",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ReplicationProtectionContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectableItem"
+    "nullable": false,
+    "referenceName": "ProtectableItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/replicationProtectableItems"
 }

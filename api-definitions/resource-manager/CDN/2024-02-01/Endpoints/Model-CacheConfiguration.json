@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Caching behavior for the requests",
       "jsonName": "cacheBehavior",
       "name": "CacheBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleCacheBehavior"
+        "nullable": false,
+        "referenceName": "RuleCacheBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss",
       "jsonName": "cacheDuration",
       "name": "CacheDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether content compression is enabled. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on AzureFrontDoor when requested content is smaller than 1 byte or larger than 1 MB.",
       "jsonName": "isCompressionEnabled",
       "name": "IsCompressionEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleIsCompressionEnabled"
+        "nullable": false,
+        "referenceName": "RuleIsCompressionEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "query parameters to include or exclude (comma separated).",
       "jsonName": "queryParameters",
       "name": "QueryParameters",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.",
       "jsonName": "queryStringCachingBehavior",
       "name": "QueryStringCachingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleQueryStringCachingBehavior"
+        "nullable": false,
+        "referenceName": "RuleQueryStringCachingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

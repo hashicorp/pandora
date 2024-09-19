@@ -1,6 +1,7 @@
 {
   "name": "SubnetsPrepareNetworkPolicies",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SubnetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrepareNetworkPoliciesRequest"
+    "nullable": false,
+    "referenceName": "PrepareNetworkPoliciesRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/prepareNetworkPolicies"
 }

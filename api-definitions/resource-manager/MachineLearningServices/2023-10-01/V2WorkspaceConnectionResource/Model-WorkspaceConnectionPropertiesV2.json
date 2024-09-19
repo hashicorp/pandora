@@ -7,7 +7,9 @@
       "name": "AuthType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionAuthType"
+        "nullable": false,
+        "referenceName": "ConnectionAuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionCategory"
+        "nullable": false,
+        "referenceName": "ConnectionCategory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Target",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value details of the workspace connection.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +64,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "format for the workspace connection value",
       "jsonName": "valueFormat",
       "name": "ValueFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValueFormat"
+        "nullable": false,
+        "referenceName": "ValueFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,5 +79,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "AuthType"
 }

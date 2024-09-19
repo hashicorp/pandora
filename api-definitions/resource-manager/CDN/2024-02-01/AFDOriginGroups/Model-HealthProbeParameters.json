@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of seconds between health probes.Default is 240sec.",
       "jsonName": "probeIntervalInSeconds",
       "name": "ProbeIntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The path relative to the origin that is used to determine the health of the origin.",
       "jsonName": "probePath",
       "name": "ProbePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol to use for health probe.",
       "jsonName": "probeProtocol",
       "name": "ProbeProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProbeProtocol"
+        "nullable": false,
+        "referenceName": "ProbeProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of health probe request that is made.",
       "jsonName": "probeRequestType",
       "name": "ProbeRequestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthProbeRequestType"
+        "nullable": false,
+        "referenceName": "HealthProbeRequestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

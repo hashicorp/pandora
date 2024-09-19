@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether the users in customer's organization can view charges at pay-as-you-go prices.",
       "jsonName": "viewCharges",
       "name": "ViewCharges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ViewCharges"
+        "nullable": false,
+        "referenceName": "ViewCharges",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

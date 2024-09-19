@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub Action code configuration.",
       "jsonName": "codeConfiguration",
       "name": "CodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionCodeConfiguration"
+        "nullable": false,
+        "referenceName": "GitHubActionCodeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GitHub Action container configuration.",
       "jsonName": "containerConfiguration",
       "name": "ContainerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionContainerConfiguration"
+        "nullable": false,
+        "referenceName": "GitHubActionContainerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workflow option to determine whether the workflow file should be generated and written to the repository.",
       "jsonName": "generateWorkflowFile",
       "name": "GenerateWorkflowFile",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This will help determine the workflow configuration to select.",
       "jsonName": "isLinux",
       "name": "IsLinux",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cni configuration",
       "jsonName": "cniConfig",
       "name": "CniConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CniConfig"
+        "nullable": false,
+        "referenceName": "CniConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Load balancer configuration",
       "jsonName": "loadBalancerConfig",
       "name": "LoadBalancerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerConfig"
+        "nullable": false,
+        "referenceName": "LoadBalancerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

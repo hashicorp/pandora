@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The invoice id for the volume license.",
       "jsonName": "invoiceId",
       "name": "InvoiceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the program year the volume license is for.",
       "jsonName": "programYear",
       "name": "ProgramYear",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProgramYear"
+        "nullable": false,
+        "referenceName": "ProgramYear",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

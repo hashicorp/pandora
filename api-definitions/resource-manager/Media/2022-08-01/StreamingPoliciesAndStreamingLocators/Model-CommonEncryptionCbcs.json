@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional configuration supporting ClearKey in CommonEncryptionCbcs encryption scheme.",
       "jsonName": "clearKeyEncryptionConfiguration",
       "name": "ClearKeyEncryptionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClearKeyEncryptionConfiguration"
+        "nullable": false,
+        "referenceName": "ClearKeyEncryptionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Representing which tracks should not be encrypted",
       "jsonName": "clearTracks",
       "name": "ClearTracks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackSelection"
+          "nullable": false,
+          "referenceName": "TrackSelection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Representing default content key for each encryption scheme and separate content keys for specific tracks",
       "jsonName": "contentKeys",
       "name": "ContentKeys",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingPolicyContentKeys"
+        "nullable": false,
+        "referenceName": "StreamingPolicyContentKeys",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration of DRMs for current encryption scheme",
       "jsonName": "drm",
       "name": "Drm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CbcsDrmConfiguration"
+        "nullable": false,
+        "referenceName": "CbcsDrmConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Representing supported protocols",
       "jsonName": "enabledProtocols",
       "name": "EnabledProtocols",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledProtocols"
+        "nullable": false,
+        "referenceName": "EnabledProtocols",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

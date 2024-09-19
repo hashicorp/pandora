@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notes for this schedule.",
       "jsonName": "notes",
       "name": "Notes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recurrence pattern of the scheduled actions.",
       "jsonName": "recurrencePattern",
       "name": "RecurrencePattern",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrencePattern"
+        "nullable": false,
+        "referenceName": "RecurrencePattern",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.",
       "jsonName": "startAt",
       "name": "StartAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.",
       "jsonName": "stopAt",
       "name": "StopAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,16 +69,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IANA timezone id for the schedule.",
       "jsonName": "timeZoneId",
       "name": "TimeZoneId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all customer specified DNS servers IP addresses.",
       "jsonName": "customDnsServers",
       "name": "CustomDnsServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.",
       "jsonName": "isRoutingPreferenceInternet",
       "name": "IsRoutingPreferenceInternet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all p2s connection configurations of the gateway.",
       "jsonName": "p2SConnectionConfigurations",
       "name": "P2SConnectionConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "P2SConnectionConfiguration"
+          "nullable": false,
+          "referenceName": "P2SConnectionConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +82,9 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +93,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "All P2S VPN clients' connection health status.",
       "jsonName": "vpnClientConnectionHealth",
       "name": "VpnClientConnectionHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnClientConnectionHealth"
+        "nullable": false,
+        "referenceName": "VpnClientConnectionHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +109,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scale unit for this p2s vpn gateway.",
       "jsonName": "vpnGatewayScaleUnit",
       "name": "VpnGatewayScaleUnit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,12 +129,15 @@
       "name": "VpnServerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

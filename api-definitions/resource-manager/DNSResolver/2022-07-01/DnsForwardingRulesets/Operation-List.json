@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DnsForwardingRuleset"
+    "nullable": false,
+    "referenceName": "DnsForwardingRuleset",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/dnsForwardingRulesets"
 }

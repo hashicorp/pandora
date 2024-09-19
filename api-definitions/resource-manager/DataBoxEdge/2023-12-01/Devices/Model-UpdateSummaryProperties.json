@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time when a scan was done on the device.",
       "jsonName": "deviceLastScannedDateTime",
       "name": "DeviceLastScannedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current version of the device in format: 1.2.17312.13.\",",
       "jsonName": "deviceVersionNumber",
       "name": "DeviceVersionNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current version of the device in text format.",
       "jsonName": "friendlyDeviceVersionName",
       "name": "FriendlyDeviceVersionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The job ID of the download job in progress.",
       "jsonName": "inProgressDownloadJobId",
       "name": "InProgressDownloadJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -57,11 +69,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the currently running download (if any) started.",
       "jsonName": "inProgressDownloadJobStartedDateTime",
       "name": "InProgressDownloadJobStartedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The job ID of the install job in progress.",
       "jsonName": "inProgressInstallJobId",
       "name": "InProgressInstallJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +102,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the currently running install (if any) started.",
       "jsonName": "inProgressInstallJobStartedDateTime",
       "name": "InProgressInstallJobStartedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +119,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the last Download job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedDownloadJobDateTime",
       "name": "LastCompletedDownloadJobDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +135,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JobId of the last ran download job.(Can be success/cancelled/failed)",
       "jsonName": "lastCompletedDownloadJobId",
       "name": "LastCompletedDownloadJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,11 +152,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the last Install job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedInstallJobDateTime",
       "name": "LastCompletedInstallJobDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,11 +168,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JobId of the last ran install job.(Can be success/cancelled/failed)",
       "jsonName": "lastCompletedInstallJobId",
       "name": "LastCompletedInstallJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,11 +185,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the last scan job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedScanJobDateTime",
       "name": "LastCompletedScanJobDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JobStatus of the last ran download job.",
       "jsonName": "lastDownloadJobStatus",
       "name": "LastDownloadJobStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobStatus"
+        "nullable": false,
+        "referenceName": "JobStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -178,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "JobStatus of the last ran install job.",
       "jsonName": "lastInstallJobStatus",
       "name": "LastInstallJobStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobStatus"
+        "nullable": false,
+        "referenceName": "JobStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,11 +234,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time when the Last Install job was completed successfully on the appliance",
       "jsonName": "lastSuccessfulInstallJobDateTime",
       "name": "LastSuccessfulInstallJobDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +251,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time when the last scan job is successfully completed.",
       "jsonName": "lastSuccessfulScanJobTime",
       "name": "LastSuccessfulScanJobTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current update operation.",
       "jsonName": "ongoingUpdateOperation",
       "name": "OngoingUpdateOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateOperation"
+        "nullable": false,
+        "referenceName": "UpdateOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if updates are available and at least one of the updates needs a reboot.",
       "jsonName": "rebootBehavior",
       "name": "RebootBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallRebootBehavior"
+        "nullable": false,
+        "referenceName": "InstallRebootBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of updates available for the current device version as per the last device scan.",
       "jsonName": "totalNumberOfUpdatesAvailable",
       "name": "TotalNumberOfUpdatesAvailable",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of items pending download.",
       "jsonName": "totalNumberOfUpdatesPendingDownload",
       "name": "TotalNumberOfUpdatesPendingDownload",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of items pending install.",
       "jsonName": "totalNumberOfUpdatesPendingInstall",
       "name": "TotalNumberOfUpdatesPendingInstall",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total time in Minutes",
       "jsonName": "totalTimeInMinutes",
       "name": "TotalTimeInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -297,11 +363,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total size of updates available for download in bytes.",
       "jsonName": "totalUpdateSizeInBytes",
       "name": "TotalUpdateSizeInBytes",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -310,14 +379,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of updates available for install.",
       "jsonName": "updateTitles",
       "name": "UpdateTitles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -327,14 +401,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of updates available for install.",
       "jsonName": "updates",
       "name": "Updates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateDetails"
+          "nullable": false,
+          "referenceName": "UpdateDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -342,5 +421,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

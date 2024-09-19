@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AS2 agreement content.",
       "jsonName": "aS2",
       "name": "AS2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AS2AgreementContent"
+        "nullable": false,
+        "referenceName": "AS2AgreementContent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT agreement content.",
       "jsonName": "edifact",
       "name": "Edifact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactAgreementContent"
+        "nullable": false,
+        "referenceName": "EdifactAgreementContent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 agreement content.",
       "jsonName": "x12",
       "name": "X12",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12AgreementContent"
+        "nullable": false,
+        "referenceName": "X12AgreementContent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetDataPlaneAccess",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "FactoryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UserAccessPolicy"
+    "nullable": false,
+    "referenceName": "UserAccessPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessPolicyResponse"
+    "nullable": false,
+    "referenceName": "AccessPolicyResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getDataPlaneAccess"
 }

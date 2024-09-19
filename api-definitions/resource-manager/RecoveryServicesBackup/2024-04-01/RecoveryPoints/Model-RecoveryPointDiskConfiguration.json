@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information of disks excluded from backup",
       "jsonName": "excludedDiskList",
       "name": "ExcludedDiskList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskInformation"
+          "nullable": false,
+          "referenceName": "DiskInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information of disks included in backup",
       "jsonName": "includedDiskList",
       "name": "IncludedDiskList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskInformation"
+          "nullable": false,
+          "referenceName": "DiskInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of disks attached to the VM",
       "jsonName": "numberOfDisksAttachedToVm",
       "name": "NumberOfDisksAttachedToVM",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of disks included in backup",
       "jsonName": "numberOfDisksIncludedInBackup",
       "name": "NumberOfDisksIncludedInBackup",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

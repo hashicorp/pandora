@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SqlVirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlVirtualMachineUpdate"
+    "nullable": false,
+    "referenceName": "SqlVirtualMachineUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlVirtualMachine"
+    "nullable": false,
+    "referenceName": "SqlVirtualMachine",
+    "referenceNameIsCommonType": null
   }
 }

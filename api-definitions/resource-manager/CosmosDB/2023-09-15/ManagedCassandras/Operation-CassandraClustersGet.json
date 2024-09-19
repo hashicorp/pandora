@@ -1,6 +1,7 @@
 {
   "name": "CassandraClustersGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "CassandraClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterResource"
+    "nullable": false,
+    "referenceName": "ClusterResource",
+    "referenceNameIsCommonType": null
   }
 }

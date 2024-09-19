@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "ResolverId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PolicyContract"
+    "nullable": false,
+    "referenceName": "PolicyContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/policies/policy"
 }

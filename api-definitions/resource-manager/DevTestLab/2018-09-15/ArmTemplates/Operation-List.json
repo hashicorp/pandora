@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ArtifactSourceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ArmTemplate"
+    "nullable": false,
+    "referenceName": "ArmTemplate",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/armTemplates"
 }

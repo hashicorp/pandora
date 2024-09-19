@@ -1,6 +1,7 @@
 {
   "name": "ProviderShareSubscriptionsGetByShare",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ProviderShareSubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProviderShareSubscription"
+    "nullable": false,
+    "referenceName": "ProviderShareSubscription",
+    "referenceNameIsCommonType": null
   }
 }

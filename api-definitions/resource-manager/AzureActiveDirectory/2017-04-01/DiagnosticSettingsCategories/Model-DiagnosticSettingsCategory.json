@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the diagnostic settings category.",
       "jsonName": "categoryType",
       "name": "CategoryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoryType"
+        "nullable": false,
+        "referenceName": "CategoryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

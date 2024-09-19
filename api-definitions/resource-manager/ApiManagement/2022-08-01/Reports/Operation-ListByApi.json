@@ -1,6 +1,7 @@
 {
   "name": "ListByApi",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReportRecordContract"
+    "nullable": false,
+    "referenceName": "ReportRecordContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reports/byApi"
 }

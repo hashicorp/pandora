@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Key Vault secret URIs which store the required credentials to access the SMB share.",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSmbCredentials"
+        "nullable": false,
+        "referenceName": "AzureKeyVaultSmbCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host name or IP address of the server exporting the file system.",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SMB share being exported from the server.",
       "jsonName": "shareName",
       "name": "ShareName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EndpointBaseProperties",
   "discriminatedTypeValue": "SmbMount",
   "typeHintIn": "EndpointType"

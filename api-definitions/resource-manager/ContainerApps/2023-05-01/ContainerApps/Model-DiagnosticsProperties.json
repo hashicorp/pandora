@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of data providers' metadata.",
       "jsonName": "dataProviderMetadata",
       "name": "DataProviderMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticDataProviderMetadata"
+        "nullable": false,
+        "referenceName": "DiagnosticDataProviderMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of data collections associated with the response.",
       "jsonName": "dataset",
       "name": "Dataset",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiagnosticsDataApiResponse"
+          "nullable": false,
+          "referenceName": "DiagnosticsDataApiResponse",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata of the diagnostics response.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsDefinition"
+        "nullable": false,
+        "referenceName": "DiagnosticsDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the diagnostics response.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsStatus"
+        "nullable": false,
+        "referenceName": "DiagnosticsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

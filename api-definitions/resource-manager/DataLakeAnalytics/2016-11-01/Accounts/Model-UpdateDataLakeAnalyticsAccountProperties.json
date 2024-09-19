@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of compute policies associated with this account.",
       "jsonName": "computePolicies",
       "name": "ComputePolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateComputePolicyWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateComputePolicyWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Data Lake Store accounts associated with this account.",
       "jsonName": "dataLakeStoreAccounts",
       "name": "DataLakeStoreAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateDataLakeStoreWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateDataLakeStoreWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.",
       "jsonName": "firewallAllowAzureIps",
       "name": "FirewallAllowAzureIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallAllowAzureIPsState"
+        "nullable": false,
+        "referenceName": "FirewallAllowAzureIPsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of firewall rules associated with this account.",
       "jsonName": "firewallRules",
       "name": "FirewallRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateFirewallRuleWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateFirewallRuleWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the IP address firewall for this account. Disabling the firewall does not remove existing rules, they will just be ignored until the firewall is re-enabled.",
       "jsonName": "firewallState",
       "name": "FirewallState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallState"
+        "nullable": false,
+        "referenceName": "FirewallState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum supported degree of parallelism for this account.",
       "jsonName": "maxDegreeOfParallelism",
       "name": "MaxDegreeOfParallelism",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum supported degree of parallelism per job for this account.",
       "jsonName": "maxDegreeOfParallelismPerJob",
       "name": "MaxDegreeOfParallelismPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum supported jobs running under the account at the same time.",
       "jsonName": "maxJobCount",
       "name": "MaxJobCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum supported priority per job for this account.",
       "jsonName": "minPriorityPerJob",
       "name": "MinPriorityPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The commitment tier to use for next month.",
       "jsonName": "newTier",
       "name": "NewTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TierType"
+        "nullable": false,
+        "referenceName": "TierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of days that job metadata is retained.",
       "jsonName": "queryStoreRetention",
       "name": "QueryStoreRetention",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,14 +197,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Azure Blob storage accounts associated with this account.",
       "jsonName": "storageAccounts",
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateStorageAccountWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateStorageAccountWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -173,5 +217,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

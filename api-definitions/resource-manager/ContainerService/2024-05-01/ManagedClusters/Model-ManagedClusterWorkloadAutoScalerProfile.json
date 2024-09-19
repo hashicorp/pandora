@@ -7,7 +7,9 @@
       "name": "Keda",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWorkloadAutoScalerProfileKeda"
+        "nullable": false,
+        "referenceName": "ManagedClusterWorkloadAutoScalerProfileKeda",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "VerticalPodAutoscaler",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscaler"
+        "nullable": false,
+        "referenceName": "ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscaler",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detail of Accelerator plugin",
       "jsonName": "applicationAccelerator",
       "name": "ApplicationAccelerator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevToolPortalFeatureDetail"
+        "nullable": false,
+        "referenceName": "DevToolPortalFeatureDetail",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detail of App Live View plugin",
       "jsonName": "applicationLiveView",
       "name": "ApplicationLiveView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevToolPortalFeatureDetail"
+        "nullable": false,
+        "referenceName": "DevToolPortalFeatureDetail",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

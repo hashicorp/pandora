@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the disk auto protection is enabled.",
       "jsonName": "diskAutoProtectionStatus",
       "name": "DiskAutoProtectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoProtectionOfDataDisk"
+        "nullable": false,
+        "referenceName": "AutoProtectionOfDataDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source lun Id for the data disk.",
       "jsonName": "diskLunId",
       "name": "DiskLunId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

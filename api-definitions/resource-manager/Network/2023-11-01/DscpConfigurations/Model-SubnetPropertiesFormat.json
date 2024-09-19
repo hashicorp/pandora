@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The address prefix for the subnet.",
       "jsonName": "addressPrefix",
       "name": "AddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of address prefixes for the subnet.",
       "jsonName": "addressPrefixes",
       "name": "AddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application gateway IP configurations of virtual network resource.",
       "jsonName": "applicationGatewayIPConfigurations",
       "name": "ApplicationGatewayIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.",
       "jsonName": "defaultOutboundAccess",
       "name": "DefaultOutboundAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to the delegations on the subnet.",
       "jsonName": "delegations",
       "name": "Delegations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Delegation"
+          "nullable": false,
+          "referenceName": "Delegation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of IpAllocation which reference this subnet.",
       "jsonName": "ipAllocations",
       "name": "IPAllocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,14 +123,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of IP configuration profiles which reference this subnet.",
       "jsonName": "ipConfigurationProfiles",
       "name": "IPConfigurationProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPConfigurationProfile"
+          "nullable": false,
+          "referenceName": "IPConfigurationProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,14 +145,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to the network interface IP configurations using subnet.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPConfiguration"
+          "nullable": false,
+          "referenceName": "IPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,7 +171,9 @@
       "name": "NatGateway",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,7 +186,9 @@
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityGroup"
+        "nullable": false,
+        "referenceName": "NetworkSecurityGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or Disable apply network policies on private end point in the subnet.",
       "jsonName": "privateEndpointNetworkPolicies",
       "name": "PrivateEndpointNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPrivateEndpointNetworkPolicies"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPrivateEndpointNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,14 +213,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to private endpoints.",
       "jsonName": "privateEndpoints",
       "name": "PrivateEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpoint"
+          "nullable": false,
+          "referenceName": "PrivateEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or Disable apply network policies on private link service in the subnet.",
       "jsonName": "privateLinkServiceNetworkPolicies",
       "name": "PrivateLinkServiceNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPrivateLinkServiceNetworkPolicies"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPrivateLinkServiceNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,7 +255,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +266,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.",
       "jsonName": "purpose",
       "name": "Purpose",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,14 +282,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to the external resources using subnet.",
       "jsonName": "resourceNavigationLinks",
       "name": "ResourceNavigationLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceNavigationLink"
+          "nullable": false,
+          "referenceName": "ResourceNavigationLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -247,7 +308,9 @@
       "name": "RouteTable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RouteTable"
+        "nullable": false,
+        "referenceName": "RouteTable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -256,14 +319,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of references to services injecting into this subnet.",
       "jsonName": "serviceAssociationLinks",
       "name": "ServiceAssociationLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceAssociationLink"
+          "nullable": false,
+          "referenceName": "ServiceAssociationLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -273,14 +341,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of service endpoint policies.",
       "jsonName": "serviceEndpointPolicies",
       "name": "ServiceEndpointPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpointPolicy"
+          "nullable": false,
+          "referenceName": "ServiceEndpointPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -290,14 +363,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of service endpoints.",
       "jsonName": "serviceEndpoints",
       "name": "ServiceEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpointPropertiesFormat"
+          "nullable": false,
+          "referenceName": "ServiceEndpointPropertiesFormat",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -307,16 +385,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.",
       "jsonName": "sharingScope",
       "name": "SharingScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharingScope"
+        "nullable": false,
+        "referenceName": "SharingScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

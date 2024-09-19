@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property and fixedScale are mutually exclusive and one of the properties must be specified.",
       "jsonName": "autoScale",
       "name": "AutoScale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleSettings"
+        "nullable": false,
+        "referenceName": "AutoScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property and autoScale are mutually exclusive and one of the properties must be specified.",
       "jsonName": "fixedScale",
       "name": "FixedScale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FixedScaleSettings"
+        "nullable": false,
+        "referenceName": "FixedScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetAll",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -122,7 +123,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SmartGroup"
+    "nullable": false,
+    "referenceName": "SmartGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AlertsManagement/smartGroups"
 }

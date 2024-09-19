@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The action of key rotation policy lifetimeAction.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Action"
+        "nullable": false,
+        "referenceName": "Action",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The trigger of key rotation policy lifetimeAction.",
       "jsonName": "trigger",
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Trigger"
+        "nullable": false,
+        "referenceName": "Trigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

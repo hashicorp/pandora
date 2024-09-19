@@ -1,6 +1,7 @@
 {
   "name": "ListByTestJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "RunbookId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobStream"
+    "nullable": false,
+    "referenceName": "JobStream",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/draft/testJob/streams"
 }

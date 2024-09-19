@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Last successful failover time.",
       "jsonName": "diskDetails",
       "name": "DiskDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskDetails"
+          "nullable": false,
+          "referenceName": "DiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of the object in fabric.",
       "jsonName": "generation",
       "name": "Generation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the VM has a fibre channel adapter attached. String value of SrsDataContract.PresenceStatus enum.",
       "jsonName": "hasFibreChannelAdapter",
       "name": "HasFibreChannelAdapter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the VM has a physical disk attached. String value of SrsDataContract.PresenceStatus enum.",
       "jsonName": "hasPhysicalDisk",
       "name": "HasPhysicalDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the VM has a shared VHD attached. String value of SrsDataContract.PresenceStatus enum.",
       "jsonName": "hasSharedVhd",
       "name": "HasSharedVhd",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the hyper-v host in fabric.",
       "jsonName": "hyperVHostId",
       "name": "HyperVHostId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Last replication time.",
       "jsonName": "osDetails",
       "name": "OsDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDetails"
+        "nullable": false,
+        "referenceName": "OSDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source id of the object.",
       "jsonName": "sourceItemId",
       "name": "SourceItemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,6 +136,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ConfigurationSettings",
   "discriminatedTypeValue": "HyperVVirtualMachine",
   "typeHintIn": "InstanceType"

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data compression method used for the binary dataset.",
       "jsonName": "compression",
       "name": "Compression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetCompression"
+        "nullable": false,
+        "referenceName": "DatasetCompression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The location of the Binary storage.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetLocation"
+        "nullable": false,
+        "referenceName": "DatasetLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

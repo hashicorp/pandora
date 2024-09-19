@@ -1,6 +1,7 @@
 {
   "name": "GetLogs",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DeploymentScriptId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ScriptLogsList"
+    "nullable": false,
+    "referenceName": "ScriptLogsList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/logs"
 }

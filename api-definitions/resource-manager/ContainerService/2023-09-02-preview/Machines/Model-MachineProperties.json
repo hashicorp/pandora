@@ -7,7 +7,9 @@
       "name": "Network",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MachineNetworkProperties"
+        "nullable": false,
+        "referenceName": "MachineNetworkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Arm resource id of the machine. It can be used to GET underlying VM Instance",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

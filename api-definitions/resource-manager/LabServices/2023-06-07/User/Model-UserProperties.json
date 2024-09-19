@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The amount of usage quota time the user gets in addition to the lab usage quota.",
       "jsonName": "additionalUsageQuota",
       "name": "AdditionalUsageQuota",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the user, for example user's full name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "Email",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,11 +51,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date and time when the invitation message was sent to the user.",
       "jsonName": "invitationSent",
       "name": "InvitationSent",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the invitation message for the user.",
       "jsonName": "invitationState",
       "name": "InvitationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvitationState"
+        "nullable": false,
+        "referenceName": "InvitationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +87,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the user's registration within the lab.",
       "jsonName": "registrationState",
       "name": "RegistrationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegistrationState"
+        "nullable": false,
+        "referenceName": "RegistrationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +118,9 @@
       "name": "ResourceOperationError",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceOperationError"
+        "nullable": false,
+        "referenceName": "ResourceOperationError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,16 +129,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How long the user has used their virtual machines in this lab.",
       "jsonName": "totalUsage",
       "name": "TotalUsage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

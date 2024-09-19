@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Common Data Service data type connection.",
       "jsonName": "dynamics365CdsActivities",
       "name": "Dynamics365CdsActivities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorDataTypeCommon"
+        "nullable": false,
+        "referenceName": "DataConnectorDataTypeCommon",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

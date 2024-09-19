@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ssl cipher suites to be enabled in the specified order for application gateway.",
       "jsonName": "cipherSuites",
       "name": "CipherSuites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewaySslCipherSuite"
+          "nullable": false,
+          "referenceName": "ApplicationGatewaySslCipherSuite",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum version of Ssl protocol to be supported on application gateway.",
       "jsonName": "minProtocolVersion",
       "name": "MinProtocolVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslProtocol"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

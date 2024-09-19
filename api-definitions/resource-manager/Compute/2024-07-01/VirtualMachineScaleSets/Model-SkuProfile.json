@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated.",
       "jsonName": "allocationStrategy",
       "name": "AllocationStrategy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllocationStrategy"
+        "nullable": false,
+        "referenceName": "AllocationStrategy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the VM sizes for the virtual machine scale set.",
       "jsonName": "vmSizes",
       "name": "VMSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuProfileVMSize"
+          "nullable": false,
+          "referenceName": "SkuProfileVMSize",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

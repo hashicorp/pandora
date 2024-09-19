@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.\u003cbr /\u003e\u003cbr /\u003e Possible values are:\u003cbr /\u003e\u003cbr /\u003e **ImageDefault** - You control the timing of patch assessments on a virtual machine.\u003cbr /\u003e\u003cbr /\u003e **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. ",
       "jsonName": "assessmentMode",
       "name": "AssessmentMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsPatchAssessmentMode"
+        "nullable": false,
+        "referenceName": "WindowsPatchAssessmentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "AutomaticByPlatformSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsVMGuestPatchAutomaticByPlatformSettings"
+        "nullable": false,
+        "referenceName": "WindowsVMGuestPatchAutomaticByPlatformSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enables customers to patch their Azure VMs without requiring a reboot. For enableHotpatching, the 'provisionVMAgent' must be set to true and 'patchMode' must be set to 'AutomaticByPlatform'.",
       "jsonName": "enableHotpatching",
       "name": "EnableHotpatching",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +50,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.\u003cbr /\u003e\u003cbr /\u003e Possible values are:\u003cbr /\u003e\u003cbr /\u003e **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false\u003cbr /\u003e\u003cbr /\u003e **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. \u003cbr /\u003e\u003cbr /\u003e **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true ",
       "jsonName": "patchMode",
       "name": "PatchMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsVMGuestPatchMode"
+        "nullable": false,
+        "referenceName": "WindowsVMGuestPatchMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

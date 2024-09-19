@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, customer can override the response body. The body must be specified in base64 encoding.",
       "jsonName": "customBlockResponseBody",
       "name": "CustomBlockResponseBody",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, customer can override the response status code.",
       "jsonName": "customBlockResponseStatusCode",
       "name": "CustomBlockResponseStatusCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyEnabledState"
+        "nullable": false,
+        "referenceName": "PolicyEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if it is in detection mode or prevention mode at policy level.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyMode"
+        "nullable": false,
+        "referenceName": "PolicyMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If action type is redirect, this field represents redirect URL for the client.",
       "jsonName": "redirectUrl",
       "name": "RedirectUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if policy managed rules will inspect the request body content.",
       "jsonName": "requestBodyCheck",
       "name": "RequestBodyCheck",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyRequestBodyCheck"
+        "nullable": false,
+        "referenceName": "PolicyRequestBodyCheck",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

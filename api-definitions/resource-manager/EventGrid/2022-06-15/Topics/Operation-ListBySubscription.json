@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Topic"
+    "nullable": false,
+    "referenceName": "Topic",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.EventGrid/topics"
 }

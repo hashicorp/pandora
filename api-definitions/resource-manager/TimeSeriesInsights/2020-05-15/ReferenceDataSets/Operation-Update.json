@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ReferenceDataSetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ReferenceDataSetUpdateParameters"
+    "nullable": false,
+    "referenceName": "ReferenceDataSetUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReferenceDataSetResource"
+    "nullable": false,
+    "referenceName": "ReferenceDataSetResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,11 +9,15 @@
   "httpMethod": "POST",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AddressDetails"
+    "nullable": false,
+    "referenceName": "AddressDetails",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ValidateAddressResponse"
+    "nullable": false,
+    "referenceName": "ValidateAddressResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Billing/validateAddress"
 }

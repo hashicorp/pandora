@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the ServerVersion of an a MongoDB account.",
       "jsonName": "serverVersion",
       "name": "ServerVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerVersion"
+        "nullable": false,
+        "referenceName": "ServerVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

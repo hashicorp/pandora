@@ -1,6 +1,7 @@
 {
   "name": "ListByEndpoint",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "AfdEndpointId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Route"
+    "nullable": false,
+    "referenceName": "Route",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/routes"
 }

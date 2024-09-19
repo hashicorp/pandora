@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of access to be allowed on the share for this user.",
       "jsonName": "accessType",
       "name": "AccessType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareAccessType"
+        "nullable": false,
+        "referenceName": "ShareAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The share ID.",
       "jsonName": "shareId",
       "name": "ShareId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

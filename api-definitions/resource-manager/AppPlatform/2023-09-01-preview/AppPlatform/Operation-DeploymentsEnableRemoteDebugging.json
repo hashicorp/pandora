@@ -1,6 +1,7 @@
 {
   "name": "DeploymentsEnableRemoteDebugging",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RemoteDebuggingPayload"
+    "nullable": false,
+    "referenceName": "RemoteDebuggingPayload",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RemoteDebugging"
+    "nullable": false,
+    "referenceName": "RemoteDebugging",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/enableRemoteDebugging"
 }

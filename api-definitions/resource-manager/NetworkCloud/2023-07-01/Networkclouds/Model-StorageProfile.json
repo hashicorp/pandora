@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disk to use with this virtual machine.",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsDisk"
+        "nullable": false,
+        "referenceName": "OsDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource IDs of volumes that are requested to be attached to the virtual machine.",
       "jsonName": "volumeAttachments",
       "name": "VolumeAttachments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

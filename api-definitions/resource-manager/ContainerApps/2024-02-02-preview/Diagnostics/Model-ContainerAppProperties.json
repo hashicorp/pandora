@@ -7,7 +7,9 @@
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Configuration"
+        "nullable": false,
+        "referenceName": "Configuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id used to verify domain name ownership",
       "jsonName": "customDomainVerificationId",
       "name": "CustomDomainVerificationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource ID of environment.",
       "jsonName": "environmentId",
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint of the eventstream of the container app.",
       "jsonName": "eventStreamEndpoint",
       "name": "EventStreamEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the latest ready revision of the Container App.",
       "jsonName": "latestReadyRevisionName",
       "name": "LatestReadyRevisionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully Qualified Domain Name of the latest revision of the Container App.",
       "jsonName": "latestRevisionFqdn",
       "name": "LatestRevisionFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the latest revision of the Container App.",
       "jsonName": "latestRevisionName",
       "name": "LatestRevisionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deprecated. Resource ID of the Container App's environment.",
       "jsonName": "managedEnvironmentId",
       "name": "ManagedEnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +130,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Outbound IP Addresses for container app.",
       "jsonName": "outboundIpAddresses",
       "name": "OutboundIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,11 +152,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Container App auto patch configuration.",
       "jsonName": "patchingConfiguration",
       "name": "PatchingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerAppPropertiesPatchingConfiguration"
+        "nullable": false,
+        "referenceName": "ContainerAppPropertiesPatchingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +168,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Container App.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerAppProvisioningState"
+        "nullable": false,
+        "referenceName": "ContainerAppProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +188,9 @@
       "name": "Template",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Template"
+        "nullable": false,
+        "referenceName": "Template",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,12 +203,15 @@
       "name": "WorkloadProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

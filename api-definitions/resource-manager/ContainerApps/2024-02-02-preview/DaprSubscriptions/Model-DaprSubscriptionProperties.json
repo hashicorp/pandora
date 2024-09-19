@@ -7,7 +7,9 @@
       "name": "BulkSubscribe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprSubscriptionBulkSubscribeOptions"
+        "nullable": false,
+        "referenceName": "DaprSubscriptionBulkSubscribeOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deadletter topic name",
       "jsonName": "deadLetterTopic",
       "name": "DeadLetterTopic",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscription metadata",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dapr PubSub component name",
       "jsonName": "pubsubName",
       "name": "PubsubName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +76,9 @@
       "name": "Routes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprSubscriptionRoutes"
+        "nullable": false,
+        "referenceName": "DaprSubscriptionRoutes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +87,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application scopes to restrict the subscription to specific apps.",
       "jsonName": "scopes",
       "name": "Scopes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,16 +109,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Topic name",
       "jsonName": "topic",
       "name": "Topic",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

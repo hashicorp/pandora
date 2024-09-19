@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "vm-host placement policy affinity strength (should/must)",
       "jsonName": "affinityStrength",
       "name": "AffinityStrength",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AffinityStrength"
+        "nullable": false,
+        "referenceName": "AffinityStrength",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "placement policy affinity type",
       "jsonName": "affinityType",
       "name": "AffinityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AffinityType"
+        "nullable": false,
+        "referenceName": "AffinityType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "placement policy azure hybrid benefit opt-in type",
       "jsonName": "azureHybridBenefitType",
       "name": "AzureHybridBenefitType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureHybridBenefitType"
+        "nullable": false,
+        "referenceName": "AzureHybridBenefitType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host members list",
       "jsonName": "hostMembers",
       "name": "HostMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual machine members list",
       "jsonName": "vmMembers",
       "name": "VMMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -75,6 +94,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PlacementPolicyProperties",
   "discriminatedTypeValue": "VmHost",
   "typeHintIn": "Type"

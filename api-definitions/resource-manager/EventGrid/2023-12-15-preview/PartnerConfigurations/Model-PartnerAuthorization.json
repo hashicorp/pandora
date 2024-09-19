@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of authorized partners.",
       "jsonName": "authorizedPartnersList",
       "name": "AuthorizedPartnersList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Partner"
+          "nullable": false,
+          "referenceName": "Partner",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is\r\nnot specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days.",
       "jsonName": "defaultMaximumExpirationTimeInDays",
       "name": "DefaultMaximumExpirationTimeInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

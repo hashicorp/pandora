@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test network Id.",
       "jsonName": "networkId",
       "name": "NetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery point Id.",
       "jsonName": "recoveryPointId",
       "name": "RecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of NIC details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMwareCbtNicInput"
+          "nullable": false,
+          "referenceName": "VMwareCbtNicInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -45,6 +56,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TestMigrateProviderSpecificInput",
   "discriminatedTypeValue": "VMwareCbt",
   "typeHintIn": "InstanceType"

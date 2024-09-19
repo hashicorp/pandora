@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of metric availabilities for the account.",
       "jsonName": "metricAvailabilities",
       "name": "MetricAvailabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricAvailability"
+          "nullable": false,
+          "referenceName": "MetricAvailability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name information for the metric.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricName"
+        "nullable": false,
+        "referenceName": "MetricName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary aggregation type of the metric.",
       "jsonName": "primaryAggregationType",
       "name": "PrimaryAggregationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrimaryAggregationType"
+        "nullable": false,
+        "referenceName": "PrimaryAggregationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource uri of the database.",
       "jsonName": "resourceUri",
       "name": "ResourceUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unit of the metric.",
       "jsonName": "unit",
       "name": "Unit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UnitType"
+        "nullable": false,
+        "referenceName": "UnitType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

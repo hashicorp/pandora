@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activation properties of the connected registry.",
       "jsonName": "activation",
       "name": "Activation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivationProperties"
+        "nullable": false,
+        "referenceName": "ActivationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of the ACR token resource IDs used to authenticate clients to the connected registry.",
       "jsonName": "clientTokenIds",
       "name": "ClientTokenIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current connection state of the connected registry.",
       "jsonName": "connectionState",
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionState"
+        "nullable": false,
+        "referenceName": "ConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +58,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last activity time of the connected registry.",
       "jsonName": "lastActivityTime",
       "name": "LastActivityTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The logging properties of the connected registry.",
       "jsonName": "logging",
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoggingProperties"
+        "nullable": false,
+        "referenceName": "LoggingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The login server properties of the connected registry.",
       "jsonName": "loginServer",
       "name": "LoginServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoginServerProperties"
+        "nullable": false,
+        "referenceName": "LoginServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mode of the connected registry resource that indicates the permissions of the registry.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectedRegistryMode"
+        "nullable": false,
+        "referenceName": "ConnectedRegistryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,14 +122,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of notifications subscription information for the connected registry.",
       "jsonName": "notificationsList",
       "name": "NotificationsList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -116,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The parent of the connected registry.",
       "jsonName": "parent",
       "name": "Parent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParentProperties"
+        "nullable": false,
+        "referenceName": "ParentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -129,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,14 +176,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of current statuses of the connected registry.",
       "jsonName": "statusDetails",
       "name": "StatusDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StatusDetailProperties"
+          "nullable": false,
+          "referenceName": "StatusDetailProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -159,16 +198,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current version of ACR runtime on the connected registry.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

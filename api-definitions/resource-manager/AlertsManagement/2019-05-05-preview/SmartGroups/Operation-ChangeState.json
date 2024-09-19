@@ -1,6 +1,7 @@
 {
   "name": "ChangeState",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "SmartGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SmartGroup"
+    "nullable": false,
+    "referenceName": "SmartGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/changeState"
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "BackendId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackendUpdateParameters"
+    "nullable": false,
+    "referenceName": "BackendUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackendContract"
+    "nullable": false,
+    "referenceName": "BackendContract",
+    "referenceNameIsCommonType": null
   }
 }

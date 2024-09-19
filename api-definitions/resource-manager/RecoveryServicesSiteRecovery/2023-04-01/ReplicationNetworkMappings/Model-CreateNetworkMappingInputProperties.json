@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fabric specific input properties.",
       "jsonName": "fabricSpecificDetails",
       "name": "FabricSpecificDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FabricSpecificCreateNetworkMappingInput"
+        "nullable": false,
+        "referenceName": "FabricSpecificCreateNetworkMappingInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery fabric Name.",
       "jsonName": "recoveryFabricName",
       "name": "RecoveryFabricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery network Id.",
       "jsonName": "recoveryNetworkId",
       "name": "RecoveryNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

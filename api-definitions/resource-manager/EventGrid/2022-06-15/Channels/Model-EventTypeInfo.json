@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of inline event types for the resource. The inline event type keys are of type string which represents the name of the event.\r\nAn example of a valid inline event name is \"Contoso.OrderCreated\".\r\nThe inline event type values are of type InlineEventProperties and will contain additional information for every inline event type.",
       "jsonName": "inlineEventTypes",
       "name": "InlineEventTypes",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InlineEventProperties"
+          "nullable": false,
+          "referenceName": "InlineEventProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kind of event type used.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventDefinitionKind"
+        "nullable": false,
+        "referenceName": "EventDefinitionKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

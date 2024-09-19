@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of exclusions that override the default access mode settings for specific private endpoint connections.",
       "jsonName": "exclusions",
       "name": "Exclusions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AccessModeSettingsExclusion"
+          "nullable": false,
+          "referenceName": "AccessModeSettingsExclusion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the default access mode of ingestion through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.",
       "jsonName": "ingestionAccessMode",
       "name": "IngestionAccessMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessMode"
+        "nullable": false,
+        "referenceName": "AccessMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.",
       "jsonName": "queryAccessMode",
       "name": "QueryAccessMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessMode"
+        "nullable": false,
+        "referenceName": "AccessMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "ConnectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ValidateOperationResult"
+    "nullable": false,
+    "referenceName": "ValidateOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

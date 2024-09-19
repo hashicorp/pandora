@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery point id to which the Virtual node was failed over.",
       "jsonName": "failoverRecoveryPointId",
       "name": "FailoverRecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time (in UTC) when the last RPO value was calculated by Protection Service.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The management Id.",
       "jsonName": "managementId",
       "name": "ManagementId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property.",
       "jsonName": "monitoringJobType",
       "name": "MonitoringJobType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property.",
       "jsonName": "monitoringPercentageCompletion",
       "name": "MonitoringPercentageCompletion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Primary fabric location.",
       "jsonName": "primaryFabricLocation",
       "name": "PrimaryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected managed disks.",
       "jsonName": "protectedManagedDisks",
       "name": "ProtectedManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AProtectedManagedDiskDetails"
+          "nullable": false,
+          "referenceName": "A2AProtectedManagedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery fabric location.",
       "jsonName": "recoveryFabricLocation",
       "name": "RecoveryFabricLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last RPO value in seconds.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,14 +154,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IR Errors.",
       "jsonName": "sharedDiskIRErrors",
       "name": "SharedDiskIRErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2ASharedDiskIRErrorDetails"
+          "nullable": false,
+          "referenceName": "A2ASharedDiskIRErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -142,14 +176,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of unprotected disks.",
       "jsonName": "unprotectedDisks",
       "name": "UnprotectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AUnprotectedDiskDetails"
+          "nullable": false,
+          "referenceName": "A2AUnprotectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,6 +197,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SharedDiskReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

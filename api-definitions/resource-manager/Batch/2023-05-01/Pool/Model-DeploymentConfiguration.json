@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property and virtualMachineConfiguration are mutually exclusive and one of the properties must be specified. This property cannot be specified if the Batch account was created with its poolAllocationMode property set to 'UserSubscription'.",
       "jsonName": "cloudServiceConfiguration",
       "name": "CloudServiceConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServiceConfiguration"
+        "nullable": false,
+        "referenceName": "CloudServiceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property and cloudServiceConfiguration are mutually exclusive and one of the properties must be specified.",
       "jsonName": "virtualMachineConfiguration",
       "name": "VirtualMachineConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

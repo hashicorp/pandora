@@ -1,6 +1,7 @@
 {
   "name": "AssetFiltersCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AssetFilterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AssetFilter"
+    "nullable": false,
+    "referenceName": "AssetFilter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AssetFilter"
+    "nullable": false,
+    "referenceName": "AssetFilter",
+    "referenceNameIsCommonType": null
   }
 }

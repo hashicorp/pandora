@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup schedule type.",
       "jsonName": "backupScheduleType",
       "name": "BackupScheduleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupScheduleType"
+        "nullable": false,
+        "referenceName": "BackupScheduleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Include or exclude system databases from auto backup.",
       "jsonName": "backupSystemDbs",
       "name": "BackupSystemDbs",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Days of the week for the backups when FullBackupFrequency is set to Weekly.",
       "jsonName": "daysOfWeek",
       "name": "DaysOfWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutoBackupDaysOfWeek"
+          "nullable": false,
+          "referenceName": "AutoBackupDaysOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or disable autobackup on SQL virtual machine.",
       "jsonName": "enable",
       "name": "Enable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or disable encryption for backup on SQL virtual machine.",
       "jsonName": "enableEncryption",
       "name": "EnableEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency of full backups. In both cases, full backups begin during the next scheduled time window.",
       "jsonName": "fullBackupFrequency",
       "name": "FullBackupFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FullBackupFrequencyType"
+        "nullable": false,
+        "referenceName": "FullBackupFrequencyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Start time of a given day during which full backups can take place. 0-23 hours.",
       "jsonName": "fullBackupStartTime",
       "name": "FullBackupStartTime",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Duration of the time window of a given day during which full backups can take place. 1-23 hours.",
       "jsonName": "fullBackupWindowHours",
       "name": "FullBackupWindowHours",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Frequency of log backups. 5-60 minutes.",
       "jsonName": "logBackupFrequency",
       "name": "LogBackupFrequency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Password for encryption on backup.",
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention period of backup: 1-90 days.",
       "jsonName": "retentionPeriod",
       "name": "RetentionPeriod",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage account key where backup will be taken to.",
       "jsonName": "storageAccessKey",
       "name": "StorageAccessKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage account url where backup will be taken to.",
       "jsonName": "storageAccountUrl",
       "name": "StorageAccountUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,16 +217,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage container name where backup will be taken to.",
       "jsonName": "storageContainerName",
       "name": "StorageContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

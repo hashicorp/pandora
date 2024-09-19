@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key used for authorization.",
       "jsonName": "key",
       "name": "Key",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecureString"
+        "nullable": false,
+        "referenceName": "SecureString",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "LinkedIntegrationRuntimeType",
   "discriminatedTypeValue": "Key",
   "typeHintIn": "AuthorizationType"

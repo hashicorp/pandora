@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of header actions to apply from the request from AFD to the origin.",
       "jsonName": "requestHeaderActions",
       "name": "RequestHeaderActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HeaderAction"
+          "nullable": false,
+          "referenceName": "HeaderAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of header actions to apply from the response from AFD to the client.",
       "jsonName": "responseHeaderActions",
       "name": "ResponseHeaderActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HeaderAction"
+          "nullable": false,
+          "referenceName": "HeaderAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Override the route configuration.",
       "jsonName": "routeConfigurationOverride",
       "name": "RouteConfigurationOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RouteConfiguration"
+        "nullable": false,
+        "referenceName": "RouteConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "AzureDevOpsReposGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ProjectRepoId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureDevOpsRepository"
+    "nullable": false,
+    "referenceName": "AzureDevOpsRepository",
+    "referenceNameIsCommonType": null
   }
 }

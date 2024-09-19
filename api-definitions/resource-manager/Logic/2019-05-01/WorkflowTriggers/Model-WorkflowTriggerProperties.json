@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the changed time.",
       "jsonName": "changedTime",
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the created time.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -32,11 +38,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the last execution time.",
       "jsonName": "lastExecutionTime",
       "name": "LastExecutionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +55,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Gets the next execution time.",
       "jsonName": "nextExecutionTime",
       "name": "NextExecutionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +71,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowTriggerProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkflowTriggerProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +87,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the workflow trigger recurrence.",
       "jsonName": "recurrence",
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowTriggerRecurrence"
+        "nullable": false,
+        "referenceName": "WorkflowTriggerRecurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +103,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the state.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowState"
+        "nullable": false,
+        "referenceName": "WorkflowState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowStatus"
+        "nullable": false,
+        "referenceName": "WorkflowStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +135,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the reference to workflow.",
       "jsonName": "workflow",
       "name": "Workflow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

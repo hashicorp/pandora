@@ -1,6 +1,7 @@
 {
   "name": "GenerateVpnProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualWANP2SVPNGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "P2SVpnProfileParameters"
+    "nullable": false,
+    "referenceName": "P2SVpnProfileParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnProfileResponse"
+    "nullable": false,
+    "referenceName": "VpnProfileResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generatevpnprofile"
 }

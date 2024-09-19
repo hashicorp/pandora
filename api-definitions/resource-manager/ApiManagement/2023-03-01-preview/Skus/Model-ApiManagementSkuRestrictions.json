@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for restriction.",
       "jsonName": "reasonCode",
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionsReasonCode"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionsReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The information about the restriction where the SKU cannot be used.",
       "jsonName": "restrictionInfo",
       "name": "RestrictionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionInfo"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of restrictions.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionsType"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value of restrictions. If the restriction type is set to location. This would be different locations where the SKU is restricted.",
       "jsonName": "values",
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

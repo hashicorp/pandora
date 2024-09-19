@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The API versions in which Sku is available.",
       "jsonName": "apiVersions",
       "name": "ApiVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Links to the next set of results",
       "jsonName": "availability",
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuAvailability"
+        "nullable": false,
+        "referenceName": "SkuAvailability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capability info of the SKU.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuCapability"
+          "nullable": false,
+          "referenceName": "SkuCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The pricing info of the Sku.",
       "jsonName": "costs",
       "name": "Costs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuCost"
+          "nullable": false,
+          "referenceName": "SkuCost",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sku family.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sku kind.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,14 +117,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Availability of the Sku for the location/zone/site.",
       "jsonName": "locationInfo",
       "name": "LocationInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuLocationInfo"
+          "nullable": false,
+          "referenceName": "SkuLocationInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,14 +139,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Availability of the Sku for the region.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sku name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuName"
+        "nullable": false,
+        "referenceName": "SkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the resource.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,14 +193,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Shipment Types supported by this SKU",
       "jsonName": "shipmentTypes",
       "name": "ShipmentTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ShipmentType"
+          "nullable": false,
+          "referenceName": "ShipmentType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -170,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sku can be signed up by customer or not.",
       "jsonName": "signupOption",
       "name": "SignupOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuSignupOption"
+        "nullable": false,
+        "referenceName": "SkuSignupOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,11 +231,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sku kind.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Sku tier.",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuTier"
+        "nullable": false,
+        "referenceName": "SkuTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,16 +263,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Availability of the Sku as preview/stable.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuVersion"
+        "nullable": false,
+        "referenceName": "SkuVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

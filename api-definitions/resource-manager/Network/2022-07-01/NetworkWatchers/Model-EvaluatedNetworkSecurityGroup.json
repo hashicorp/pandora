@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource ID of nic or subnet to which network security group is applied.",
       "jsonName": "appliedTo",
       "name": "AppliedTo",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Matched network security rule.",
       "jsonName": "matchedRule",
       "name": "MatchedRule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MatchedRule"
+        "nullable": false,
+        "referenceName": "MatchedRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network security group ID.",
       "jsonName": "networkSecurityGroupId",
       "name": "NetworkSecurityGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of network security rules evaluation results.",
       "jsonName": "rulesEvaluationResult",
       "name": "RulesEvaluationResult",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityRulesEvaluationResult"
+          "nullable": false,
+          "referenceName": "NetworkSecurityRulesEvaluationResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +71,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of children.",
       "jsonName": "children",
       "name": "Children",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CreateManagementGroupChildInfo"
+          "nullable": false,
+          "referenceName": "CreateManagementGroupChildInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "Details",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateManagementGroupDetails"
+        "nullable": false,
+        "referenceName": "CreateManagementGroupDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The friendly name of the management group. If no value is passed then this  field will be set to the groupId.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

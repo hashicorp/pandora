@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the location of the key encryption key in key vault.",
       "jsonName": "keyEncryptionKey",
       "name": "KeyEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultKeyReference"
+        "nullable": false,
+        "referenceName": "KeyVaultKeyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether the service will automatically rotate to the newest version of the key in the key vault.",
       "jsonName": "rotationToLatestKeyVersionEnabled",
       "name": "RotationToLatestKeyVersionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

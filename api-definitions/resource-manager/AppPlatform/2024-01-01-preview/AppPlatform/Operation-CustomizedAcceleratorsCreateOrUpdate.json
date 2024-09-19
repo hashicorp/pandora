@@ -1,6 +1,7 @@
 {
   "name": "CustomizedAcceleratorsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "CustomizedAcceleratorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomizedAcceleratorResource"
+    "nullable": false,
+    "referenceName": "CustomizedAcceleratorResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomizedAcceleratorResource"
+    "nullable": false,
+    "referenceName": "CustomizedAcceleratorResource",
+    "referenceNameIsCommonType": null
   }
 }

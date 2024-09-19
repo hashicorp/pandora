@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Agent expiry date.",
       "jsonName": "agentExpiryDate",
       "name": "AgentExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the scout component on the server.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Agent version details.",
       "jsonName": "agentVersionDetails",
       "name": "AgentVersionDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VersionDetails"
+        "nullable": false,
+        "referenceName": "VersionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of data stores in the fabric.",
       "jsonName": "dataStores",
       "name": "DataStores",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataStore"
+          "nullable": false,
+          "referenceName": "DataStore",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk count of the master target.",
       "jsonName": "diskCount",
       "name": "DiskCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,14 +90,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health errors.",
       "jsonName": "healthErrors",
       "name": "HealthErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -90,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address of the server.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The server Id.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last heartbeat received from the server.",
       "jsonName": "lastHeartbeat",
       "name": "LastHeartbeat",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -131,11 +162,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "MARS agent expiry date.",
       "jsonName": "marsAgentExpiryDate",
       "name": "MarsAgentExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,11 +178,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MARS agent version.",
       "jsonName": "marsAgentVersion",
       "name": "MarsAgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,11 +194,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Mars agent version details.",
       "jsonName": "marsAgentVersionDetails",
       "name": "MarsAgentVersionDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VersionDetails"
+        "nullable": false,
+        "referenceName": "VersionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,11 +210,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The server name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,11 +226,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS type of the server.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,11 +242,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OS Version of the master target.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,14 +258,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The retention volumes of Master target Server.",
       "jsonName": "retentionVolumes",
       "name": "RetentionVolumes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RetentionVolume"
+          "nullable": false,
+          "referenceName": "RetentionVolume",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -226,14 +280,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Validation errors.",
       "jsonName": "validationErrors",
       "name": "ValidationErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -243,16 +302,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version status.",
       "jsonName": "versionStatus",
       "name": "VersionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

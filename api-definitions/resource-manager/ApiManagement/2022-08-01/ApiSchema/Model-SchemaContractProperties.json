@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). \u003c/br\u003e - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` \u003c/br\u003e - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` \u003c/br\u003e - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` \u003c/br\u003e - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml`.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +23,15 @@
       "name": "Document",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchemaDocumentProperties"
+        "nullable": false,
+        "referenceName": "SchemaDocumentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

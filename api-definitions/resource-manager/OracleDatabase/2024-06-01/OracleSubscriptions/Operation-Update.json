@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OracleSubscriptionUpdate"
+    "nullable": false,
+    "referenceName": "OracleSubscriptionUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OracleSubscription"
+    "nullable": false,
+    "referenceName": "OracleSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Oracle.Database/oracleSubscriptions/default"
 }

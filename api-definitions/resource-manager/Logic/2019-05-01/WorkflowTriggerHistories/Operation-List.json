@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "TriggerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkflowTriggerHistory"
+    "nullable": false,
+    "referenceName": "WorkflowTriggerHistory",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/histories"
 }

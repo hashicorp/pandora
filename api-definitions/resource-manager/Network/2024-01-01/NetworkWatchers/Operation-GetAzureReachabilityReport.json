@@ -1,6 +1,7 @@
 {
   "name": "GetAzureReachabilityReport",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureReachabilityReportParameters"
+    "nullable": false,
+    "referenceName": "AzureReachabilityReportParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureReachabilityReport"
+    "nullable": false,
+    "referenceName": "AzureReachabilityReport",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/azureReachabilityReport"
 }

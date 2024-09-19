@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -32,10 +33,14 @@
   "resourceIdName": "MemberId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FleetMember"
+    "nullable": false,
+    "referenceName": "FleetMember",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FleetMember"
+    "nullable": false,
+    "referenceName": "FleetMember",
+    "referenceNameIsCommonType": null
   }
 }

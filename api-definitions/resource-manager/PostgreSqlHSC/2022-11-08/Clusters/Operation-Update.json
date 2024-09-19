@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ServerGroupsv2Id",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterForUpdate"
+    "nullable": false,
+    "referenceName": "ClusterForUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Cluster"
+    "nullable": false,
+    "referenceName": "Cluster",
+    "referenceNameIsCommonType": null
   }
 }

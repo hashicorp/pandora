@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationPatch",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "ClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterQuotaConfigurationProperties"
+    "nullable": false,
+    "referenceName": "ClusterQuotaConfigurationProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterQuotaConfigurationProperties"
+    "nullable": false,
+    "referenceName": "ClusterQuotaConfigurationProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/quotaConfiguration/default"
 }

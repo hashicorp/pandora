@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Preserve the compression file name as folder path. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "preserveCompressionFileNameAsFolder",
       "name": "PreserveCompressionFileNameAsFolder",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CompressionReadSettings",
   "discriminatedTypeValue": "TarGZipReadSettings",
   "typeHintIn": "Type"

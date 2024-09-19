@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "adds data disks to the virtual machine instance",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineInstancePropertiesStorageProfileDataDisksInlined"
+          "nullable": false,
+          "referenceName": "VirtualMachineInstancePropertiesStorageProfileDataDisksInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Which Image to use for the virtual machine instance",
       "jsonName": "imageReference",
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesStorageProfileImageReference"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesStorageProfileImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VHD to attach as OS disk",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesStorageProfileOsDisk"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesStorageProfileOsDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of the storage container that hosts the VM configuration file",
       "jsonName": "vmConfigStoragePathId",
       "name": "VMConfigStoragePathId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

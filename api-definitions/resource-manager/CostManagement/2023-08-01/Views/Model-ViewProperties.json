@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Show costs accumulated over time.",
       "jsonName": "accumulated",
       "name": "Accumulated",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccumulatedType"
+        "nullable": false,
+        "referenceName": "AccumulatedType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Chart type of the main view in Cost Analysis. Required.",
       "jsonName": "chart",
       "name": "Chart",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChartType"
+        "nullable": false,
+        "referenceName": "ChartType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date the user created this view.",
       "jsonName": "createdOn",
       "name": "CreatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Currency of the current view.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Date range of the current view.",
       "jsonName": "dateRange",
       "name": "DateRange",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User input name of the view. Required.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of KPIs to show in Cost Analysis UI.",
       "jsonName": "kpis",
       "name": "Kpis",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KpiProperties"
+          "nullable": false,
+          "referenceName": "KpiProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metric to use when displaying costs.",
       "jsonName": "metric",
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricType"
+        "nullable": false,
+        "referenceName": "MetricType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,11 +139,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date when the user last modified this view.",
       "jsonName": "modifiedOn",
       "name": "ModifiedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,14 +155,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration of 3 sub-views in the Cost Analysis UI.",
       "jsonName": "pivots",
       "name": "Pivots",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PivotProperties"
+          "nullable": false,
+          "referenceName": "PivotProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Query body configuration. Required.",
       "jsonName": "query",
       "name": "Query",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigDefinition"
+        "nullable": false,
+        "referenceName": "ReportConfigDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,16 +193,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

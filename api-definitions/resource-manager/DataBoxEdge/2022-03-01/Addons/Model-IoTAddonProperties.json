@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host OS supported by the IoT addon.",
       "jsonName": "hostPlatform",
       "name": "HostPlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Platform where the runtime is hosted.",
       "jsonName": "hostPlatformType",
       "name": "HostPlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostPlatformType"
+        "nullable": false,
+        "referenceName": "HostPlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IoT device metadata to which appliance needs to be connected.",
       "jsonName": "ioTDeviceDetails",
       "name": "IoTDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IoT edge device to which the IoT Addon needs to be configured.",
       "jsonName": "ioTEdgeDeviceDetails",
       "name": "IoTEdgeDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Addon Provisioning State",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddonState"
+        "nullable": false,
+        "referenceName": "AddonState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of IoT running on the appliance.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

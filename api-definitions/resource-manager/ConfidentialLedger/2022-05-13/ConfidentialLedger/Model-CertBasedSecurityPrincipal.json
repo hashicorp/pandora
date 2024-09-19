@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public key of the user cert (.pem or .cer)",
       "jsonName": "cert",
       "name": "Cert",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +23,15 @@
       "name": "LedgerRoleName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LedgerRoleName"
+        "nullable": false,
+        "referenceName": "LedgerRoleName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The SAS URL expiration time.  This must be less than 24 hours from the current time.",
       "jsonName": "expiryTime",
       "name": "ExpiryTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,16 +20,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The permissions to set on the SAS URL.",
       "jsonName": "permissions",
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssetContainerPermission"
+        "nullable": false,
+        "referenceName": "AssetContainerPermission",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

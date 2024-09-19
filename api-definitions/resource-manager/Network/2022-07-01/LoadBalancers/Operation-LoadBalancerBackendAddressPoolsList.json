@@ -1,6 +1,7 @@
 {
   "name": "LoadBalancerBackendAddressPoolsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "LoadBalancerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackendAddressPool"
+    "nullable": false,
+    "referenceName": "BackendAddressPool",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backendAddressPools"
 }

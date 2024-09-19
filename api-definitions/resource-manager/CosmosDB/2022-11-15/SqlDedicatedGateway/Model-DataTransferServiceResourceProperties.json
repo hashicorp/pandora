@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array that contains all of the locations for the service.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegionalServiceResource"
+          "nullable": false,
+          "referenceName": "RegionalServiceResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ServiceResourceProperties",
   "discriminatedTypeValue": "DataTransfer",
   "typeHintIn": "ServiceType"

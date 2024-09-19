@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DataFlow script.",
       "jsonName": "script",
       "name": "Script",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data flow script lines.",
       "jsonName": "scriptLines",
       "name": "ScriptLines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of sinks in data flow.",
       "jsonName": "sinks",
       "name": "Sinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataFlowSink"
+          "nullable": false,
+          "referenceName": "DataFlowSink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of sources in data flow.",
       "jsonName": "sources",
       "name": "Sources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataFlowSource"
+          "nullable": false,
+          "referenceName": "DataFlowSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of transformations in data flow.",
       "jsonName": "transformations",
       "name": "Transformations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Transformation"
+          "nullable": false,
+          "referenceName": "Transformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -82,5 +105,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

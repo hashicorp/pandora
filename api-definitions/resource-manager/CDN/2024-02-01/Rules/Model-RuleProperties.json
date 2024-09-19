@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of actions that are executed when all the conditions of a rule are satisfied.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeliveryRuleAction"
+          "nullable": false,
+          "referenceName": "DeliveryRuleAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of conditions that must be matched for the actions to be executed",
       "jsonName": "conditions",
       "name": "Conditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeliveryRuleCondition"
+          "nullable": false,
+          "referenceName": "DeliveryRuleCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "DeploymentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStatus"
+        "nullable": false,
+        "referenceName": "DeploymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +62,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.",
       "jsonName": "matchProcessingBehavior",
       "name": "MatchProcessingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MatchProcessingBehavior"
+        "nullable": false,
+        "referenceName": "MatchProcessingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.",
       "jsonName": "order",
       "name": "Order",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning status",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdProvisioningState"
+        "nullable": false,
+        "referenceName": "AfdProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,16 +110,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the rule set containing the rule.",
       "jsonName": "ruleSetName",
       "name": "RuleSetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

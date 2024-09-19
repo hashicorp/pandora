@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Egress nat IP to use",
       "jsonName": "egressNatIp",
       "name": "EgressNatIP",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddress"
+          "nullable": false,
+          "referenceName": "IPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable egress NAT, enabled by default",
       "jsonName": "enableEgressNat",
       "name": "EnableEgressNat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EgressNat"
+        "nullable": false,
+        "referenceName": "EgressNat",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "vnet or vwan, cannot be updated",
       "jsonName": "networkType",
       "name": "NetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkType"
+        "nullable": false,
+        "referenceName": "NetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of IPs associated with the Firewall",
       "jsonName": "publicIps",
       "name": "PublicIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddress"
+          "nullable": false,
+          "referenceName": "IPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vnet configurations",
       "jsonName": "vnetConfiguration",
       "name": "VnetConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetConfiguration"
+        "nullable": false,
+        "referenceName": "VnetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,16 +95,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vwan configurations",
       "jsonName": "vwanConfiguration",
       "name": "VwanConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VwanConfiguration"
+        "nullable": false,
+        "referenceName": "VwanConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom Keys credential object",
       "jsonName": "credentials",
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomKeys"
+        "nullable": false,
+        "referenceName": "CustomKeys",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
   "discriminatedTypeValue": "CustomKeys",
   "typeHintIn": "AuthType"

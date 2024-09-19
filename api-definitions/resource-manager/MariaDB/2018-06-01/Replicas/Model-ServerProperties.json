@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).",
       "jsonName": "administratorLogin",
       "name": "AdministratorLogin",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Earliest restore point creation time (ISO8601 format)",
       "jsonName": "earliestRestoreDate",
       "name": "EarliestRestoreDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified domain name of a server.",
       "jsonName": "fullyQualifiedDomainName",
       "name": "FullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The master server id of a replica server.",
       "jsonName": "masterServerId",
       "name": "MasterServerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enforce a minimal Tls version for the server.",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimalTlsVersionEnum"
+        "nullable": false,
+        "referenceName": "MinimalTlsVersionEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,14 +84,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private endpoint connections on a server",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerPrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "ServerPrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessEnum"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,11 +122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of replicas that a master server can have.",
       "jsonName": "replicaCapacity",
       "name": "ReplicaCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replication role of the server.",
       "jsonName": "replicationRole",
       "name": "ReplicationRole",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable ssl enforcement or not when connect to server.",
       "jsonName": "sslEnforcement",
       "name": "SslEnforcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslEnforcementEnum"
+        "nullable": false,
+        "referenceName": "SslEnforcementEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,11 +170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage profile of a server.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,11 +186,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A state of a server that is visible to user.",
       "jsonName": "userVisibleState",
       "name": "UserVisibleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerState"
+        "nullable": false,
+        "referenceName": "ServerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,16 +202,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Server version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerVersion"
+        "nullable": false,
+        "referenceName": "ServerVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

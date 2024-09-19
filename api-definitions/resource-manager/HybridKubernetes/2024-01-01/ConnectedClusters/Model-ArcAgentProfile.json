@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the Arc agents on the be upgraded automatically to the latest version. Defaults to Enabled.",
       "jsonName": "agentAutoUpgrade",
       "name": "AgentAutoUpgrade",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpgradeOptions"
+        "nullable": false,
+        "referenceName": "AutoUpgradeOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the Arc agents to be installed on the cluster resource",
       "jsonName": "desiredAgentVersion",
       "name": "DesiredAgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

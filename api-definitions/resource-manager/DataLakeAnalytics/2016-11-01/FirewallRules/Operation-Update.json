@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "FirewallRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateFirewallRuleParameters"
+    "nullable": false,
+    "referenceName": "UpdateFirewallRuleParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FirewallRule"
+    "nullable": false,
+    "referenceName": "FirewallRule",
+    "referenceNameIsCommonType": null
   }
 }

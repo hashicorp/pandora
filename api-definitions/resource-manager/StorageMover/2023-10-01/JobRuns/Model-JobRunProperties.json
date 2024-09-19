@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the Agent assigned to this run.",
       "jsonName": "agentName",
       "name": "AgentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource id of the Agent assigned to this run.",
       "jsonName": "agentResourceId",
       "name": "AgentResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data that will not be transferred, as they are excluded by user configuration.",
       "jsonName": "bytesExcluded",
       "name": "BytesExcluded",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data that were attempted to transfer and failed.",
       "jsonName": "bytesFailed",
       "name": "BytesFailed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data that will not be transferred, as they are already found on target (e.g. mirror mode).",
       "jsonName": "bytesNoTransferNeeded",
       "name": "BytesNoTransferNeeded",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data scanned so far in source.",
       "jsonName": "bytesScanned",
       "name": "BytesScanned",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data successfully transferred to target.",
       "jsonName": "bytesTransferred",
       "name": "BytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bytes of data that will not be transferred, as they are unsupported on target.",
       "jsonName": "bytesUnsupported",
       "name": "BytesUnsupported",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error details.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobRunError"
+        "nullable": false,
+        "referenceName": "JobRunError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "End time of the run. Null if Agent has not reported that the job has ended.",
       "jsonName": "executionEndTime",
       "name": "ExecutionEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,11 +165,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Start time of the run. Null if no Agent reported that the job has started.",
       "jsonName": "executionStartTime",
       "name": "ExecutionStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items that will not be transferred, as they are excluded by user configuration.",
       "jsonName": "itemsExcluded",
       "name": "ItemsExcluded",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items that were attempted to transfer and failed.",
       "jsonName": "itemsFailed",
       "name": "ItemsFailed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items that will not be transferred, as they are already found on target (e.g. mirror mode).",
       "jsonName": "itemsNoTransferNeeded",
       "name": "ItemsNoTransferNeeded",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items scanned so far in source.",
       "jsonName": "itemsScanned",
       "name": "ItemsScanned",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items successfully transferred to target.",
       "jsonName": "itemsTransferred",
       "name": "ItemsTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of items that will not be transferred, as they are unsupported on target.",
       "jsonName": "itemsUnsupported",
       "name": "ItemsUnsupported",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy of parent Job Definition's properties at time of Job Run creation.",
       "jsonName": "jobDefinitionProperties",
       "name": "JobDefinitionProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +294,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last updated time of the Job Run.",
       "jsonName": "lastStatusUpdate",
       "name": "LastStatusUpdate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of this resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +326,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of Agent's scanning of source.",
       "jsonName": "scanStatus",
       "name": "ScanStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobRunScanStatus"
+        "nullable": false,
+        "referenceName": "JobRunScanStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +342,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of source Endpoint resource. This resource may no longer exist.",
       "jsonName": "sourceName",
       "name": "SourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +358,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy of source Endpoint resource's properties at time of Job Run creation.",
       "jsonName": "sourceProperties",
       "name": "SourceProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,11 +374,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource id of source Endpoint. This id may no longer exist.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,11 +390,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the job execution.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobRunStatus"
+        "nullable": false,
+        "referenceName": "JobRunStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,11 +406,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of target Endpoint resource. This resource may no longer exist.",
       "jsonName": "targetName",
       "name": "TargetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -344,11 +422,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Copy of Endpoint resource's properties at time of Job Run creation.",
       "jsonName": "targetProperties",
       "name": "TargetProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -357,16 +438,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource id of of Endpoint. This id may no longer exist.",
       "jsonName": "targetResourceId",
       "name": "TargetResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

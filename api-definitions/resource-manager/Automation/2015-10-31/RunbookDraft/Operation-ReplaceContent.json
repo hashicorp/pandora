@@ -1,6 +1,7 @@
 {
   "name": "ReplaceContent",
   "contentType": "text/powershell",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "RunbookId",
   "requestObject": {
     "type": "RawFile",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "RawFile",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/draft/content"
 }

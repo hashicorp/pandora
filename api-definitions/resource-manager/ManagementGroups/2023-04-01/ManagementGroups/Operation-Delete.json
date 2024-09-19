@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -22,6 +23,8 @@
   "resourceIdName": "ManagementGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureAsyncOperationResults"
+    "nullable": false,
+    "referenceName": "AzureAsyncOperationResults",
+    "referenceNameIsCommonType": null
   }
 }

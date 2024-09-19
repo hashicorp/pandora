@@ -1,6 +1,7 @@
 {
   "name": "DigitalTwinsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "DigitalTwinsInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DigitalTwinsDescription"
+    "nullable": false,
+    "referenceName": "DigitalTwinsDescription",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DigitalTwinsDescription"
+    "nullable": false,
+    "referenceName": "DigitalTwinsDescription",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Authentication method used for calling the endpoint.",
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebActivityAuthentication"
+        "nullable": false,
+        "referenceName": "WebActivityAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the payload that will be sent to the endpoint. Required for POST/PUT method, not allowed for GET method Type: string (or Expression with resultType string).",
       "jsonName": "body",
       "name": "Body",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ConnectVia",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of datasets passed to web endpoint.",
       "jsonName": "datasets",
       "name": "Datasets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatasetReference"
+          "nullable": false,
+          "referenceName": "DatasetReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "When set to true, Certificate validation will be disabled.",
       "jsonName": "disableCertValidation",
       "name": "DisableCertValidation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timeout for the HTTP request to get a response. Format is in TimeSpan (hh:mm:ss). This value is the timeout to get a response, not the activity timeout. The default value is 00:01:00 (1 minute). The range is from 1 to 10 minutes",
       "jsonName": "httpRequestTimeout",
       "name": "HTTPRequestTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +104,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the headers that will be sent to the request. For example, to set the language and type on a request: \"headers\" : { \"Accept-Language\": \"en-us\", \"Content-Type\": \"application/json\" }. Type: string (or Expression with resultType string).",
       "jsonName": "headers",
       "name": "Headers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,14 +126,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of linked services passed to web endpoint.",
       "jsonName": "linkedServices",
       "name": "LinkedServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedServiceReference"
+          "nullable": false,
+          "referenceName": "LinkedServiceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rest API method for target endpoint.",
       "jsonName": "method",
       "name": "Method",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebActivityMethod"
+        "nullable": false,
+        "referenceName": "WebActivityMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -132,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Option to disable invoking HTTP GET on location given in response header of a HTTP 202 Response. If set true, it stops invoking HTTP GET on http location given in response header. If set false then continues to invoke HTTP GET call on location given in http response headers.",
       "jsonName": "turnOffAsync",
       "name": "TurnOffAsync",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,16 +180,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Web activity target endpoint and path. Type: string (or Expression with resultType string).",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

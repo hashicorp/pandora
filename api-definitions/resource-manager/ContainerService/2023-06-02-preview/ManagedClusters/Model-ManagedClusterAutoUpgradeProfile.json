@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default is Unmanaged, but may change to either NodeImage or SecurityPatch at GA.",
       "jsonName": "nodeOSUpgradeChannel",
       "name": "NodeOSUpgradeChannel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeOSUpgradeChannel"
+        "nullable": false,
+        "referenceName": "NodeOSUpgradeChannel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).",
       "jsonName": "upgradeChannel",
       "name": "UpgradeChannel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeChannel"
+        "nullable": false,
+        "referenceName": "UpgradeChannel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

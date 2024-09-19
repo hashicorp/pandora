@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
       "jsonName": "deleteOrUpdateBehavior",
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOrUpdateBehavior"
+        "nullable": false,
+        "referenceName": "DeleteOrUpdateBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of VNet solution.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VNetSolutionType"
+        "nullable": false,
+        "referenceName": "VNetSolutionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

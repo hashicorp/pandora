@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceTagUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "WorkspaceTagId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "TagCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagContract"
+    "nullable": false,
+    "referenceName": "TagContract",
+    "referenceNameIsCommonType": null
   }
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The max time the maintenance can be rescheduled.",
       "jsonName": "maintenanceAvailableScheduleMaxTime",
       "name": "MaintenanceAvailableScheduleMaxTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,11 +21,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The min time the maintenance can be rescheduled.",
       "jsonName": "maintenanceAvailableScheduleMinTime",
       "name": "MaintenanceAvailableScheduleMinTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maintenance description.",
       "jsonName": "maintenanceDescription",
       "name": "MaintenanceDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,11 +54,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time for a maintenance.",
       "jsonName": "maintenanceEndTime",
       "name": "MaintenanceEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +71,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time for a maintenance execution.",
       "jsonName": "maintenanceExecutionEndTime",
       "name": "MaintenanceExecutionEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +88,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time for a maintenance execution.",
       "jsonName": "maintenanceExecutionStartTime",
       "name": "MaintenanceExecutionStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,11 +105,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time for a maintenance.",
       "jsonName": "maintenanceStartTime",
       "name": "MaintenanceStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A string describes the maintenance status",
       "jsonName": "maintenanceState",
       "name": "MaintenanceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceState"
+        "nullable": false,
+        "referenceName": "MaintenanceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maintenance title.",
       "jsonName": "maintenanceTitle",
       "name": "MaintenanceTitle",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A string defines maintenance type.",
       "jsonName": "maintenanceType",
       "name": "MaintenanceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceType"
+        "nullable": false,
+        "referenceName": "MaintenanceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,16 +169,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the Maintenance.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceProvisioningState"
+        "nullable": false,
+        "referenceName": "MaintenanceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for configuring if anonymous connections are allowed for this hub: \"allow\" or \"deny\". Default to \"deny\".",
       "jsonName": "anonymousConnectPolicy",
       "name": "AnonymousConnectPolicy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Event handler of a hub.",
       "jsonName": "eventHandlers",
       "name": "EventHandlers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHandler"
+          "nullable": false,
+          "referenceName": "EventHandler",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Event listener settings for forwarding your client events to listeners.\r\nEvent listener is transparent to Web PubSub clients, and it doesn't return any result to clients nor interrupt the lifetime of clients.\r\nOne event can be sent to multiple listeners, as long as it matches the filters in those listeners. The order of the array elements doesn't matter.\r\nMaximum count of event listeners among all hubs is 10.",
       "jsonName": "eventListeners",
       "name": "EventListeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventListener"
+          "nullable": false,
+          "referenceName": "EventListener",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The settings for configuring the WebSocket ping-pong interval in seconds for all clients in the hub. Valid range: 1 to 120. Default to 20 seconds.",
       "jsonName": "webSocketKeepAliveIntervalInSeconds",
       "name": "WebSocketKeepAliveIntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

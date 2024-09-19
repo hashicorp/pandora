@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionEnable",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnabledSubscriptionId"
+    "nullable": false,
+    "referenceName": "EnabledSubscriptionId",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Subscription/enable"
 }

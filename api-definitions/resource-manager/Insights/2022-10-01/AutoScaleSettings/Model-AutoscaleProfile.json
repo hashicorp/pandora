@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the number of instances that can be used during this profile.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleCapacity"
+        "nullable": false,
+        "referenceName": "ScaleCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the specific date-time for the profile. This element is not used if the Recurrence element is used.",
       "jsonName": "fixedDate",
       "name": "FixedDate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeWindow"
+        "nullable": false,
+        "referenceName": "TimeWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the name of the profile.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the repeating times at which this profile begins. This element is not used if the FixedDate element is used.",
       "jsonName": "recurrence",
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Recurrence"
+        "nullable": false,
+        "referenceName": "Recurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified.",
       "jsonName": "rules",
       "name": "Rules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScaleRule"
+          "nullable": false,
+          "referenceName": "ScaleRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -70,5 +87,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

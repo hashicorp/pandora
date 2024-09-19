@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capabilities of the SKU.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LabServicesSkuCapabilities"
+          "nullable": false,
+          "referenceName": "LabServicesSkuCapabilities",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabServicesSkuCapacity"
+        "nullable": false,
+        "referenceName": "LabServicesSkuCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Metadata for retrieving price info of a lab services SKUs.",
       "jsonName": "costs",
       "name": "Costs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LabServicesSkuCost"
+          "nullable": false,
+          "referenceName": "LabServicesSkuCost",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +62,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The family of the SKU.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,14 +78,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of locations that are available for a size.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the SKU.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab services resource type.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,14 +132,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restrictions of a lab services SKUs.",
       "jsonName": "restrictions",
       "name": "Restrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LabServicesSkuRestrictions"
+          "nullable": false,
+          "referenceName": "LabServicesSkuRestrictions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU size.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,16 +170,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tier of the SKU.",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabServicesSkuTier"
+        "nullable": false,
+        "referenceName": "LabServicesSkuTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of sharing profile groups.",
       "jsonName": "groups",
       "name": "Groups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharingProfileGroup"
+          "nullable": false,
+          "referenceName": "SharingProfileGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property allows you to specify the operation type of gallery sharing update. Possible values are: **Add,** **Remove,** **Reset.**",
       "jsonName": "operationType",
       "name": "OperationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharingUpdateOperationTypes"
+        "nullable": false,
+        "referenceName": "SharingUpdateOperationTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

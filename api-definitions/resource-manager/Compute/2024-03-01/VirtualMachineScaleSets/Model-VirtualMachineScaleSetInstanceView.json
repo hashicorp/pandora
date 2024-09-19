@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extensions information.",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetVMExtensionsSummary"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetVMExtensionsSummary",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The orchestration services information.",
       "jsonName": "orchestrationServices",
       "name": "OrchestrationServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OrchestrationServiceSummary"
+          "nullable": false,
+          "referenceName": "OrchestrationServiceSummary",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource status information.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,16 +69,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance view status summary for the virtual machine scale set.",
       "jsonName": "virtualMachine",
       "name": "VirtualMachine",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetInstanceViewStatusesSummary"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetInstanceViewStatusesSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

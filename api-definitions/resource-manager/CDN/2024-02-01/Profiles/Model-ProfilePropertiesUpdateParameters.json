@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines rules to scrub sensitive fields in logs",
       "jsonName": "logScrubbing",
       "name": "LogScrubbing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileLogScrubbing"
+        "nullable": false,
+        "referenceName": "ProfileLogScrubbing",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.",
       "jsonName": "originResponseTimeoutSeconds",
       "name": "OriginResponseTimeoutSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

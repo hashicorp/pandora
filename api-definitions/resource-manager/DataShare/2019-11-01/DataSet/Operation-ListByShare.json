@@ -1,6 +1,7 @@
 {
   "name": "ListByShare",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ShareId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataSet"
+    "nullable": false,
+    "referenceName": "DataSet",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dataSets"
 }

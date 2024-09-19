@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The attributes of the key.",
       "jsonName": "attributes",
       "name": "Attributes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmKeyAttributes"
+        "nullable": false,
+        "referenceName": "ManagedHsmKeyAttributes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The elliptic curve name. For valid values, see JsonWebKeyCurveName.",
       "jsonName": "curveName",
       "name": "CurveName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonWebKeyCurveName"
+        "nullable": false,
+        "referenceName": "JsonWebKeyCurveName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +39,14 @@
       "name": "KeyOps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JsonWebKeyOperation"
+          "nullable": false,
+          "referenceName": "JsonWebKeyOperation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The key size in bits. For example: 2048, 3072, or 4096 for RSA.",
       "jsonName": "keySize",
       "name": "KeySize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI to retrieve the current version of the key.",
       "jsonName": "keyUri",
       "name": "KeyUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI to retrieve the specific version of the key.",
       "jsonName": "keyUriWithVersion",
       "name": "KeyUriWithVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the key. For valid values, see JsonWebKeyType.",
       "jsonName": "kty",
       "name": "Kty",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonWebKeyType"
+        "nullable": false,
+        "referenceName": "JsonWebKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key release policy in response. It will be used for both output and input. Omitted if empty",
       "jsonName": "release_policy",
       "name": "ReleasePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmKeyReleasePolicy"
+        "nullable": false,
+        "referenceName": "ManagedHsmKeyReleasePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +136,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key rotation policy in response. It will be used for both output and input. Omitted if empty",
       "jsonName": "rotationPolicy",
       "name": "RotationPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmRotationPolicy"
+        "nullable": false,
+        "referenceName": "ManagedHsmRotationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

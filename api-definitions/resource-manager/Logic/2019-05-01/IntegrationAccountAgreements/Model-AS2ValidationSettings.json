@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for certificate revocation list on receive.",
       "jsonName": "checkCertificateRevocationListOnReceive",
       "name": "CheckCertificateRevocationListOnReceive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for certificate revocation list on send.",
       "jsonName": "checkCertificateRevocationListOnSend",
       "name": "CheckCertificateRevocationListOnSend",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for duplicate message.",
       "jsonName": "checkDuplicateMessage",
       "name": "CheckDuplicateMessage",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether the message has to be compressed.",
       "jsonName": "compressMessage",
       "name": "CompressMessage",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether the message has to be encrypted.",
       "jsonName": "encryptMessage",
       "name": "EncryptMessage",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption algorithm.",
       "jsonName": "encryptionAlgorithm",
       "name": "EncryptionAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionAlgorithm"
+        "nullable": false,
+        "referenceName": "EncryptionAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of days to look back for duplicate interchange.",
       "jsonName": "interchangeDuplicatesValidityDays",
       "name": "InterchangeDuplicatesValidityDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to override incoming message properties with those in agreement.",
       "jsonName": "overrideMessageProperties",
       "name": "OverrideMessageProperties",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether the message has to be signed.",
       "jsonName": "signMessage",
       "name": "SignMessage",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The signing algorithm.",
       "jsonName": "signingAlgorithm",
       "name": "SigningAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SigningAlgorithm"
+        "nullable": false,
+        "referenceName": "SigningAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

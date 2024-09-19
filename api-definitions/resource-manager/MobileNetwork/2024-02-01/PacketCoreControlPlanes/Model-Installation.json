@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The desired installation state",
       "jsonName": "desiredState",
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DesiredInstallationState"
+        "nullable": false,
+        "referenceName": "DesiredInstallationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AsyncOperationId"
+        "nullable": false,
+        "referenceName": "AsyncOperationId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +34,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason(s) for the current installation state of the packet core.",
       "jsonName": "reasons",
       "name": "Reasons",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstallationReason"
+          "nullable": false,
+          "referenceName": "InstallationReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether a reinstall of the packet core is required to pick up the latest configuration changes.",
       "jsonName": "reinstallRequired",
       "name": "ReinstallRequired",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReinstallRequired"
+        "nullable": false,
+        "referenceName": "ReinstallRequired",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +72,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Installation state",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallationState"
+        "nullable": false,
+        "referenceName": "InstallationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

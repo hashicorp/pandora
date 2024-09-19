@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Only applicable for tenant and management group level queries to decide whether to allow partial scopes for result in case the number of subscriptions exceed allowed limits.",
       "jsonName": "allowPartialScopes",
       "name": "AllowPartialScopes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines what level of authorization resources should be returned based on the which subscriptions and management groups are passed as scopes.",
       "jsonName": "authorizationScopeFilter",
       "name": "AuthorizationScopeFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthorizationScopeFilter"
+        "nullable": false,
+        "referenceName": "AuthorizationScopeFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines in which format query result returned.",
       "jsonName": "resultFormat",
       "name": "ResultFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResultFormat"
+        "nullable": false,
+        "referenceName": "ResultFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of rows to skip from the beginning of the results. Overrides the next page offset when ```$skipToken``` property is present.",
       "jsonName": "$skip",
       "name": "Skip",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Continuation token for pagination, capturing the next page size and offset, as well as the context of the query.",
       "jsonName": "$skipToken",
       "name": "SkipToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of rows that the query should return. Overrides the page size when ```$skipToken``` property is present.",
       "jsonName": "$top",
       "name": "Top",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

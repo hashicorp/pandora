@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource of an Azure Cosmos DB Gremlin database event",
       "jsonName": "resource",
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorableGremlinDatabasePropertiesResource"
+        "nullable": false,
+        "referenceName": "RestorableGremlinDatabasePropertiesResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

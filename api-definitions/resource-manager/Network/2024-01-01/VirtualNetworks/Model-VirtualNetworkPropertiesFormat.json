@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AddressSpace that contains an array of IP address ranges that can be used by subnets.",
       "jsonName": "addressSpace",
       "name": "AddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.",
       "jsonName": "bgpCommunities",
       "name": "BgpCommunities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkBgpCommunities"
+        "nullable": false,
+        "referenceName": "VirtualNetworkBgpCommunities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "DdosProtectionPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.",
       "jsonName": "dhcpOptions",
       "name": "DhcpOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DhcpOptions"
+        "nullable": false,
+        "referenceName": "DhcpOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.",
       "jsonName": "enableDdosProtection",
       "name": "EnableDdosProtection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if VM protection is enabled for all the subnets in the virtual network.",
       "jsonName": "enableVmProtection",
       "name": "EnableVMProtection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkEncryption"
+        "nullable": false,
+        "referenceName": "VirtualNetworkEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +114,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of references to flow log resources.",
       "jsonName": "flowLogs",
       "name": "FlowLogs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FlowLog"
+          "nullable": false,
+          "referenceName": "FlowLog",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,11 +136,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The FlowTimeout value (in minutes) for the Virtual Network",
       "jsonName": "flowTimeoutInMinutes",
       "name": "FlowTimeoutInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,14 +152,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of IpAllocation which reference this VNET.",
       "jsonName": "ipAllocations",
       "name": "IPAllocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,7 +178,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resourceGuid property of the Virtual Network resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,14 +205,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of subnets in a Virtual Network.",
       "jsonName": "subnets",
       "name": "Subnets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Subnet"
+          "nullable": false,
+          "referenceName": "Subnet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,14 +227,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of peerings in a Virtual Network.",
       "jsonName": "virtualNetworkPeerings",
       "name": "VirtualNetworkPeerings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkPeering"
+          "nullable": false,
+          "referenceName": "VirtualNetworkPeering",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -199,5 +247,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

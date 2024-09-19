@@ -1,6 +1,7 @@
 {
   "name": "RaiBlocklistItemsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "RaiBlocklistItemId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RaiBlocklistItem"
+    "nullable": false,
+    "referenceName": "RaiBlocklistItem",
+    "referenceNameIsCommonType": null
   }
 }

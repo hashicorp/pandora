@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Schedule for this backup",
       "jsonName": "schedule",
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupSchedule"
+        "nullable": false,
+        "referenceName": "BackupSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of tags that can be applicable for given schedule.",
       "jsonName": "taggingCriteria",
       "name": "TaggingCriteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TaggingCriteria"
+          "nullable": false,
+          "referenceName": "TaggingCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TriggerContext",
   "discriminatedTypeValue": "ScheduleBasedTriggerContext",
   "typeHintIn": "ObjectType"

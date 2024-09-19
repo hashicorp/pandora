@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Request Header Actions in the Action Set.",
       "jsonName": "requestHeaderConfigurations",
       "name": "RequestHeaderConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayHeaderConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayHeaderConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Response Header Actions in the Action Set.",
       "jsonName": "responseHeaderConfigurations",
       "name": "ResponseHeaderConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayHeaderConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayHeaderConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,16 +47,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Url Configuration Action in the Action Set.",
       "jsonName": "urlConfiguration",
       "name": "UrlConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayUrlConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayUrlConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

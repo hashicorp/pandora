@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubRouteTableV2sCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualHubRouteTableId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualHubRouteTableV2"
+    "nullable": false,
+    "referenceName": "VirtualHubRouteTableV2",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualHubRouteTableV2"
+    "nullable": false,
+    "referenceName": "VirtualHubRouteTableV2",
+    "referenceNameIsCommonType": null
   }
 }

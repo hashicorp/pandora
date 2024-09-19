@@ -1,6 +1,7 @@
 {
   "name": "EmailTemplateUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "TemplateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EmailTemplateUpdateParameters"
+    "nullable": false,
+    "referenceName": "EmailTemplateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EmailTemplateContract"
+    "nullable": false,
+    "referenceName": "EmailTemplateContract",
+    "referenceNameIsCommonType": null
   }
 }

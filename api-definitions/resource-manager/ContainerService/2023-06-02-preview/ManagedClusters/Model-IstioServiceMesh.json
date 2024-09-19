@@ -7,7 +7,9 @@
       "name": "CertificateAuthority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IstioCertificateAuthority"
+        "nullable": false,
+        "referenceName": "IstioCertificateAuthority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Components",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IstioComponents"
+        "nullable": false,
+        "referenceName": "IstioComponents",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +33,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When canary upgrade is in progress, this can only hold two consecutive values. For more information, see: https://learn.microsoft.com/en-us/azure/aks/istio-upgrade",
       "jsonName": "revisions",
       "name": "Revisions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +53,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

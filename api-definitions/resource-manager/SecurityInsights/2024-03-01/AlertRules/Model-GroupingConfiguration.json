@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Grouping enabled",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of alert details to group by (when matchingMethod is Selected)",
       "jsonName": "groupByAlertDetails",
       "name": "GroupByAlertDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlertDetail"
+          "nullable": false,
+          "referenceName": "AlertDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.",
       "jsonName": "groupByCustomDetails",
       "name": "GroupByCustomDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.",
       "jsonName": "groupByEntities",
       "name": "GroupByEntities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityMappingType"
+          "nullable": false,
+          "referenceName": "EntityMappingType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)",
       "jsonName": "lookbackDuration",
       "name": "LookbackDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.",
       "jsonName": "matchingMethod",
       "name": "MatchingMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MatchingMethod"
+        "nullable": false,
+        "referenceName": "MatchingMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -93,16 +117,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Re-open closed matching incidents",
       "jsonName": "reopenClosedIncident",
       "name": "ReopenClosedIncident",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

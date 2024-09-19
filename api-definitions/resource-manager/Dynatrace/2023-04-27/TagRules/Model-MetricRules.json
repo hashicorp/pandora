@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.",
       "jsonName": "filteringTags",
       "name": "FilteringTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FilteringTag"
+          "nullable": false,
+          "referenceName": "FilteringTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag specifying if metrics from Azure resources should be sent for the Monitor resource.",
       "jsonName": "sendingMetrics",
       "name": "SendingMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SendingMetricsStatus"
+        "nullable": false,
+        "referenceName": "SendingMetricsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

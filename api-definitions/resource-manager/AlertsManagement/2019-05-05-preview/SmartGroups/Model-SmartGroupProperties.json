@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of alertSeverities in the smart group",
       "jsonName": "alertSeverities",
       "name": "AlertSeverities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of alertStates in the smart group",
       "jsonName": "alertStates",
       "name": "AlertStates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total number of alerts in smart group",
       "jsonName": "alertsCount",
       "name": "AlertsCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,11 +64,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last updated time of smart group. Date-Time in ISO-8601 format.",
       "jsonName": "lastModifiedDateTime",
       "name": "LastModifiedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last modified by user name.",
       "jsonName": "lastModifiedUserName",
       "name": "LastModifiedUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,14 +96,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of monitorConditions in the smart group",
       "jsonName": "monitorConditions",
       "name": "MonitorConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -94,14 +118,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of monitorServices in the smart group",
       "jsonName": "monitorServices",
       "name": "MonitorServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI to fetch the next page of alerts. Call ListNext() with this URI to fetch the next page alerts.",
       "jsonName": "nextLink",
       "name": "NextLink",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,14 +156,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of target resource groups in the smart group",
       "jsonName": "resourceGroups",
       "name": "ResourceGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,14 +178,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of target resource types in the smart group",
       "jsonName": "resourceTypes",
       "name": "ResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,14 +200,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of target resources in the smart group",
       "jsonName": "resources",
       "name": "Resources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,11 +222,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Severity of smart group is the highest(Sev0 \u003e... \u003e Sev4) severity of all the alerts in the group.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +238,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Smart group state",
       "jsonName": "smartGroupState",
       "name": "SmartGroupState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "State"
+        "nullable": false,
+        "referenceName": "State",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,16 +255,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation time of smart group. Date-Time in ISO-8601 format.",
       "jsonName": "startDateTime",
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

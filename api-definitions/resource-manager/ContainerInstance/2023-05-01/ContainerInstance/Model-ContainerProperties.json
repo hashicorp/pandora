@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The commands to execute within the container instance in exec form.",
       "jsonName": "command",
       "name": "Command",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The environment variables to set in the container instance.",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EnvironmentVariable"
+          "nullable": false,
+          "referenceName": "EnvironmentVariable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the image used to create the container instance.",
       "jsonName": "image",
       "name": "Image",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance view of the container instance. Only valid in response.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerPropertiesInstanceView"
+        "nullable": false,
+        "referenceName": "ContainerPropertiesInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The liveness probe.",
       "jsonName": "livenessProbe",
       "name": "LivenessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerProbe"
+        "nullable": false,
+        "referenceName": "ContainerProbe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,14 +95,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The exposed ports on the container instance.",
       "jsonName": "ports",
       "name": "Ports",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerPort"
+          "nullable": false,
+          "referenceName": "ContainerPort",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The readiness probe.",
       "jsonName": "readinessProbe",
       "name": "ReadinessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerProbe"
+        "nullable": false,
+        "referenceName": "ContainerProbe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource requirements of the container instance.",
       "jsonName": "resources",
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRequirements"
+        "nullable": false,
+        "referenceName": "ResourceRequirements",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The container security properties.",
       "jsonName": "securityContext",
       "name": "SecurityContext",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityContextDefinition"
+        "nullable": false,
+        "referenceName": "SecurityContextDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,14 +165,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The volume mounts available to the container instance.",
       "jsonName": "volumeMounts",
       "name": "VolumeMounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VolumeMount"
+          "nullable": false,
+          "referenceName": "VolumeMount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -147,5 +185,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

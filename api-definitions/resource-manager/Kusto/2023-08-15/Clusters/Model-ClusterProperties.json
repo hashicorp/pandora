@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster's accepted audiences.",
       "jsonName": "acceptedAudiences",
       "name": "AcceptedAudiences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AcceptedAudiences"
+          "nullable": false,
+          "referenceName": "AcceptedAudiences",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.",
       "jsonName": "allowedFqdnList",
       "name": "AllowedFqdnList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ips in the format of CIDR allowed to connect to the cluster.",
       "jsonName": "allowedIpRangeList",
       "name": "AllowedIPRangeList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,11 +69,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster data ingestion URI.",
       "jsonName": "dataIngestionUri",
       "name": "DataIngestionUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).",
       "jsonName": "enableAutoStop",
       "name": "EnableAutoStop",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value that indicates if the cluster's disks are encrypted.",
       "jsonName": "enableDiskEncryption",
       "name": "EnableDiskEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value that indicates if double encryption is enabled.",
       "jsonName": "enableDoubleEncryption",
       "name": "EnableDoubleEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value that indicates if the purge operations are enabled.",
       "jsonName": "enablePurge",
       "name": "EnablePurge",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean value that indicates if the streaming ingest is enabled.",
       "jsonName": "enableStreamingIngest",
       "name": "EnableStreamingIngest",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The engine type",
       "jsonName": "engineType",
       "name": "EngineType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EngineType"
+        "nullable": false,
+        "referenceName": "EngineType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,11 +181,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "KeyVault properties for the cluster encryption.",
       "jsonName": "keyVaultProperties",
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of the cluster's language extensions.",
       "jsonName": "languageExtensions",
       "name": "LanguageExtensions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LanguageExtensionsList"
+        "nullable": false,
+        "referenceName": "LanguageExtensionsList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +213,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of the peer cluster involved in a migration to/from this cluster.",
       "jsonName": "migrationCluster",
       "name": "MigrationCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationClusterProperties"
+        "nullable": false,
+        "referenceName": "MigrationClusterProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +229,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optimized auto scale definition.",
       "jsonName": "optimizedAutoscale",
       "name": "OptimizedAutoscale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptimizedAutoscale"
+        "nullable": false,
+        "referenceName": "OptimizedAutoscale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,14 +245,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of private endpoint connections.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -214,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioned state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)",
       "jsonName": "publicIPType",
       "name": "PublicIPType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPType"
+        "nullable": false,
+        "referenceName": "PublicIPType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,11 +299,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +315,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "restrictOutboundNetworkAccess",
       "name": "RestrictOutboundNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "ClusterNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +331,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the resource.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "State"
+        "nullable": false,
+        "referenceName": "State",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +347,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason for the cluster's current state.",
       "jsonName": "stateReason",
       "name": "StateReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,14 +363,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster's external tenants.",
       "jsonName": "trustedExternalTenants",
       "name": "TrustedExternalTenants",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrustedExternalTenant"
+          "nullable": false,
+          "referenceName": "TrustedExternalTenant",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -309,11 +385,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster URI.",
       "jsonName": "uri",
       "name": "Uri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -322,11 +401,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Cluster graduation properties",
       "jsonName": "virtualClusterGraduationProperties",
       "name": "VirtualClusterGraduationProperties",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,16 +417,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network definition.",
       "jsonName": "virtualNetworkConfiguration",
       "name": "VirtualNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

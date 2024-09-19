@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "Specifies the type of threshold criteria",
       "jsonName": "criterionType",
       "name": "CriterionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CriterionType"
+        "nullable": false,
+        "referenceName": "CriterionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of dimension conditions.",
       "jsonName": "dimensions",
       "name": "Dimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricDimension"
+          "nullable": false,
+          "referenceName": "MetricDimension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the metric.",
       "jsonName": "metricName",
       "name": "MetricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Namespace of the metric.",
       "jsonName": "metricNamespace",
       "name": "MetricNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the criteria.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped.",
       "jsonName": "skipMetricValidation",
       "name": "SkipMetricValidation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the criteria time aggregation types.",
       "jsonName": "timeAggregation",
       "name": "TimeAggregation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AggregationTypeEnum"
+        "nullable": false,
+        "referenceName": "AggregationTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -97,5 +120,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "CriterionType"
 }

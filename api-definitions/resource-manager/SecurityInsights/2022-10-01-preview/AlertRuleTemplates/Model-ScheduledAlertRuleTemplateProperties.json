@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert details override settings",
       "jsonName": "alertDetailsOverride",
       "name": "AlertDetailsOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertDetailsOverride"
+        "nullable": false,
+        "referenceName": "AlertDetailsOverride",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the number of alert rules that were created by this template",
       "jsonName": "alertRulesCreatedByTemplateCount",
       "name": "AlertRulesCreatedByTemplateCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time that this alert rule template has been added.",
       "jsonName": "createdDateUTC",
       "name": "CreatedDateUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of string key-value pairs of columns to be attached to the alert",
       "jsonName": "customDetails",
       "name": "CustomDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the alert rule template.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name for alert rule template.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,14 +106,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the entity mappings of the alert rule",
       "jsonName": "entityMappings",
       "name": "EntityMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityMapping"
+          "nullable": false,
+          "referenceName": "EntityMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event grouping settings.",
       "jsonName": "eventGroupingSettings",
       "name": "EventGroupingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGroupingSettings"
+        "nullable": false,
+        "referenceName": "EventGroupingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time that this alert rule template was last updated.",
       "jsonName": "lastUpdatedDateUTC",
       "name": "LastUpdatedDateUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The query that creates alerts for this rule.",
       "jsonName": "query",
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The frequency (in ISO 8601 duration format) for this alert rule to run.",
       "jsonName": "queryFrequency",
       "name": "QueryFrequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The period (in ISO 8601 duration format) that this alert rule looks at.",
       "jsonName": "queryPeriod",
       "name": "QueryPeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,14 +209,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The required data connectors for this template",
       "jsonName": "requiredDataConnectors",
       "name": "RequiredDataConnectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AlertRuleTemplateDataSource"
+          "nullable": false,
+          "referenceName": "AlertRuleTemplateDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -186,14 +231,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of the sentinel entity mappings of the alert rule",
       "jsonName": "sentinelEntitiesMappings",
       "name": "SentinelEntitiesMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SentinelEntityMapping"
+          "nullable": false,
+          "referenceName": "SentinelEntityMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -207,7 +257,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,11 +268,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The alert rule template status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemplateStatus"
+        "nullable": false,
+        "referenceName": "TemplateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -229,14 +284,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tactics of the alert rule template",
       "jsonName": "tactics",
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AttackTactic"
+          "nullable": false,
+          "referenceName": "AttackTactic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -246,14 +306,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The techniques of the alert rule",
       "jsonName": "techniques",
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -263,11 +328,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operation against the threshold that triggers alert rule.",
       "jsonName": "triggerOperator",
       "name": "TriggerOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerOperator"
+        "nullable": false,
+        "referenceName": "TriggerOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,11 +344,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The threshold triggers this alert rule.",
       "jsonName": "triggerThreshold",
       "name": "TriggerThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -289,16 +360,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of this template - in format \u003ca.b.c\u003e, where all are numbers. For example \u003c1.0.2\u003e.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

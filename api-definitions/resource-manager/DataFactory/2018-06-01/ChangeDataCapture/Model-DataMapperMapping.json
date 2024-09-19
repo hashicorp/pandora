@@ -7,7 +7,9 @@
       "name": "AttributeMappingInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperAttributeMappings"
+        "nullable": false,
+        "referenceName": "MapperAttributeMappings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SourceConnectionReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperConnectionReference"
+        "nullable": false,
+        "referenceName": "MapperConnectionReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This holds the source denormalization information used while joining multiple sources.",
       "jsonName": "sourceDenormalizeInfo",
       "name": "SourceDenormalizeInfo",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the source table",
       "jsonName": "sourceEntityName",
       "name": "SourceEntityName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +65,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the target table",
       "jsonName": "targetEntityName",
       "name": "TargetEntityName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

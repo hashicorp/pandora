@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup storage version",
       "jsonName": "backupStorageVersion",
       "name": "BackupStorageVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupStorageVersion"
+        "nullable": false,
+        "referenceName": "BackupStorageVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer Managed Key details of the resource.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VaultPropertiesEncryption"
+        "nullable": false,
+        "referenceName": "VaultPropertiesEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Monitoring Settings of the vault",
       "jsonName": "monitoringSettings",
       "name": "MonitoringSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSettings"
+        "nullable": false,
+        "referenceName": "MonitoringSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of the latest move operation performed on the Azure Resource",
       "jsonName": "moveDetails",
       "name": "MoveDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VaultPropertiesMoveDetails"
+        "nullable": false,
+        "referenceName": "VaultPropertiesMoveDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The State of the Resource after the move operation",
       "jsonName": "moveState",
       "name": "MoveState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceMoveState"
+        "nullable": false,
+        "referenceName": "ResourceMoveState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private endpoint connection.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnectionVaultProperties"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnectionVaultProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private endpoint state for backup.",
       "jsonName": "privateEndpointStateForBackup",
       "name": "PrivateEndpointStateForBackup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VaultPrivateEndpointState"
+        "nullable": false,
+        "referenceName": "VaultPrivateEndpointState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private endpoint state for site recovery.",
       "jsonName": "privateEndpointStateForSiteRecovery",
       "name": "PrivateEndpointStateForSiteRecovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VaultPrivateEndpointState"
+        "nullable": false,
+        "referenceName": "VaultPrivateEndpointState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "property to enable or disable resource provider inbound network traffic from public clients",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The redundancy Settings of a Vault",
       "jsonName": "redundancySettings",
       "name": "RedundancySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VaultPropertiesRedundancySettings"
+        "nullable": false,
+        "referenceName": "VaultPropertiesRedundancySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Security Settings of the vault",
       "jsonName": "securitySettings",
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecuritySettings"
+        "nullable": false,
+        "referenceName": "SecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,12 +205,15 @@
       "name": "UpgradeDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeDetails"
+        "nullable": false,
+        "referenceName": "UpgradeDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

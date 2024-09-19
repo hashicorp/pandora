@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "For Windows VMs, specifies the certificate store on the Virtual Machine to which the certificate should be added. The specified certificate store is implicitly in the LocalMachine account. \u003cbr\u003e\u003cbr\u003eFor Linux VMs, the certificate file is placed under the /var/lib/waagent directory, with the file name \u003cUppercaseThumbprint\u003e.crt for the X509 certificate file and \u003cUppercaseThumbprint\u003e.prv for private key. Both of these files are .pem formatted.",
       "jsonName": "certificateStore",
       "name": "CertificateStore",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the URL of a certificate that has been uploaded to Key Vault as a secret. For adding a secret to the Key Vault, see [Add a key or secret to the key vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add). In this case, your certificate needs to be It is the Base64 encoding of the following JSON Object which is encoded in UTF-8: \u003cbr\u003e\u003cbr\u003e {\u003cbr\u003e  \"data\":\"\u003cBase64-encoded-certificate\u003e\",\u003cbr\u003e  \"dataType\":\"pfx\",\u003cbr\u003e  \"password\":\"\u003cpfx-file-password\u003e\"\u003cbr\u003e}",
       "jsonName": "certificateUrl",
       "name": "CertificateUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

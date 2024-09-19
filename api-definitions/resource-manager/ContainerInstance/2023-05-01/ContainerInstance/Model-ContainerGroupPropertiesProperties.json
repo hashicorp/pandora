@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The properties for confidential container group",
       "jsonName": "confidentialComputeProperties",
       "name": "ConfidentialComputeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfidentialComputeProperties"
+        "nullable": false,
+        "referenceName": "ConfidentialComputeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The containers within the container group.",
       "jsonName": "containers",
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Container"
+          "nullable": false,
+          "referenceName": "Container",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The diagnostic information for a container group.",
       "jsonName": "diagnostics",
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerGroupDiagnostics"
+        "nullable": false,
+        "referenceName": "ContainerGroupDiagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DNS config information for a container group.",
       "jsonName": "dnsConfig",
       "name": "DnsConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsConfiguration"
+        "nullable": false,
+        "referenceName": "DnsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption properties for a container group.",
       "jsonName": "encryptionProperties",
       "name": "EncryptionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionProperties"
+        "nullable": false,
+        "referenceName": "EncryptionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "extensions used by virtual kubelet",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeploymentExtensionSpec"
+          "nullable": false,
+          "referenceName": "DeploymentExtensionSpec",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address type of the container group.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAddress"
+        "nullable": false,
+        "referenceName": "IPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The image registry credentials by which the container group is created from.",
       "jsonName": "imageRegistryCredentials",
       "name": "ImageRegistryCredentials",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ImageRegistryCredential"
+          "nullable": false,
+          "referenceName": "ImageRegistryCredential",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The init containers for a container group.",
       "jsonName": "initContainers",
       "name": "InitContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InitContainerDefinition"
+          "nullable": false,
+          "referenceName": "InitContainerDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance view of the container group. Only valid in response.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerGroupPropertiesPropertiesInstanceView"
+        "nullable": false,
+        "referenceName": "ContainerGroupPropertiesPropertiesInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operating system type required by the containers in the container group.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -162,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The priority of the container group.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerGroupPriority"
+        "nullable": false,
+        "referenceName": "ContainerGroupPriority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the container group. This only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Restart policy for all containers within the container group. \n- `Always` Always restart\n- `OnFailure` Restart on failure\n- `Never` Never restart\n",
       "jsonName": "restartPolicy",
       "name": "RestartPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerGroupRestartPolicy"
+        "nullable": false,
+        "referenceName": "ContainerGroupRestartPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU for a container group.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerGroupSku"
+        "nullable": false,
+        "referenceName": "ContainerGroupSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,14 +267,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subnet resource IDs for a container group.",
       "jsonName": "subnetIds",
       "name": "SubnetIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerGroupSubnetId"
+          "nullable": false,
+          "referenceName": "ContainerGroupSubnetId",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -231,14 +289,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of volumes that can be mounted by containers in this container group.",
       "jsonName": "volumes",
       "name": "Volumes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Volume"
+          "nullable": false,
+          "referenceName": "Volume",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -246,5 +309,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

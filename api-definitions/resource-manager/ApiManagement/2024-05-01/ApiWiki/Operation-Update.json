@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "ApiId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WikiUpdateContract"
+    "nullable": false,
+    "referenceName": "WikiUpdateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WikiContract"
+    "nullable": false,
+    "referenceName": "WikiContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/wikis/default"
 }

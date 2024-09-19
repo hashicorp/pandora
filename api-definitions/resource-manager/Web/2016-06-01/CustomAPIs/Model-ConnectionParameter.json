@@ -7,7 +7,9 @@
       "name": "OAuthSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiOAuthSettings"
+        "nullable": false,
+        "referenceName": "ApiOAuthSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +18,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the parameter",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionParameterType"
+        "nullable": false,
+        "referenceName": "ConnectionParameterType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

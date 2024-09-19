@@ -1,6 +1,7 @@
 {
   "name": "ListActiveSecurityAdminRules",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NetworkManagerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ActiveConfigurationParameter"
+    "nullable": false,
+    "referenceName": "ActiveConfigurationParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ActiveSecurityAdminRulesListResult"
+    "nullable": false,
+    "referenceName": "ActiveSecurityAdminRulesListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listActiveSecurityAdminRules"
 }

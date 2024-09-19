@@ -1,6 +1,7 @@
 {
   "name": "ImportSpecification",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DefinitionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiSpecImportRequest"
+    "nullable": false,
+    "referenceName": "ApiSpecImportRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/importSpecification"
 }

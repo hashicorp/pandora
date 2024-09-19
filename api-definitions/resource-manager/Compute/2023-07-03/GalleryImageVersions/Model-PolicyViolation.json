@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the nature of the policy violation.",
       "jsonName": "category",
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyViolationCategory"
+        "nullable": false,
+        "referenceName": "PolicyViolationCategory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes specific details about why this policy violation was reported.",
       "jsonName": "details",
       "name": "Details",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

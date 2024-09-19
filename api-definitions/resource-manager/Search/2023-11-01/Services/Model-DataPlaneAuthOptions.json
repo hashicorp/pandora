@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates that either the API key or an access token from a Microsoft Entra ID tenant can be used for authentication.",
       "jsonName": "aadOrApiKey",
       "name": "AadOrApiKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataPlaneAadOrApiKeyAuthOption"
+        "nullable": false,
+        "referenceName": "DataPlaneAadOrApiKeyAuthOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates that only the API key can be used for authentication.",
       "jsonName": "apiKeyOnly",
       "name": "ApiKeyOnly",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

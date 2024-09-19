@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The local administrator properties for the mongo cluster.",
       "jsonName": "administrator",
       "name": "Administrator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdministratorProperties"
+        "nullable": false,
+        "referenceName": "AdministratorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The backup properties of the mongo cluster.",
       "jsonName": "backup",
       "name": "Backup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupProperties"
+        "nullable": false,
+        "referenceName": "BackupProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compute properties of the mongo cluster.",
       "jsonName": "compute",
       "name": "Compute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeProperties"
+        "nullable": false,
+        "referenceName": "ComputeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The high availability properties of the mongo cluster.",
       "jsonName": "highAvailability",
       "name": "HighAvailability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailabilityProperties"
+        "nullable": false,
+        "referenceName": "HighAvailabilityProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private endpoint connections.",
       "jsonName": "previewFeatures",
       "name": "PreviewFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PreviewFeature"
+          "nullable": false,
+          "referenceName": "PreviewFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not public endpoint access is allowed for this mongo cluster.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Mongo DB server version. Defaults to the latest available version if not specified.",
       "jsonName": "serverVersion",
       "name": "ServerVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sharding properties of the mongo cluster.",
       "jsonName": "sharding",
       "name": "Sharding",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShardingProperties"
+        "nullable": false,
+        "referenceName": "ShardingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage properties of the mongo cluster.",
       "jsonName": "storage",
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProperties"
+        "nullable": false,
+        "referenceName": "StorageProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

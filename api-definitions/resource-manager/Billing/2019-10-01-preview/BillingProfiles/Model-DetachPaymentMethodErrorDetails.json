@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error code for the detach payment method eligibility validation.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DetachPaymentMethodEligibilityErrorCode"
+        "nullable": false,
+        "referenceName": "DetachPaymentMethodEligibilityErrorCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Error message for the detach payment method eligibility validation.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

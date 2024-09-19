@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "JobId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JobPatchProperties"
+    "nullable": false,
+    "referenceName": "JobPatchProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Job"
+    "nullable": false,
+    "referenceName": "Job",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Adjustments (Promo credit, SIE credit etc.).",
       "jsonName": "adjustmentDetails",
       "name": "AdjustmentDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BalancePropertiesAdjustmentDetailsInlined"
+          "nullable": false,
+          "referenceName": "BalancePropertiesAdjustmentDetailsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total adjustment amount.",
       "jsonName": "adjustments",
       "name": "Adjustments",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total charges for Azure Marketplace.",
       "jsonName": "azureMarketplaceServiceCharges",
       "name": "AzureMarketplaceServiceCharges",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The beginning balance for the billing period.",
       "jsonName": "beginningBalance",
       "name": "BeginningBalance",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing frequency.",
       "jsonName": "billingFrequency",
       "name": "BillingFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingFrequency"
+        "nullable": false,
+        "referenceName": "BillingFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Charges Billed separately.",
       "jsonName": "chargesBilledSeparately",
       "name": "ChargesBilledSeparately",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ISO currency in which the meter is charged, for example, USD.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ending balance for the billing period (for open periods this will be updated daily).",
       "jsonName": "endingBalance",
       "name": "EndingBalance",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total new purchase amount.",
       "jsonName": "newPurchases",
       "name": "NewPurchases",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,14 +153,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of new purchases.",
       "jsonName": "newPurchasesDetails",
       "name": "NewPurchasesDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BalancePropertiesNewPurchasesDetailsInlined"
+          "nullable": false,
+          "referenceName": "BalancePropertiesNewPurchasesDetailsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overage Refunds",
       "jsonName": "overageRefund",
       "name": "OverageRefund",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Price is hidden or not.",
       "jsonName": "priceHidden",
       "name": "PriceHidden",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overage for Azure services.",
       "jsonName": "serviceOverage",
       "name": "ServiceOverage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "serviceOverage + chargesBilledSeparately.",
       "jsonName": "totalOverage",
       "name": "TotalOverage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure service commitment + total Overage.",
       "jsonName": "totalUsage",
       "name": "TotalUsage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,16 +255,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total Commitment usage.",
       "jsonName": "utilized",
       "name": "Utilized",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

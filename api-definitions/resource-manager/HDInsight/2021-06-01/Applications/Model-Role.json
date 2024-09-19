@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The autoscale configurations.",
       "jsonName": "autoscale",
       "name": "Autoscale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Autoscale"
+        "nullable": false,
+        "referenceName": "Autoscale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The data disks groups for the role.",
       "jsonName": "dataDisksGroups",
       "name": "DataDisksGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDisksGroups"
+          "nullable": false,
+          "referenceName": "DataDisksGroups",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether encrypt the data disks.",
       "jsonName": "encryptDataDisks",
       "name": "EncryptDataDisks",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hardware profile.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HardwareProfile"
+        "nullable": false,
+        "referenceName": "HardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum instance count of the cluster.",
       "jsonName": "minInstanceCount",
       "name": "MinInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the role.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operating system profile.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfile"
+        "nullable": false,
+        "referenceName": "OsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of script actions on the role.",
       "jsonName": "scriptActions",
       "name": "ScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScriptAction"
+          "nullable": false,
+          "referenceName": "ScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The instance count of the cluster.",
       "jsonName": "targetInstanceCount",
       "name": "TargetInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the virtual machine group.",
       "jsonName": "VMGroupName",
       "name": "VMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,16 +175,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual network profile.",
       "jsonName": "virtualNetworkProfile",
       "name": "VirtualNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

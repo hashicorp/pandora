@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The console screenshot blob URI. \u003cbr\u003e\u003cbr\u003eNOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.",
       "jsonName": "consoleScreenshotBlobUri",
       "name": "ConsoleScreenshotBlobUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The serial console log blob Uri. \u003cbr\u003e\u003cbr\u003eNOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.",
       "jsonName": "serialConsoleLogBlobUri",
       "name": "SerialConsoleLogBlobUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +39,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceViewStatus"
+        "nullable": false,
+        "referenceName": "InstanceViewStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

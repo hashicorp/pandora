@@ -7,7 +7,9 @@
       "name": "Expression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Expression"
+        "nullable": false,
+        "referenceName": "Expression",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of activities to execute if expression is evaluated to false. This is an optional property and if not provided, the activity will exit without any action.",
       "jsonName": "ifFalseActivities",
       "name": "IfFalseActivities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Activity"
+          "nullable": false,
+          "referenceName": "Activity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of activities to execute if expression is evaluated to true. This is an optional property and if not provided, the activity will exit without any action.",
       "jsonName": "ifTrueActivities",
       "name": "IfTrueActivities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Activity"
+          "nullable": false,
+          "referenceName": "Activity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +60,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

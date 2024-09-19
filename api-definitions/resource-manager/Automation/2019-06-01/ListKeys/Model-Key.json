@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automation key name.",
       "jsonName": "KeyName",
       "name": "KeyName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationKeyName"
+        "nullable": false,
+        "referenceName": "AutomationKeyName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Automation key permissions.",
       "jsonName": "Permissions",
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationKeyPermissions"
+        "nullable": false,
+        "referenceName": "AutomationKeyPermissions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of the Automation Key used for registration.",
       "jsonName": "Value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

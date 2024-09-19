@@ -1,6 +1,7 @@
 {
   "name": "ListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -62,7 +63,9 @@
   "resourceIdName": "ServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductContract"
+    "nullable": false,
+    "referenceName": "ProductContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/products"
 }

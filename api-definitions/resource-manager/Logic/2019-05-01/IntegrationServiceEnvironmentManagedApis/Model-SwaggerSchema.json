@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The additional properties.",
       "jsonName": "additionalProperties",
       "name": "AdditionalProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The schemas which must pass validation when this schema is used.",
       "jsonName": "allOf",
       "name": "AllOf",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SwaggerSchema"
+          "nullable": false,
+          "referenceName": "SwaggerSchema",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The discriminator.",
       "jsonName": "discriminator",
       "name": "Discriminator",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dynamic list.",
       "jsonName": "dynamicListNew",
       "name": "DynamicListNew",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicList"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dynamic schema configuration.",
       "jsonName": "dynamicSchemaNew",
       "name": "DynamicSchemaNew",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicProperties"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dynamic schema configuration.",
       "jsonName": "dynamicSchemaOld",
       "name": "DynamicSchemaOld",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicSchema"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dynamic values tree configuration.",
       "jsonName": "dynamicTree",
       "name": "DynamicTree",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicTree"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicTree",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The example value.",
       "jsonName": "example",
       "name": "Example",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The external documentation.",
       "jsonName": "externalDocs",
       "name": "ExternalDocs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerExternalDocumentation"
+        "nullable": false,
+        "referenceName": "SwaggerExternalDocumentation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The items schema.",
       "jsonName": "items",
       "name": "Items",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerSchema"
+        "nullable": false,
+        "referenceName": "SwaggerSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of allowed properties.",
       "jsonName": "maxProperties",
       "name": "MaxProperties",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of allowed properties.",
       "jsonName": "minProperties",
       "name": "MinProperties",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the notification url extension. If this is set, the property's value should be a callback url for a webhook.",
       "jsonName": "notificationUrlExtension",
       "name": "NotificationUrlExtension",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,14 +217,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object properties",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SwaggerSchema"
+          "nullable": false,
+          "referenceName": "SwaggerSchema",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this property must be present in the a request.",
       "jsonName": "readOnly",
       "name": "ReadOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference.",
       "jsonName": "ref",
       "name": "Ref",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,14 +271,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object required properties.",
       "jsonName": "required",
       "name": "Required",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The title.",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerSchemaType"
+        "nullable": false,
+        "referenceName": "SwaggerSchemaType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,16 +325,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The xml representation format for a property.",
       "jsonName": "xml",
       "name": "Xml",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerXml"
+        "nullable": false,
+        "referenceName": "SwaggerXml",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

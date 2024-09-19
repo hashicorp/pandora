@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Catalog information for managed dedicated integration runtime.",
       "jsonName": "catalogInfo",
       "name": "CatalogInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeSsisCatalogInfo"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeSsisCatalogInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CredentialReference"
+        "nullable": false,
+        "referenceName": "CredentialReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom setup script properties for a managed dedicated integration runtime.",
       "jsonName": "customSetupScriptProperties",
       "name": "CustomSetupScriptProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeCustomSetupScriptProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeCustomSetupScriptProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data proxy properties for a managed dedicated integration runtime.",
       "jsonName": "dataProxyProperties",
       "name": "DataProxyProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeDataProxyProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeDataProxyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The edition for the SSIS Integration Runtime",
       "jsonName": "edition",
       "name": "Edition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeEdition"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeEdition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +82,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom setup without script properties for a SSIS integration runtime.",
       "jsonName": "expressCustomSetupProperties",
       "name": "ExpressCustomSetupProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomSetupBase"
+          "nullable": false,
+          "referenceName": "CustomSetupBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License type for bringing your own license scenario.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeLicenseType"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +120,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package stores for the SSIS Integration Runtime.",
       "jsonName": "packageStores",
       "name": "PackageStores",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PackageStore"
+          "nullable": false,
+          "referenceName": "PackageStore",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,5 +140,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

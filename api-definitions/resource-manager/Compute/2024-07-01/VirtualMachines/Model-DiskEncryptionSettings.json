@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the location of the disk encryption key, which is a Key Vault Secret.",
       "jsonName": "diskEncryptionKey",
       "name": "DiskEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultSecretReference"
+        "nullable": false,
+        "referenceName": "KeyVaultSecretReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether disk encryption should be enabled on the virtual machine.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the location of the key encryption key in Key Vault.",
       "jsonName": "keyEncryptionKey",
       "name": "KeyEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultKeyReference"
+        "nullable": false,
+        "referenceName": "KeyVaultKeyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Change enumeration activity",
       "jsonName": "activity",
       "name": "Activity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointChangeEnumerationActivity"
+        "nullable": false,
+        "referenceName": "CloudEndpointChangeEnumerationActivity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of last completed change enumeration",
       "jsonName": "lastEnumerationStatus",
       "name": "LastEnumerationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointLastChangeEnumerationStatus"
+        "nullable": false,
+        "referenceName": "CloudEndpointLastChangeEnumerationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,16 +36,20 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last updated timestamp",
       "jsonName": "lastUpdatedTimestamp",
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

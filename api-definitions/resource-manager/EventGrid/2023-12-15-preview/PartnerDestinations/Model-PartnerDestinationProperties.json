@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Activation state of the partner destination.",
       "jsonName": "activationState",
       "name": "ActivationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerDestinationActivationState"
+        "nullable": false,
+        "referenceName": "PartnerDestinationActivationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Endpoint Base URL of the partner destination",
       "jsonName": "endpointBaseUrl",
       "name": "EndpointBaseUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Endpoint context associated with this partner destination.",
       "jsonName": "endpointServiceContext",
       "name": "EndpointServiceContext",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Expiration time of the partner destination. If this timer expires and the partner destination was never activated,\r\nthe partner destination and corresponding channel are deleted.",
       "jsonName": "expirationTimeIfNotActivatedUtc",
       "name": "ExpirationTimeIfNotActivatedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Context or helpful message that can be used during the approval process.",
       "jsonName": "messageForActivation",
       "name": "MessageForActivation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The immutable Id of the corresponding partner registration.",
       "jsonName": "partnerRegistrationImmutableId",
       "name": "PartnerRegistrationImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,16 +100,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the partner destination.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerDestinationProvisioningState"
+        "nullable": false,
+        "referenceName": "PartnerDestinationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

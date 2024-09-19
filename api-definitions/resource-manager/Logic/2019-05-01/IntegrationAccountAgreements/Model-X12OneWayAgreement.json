@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 protocol settings.",
       "jsonName": "protocolSettings",
       "name": "ProtocolSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12ProtocolSettings"
+        "nullable": false,
+        "referenceName": "X12ProtocolSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The receiver business identity",
       "jsonName": "receiverBusinessIdentity",
       "name": "ReceiverBusinessIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sender business identity",
       "jsonName": "senderBusinessIdentity",
       "name": "SenderBusinessIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

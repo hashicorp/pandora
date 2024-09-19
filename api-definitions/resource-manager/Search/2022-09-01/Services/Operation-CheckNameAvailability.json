@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,11 +22,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityInput"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityOutput"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityOutput",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Search/checkNameAvailability"
 }

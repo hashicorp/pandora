@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compute properties for data flow activity.",
       "jsonName": "compute",
       "name": "Compute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecuteDataFlowActivityTypePropertiesCompute"
+        "nullable": false,
+        "referenceName": "ExecuteDataFlowActivityTypePropertiesCompute",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Continuation settings for execute data flow activity.",
       "jsonName": "continuationSettings",
       "name": "ContinuationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContinuationSettingsReference"
+        "nullable": false,
+        "referenceName": "ContinuationSettingsReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)",
       "jsonName": "continueOnError",
       "name": "ContinueOnError",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "DataFlow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowReference"
+        "nullable": false,
+        "referenceName": "DataFlowReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "IntegrationRuntime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +81,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of mapping for Power Query mashup query to sink dataset(s).",
       "jsonName": "queries",
       "name": "Queries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PowerQuerySinkMapping"
+          "nullable": false,
+          "referenceName": "PowerQuerySinkMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +103,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)",
       "jsonName": "runConcurrently",
       "name": "RunConcurrently",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +119,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.",
       "jsonName": "sinks",
       "name": "Sinks",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PowerQuerySink"
+          "nullable": false,
+          "referenceName": "PowerQuerySink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +141,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)",
       "jsonName": "sourceStagingConcurrency",
       "name": "SourceStagingConcurrency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +161,9 @@
       "name": "Staging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowStagingInfo"
+        "nullable": false,
+        "referenceName": "DataFlowStagingInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,16 +172,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)",
       "jsonName": "traceLevel",
       "name": "TraceLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unutilized capacity of the dedicated host represented in terms of each VM size that is allowed to be deployed to the dedicated host.",
       "jsonName": "allocatableVMs",
       "name": "AllocatableVMs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DedicatedHostAllocatableVM"
+          "nullable": false,
+          "referenceName": "DedicatedHostAllocatableVM",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +23,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

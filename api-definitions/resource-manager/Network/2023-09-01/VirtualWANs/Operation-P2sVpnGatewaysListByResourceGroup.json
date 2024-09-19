@@ -1,6 +1,7 @@
 {
   "name": "P2sVpnGatewaysListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "P2SVpnGateway"
+    "nullable": false,
+    "referenceName": "P2SVpnGateway",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/p2sVpnGateways"
 }

@@ -1,6 +1,7 @@
 {
   "name": "GenerateReservationDetailsReportByBillingProfileId",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -32,7 +33,9 @@
   "resourceIdName": "BillingProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationStatus"
+    "nullable": false,
+    "referenceName": "OperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/generateReservationDetailsReport"
 }

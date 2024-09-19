@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defender CSPM CIEM discovery configuration",
       "jsonName": "ciemDiscovery",
       "name": "CiemDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingCiemCiemDiscovery"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingCiemCiemDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defender CSPM CIEM AWS OIDC (open id connect) configuration",
       "jsonName": "ciemOidc",
       "name": "CiemOidc",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingCiemCiemOidc"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingCiemCiemOidc",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

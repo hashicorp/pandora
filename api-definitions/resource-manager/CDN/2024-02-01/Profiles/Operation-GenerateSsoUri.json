@@ -1,6 +1,7 @@
 {
   "name": "GenerateSsoUri",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SsoUri"
+    "nullable": false,
+    "referenceName": "SsoUri",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateSsoUri"
 }

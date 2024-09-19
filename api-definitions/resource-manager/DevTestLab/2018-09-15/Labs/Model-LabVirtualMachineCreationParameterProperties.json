@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether another user can take ownership of the virtual machine",
       "jsonName": "allowClaim",
       "name": "AllowClaim",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The artifacts to be installed on the virtual machine.",
       "jsonName": "artifacts",
       "name": "Artifacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ArtifactInstallProperties"
+          "nullable": false,
+          "referenceName": "ArtifactInstallProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of virtual machine instances to create.",
       "jsonName": "bulkCreationParameters",
       "name": "BulkCreationParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BulkCreationParameters"
+        "nullable": false,
+        "referenceName": "BulkCreationParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,11 +58,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The creation date of the virtual machine.",
       "jsonName": "createdDate",
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The custom image identifier of the virtual machine.",
       "jsonName": "customImageId",
       "name": "CustomImageId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,14 +90,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "New or existing data disks to attach to the virtual machine after creation",
       "jsonName": "dataDiskParameters",
       "name": "DataDiskParameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDiskProperties"
+          "nullable": false,
+          "referenceName": "DataDiskProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -90,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the virtual machine is to be created without a public IP address.",
       "jsonName": "disallowPublicIpAddress",
       "name": "DisallowPublicIPAddress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the environment that contains this virtual machine, if any.",
       "jsonName": "environmentId",
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,11 +145,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The expiration date for VM.",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Azure Marketplace image reference of the virtual machine.",
       "jsonName": "galleryImageReference",
       "name": "GalleryImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageReference"
+        "nullable": false,
+        "referenceName": "GalleryImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether this virtual machine uses an SSH key for authentication.",
       "jsonName": "isAuthenticationWithSshKey",
       "name": "IsAuthenticationWithSshKey",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab subnet name of the virtual machine.",
       "jsonName": "labSubnetName",
       "name": "LabSubnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,11 +209,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab virtual network identifier of the virtual machine.",
       "jsonName": "labVirtualNetworkId",
       "name": "LabVirtualNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,11 +225,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network interface properties.",
       "jsonName": "networkInterface",
       "name": "NetworkInterface",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceProperties"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -195,11 +241,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The notes of the virtual machine.",
       "jsonName": "notes",
       "name": "Notes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,11 +257,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The object identifier of the owner of the virtual machine.",
       "jsonName": "ownerObjectId",
       "name": "OwnerObjectId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,11 +273,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user principal name of the virtual machine owner.",
       "jsonName": "ownerUserPrincipalName",
       "name": "OwnerUserPrincipalName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,11 +289,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The password of the virtual machine administrator.",
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -247,11 +305,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of the plan associated with the virtual machine image",
       "jsonName": "planId",
       "name": "PlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -260,14 +321,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Machine schedules to be created",
       "jsonName": "scheduleParameters",
       "name": "ScheduleParameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScheduleCreationParameter"
+          "nullable": false,
+          "referenceName": "ScheduleCreationParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -277,11 +343,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of the virtual machine.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,11 +359,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SSH key of the virtual machine administrator.",
       "jsonName": "sshKey",
       "name": "SshKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -303,11 +375,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Storage type to use for virtual machine (i.e. Standard, Premium).",
       "jsonName": "storageType",
       "name": "StorageType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -316,16 +391,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user name of the virtual machine.",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User specified arguments to SynapseSparkJobDefinitionActivity.",
       "jsonName": "args",
       "name": "Args",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully-qualified identifier or the main class that is in the main definition file, which will override the 'className' of the spark job definition you provide. Type: string (or Expression with resultType string).",
       "jsonName": "className",
       "name": "ClassName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configuration properties, which will override the 'conf' of the spark job definition you provide.",
       "jsonName": "conf",
       "name": "Conf",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the spark config.",
       "jsonName": "configurationType",
       "name": "ConfigurationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationType"
+        "nullable": false,
+        "referenceName": "ConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of core and memory to be used for driver allocated in the specified Spark pool for the job, which will be used for overriding 'driverCores' and 'driverMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).",
       "jsonName": "driverSize",
       "name": "DriverSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of core and memory to be used for executors allocated in the specified Spark pool for the job, which will be used for overriding 'executorCores' and 'executorMemory' of the spark job definition you provide. Type: string (or Expression with resultType string).",
       "jsonName": "executorSize",
       "name": "ExecutorSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The main file used for the job, which will override the 'file' of the spark job definition you provide. Type: string (or Expression with resultType string).",
       "jsonName": "file",
       "name": "File",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "(Deprecated. Please use pythonCodeReference and filesV2) Additional files used for reference in the main definition file, which will override the 'files' of the spark job definition you provide.",
       "jsonName": "files",
       "name": "Files",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,14 +143,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional files used for reference in the main definition file, which will override the 'jars' and 'files' of the spark job definition you provide.",
       "jsonName": "filesV2",
       "name": "FilesV2",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,11 +165,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of executors to launch for this job, which will override the 'numExecutors' of the spark job definition you provide. Type: integer (or Expression with resultType integer).",
       "jsonName": "numExecutors",
       "name": "NumExecutors",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,14 +181,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional python code files used for reference in the main definition file, which will override the 'pyFiles' of the spark job definition you provide.",
       "jsonName": "pythonCodeReference",
       "name": "PythonCodeReference",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scanning subfolders from the root folder of the main definition file, these files will be added as reference files. The folders named 'jars', 'pyFiles', 'files' or 'archives' will be scanned, and the folders name are case sensitive. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "scanFolder",
       "name": "ScanFolder",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,14 +219,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Spark configuration property.",
       "jsonName": "sparkConfig",
       "name": "SparkConfig",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -192,11 +241,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Synapse spark job reference.",
       "jsonName": "sparkJob",
       "name": "SparkJob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SynapseSparkJobReference"
+        "nullable": false,
+        "referenceName": "SynapseSparkJobReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -205,11 +257,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.",
       "jsonName": "targetBigDataPool",
       "name": "TargetBigDataPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BigDataPoolParametrizationReference"
+        "nullable": false,
+        "referenceName": "BigDataPoolParametrizationReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,16 +273,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The spark configuration of the spark job.",
       "jsonName": "targetSparkConfiguration",
       "name": "TargetSparkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkConfigurationParametrizationReference"
+        "nullable": false,
+        "referenceName": "SparkConfigurationParametrizationReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

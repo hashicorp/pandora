@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the current protection state of the resource",
       "jsonName": "currentProtectionState",
       "name": "CurrentProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CurrentProtectionState"
+        "nullable": false,
+        "referenceName": "CurrentProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the data source information.",
       "jsonName": "dataSourceInfo",
       "name": "DataSourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Datasource"
+        "nullable": false,
+        "referenceName": "Datasource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the data source set information.",
       "jsonName": "dataSourceSetInfo",
       "name": "DataSourceSetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasourceSet"
+        "nullable": false,
+        "referenceName": "DatasourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Credentials to use to authenticate with data source provider.",
       "jsonName": "datasourceAuthCredentials",
       "name": "DatasourceAuthCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthCredentials"
+        "nullable": false,
+        "referenceName": "AuthCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the Backup Instance friendly name.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains information of the Identity Details for the BI.\r\nIf it is null, default will be considered as System Assigned.",
       "jsonName": "identityDetails",
       "name": "IdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityDetails"
+        "nullable": false,
+        "referenceName": "IdentityDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +103,9 @@
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the policy information.",
       "jsonName": "policyInfo",
       "name": "PolicyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyInfo"
+        "nullable": false,
+        "referenceName": "PolicyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the protection error of the resource",
       "jsonName": "protectionErrorDetails",
       "name": "ProtectionErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserFacingError"
+        "nullable": false,
+        "referenceName": "UserFacingError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +146,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the protection status of the resource",
       "jsonName": "protectionStatus",
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionStatusDetails"
+        "nullable": false,
+        "referenceName": "ProtectionStatusDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +178,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.",
       "jsonName": "validationType",
       "name": "ValidationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationType"
+        "nullable": false,
+        "referenceName": "ValidationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current Solution Bundle version of the stamp.",
       "jsonName": "currentVersion",
       "name": "CurrentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the hardware model.",
       "jsonName": "hardwareModel",
       "name": "HardwareModel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time the package-specific checks were run.",
       "jsonName": "healthCheckDate",
       "name": "HealthCheckDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An array of pre-check result objects.",
       "jsonName": "healthCheckResult",
       "name": "HealthCheckResult",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrecheckResult"
+          "nullable": false,
+          "referenceName": "PrecheckResult",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -60,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overall health state for update-specific health checks.",
       "jsonName": "healthState",
       "name": "HealthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthState"
+        "nullable": false,
+        "referenceName": "HealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time the update service successfully checked for updates",
       "jsonName": "lastChecked",
       "name": "LastChecked",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,11 +108,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last time an update installation completed successfully.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,11 +124,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OEM family name.",
       "jsonName": "oemFamily",
       "name": "OemFamily",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,14 +140,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current version of each updatable component.",
       "jsonName": "packageVersions",
       "name": "PackageVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PackageVersionInfo"
+          "nullable": false,
+          "referenceName": "PackageVersionInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the UpdateSummaries proxy resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,16 +178,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Overall update state of the stamp.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateSummariesPropertiesState"
+        "nullable": false,
+        "referenceName": "UpdateSummariesPropertiesState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

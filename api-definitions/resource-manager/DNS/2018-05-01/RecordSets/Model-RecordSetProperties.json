@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of AAAA records in the record set.",
       "jsonName": "AAAARecords",
       "name": "AAAARecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AaaaRecord"
+          "nullable": false,
+          "referenceName": "AaaaRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of A records in the record set.",
       "jsonName": "ARecords",
       "name": "ARecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ARecord"
+          "nullable": false,
+          "referenceName": "ARecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CNAME record in the  record set.",
       "jsonName": "CNAMERecord",
       "name": "CNAMERecord",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CnameRecord"
+        "nullable": false,
+        "referenceName": "CnameRecord",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of CAA records in the record set.",
       "jsonName": "caaRecords",
       "name": "CaaRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CaaRecord"
+          "nullable": false,
+          "referenceName": "CaaRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified domain name of the record set.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of MX records in the record set.",
       "jsonName": "MXRecords",
       "name": "MXRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MxRecord"
+          "nullable": false,
+          "referenceName": "MxRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,14 +123,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The metadata attached to the record set.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,14 +145,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of NS records in the record set.",
       "jsonName": "NSRecords",
       "name": "NSRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NsRecord"
+          "nullable": false,
+          "referenceName": "NsRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,14 +167,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of PTR records in the record set.",
       "jsonName": "PTRRecords",
       "name": "PTRRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PtrRecord"
+          "nullable": false,
+          "referenceName": "PtrRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "provisioning State of the record set.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SOA record in the record set.",
       "jsonName": "SOARecord",
       "name": "SOARecord",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoaRecord"
+        "nullable": false,
+        "referenceName": "SoaRecord",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,14 +221,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of SRV records in the record set.",
       "jsonName": "SRVRecords",
       "name": "SRVRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SrvRecord"
+          "nullable": false,
+          "referenceName": "SrvRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -191,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The TTL (time-to-live) of the records in the record set.",
       "jsonName": "TTL",
       "name": "TTL",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,14 +259,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of TXT records in the record set.",
       "jsonName": "TXTRecords",
       "name": "TXTRecords",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TxtRecord"
+          "nullable": false,
+          "referenceName": "TxtRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -221,16 +281,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A reference to an azure resource from where the dns resource value is taken.",
       "jsonName": "targetResource",
       "name": "TargetResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

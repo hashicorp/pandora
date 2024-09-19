@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -91,7 +92,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityInfo"
+    "nullable": false,
+    "referenceName": "EntityInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Management/getEntities"
 }

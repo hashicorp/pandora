@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Custom category name for this metric.",
       "jsonName": "category",
       "name": "Category",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name and the display name of the dimension, i.e. it is a localizable string.",
       "jsonName": "dimensions",
       "name": "Dimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LocalizableString"
+          "nullable": false,
+          "referenceName": "LocalizableString",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Detailed description of this metric.",
       "jsonName": "displayDescription",
       "name": "DisplayDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource identifier of the metric definition.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to indicate whether the dimension is required.",
       "jsonName": "isDimensionRequired",
       "name": "IsDimensionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of what aggregation intervals are available to be queried.",
       "jsonName": "metricAvailabilities",
       "name": "MetricAvailabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricAvailability"
+          "nullable": false,
+          "referenceName": "MetricAvailability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The class of the metric.",
       "jsonName": "metricClass",
       "name": "MetricClass",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricClass"
+        "nullable": false,
+        "referenceName": "MetricClass",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +131,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalizableString"
+        "nullable": false,
+        "referenceName": "LocalizableString",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The namespace the metric belongs to.",
       "jsonName": "namespace",
       "name": "Namespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +158,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The primary aggregation type value defining how to use the values for display.",
       "jsonName": "primaryAggregationType",
       "name": "PrimaryAggregationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricAggregationType"
+        "nullable": false,
+        "referenceName": "MetricAggregationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +174,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource identifier of the resource that emitted the metric.",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,14 +190,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of what aggregation types are supported.",
       "jsonName": "supportedAggregationTypes",
       "name": "SupportedAggregationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricAggregationType"
+          "nullable": false,
+          "referenceName": "MetricAggregationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,12 +216,15 @@
       "name": "Unit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricUnit"
+        "nullable": false,
+        "referenceName": "MetricUnit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

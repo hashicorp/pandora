@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "UserId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UserUpdateParameters"
+    "nullable": false,
+    "referenceName": "UserUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserContract"
+    "nullable": false,
+    "referenceName": "UserContract",
+    "referenceNameIsCommonType": null
   }
 }
