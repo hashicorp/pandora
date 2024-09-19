@@ -511,8 +511,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 
 			// Trim a trailing colon/semicolon from descriptions because they are confusing
 			operationDescription := strings.Join(descriptionChunks, ". ")
-			operationDescription = strings.TrimSuffix(operationDescription, ":")
-			operationDescription = strings.TrimSuffix(operationDescription, ";")
+			operationDescription = strings.TrimRight(operationDescription, ":;")
 
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
 				Name:               operationName,

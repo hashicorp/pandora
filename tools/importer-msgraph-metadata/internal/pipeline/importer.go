@@ -63,7 +63,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	}
 
 	logging.Infof("Parsing resource IDs...")
-	p.resourceIds, err = parser.ParseResourceIDs(p.spec.Paths, nil)
+	p.resourceIds, err = parser.ResourceIDs(p.spec.Paths, nil)
 	if err != nil {
 		return err
 	}
