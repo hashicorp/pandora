@@ -98,6 +98,9 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
 					},
 				},
+				"RetryFunc": {
+					RetryFunc: true,
+				},
 			}
 
 			if operation.RequestHeaders != nil {
