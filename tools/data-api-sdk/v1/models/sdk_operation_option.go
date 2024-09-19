@@ -20,4 +20,8 @@ type SDKOperationOption struct {
 
 	// Required specifies whether this Option must be specified in the Request or not.
 	Required bool `json:"required"`
+
+	// RetryFunc is true when this option specifies a client.RequestRetryFunc that can be passed in. This
+	// overrides ObjectDefinition, HeaderName, ODataFieldName and QueryStringName when true. Has no effect when false.
+	RetryFunc bool
 }

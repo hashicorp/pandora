@@ -76,4 +76,8 @@ type Option struct {
 
 	// OptionsObjectDefinition describes the information contained within the Field
 	ObjectDefinition OptionObjectDefinition `json:"optionsObjectDefinition"`
+
+	// RetryFunc is true when this option specifies a client.RequestRetryFunc that can be passed in. This
+	// overrides HeaderName, ODataFieldName and QueryString when true. Has no effect when false.
+	RetryFunc bool
 }

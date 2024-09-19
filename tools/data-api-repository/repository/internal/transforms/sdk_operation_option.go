@@ -12,24 +12,33 @@ import (
 )
 
 func mapSDKOperationOptionFromRepository(input repositoryModels.Option, knownData helpers.KnownData) (*sdkModels.SDKOperationOption, error) {
-	objectDefinition, err := mapSDKOperationOptionObjectDefinitionFromRepository(input.ObjectDefinition, knownData)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the ObjectDefinition: %+v", err)
+	var objectDefinition sdkModels.SDKOperationOptionObjectDefinition
+	if !input.RetryFunc {
+		mapping, err := mapSDKOperationOptionObjectDefinitionFromRepository(input.ObjectDefinition, knownData)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the ObjectDefinition: %+v", err)
+		}
+		objectDefinition = *mapping
 	}
 
 	return &sdkModels.SDKOperationOption{
 		HeaderName:       input.HeaderName,
 		ODataFieldName:   input.ODataFieldName,
 		QueryStringName:  input.QueryString,
-		ObjectDefinition: *objectDefinition,
+		ObjectDefinition: objectDefinition,
 		Required:         input.Required,
+		RetryFunc:        input.RetryFunc,
 	}, nil
 }
 
 func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOperationOption, knownData helpers.KnownData) (*repositoryModels.Option, error) {
-	objectDefinition, err := mapSDKOperationOptionObjectDefinitionToRepository(input.ObjectDefinition, knownData)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
+	var objectDefinition repositoryModels.OptionObjectDefinition
+	if !input.RetryFunc {
+		mapping, err := mapSDKOperationOptionObjectDefinitionToRepository(input.ObjectDefinition, knownData)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the object definition: %+v", err)
+		}
+		objectDefinition = *mapping
 	}
 
 	option := repositoryModels.Option{
@@ -37,7 +46,8 @@ func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOper
 		ODataFieldName:   input.ODataFieldName,
 		QueryString:      input.QueryStringName,
 		Field:            fieldName,
-		ObjectDefinition: *objectDefinition,
+		ObjectDefinition: objectDefinition,
+		RetryFunc:        input.RetryFunc,
 	}
 
 	if !input.Required {
