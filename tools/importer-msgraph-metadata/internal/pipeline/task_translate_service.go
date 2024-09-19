@@ -189,7 +189,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						}
 
 					case "Skip", "Top":
-						// Don't set here, we handle this implicitly for list operations
+						// Don't set here, we handle this implicitly in the SDK for list operations
 
 					default:
 						objectDefinition, err := param.DataApiSdkObjectDefinition()
