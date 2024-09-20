@@ -55,21 +55,24 @@ type Operation struct {
 	// The content-type of the request body
 	RequestContentType *string
 
-	// The model that describes the request body
-	RequestModel *string
+	// The name of the model that describes the request body, can reference either a common model or describe the ad-hoc request model
+	RequestModelName *string
+
+	// The optional ad-hoc request model, if present
+	RequestModel *Model
 
 	// Any user-specified HTTP headers supported for the request
-	RequestHeaders *Headers
+	RequestHeaders *[]Header
 
 	// Any user-specified query string parameters support for the request
-	RequestParams *Params
+	RequestParams *[]Param
 
 	// The internal data type for the request, used when the content type is JSON or XML,
 	// and the request is not described by a model
 	RequestType *DataType
 
 	// The expected *success* responses for this operation
-	Responses Responses
+	Responses []Response
 
 	// When the content type is JSON or XML, and this is a List operation, the name of the field
 	// that specifies a URL to retrieve the next page of results
@@ -78,8 +81,6 @@ type Operation struct {
 	// OpenAPI3 tags for this operation, used to reconcile operations to services
 	Tags []string
 }
-
-type Responses []Response
 
 type Response struct {
 	// The HTTP status code associated with this expected response
@@ -101,8 +102,6 @@ type Response struct {
 	Constant *Constant
 }
 
-type Headers []Header
-
 type Header struct {
 	Name string
 	Type *DataType
@@ -119,8 +118,6 @@ func (h Header) DataApiSdkObjectDefinition() (*sdkModels.SDKOperationOptionObjec
 		Type:          h.Type.DataApiSdkOperationOptionObjectDefinitionType(),
 	}, nil
 }
-
-type Params []Param
 
 type Param struct {
 	Name     string
