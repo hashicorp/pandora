@@ -51,6 +51,12 @@ type Operation struct {
 }
 
 type Option struct {
+	// Type signals a special behavior for this Option.
+	//   Data: this option specifies Request data, as described in ObjectDefinition, HeaderName, ODataFieldName and/or QueryStringName.
+	//   ContentType: this option specifies a custom Content Type for the Request to be specified by the caller.
+	//   RetryFunc: this option specifies a client.RequestRetryFunc that can be passed in.
+	Type string
+
 	// HeaderName is the name of the Http Header which this Option should be set into
 	// (e.g. `If-Match`, `x-ms-client-request-id`)
 	HeaderName *string `json:"headerName,omitempty"`
@@ -76,8 +82,4 @@ type Option struct {
 
 	// OptionsObjectDefinition describes the information contained within the Field
 	ObjectDefinition OptionObjectDefinition `json:"optionsObjectDefinition"`
-
-	// RetryFunc is true when this option specifies a client.RequestRetryFunc that can be passed in. This
-	// overrides HeaderName, ODataFieldName and QueryString when true. Has no effect when false.
-	RetryFunc bool
 }

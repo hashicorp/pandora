@@ -13,7 +13,8 @@ import (
 
 func mapSDKOperationOptionFromRepository(input repositoryModels.Option, knownData helpers.KnownData) (*sdkModels.SDKOperationOption, error) {
 	var objectDefinition sdkModels.SDKOperationOptionObjectDefinition
-	if !input.RetryFunc {
+
+	if input.Type == "Data" {
 		mapping, err := mapSDKOperationOptionObjectDefinitionFromRepository(input.ObjectDefinition, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the ObjectDefinition: %+v", err)
@@ -22,18 +23,24 @@ func mapSDKOperationOptionFromRepository(input repositoryModels.Option, knownDat
 	}
 
 	return &sdkModels.SDKOperationOption{
+		Type:             input.Type,
 		HeaderName:       input.HeaderName,
 		ODataFieldName:   input.ODataFieldName,
 		QueryStringName:  input.QueryString,
 		ObjectDefinition: objectDefinition,
 		Required:         input.Required,
-		RetryFunc:        input.RetryFunc,
 	}, nil
 }
 
 func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOperationOption, knownData helpers.KnownData) (*repositoryModels.Option, error) {
+	optionType := sdkModels.SDKOperationOptionTypeData
+	if input.Type != "" {
+		optionType = input.Type
+	}
+
 	var objectDefinition repositoryModels.OptionObjectDefinition
-	if !input.RetryFunc {
+
+	if optionType == sdkModels.SDKOperationOptionTypeData {
 		mapping, err := mapSDKOperationOptionObjectDefinitionToRepository(input.ObjectDefinition, knownData)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the object definition: %+v", err)
@@ -42,12 +49,12 @@ func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOper
 	}
 
 	option := repositoryModels.Option{
+		Type:             optionType,
 		HeaderName:       input.HeaderName,
 		ODataFieldName:   input.ODataFieldName,
 		QueryString:      input.QueryStringName,
 		Field:            fieldName,
 		ObjectDefinition: objectDefinition,
-		RetryFunc:        input.RetryFunc,
 	}
 
 	if !input.Required {
