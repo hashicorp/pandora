@@ -240,8 +240,9 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 	for _, fieldName := range fieldNames {
 		fieldDetails := c.model.Fields[fieldName]
 
-		if excludeDiscriminatedParentMembers && fieldDetails.ObjectDefinition.ReferenceName != nil {
-			if referencedModel, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]; ok && referencedModel.IsDiscriminatedParentType() {
+		topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
+		if excludeDiscriminatedParentMembers && topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
+			if referencedModel, ok := data.models[*topLevelObject.ReferenceName]; ok && referencedModel.IsDiscriminatedParentType() {
 				// Skip fields that reference a parent model (i.e. an interface rather than a struct)
 				continue
 			}
@@ -305,6 +306,15 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 				}
 				for _, fieldName := range ancestorFieldNames[ancestorName] {
 					fieldDetails := ancestorFields[ancestorName][fieldName]
+
+					topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
+					if excludeDiscriminatedParentMembers && topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
+						if referencedModel, ok := data.models[*topLevelObject.ReferenceName]; ok && referencedModel.IsDiscriminatedParentType() {
+							// Skip fields that reference a parent model (i.e. an interface rather than a struct)
+							continue
+						}
+					}
+
 					fieldTypeName := "FIXME"
 					fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil, data.commonTypesPackageName)
 					if err != nil {
@@ -879,8 +889,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, structName))
 
 		// first for each regular field, decode & assign that
 		if len(fieldsRequiringAssignment) > 0 {
-			lines = append(lines, fmt.Sprintf(`
-	var decoded %[1]s
+			lines = append(lines, fmt.Sprintf(`	var decoded %[1]s
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling: %%+v", err)
 	}
