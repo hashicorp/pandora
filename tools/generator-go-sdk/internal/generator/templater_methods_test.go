@@ -607,7 +607,7 @@ func TestTemplateGetMethodWithRetryFuncOption(t *testing.T) {
 			Method:              "GET",
 			Options: map[string]models.SDKOperationOption{
 				"TheRetryFunc": {
-					RetryFunc: true,
+					Type: models.SDKOperationOptionTypeRetryFunc,
 				},
 			},
 			ResourceIDName: stringPointer("PandaPop"),
@@ -682,6 +682,99 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop, options GetOperation
 	var model string
 	result.Model = &model
 	if err = resp.Unmarshal(result.Model); err != nil {
+		return
+	}
+
+	return
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplatePutMethodWithContentTypeOption(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{204},
+			Method:              "PUT",
+			Options: map[string]models.SDKOperationOption{
+				"UploadContentType": {
+					Type: models.SDKOperationOptionTypeContentType,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+		},
+		operationName: "Put",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+type PutOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+}
+
+type PutOperationOptions struct {
+	UploadContentType string
+}
+
+func DefaultPutOperationOptions() PutOperationOptions {
+	return PutOperationOptions{}
+}
+
+func (o PutOperationOptions) ToHeaders() *client.Headers {
+	out := client.Headers{}
+	return &out
+}
+
+func (o PutOperationOptions) ToOData() *odata.Query {
+	out := odata.Query{}
+	return &out
+}
+
+func (o PutOperationOptions) ToQuery() *client.QueryParams {
+	out := client.QueryParams{}
+	return &out
+}
+
+// Put ...
+func (c pandaClient) Put(ctx context.Context , id PandaPop, options PutOperationOptions) (result PutOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: options.UploadContentType,
+		ExpectedStatusCodes: []int{
+			http.StatusNoContent,
+		},
+		HttpMethod: http.MethodPut,
+		OptionsObject: options,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
 		return
 	}
 
