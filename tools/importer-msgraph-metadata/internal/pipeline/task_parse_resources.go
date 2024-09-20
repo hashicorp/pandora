@@ -303,9 +303,11 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				continue
 			}
 
-			// Determine prefixes to trim from the operation name
+			// Determine prefixes to trim from the operation name. At this time we are only trimming the singularized
+			// service name from the resource name. There are instances of the pluralized service name being present at
+			// the beginning of resource names, but trimming this universally causes some naming conflicts, so we'll
+			// live with that.
 			prefixesToTrim := []string{
-				//normalize.CleanName(p.service),
 				normalize.Singularize(normalize.CleanName(p.service)),
 			}
 			if resourceId != nil && uriSuffix == nil {
