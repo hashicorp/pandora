@@ -57,6 +57,23 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				resourceIdName = &operation.ResourceId.Name
 			}
 
+			options := map[string]sdkModels.SDKOperationOption{
+				// All operations can specify the odata.metadata Accept parameter
+				"Metadata": {
+					Type:           sdkModels.SDKOperationOptionTypeData,
+					ODataFieldName: pointer.To("Metadata"),
+					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+						ReferenceName: pointer.To("odata.Metadata"),
+						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+					},
+				},
+
+				// All operations can accept a custom RetryFunc
+				"RetryFunc": {
+					Type: sdkModels.SDKOperationOptionTypeRetryFunc,
+				},
+			}
+
 			var requestObject *sdkModels.SDKObjectDefinition
 
 			if operation.RequestModelName != nil {
@@ -86,25 +103,21 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 			} else if operation.RequestType != nil {
 				requestObject = &sdkModels.SDKObjectDefinition{
+					// This is a regular type, i.e. not a model or typed constant
 					Type: operation.RequestType.DataApiSdkObjectDefinitionType(),
 				}
-			}
 
-			options := map[string]sdkModels.SDKOperationOption{
-				"Metadata": {
-					ODataFieldName: pointer.To("Metadata"),
-					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-						ReferenceName: pointer.To("odata.Metadata"),
-						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
-					},
-				},
-				"RetryFunc": {
-					RetryFunc: true,
-				},
+				if *operation.RequestType == parser.DataTypeBinary {
+					// Add a ContentType option so the caller can specify the media type for the request body
+					options["ContentType"] = sdkModels.SDKOperationOption{
+						Type: sdkModels.SDKOperationOptionTypeContentType,
+					}
+				}
 			}
 
 			if operation.RequestHeaders != nil {
 				for _, header := range *operation.RequestHeaders {
+					// Some operations support the ConsistencyLevel header, this is structured via the odata package
 					if strings.EqualFold(header.Name, "ConsistencyLevel") {
 						options[normalize.CleanName(header.Name)] = sdkModels.SDKOperationOption{
 							ODataFieldName: &header.Name,
@@ -192,7 +205,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 						}
 
 					case "Skip", "Top":
-						// Don't set here, we handle this implicitly in the SDK for list operations
+						// Don't set here, we handle this implicitly for list operations
 
 					default:
 						objectDefinition, err := param.DataApiSdkObjectDefinition()
@@ -214,6 +227,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 			}
 
+			// Allow the caller to control paging for list operations
 			if operation.Type == parser.OperationTypeList {
 				options["Top"] = sdkModels.SDKOperationOption{
 					ODataFieldName: pointer.To("Top"),
