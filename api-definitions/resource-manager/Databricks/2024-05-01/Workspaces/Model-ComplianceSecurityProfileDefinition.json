@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Compliance standards associated with the workspace.",
       "jsonName": "complianceStandards",
       "name": "ComplianceStandards",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComplianceStandard"
+          "nullable": false,
+          "referenceName": "ComplianceStandard",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "Value",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceSecurityProfileValue"
+        "nullable": false,
+        "referenceName": "ComplianceSecurityProfileValue",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

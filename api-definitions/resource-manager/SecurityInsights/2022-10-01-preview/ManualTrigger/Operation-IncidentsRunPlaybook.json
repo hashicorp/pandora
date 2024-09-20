@@ -1,6 +1,7 @@
 {
   "name": "IncidentsRunPlaybook",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "IncidentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManualTriggerRequestBody"
+    "nullable": false,
+    "referenceName": "ManualTriggerRequestBody",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/runPlaybook"
 }

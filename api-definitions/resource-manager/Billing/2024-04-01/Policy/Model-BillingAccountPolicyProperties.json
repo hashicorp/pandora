@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policies for Enterprise Agreement enrollments.",
       "jsonName": "enterpriseAgreementPolicies",
       "name": "EnterpriseAgreementPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnterpriseAgreementPolicies"
+        "nullable": false,
+        "referenceName": "EnterpriseAgreementPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether Azure marketplace purchases are allowed.",
       "jsonName": "marketplacePurchases",
       "name": "MarketplacePurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplacePurchasesPolicy"
+        "nullable": false,
+        "referenceName": "MarketplacePurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of all policies defined at the billing scope.",
       "jsonName": "policies",
       "name": "Policies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PolicySummary"
+          "nullable": false,
+          "referenceName": "PolicySummary",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the resource during a long-running operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether Azure reservation purchases are allowed.",
       "jsonName": "reservationPurchases",
       "name": "ReservationPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "ReservationPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy that controls whether users with Azure savings plan purchase are allowed.",
       "jsonName": "savingsPlanPurchases",
       "name": "SavingsPlanPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SavingsPlanPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "SavingsPlanPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

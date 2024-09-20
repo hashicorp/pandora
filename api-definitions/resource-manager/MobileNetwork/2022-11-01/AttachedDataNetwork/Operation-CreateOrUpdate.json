@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AttachedDataNetworkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AttachedDataNetwork"
+    "nullable": false,
+    "referenceName": "AttachedDataNetwork",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AttachedDataNetwork"
+    "nullable": false,
+    "referenceName": "AttachedDataNetwork",
+    "referenceNameIsCommonType": null
   }
 }

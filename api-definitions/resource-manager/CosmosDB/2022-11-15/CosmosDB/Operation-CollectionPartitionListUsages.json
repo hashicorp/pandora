@@ -1,6 +1,7 @@
 {
   "name": "CollectionPartitionListUsages",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "CollectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PartitionUsagesResult"
+    "nullable": false,
+    "referenceName": "PartitionUsagesResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/partitions/usages"
 }

@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Agent expiry date.",
       "jsonName": "agentExpiryDate",
       "name": "AgentExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,14 +36,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating all available inplace OS Upgrade configurations.",
       "jsonName": "allAvailableOSUpgradeConfigurations",
       "name": "AllAvailableOSUpgradeConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OSUpgradeSupportedVersions"
+          "nullable": false,
+          "referenceName": "OSUpgradeSupportedVersions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,14 +58,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure VM Disk details.",
       "jsonName": "azureVMDiskDetails",
       "name": "AzureVMDiskDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureVMDiskDetails"
+          "nullable": false,
+          "referenceName": "AzureVMDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -64,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target generation for this protected item.",
       "jsonName": "azureVmGeneration",
       "name": "AzureVMGeneration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compressed data change rate in MB.",
       "jsonName": "compressedDataRateInMB",
       "name": "CompressedDataRateInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,14 +112,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The datastores of the on-premise machine. Value can be list of strings that contain datastore names.",
       "jsonName": "datastores",
       "name": "DataStores",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -107,11 +134,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating the discovery type of the machine. Value can be vCenter or physical.",
       "jsonName": "discoveryType",
       "name": "DiscoveryType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether any disk is resized for this VM.",
       "jsonName": "diskResized",
       "name": "DiskResized",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +166,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.",
       "jsonName": "enableRdpOnTargetOption",
       "name": "EnableRdpOnTargetOption",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +182,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The firmware type of this protected item.",
       "jsonName": "firmwareType",
       "name": "FirmwareType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +198,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source IP address.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +214,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The infrastructure VM Id.",
       "jsonName": "infrastructureVmId",
       "name": "InfrastructureVMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +230,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether additional IR stats are available or not.",
       "jsonName": "isAdditionalStatsAvailable",
       "name": "IsAdditionalStatsAvailable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +246,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether installed agent needs to be updated.",
       "jsonName": "isAgentUpdateRequired",
       "name": "IsAgentUpdateRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +262,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether the source server requires a restart after update.",
       "jsonName": "isRebootAfterUpdateRequired",
       "name": "IsRebootAfterUpdateRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,11 +279,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last heartbeat received from the source server.",
       "jsonName": "lastHeartbeat",
       "name": "LastHeartbeat",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,11 +296,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last recovery point received time.",
       "jsonName": "lastRecoveryPointReceived",
       "name": "LastRecoveryPointReceived",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +313,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last RPO calculated time.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +330,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last update time received from on-prem components.",
       "jsonName": "lastUpdateReceivedTime",
       "name": "LastUpdateReceivedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +346,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License Type of the VM to be used.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +362,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The master target Id.",
       "jsonName": "masterTargetId",
       "name": "MasterTargetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,11 +378,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi vm group Id.",
       "jsonName": "multiVmGroupId",
       "name": "MultiVMGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -319,11 +394,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi vm group name.",
       "jsonName": "multiVmGroupName",
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -332,11 +410,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether multi vm sync is enabled or disabled.",
       "jsonName": "multiVmSyncStatus",
       "name": "MultiVMSyncStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -345,11 +426,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The id of the disk containing the OS.",
       "jsonName": "osDiskId",
       "name": "OsDiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -358,11 +442,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the OS on the VM.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -371,11 +458,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the OS on the VM.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -384,11 +474,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS Version of the protected item.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -397,11 +490,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server Id.",
       "jsonName": "processServerId",
       "name": "ProcessServerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -410,11 +506,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server name.",
       "jsonName": "processServerName",
       "name": "ProcessServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -423,14 +522,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected disks.",
       "jsonName": "protectedDisks",
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageAzureV2ProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageAzureV2ProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -440,14 +544,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected managed disks.",
       "jsonName": "protectedManagedDisks",
       "name": "ProtectedManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageAzureV2ManagedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageAzureV2ManagedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -457,11 +566,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection stage.",
       "jsonName": "protectionStage",
       "name": "ProtectionStage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -470,11 +582,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery availability set Id.",
       "jsonName": "recoveryAvailabilitySetId",
       "name": "RecoveryAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -483,11 +598,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.",
       "jsonName": "recoveryAzureLogStorageAccountId",
       "name": "RecoveryAzureLogStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -496,11 +614,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target resource group Id.",
       "jsonName": "recoveryAzureResourceGroupId",
       "name": "RecoveryAzureResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -509,11 +630,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery Azure storage account.",
       "jsonName": "recoveryAzureStorageAccount",
       "name": "RecoveryAzureStorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -522,11 +646,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recovery Azure given name.",
       "jsonName": "recoveryAzureVMName",
       "name": "RecoveryAzureVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -535,11 +662,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Recovery Azure VM size.",
       "jsonName": "recoveryAzureVMSize",
       "name": "RecoveryAzureVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -548,11 +678,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replica id of the protected item.",
       "jsonName": "replicaId",
       "name": "ReplicaId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -561,11 +694,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress percentage.",
       "jsonName": "resyncProgressPercentage",
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -574,11 +710,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RPO in seconds.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -587,14 +726,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the seed managed disks.",
       "jsonName": "seedManagedDiskTags",
       "name": "SeedManagedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -604,11 +748,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected recovery azure network Id.",
       "jsonName": "selectedRecoveryAzureNetworkId",
       "name": "SelectedRecoveryAzureNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -617,11 +764,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The selected source nic Id which will be used as the primary nic during failover.",
       "jsonName": "selectedSourceNicId",
       "name": "SelectedSourceNicId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -630,11 +780,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test failover virtual network.",
       "jsonName": "selectedTfoAzureNetworkId",
       "name": "SelectedTfoAzureNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -643,11 +796,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The CPU count of the VM on the primary side.",
       "jsonName": "sourceVmCpuCount",
       "name": "SourceVMCPUCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -656,11 +812,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RAM size of the VM on the primary side.",
       "jsonName": "sourceVmRamSizeInMB",
       "name": "SourceVMRamSizeInMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -669,11 +828,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SQL Server license type.",
       "jsonName": "sqlServerLicenseType",
       "name": "SqlServerLicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -682,14 +844,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating the inplace OS Upgrade version.",
       "jsonName": "supportedOSVersions",
       "name": "SupportedOSVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -699,14 +866,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The switch provider blocking error information.",
       "jsonName": "switchProviderBlockingErrorDetails",
       "name": "SwitchProviderBlockingErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageAzureV2SwitchProviderBlockingErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageAzureV2SwitchProviderBlockingErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -716,11 +888,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The switch provider blocking error information.",
       "jsonName": "switchProviderDetails",
       "name": "SwitchProviderDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageAzureV2SwitchProviderDetails"
+        "nullable": false,
+        "referenceName": "InMageAzureV2SwitchProviderDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -729,11 +904,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -742,14 +920,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target managed disks.",
       "jsonName": "targetManagedDiskTags",
       "name": "TargetManagedDiskTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -759,14 +942,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tags for the target NICs.",
       "jsonName": "targetNicTags",
       "name": "TargetNicTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -776,11 +964,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target proximity placement group Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -789,11 +980,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM.",
       "jsonName": "targetVmId",
       "name": "TargetVMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -802,14 +996,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM tags.",
       "jsonName": "targetVmTags",
       "name": "TargetVMTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -819,11 +1018,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total transferred data in bytes.",
       "jsonName": "totalDataTransferred",
       "name": "TotalDataTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -832,11 +1034,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The progress health.",
       "jsonName": "totalProgressHealth",
       "name": "TotalProgressHealth",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -845,11 +1050,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The uncompressed data change rate in MB.",
       "jsonName": "uncompressedDataRateInMB",
       "name": "UncompressedDataRateInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -858,11 +1066,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether managed disks should be used during failover.",
       "jsonName": "useManagedDisks",
       "name": "UseManagedDisks",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -871,11 +1082,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The vCenter infrastructure Id.",
       "jsonName": "vCenterInfrastructureId",
       "name": "VCenterInfrastructureId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -884,11 +1098,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine Id.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -897,14 +1114,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The PE Network details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMNicDetails"
+          "nullable": false,
+          "referenceName": "VMNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -914,11 +1136,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection state for the vm.",
       "jsonName": "vmProtectionState",
       "name": "VMProtectionState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -927,11 +1152,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protection state description for the vm.",
       "jsonName": "vmProtectionStateDescription",
       "name": "VMProtectionStateDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -940,14 +1168,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The validation errors of the on-premise machine Value can be list of validation errors.",
       "jsonName": "validationErrors",
       "name": "ValidationErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -957,11 +1190,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS disk VHD name.",
       "jsonName": "vhdName",
       "name": "VhdName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -969,6 +1205,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "InMageAzureV2",
   "typeHintIn": "InstanceType"

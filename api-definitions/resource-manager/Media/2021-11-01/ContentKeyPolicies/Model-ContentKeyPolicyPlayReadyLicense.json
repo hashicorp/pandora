@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag indicating whether test devices can use the license.",
       "jsonName": "allowTestDevices",
       "name": "AllowTestDevices",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The begin date of license",
       "jsonName": "beginDate",
       "name": "BeginDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The content key location.",
       "jsonName": "contentKeyLocation",
       "name": "ContentKeyLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyContentKeyLocation"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyContentKeyLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The PlayReady content type.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyContentType"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyContentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -57,11 +69,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The expiration date of license.",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The grace period of license.",
       "jsonName": "gracePeriod",
       "name": "GracePeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -83,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license type.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyLicenseType"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -96,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The license PlayRight",
       "jsonName": "playRight",
       "name": "PlayRight",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentKeyPolicyPlayReadyPlayRight"
+        "nullable": false,
+        "referenceName": "ContentKeyPolicyPlayReadyPlayRight",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The relative begin date of license.",
       "jsonName": "relativeBeginDate",
       "name": "RelativeBeginDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,16 +149,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The relative expiration date of license.",
       "jsonName": "relativeExpirationDate",
       "name": "RelativeExpirationDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

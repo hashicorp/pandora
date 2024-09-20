@@ -1,6 +1,7 @@
 {
   "name": "LocationListCapabilities",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Capabilities"
+    "nullable": false,
+    "referenceName": "Capabilities",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/capabilities"
 }

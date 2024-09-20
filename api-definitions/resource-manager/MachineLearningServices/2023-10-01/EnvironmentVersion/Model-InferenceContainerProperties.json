@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The route to check the liveness of the inference server container.",
       "jsonName": "livenessRoute",
       "name": "LivenessRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The route to check the readiness of the inference server container.",
       "jsonName": "readinessRoute",
       "name": "ReadinessRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port to send the scoring requests to, within the inference server container.",
       "jsonName": "scoringRoute",
       "name": "ScoringRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

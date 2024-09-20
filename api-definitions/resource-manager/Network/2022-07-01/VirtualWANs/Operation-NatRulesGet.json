@@ -1,6 +1,7 @@
 {
   "name": "NatRulesGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "NatRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnGatewayNatRule"
+    "nullable": false,
+    "referenceName": "VpnGatewayNatRule",
+    "referenceNameIsCommonType": null
   }
 }

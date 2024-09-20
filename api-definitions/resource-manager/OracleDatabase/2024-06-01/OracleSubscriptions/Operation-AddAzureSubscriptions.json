@@ -1,6 +1,7 @@
 {
   "name": "AddAzureSubscriptions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureSubscriptions"
+    "nullable": false,
+    "referenceName": "AzureSubscriptions",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Oracle.Database/oracleSubscriptions/default/addAzureSubscriptions"
 }

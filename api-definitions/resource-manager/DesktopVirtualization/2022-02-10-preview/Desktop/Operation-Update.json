@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DesktopId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DesktopPatch"
+    "nullable": false,
+    "referenceName": "DesktopPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Desktop"
+    "nullable": false,
+    "referenceName": "Desktop",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "RunCommand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RunCommandInput"
+    "nullable": false,
+    "referenceName": "RunCommandInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RunCommandResult"
+    "nullable": false,
+    "referenceName": "RunCommandResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/runCommand"
 }

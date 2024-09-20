@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Type of the job's entry point.",
       "jsonName": "sparkJobEntryType",
       "name": "SparkJobEntryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkJobEntryType"
+        "nullable": false,
+        "referenceName": "SparkJobEntryType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +18,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "SparkJobEntryType"
 }

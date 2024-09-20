@@ -1,6 +1,7 @@
 {
   "name": "ExtensionMetadataGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "VersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExtensionValue"
+    "nullable": false,
+    "referenceName": "ExtensionValue",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List relevant information about any connection errors to the Datacenters.",
       "jsonName": "connectionErrors",
       "name": "ConnectionErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionError"
+          "nullable": false,
+          "referenceName": "ConnectionError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of the status of each datacenter in this cluster.",
       "jsonName": "dataCenters",
       "name": "DataCenters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CassandraClusterPublicStatusDataCentersInlined"
+          "nullable": false,
+          "referenceName": "CassandraClusterPublicStatusDataCentersInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "ETag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,12 +66,15 @@
       "name": "ReaperStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedCassandraReaperStatus"
+        "nullable": false,
+        "referenceName": "ManagedCassandraReaperStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If PendingUploadId = null then random guid will be used.",
       "jsonName": "pendingUploadId",
       "name": "PendingUploadId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "TemporaryBlobReference is the only supported type",
       "jsonName": "pendingUploadType",
       "name": "PendingUploadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PendingUploadType"
+        "nullable": false,
+        "referenceName": "PendingUploadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

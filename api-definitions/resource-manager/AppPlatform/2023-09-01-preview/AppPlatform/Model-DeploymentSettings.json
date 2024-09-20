@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of addons",
       "jsonName": "addonConfigs",
       "name": "AddonConfigs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of ApmReferences",
       "jsonName": "apms",
       "name": "Apms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApmReference"
+          "nullable": false,
+          "referenceName": "ApmReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +51,9 @@
       "name": "ContainerProbeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerProbeSettings"
+        "nullable": false,
+        "referenceName": "ContainerProbeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,14 +62,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of environment variables",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Periodic probe of App Instance liveness. App Instance will be restarted if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
       "jsonName": "livenessProbe",
       "name": "LivenessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Periodic probe of App Instance service readiness. App Instance will be removed from service endpoints if the probe fails. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
       "jsonName": "readinessProbe",
       "name": "ReadinessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The requested resource quantity for required CPU and Memory. It is recommended that using this field to represent the required CPU and Memory, the old field cpu and memoryInGB will be deprecated later.",
       "jsonName": "resourceRequests",
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRequests"
+        "nullable": false,
+        "referenceName": "ResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scaling properties for the Azure Spring Apps App Instance.",
       "jsonName": "scale",
       "name": "Scale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Scale"
+        "nullable": false,
+        "referenceName": "Scale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "StartupProbe indicates that the App Instance has successfully initialized. If specified, no other probes are executed until this completes successfully. If this probe fails, the Pod will be restarted, just as if the livenessProbe failed. This can be used to provide different probe parameters at the beginning of a App Instance's lifecycle, when it might take a long time to load data or warm a cache, than during steady-state operation. This cannot be updated. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes",
       "jsonName": "startupProbe",
       "name": "StartupProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,16 +164,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional duration in seconds the App Instance needs to terminate gracefully. May be decreased in delete request. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. The grace period is the duration in seconds after the processes running in the App Instance are sent a termination signal and the time when the processes are forcibly halted with a kill signal. Set this value longer than the expected cleanup time for your process. Defaults to 90 seconds.",
       "jsonName": "terminationGracePeriodSeconds",
       "name": "TerminationGracePeriodSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

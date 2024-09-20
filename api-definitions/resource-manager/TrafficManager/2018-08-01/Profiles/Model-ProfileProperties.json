@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of allowed endpoint record types.",
       "jsonName": "allowedEndpointRecordTypes",
       "name": "AllowedEndpointRecordTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AllowedEndpointRecordType"
+          "nullable": false,
+          "referenceName": "AllowedEndpointRecordType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DNS settings of the Traffic Manager profile.",
       "jsonName": "dnsConfig",
       "name": "DnsConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsConfig"
+        "nullable": false,
+        "referenceName": "DnsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of endpoints in the Traffic Manager profile.",
       "jsonName": "endpoints",
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Endpoint"
+          "nullable": false,
+          "referenceName": "Endpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of endpoints to be returned for MultiValue routing type.",
       "jsonName": "maxReturn",
       "name": "MaxReturn",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint monitoring settings of the Traffic Manager profile.",
       "jsonName": "monitorConfig",
       "name": "MonitorConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorConfig"
+        "nullable": false,
+        "referenceName": "MonitorConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the Traffic Manager profile.",
       "jsonName": "profileStatus",
       "name": "ProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileStatus"
+        "nullable": false,
+        "referenceName": "ProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The traffic routing method of the Traffic Manager profile.",
       "jsonName": "trafficRoutingMethod",
       "name": "TrafficRoutingMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrafficRoutingMethod"
+        "nullable": false,
+        "referenceName": "TrafficRoutingMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,16 +127,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.",
       "jsonName": "trafficViewEnrollmentStatus",
       "name": "TrafficViewEnrollmentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrafficViewEnrollmentStatus"
+        "nullable": false,
+        "referenceName": "TrafficViewEnrollmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

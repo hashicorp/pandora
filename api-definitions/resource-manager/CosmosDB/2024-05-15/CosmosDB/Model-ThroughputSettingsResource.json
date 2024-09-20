@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cosmos DB resource for autoscale settings. Either throughput is required or autoscaleSettings is required, but not both.",
       "jsonName": "autoscaleSettings",
       "name": "AutoScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleSettingsResource"
+        "nullable": false,
+        "referenceName": "AutoscaleSettingsResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The offer throughput value to instantly scale up without triggering splits",
       "jsonName": "instantMaximumThroughput",
       "name": "InstantMaximumThroughput",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum throughput of the resource",
       "jsonName": "minimumThroughput",
       "name": "MinimumThroughput",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The throughput replace is pending",
       "jsonName": "offerReplacePending",
       "name": "OfferReplacePending",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum throughput value or the maximum maxThroughput value (for autoscale) that can be specified",
       "jsonName": "softAllowedMaximumThroughput",
       "name": "SoftAllowedMaximumThroughput",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of the Cosmos DB resource throughput. Either throughput is required or autoscaleSettings is required, but not both.",
       "jsonName": "throughput",
       "name": "Throughput",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

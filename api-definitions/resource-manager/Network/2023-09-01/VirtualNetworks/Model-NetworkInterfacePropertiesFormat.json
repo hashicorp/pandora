@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auxiliary mode of Network Interface resource.",
       "jsonName": "auxiliaryMode",
       "name": "AuxiliaryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceAuxiliaryMode"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceAuxiliaryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auxiliary sku of Network Interface resource.",
       "jsonName": "auxiliarySku",
       "name": "AuxiliarySku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceAuxiliarySku"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceAuxiliarySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to disable tcp state tracking.",
       "jsonName": "disableTcpStateTracking",
       "name": "DisableTcpStateTracking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceDnsSettings"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceDnsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "DscpConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.",
       "jsonName": "enableAcceleratedNetworking",
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether IP forwarding is enabled on this network interface.",
       "jsonName": "enableIPForwarding",
       "name": "EnableIPForwarding",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,14 +113,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of references to linked BareMetal resources.",
       "jsonName": "hostedWorkloads",
       "name": "HostedWorkloads",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -111,14 +135,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of IPConfigurations of the network interface.",
       "jsonName": "ipConfigurations",
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterfaceIPConfiguration"
+          "nullable": false,
+          "referenceName": "NetworkInterfaceIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +157,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The MAC address of the network interface.",
       "jsonName": "macAddress",
       "name": "MacAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +173,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Migration phase of Network Interface resource.",
       "jsonName": "migrationPhase",
       "name": "MigrationPhase",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceMigrationPhase"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceMigrationPhase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +193,9 @@
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityGroup"
+        "nullable": false,
+        "referenceName": "NetworkSecurityGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +204,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of Network Interface resource.",
       "jsonName": "nicType",
       "name": "NicType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceNicType"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceNicType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +220,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether this is a primary network interface on a virtual machine.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +240,9 @@
       "name": "PrivateEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateEndpoint"
+        "nullable": false,
+        "referenceName": "PrivateEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +255,9 @@
       "name": "PrivateLinkService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLinkService"
+        "nullable": false,
+        "referenceName": "PrivateLinkService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +270,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource GUID property of the network interface resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,14 +297,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of TapConfigurations of the network interface.",
       "jsonName": "tapConfigurations",
       "name": "TapConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterfaceTapConfiguration"
+          "nullable": false,
+          "referenceName": "NetworkInterfaceTapConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,7 +323,9 @@
       "name": "VirtualMachine",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,11 +334,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the virtual machine this nic is attached to supports encryption.",
       "jsonName": "vnetEncryptionSupported",
       "name": "VnetEncryptionSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,16 +350,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "WorkloadType of the NetworkInterface for BareMetal resources",
       "jsonName": "workloadType",
       "name": "WorkloadType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

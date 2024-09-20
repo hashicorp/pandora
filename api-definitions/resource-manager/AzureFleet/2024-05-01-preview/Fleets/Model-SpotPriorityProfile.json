@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allocation strategy to follow when determining the VM sizes distribution for Spot VMs.",
       "jsonName": "allocationStrategy",
       "name": "AllocationStrategy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpotAllocationStrategy"
+        "nullable": false,
+        "referenceName": "SpotAllocationStrategy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Total capacity to achieve. It is currently in terms of number of VMs.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Eviction Policy to follow when evicting Spot VMs.",
       "jsonName": "evictionPolicy",
       "name": "EvictionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EvictionPolicy"
+        "nullable": false,
+        "referenceName": "EvictionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to enable/disable continuous goal seeking for the desired capacity and restoration of evicted Spot VMs.\nIf maintain is enabled, AzureFleetRP will use all VM sizes in vmSizesProfile to create new VMs (if VMs are evicted deleted)\nor update existing VMs with new VM sizes (if VMs are evicted deallocated or failed to allocate due to capacity constraint) in order to achieve the desired capacity.\nMaintain is enabled by default.",
       "jsonName": "maintain",
       "name": "Maintain",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Price per hour of each Spot VM will never exceed this.",
       "jsonName": "maxPricePerVM",
       "name": "MaxPricePerVM",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum capacity to achieve which cannot be updated. If we will not be able to \"guarantee\" minimum capacity, we will reject the request in the sync path itself.",
       "jsonName": "minCapacity",
       "name": "MinCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

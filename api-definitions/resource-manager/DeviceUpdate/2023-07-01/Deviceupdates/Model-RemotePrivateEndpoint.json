@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of connection details.",
       "jsonName": "connectionDetails",
       "name": "ConnectionDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionDetails"
+          "nullable": false,
+          "referenceName": "ConnectionDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Remote endpoint resource ID.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Original resource ID needed by Microsoft.Network.",
       "jsonName": "immutableResourceId",
       "name": "ImmutableResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Original subscription ID needed by Microsoft.Network.",
       "jsonName": "immutableSubscriptionId",
       "name": "ImmutableSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM location of the remote private endpoint.",
       "jsonName": "location",
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private link service connections that need manual approval.",
       "jsonName": "manualPrivateLinkServiceConnections",
       "name": "ManualPrivateLinkServiceConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceConnection"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of automatically approved private link service connections.",
       "jsonName": "privateLinkServiceConnections",
       "name": "PrivateLinkServiceConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceConnection"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of private link service proxies.",
       "jsonName": "privateLinkServiceProxies",
       "name": "PrivateLinkServiceProxies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceProxy"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceProxy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,16 +155,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual network traffic tag.",
       "jsonName": "vnetTrafficTag",
       "name": "VnetTrafficTag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

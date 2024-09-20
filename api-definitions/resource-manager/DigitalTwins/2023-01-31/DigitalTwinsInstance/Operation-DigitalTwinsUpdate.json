@@ -1,6 +1,7 @@
 {
   "name": "DigitalTwinsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DigitalTwinsInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DigitalTwinsPatchDescription"
+    "nullable": false,
+    "referenceName": "DigitalTwinsPatchDescription",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DigitalTwinsDescription"
+    "nullable": false,
+    "referenceName": "DigitalTwinsDescription",
+    "referenceNameIsCommonType": null
   }
 }

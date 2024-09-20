@@ -1,6 +1,7 @@
 {
   "name": "NotificationHubsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "NotificationHubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NotificationHubResource"
+    "nullable": false,
+    "referenceName": "NotificationHubResource",
+    "referenceNameIsCommonType": null
   }
 }

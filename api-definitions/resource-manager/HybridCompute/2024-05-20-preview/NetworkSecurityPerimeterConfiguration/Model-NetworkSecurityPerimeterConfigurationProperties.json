@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Network Security Perimeter associated with this configuration.",
       "jsonName": "networkSecurityPerimeter",
       "name": "NetworkSecurityPerimeter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeter"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network Security Perimeter profile",
       "jsonName": "profile",
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterProfile"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning issues.",
       "jsonName": "provisioningIssues",
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProvisioningIssue"
+          "nullable": false,
+          "referenceName": "ProvisioningIssue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current state of this NetworkSecurityPerimeter: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Provisioning ,Succeeded, Canceled and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,16 +73,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Resource Association.",
       "jsonName": "resourceAssociation",
       "name": "ResourceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceAssociation"
+        "nullable": false,
+        "referenceName": "ResourceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

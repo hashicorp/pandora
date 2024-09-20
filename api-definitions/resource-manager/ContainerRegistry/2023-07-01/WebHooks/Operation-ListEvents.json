@@ -1,6 +1,7 @@
 {
   "name": "ListEvents",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "WebHookId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Event"
+    "nullable": false,
+    "referenceName": "Event",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listEvents"
 }

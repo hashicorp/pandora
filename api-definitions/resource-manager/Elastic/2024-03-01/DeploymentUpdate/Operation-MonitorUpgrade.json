@@ -1,6 +1,7 @@
 {
   "name": "MonitorUpgrade",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ElasticMonitorUpgrade"
+    "nullable": false,
+    "referenceName": "ElasticMonitorUpgrade",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/upgrade"
 }

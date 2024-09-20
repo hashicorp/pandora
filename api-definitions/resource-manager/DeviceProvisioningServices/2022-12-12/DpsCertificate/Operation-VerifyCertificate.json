@@ -1,6 +1,7 @@
 {
   "name": "VerifyCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -101,11 +102,15 @@
   "resourceIdName": "CertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VerificationCodeRequest"
+    "nullable": false,
+    "referenceName": "VerificationCodeRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CertificateResponse"
+    "nullable": false,
+    "referenceName": "CertificateResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/verify"
 }

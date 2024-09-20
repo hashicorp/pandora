@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The action type of a Nat rule collection.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyNatRuleCollectionAction"
+        "nullable": false,
+        "referenceName": "FirewallPolicyNatRuleCollectionAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of rules included in a rule collection.",
       "jsonName": "rules",
       "name": "Rules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallPolicyRule"
+          "nullable": false,
+          "referenceName": "FirewallPolicyRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FirewallPolicyRuleCollection",
   "discriminatedTypeValue": "FirewallPolicyNatRuleCollection",
   "typeHintIn": "RuleCollectionType"

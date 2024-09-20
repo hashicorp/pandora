@@ -1,6 +1,7 @@
 {
   "name": "ListByResourceGroupDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "LocationLongTermRetentionServerLongTermRetentionDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LongTermRetentionBackup"
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/longTermRetentionBackups"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operation to be performed for given VM.",
       "jsonName": "operationName",
       "name": "OperationName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationName"
+        "nullable": false,
+        "referenceName": "OperationName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ARM id of the VM resource.",
       "jsonName": "vmResourceId",
       "name": "VMResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

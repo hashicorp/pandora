@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "GlobalRulestackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GlobalRulestackResource"
+    "nullable": false,
+    "referenceName": "GlobalRulestackResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GlobalRulestackResource"
+    "nullable": false,
+    "referenceName": "GlobalRulestackResource",
+    "referenceNameIsCommonType": null
   }
 }

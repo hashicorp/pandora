@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Day of the week on which the maintenance window will occur.",
       "jsonName": "dayOfWeek",
       "name": "DayOfWeek",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceDayOfWeekType"
+        "nullable": false,
+        "referenceName": "MaintenanceDayOfWeekType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time of day (in UTC) to start the maintenance window.",
       "jsonName": "timeOfDayUTC",
       "name": "TimeOfDayUTC",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

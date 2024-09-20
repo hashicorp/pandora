@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Authentication method to access the storage account for deployment.",
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsDeploymentStorageAuthentication"
+        "nullable": false,
+        "referenceName": "FunctionsDeploymentStorageAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to select Azure Storage type. Available options: blobContainer.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsDeploymentStorageType"
+        "nullable": false,
+        "referenceName": "FunctionsDeploymentStorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to set the URL for the selected Azure Storage type. Example: For blobContainer, the value could be https://\u003cstorageAccountName\u003e.blob.core.windows.net/\u003ccontainerName\u003e.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

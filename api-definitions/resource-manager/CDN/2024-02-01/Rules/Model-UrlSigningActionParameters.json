@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Algorithm to use for URL signing",
       "jsonName": "algorithm",
       "name": "Algorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Algorithm"
+        "nullable": false,
+        "referenceName": "Algorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines which query string parameters in the url to be considered for expires, key id etc. ",
       "jsonName": "parameterNameOverride",
       "name": "ParameterNameOverride",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UrlSigningParamIdentifier"
+          "nullable": false,
+          "referenceName": "UrlSigningParamIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -32,6 +40,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleUrlSigningActionParameters",
   "typeHintIn": "TypeName"

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Allocated Memory in MB.",
       "jsonName": "allocatedMemoryInMB",
       "name": "AllocatedMemoryInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Apps And Roles of the VM.",
       "jsonName": "appsAndRoles",
       "name": "AppsAndRoles",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppsAndRoles"
+        "nullable": false,
+        "referenceName": "AppsAndRoles",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "BIOS GUID.",
       "jsonName": "biosGuid",
       "name": "BiosGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Machine BIOS serial number.",
       "jsonName": "biosSerialNumber",
       "name": "BiosSerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether change tracking is enabled.",
       "jsonName": "changeTrackingEnabled",
       "name": "ChangeTrackingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether change tracking is supported.",
       "jsonName": "changeTrackingSupported",
       "name": "ChangeTrackingSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp marking machine creation.",
       "jsonName": "createdTimestamp",
       "name": "CreatedTimestamp",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scope of the data center.",
       "jsonName": "dataCenterScope",
       "name": "DataCenterScope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If dependency mapping feature is enabled or not for the VM.",
       "jsonName": "dependencyMapping",
       "name": "DependencyMapping",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When dependency mapping collection is last started.",
       "jsonName": "dependencyMappingStartTime",
       "name": "DependencyMappingStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User description of the machine.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,14 +180,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disks attached to the machine.",
       "jsonName": "disks",
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMwareDisk"
+          "nullable": false,
+          "referenceName": "VMwareDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -164,11 +202,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the machine.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,14 +218,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Errors for machine.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthErrorDetails"
+          "nullable": false,
+          "referenceName": "HealthErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -194,11 +240,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Firmware of the machine.",
       "jsonName": "firmware",
       "name": "Firmware",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,11 +257,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last time at which the Guest Details was discovered or the error while discovering guest details based discovery of the machine.",
       "jsonName": "guestDetailsDiscoveryTimestamp",
       "name": "GuestDetailsDiscoveryTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,11 +273,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operating System Details extracted from the guest bu executing script inside the guest VM.",
       "jsonName": "guestOSDetails",
       "name": "GuestOSDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GuestOSDetails"
+        "nullable": false,
+        "referenceName": "GuestOSDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,11 +289,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the host is in maintenance mode.",
       "jsonName": "hostInMaintenanceMode",
       "name": "HostInMaintenanceMode",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -247,11 +305,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host name.",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -260,11 +321,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host power state.",
       "jsonName": "hostPowerState",
       "name": "HostPowerState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -273,11 +337,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host version.",
       "jsonName": "hostVersion",
       "name": "HostVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -286,11 +353,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "On-premise Instance UUID of the machine.",
       "jsonName": "instanceUuid",
       "name": "InstanceUuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -299,11 +369,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether VM is deleted.",
       "jsonName": "isDeleted",
       "name": "IsDeleted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -312,11 +385,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether Refresh Fabric Layout Guest Details has been completed once. Portal will show discovery in progress, if this value is true.",
       "jsonName": "isGuestDetailsDiscoveryInProgress",
       "name": "IsGuestDetailsDiscoveryInProgress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -325,11 +401,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of snapshots for the VM. Default value is -1.",
       "jsonName": "maxSnapshots",
       "name": "MaxSnapshots",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -338,14 +417,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network adapters attached to the machine.",
       "jsonName": "networkAdapters",
       "name": "NetworkAdapters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMwareNetworkAdapter"
+          "nullable": false,
+          "referenceName": "VMwareNetworkAdapter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -355,11 +439,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of applications installed in the guest VM.",
       "jsonName": "numberOfApplications",
       "name": "NumberOfApplications",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -368,11 +455,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of Processor Cores allocated for the machine.",
       "jsonName": "numberOfProcessorCore",
       "name": "NumberOfProcessorCore",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -381,11 +471,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Operating System Details installed on the machine.",
       "jsonName": "operatingSystemDetails",
       "name": "OperatingSystemDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystem"
+        "nullable": false,
+        "referenceName": "OperatingSystem",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -394,11 +487,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Machine power status.",
       "jsonName": "powerStatus",
       "name": "PowerStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -407,11 +503,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp marking last updated on the machine.",
       "jsonName": "updatedTimestamp",
       "name": "UpdatedTimestamp",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -420,11 +519,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VCenter FQDN/IPAddress.",
       "jsonName": "vCenterFQDN",
       "name": "VCenterFQDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -433,11 +535,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VCenter ARM ID.",
       "jsonName": "vCenterId",
       "name": "VCenterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -446,11 +551,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Root location of the VM configuration file.",
       "jsonName": "vmConfigurationFileLocation",
       "name": "VMConfigurationFileLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -459,11 +567,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Machine FQDN.",
       "jsonName": "vmFqdn",
       "name": "VMFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -472,16 +583,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VMware tools status.",
       "jsonName": "vMwareToolsStatus",
       "name": "VMwareToolsStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

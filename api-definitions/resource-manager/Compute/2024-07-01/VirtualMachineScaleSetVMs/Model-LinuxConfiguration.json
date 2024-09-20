@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether password authentication should be disabled.",
       "jsonName": "disablePasswordAuthentication",
       "name": "DisablePasswordAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether VMAgent Platform Updates is enabled for the Linux virtual machine. Default value is false.",
       "jsonName": "enableVMAgentPlatformUpdates",
       "name": "EnableVMAgentPlatformUpdates",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Preview Feature] Specifies settings related to VM Guest Patching on Linux.",
       "jsonName": "patchSettings",
       "name": "PatchSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxPatchSettings"
+        "nullable": false,
+        "referenceName": "LinuxPatchSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, default behavior is to set it to true. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.",
       "jsonName": "provisionVMAgent",
       "name": "ProvisionVMAgent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ssh key configuration for a Linux OS.",
       "jsonName": "ssh",
       "name": "Ssh",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshConfiguration"
+        "nullable": false,
+        "referenceName": "SshConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ContentKeyPolicyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContentKeyPolicy"
+    "nullable": false,
+    "referenceName": "ContentKeyPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContentKeyPolicy"
+    "nullable": false,
+    "referenceName": "ContentKeyPolicy",
+    "referenceNameIsCommonType": null
   }
 }

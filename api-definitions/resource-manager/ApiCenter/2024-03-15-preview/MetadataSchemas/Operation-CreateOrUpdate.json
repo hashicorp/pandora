@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "MetadataSchemaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MetadataSchema"
+    "nullable": false,
+    "referenceName": "MetadataSchema",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetadataSchema"
+    "nullable": false,
+    "referenceName": "MetadataSchema",
+    "referenceNameIsCommonType": null
   }
 }

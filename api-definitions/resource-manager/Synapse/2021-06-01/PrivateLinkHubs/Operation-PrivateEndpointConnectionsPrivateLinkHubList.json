@@ -1,6 +1,7 @@
 {
   "name": "PrivateEndpointConnectionsPrivateLinkHubList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "PrivateLinkHubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionForPrivateLinkHub"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionForPrivateLinkHub",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateEndpointConnections"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of CPU cores that can be enabled on the DB system for this shape.",
       "jsonName": "availableCoreCount",
       "name": "AvailableCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape and ExaCC Elastic shapes.",
       "jsonName": "availableCoreCountPerNode",
       "name": "AvailableCoreCountPerNode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum DATA storage that can be enabled for this shape.",
       "jsonName": "availableDataStorageInTbs",
       "name": "AvailableDataStorageInTbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum data storage available per storage server for this shape. Only applicable to ExaCC Elastic shapes.",
       "jsonName": "availableDataStoragePerServerInTbs",
       "name": "AvailableDataStoragePerServerInTbs",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum Db Node storage available per database node for this shape. Only applicable to ExaCC Elastic shapes.",
       "jsonName": "availableDbNodePerNodeInGbs",
       "name": "AvailableDbNodePerNodeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum Db Node storage that can be enabled for this shape.",
       "jsonName": "availableDbNodeStorageInGbs",
       "name": "AvailableDbNodeStorageInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum memory that can be enabled for this shape.",
       "jsonName": "availableMemoryInGbs",
       "name": "AvailableMemoryInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum memory available per database node for this shape. Only applicable to ExaCC Elastic shapes.",
       "jsonName": "availableMemoryPerNodeInGbs",
       "name": "AvailableMemoryPerNodeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The discrete number by which the CPU core count for this shape can be increased or decreased.",
       "jsonName": "coreCountIncrement",
       "name": "CoreCountIncrement",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of Exadata storage servers available for the Exadata infrastructure.",
       "jsonName": "maxStorageCount",
       "name": "MaxStorageCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of database nodes available for this shape.",
       "jsonName": "maximumNodeCount",
       "name": "MaximumNodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of CPU cores that can be enabled per node for this shape.",
       "jsonName": "minCoreCountPerNode",
       "name": "MinCoreCountPerNode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum data storage that need be allocated for this shape.",
       "jsonName": "minDataStorageInTbs",
       "name": "MinDataStorageInTbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum Db Node storage that need be allocated per node for this shape.",
       "jsonName": "minDbNodeStoragePerNodeInGbs",
       "name": "MinDbNodeStoragePerNodeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum memory that need be allocated per node for this shape.",
       "jsonName": "minMemoryPerNodeInGbs",
       "name": "MinMemoryPerNodeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +243,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of Exadata storage servers available for the Exadata infrastructure.",
       "jsonName": "minStorageCount",
       "name": "MinStorageCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,11 +259,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of CPU cores that can be enabled on the DB system for this shape.",
       "jsonName": "minimumCoreCount",
       "name": "MinimumCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,11 +275,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of database nodes available for this shape.",
       "jsonName": "minimumNodeCount",
       "name": "MinimumNodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,11 +291,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The runtime minimum number of CPU cores that can be enabled on the DB system for this shape.",
       "jsonName": "runtimeMinimumCoreCount",
       "name": "RuntimeMinimumCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,16 +307,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The family of the shape used for the DB system.",
       "jsonName": "shapeFamily",
       "name": "ShapeFamily",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

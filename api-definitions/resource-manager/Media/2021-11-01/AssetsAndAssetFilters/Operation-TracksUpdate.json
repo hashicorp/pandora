@@ -1,6 +1,7 @@
 {
   "name": "TracksUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "TrackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AssetTrack"
+    "nullable": false,
+    "referenceName": "AssetTrack",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AssetTrack"
+    "nullable": false,
+    "referenceName": "AssetTrack",
+    "referenceNameIsCommonType": null
   }
 }

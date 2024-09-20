@@ -1,6 +1,7 @@
 {
   "name": "QueryByFactory",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "FactoryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TriggerFilterParameters"
+    "nullable": false,
+    "referenceName": "TriggerFilterParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TriggerQueryResponse"
+    "nullable": false,
+    "referenceName": "TriggerQueryResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/querytriggers"
 }

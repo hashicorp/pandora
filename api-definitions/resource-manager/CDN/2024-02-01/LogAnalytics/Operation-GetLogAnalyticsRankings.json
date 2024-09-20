@@ -1,6 +1,7 @@
 {
   "name": "GetLogAnalyticsRankings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -83,7 +84,9 @@
   "resourceIdName": "ProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RankingsResponse"
+    "nullable": false,
+    "referenceName": "RankingsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getLogAnalyticsRankings"
 }

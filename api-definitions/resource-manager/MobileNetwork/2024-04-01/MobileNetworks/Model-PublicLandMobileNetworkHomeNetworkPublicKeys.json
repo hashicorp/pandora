@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This provides a mapping to identify which public key has been used for SUPI concealment using the Profile A Protection Scheme.",
       "jsonName": "profileA",
       "name": "ProfileA",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HomeNetworkPublicKey"
+          "nullable": false,
+          "referenceName": "HomeNetworkPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This provides a mapping to identify which public key has been used for SUPI concealment using the Profile B Protection Scheme.",
       "jsonName": "profileB",
       "name": "ProfileB",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HomeNetworkPublicKey"
+          "nullable": false,
+          "referenceName": "HomeNetworkPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

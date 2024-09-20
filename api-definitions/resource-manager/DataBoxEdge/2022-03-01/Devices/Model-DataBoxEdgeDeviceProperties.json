@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of compute roles configured.",
       "jsonName": "configuredRoleTypes",
       "name": "ConfiguredRoleTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoleTypes"
+          "nullable": false,
+          "referenceName": "RoleTypes",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device culture.",
       "jsonName": "culture",
       "name": "Culture",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the Data Box Edge/Gateway device.",
       "jsonName": "dataBoxEdgeDeviceStatus",
       "name": "DataBoxEdgeDeviceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataBoxEdgeDeviceStatus"
+        "nullable": false,
+        "referenceName": "DataBoxEdgeDeviceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of data-residency related properties for this resource",
       "jsonName": "dataResidency",
       "name": "DataResidency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataResidency"
+        "nullable": false,
+        "referenceName": "DataResidency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Description of the Data Box Edge/Gateway device.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The device software version number of the device (eg: 1.2.18105.6).",
       "jsonName": "deviceHcsVersion",
       "name": "DeviceHcsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device local capacity in MB.",
       "jsonName": "deviceLocalCapacity",
       "name": "DeviceLocalCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device model.",
       "jsonName": "deviceModel",
       "name": "DeviceModel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device software version.",
       "jsonName": "deviceSoftwareVersion",
       "name": "DeviceSoftwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the Data Box Edge/Gateway device.",
       "jsonName": "deviceType",
       "name": "DeviceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeviceType"
+        "nullable": false,
+        "referenceName": "DeviceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of Edge Profile for this resource",
       "jsonName": "edgeProfile",
       "name": "EdgeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdgeProfile"
+        "nullable": false,
+        "referenceName": "EdgeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device name.",
       "jsonName": "friendlyName",
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the Data Box Edge/Gateway device model.",
       "jsonName": "modelDescription",
       "name": "ModelDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of nodes in the cluster.",
       "jsonName": "nodeCount",
       "name": "NodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of the move operation on this resource.",
       "jsonName": "resourceMoveDetails",
       "name": "ResourceMoveDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceMoveDetails"
+        "nullable": false,
+        "referenceName": "ResourceMoveDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Serial Number of Data Box Edge/Gateway device.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,7 +269,9 @@
       "name": "SystemData",
       "objectDefinition": {
         "type": "SystemData",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,16 +280,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Data Box Edge/Gateway device timezone.",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

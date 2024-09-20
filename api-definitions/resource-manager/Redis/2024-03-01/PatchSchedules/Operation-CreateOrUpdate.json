@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "RediId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RedisPatchSchedule"
+    "nullable": false,
+    "referenceName": "RedisPatchSchedule",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RedisPatchSchedule"
+    "nullable": false,
+    "referenceName": "RedisPatchSchedule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/patchSchedules/default"
 }

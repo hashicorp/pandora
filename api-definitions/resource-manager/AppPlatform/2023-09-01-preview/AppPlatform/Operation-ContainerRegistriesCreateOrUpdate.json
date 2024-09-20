@@ -1,6 +1,7 @@
 {
   "name": "ContainerRegistriesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ContainerRegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContainerRegistryResource"
+    "nullable": false,
+    "referenceName": "ContainerRegistryResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerRegistryResource"
+    "nullable": false,
+    "referenceName": "ContainerRegistryResource",
+    "referenceNameIsCommonType": null
   }
 }

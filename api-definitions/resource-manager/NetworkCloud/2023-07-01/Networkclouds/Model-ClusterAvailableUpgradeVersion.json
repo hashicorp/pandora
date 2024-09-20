@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator of whether the control plane will be impacted during the upgrade.",
       "jsonName": "controlImpact",
       "name": "ControlImpact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlImpact"
+        "nullable": false,
+        "referenceName": "ControlImpact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The expected duration needed for this upgrade.",
       "jsonName": "expectedDuration",
       "name": "ExpectedDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The impact description including the specific details and release notes.",
       "jsonName": "impactDescription",
       "name": "ImpactDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last date the version of the platform is supported.",
       "jsonName": "supportExpiryDate",
       "name": "SupportExpiryDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target version this cluster will be upgraded to.",
       "jsonName": "targetClusterVersion",
       "name": "TargetClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The indicator of whether the workload will be impacted during the upgrade.",
       "jsonName": "workloadImpact",
       "name": "WorkloadImpact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadImpact"
+        "nullable": false,
+        "referenceName": "WorkloadImpact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

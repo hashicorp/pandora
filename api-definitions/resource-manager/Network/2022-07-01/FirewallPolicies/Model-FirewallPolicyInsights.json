@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to indicate if the insights are enabled on the policy.",
       "jsonName": "isEnabled",
       "name": "IsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspaces needed to configure the Firewall Policy Insights.",
       "jsonName": "logAnalyticsResources",
       "name": "LogAnalyticsResources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyLogAnalyticsResources"
+        "nullable": false,
+        "referenceName": "FirewallPolicyLogAnalyticsResources",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of days the insights should be enabled on the policy.",
       "jsonName": "retentionDays",
       "name": "RetentionDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

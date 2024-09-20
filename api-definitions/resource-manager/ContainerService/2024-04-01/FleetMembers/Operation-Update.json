@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,10 +23,14 @@
   "resourceIdName": "MemberId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FleetMemberUpdate"
+    "nullable": false,
+    "referenceName": "FleetMemberUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FleetMember"
+    "nullable": false,
+    "referenceName": "FleetMember",
+    "referenceNameIsCommonType": null
   }
 }

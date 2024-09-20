@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, customer can override the response body. The body must be specified in base64 encoding.",
       "jsonName": "defaultCustomBlockResponseBody",
       "name": "DefaultCustomBlockResponseBody",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If the action type is block, this field defines the default customer overridable http response status code.",
       "jsonName": "defaultCustomBlockResponseStatusCode",
       "name": "DefaultCustomBlockResponseStatusCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultCustomBlockResponseStatusCode"
+        "nullable": false,
+        "referenceName": "DefaultCustomBlockResponseStatusCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If action type is redirect, this field represents the default redirect URL for the client.",
       "jsonName": "defaultRedirectUrl",
       "name": "DefaultRedirectUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "describes if the policy is in enabled state or disabled state",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyEnabledState"
+        "nullable": false,
+        "referenceName": "PolicyEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes if it is in detection mode or prevention mode at policy level.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyMode"
+        "nullable": false,
+        "referenceName": "PolicyMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies Terminate Scheduled Event related configurations.",
       "jsonName": "terminateNotificationProfile",
       "name": "TerminateNotificationProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TerminateNotificationProfile"
+        "nullable": false,
+        "referenceName": "TerminateNotificationProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

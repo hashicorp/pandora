@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SubVolumeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SubvolumePatchRequest"
+    "nullable": false,
+    "referenceName": "SubvolumePatchRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubvolumeInfo"
+    "nullable": false,
+    "referenceName": "SubvolumeInfo",
+    "referenceNameIsCommonType": null
   }
 }

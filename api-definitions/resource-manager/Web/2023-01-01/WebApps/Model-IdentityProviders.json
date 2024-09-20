@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Apple provider.",
       "jsonName": "apple",
       "name": "Apple",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Apple"
+        "nullable": false,
+        "referenceName": "Apple",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Azure Active directory provider.",
       "jsonName": "azureActiveDirectory",
       "name": "AzureActiveDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectory"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Azure Static Web Apps provider.",
       "jsonName": "azureStaticWebApps",
       "name": "AzureStaticWebApps",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureStaticWebApps"
+        "nullable": false,
+        "referenceName": "AzureStaticWebApps",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The map of the name of the alias of each custom Open ID Connect provider to the\nconfiguration settings of the custom Open ID Connect provider.",
       "jsonName": "customOpenIdConnectProviders",
       "name": "CustomOpenIdConnectProviders",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomOpenIdConnectProvider"
+          "nullable": false,
+          "referenceName": "CustomOpenIdConnectProvider",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Facebook provider.",
       "jsonName": "facebook",
       "name": "Facebook",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Facebook"
+        "nullable": false,
+        "referenceName": "Facebook",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the GitHub provider.",
       "jsonName": "gitHub",
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHub"
+        "nullable": false,
+        "referenceName": "GitHub",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Google provider.",
       "jsonName": "google",
       "name": "Google",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Google"
+        "nullable": false,
+        "referenceName": "Google",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the legacy Microsoft Account provider.",
       "jsonName": "legacyMicrosoftAccount",
       "name": "LegacyMicrosoftAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LegacyMicrosoftAccount"
+        "nullable": false,
+        "referenceName": "LegacyMicrosoftAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the Twitter provider.",
       "jsonName": "twitter",
       "name": "Twitter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Twitter"
+        "nullable": false,
+        "referenceName": "Twitter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

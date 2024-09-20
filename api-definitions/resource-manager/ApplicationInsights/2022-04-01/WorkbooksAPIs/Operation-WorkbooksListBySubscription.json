@@ -1,6 +1,7 @@
 {
   "name": "WorkbooksListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -46,7 +47,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Workbook"
+    "nullable": false,
+    "referenceName": "Workbook",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/workbooks"
 }

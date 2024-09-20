@@ -1,6 +1,7 @@
 {
   "name": "GetPublicCertificateSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotPublicCertificateId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublicCertificate"
+    "nullable": false,
+    "referenceName": "PublicCertificate",
+    "referenceNameIsCommonType": null
   }
 }

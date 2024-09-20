@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "ForwardingRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ForwardingRulePatch"
+    "nullable": false,
+    "referenceName": "ForwardingRulePatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ForwardingRule"
+    "nullable": false,
+    "referenceName": "ForwardingRule",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource limits of this container instance.",
       "jsonName": "limits",
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceLimits"
+        "nullable": false,
+        "referenceName": "ResourceLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource requests of this container instance.",
       "jsonName": "requests",
       "name": "Requests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRequests"
+        "nullable": false,
+        "referenceName": "ResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

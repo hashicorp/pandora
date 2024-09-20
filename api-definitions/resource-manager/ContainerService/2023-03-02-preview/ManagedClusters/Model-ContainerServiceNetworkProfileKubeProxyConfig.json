@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable on kube-proxy on the cluster (if no 'kubeProxyConfig' exists, kube-proxy is enabled in AKS by default without these customizations).",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Holds configuration customizations for IPVS. May only be specified if 'mode' is set to 'IPVS'.",
       "jsonName": "ipvsConfig",
       "name": "IPvsConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfigIPvsConfig"
+        "nullable": false,
+        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfigIPvsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specify which proxy mode to use ('IPTABLES' or 'IPVS')",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Mode"
+        "nullable": false,
+        "referenceName": "Mode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

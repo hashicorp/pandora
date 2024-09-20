@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "JitRequestId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JitRequestDefinition"
+    "nullable": false,
+    "referenceName": "JitRequestDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JitRequestDefinition"
+    "nullable": false,
+    "referenceName": "JitRequestDefinition",
+    "referenceNameIsCommonType": null
   }
 }

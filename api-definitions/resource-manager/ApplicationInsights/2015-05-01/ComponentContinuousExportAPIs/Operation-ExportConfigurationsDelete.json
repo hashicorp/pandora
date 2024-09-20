@@ -1,6 +1,7 @@
 {
   "name": "ExportConfigurationsDelete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ExportConfigurationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentExportConfiguration"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentExportConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Action"
+        "nullable": false,
+        "referenceName": "Action",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of correlationFilter",
       "jsonName": "correlationFilter",
       "name": "CorrelationFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorrelationFilter"
+        "nullable": false,
+        "referenceName": "CorrelationFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Filter type that is evaluated against a BrokeredMessage.",
       "jsonName": "filterType",
       "name": "FilterType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FilterType"
+        "nullable": false,
+        "referenceName": "FilterType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties of sqlFilter",
       "jsonName": "sqlFilter",
       "name": "SqlFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlFilter"
+        "nullable": false,
+        "referenceName": "SqlFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

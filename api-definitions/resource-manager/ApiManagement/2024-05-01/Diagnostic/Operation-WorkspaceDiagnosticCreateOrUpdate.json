@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceDiagnosticCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -22,10 +23,14 @@
   "resourceIdName": "WorkspaceDiagnosticId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticContract"
+    "nullable": false,
+    "referenceName": "DiagnosticContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticContract"
+    "nullable": false,
+    "referenceName": "DiagnosticContract",
+    "referenceNameIsCommonType": null
   }
 }

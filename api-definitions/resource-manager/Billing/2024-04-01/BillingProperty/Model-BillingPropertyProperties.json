@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notification email address for legacy account. Available for agreement type Microsoft Online Services Program.",
       "jsonName": "accountAdminNotificationEmailAddress",
       "name": "AccountAdminNotificationEmailAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of agreement.",
       "jsonName": "billingAccountAgreementType",
       "name": "BillingAccountAgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing account.",
       "jsonName": "billingAccountDisplayName",
       "name": "BillingAccountDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a billing account.",
       "jsonName": "billingAccountId",
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The country of the individual or organization that is responsible for the billing account.",
       "jsonName": "billingAccountSoldToCountry",
       "name": "BillingAccountSoldToCountry",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current status of the billing account.",
       "jsonName": "billingAccountStatus",
       "name": "BillingAccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountStatus"
+        "nullable": false,
+        "referenceName": "AccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified billing account status.",
       "jsonName": "billingAccountStatusReasonCode",
       "name": "BillingAccountStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingAccountStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingAccountStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The tier of the account.",
       "jsonName": "billingAccountSubType",
       "name": "BillingAccountSubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountSubType"
+        "nullable": false,
+        "referenceName": "AccountSubType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of customer.",
       "jsonName": "billingAccountType",
       "name": "BillingAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountType"
+        "nullable": false,
+        "referenceName": "AccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing currency for the subscription. Available for billing accounts with agreement type Enterprise Agreement",
       "jsonName": "billingCurrency",
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the billing profile.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a billing profile.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +195,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The payment method family of the primary payment method for the billing profile.",
       "jsonName": "billingProfilePaymentMethodFamily",
       "name": "BillingProfilePaymentMethodFamily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentMethodFamily"
+        "nullable": false,
+        "referenceName": "PaymentMethodFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +211,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The payment method type of the primary payment method for the billing profile.",
       "jsonName": "billingProfilePaymentMethodType",
       "name": "BillingProfilePaymentMethodType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +227,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The billing profile spending limit.",
       "jsonName": "billingProfileSpendingLimit",
       "name": "BillingProfileSpendingLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpendingLimit"
+        "nullable": false,
+        "referenceName": "SpendingLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,14 +243,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The details of billing profile spending limit.",
       "jsonName": "billingProfileSpendingLimitDetails",
       "name": "BillingProfileSpendingLimitDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SpendingLimitDetails"
+          "nullable": false,
+          "referenceName": "SpendingLimitDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -215,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the billing profile.",
       "jsonName": "billingProfileStatus",
       "name": "BillingProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatus"
+        "nullable": false,
+        "referenceName": "BillingProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,11 +281,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified billing profile status.",
       "jsonName": "billingProfileStatusReasonCode",
       "name": "BillingProfileStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingProfileStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,11 +297,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure AD tenant ID of the billing account for the subscription.",
       "jsonName": "billingTenantId",
       "name": "BillingTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -254,11 +313,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cost center applied to the subscription. Available for agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. This property can be updated via patch.",
       "jsonName": "costCenter",
       "name": "CostCenter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,11 +329,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the customer.",
       "jsonName": "customerDisplayName",
       "name": "CustomerDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,11 +345,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies a customer.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,11 +361,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the status of an customer. This is an upcoming property that will be populated in the future.",
       "jsonName": "customerStatus",
       "name": "CustomerStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerStatus"
+        "nullable": false,
+        "referenceName": "CustomerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,11 +377,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The enrollment details for the subscription. Available for billing accounts with agreement type Enterprise Agreement.",
       "jsonName": "enrollmentDetails",
       "name": "EnrollmentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionEnrollmentDetails"
+        "nullable": false,
+        "referenceName": "SubscriptionEnrollmentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -319,11 +393,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the invoice section.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -332,11 +409,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified ID that uniquely identifies an invoice section.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -345,11 +425,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifies the status of an invoice section.",
       "jsonName": "invoiceSectionStatus",
       "name": "InvoiceSectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceSectionState"
+        "nullable": false,
+        "referenceName": "InvoiceSectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -358,11 +441,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reason for the specified invoice section status.",
       "jsonName": "invoiceSectionStatusReasonCode",
       "name": "InvoiceSectionStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceSectionStateReasonCode"
+        "nullable": false,
+        "referenceName": "InvoiceSectionStateReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -371,11 +457,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether user is the account admin.",
       "jsonName": "isAccountAdmin",
       "name": "IsAccountAdmin",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -384,11 +473,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if the billing account for the subscription is transitioned from a Microsoft Online Service Program to a Microsoft Customer Agreement (MCA) account. Will be present and value will be true if its a transitioned billing account.",
       "jsonName": "isTransitionedBillingAccount",
       "name": "IsTransitionedBillingAccount",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -397,11 +489,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a product.",
       "jsonName": "productId",
       "name": "ProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -410,11 +505,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a product.",
       "jsonName": "productName",
       "name": "ProductName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -423,11 +521,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The sku description.",
       "jsonName": "skuDescription",
       "name": "SkuDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -436,11 +537,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID that uniquely identifies a sku.",
       "jsonName": "skuId",
       "name": "SkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -449,11 +553,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The subscription status.",
       "jsonName": "subscriptionBillingStatus",
       "name": "SubscriptionBillingStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingSubscriptionStatus"
+        "nullable": false,
+        "referenceName": "BillingSubscriptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -462,14 +569,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reason codes for the subscription status.",
       "jsonName": "subscriptionBillingStatusDetails",
       "name": "SubscriptionBillingStatusDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingSubscriptionStatusDetails"
+          "nullable": false,
+          "referenceName": "BillingSubscriptionStatusDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -479,11 +591,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of billing subscription.",
       "jsonName": "subscriptionBillingType",
       "name": "SubscriptionBillingType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionBillingType"
+        "nullable": false,
+        "referenceName": "SubscriptionBillingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -492,11 +607,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The address of the individual or organization where service subscription is being used. Available for agreement type Microsoft Online Services Program. This property can be updated via patch.",
       "jsonName": "subscriptionServiceUsageAddress",
       "name": "SubscriptionServiceUsageAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -505,16 +623,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure workload type of the subscription.",
       "jsonName": "subscriptionWorkloadType",
       "name": "SubscriptionWorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionWorkloadType"
+        "nullable": false,
+        "referenceName": "SubscriptionWorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

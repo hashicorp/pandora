@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The role definition assigned to the environment creator on backing resources.",
       "jsonName": "creatorRoleAssignment",
       "name": "CreatorRoleAssignment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment"
+        "nullable": false,
+        "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.",
       "jsonName": "deploymentTargetId",
       "name": "DeploymentTargetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the project environment type.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether this Environment Type can be used in this Project.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentTypeEnableStatus"
+        "nullable": false,
+        "referenceName": "EnvironmentTypeEnableStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.",
       "jsonName": "userRoleAssignments",
       "name": "UserRoleAssignments",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserRoleAssignment"
+          "nullable": false,
+          "referenceName": "UserRoleAssignment",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +87,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

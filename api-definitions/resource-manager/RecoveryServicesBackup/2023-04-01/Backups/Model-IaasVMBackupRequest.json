@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Backup copy will expire after the time specified (UTC).",
       "jsonName": "recoveryPointExpiryTimeInUTC",
       "name": "RecoveryPointExpiryTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,6 +19,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BackupRequest",
   "discriminatedTypeValue": "IaasVMBackupRequest",
   "typeHintIn": "ObjectType"

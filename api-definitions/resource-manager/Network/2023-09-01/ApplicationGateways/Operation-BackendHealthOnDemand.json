@@ -1,6 +1,7 @@
 {
   "name": "BackendHealthOnDemand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,11 +23,15 @@
   "resourceIdName": "ApplicationGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGatewayOnDemandProbe"
+    "nullable": false,
+    "referenceName": "ApplicationGatewayOnDemandProbe",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGatewayBackendHealthOnDemand"
+    "nullable": false,
+    "referenceName": "ApplicationGatewayBackendHealthOnDemand",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getBackendHealthOnDemand"
 }

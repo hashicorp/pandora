@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The url and storage account ID where deployer VM packages are uploaded",
       "jsonName": "deployerVmPackages",
       "name": "DeployerVMPackages",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeployerVMPackages"
+        "nullable": false,
+        "referenceName": "DeployerVMPackages",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The FQDN to set for the SAP system",
       "jsonName": "sapFqdn",
       "name": "SapFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

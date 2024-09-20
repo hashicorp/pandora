@@ -1,6 +1,7 @@
 {
   "name": "VpnLinkConnectionsListByVpnConnection",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VPNConnectionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnSiteLinkConnection"
+    "nullable": false,
+    "referenceName": "VpnSiteLinkConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/vpnLinkConnections"
 }

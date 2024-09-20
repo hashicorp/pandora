@@ -1,6 +1,7 @@
 {
   "name": "ListSupportedVirtualMachineSkus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportedSku"
+    "nullable": false,
+    "referenceName": "SupportedSku",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/virtualMachineSkus"
 }

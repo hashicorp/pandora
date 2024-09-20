@@ -1,6 +1,7 @@
 {
   "name": "ConnectedPartnerResourcesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "MonitorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectedPartnerResourcesListFormat"
+    "nullable": false,
+    "referenceName": "ConnectedPartnerResourcesListFormat",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listConnectedPartnerResources"
 }

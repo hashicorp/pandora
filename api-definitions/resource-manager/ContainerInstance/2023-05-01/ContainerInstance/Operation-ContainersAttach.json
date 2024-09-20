@@ -1,6 +1,7 @@
 {
   "name": "ContainersAttach",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerAttachResponse"
+    "nullable": false,
+    "referenceName": "ContainerAttachResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/attach"
 }

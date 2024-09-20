@@ -1,6 +1,7 @@
 {
   "name": "ListForResource",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Attestation"
+    "nullable": false,
+    "referenceName": "Attestation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.PolicyInsights/attestations"
 }

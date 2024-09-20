@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Active Directory Application ID or URI to get the access token that will be included as the bearer token in delivery requests.",
       "jsonName": "azureActiveDirectoryApplicationIdOrUri",
       "name": "AzureActiveDirectoryApplicationIdOrUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Active Directory Tenant ID to get the access token that will be included as the bearer token in delivery requests.",
       "jsonName": "azureActiveDirectoryTenantId",
       "name": "AzureActiveDirectoryTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

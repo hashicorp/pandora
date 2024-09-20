@@ -1,6 +1,7 @@
 {
   "name": "DeleteNode",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "NodeTypeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NodeTypeActionParameters"
+    "nullable": false,
+    "referenceName": "NodeTypeActionParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deleteNode"
 }

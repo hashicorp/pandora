@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies whether Cool Access(tiering) is enabled for the volume.",
       "jsonName": "coolAccess",
       "name": "CoolAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "CoolAccessRetrievalPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoolAccessRetrievalPolicy"
+        "nullable": false,
+        "referenceName": "CoolAccessRetrievalPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the number of days after which data that is not accessed by clients will be tiered.",
       "jsonName": "coolnessPeriod",
       "name": "CoolnessPeriod",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DataProtection type volumes include an object containing details of the replication",
       "jsonName": "dataProtection",
       "name": "DataProtection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePatchPropertiesDataProtection"
+        "nullable": false,
+        "referenceName": "VolumePatchPropertiesDataProtection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +66,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.",
       "jsonName": "defaultGroupQuotaInKiBs",
       "name": "DefaultGroupQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +82,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .",
       "jsonName": "defaultUserQuotaInKiBs",
       "name": "DefaultUserQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +98,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of export policy rules",
       "jsonName": "exportPolicy",
       "name": "ExportPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePatchPropertiesExportPolicy"
+        "nullable": false,
+        "referenceName": "VolumePatchPropertiesExportPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies if default quota is enabled for the volume.",
       "jsonName": "isDefaultQuotaEnabled",
       "name": "IsDefaultQuotaEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +134,9 @@
       "name": "ServiceLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceLevel"
+        "nullable": false,
+        "referenceName": "ServiceLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +149,9 @@
       "name": "SmbAccessBasedEnumeration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbAccessBasedEnumeration"
+        "nullable": false,
+        "referenceName": "SmbAccessBasedEnumeration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +164,9 @@
       "name": "SmbNonBrowsable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbNonBrowsable"
+        "nullable": false,
+        "referenceName": "SmbNonBrowsable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots.",
       "jsonName": "snapshotDirectoryVisible",
       "name": "SnapshotDirectoryVisible",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +195,9 @@
       "name": "ThroughputMibps",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,11 +206,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.",
       "jsonName": "unixPermissions",
       "name": "UnixPermissions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,16 +222,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume or 2400Tib for LargeVolume on exceptional basis. Specified in bytes.",
       "jsonName": "usageThreshold",
       "name": "UsageThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

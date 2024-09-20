@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "ManagedInstanceDnsAliasId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerDnsAliasCreation"
+    "nullable": false,
+    "referenceName": "ManagedServerDnsAliasCreation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedServerDnsAlias"
+    "nullable": false,
+    "referenceName": "ManagedServerDnsAlias",
+    "referenceNameIsCommonType": null
   }
 }

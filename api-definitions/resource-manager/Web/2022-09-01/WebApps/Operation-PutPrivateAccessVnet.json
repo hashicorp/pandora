@@ -1,6 +1,7 @@
 {
   "name": "PutPrivateAccessVnet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateAccess"
+    "nullable": false,
+    "referenceName": "PrivateAccess",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateAccess"
+    "nullable": false,
+    "referenceName": "PrivateAccess",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateAccess/virtualNetworks"
 }

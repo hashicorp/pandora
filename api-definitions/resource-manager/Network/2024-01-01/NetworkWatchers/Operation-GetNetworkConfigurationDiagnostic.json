@@ -1,6 +1,7 @@
 {
   "name": "GetNetworkConfigurationDiagnostic",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "NetworkWatcherId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkConfigurationDiagnosticParameters"
+    "nullable": false,
+    "referenceName": "NetworkConfigurationDiagnosticParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkConfigurationDiagnosticResponse"
+    "nullable": false,
+    "referenceName": "NetworkConfigurationDiagnosticResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/networkConfigurationDiagnostic"
 }

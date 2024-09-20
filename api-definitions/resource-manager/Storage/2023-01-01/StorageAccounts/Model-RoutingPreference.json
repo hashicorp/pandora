@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean flag which indicates whether internet routing storage endpoints are to be published",
       "jsonName": "publishInternetEndpoints",
       "name": "PublishInternetEndpoints",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A boolean flag which indicates whether microsoft routing storage endpoints are to be published",
       "jsonName": "publishMicrosoftEndpoints",
       "name": "PublishMicrosoftEndpoints",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing Choice defines the kind of network routing opted by the user.",
       "jsonName": "routingChoice",
       "name": "RoutingChoice",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingChoice"
+        "nullable": false,
+        "referenceName": "RoutingChoice",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

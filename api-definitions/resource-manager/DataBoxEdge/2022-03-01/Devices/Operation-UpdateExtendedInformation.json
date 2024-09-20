@@ -1,6 +1,7 @@
 {
   "name": "UpdateExtendedInformation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataBoxEdgeDeviceExtendedInfoPatch"
+    "nullable": false,
+    "referenceName": "DataBoxEdgeDeviceExtendedInfoPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataBoxEdgeDeviceExtendedInfo"
+    "nullable": false,
+    "referenceName": "DataBoxEdgeDeviceExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateExtendedInformation"
 }

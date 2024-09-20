@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.",
       "jsonName": "endpointUri",
       "name": "EndpointUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ServiceBus Topic name for identity-based authentication.",
       "jsonName": "entityPath",
       "name": "EntityPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
       "jsonName": "primaryConnectionString",
       "name": "PrimaryConnectionString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.",
       "jsonName": "secondaryConnectionString",
       "name": "SecondaryConnectionString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DigitalTwinsEndpointResourceProperties",
   "discriminatedTypeValue": "ServiceBus",
   "typeHintIn": "EndpointType"

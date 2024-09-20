@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP access control properties.",
       "jsonName": "ip",
       "name": "IP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPAccessControl"
+        "nullable": false,
+        "referenceName": "IPAccessControl",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

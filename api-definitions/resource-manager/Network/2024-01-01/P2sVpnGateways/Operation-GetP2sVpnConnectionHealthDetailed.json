@@ -1,6 +1,7 @@
 {
   "name": "GetP2sVpnConnectionHealthDetailed",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualWANP2SVPNGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "P2SVpnConnectionHealthRequest"
+    "nullable": false,
+    "referenceName": "P2SVpnConnectionHealthRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "P2SVpnConnectionHealth"
+    "nullable": false,
+    "referenceName": "P2SVpnConnectionHealth",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getP2sVpnConnectionHealthDetailed"
 }

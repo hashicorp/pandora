@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 acknowledgment settings.",
       "jsonName": "acknowledgementSettings",
       "name": "AcknowledgementSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12AcknowledgementSettings"
+        "nullable": false,
+        "referenceName": "X12AcknowledgementSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 envelope override settings.",
       "jsonName": "envelopeOverrides",
       "name": "EnvelopeOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "X12EnvelopeOverride"
+          "nullable": false,
+          "referenceName": "X12EnvelopeOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 envelope settings.",
       "jsonName": "envelopeSettings",
       "name": "EnvelopeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12EnvelopeSettings"
+        "nullable": false,
+        "referenceName": "X12EnvelopeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 framing settings.",
       "jsonName": "framingSettings",
       "name": "FramingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12FramingSettings"
+        "nullable": false,
+        "referenceName": "X12FramingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 message filter.",
       "jsonName": "messageFilter",
       "name": "MessageFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12MessageFilter"
+        "nullable": false,
+        "referenceName": "X12MessageFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,14 +89,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 message filter list.",
       "jsonName": "messageFilterList",
       "name": "MessageFilterList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "X12MessageIdentifier"
+          "nullable": false,
+          "referenceName": "X12MessageIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 processing settings.",
       "jsonName": "processingSettings",
       "name": "ProcessingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12ProcessingSettings"
+        "nullable": false,
+        "referenceName": "X12ProcessingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,14 +127,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 schema references.",
       "jsonName": "schemaReferences",
       "name": "SchemaReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "X12SchemaReference"
+          "nullable": false,
+          "referenceName": "X12SchemaReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -119,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 security settings.",
       "jsonName": "securitySettings",
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12SecuritySettings"
+        "nullable": false,
+        "referenceName": "X12SecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -132,14 +165,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 validation override settings.",
       "jsonName": "validationOverrides",
       "name": "ValidationOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "X12ValidationOverride"
+          "nullable": false,
+          "referenceName": "X12ValidationOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 validation settings.",
       "jsonName": "validationSettings",
       "name": "ValidationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12ValidationSettings"
+        "nullable": false,
+        "referenceName": "X12ValidationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -162,14 +203,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The X12 delimiter override settings.",
       "jsonName": "x12DelimiterOverrides",
       "name": "X12DelimiterOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "X12DelimiterOverrides"
+          "nullable": false,
+          "referenceName": "X12DelimiterOverrides",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -177,5 +223,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

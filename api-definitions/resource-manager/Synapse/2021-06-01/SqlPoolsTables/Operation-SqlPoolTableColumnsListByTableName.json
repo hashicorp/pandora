@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolTableColumnsListByTableName",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "TableId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlPoolColumn"
+    "nullable": false,
+    "referenceName": "SqlPoolColumn",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/columns"
 }

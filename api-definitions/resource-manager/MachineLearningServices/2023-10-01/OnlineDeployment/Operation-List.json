@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -42,7 +43,9 @@
   "resourceIdName": "OnlineEndpointId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OnlineDeploymentTrackedResource"
+    "nullable": false,
+    "referenceName": "OnlineDeploymentTrackedResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deployments"
 }

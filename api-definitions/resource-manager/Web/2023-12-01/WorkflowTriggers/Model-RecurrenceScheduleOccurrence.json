@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The day of the week.",
       "jsonName": "day",
       "name": "Day",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DayOfWeek"
+        "nullable": false,
+        "referenceName": "DayOfWeek",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The occurrence.",
       "jsonName": "occurrence",
       "name": "Occurrence",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

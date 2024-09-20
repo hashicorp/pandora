@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connectivity check operation destination.",
       "jsonName": "destination",
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestDestination"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP version to be used. Only IPv4 is supported for now.",
       "jsonName": "preferredIPVersion",
       "name": "PreferredIPVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreferredIPVersion"
+        "nullable": false,
+        "referenceName": "PreferredIPVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The request's protocol. Specific protocol configuration can be available based on this selection. The specified destination address must be coherent with this value.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckProtocol"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol-specific configuration.",
       "jsonName": "protocolConfiguration",
       "name": "ProtocolConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestProtocolConfiguration"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestProtocolConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Definitions about the connectivity check origin.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestSource"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

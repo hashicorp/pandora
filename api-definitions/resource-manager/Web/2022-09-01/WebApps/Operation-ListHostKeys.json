@@ -1,6 +1,7 @@
 {
   "name": "ListHostKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HostKeys"
+    "nullable": false,
+    "referenceName": "HostKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/host/default/listKeys"
 }

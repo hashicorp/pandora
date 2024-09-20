@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties describing how the cloud is distributed across availability zones",
       "jsonName": "availability",
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityProperties"
+        "nullable": false,
+        "referenceName": "AvailabilityProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Customer managed key encryption, can be enabled or disabled",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of additional networks noncontiguous with networkBlock. Networks must be unique and non-overlapping across VNet in your subscription, on-premise, and this privateCloud networkBlock attribute. Make sure the CIDR format conforms to (A.B.C.D/X).",
       "jsonName": "extendedNetworkBlocks",
       "name": "ExtendedNetworkBlocks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,14 +57,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "vCenter Single Sign On Identity Sources",
       "jsonName": "identitySources",
       "name": "IdentitySources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IdentitySource"
+          "nullable": false,
+          "referenceName": "IdentitySource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connectivity to internet is enabled or disabled",
       "jsonName": "internet",
       "name": "Internet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InternetEnum"
+        "nullable": false,
+        "referenceName": "InternetEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,16 +95,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The default cluster used for management",
       "jsonName": "managementCluster",
       "name": "ManagementCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommonClusterProperties"
+        "nullable": false,
+        "referenceName": "CommonClusterProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

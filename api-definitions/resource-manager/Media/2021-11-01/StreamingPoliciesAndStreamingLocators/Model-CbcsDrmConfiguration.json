@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "FairPlay configurations",
       "jsonName": "fairPlay",
       "name": "FairPlay",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingPolicyFairPlayConfiguration"
+        "nullable": false,
+        "referenceName": "StreamingPolicyFairPlayConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "PlayReady configurations",
       "jsonName": "playReady",
       "name": "PlayReady",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingPolicyPlayReadyConfiguration"
+        "nullable": false,
+        "referenceName": "StreamingPolicyPlayReadyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Widevine configurations",
       "jsonName": "widevine",
       "name": "Widevine",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingPolicyWidevineConfiguration"
+        "nullable": false,
+        "referenceName": "StreamingPolicyWidevineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

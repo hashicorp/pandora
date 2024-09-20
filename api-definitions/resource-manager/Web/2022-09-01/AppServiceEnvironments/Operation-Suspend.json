@@ -1,6 +1,7 @@
 {
   "name": "Suspend",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -11,7 +12,9 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Site"
+    "nullable": false,
+    "referenceName": "Site",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/suspend"
 }

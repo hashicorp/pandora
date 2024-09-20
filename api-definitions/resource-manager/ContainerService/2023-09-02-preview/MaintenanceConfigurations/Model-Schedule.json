@@ -7,7 +7,9 @@
       "name": "AbsoluteMonthly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AbsoluteMonthlySchedule"
+        "nullable": false,
+        "referenceName": "AbsoluteMonthlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Daily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailySchedule"
+        "nullable": false,
+        "referenceName": "DailySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RelativeMonthly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RelativeMonthlySchedule"
+        "nullable": false,
+        "referenceName": "RelativeMonthlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Weekly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklySchedule"
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

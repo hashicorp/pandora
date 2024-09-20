@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Aggregated sharing state of current gallery.",
       "jsonName": "aggregatedState",
       "name": "AggregatedState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharingState"
+        "nullable": false,
+        "referenceName": "SharingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Summary of all regional sharing status.",
       "jsonName": "summary",
       "name": "Summary",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegionalSharingStatus"
+          "nullable": false,
+          "referenceName": "RegionalSharingStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

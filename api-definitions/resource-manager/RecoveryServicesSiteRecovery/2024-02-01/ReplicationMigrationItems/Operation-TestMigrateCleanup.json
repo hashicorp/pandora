@@ -1,6 +1,7 @@
 {
   "name": "TestMigrateCleanup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationMigrationItemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TestMigrateCleanupInput"
+    "nullable": false,
+    "referenceName": "TestMigrateCleanupInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigrationItem"
+    "nullable": false,
+    "referenceName": "MigrationItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/testMigrateCleanup"
 }

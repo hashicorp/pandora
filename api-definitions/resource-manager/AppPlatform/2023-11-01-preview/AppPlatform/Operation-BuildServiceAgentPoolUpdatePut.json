@@ -1,6 +1,7 @@
 {
   "name": "BuildServiceAgentPoolUpdatePut",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AgentPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BuildServiceAgentPoolResource"
+    "nullable": false,
+    "referenceName": "BuildServiceAgentPoolResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BuildServiceAgentPoolResource"
+    "nullable": false,
+    "referenceName": "BuildServiceAgentPoolResource",
+    "referenceNameIsCommonType": null
   }
 }

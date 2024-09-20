@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The compliance state of the configuration.",
       "jsonName": "complianceState",
       "name": "ComplianceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStateType"
+        "nullable": false,
+        "referenceName": "ComplianceStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Datetime the configuration was last applied.",
       "jsonName": "lastConfigApplied",
       "name": "LastConfigApplied",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Message from when the configuration was applied.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,16 +52,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Level of the message.",
       "jsonName": "messageLevel",
       "name": "MessageLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MessageLevelType"
+        "nullable": false,
+        "referenceName": "MessageLevelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bool indicating if HTTP connections to is allowed. If set to false HTTP connections are automatically redirected to HTTPS connections",
       "jsonName": "allowInsecure",
       "name": "AllowInsecure",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client certificate mode for mTLS authentication. Ignore indicates server drops client certificate on forwarding. Accept indicates server forwards client certificate but does not require a client certificate. Require indicates server requires a client certificate.",
       "jsonName": "clientCertificateMode",
       "name": "ClientCertificateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressClientCertificateMode"
+        "nullable": false,
+        "referenceName": "IngressClientCertificateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CORS policy for container app",
       "jsonName": "corsPolicy",
       "name": "CorsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsPolicy"
+        "nullable": false,
+        "referenceName": "CorsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "custom domain bindings for Container Apps' hostnames.",
       "jsonName": "customDomains",
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomDomain"
+          "nullable": false,
+          "referenceName": "CustomDomain",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Exposed Port in containers for TCP traffic from ingress",
       "jsonName": "exposedPort",
       "name": "ExposedPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Bool indicating if app exposes an external http endpoint",
       "jsonName": "external",
       "name": "External",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hostname.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,14 +121,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rules to restrict incoming IP address.",
       "jsonName": "ipSecurityRestrictions",
       "name": "IPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestrictionRule"
+          "nullable": false,
+          "referenceName": "IPSecurityRestrictionRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sticky Sessions for Single Revision Mode",
       "jsonName": "stickySessions",
       "name": "StickySessions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressStickySessions"
+        "nullable": false,
+        "referenceName": "IngressStickySessions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target Port in containers for traffic from ingress",
       "jsonName": "targetPort",
       "name": "TargetPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,14 +175,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Traffic weights for app's revisions",
       "jsonName": "traffic",
       "name": "Traffic",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficWeight"
+          "nullable": false,
+          "referenceName": "TrafficWeight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,16 +197,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress transport protocol",
       "jsonName": "transport",
       "name": "Transport",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressTransportMethod"
+        "nullable": false,
+        "referenceName": "IngressTransportMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

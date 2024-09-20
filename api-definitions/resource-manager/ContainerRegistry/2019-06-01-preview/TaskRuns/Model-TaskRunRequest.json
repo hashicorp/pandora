@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of overridable parameters that can be passed when running a Task.",
       "jsonName": "overrideTaskStepProperties",
       "name": "OverrideTaskStepProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OverrideTaskStepProperties"
+        "nullable": false,
+        "referenceName": "OverrideTaskStepProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of task against which run has to be queued.",
       "jsonName": "taskId",
       "name": "TaskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RunRequest",
   "discriminatedTypeValue": "TaskRunRequest",
   "typeHintIn": "Type"

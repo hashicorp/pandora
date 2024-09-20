@@ -1,6 +1,7 @@
 {
   "name": "GetDeviceCapacityInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeviceCapacityInfo"
+    "nullable": false,
+    "referenceName": "DeviceCapacityInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deviceCapacityInfo/default"
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateAtResource",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedRemediationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Remediation"
+    "nullable": false,
+    "referenceName": "Remediation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Remediation"
+    "nullable": false,
+    "referenceName": "Remediation",
+    "referenceNameIsCommonType": null
   }
 }

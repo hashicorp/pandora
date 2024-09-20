@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of insight column definitions.",
       "jsonName": "columnsDefinitions",
       "name": "ColumnsDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryColumnsDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryColumnsDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of insight queries definitions.",
       "jsonName": "queriesDefinitions",
       "name": "QueriesDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +45,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

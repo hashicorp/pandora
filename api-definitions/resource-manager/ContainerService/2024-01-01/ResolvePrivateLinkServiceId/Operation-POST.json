@@ -1,6 +1,7 @@
 {
   "name": "POST",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "KubernetesClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkResource"
+    "nullable": false,
+    "referenceName": "PrivateLinkResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkResource"
+    "nullable": false,
+    "referenceName": "PrivateLinkResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resolvePrivateLinkServiceId"
 }

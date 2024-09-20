@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
       "jsonName": "applicationPorts",
       "name": "ApplicationPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.",
       "jsonName": "capacities",
       "name": "Capacities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Disk size for each vm in the node type in GBs.",
       "jsonName": "dataDiskSizeGB",
       "name": "DataDiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +61,9 @@
       "name": "DataDiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskType"
+        "nullable": false,
+        "referenceName": "DiskType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The range of ephemeral ports that nodes in this node type should be configured with.",
       "jsonName": "ephemeralPorts",
       "name": "EphemeralPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.",
       "jsonName": "isPrimary",
       "name": "IsPrimary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the node type can only host Stateless workloads.",
       "jsonName": "isStateless",
       "name": "IsStateless",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if scale set associated with the node type can be composed of multiple placement groups.",
       "jsonName": "multiplePlacementGroups",
       "name": "MultiplePlacementGroups",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,14 +136,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.",
       "jsonName": "placementProperties",
       "name": "PlacementProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,11 +158,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the managed cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,14 +174,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of extensions that should be installed onto the virtual machines.",
       "jsonName": "vmExtensions",
       "name": "VMExtensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSSExtension"
+          "nullable": false,
+          "referenceName": "VMSSExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.",
       "jsonName": "vmImageOffer",
       "name": "VMImageOffer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.",
       "jsonName": "vmImagePublisher",
       "name": "VMImagePublisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.",
       "jsonName": "vmImageSku",
       "name": "VMImageSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.",
       "jsonName": "vmImageVersion",
       "name": "VMImageVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,11 +260,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of nodes in the node type.",
       "jsonName": "vmInstanceCount",
       "name": "VMInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -227,7 +280,9 @@
       "name": "VMManagedIdentity",
       "objectDefinition": {
         "type": "UserAssignedIdentityList",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,14 +291,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The secrets to install in the virtual machines.",
       "jsonName": "vmSecrets",
       "name": "VMSecrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VaultSecretGroup"
+          "nullable": false,
+          "referenceName": "VaultSecretGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -253,16 +313,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

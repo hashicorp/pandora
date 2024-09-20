@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Caching behavior for the requests",
       "jsonName": "cacheBehavior",
       "name": "CacheBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheBehavior"
+        "nullable": false,
+        "referenceName": "CacheBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The duration for which the content needs to be cached. Allowed format is [d.]hh:mm:ss",
       "jsonName": "cacheDuration",
       "name": "CacheDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The level at which the content needs to be cached.",
       "jsonName": "cacheType",
       "name": "CacheType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheType"
+        "nullable": false,
+        "referenceName": "CacheType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +50,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleCacheExpirationActionParameters",
   "typeHintIn": "TypeName"

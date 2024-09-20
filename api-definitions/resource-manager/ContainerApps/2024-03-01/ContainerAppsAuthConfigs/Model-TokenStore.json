@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the storage of the tokens if blob storage is used.",
       "jsonName": "azureBlobStorage",
       "name": "AzureBlobStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobStorageTokenStore"
+        "nullable": false,
+        "referenceName": "BlobStorageTokenStore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to durably store platform-specific security tokens that are obtained during login flows; otherwise, \u003ccode\u003efalse\u003c/code\u003e.\n The default is \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of hours after session token expiration that a session token can be used to\ncall the token refresh API. The default is 72 hours.",
       "jsonName": "tokenRefreshExtensionHours",
       "name": "TokenRefreshExtensionHours",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

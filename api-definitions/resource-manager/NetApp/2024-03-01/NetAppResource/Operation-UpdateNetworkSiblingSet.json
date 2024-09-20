@@ -1,6 +1,7 @@
 {
   "name": "UpdateNetworkSiblingSet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateNetworkSiblingSetRequest"
+    "nullable": false,
+    "referenceName": "UpdateNetworkSiblingSetRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkSiblingSet"
+    "nullable": false,
+    "referenceName": "NetworkSiblingSet",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateNetworkSiblingSet"
 }

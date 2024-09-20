@@ -1,6 +1,7 @@
 {
   "name": "VirtualNetworksListDdosProtectionStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -33,7 +34,9 @@
   "resourceIdName": "VirtualNetworkId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublicIPDdosProtectionStatusResult"
+    "nullable": false,
+    "referenceName": "PublicIPDdosProtectionStatusResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/ddosProtectionStatus"
 }

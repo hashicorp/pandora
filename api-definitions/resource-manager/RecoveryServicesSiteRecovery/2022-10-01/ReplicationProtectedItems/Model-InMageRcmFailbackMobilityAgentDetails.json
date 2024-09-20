@@ -4,11 +4,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The agent version expiry date.",
       "jsonName": "agentVersionExpiryDate",
       "name": "AgentVersionExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +20,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The driver version.",
       "jsonName": "driverVersion",
       "name": "DriverVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +37,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The driver version expiry date.",
       "jsonName": "driverVersionExpiryDate",
       "name": "DriverVersionExpiryDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,11 +53,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether agent is upgradeable or not.",
       "jsonName": "isUpgradeable",
       "name": "IsUpgradeable",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -58,11 +70,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time of the last heartbeat received from the agent.",
       "jsonName": "lastHeartbeatUtc",
       "name": "LastHeartbeatUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,11 +86,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest upgradeable version available without reboot.",
       "jsonName": "latestUpgradableVersionWithoutReboot",
       "name": "LatestUpgradableVersionWithoutReboot",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,11 +102,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The latest agent version available.",
       "jsonName": "latestVersion",
       "name": "LatestVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,14 +118,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The whether update is possible or not.",
       "jsonName": "reasonsBlockingUpgrade",
       "name": "ReasonsBlockingUpgrade",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AgentUpgradeBlockedReason"
+          "nullable": false,
+          "referenceName": "AgentUpgradeBlockedReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,16 +140,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

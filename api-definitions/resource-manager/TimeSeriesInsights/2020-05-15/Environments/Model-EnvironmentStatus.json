@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An object that represents the status of ingress on an environment.",
       "jsonName": "ingress",
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressEnvironmentStatus"
+        "nullable": false,
+        "referenceName": "IngressEnvironmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An object that represents the status of warm storage on an environment.",
       "jsonName": "warmStorage",
       "name": "WarmStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WarmStorageEnvironmentStatus"
+        "nullable": false,
+        "referenceName": "WarmStorageEnvironmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

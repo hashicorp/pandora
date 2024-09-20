@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum allowed failover time in seconds.",
       "jsonName": "maxFailoverSeconds",
       "name": "MaxFailoverSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not failover to standby server when restarting a server with high availability enabled.",
       "jsonName": "restartWithFailover",
       "name": "RestartWithFailover",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableStatusEnum"
+        "nullable": false,
+        "referenceName": "EnableStatusEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

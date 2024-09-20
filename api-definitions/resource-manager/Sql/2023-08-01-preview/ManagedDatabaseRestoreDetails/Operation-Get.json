@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SqlManagedInstanceDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedDatabaseRestoreDetailsResult"
+    "nullable": false,
+    "referenceName": "ManagedDatabaseRestoreDetailsResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restoreDetails/default"
 }

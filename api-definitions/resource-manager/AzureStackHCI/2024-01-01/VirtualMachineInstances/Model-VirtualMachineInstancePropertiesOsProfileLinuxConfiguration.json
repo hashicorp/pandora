@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DisablePasswordAuthentication - whether password authentication should be disabled",
       "jsonName": "disablePasswordAuthentication",
       "name": "DisablePasswordAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.",
       "jsonName": "provisionVMAgent",
       "name": "ProvisionVMAgent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.",
       "jsonName": "provisionVMConfigAgent",
       "name": "ProvisionVMConfigAgent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ssh key configuration for a Linux OS.",
       "jsonName": "ssh",
       "name": "Ssh",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshConfiguration"
+        "nullable": false,
+        "referenceName": "SshConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Salesforce Service Cloud V2 object dataset properties.",
       "jsonName": "typeProperties",
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SalesforceServiceCloudV2ObjectDatasetTypeProperties"
+        "nullable": false,
+        "referenceName": "SalesforceServiceCloudV2ObjectDatasetTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Dataset",
   "discriminatedTypeValue": "SalesforceServiceCloudV2Object",
   "typeHintIn": "Type"

@@ -1,6 +1,7 @@
 {
   "name": "ServicesEnableApmGlobally",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApmReference"
+    "nullable": false,
+    "referenceName": "ApmReference",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/enableApmGlobally"
 }

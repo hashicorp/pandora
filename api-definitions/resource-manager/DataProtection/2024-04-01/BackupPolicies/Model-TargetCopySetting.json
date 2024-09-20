@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "It can be CustomCopyOption or ImmediateCopyOption.",
       "jsonName": "copyAfter",
       "name": "CopyAfter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyOption"
+        "nullable": false,
+        "referenceName": "CopyOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Info of target datastore",
       "jsonName": "dataStore",
       "name": "DataStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStoreInfoBase"
+        "nullable": false,
+        "referenceName": "DataStoreInfoBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value indicating whether to request non-graceful VM shutdown. True value for this flag indicates non-graceful shutdown whereas false indicates otherwise. Defaults to false.",
       "jsonName": "skipShutdown",
       "name": "SkipShutdown",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkipShutdown"
+        "nullable": false,
+        "referenceName": "SkipShutdown",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

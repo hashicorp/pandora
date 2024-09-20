@@ -1,6 +1,7 @@
 {
   "name": "CreateLinkedIntegrationRuntime",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "IntegrationRuntimeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateLinkedIntegrationRuntimeRequest"
+    "nullable": false,
+    "referenceName": "CreateLinkedIntegrationRuntimeRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationRuntimeStatusResponse"
+    "nullable": false,
+    "referenceName": "IntegrationRuntimeStatusResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/linkedIntegrationRuntime"
 }

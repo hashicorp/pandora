@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How to authenticate users who access local diagnostics APIs.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationType"
+        "nullable": false,
+        "referenceName": "AuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The HTTPS server TLS certificate used to secure local access to diagnostics.",
       "jsonName": "httpsServerCertificate",
       "name": "HTTPSServerCertificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSServerCertificate"
+        "nullable": false,
+        "referenceName": "HTTPSServerCertificate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

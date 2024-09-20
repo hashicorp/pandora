@@ -1,6 +1,7 @@
 {
   "name": "WorkflowRunActionRepetitionsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "RepetitionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkflowRunActionRepetitionDefinition"
+    "nullable": false,
+    "referenceName": "WorkflowRunActionRepetitionDefinition",
+    "referenceNameIsCommonType": null
   }
 }

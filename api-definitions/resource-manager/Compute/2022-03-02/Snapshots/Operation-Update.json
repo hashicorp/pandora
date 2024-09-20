@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SnapshotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SnapshotUpdate"
+    "nullable": false,
+    "referenceName": "SnapshotUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Snapshot"
+    "nullable": false,
+    "referenceName": "Snapshot",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the maximal delta between the fastest and slowest partitions, so the out of order window that catches all necessary events in downstream jobs is well defined.",
       "jsonName": "maxWatermarkDifferenceAcrossPartitions",
       "name": "MaxWatermarkDifferenceAcrossPartitions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +23,15 @@
       "name": "WatermarkMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputWatermarkMode"
+        "nullable": false,
+        "referenceName": "OutputWatermarkMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

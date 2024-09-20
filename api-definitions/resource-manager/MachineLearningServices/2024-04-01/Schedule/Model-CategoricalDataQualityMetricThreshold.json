@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The categorical data quality metric to calculate.",
       "jsonName": "metric",
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoricalDataQualityMetric"
+        "nullable": false,
+        "referenceName": "CategoricalDataQualityMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataQualityMetricThresholdBase",
   "discriminatedTypeValue": "Categorical",
   "typeHintIn": "DataType"

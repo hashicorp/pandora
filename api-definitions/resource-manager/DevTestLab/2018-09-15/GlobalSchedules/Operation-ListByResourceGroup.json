@@ -1,6 +1,7 @@
 {
   "name": "ListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Schedule"
+    "nullable": false,
+    "referenceName": "Schedule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.DevTestLab/schedules"
 }

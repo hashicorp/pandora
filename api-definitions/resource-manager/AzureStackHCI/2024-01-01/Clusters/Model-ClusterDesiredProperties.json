@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Desired level of diagnostic data emitted by the cluster.",
       "jsonName": "diagnosticLevel",
       "name": "DiagnosticLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticLevel"
+        "nullable": false,
+        "referenceName": "DiagnosticLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Desired state of Windows Server Subscription.",
       "jsonName": "windowsServerSubscription",
       "name": "WindowsServerSubscription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsServerSubscription"
+        "nullable": false,
+        "referenceName": "WindowsServerSubscription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

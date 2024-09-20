@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlManagedInstanceDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceLongTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "ManagedInstanceLongTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceLongTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "ManagedInstanceLongTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupLongTermRetentionPolicies/default"
 }

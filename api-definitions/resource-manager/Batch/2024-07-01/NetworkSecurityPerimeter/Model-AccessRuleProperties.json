@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Address prefixes in the CIDR format for inbound rules",
       "jsonName": "addressPrefixes",
       "name": "AddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +29,9 @@
       "name": "Direction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessRuleDirection"
+        "nullable": false,
+        "referenceName": "AccessRuleDirection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +40,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email addresses for outbound rules",
       "jsonName": "emailAddresses",
       "name": "EmailAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +62,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified domain names (FQDN) for outbound rules",
       "jsonName": "fullyQualifiedDomainNames",
       "name": "FullyQualifiedDomainNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +84,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network security perimeters for inbound rules",
       "jsonName": "networkSecurityPerimeters",
       "name": "NetworkSecurityPerimeters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityPerimeter"
+          "nullable": false,
+          "referenceName": "NetworkSecurityPerimeter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,14 +106,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Phone numbers for outbound rules",
       "jsonName": "phoneNumbers",
       "name": "PhoneNumbers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,14 +128,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subscriptions for inbound rules",
       "jsonName": "subscriptions",
       "name": "Subscriptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AccessRulePropertiesSubscriptionsInlined"
+          "nullable": false,
+          "referenceName": "AccessRulePropertiesSubscriptionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -116,5 +148,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

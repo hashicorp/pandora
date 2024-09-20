@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets extensionProperties of the maintenanceConfiguration",
       "jsonName": "extensionProperties",
       "name": "ExtensionProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The input parameters to be passed to the patch run operation.",
       "jsonName": "installPatches",
       "name": "InstallPatches",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputPatchConfiguration"
+        "nullable": false,
+        "referenceName": "InputPatchConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets maintenanceScope of the configuration",
       "jsonName": "maintenanceScope",
       "name": "MaintenanceScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceScope"
+        "nullable": false,
+        "referenceName": "MaintenanceScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Definition of a MaintenanceWindow",
       "jsonName": "maintenanceWindow",
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceWindow"
+        "nullable": false,
+        "referenceName": "MaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets namespace of the resource",
       "jsonName": "namespace",
       "name": "Namespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,16 +89,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the visibility of the configuration. The default value is 'Custom'",
       "jsonName": "visibility",
       "name": "Visibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Visibility"
+        "nullable": false,
+        "referenceName": "Visibility",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

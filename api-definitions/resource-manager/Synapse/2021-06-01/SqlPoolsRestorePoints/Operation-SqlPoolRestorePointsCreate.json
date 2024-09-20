@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolRestorePointsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SqlPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateSqlPoolRestorePointDefinition"
+    "nullable": false,
+    "referenceName": "CreateSqlPoolRestorePointDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorePoint"
+    "nullable": false,
+    "referenceName": "RestorePoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorePoints"
 }

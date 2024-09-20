@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceGlobalSchemaGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WorkspaceSchemaId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GlobalSchemaContract"
+    "nullable": false,
+    "referenceName": "GlobalSchemaContract",
+    "referenceNameIsCommonType": null
   }
 }

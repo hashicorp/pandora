@@ -1,6 +1,7 @@
 {
   "name": "MonitoringSettingsUpdatePatch",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MonitoringSettingResource"
+    "nullable": false,
+    "referenceName": "MonitoringSettingResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitoringSettingResource"
+    "nullable": false,
+    "referenceName": "MonitoringSettingResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/monitoringSettings/default"
 }

@@ -7,7 +7,9 @@
       "name": "AutoShutdownProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoShutdownProfile"
+        "nullable": false,
+        "referenceName": "AutoShutdownProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConnectionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionProfile"
+        "nullable": false,
+        "referenceName": "ConnectionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The description of the lab.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +53,9 @@
       "name": "LabPlanId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +64,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab user list management profile.",
       "jsonName": "rosterProfile",
       "name": "RosterProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RosterProfile"
+        "nullable": false,
+        "referenceName": "RosterProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab security profile.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The title of the lab.",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,16 +112,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The profile used for creating lab virtual machines.",
       "jsonName": "virtualMachineProfile",
       "name": "VirtualMachineProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

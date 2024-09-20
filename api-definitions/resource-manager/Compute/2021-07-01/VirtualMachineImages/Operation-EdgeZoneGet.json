@@ -1,6 +1,7 @@
 {
   "name": "EdgeZoneGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "OfferSkuVersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineImage"
+    "nullable": false,
+    "referenceName": "VirtualMachineImage",
+    "referenceNameIsCommonType": null
   }
 }

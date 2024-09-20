@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of action recommended by this object.",
       "jsonName": "actionName",
       "name": "ActionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deep link to a blade on the portal.",
       "jsonName": "bladeName",
       "name": "BladeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of category tags that this recommendation belongs to.",
       "jsonName": "categoryTags",
       "name": "CategoryTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of channels that this recommendation can apply.",
       "jsonName": "channels",
       "name": "Channels",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Channels"
+        "nullable": false,
+        "referenceName": "Channels",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,11 +74,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp when this instance was created.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,11 +90,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UI friendly name of the rule (may not be unique).",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,11 +106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if this recommendation is still valid (i.e. \"actionable\"). False if it is invalid.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,11 +123,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time in UTC of a range that the recommendation refers to.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,11 +139,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extension name of the portal if exists.",
       "jsonName": "extensionName",
       "name": "ExtensionName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,11 +155,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Forward link to an external document associated with the rule.",
       "jsonName": "forwardLink",
       "name": "ForwardLink",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,11 +171,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if this is associated with a dynamically added rule",
       "jsonName": "isDynamic",
       "name": "IsDynamic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,11 +187,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Level indicating how critical this recommendation can impact.",
       "jsonName": "level",
       "name": "Level",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationLevel"
+        "nullable": false,
+        "referenceName": "NotificationLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,11 +203,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recommendation text.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,11 +220,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When to notify this recommendation next in UTC. Null means that this will never be notified anymore.",
       "jsonName": "nextNotificationTime",
       "name": "NextNotificationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,11 +237,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date and time in UTC when this notification expires.",
       "jsonName": "notificationExpirationTime",
       "name": "NotificationExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -207,11 +254,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last timestamp in UTC this instance was actually notified. Null means that this recommendation hasn't been notified yet.",
       "jsonName": "notifiedTime",
       "name": "NotifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,11 +270,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A GUID value that each recommendation object is associated with.",
       "jsonName": "recommendationId",
       "name": "RecommendationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -233,11 +286,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Full ARM resource ID string that this recommendation object is associated with.",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -246,11 +302,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of a resource type this recommendation applies, e.g. Subscription, ServerFarm, Site.",
       "jsonName": "resourceScope",
       "name": "ResourceScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceScopeType"
+        "nullable": false,
+        "referenceName": "ResourceScopeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -259,11 +318,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique name of the rule.",
       "jsonName": "ruleName",
       "name": "RuleName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -272,11 +334,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A metric value measured by the rule.",
       "jsonName": "score",
       "name": "Score",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -286,11 +351,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The beginning time in UTC of a range that the recommendation refers to.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -299,14 +367,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of states of this recommendation. If it's null then it should be considered \"Active\".",
       "jsonName": "states",
       "name": "States",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -314,5 +387,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

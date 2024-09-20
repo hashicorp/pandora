@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Activation key of the MEC.",
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AsymmetricEncryptedSecret"
+        "nullable": false,
+        "referenceName": "AsymmetricEncryptedSecret",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Controller Endpoint.",
       "jsonName": "controllerEndpoint",
       "name": "ControllerEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique Id of the Resource.",
       "jsonName": "resourceUniqueId",
       "name": "ResourceUniqueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Role status.",
       "jsonName": "roleStatus",
       "name": "RoleStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleStatus"
+        "nullable": false,
+        "referenceName": "RoleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

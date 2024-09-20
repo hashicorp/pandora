@@ -1,6 +1,7 @@
 {
   "name": "UpdateDryrun",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedDryrunId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DryrunPatch"
+    "nullable": false,
+    "referenceName": "DryrunPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DryrunResource"
+    "nullable": false,
+    "referenceName": "DryrunResource",
+    "referenceNameIsCommonType": null
   }
 }

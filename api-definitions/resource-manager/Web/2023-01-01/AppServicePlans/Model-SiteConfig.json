@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag to use Managed Identity Creds for ACR pull",
       "jsonName": "acrUseManagedIdentityCreds",
       "name": "AcrUseManagedIdentityCreds",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If using user managed identity, the user managed identity ClientId",
       "jsonName": "acrUserManagedIdentityID",
       "name": "AcrUserManagedIdentityID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if Always On is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "alwaysOn",
       "name": "AlwaysOn",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "ApiDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiDefinitionInfo"
+        "nullable": false,
+        "referenceName": "ApiDefinitionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +70,9 @@
       "name": "ApiManagementConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementConfig"
+        "nullable": false,
+        "referenceName": "ApiManagementConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "App command line to launch.",
       "jsonName": "appCommandLine",
       "name": "AppCommandLine",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,14 +97,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application settings.",
       "jsonName": "appSettings",
       "name": "AppSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NameValuePair"
+          "nullable": false,
+          "referenceName": "NameValuePair",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,11 +119,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if Auto Heal is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "autoHealEnabled",
       "name": "AutoHealEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +139,9 @@
       "name": "AutoHealRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealRules"
+        "nullable": false,
+        "referenceName": "AutoHealRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +150,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Auto-swap slot name.",
       "jsonName": "autoSwapSlotName",
       "name": "AutoSwapSlotName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +166,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Azure Storage Accounts.",
       "jsonName": "azureStorageAccounts",
       "name": "AzureStorageAccounts",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureStorageInfoValue"
+          "nullable": false,
+          "referenceName": "AzureStorageInfoValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,14 +188,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connection strings.",
       "jsonName": "connectionStrings",
       "name": "ConnectionStrings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnStringInfo"
+          "nullable": false,
+          "referenceName": "ConnStringInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,7 +214,9 @@
       "name": "Cors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsSettings"
+        "nullable": false,
+        "referenceName": "CorsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,14 +225,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default documents.",
       "jsonName": "defaultDocuments",
       "name": "DefaultDocuments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,11 +247,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if detailed error logging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "detailedErrorLoggingEnabled",
       "name": "DetailedErrorLoggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,11 +263,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Document root.",
       "jsonName": "documentRoot",
       "name": "DocumentRoot",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,11 +279,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of workers that a site can scale out to.\nThis setting only applies to apps in plans where ElasticScaleEnabled is \u003ccode\u003etrue\u003c/code\u003e",
       "jsonName": "elasticWebAppScaleLimit",
       "name": "ElasticWebAppScaleLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,7 +299,9 @@
       "name": "Experiments",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Experiments"
+        "nullable": false,
+        "referenceName": "Experiments",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,11 +310,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of FTP / FTPS service",
       "jsonName": "ftpsState",
       "name": "FtpsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FtpsState"
+        "nullable": false,
+        "referenceName": "FtpsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,11 +326,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of workers that a site can scale out to.\nThis setting only applies to the Consumption and Elastic Premium Plans",
       "jsonName": "functionAppScaleLimit",
       "name": "FunctionAppScaleLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,11 +342,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,\nthe ScaleController will not monitor event sources directly, but will instead call to the\nruntime to get scale status.",
       "jsonName": "functionsRuntimeScaleMonitoringEnabled",
       "name": "FunctionsRuntimeScaleMonitoringEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,11 +358,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Http20Enabled: configures a web site to allow clients to connect over http2.0",
       "jsonName": "http20Enabled",
       "name": "HTTP20Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,11 +374,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if HTTP logging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "httpLoggingEnabled",
       "name": "HTTPLoggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,14 +390,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Handler mappings.",
       "jsonName": "handlerMappings",
       "name": "HandlerMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HandlerMapping"
+          "nullable": false,
+          "referenceName": "HandlerMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -335,11 +412,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Health check path",
       "jsonName": "healthCheckPath",
       "name": "HealthCheckPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -348,14 +428,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IP security restrictions for main.",
       "jsonName": "ipSecurityRestrictions",
       "name": "IPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestriction"
+          "nullable": false,
+          "referenceName": "IPSecurityRestriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -365,11 +450,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default action for main access restriction if no rules are matched.",
       "jsonName": "ipSecurityRestrictionsDefaultAction",
       "name": "IPSecurityRestrictionsDefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -378,11 +466,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java container.",
       "jsonName": "javaContainer",
       "name": "JavaContainer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -391,11 +482,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java container version.",
       "jsonName": "javaContainerVersion",
       "name": "JavaContainerVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -404,11 +498,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Java version.",
       "jsonName": "javaVersion",
       "name": "JavaVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -417,11 +514,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identity to use for Key Vault Reference authentication.",
       "jsonName": "keyVaultReferenceIdentity",
       "name": "KeyVaultReferenceIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -434,7 +534,9 @@
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteLimits"
+        "nullable": false,
+        "referenceName": "SiteLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -443,11 +545,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Linux App Framework and version",
       "jsonName": "linuxFxVersion",
       "name": "LinuxFxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -456,11 +561,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Site load balancing.",
       "jsonName": "loadBalancing",
       "name": "LoadBalancing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteLoadBalancing"
+        "nullable": false,
+        "referenceName": "SiteLoadBalancing",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -469,11 +577,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to enable local MySQL; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "localMySqlEnabled",
       "name": "LocalMySqlEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -482,11 +593,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP logs directory size limit.",
       "jsonName": "logsDirectorySizeLimit",
       "name": "LogsDirectorySizeLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -499,7 +613,9 @@
       "name": "MachineKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteMachineKey"
+        "nullable": false,
+        "referenceName": "SiteMachineKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -508,11 +624,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed pipeline mode.",
       "jsonName": "managedPipelineMode",
       "name": "ManagedPipelineMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedPipelineMode"
+        "nullable": false,
+        "referenceName": "ManagedPipelineMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -521,11 +640,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed Service Identity Id",
       "jsonName": "managedServiceIdentityId",
       "name": "ManagedServiceIdentityId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -534,14 +656,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application metadata. This property cannot be retrieved, since it may contain secrets.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NameValuePair"
+          "nullable": false,
+          "referenceName": "NameValuePair",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -551,11 +678,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The minimum strength TLS cipher suite allowed for an application",
       "jsonName": "minTlsCipherSuite",
       "name": "MinTlsCipherSuite",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsCipherSuites"
+        "nullable": false,
+        "referenceName": "TlsCipherSuites",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -564,11 +694,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "MinTlsVersion: configures the minimum version of TLS required for SSL requests",
       "jsonName": "minTlsVersion",
       "name": "MinTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedTlsVersions"
+        "nullable": false,
+        "referenceName": "SupportedTlsVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -577,11 +710,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of minimum instance count for a site\nThis setting only applies to the Elastic Plans",
       "jsonName": "minimumElasticInstanceCount",
       "name": "MinimumElasticInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -590,11 +726,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": ".NET Framework version.",
       "jsonName": "netFrameworkVersion",
       "name": "NetFrameworkVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -603,11 +742,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of Node.js.",
       "jsonName": "nodeVersion",
       "name": "NodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -616,11 +758,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of workers.",
       "jsonName": "numberOfWorkers",
       "name": "NumberOfWorkers",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -629,11 +774,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of PHP.",
       "jsonName": "phpVersion",
       "name": "PhpVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -642,11 +790,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of PowerShell.",
       "jsonName": "powerShellVersion",
       "name": "PowerShellVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -655,11 +806,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of preWarmed instances.\nThis setting only applies to the Consumption and Elastic Plans",
       "jsonName": "preWarmedInstanceCount",
       "name": "PreWarmedInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -668,11 +822,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property to allow or block all public traffic.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -681,11 +838,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Publishing user name.",
       "jsonName": "publishingUsername",
       "name": "PublishingUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -698,7 +858,9 @@
       "name": "Push",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PushSettings"
+        "nullable": false,
+        "referenceName": "PushSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -707,11 +869,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of Python.",
       "jsonName": "pythonVersion",
       "name": "PythonVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -720,11 +885,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if remote debugging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "remoteDebuggingEnabled",
       "name": "RemoteDebuggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -733,11 +901,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Remote debugging version.",
       "jsonName": "remoteDebuggingVersion",
       "name": "RemoteDebuggingVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -746,11 +917,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if request tracing is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "requestTracingEnabled",
       "name": "RequestTracingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -760,11 +934,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Request tracing expiration time.",
       "jsonName": "requestTracingExpirationTime",
       "name": "RequestTracingExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -773,14 +950,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IP security restrictions for scm.",
       "jsonName": "scmIpSecurityRestrictions",
       "name": "ScmIPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestriction"
+          "nullable": false,
+          "referenceName": "IPSecurityRestriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -790,11 +972,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default action for scm access restriction if no rules are matched.",
       "jsonName": "scmIpSecurityRestrictionsDefaultAction",
       "name": "ScmIPSecurityRestrictionsDefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -803,11 +988,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "IP security restrictions for scm to use main.",
       "jsonName": "scmIpSecurityRestrictionsUseMain",
       "name": "ScmIPSecurityRestrictionsUseMain",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -816,11 +1004,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site",
       "jsonName": "scmMinTlsVersion",
       "name": "ScmMinTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedTlsVersions"
+        "nullable": false,
+        "referenceName": "SupportedTlsVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -829,11 +1020,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SCM type.",
       "jsonName": "scmType",
       "name": "ScmType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScmType"
+        "nullable": false,
+        "referenceName": "ScmType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -842,11 +1036,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tracing options.",
       "jsonName": "tracingOptions",
       "name": "TracingOptions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -855,11 +1052,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e to use 32-bit worker process; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "use32BitWorkerProcess",
       "name": "Use32BitWorkerProcess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -868,14 +1068,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual applications.",
       "jsonName": "virtualApplications",
       "name": "VirtualApplications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplication"
+          "nullable": false,
+          "referenceName": "VirtualApplication",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -885,11 +1090,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Network name.",
       "jsonName": "vnetName",
       "name": "VnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -898,11 +1106,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of private ports assigned to this app. These will be assigned dynamically on runtime.",
       "jsonName": "vnetPrivatePortsCount",
       "name": "VnetPrivatePortsCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -911,11 +1122,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.",
       "jsonName": "vnetRouteAllEnabled",
       "name": "VnetRouteAllEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -924,11 +1138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "\u003ccode\u003etrue\u003c/code\u003e if WebSocket is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "webSocketsEnabled",
       "name": "WebSocketsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -937,11 +1154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones",
       "jsonName": "websiteTimeZone",
       "name": "WebsiteTimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -950,11 +1170,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Xenon App Framework and version",
       "jsonName": "windowsFxVersion",
       "name": "WindowsFxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -963,16 +1186,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Explicit Managed Service Identity Id",
       "jsonName": "xManagedServiceIdentityId",
       "name": "XManagedServiceIdentityId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If this array is null or be not present, container task will mount entire temporary disk drive in windows (or AZ_BATCH_NODE_ROOT_DIR in Linux). It won't' mount any data paths into container if this array is set as empty.",
       "jsonName": "containerHostBatchBindMounts",
       "name": "ContainerHostBatchBindMounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerHostBatchBindMountEntry"
+          "nullable": false,
+          "referenceName": "ContainerHostBatchBindMountEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "These additional options are supplied as arguments to the \"docker create\" command, in addition to those controlled by the Batch Service.",
       "jsonName": "containerRunOptions",
       "name": "ContainerRunOptions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the full image reference, as would be specified to \"docker pull\". If no tag is provided as part of the image name, the tag \":latest\" is used as a default.",
       "jsonName": "imageName",
       "name": "ImageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This setting can be omitted if was already provided at pool creation.",
       "jsonName": "registry",
       "name": "Registry",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerRegistry"
+        "nullable": false,
+        "referenceName": "ContainerRegistry",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +77,15 @@
       "name": "WorkingDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerWorkingDirectory"
+        "nullable": false,
+        "referenceName": "ContainerWorkingDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

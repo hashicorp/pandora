@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionUpdateParameters"
+    "nullable": false,
+    "referenceName": "ConnectionUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Connection"
+    "nullable": false,
+    "referenceName": "Connection",
+    "referenceNameIsCommonType": null
   }
 }

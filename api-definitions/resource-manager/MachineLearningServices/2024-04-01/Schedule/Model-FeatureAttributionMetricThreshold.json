@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The feature attribution metric to calculate.",
       "jsonName": "metric",
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureAttributionMetric"
+        "nullable": false,
+        "referenceName": "FeatureAttributionMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The threshold value. If null, a default value will be set depending on the selected metric.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringThreshold"
+        "nullable": false,
+        "referenceName": "MonitoringThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

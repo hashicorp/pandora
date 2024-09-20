@@ -7,7 +7,9 @@
       "name": "Dataset",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetReference"
+        "nullable": false,
+        "referenceName": "DatasetReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fields of metadata to get from dataset.",
       "jsonName": "fieldList",
       "name": "FieldList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GetMetadata activity format settings.",
       "jsonName": "formatSettings",
       "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FormatReadSettings"
+        "nullable": false,
+        "referenceName": "FormatReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "GetMetadata activity store settings.",
       "jsonName": "storeSettings",
       "name": "StoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreReadSettings"
+        "nullable": false,
+        "referenceName": "StoreReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

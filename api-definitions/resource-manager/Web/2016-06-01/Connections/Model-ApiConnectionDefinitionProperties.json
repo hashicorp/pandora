@@ -7,7 +7,9 @@
       "name": "Api",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiReference"
+        "nullable": false,
+        "referenceName": "ApiReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,11 +19,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of last connection change",
       "jsonName": "changedTime",
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -31,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Timestamp of the connection creation",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of custom parameter values",
       "jsonName": "customParameterValues",
       "name": "CustomParameterValues",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,11 +74,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,14 +90,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of nonsecret parameter values",
       "jsonName": "nonSecretParameterValues",
       "name": "NonSecretParameterValues",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,14 +112,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of parameter values",
       "jsonName": "parameterValues",
       "name": "ParameterValues",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -108,14 +134,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of the connection",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionStatusDefinition"
+          "nullable": false,
+          "referenceName": "ConnectionStatusDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -125,14 +156,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Links to test the API connection",
       "jsonName": "testLinks",
       "name": "TestLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiConnectionTestLink"
+          "nullable": false,
+          "referenceName": "ApiConnectionTestLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,5 +176,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

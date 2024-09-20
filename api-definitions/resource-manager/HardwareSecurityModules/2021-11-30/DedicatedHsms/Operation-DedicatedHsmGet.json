@@ -1,6 +1,7 @@
 {
   "name": "DedicatedHsmGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "DedicatedHSMId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHsm"
+    "nullable": false,
+    "referenceName": "DedicatedHsm",
+    "referenceNameIsCommonType": null
   }
 }

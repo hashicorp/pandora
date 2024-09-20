@@ -7,7 +7,9 @@
       "name": "ManagedIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentitySettings"
+        "nullable": false,
+        "referenceName": "ManagedIdentitySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpstreamAuthType"
+        "nullable": false,
+        "referenceName": "UpstreamAuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

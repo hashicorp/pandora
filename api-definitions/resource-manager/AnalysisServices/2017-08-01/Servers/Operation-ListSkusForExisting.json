@@ -1,6 +1,7 @@
 {
   "name": "ListSkusForExisting",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SkuEnumerationForExistingResourceResult"
+    "nullable": false,
+    "referenceName": "SkuEnumerationForExistingResourceResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/skus"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to allow leading and trailing spaces and zeroes.",
       "jsonName": "allowLeadingAndTrailingSpacesAndZeroes",
       "name": "AllowLeadingAndTrailingSpacesAndZeroes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for duplicate group control number.",
       "jsonName": "checkDuplicateGroupControlNumber",
       "name": "CheckDuplicateGroupControlNumber",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for duplicate interchange control number.",
       "jsonName": "checkDuplicateInterchangeControlNumber",
       "name": "CheckDuplicateInterchangeControlNumber",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to check for duplicate transaction set control number.",
       "jsonName": "checkDuplicateTransactionSetControlNumber",
       "name": "CheckDuplicateTransactionSetControlNumber",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The validity period of interchange control number.",
       "jsonName": "interchangeControlNumberValidityDays",
       "name": "InterchangeControlNumberValidityDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The trailing separator policy.",
       "jsonName": "trailingSeparatorPolicy",
       "name": "TrailingSeparatorPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrailingSeparatorPolicy"
+        "nullable": false,
+        "referenceName": "TrailingSeparatorPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to trim leading and trailing spaces and zeroes.",
       "jsonName": "trimLeadingAndTrailingSpacesAndZeroes",
       "name": "TrimLeadingAndTrailingSpacesAndZeroes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to validate character set in the message.",
       "jsonName": "validateCharacterSet",
       "name": "ValidateCharacterSet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to Whether to validate EDI types.",
       "jsonName": "validateEDITypes",
       "name": "ValidateEDITypes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The value indicating whether to Whether to validate XSD types.",
       "jsonName": "validateXSDTypes",
       "name": "ValidateXSDTypes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

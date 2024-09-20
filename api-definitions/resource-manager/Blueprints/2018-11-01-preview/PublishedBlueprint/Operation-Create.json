@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ScopedVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PublishedBlueprint"
+    "nullable": false,
+    "referenceName": "PublishedBlueprint",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublishedBlueprint"
+    "nullable": false,
+    "referenceName": "PublishedBlueprint",
+    "referenceNameIsCommonType": null
   }
 }

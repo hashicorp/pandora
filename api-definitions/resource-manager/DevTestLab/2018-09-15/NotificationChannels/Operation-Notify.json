@@ -1,6 +1,7 @@
 {
   "name": "Notify",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "NotificationChannelId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NotifyParameters"
+    "nullable": false,
+    "referenceName": "NotifyParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/notify"
 }

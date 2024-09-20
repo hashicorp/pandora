@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OperationInputs"
+    "nullable": false,
+    "referenceName": "OperationInputs",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppAvailabilityInfo"
+    "nullable": false,
+    "referenceName": "AppAvailabilityInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.IoTCentral/checkNameAvailability"
 }

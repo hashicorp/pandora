@@ -1,6 +1,7 @@
 {
   "name": "GetInstanceProcessModuleSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotInstanceProcessModuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProcessModuleInfo"
+    "nullable": false,
+    "referenceName": "ProcessModuleInfo",
+    "referenceNameIsCommonType": null
   }
 }

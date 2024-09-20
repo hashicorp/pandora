@@ -1,6 +1,7 @@
 {
   "name": "GetSslPredefinedPolicy",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "PredefinedPolicyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGatewaySslPredefinedPolicy"
+    "nullable": false,
+    "referenceName": "ApplicationGatewaySslPredefinedPolicy",
+    "referenceNameIsCommonType": null
   }
 }

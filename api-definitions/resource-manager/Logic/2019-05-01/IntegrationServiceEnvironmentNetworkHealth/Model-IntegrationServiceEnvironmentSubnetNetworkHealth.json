@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The integration service environment network health state.",
       "jsonName": "networkDependencyHealthState",
       "name": "NetworkDependencyHealthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkEndPointAccessibilityState"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkEndPointAccessibilityState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The outbound network dependencies.",
       "jsonName": "outboundNetworkDependencies",
       "name": "OutboundNetworkDependencies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IntegrationServiceEnvironmentNetworkDependency"
+          "nullable": false,
+          "referenceName": "IntegrationServiceEnvironmentNetworkDependency",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The integration service environment network health.",
       "jsonName": "outboundNetworkHealth",
       "name": "OutboundNetworkHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealth"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

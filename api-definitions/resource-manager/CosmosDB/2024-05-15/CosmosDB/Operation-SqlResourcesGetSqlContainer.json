@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesGetSqlContainer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlContainerGetResults"
+    "nullable": false,
+    "referenceName": "SqlContainerGetResults",
+    "referenceNameIsCommonType": null
   }
 }

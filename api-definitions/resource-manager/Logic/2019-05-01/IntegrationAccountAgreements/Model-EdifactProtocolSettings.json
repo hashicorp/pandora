@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT acknowledgement settings.",
       "jsonName": "acknowledgementSettings",
       "name": "AcknowledgementSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactAcknowledgementSettings"
+        "nullable": false,
+        "referenceName": "EdifactAcknowledgementSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT delimiter override settings.",
       "jsonName": "edifactDelimiterOverrides",
       "name": "EdifactDelimiterOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EdifactDelimiterOverride"
+          "nullable": false,
+          "referenceName": "EdifactDelimiterOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT envelope override settings.",
       "jsonName": "envelopeOverrides",
       "name": "EnvelopeOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EdifactEnvelopeOverride"
+          "nullable": false,
+          "referenceName": "EdifactEnvelopeOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT envelope settings.",
       "jsonName": "envelopeSettings",
       "name": "EnvelopeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactEnvelopeSettings"
+        "nullable": false,
+        "referenceName": "EdifactEnvelopeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT framing settings.",
       "jsonName": "framingSettings",
       "name": "FramingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactFramingSettings"
+        "nullable": false,
+        "referenceName": "EdifactFramingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT message filter.",
       "jsonName": "messageFilter",
       "name": "MessageFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactMessageFilter"
+        "nullable": false,
+        "referenceName": "EdifactMessageFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,14 +111,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT message filter list.",
       "jsonName": "messageFilterList",
       "name": "MessageFilterList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EdifactMessageIdentifier"
+          "nullable": false,
+          "referenceName": "EdifactMessageIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,11 +133,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT processing Settings.",
       "jsonName": "processingSettings",
       "name": "ProcessingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactProcessingSettings"
+        "nullable": false,
+        "referenceName": "EdifactProcessingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,14 +149,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT schema references.",
       "jsonName": "schemaReferences",
       "name": "SchemaReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EdifactSchemaReference"
+          "nullable": false,
+          "referenceName": "EdifactSchemaReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -136,14 +171,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT validation override settings.",
       "jsonName": "validationOverrides",
       "name": "ValidationOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EdifactValidationOverride"
+          "nullable": false,
+          "referenceName": "EdifactValidationOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -153,16 +193,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The EDIFACT validation settings.",
       "jsonName": "validationSettings",
       "name": "ValidationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactValidationSettings"
+        "nullable": false,
+        "referenceName": "EdifactValidationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

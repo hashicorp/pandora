@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of audiences that can make successful authentication/authorization requests.",
       "jsonName": "allowedAudiences",
       "name": "AllowedAudiences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the default authorization policy.",
       "jsonName": "defaultAuthorizationPolicy",
       "name": "DefaultAuthorizationPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAuthorizationPolicy"
+        "nullable": false,
+        "referenceName": "DefaultAuthorizationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration settings of the checks that should be made while validating the JWT Claims.",
       "jsonName": "jwtClaimChecks",
       "name": "JwtClaimChecks",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JwtClaimChecks"
+        "nullable": false,
+        "referenceName": "JwtClaimChecks",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

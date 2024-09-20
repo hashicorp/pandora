@@ -1,6 +1,7 @@
 {
   "name": "RegenerateKeys",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MapsKeySpecification"
+    "nullable": false,
+    "referenceName": "MapsKeySpecification",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MapsAccountKeys"
+    "nullable": false,
+    "referenceName": "MapsAccountKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

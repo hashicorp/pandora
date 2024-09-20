@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding how the gateway should integrate with backend systems.",
       "jsonName": "backend",
       "name": "Backend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendConfiguration"
+        "nullable": false,
+        "referenceName": "BackendConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding the Configuration API of the API Management gateway. This is only applicable for API gateway with Standard SKU.",
       "jsonName": "configurationApi",
       "name": "ConfigurationApi",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayConfigurationApi"
+        "nullable": false,
+        "referenceName": "GatewayConfigurationApi",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Creation UTC date of the API Management gateway.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.",
       "jsonName": "createdAtUtc",
       "name": "CreatedAtUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information regarding how the gateway should be exposed.",
       "jsonName": "frontend",
       "name": "Frontend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontendConfiguration"
+        "nullable": false,
+        "referenceName": "FrontendConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current provisioning state of the API Management gateway which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the API Management gateway, which is targeted by the long running operation started on the gateway.",
       "jsonName": "targetProvisioningState",
       "name": "TargetProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,16 +100,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of VPN in which API Management gateway needs to be configured in. ",
       "jsonName": "virtualNetworkType",
       "name": "VirtualNetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

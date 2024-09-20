@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recommended disk details for a given VM Sku.",
       "jsonName": "recommendedConfiguration",
       "name": "RecommendedConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskVolumeConfiguration"
+        "nullable": false,
+        "referenceName": "DiskVolumeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of supported disks for a given VM Sku.",
       "jsonName": "supportedConfigurations",
       "name": "SupportedConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskDetails"
+          "nullable": false,
+          "referenceName": "DiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "EnvironmentVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentVersionResource"
+    "nullable": false,
+    "referenceName": "EnvironmentVersionResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentVersionResource"
+    "nullable": false,
+    "referenceName": "EnvironmentVersionResource",
+    "referenceNameIsCommonType": null
   }
 }

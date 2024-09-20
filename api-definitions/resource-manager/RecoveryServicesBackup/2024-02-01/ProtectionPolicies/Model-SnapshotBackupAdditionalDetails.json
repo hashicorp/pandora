@@ -7,7 +7,9 @@
       "name": "InstantRPDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InstantRpRetentionRangeInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "UserAssignedManagedIdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserAssignedManagedIdentityDetails"
+        "nullable": false,
+        "referenceName": "UserAssignedManagedIdentityDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

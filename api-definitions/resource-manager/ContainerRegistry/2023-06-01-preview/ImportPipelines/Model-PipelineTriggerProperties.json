@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source trigger properties of the pipeline.",
       "jsonName": "sourceTrigger",
       "name": "SourceTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineSourceTriggerProperties"
+        "nullable": false,
+        "referenceName": "PipelineSourceTriggerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Trigger",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ValidateOperationRequest"
+    "nullable": false,
+    "referenceName": "ValidateOperationRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupTriggerValidateOperation"
 }

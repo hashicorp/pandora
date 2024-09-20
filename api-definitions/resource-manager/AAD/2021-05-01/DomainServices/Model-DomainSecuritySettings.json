@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not KerberosArmoring is enabled or disabled.",
       "jsonName": "kerberosArmoring",
       "name": "KerberosArmoring",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KerberosArmoring"
+        "nullable": false,
+        "referenceName": "KerberosArmoring",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.",
       "jsonName": "kerberosRc4Encryption",
       "name": "KerberosRc4Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KerberosRc4Encryption"
+        "nullable": false,
+        "referenceName": "KerberosRc4Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not NtlmV1 is enabled or disabled.",
       "jsonName": "ntlmV1",
       "name": "NtlmV1",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NtlmV1"
+        "nullable": false,
+        "referenceName": "NtlmV1",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.",
       "jsonName": "syncKerberosPasswords",
       "name": "SyncKerberosPasswords",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncKerberosPasswords"
+        "nullable": false,
+        "referenceName": "SyncKerberosPasswords",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.",
       "jsonName": "syncNtlmPasswords",
       "name": "SyncNtlmPasswords",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncNtlmPasswords"
+        "nullable": false,
+        "referenceName": "SyncNtlmPasswords",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.",
       "jsonName": "syncOnPremPasswords",
       "name": "SyncOnPremPasswords",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncOnPremPasswords"
+        "nullable": false,
+        "referenceName": "SyncOnPremPasswords",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A flag to determine whether or not TlsV1 is enabled or disabled.",
       "jsonName": "tlsV1",
       "name": "TlsV1",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsV1"
+        "nullable": false,
+        "referenceName": "TlsV1",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

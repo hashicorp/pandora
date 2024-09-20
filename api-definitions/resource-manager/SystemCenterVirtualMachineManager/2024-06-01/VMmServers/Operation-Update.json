@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VMmServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VMmServerTagsUpdate"
+    "nullable": false,
+    "referenceName": "VMmServerTagsUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMmServer"
+    "nullable": false,
+    "referenceName": "VMmServer",
+    "referenceNameIsCommonType": null
   }
 }

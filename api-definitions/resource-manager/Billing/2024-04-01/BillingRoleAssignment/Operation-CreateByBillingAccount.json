@@ -1,6 +1,7 @@
 {
   "name": "CreateByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleAssignmentProperties"
+    "nullable": false,
+    "referenceName": "BillingRoleAssignmentProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleAssignment"
+    "nullable": false,
+    "referenceName": "BillingRoleAssignment",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createBillingRoleAssignment"
 }

@@ -1,6 +1,7 @@
 {
   "name": "NetworkManagerDeploymentStatusList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NetworkManagerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerDeploymentStatusParameter"
+    "nullable": false,
+    "referenceName": "NetworkManagerDeploymentStatusParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerDeploymentStatusListResult"
+    "nullable": false,
+    "referenceName": "NetworkManagerDeploymentStatusListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listDeploymentStatus"
 }

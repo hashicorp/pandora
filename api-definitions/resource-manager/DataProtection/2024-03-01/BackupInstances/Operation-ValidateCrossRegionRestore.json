@@ -1,6 +1,7 @@
 {
   "name": "ValidateCrossRegionRestore",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ProviderLocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ValidateCrossRegionRestoreRequestObject"
+    "nullable": false,
+    "referenceName": "ValidateCrossRegionRestoreRequestObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationJobExtendedInfo"
+    "nullable": false,
+    "referenceName": "OperationJobExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateCrossRegionRestore"
 }

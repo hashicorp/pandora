@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of automated cluster updates feature.",
       "jsonName": "automaticClusterUpdate",
       "name": "AutomaticClusterUpdate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticClusterUpdateDefinition"
+        "nullable": false,
+        "referenceName": "AutomaticClusterUpdateDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of Compliance Security Profile feature.",
       "jsonName": "complianceSecurityProfile",
       "name": "ComplianceSecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceSecurityProfileDefinition"
+        "nullable": false,
+        "referenceName": "ComplianceSecurityProfileDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Status of Enhanced Security Monitoring feature.",
       "jsonName": "enhancedSecurityMonitoring",
       "name": "EnhancedSecurityMonitoring",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityMonitoringDefinition"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityMonitoringDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

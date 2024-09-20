@@ -1,6 +1,7 @@
 {
   "name": "ExpressRouteCircuitsListRoutesTable",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -11,6 +12,8 @@
   "resourceIdName": "PeeringRouteTableId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExpressRouteCircuitRoutesTable"
+    "nullable": false,
+    "referenceName": "ExpressRouteCircuitRoutesTable",
+    "referenceNameIsCommonType": null
   }
 }

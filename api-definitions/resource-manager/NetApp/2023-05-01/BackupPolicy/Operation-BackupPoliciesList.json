@@ -1,6 +1,7 @@
 {
   "name": "BackupPoliciesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "NetAppAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupPoliciesList"
+    "nullable": false,
+    "referenceName": "BackupPoliciesList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupPolicies"
 }

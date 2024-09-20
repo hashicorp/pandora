@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the resource group containing network resources for customer apps in Azure Spring Apps",
       "jsonName": "appNetworkResourceGroup",
       "name": "AppNetworkResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps",
       "jsonName": "appSubnetId",
       "name": "AppSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress configuration payload for Azure Spring Apps resource.",
       "jsonName": "ingressConfig",
       "name": "IngressConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressConfig"
+        "nullable": false,
+        "referenceName": "IngressConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Desired outbound IP resources for Azure Spring Apps resource.",
       "jsonName": "outboundIPs",
       "name": "OutboundIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfileOutboundIPs"
+        "nullable": false,
+        "referenceName": "NetworkProfileOutboundIPs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The egress traffic type of Azure Spring Apps VNet instances.",
       "jsonName": "outboundType",
       "name": "OutboundType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,14 +83,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required inbound or outbound traffics for Azure Spring Apps resource.",
       "jsonName": "requiredTraffics",
       "name": "RequiredTraffics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RequiredTraffic"
+          "nullable": false,
+          "referenceName": "RequiredTraffic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Spring Apps service reserved CIDR",
       "jsonName": "serviceCidr",
       "name": "ServiceCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the resource group containing network resources of Azure Spring Apps Service Runtime",
       "jsonName": "serviceRuntimeNetworkResourceGroup",
       "name": "ServiceRuntimeNetworkResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,16 +137,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime",
       "jsonName": "serviceRuntimeSubnetId",
       "name": "ServiceRuntimeSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

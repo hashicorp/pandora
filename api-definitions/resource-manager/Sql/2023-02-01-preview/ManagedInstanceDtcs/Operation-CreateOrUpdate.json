@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SqlManagedInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceDtc"
+    "nullable": false,
+    "referenceName": "ManagedInstanceDtc",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceDtc"
+    "nullable": false,
+    "referenceName": "ManagedInstanceDtc",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dtc/current"
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of destination IP addresses or Service Tags.",
       "jsonName": "destinationAddresses",
       "name": "DestinationAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of FQDN Tags for this rule.",
       "jsonName": "fqdnTags",
       "name": "FqdnTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of HTTP/S headers to insert.",
       "jsonName": "httpHeadersToInsert",
       "name": "HTTPHeadersToInsert",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallPolicyHTTPHeaderToInsert"
+          "nullable": false,
+          "referenceName": "FirewallPolicyHTTPHeaderToInsert",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of Application Protocols.",
       "jsonName": "protocols",
       "name": "Protocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallPolicyRuleApplicationProtocol"
+          "nullable": false,
+          "referenceName": "FirewallPolicyRuleApplicationProtocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,14 +91,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of source IP addresses for this rule.",
       "jsonName": "sourceAddresses",
       "name": "SourceAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,14 +113,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of source IpGroups for this rule.",
       "jsonName": "sourceIpGroups",
       "name": "SourceIPGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -105,14 +135,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of FQDNs for this rule.",
       "jsonName": "targetFqdns",
       "name": "TargetFqdns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,14 +157,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Urls for this rule condition.",
       "jsonName": "targetUrls",
       "name": "TargetUrls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -139,11 +179,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Terminate TLS connections for this rule.",
       "jsonName": "terminateTLS",
       "name": "TerminateTLS",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,14 +195,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of destination azure web categories.",
       "jsonName": "webCategories",
       "name": "WebCategories",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -168,6 +216,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FirewallPolicyRule",
   "discriminatedTypeValue": "ApplicationRule",
   "typeHintIn": "RuleType"

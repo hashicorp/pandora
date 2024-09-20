@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Featurization inputs needed for AutoML job.",
       "jsonName": "featurizationSettings",
       "name": "FeaturizationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeaturizationSettings"
+        "nullable": false,
+        "referenceName": "FeaturizationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Execution constraints for AutoMLJob.",
       "jsonName": "limitSettings",
       "name": "LimitSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NlpVerticalLimitSettings"
+        "nullable": false,
+        "referenceName": "NlpVerticalLimitSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Primary metric for Text-Classification-Multilabel task.\r\nCurrently only Accuracy is supported as primary metric, hence user need not set it explicitly.",
       "jsonName": "primaryMetric",
       "name": "PrimaryMetric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassificationMultilabelPrimaryMetrics"
+        "nullable": false,
+        "referenceName": "ClassificationMultilabelPrimaryMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Validation data inputs.",
       "jsonName": "validationData",
       "name": "ValidationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutoMLVertical",
   "discriminatedTypeValue": "TextClassificationMultilabel",
   "typeHintIn": "TaskType"

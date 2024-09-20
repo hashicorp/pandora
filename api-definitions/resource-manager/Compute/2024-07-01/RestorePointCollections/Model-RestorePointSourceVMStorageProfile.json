@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the data disks of the VM captured at the time of the restore point creation.",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RestorePointSourceVMDataDisk"
+          "nullable": false,
+          "referenceName": "RestorePointSourceVMDataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the disk controller type of the VM captured at the time of the restore point creation.",
       "jsonName": "diskControllerType",
       "name": "DiskControllerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskControllerTypes"
+        "nullable": false,
+        "referenceName": "DiskControllerTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the OS disk of the VM captured at the time of the restore point creation.",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePointSourceVMOSDisk"
+        "nullable": false,
+        "referenceName": "RestorePointSourceVMOSDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

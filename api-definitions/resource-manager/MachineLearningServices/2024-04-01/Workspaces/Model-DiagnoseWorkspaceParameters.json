@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Value of Parameters",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnoseRequestProperties"
+        "nullable": false,
+        "referenceName": "DiagnoseRequestProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

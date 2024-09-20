@@ -1,6 +1,7 @@
 {
   "name": "DiskRestorePointListByRestorePoint",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "RestorePointId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiskRestorePoint"
+    "nullable": false,
+    "referenceName": "DiskRestorePoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/diskRestorePoints"
 }

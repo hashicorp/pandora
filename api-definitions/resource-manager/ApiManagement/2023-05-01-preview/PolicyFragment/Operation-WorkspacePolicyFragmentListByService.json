@@ -1,6 +1,7 @@
 {
   "name": "WorkspacePolicyFragmentListByService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -52,7 +53,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PolicyFragmentContract"
+    "nullable": false,
+    "referenceName": "PolicyFragmentContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/policyFragments"
 }

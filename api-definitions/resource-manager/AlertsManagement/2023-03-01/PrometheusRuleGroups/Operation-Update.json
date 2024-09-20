@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PrometheusRuleGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrometheusRuleGroupResourcePatchParameters"
+    "nullable": false,
+    "referenceName": "PrometheusRuleGroupResourcePatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrometheusRuleGroupResource"
+    "nullable": false,
+    "referenceName": "PrometheusRuleGroupResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.",
       "jsonName": "linkType",
       "name": "LinkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationLinkType"
+        "nullable": false,
+        "referenceName": "ReplicationLinkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ManagedEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JavaComponent"
+    "nullable": false,
+    "referenceName": "JavaComponent",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/javaComponents"
 }

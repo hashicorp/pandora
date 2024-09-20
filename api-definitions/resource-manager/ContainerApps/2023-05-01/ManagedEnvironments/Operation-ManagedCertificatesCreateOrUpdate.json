@@ -1,6 +1,7 @@
 {
   "name": "ManagedCertificatesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ManagedCertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedCertificate"
+    "nullable": false,
+    "referenceName": "ManagedCertificate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedCertificate"
+    "nullable": false,
+    "referenceName": "ManagedCertificate",
+    "referenceNameIsCommonType": null
   }
 }

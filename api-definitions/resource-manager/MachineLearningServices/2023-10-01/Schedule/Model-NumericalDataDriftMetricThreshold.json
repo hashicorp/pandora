@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] The numerical data drift metric to calculate.",
       "jsonName": "metric",
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NumericalDataDriftMetric"
+        "nullable": false,
+        "referenceName": "NumericalDataDriftMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataDriftMetricThresholdBase",
   "discriminatedTypeValue": "Numerical",
   "typeHintIn": "DataType"

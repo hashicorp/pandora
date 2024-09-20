@@ -1,6 +1,7 @@
 {
   "name": "SampleInput",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SampleInput"
+    "nullable": false,
+    "referenceName": "SampleInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SampleInputResult"
+    "nullable": false,
+    "referenceName": "SampleInputResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sampleInput"
 }

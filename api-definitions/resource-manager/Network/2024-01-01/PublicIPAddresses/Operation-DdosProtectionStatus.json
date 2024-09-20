@@ -1,6 +1,7 @@
 {
   "name": "DdosProtectionStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "PublicIPAddressId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublicIPDdosProtectionStatusResult"
+    "nullable": false,
+    "referenceName": "PublicIPDdosProtectionStatusResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/ddosProtectionStatus"
 }

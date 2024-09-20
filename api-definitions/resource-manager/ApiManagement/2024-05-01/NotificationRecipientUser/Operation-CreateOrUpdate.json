@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "RecipientUserId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecipientUserContract"
+    "nullable": false,
+    "referenceName": "RecipientUserContract",
+    "referenceNameIsCommonType": null
   }
 }

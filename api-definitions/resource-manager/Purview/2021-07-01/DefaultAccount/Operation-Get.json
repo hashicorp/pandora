@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -40,7 +41,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DefaultAccountPayload"
+    "nullable": false,
+    "referenceName": "DefaultAccountPayload",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Purview/getDefaultAccount"
 }

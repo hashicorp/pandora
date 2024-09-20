@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for an Azure DevOps catalog type.",
       "jsonName": "adoGit",
       "name": "AdoGit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connection state of the catalog.",
       "jsonName": "connectionState",
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogConnectionState"
+        "nullable": false,
+        "referenceName": "CatalogConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties for a GitHub catalog type.",
       "jsonName": "gitHub",
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,11 +52,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When the catalog was last connected.",
       "jsonName": "lastConnectionTime",
       "name": "LastConnectionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Stats of the latest synchronization.",
       "jsonName": "lastSyncStats",
       "name": "LastSyncStats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncStats"
+        "nullable": false,
+        "referenceName": "SyncStats",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -70,11 +85,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "When the catalog was last synced.",
       "jsonName": "lastSyncTime",
       "name": "LastSyncTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +105,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -96,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The synchronization state of the catalog.",
       "jsonName": "syncState",
       "name": "SyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogSyncState"
+        "nullable": false,
+        "referenceName": "CatalogSyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +132,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the type of sync that is configured for the catalog.",
       "jsonName": "syncType",
       "name": "SyncType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogSyncType"
+        "nullable": false,
+        "referenceName": "CatalogSyncType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,16 +148,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource tags.",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

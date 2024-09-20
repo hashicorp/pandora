@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity provider input for DRA authentication.",
       "jsonName": "authenticationIdentityInput",
       "name": "AuthenticationIdentityInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviderInput"
+        "nullable": false,
+        "referenceName": "IdentityProviderInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Bios Id of the machine.",
       "jsonName": "biosId",
       "name": "BiosId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity provider input for data plane authentication.",
       "jsonName": "dataPlaneAuthenticationIdentityInput",
       "name": "DataPlaneAuthenticationIdentityInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviderInput"
+        "nullable": false,
+        "referenceName": "IdentityProviderInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the machine where the provider is getting added.",
       "jsonName": "machineId",
       "name": "MachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the machine where the provider is getting added.",
       "jsonName": "machineName",
       "name": "MachineName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identity provider input for resource access.",
       "jsonName": "resourceAccessIdentityInput",
       "name": "ResourceAccessIdentityInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviderInput"
+        "nullable": false,
+        "referenceName": "IdentityProviderInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

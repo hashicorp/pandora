@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The geo-location where the SAP system is to be created.",
       "jsonName": "appLocation",
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The infrastructure configuration.",
       "jsonName": "infrastructureConfiguration",
       "name": "InfrastructureConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureConfiguration"
+        "nullable": false,
+        "referenceName": "InfrastructureConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The OS and SAP configuration.",
       "jsonName": "osSapConfiguration",
       "name": "OsSapConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsSapConfiguration"
+        "nullable": false,
+        "referenceName": "OsSapConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The software configuration.",
       "jsonName": "softwareConfiguration",
       "name": "SoftwareConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareConfiguration"
+        "nullable": false,
+        "referenceName": "SoftwareConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SAPConfiguration",
   "discriminatedTypeValue": "DeploymentWithOSConfig",
   "typeHintIn": "ConfigurationType"

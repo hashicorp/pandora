@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reference to an ApplicationGatewayBackendAddressPool resource.",
       "jsonName": "backendAddressPool",
       "name": "BackendAddressPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayBackendAddressPool"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayBackendAddressPool",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application gateway BackendHealthHttp settings.",
       "jsonName": "backendHealthHttpSettings",
       "name": "BackendHealthHTTPSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayBackendHealthHTTPSettings"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayBackendHealthHTTPSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

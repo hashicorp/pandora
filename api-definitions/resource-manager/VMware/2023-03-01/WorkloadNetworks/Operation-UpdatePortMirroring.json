@@ -1,6 +1,7 @@
 {
   "name": "UpdatePortMirroring",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "PortMirroringProfileId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkPortMirroring"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkPortMirroring",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkPortMirroring"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkPortMirroring",
+    "referenceNameIsCommonType": null
   }
 }

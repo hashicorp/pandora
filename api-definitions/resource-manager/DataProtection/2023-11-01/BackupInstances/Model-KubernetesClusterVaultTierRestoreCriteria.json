@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the Conflict Policy property. This property sets policy during conflict of resources during restore from vault.",
       "jsonName": "conflictPolicy",
       "name": "ConflictPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExistingResourcePolicy"
+        "nullable": false,
+        "referenceName": "ExistingResourcePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore from vault.",
       "jsonName": "excludedNamespaces",
       "name": "ExcludedNamespaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore from vault.",
       "jsonName": "excludedResourceTypes",
       "name": "ExcludedResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore from vault.",
       "jsonName": "includeClusterScopeResources",
       "name": "IncludeClusterScopeResources",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the include namespaces property. This property sets the namespaces to be included during restore from vault.",
       "jsonName": "includedNamespaces",
       "name": "IncludedNamespaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,14 +101,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the include resource types property. This property sets the resource types to be included during restore from vault.",
       "jsonName": "includedResourceTypes",
       "name": "IncludedResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,14 +123,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore from vault.",
       "jsonName": "labelSelectors",
       "name": "LabelSelectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,14 +145,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the Namespace Mappings property. This property sets if namespace needs to be change during restore from vault.",
       "jsonName": "namespaceMappings",
       "name": "NamespaceMappings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,11 +167,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the PV (Persistent Volume) Restore Mode property. This property sets whether volumes needs to be restored from vault.",
       "jsonName": "persistentVolumeRestoreMode",
       "name": "PersistentVolumeRestoreMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PersistentVolumeRestoreMode"
+        "nullable": false,
+        "referenceName": "PersistentVolumeRestoreMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,14 +183,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the restore hook references. This property sets the hook reference to be executed during restore from vault.",
       "jsonName": "restoreHookReferences",
       "name": "RestoreHookReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NamespacedNameResource"
+          "nullable": false,
+          "referenceName": "NamespacedNameResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -161,11 +205,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the staging RG Id for creating staging disks and snapshots during restore from vault.",
       "jsonName": "stagingResourceGroupId",
       "name": "StagingResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,11 +221,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the staging Storage Account Id for creating backup extension object store data during restore from vault.",
       "jsonName": "stagingStorageAccountId",
       "name": "StagingStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,6 +236,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ItemLevelRestoreCriteria",
   "discriminatedTypeValue": "KubernetesClusterVaultTierRestoreCriteria",
   "typeHintIn": "ObjectType"

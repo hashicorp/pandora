@@ -1,6 +1,7 @@
 {
   "name": "DedicatedHsmListOutboundNetworkDependenciesEndpoints",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DedicatedHSMId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OutboundEnvironmentEndpoint"
+    "nullable": false,
+    "referenceName": "OutboundEnvironmentEndpoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/outboundNetworkDependenciesEndpoints"
 }

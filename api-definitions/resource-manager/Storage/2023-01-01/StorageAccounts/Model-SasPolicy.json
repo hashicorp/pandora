@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SAS expiration action. Can only be Log.",
       "jsonName": "expirationAction",
       "name": "ExpirationAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpirationAction"
+        "nullable": false,
+        "referenceName": "ExpirationAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SAS expiration period, DD.HH:MM:SS.",
       "jsonName": "sasExpirationPeriod",
       "name": "SasExpirationPeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

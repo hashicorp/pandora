@@ -1,6 +1,7 @@
 {
   "name": "AssetsGetEncryptionKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AssetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageEncryptedAssetDecryptionData"
+    "nullable": false,
+    "referenceName": "StorageEncryptedAssetDecryptionData",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getEncryptionKey"
 }

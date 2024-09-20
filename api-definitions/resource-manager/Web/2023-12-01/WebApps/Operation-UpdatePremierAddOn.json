@@ -1,6 +1,7 @@
 {
   "name": "UpdatePremierAddOn",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PremierAddonId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PremierAddOnPatchResource"
+    "nullable": false,
+    "referenceName": "PremierAddOnPatchResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PremierAddOn"
+    "nullable": false,
+    "referenceName": "PremierAddOn",
+    "referenceNameIsCommonType": null
   }
 }

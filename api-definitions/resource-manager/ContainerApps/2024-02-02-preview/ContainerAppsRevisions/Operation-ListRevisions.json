@@ -1,6 +1,7 @@
 {
   "name": "ListRevisions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ContainerAppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Revision"
+    "nullable": false,
+    "referenceName": "Revision",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/revisions"
 }

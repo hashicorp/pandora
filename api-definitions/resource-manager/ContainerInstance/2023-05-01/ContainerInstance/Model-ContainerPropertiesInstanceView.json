@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current container instance state.",
       "jsonName": "currentState",
       "name": "CurrentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerState"
+        "nullable": false,
+        "referenceName": "ContainerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The events of the container instance.",
       "jsonName": "events",
       "name": "Events",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Event"
+          "nullable": false,
+          "referenceName": "Event",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Previous container instance state.",
       "jsonName": "previousState",
       "name": "PreviousState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerState"
+        "nullable": false,
+        "referenceName": "ContainerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +57,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of times that the container instance has been restarted.",
       "jsonName": "restartCount",
       "name": "RestartCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

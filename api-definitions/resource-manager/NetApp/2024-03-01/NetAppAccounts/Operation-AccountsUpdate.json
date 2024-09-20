@@ -1,6 +1,7 @@
 {
   "name": "AccountsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "NetAppAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetAppAccountPatch"
+    "nullable": false,
+    "referenceName": "NetAppAccountPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetAppAccount"
+    "nullable": false,
+    "referenceName": "NetAppAccount",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "ConnectionGatewaysCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ConnectionGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionGatewayDefinition"
+    "nullable": false,
+    "referenceName": "ConnectionGatewayDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionGatewayDefinition"
+    "nullable": false,
+    "referenceName": "ConnectionGatewayDefinition",
+    "referenceNameIsCommonType": null
   }
 }

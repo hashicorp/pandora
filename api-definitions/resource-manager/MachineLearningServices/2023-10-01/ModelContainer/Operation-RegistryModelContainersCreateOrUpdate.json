@@ -1,6 +1,7 @@
 {
   "name": "RegistryModelContainersCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "RegistryModelId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ModelContainerResource"
+    "nullable": false,
+    "referenceName": "ModelContainerResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ModelContainerResource"
+    "nullable": false,
+    "referenceName": "ModelContainerResource",
+    "referenceNameIsCommonType": null
   }
 }

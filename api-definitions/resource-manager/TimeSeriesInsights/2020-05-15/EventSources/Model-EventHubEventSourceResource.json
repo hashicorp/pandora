@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubEventSourceCommonProperties"
+        "nullable": false,
+        "referenceName": "EventHubEventSourceCommonProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSourceResource",
   "discriminatedTypeValue": "Microsoft.EventHub",
   "typeHintIn": "Kind"

@@ -1,6 +1,7 @@
 {
   "name": "ExportMetadataSchema",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MetadataSchemaExportRequest"
+    "nullable": false,
+    "referenceName": "MetadataSchemaExportRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetadataSchemaExportResult"
+    "nullable": false,
+    "referenceName": "MetadataSchemaExportResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/exportMetadataSchema"
 }

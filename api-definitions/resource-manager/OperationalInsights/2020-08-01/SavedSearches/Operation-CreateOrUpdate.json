@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SavedSearchId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SavedSearch"
+    "nullable": false,
+    "referenceName": "SavedSearch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SavedSearch"
+    "nullable": false,
+    "referenceName": "SavedSearch",
+    "referenceNameIsCommonType": null
   }
 }

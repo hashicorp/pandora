@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubBgpConnectionCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualHubBGPConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BgpConnection"
+    "nullable": false,
+    "referenceName": "BgpConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BgpConnection"
+    "nullable": false,
+    "referenceName": "BgpConnection",
+    "referenceNameIsCommonType": null
   }
 }

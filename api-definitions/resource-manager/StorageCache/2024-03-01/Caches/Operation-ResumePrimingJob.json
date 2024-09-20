@@ -1,6 +1,7 @@
 {
   "name": "ResumePrimingJob",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "CacheId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrimingJobIdParameter"
+    "nullable": false,
+    "referenceName": "PrimingJobIdParameter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resumePrimingJob"
 }

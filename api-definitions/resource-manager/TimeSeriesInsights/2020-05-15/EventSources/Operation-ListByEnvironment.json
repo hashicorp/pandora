@@ -1,6 +1,7 @@
 {
   "name": "ListByEnvironment",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "EnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSourceListResponse"
+    "nullable": false,
+    "referenceName": "EventSourceListResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/eventSources"
 }

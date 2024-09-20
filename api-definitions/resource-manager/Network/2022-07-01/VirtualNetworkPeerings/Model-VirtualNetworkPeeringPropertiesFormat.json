@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.",
       "jsonName": "allowForwardedTraffic",
       "name": "AllowForwardedTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If gateway links can be used in remote virtual networking to link to this virtual network.",
       "jsonName": "allowGatewayTransit",
       "name": "AllowGatewayTransit",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.",
       "jsonName": "allowVirtualNetworkAccess",
       "name": "AllowVirtualNetworkAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If we need to verify the provisioning state of the remote gateway.",
       "jsonName": "doNotVerifyRemoteGateways",
       "name": "DoNotVerifyRemoteGateways",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the virtual network peering.",
       "jsonName": "peeringState",
       "name": "PeeringState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPeeringState"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPeeringState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The peering sync status of the virtual network peering.",
       "jsonName": "peeringSyncLevel",
       "name": "PeeringSyncLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPeeringLevel"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPeeringLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the address space peered with the remote virtual network.",
       "jsonName": "remoteAddressSpace",
       "name": "RemoteAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the remote virtual network's Bgp Communities.",
       "jsonName": "remoteBgpCommunities",
       "name": "RemoteBgpCommunities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkBgpCommunities"
+        "nullable": false,
+        "referenceName": "VirtualNetworkBgpCommunities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +150,9 @@
       "name": "RemoteVirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +161,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the current address space of the remote virtual network.",
       "jsonName": "remoteVirtualNetworkAddressSpace",
       "name": "RemoteVirtualNetworkAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reference to the remote virtual network's encryption",
       "jsonName": "remoteVirtualNetworkEncryption",
       "name": "RemoteVirtualNetworkEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkEncryption"
+        "nullable": false,
+        "referenceName": "VirtualNetworkEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resourceGuid property of the Virtual Network peering resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,16 +209,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.",
       "jsonName": "useRemoteGateways",
       "name": "UseRemoteGateways",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

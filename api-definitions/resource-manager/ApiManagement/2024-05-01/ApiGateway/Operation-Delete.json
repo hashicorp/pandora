@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "GatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiManagementGatewayResource"
+    "nullable": false,
+    "referenceName": "ApiManagementGatewayResource",
+    "referenceNameIsCommonType": null
   }
 }

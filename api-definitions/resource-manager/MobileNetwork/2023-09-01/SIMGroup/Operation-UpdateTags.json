@@ -1,6 +1,7 @@
 {
   "name": "UpdateTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SimGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IdentityAndTagsObject"
+    "nullable": false,
+    "referenceName": "IdentityAndTagsObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SimGroup"
+    "nullable": false,
+    "referenceName": "SimGroup",
+    "referenceNameIsCommonType": null
   }
 }

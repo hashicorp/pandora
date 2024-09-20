@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link connected state",
       "jsonName": "connectedState",
       "name": "ConnectedState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicaConnectedState"
+        "nullable": false,
+        "referenceName": "ReplicaConnectedState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the database in link",
       "jsonName": "databaseName",
       "name": "DatabaseName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Redo lag when Managed Instance link side is primary",
       "jsonName": "instanceRedoReplicationLagSeconds",
       "name": "InstanceRedoReplicationLagSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed instance replica id",
       "jsonName": "instanceReplicaId",
       "name": "InstanceReplicaId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Replication lag when Managed Instance link side is primary",
       "jsonName": "instanceSendReplicationLagSeconds",
       "name": "InstanceSendReplicationLagSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last backup LSN",
       "jsonName": "lastBackupLsn",
       "name": "LastBackupLsn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last backup LSN time",
       "jsonName": "lastBackupTime",
       "name": "LastBackupTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +116,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last commit LSN",
       "jsonName": "lastCommitLsn",
       "name": "LastCommitLsn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -109,11 +133,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last commit LSN time",
       "jsonName": "lastCommitTime",
       "name": "LastCommitTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,11 +149,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last hardened LSN",
       "jsonName": "lastHardenedLsn",
       "name": "LastHardenedLsn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,11 +166,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last hardened LSN time",
       "jsonName": "lastHardenedTime",
       "name": "LastHardenedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,11 +182,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last received LSN",
       "jsonName": "lastReceivedLsn",
       "name": "LastReceivedLsn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +199,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last received LSN time",
       "jsonName": "lastReceivedTime",
       "name": "LastReceivedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +215,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Last sent LSN",
       "jsonName": "lastSentLsn",
       "name": "LastSentLsn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,11 +232,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Last sent LSN time",
       "jsonName": "lastSentTime",
       "name": "LastSentTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,11 +248,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The most recent link connection error description",
       "jsonName": "mostRecentLinkError",
       "name": "MostRecentLinkError",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,11 +264,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL server certificate validity",
       "jsonName": "partnerAuthCertValidity",
       "name": "PartnerAuthCertValidity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateInfo"
+        "nullable": false,
+        "referenceName": "CertificateInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -229,11 +280,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL server replica id",
       "jsonName": "partnerReplicaId",
       "name": "PartnerReplicaId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,11 +296,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Current link state",
       "jsonName": "replicaState",
       "name": "ReplicaState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -255,16 +312,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Link health state",
       "jsonName": "synchronizationHealth",
       "name": "SynchronizationHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicaSynchronizationHealth"
+        "nullable": false,
+        "referenceName": "ReplicaSynchronizationHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

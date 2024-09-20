@@ -1,6 +1,7 @@
 {
   "name": "Upgrade",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ExtensionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExtensionUpgradeParameters"
+    "nullable": false,
+    "referenceName": "ExtensionUpgradeParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/upgrade"
 }

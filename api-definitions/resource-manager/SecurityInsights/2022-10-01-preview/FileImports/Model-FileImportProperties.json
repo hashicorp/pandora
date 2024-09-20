@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The content type of this file.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileImportContentType"
+        "nullable": false,
+        "referenceName": "FileImportContentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -17,11 +20,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the file was imported.",
       "jsonName": "createdTimeUTC",
       "name": "CreatedTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the error file (if the import was ingested with errors or failed the validation).",
       "jsonName": "errorFile",
       "name": "ErrorFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileMetadata"
+        "nullable": false,
+        "referenceName": "FileMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,14 +52,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An ordered list of some of the errors that were encountered during validation.",
       "jsonName": "errorsPreview",
       "name": "ErrorsPreview",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ValidationError"
+          "nullable": false,
+          "referenceName": "ValidationError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,11 +75,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the files associated with this import are deleted from the storage account.",
       "jsonName": "filesValidUntilTimeUTC",
       "name": "FilesValidUntilTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the imported file.",
       "jsonName": "importFile",
       "name": "ImportFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileMetadata"
+        "nullable": false,
+        "referenceName": "FileMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -88,11 +108,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The time the file import record is soft deleted from the database and history.",
       "jsonName": "importValidUntilTimeUTC",
       "name": "ImportValidUntilTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,11 +124,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of records that have been successfully ingested.",
       "jsonName": "ingestedRecordCount",
       "name": "IngestedRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes how to ingest the records in the file.",
       "jsonName": "ingestionMode",
       "name": "IngestionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngestionMode"
+        "nullable": false,
+        "referenceName": "IngestionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -127,11 +156,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The source for the data in the file.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -140,11 +172,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The state of the file import.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileImportState"
+        "nullable": false,
+        "referenceName": "FileImportState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of records in the file.",
       "jsonName": "totalRecordCount",
       "name": "TotalRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,16 +204,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of records that have passed validation.",
       "jsonName": "validRecordCount",
       "name": "ValidRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

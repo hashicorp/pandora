@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The assigned license resource.",
       "jsonName": "assignedLicense",
       "name": "AssignedLicense",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "License"
+        "nullable": false,
+        "referenceName": "License",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The guid id of the license.",
       "jsonName": "assignedLicenseImmutableId",
       "name": "AssignedLicenseImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the eligibility state of Esu.",
       "jsonName": "esuEligibility",
       "name": "EsuEligibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EsuEligibility"
+        "nullable": false,
+        "referenceName": "EsuEligibility",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether there is an ESU Key currently active for the machine.",
       "jsonName": "esuKeyState",
       "name": "EsuKeyState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EsuKeyState"
+        "nullable": false,
+        "referenceName": "EsuKeyState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +67,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ESU keys.",
       "jsonName": "esuKeys",
       "name": "EsuKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EsuKey"
+          "nullable": false,
+          "referenceName": "EsuKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes the license assignment state (Assigned or NotAssigned).",
       "jsonName": "licenseAssignmentState",
       "name": "LicenseAssignmentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseAssignmentState"
+        "nullable": false,
+        "referenceName": "LicenseAssignmentState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,16 +105,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the Esu servers.",
       "jsonName": "serverType",
       "name": "ServerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EsuServerType"
+        "nullable": false,
+        "referenceName": "EsuServerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

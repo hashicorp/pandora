@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SapLandscapeMonitor"
+    "nullable": false,
+    "referenceName": "SapLandscapeMonitor",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SapLandscapeMonitor"
+    "nullable": false,
+    "referenceName": "SapLandscapeMonitor",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sapLandscapeMonitor/default"
 }

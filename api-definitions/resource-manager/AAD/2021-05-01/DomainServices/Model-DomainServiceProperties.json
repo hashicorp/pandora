@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration diagnostics data containing latest execution from client.",
       "jsonName": "configDiagnostics",
       "name": "ConfigDiagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigDiagnostics"
+        "nullable": false,
+        "referenceName": "ConfigDiagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Deployment Id",
       "jsonName": "deploymentId",
       "name": "DeploymentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Domain Configuration Type",
       "jsonName": "domainConfigurationType",
       "name": "DomainConfigurationType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Azure domain that the user would like to deploy Domain Services to.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DomainSecurity Settings",
       "jsonName": "domainSecuritySettings",
       "name": "DomainSecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainSecuritySettings"
+        "nullable": false,
+        "referenceName": "DomainSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enabled or Disabled flag to turn on Group-based filtered sync",
       "jsonName": "filteredSync",
       "name": "FilteredSync",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FilteredSync"
+        "nullable": false,
+        "referenceName": "FilteredSync",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Secure LDAP Settings",
       "jsonName": "ldapsSettings",
       "name": "LdapsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LdapsSettings"
+        "nullable": false,
+        "referenceName": "LdapsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Migration Properties",
       "jsonName": "migrationProperties",
       "name": "MigrationProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationProperties"
+        "nullable": false,
+        "referenceName": "MigrationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Notification Settings",
       "jsonName": "notificationSettings",
       "name": "NotificationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationSettings"
+        "nullable": false,
+        "referenceName": "NotificationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "the current deployment or provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,14 +163,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of ReplicaSets",
       "jsonName": "replicaSets",
       "name": "ReplicaSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaSet"
+          "nullable": false,
+          "referenceName": "ReplicaSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Forest Settings",
       "jsonName": "resourceForestSettings",
       "name": "ResourceForestSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceForestSettings"
+        "nullable": false,
+        "referenceName": "ResourceForestSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sku Type",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SyncOwner ReplicaSet Id",
       "jsonName": "syncOwner",
       "name": "SyncOwner",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Active Directory Tenant Id",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,16 +249,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data Model Version",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

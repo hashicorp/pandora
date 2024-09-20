@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client authentication settings for topic spaces configuration.",
       "jsonName": "clientAuthentication",
       "name": "ClientAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientAuthenticationSettings"
+        "nullable": false,
+        "referenceName": "ClientAuthenticationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of sessions per authentication name. The property default value is 1.\r\nMin allowed value is 1 and max allowed value is 100.",
       "jsonName": "maximumClientSessionsPerAuthenticationName",
       "name": "MaximumClientSessionsPerAuthenticationName",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The maximum session expiry in hours. The property default value is 1 hour.\r\nMin allowed value is 1 hour and max allowed value is 8 hours.",
       "jsonName": "maximumSessionExpiryInHours",
       "name": "MaximumSessionExpiryInHours",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property is used to specify custom topic to which events will be routed to from topic spaces configuration under namespace.",
       "jsonName": "routeTopicResourceId",
       "name": "RouteTopicResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing enrichments for topic spaces configuration.",
       "jsonName": "routingEnrichments",
       "name": "RoutingEnrichments",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingEnrichments"
+        "nullable": false,
+        "referenceName": "RoutingEnrichments",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Routing identity info for topic spaces configuration.",
       "jsonName": "routingIdentityInfo",
       "name": "RoutingIdentityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingIdentityInfo"
+        "nullable": false,
+        "referenceName": "RoutingIdentityInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicate if Topic Spaces Configuration is enabled for the namespace. Default is Disabled.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TopicSpacesConfigurationState"
+        "nullable": false,
+        "referenceName": "TopicSpacesConfigurationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

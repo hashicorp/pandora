@@ -7,7 +7,9 @@
       "name": "Cors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortalConfigCorsProperties"
+        "nullable": false,
+        "referenceName": "PortalConfigCorsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Csp",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortalConfigCspProperties"
+        "nullable": false,
+        "referenceName": "PortalConfigCspProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Delegation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortalConfigDelegationProperties"
+        "nullable": false,
+        "referenceName": "PortalConfigDelegationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +48,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or disable Basic authentication method.",
       "jsonName": "enableBasicAuth",
       "name": "EnableBasicAuth",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +68,9 @@
       "name": "Signin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortalConfigPropertiesSignin"
+        "nullable": false,
+        "referenceName": "PortalConfigPropertiesSignin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +83,15 @@
       "name": "Signup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortalConfigPropertiesSignup"
+        "nullable": false,
+        "referenceName": "PortalConfigPropertiesSignup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

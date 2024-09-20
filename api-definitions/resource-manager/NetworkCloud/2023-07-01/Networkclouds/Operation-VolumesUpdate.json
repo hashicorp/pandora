@@ -1,6 +1,7 @@
 {
   "name": "VolumesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "VolumeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VolumePatchParameters"
+    "nullable": false,
+    "referenceName": "VolumePatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Volume"
+    "nullable": false,
+    "referenceName": "Volume",
+    "referenceNameIsCommonType": null
   }
 }

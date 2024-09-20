@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of system created storage account to be used for the registry",
       "jsonName": "systemCreatedStorageAccount",
       "name": "SystemCreatedStorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SystemCreatedStorageAccount"
+        "nullable": false,
+        "referenceName": "SystemCreatedStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of user created storage account to be used for the registry",
       "jsonName": "userCreatedStorageAccount",
       "name": "UserCreatedStorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserCreatedStorageAccount"
+        "nullable": false,
+        "referenceName": "UserCreatedStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

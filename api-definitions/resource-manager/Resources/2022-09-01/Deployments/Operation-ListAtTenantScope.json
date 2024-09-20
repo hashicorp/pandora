@@ -1,6 +1,7 @@
 {
   "name": "ListAtTenantScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,7 +32,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentExtended"
+    "nullable": false,
+    "referenceName": "DeploymentExtended",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Resources/deployments"
 }

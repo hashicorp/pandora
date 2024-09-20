@@ -7,7 +7,9 @@
       "name": "ActionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayRewriteRuleActionSet"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayRewriteRuleActionSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Conditions based on which the action set execution will be evaluated.",
       "jsonName": "conditions",
       "name": "Conditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRewriteRuleCondition"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRewriteRuleCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the rewrite rule that is unique within an Application Gateway.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,16 +56,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.",
       "jsonName": "ruleSequence",
       "name": "RuleSequence",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

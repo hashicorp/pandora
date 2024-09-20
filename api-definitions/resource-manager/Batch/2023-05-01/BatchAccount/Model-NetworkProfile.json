@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network access profile for batchAccount endpoint (Batch account data plane API).",
       "jsonName": "accountAccess",
       "name": "AccountAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointAccessProfile"
+        "nullable": false,
+        "referenceName": "EndpointAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network access profile for nodeManagement endpoint (Batch service managing compute nodes for Batch pools).",
       "jsonName": "nodeManagementAccess",
       "name": "NodeManagementAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointAccessProfile"
+        "nullable": false,
+        "referenceName": "EndpointAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

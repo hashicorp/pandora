@@ -1,6 +1,7 @@
 {
   "name": "ListMeshUpgradeProfiles",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "KubernetesClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MeshUpgradeProfile"
+    "nullable": false,
+    "referenceName": "MeshUpgradeProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/meshUpgradeProfiles"
 }

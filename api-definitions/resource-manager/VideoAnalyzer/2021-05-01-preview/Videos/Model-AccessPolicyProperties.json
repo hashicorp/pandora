@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Authentication method to be used when validating client API access.",
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationBase"
+        "nullable": false,
+        "referenceName": "AuthenticationBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the access level granted by this policy.",
       "jsonName": "role",
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessPolicyRole"
+        "nullable": false,
+        "referenceName": "AccessPolicyRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

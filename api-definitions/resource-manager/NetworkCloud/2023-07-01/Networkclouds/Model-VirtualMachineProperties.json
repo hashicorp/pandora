@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the administrator to which the ssh public keys will be added into the authorized keys.",
       "jsonName": "adminUsername",
       "name": "AdminUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cluster availability zone containing this virtual machine.",
       "jsonName": "availabilityZone",
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Zone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the bare metal machine the virtual machine has landed to.",
       "jsonName": "bareMetalMachineId",
       "name": "BareMetalMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Selects the boot method for the virtual machine.",
       "jsonName": "bootMethod",
       "name": "BootMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineBootMethod"
+        "nullable": false,
+        "referenceName": "VirtualMachineBootMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The cloud service network that provides platform-level services for the virtual machine.",
       "jsonName": "cloudServicesNetworkAttachment",
       "name": "CloudServicesNetworkAttachment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAttachment"
+        "nullable": false,
+        "referenceName": "NetworkAttachment",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource ID of the cluster the virtual machine is created for.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of CPU cores in the virtual machine.",
       "jsonName": "cpuCores",
       "name": "CpuCores",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The more detailed status of the virtual machine.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineDetailedStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.",
       "jsonName": "isolateEmulatorThread",
       "name": "IsolateEmulatorThread",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineIsolateEmulatorThread"
+        "nullable": false,
+        "referenceName": "VirtualMachineIsolateEmulatorThread",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +163,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The memory size of the virtual machine in GB.",
       "jsonName": "memorySizeGB",
       "name": "MemorySizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -146,14 +179,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of network attachments to the virtual machine.",
       "jsonName": "networkAttachments",
       "name": "NetworkAttachments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkAttachment"
+          "nullable": false,
+          "referenceName": "NetworkAttachment",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Base64 encoded cloud-init network data.",
       "jsonName": "networkData",
       "name": "NetworkData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,14 +217,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scheduling hints for the virtual machine.",
       "jsonName": "placementHints",
       "name": "PlacementHints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachinePlacementHint"
+          "nullable": false,
+          "referenceName": "VirtualMachinePlacementHint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -193,11 +239,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The power state of the virtual machine.",
       "jsonName": "powerState",
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePowerState"
+        "nullable": false,
+        "referenceName": "VirtualMachinePowerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,11 +255,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The provisioning state of the virtual machine.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineProvisioningState"
+        "nullable": false,
+        "referenceName": "VirtualMachineProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,14 +271,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.",
       "jsonName": "sshPublicKeys",
       "name": "SshPublicKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SshPublicKey"
+          "nullable": false,
+          "referenceName": "SshPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The storage profile that specifies size and other parameters about the disks related to the virtual machine.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -249,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Base64 encoded cloud-init user data.",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,11 +325,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the device model to use.",
       "jsonName": "vmDeviceModel",
       "name": "VMDeviceModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineDeviceModelType"
+        "nullable": false,
+        "referenceName": "VirtualMachineDeviceModelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,11 +341,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The credentials used to login to the image repository that has access to the specified image.",
       "jsonName": "vmImageRepositoryCredentials",
       "name": "VMImageRepositoryCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageRepositoryCredentials"
+        "nullable": false,
+        "referenceName": "ImageRepositoryCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,11 +357,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated, use virtualizationModel instead. The type of the virtio interface.",
       "jsonName": "virtioInterface",
       "name": "VirtioInterface",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineVirtioInterfaceType"
+        "nullable": false,
+        "referenceName": "VirtualMachineVirtioInterfaceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,11 +373,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.",
       "jsonName": "vmImage",
       "name": "VmImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -314,14 +389,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource IDs of volumes that are attached to the virtual machine.",
       "jsonName": "volumes",
       "name": "Volumes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -329,5 +409,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

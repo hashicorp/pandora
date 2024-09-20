@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "datasource",
       "name": "Datasource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReferenceInputDataSource"
+        "nullable": false,
+        "referenceName": "ReferenceInputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InputProperties",
   "discriminatedTypeValue": "Reference",
   "typeHintIn": "Type"

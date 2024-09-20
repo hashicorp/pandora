@@ -7,7 +7,9 @@
       "name": "CurrentCPUStats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerCPUStatistics"
+        "nullable": false,
+        "referenceName": "ContainerCPUStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CurrentTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Eth0",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerNetworkInterfaceStatistics"
+        "nullable": false,
+        "referenceName": "ContainerNetworkInterfaceStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "MemoryStats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerMemoryStatistics"
+        "nullable": false,
+        "referenceName": "ContainerMemoryStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "PreviousCPUStats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerCPUStatistics"
+        "nullable": false,
+        "referenceName": "ContainerCPUStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,12 +114,15 @@
       "name": "PreviousTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

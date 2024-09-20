@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "EndpointOriginGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OriginGroupUpdateParameters"
+    "nullable": false,
+    "referenceName": "OriginGroupUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OriginGroup"
+    "nullable": false,
+    "referenceName": "OriginGroup",
+    "referenceNameIsCommonType": null
   }
 }

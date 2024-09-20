@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "An ISO 4217 currency code identifier for the costs and savings ",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource specific properties.",
       "jsonName": "resource",
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationRecommendationDetailsResourceProperties"
+        "nullable": false,
+        "referenceName": "ReservationRecommendationDetailsResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Group.",
       "jsonName": "resourceGroup",
       "name": "ResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Savings information for the recommendation.",
       "jsonName": "savings",
       "name": "Savings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationRecommendationDetailsSavingsProperties"
+        "nullable": false,
+        "referenceName": "ReservationRecommendationDetailsSavingsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Scope of the reservation, ex: Single or Shared.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Historical usage details used to calculate the estimated savings.",
       "jsonName": "usage",
       "name": "Usage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationRecommendationDetailsUsageProperties"
+        "nullable": false,
+        "referenceName": "ReservationRecommendationDetailsUsageProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

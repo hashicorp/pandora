@@ -7,7 +7,9 @@
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceConnectionServicePrincipal"
+        "nullable": false,
+        "referenceName": "WorkspaceConnectionServicePrincipal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
   "discriminatedTypeValue": "ServicePrincipal",
   "typeHintIn": "AuthType"

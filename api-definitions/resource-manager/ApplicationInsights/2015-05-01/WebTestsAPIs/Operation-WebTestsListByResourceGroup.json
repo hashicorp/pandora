@@ -1,6 +1,7 @@
 {
   "name": "WebTestsListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WebTest"
+    "nullable": false,
+    "referenceName": "WebTest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/webTests"
 }

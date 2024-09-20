@@ -1,6 +1,7 @@
 {
   "name": "HubVirtualNetworkConnectionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualHubId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HubVirtualNetworkConnection"
+    "nullable": false,
+    "referenceName": "HubVirtualNetworkConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hubVirtualNetworkConnections"
 }

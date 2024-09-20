@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ConnectorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LinkerPatch"
+    "nullable": false,
+    "referenceName": "LinkerPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LinkerResource"
+    "nullable": false,
+    "referenceName": "LinkerResource",
+    "referenceNameIsCommonType": null
   }
 }

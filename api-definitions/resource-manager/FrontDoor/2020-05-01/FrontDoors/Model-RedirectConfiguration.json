@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.",
       "jsonName": "customFragment",
       "name": "CustomFragment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Host to redirect. Leave empty to use the incoming host as the destination host.",
       "jsonName": "customHost",
       "name": "CustomHost",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.",
       "jsonName": "customPath",
       "name": "CustomPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in \u003ckey\u003e=\u003cvalue\u003e format. The first ? and \u0026 will be added automatically so do not include them in the front, but do separate multiple query strings with \u0026.",
       "jsonName": "customQueryString",
       "name": "CustomQueryString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The protocol of the destination to where the traffic is redirected",
       "jsonName": "redirectProtocol",
       "name": "RedirectProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorRedirectProtocol"
+        "nullable": false,
+        "referenceName": "FrontDoorRedirectProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The redirect type the rule will use when redirecting traffic.",
       "jsonName": "redirectType",
       "name": "RedirectType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorRedirectType"
+        "nullable": false,
+        "referenceName": "FrontDoorRedirectType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RouteConfiguration",
   "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
   "typeHintIn": "OdataType"

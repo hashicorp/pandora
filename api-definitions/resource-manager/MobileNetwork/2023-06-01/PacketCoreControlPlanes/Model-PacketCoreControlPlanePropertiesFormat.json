@@ -7,7 +7,9 @@
       "name": "ControlPlaneAccessInterface",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InterfaceProperties"
+        "nullable": false,
+        "referenceName": "InterfaceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CoreNetworkTechnology",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoreNetworkType"
+        "nullable": false,
+        "referenceName": "CoreNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +33,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Configuration for uploading packet core diagnostics",
       "jsonName": "diagnosticsUpload",
       "name": "DiagnosticsUpload",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsUploadConfiguration"
+        "nullable": false,
+        "referenceName": "DiagnosticsUploadConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +49,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The installation state of the packet core control plane resource.",
       "jsonName": "installation",
       "name": "Installation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Installation"
+        "nullable": false,
+        "referenceName": "Installation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The currently installed version of the packet core software.",
       "jsonName": "installedVersion",
       "name": "InstalledVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Settings to allow interoperability with third party components e.g. RANs and UEs.",
       "jsonName": "interopSettings",
       "name": "InteropSettings",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +97,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.",
       "jsonName": "localDiagnosticsAccess",
       "name": "LocalDiagnosticsAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalDiagnosticsAccessConfiguration"
+        "nullable": false,
+        "referenceName": "LocalDiagnosticsAccessConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The platform where the packet core is deployed.",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformConfiguration"
+        "nullable": false,
+        "referenceName": "PlatformConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,7 +133,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The previous version of the packet core software that was deployed. Used when performing the rollback action.",
       "jsonName": "rollbackVersion",
       "name": "RollbackVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,14 +160,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.",
       "jsonName": "sites",
       "name": "Sites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SiteResourceId"
+          "nullable": false,
+          "referenceName": "SiteResourceId",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -154,7 +186,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingSku"
+        "nullable": false,
+        "referenceName": "BillingSku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -163,11 +197,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.",
       "jsonName": "ueMtu",
       "name": "UeMtu",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,16 +213,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The desired version of the packet core software.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

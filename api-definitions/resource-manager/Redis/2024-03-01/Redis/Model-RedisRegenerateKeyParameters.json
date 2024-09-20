@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Redis access key to regenerate.",
       "jsonName": "keyType",
       "name": "KeyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RedisKeyType"
+        "nullable": false,
+        "referenceName": "RedisKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

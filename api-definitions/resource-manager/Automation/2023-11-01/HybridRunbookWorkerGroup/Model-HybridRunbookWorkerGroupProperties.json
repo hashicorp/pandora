@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets the credential of a worker group.",
       "jsonName": "credential",
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunAsCredentialAssociationProperty"
+        "nullable": false,
+        "referenceName": "RunAsCredentialAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the HybridWorkerGroup.",
       "jsonName": "groupType",
       "name": "GroupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GroupTypeEnum"
+        "nullable": false,
+        "referenceName": "GroupTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

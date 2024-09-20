@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL Server workload type.",
       "jsonName": "sqlWorkloadType",
       "name": "SqlWorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlWorkloadType"
+        "nullable": false,
+        "referenceName": "SqlWorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

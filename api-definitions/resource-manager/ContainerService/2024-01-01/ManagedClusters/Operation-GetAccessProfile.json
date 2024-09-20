@@ -1,6 +1,7 @@
 {
   "name": "GetAccessProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AccessProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedClusterAccessProfile"
+    "nullable": false,
+    "referenceName": "ManagedClusterAccessProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listCredential"
 }

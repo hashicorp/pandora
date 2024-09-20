@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data directory details",
       "jsonName": "alternateDirectoryPaths",
       "name": "AlternateDirectoryPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SQLDataDirectoryMapping"
+          "nullable": false,
+          "referenceName": "SQLDataDirectoryMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL specific property where user can chose to set no-recovery when restore operation is tried",
       "jsonName": "isNonRecoverable",
       "name": "IsNonRecoverable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,11 +42,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "PointInTime value",
       "jsonName": "pointInTime",
       "name": "PointInTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,14 +58,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workload specific property bag.",
       "jsonName": "propertyBag",
       "name": "PropertyBag",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -64,11 +80,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether the current recovery mode is file restore or database restore",
       "jsonName": "recoveryMode",
       "name": "RecoveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryMode"
+        "nullable": false,
+        "referenceName": "RecoveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,11 +96,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of this recovery.",
       "jsonName": "recoveryType",
       "name": "RecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryType"
+        "nullable": false,
+        "referenceName": "RecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,11 +112,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default option set to true. If this is set to false, alternate data directory must be provided",
       "jsonName": "shouldUseAlternateTargetLocation",
       "name": "ShouldUseAlternateTargetLocation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,11 +128,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Additional details for snapshot recovery\r\nCurrently used for snapshot for SAP Hana.",
       "jsonName": "snapshotRestoreParameters",
       "name": "SnapshotRestoreParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnapshotRestoreParameters"
+        "nullable": false,
+        "referenceName": "SnapshotRestoreParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Fully qualified ARM ID of the VM on which workload that was running is being recovered.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of target database",
       "jsonName": "targetInfo",
       "name": "TargetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetRestoreInfo"
+        "nullable": false,
+        "referenceName": "TargetRestoreInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,11 +176,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the Resource group of the Target VM",
       "jsonName": "targetResourceGroupName",
       "name": "TargetResourceGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,11 +192,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the complete ARM Id of the target VM\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}",
       "jsonName": "targetVirtualMachineId",
       "name": "TargetVirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,11 +208,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Assigned managed identity details\r\nCurrently used for snapshot.",
       "jsonName": "userAssignedManagedIdentityDetails",
       "name": "UserAssignedManagedIdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserAssignedManagedIdentityDetails"
+        "nullable": false,
+        "referenceName": "UserAssignedManagedIdentityDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,6 +223,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreRequest",
   "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreRequest",
   "typeHintIn": "ObjectType"

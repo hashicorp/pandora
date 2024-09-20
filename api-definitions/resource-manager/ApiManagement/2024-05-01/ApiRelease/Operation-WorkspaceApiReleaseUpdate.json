@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiReleaseUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,10 +22,14 @@
   "resourceIdName": "ApiReleaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiReleaseContract"
+    "nullable": false,
+    "referenceName": "ApiReleaseContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiReleaseContract"
+    "nullable": false,
+    "referenceName": "ApiReleaseContract",
+    "referenceNameIsCommonType": null
   }
 }

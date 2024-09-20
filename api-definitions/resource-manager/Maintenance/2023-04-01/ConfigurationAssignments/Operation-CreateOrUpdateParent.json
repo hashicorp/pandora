@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateParent",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedConfigurationAssignmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "ConfigurationAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "ConfigurationAssignment",
+    "referenceNameIsCommonType": null
   }
 }

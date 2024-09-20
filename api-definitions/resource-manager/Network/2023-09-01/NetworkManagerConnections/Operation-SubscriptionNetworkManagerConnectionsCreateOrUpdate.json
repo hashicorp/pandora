@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionNetworkManagerConnectionsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "NetworkManagerConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerConnection"
+    "nullable": false,
+    "referenceName": "NetworkManagerConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkManagerConnection"
+    "nullable": false,
+    "referenceName": "NetworkManagerConnection",
+    "referenceNameIsCommonType": null
   }
 }

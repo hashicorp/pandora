@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URI of the Azure blob container that contains the custom setup script.",
       "jsonName": "blobContainerUri",
       "name": "BlobContainerUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SAS token of the Azure blob container.",
       "jsonName": "sasToken",
       "name": "SasToken",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecureString"
+        "nullable": false,
+        "referenceName": "SecureString",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

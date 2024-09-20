@@ -7,7 +7,9 @@
       "name": "ApiMetadataProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayApiMetadataProperties"
+        "nullable": false,
+        "referenceName": "GatewayApiMetadataProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of ApmReferences in service level",
       "jsonName": "apms",
       "name": "Apms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApmReference"
+          "nullable": false,
+          "referenceName": "ApmReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +40,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client-Certification Authentication.",
       "jsonName": "clientAuth",
       "name": "ClientAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayPropertiesClientAuth"
+        "nullable": false,
+        "referenceName": "GatewayPropertiesClientAuth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +60,9 @@
       "name": "CorsProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayCorsProperties"
+        "nullable": false,
+        "referenceName": "GatewayCorsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +71,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Environment variables of Spring Cloud Gateway",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayPropertiesEnvironmentVariables"
+        "nullable": false,
+        "referenceName": "GatewayPropertiesEnvironmentVariables",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +87,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicate if only https is allowed.",
       "jsonName": "httpsOnly",
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,14 +103,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of instances belong to Spring Cloud Gateway.",
       "jsonName": "instances",
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayInstance"
+          "nullable": false,
+          "referenceName": "GatewayInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,7 +129,9 @@
       "name": "OperatorProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayOperatorProperties"
+        "nullable": false,
+        "referenceName": "GatewayOperatorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +140,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "State of the Spring Cloud Gateway.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayProvisioningState"
+        "nullable": false,
+        "referenceName": "GatewayProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +156,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the Spring Cloud Gateway exposes endpoint.",
       "jsonName": "public",
       "name": "Public",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +172,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The requested resource quantity for required CPU and Memory.",
       "jsonName": "resourceRequests",
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayResourceRequests"
+        "nullable": false,
+        "referenceName": "GatewayResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +192,9 @@
       "name": "SsoProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SsoProperties"
+        "nullable": false,
+        "referenceName": "SsoProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,16 +203,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "URL of the Spring Cloud Gateway, exposed when 'public' is true.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the azure VM.",
       "jsonName": "azureVirtualMachineId",
       "name": "AzureVirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The discovered VM information.",
       "jsonName": "discoveredVmDetails",
       "name": "DiscoveredVMDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmFailbackDiscoveredProtectedVMDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmFailbackDiscoveredProtectedVMDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.",
       "jsonName": "initialReplicationProcessedBytes",
       "name": "InitialReplicationProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication progress health.",
       "jsonName": "initialReplicationProgressHealth",
       "name": "InitialReplicationProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication progress percentage.",
       "jsonName": "initialReplicationProgressPercentage",
       "name": "InitialReplicationProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication transferred bytes from source VM to target for all selected disks on source VM.",
       "jsonName": "initialReplicationTransferredBytes",
       "name": "InitialReplicationTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine internal identifier.",
       "jsonName": "internalIdentifier",
       "name": "InternalIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether agent registration was successful after failover.",
       "jsonName": "isAgentRegistrationSuccessfulAfterFailover",
       "name": "IsAgentRegistrationSuccessfulAfterFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +132,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last planned failover start time.",
       "jsonName": "lastPlannedFailoverStartTime",
       "name": "LastPlannedFailoverStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,11 +148,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last planned failover status.",
       "jsonName": "lastPlannedFailoverStatus",
       "name": "LastPlannedFailoverStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlannedFailoverStatus"
+        "nullable": false,
+        "referenceName": "PlannedFailoverStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy friendly name used by the forward replication.",
       "jsonName": "lastUsedPolicyFriendlyName",
       "name": "LastUsedPolicyFriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,11 +180,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The policy Id used by the forward replication.",
       "jsonName": "lastUsedPolicyId",
       "name": "LastUsedPolicyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,11 +196,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The log storage account ARM Id.",
       "jsonName": "logStorageAccountId",
       "name": "LogStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,11 +212,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mobility agent information.",
       "jsonName": "mobilityAgentDetails",
       "name": "MobilityAgentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmFailbackMobilityAgentDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmFailbackMobilityAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,11 +228,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi VM group name.",
       "jsonName": "multiVmGroupName",
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,11 +244,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the OS on the VM.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,14 +260,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected disks.",
       "jsonName": "protectedDisks",
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmFailbackProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmFailbackProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -229,11 +282,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reprotect agent Id.",
       "jsonName": "reprotectAgentId",
       "name": "ReprotectAgentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,11 +298,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The reprotect agent name.",
       "jsonName": "reprotectAgentName",
       "name": "ReprotectAgentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -255,11 +314,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.",
       "jsonName": "resyncProcessedBytes",
       "name": "ResyncProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -268,11 +330,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress health.",
       "jsonName": "resyncProgressHealth",
       "name": "ResyncProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -281,11 +346,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress percentage.",
       "jsonName": "resyncProgressPercentage",
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -294,11 +362,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether resync is required.",
       "jsonName": "resyncRequired",
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -307,11 +378,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync state.",
       "jsonName": "resyncState",
       "name": "ResyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResyncState"
+        "nullable": false,
+        "referenceName": "ResyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -320,11 +394,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync transferred bytes from source VM to target for all selected disks on source VM.",
       "jsonName": "resyncTransferredBytes",
       "name": "ResyncTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -333,11 +410,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target datastore name.",
       "jsonName": "targetDataStoreName",
       "name": "TargetDataStoreName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -346,11 +426,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM name.",
       "jsonName": "targetVmName",
       "name": "TargetVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -359,11 +442,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target vCenter Id.",
       "jsonName": "targetvCenterId",
       "name": "TargetvCenterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -372,14 +458,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmFailbackNicDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmFailbackNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -388,6 +479,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "InMageRcmFailback",
   "typeHintIn": "InstanceType"

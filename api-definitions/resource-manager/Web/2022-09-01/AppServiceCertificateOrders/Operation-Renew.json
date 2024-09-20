@@ -1,6 +1,7 @@
 {
   "name": "Renew",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CertificateOrderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RenewCertificateOrderRequest"
+    "nullable": false,
+    "referenceName": "RenewCertificateOrderRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/renew"
 }

@@ -1,6 +1,7 @@
 {
   "name": "APIKeysList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ComponentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentAPIKeyListResult"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAPIKeyListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/apiKeys"
 }

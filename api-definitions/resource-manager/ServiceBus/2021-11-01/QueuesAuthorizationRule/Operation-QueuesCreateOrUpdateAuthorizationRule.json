@@ -1,6 +1,7 @@
 {
   "name": "QueuesCreateOrUpdateAuthorizationRule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "QueueAuthorizationRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SBAuthorizationRule"
+    "nullable": false,
+    "referenceName": "SBAuthorizationRule",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SBAuthorizationRule"
+    "nullable": false,
+    "referenceName": "SBAuthorizationRule",
+    "referenceNameIsCommonType": null
   }
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] OneLake artifact backing the datastore.",
       "jsonName": "artifact",
       "name": "Artifact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OneLakeArtifact"
+        "nullable": false,
+        "referenceName": "OneLakeArtifact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OneLake endpoint to use for the datastore.",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] OneLake workspace name.",
       "jsonName": "oneLakeWorkspaceName",
       "name": "OneLakeWorkspaceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates which identity to use to authenticate service data access to customer's storage.",
       "jsonName": "serviceDataAccessAuthIdentity",
       "name": "ServiceDataAccessAuthIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceDataAccessAuthIdentity"
+        "nullable": false,
+        "referenceName": "ServiceDataAccessAuthIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +66,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Datastore",
   "discriminatedTypeValue": "OneLake",
   "typeHintIn": "DatastoreType"

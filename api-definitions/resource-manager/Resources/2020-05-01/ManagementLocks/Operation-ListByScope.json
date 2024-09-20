@@ -1,6 +1,7 @@
 {
   "name": "ListByScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagementLockObject"
+    "nullable": false,
+    "referenceName": "ManagementLockObject",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Authorization/locks"
 }

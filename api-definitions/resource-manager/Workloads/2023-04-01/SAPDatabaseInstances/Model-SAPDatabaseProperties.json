@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database SID name.",
       "jsonName": "databaseSid",
       "name": "DatabaseSid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database type, that is if the DB is HANA, DB2, Oracle, SAP ASE, Max DB or MS SQL Server.",
       "jsonName": "databaseType",
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines the errors related to Database resource.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceError"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database IP Address.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Load Balancer details such as LoadBalancer ID attached to Database Virtual Machines",
       "jsonName": "loadBalancerDetails",
       "name": "LoadBalancerDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerDetails"
+        "nullable": false,
+        "referenceName": "LoadBalancerDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +87,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapVirtualInstanceProvisioningState"
+        "nullable": false,
+        "referenceName": "SapVirtualInstanceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +102,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceStatus"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +113,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Database subnet.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +129,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of virtual machines corresponding to the Database resource.",
       "jsonName": "vmDetails",
       "name": "VMDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseVMDetails"
+          "nullable": false,
+          "referenceName": "DatabaseVMDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,5 +149,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

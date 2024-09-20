@@ -1,6 +1,7 @@
 {
   "name": "DatabaseAccountsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DatabaseAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatabaseAccountCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "DatabaseAccountCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabaseAccountGetResults"
+    "nullable": false,
+    "referenceName": "DatabaseAccountGetResults",
+    "referenceNameIsCommonType": null
   }
 }

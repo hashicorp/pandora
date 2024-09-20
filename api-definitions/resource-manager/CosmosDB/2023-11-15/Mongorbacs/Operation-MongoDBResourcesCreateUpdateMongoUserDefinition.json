@@ -1,6 +1,7 @@
 {
   "name": "MongoDBResourcesCreateUpdateMongoUserDefinition",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "MongodbUserDefinitionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MongoUserDefinitionCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "MongoUserDefinitionCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MongoUserDefinitionGetResults"
+    "nullable": false,
+    "referenceName": "MongoUserDefinitionGetResults",
+    "referenceNameIsCommonType": null
   }
 }

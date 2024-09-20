@@ -1,6 +1,7 @@
 {
   "name": "Execute",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopedExportId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExportRunRequest"
+    "nullable": false,
+    "referenceName": "ExportRunRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/run"
 }

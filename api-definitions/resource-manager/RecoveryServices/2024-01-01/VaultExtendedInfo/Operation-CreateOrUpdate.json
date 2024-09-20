@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VaultExtendedInfoResource"
+    "nullable": false,
+    "referenceName": "VaultExtendedInfoResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VaultExtendedInfoResource"
+    "nullable": false,
+    "referenceName": "VaultExtendedInfoResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extendedInformation/vaultExtendedInfo"
 }

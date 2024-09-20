@@ -1,6 +1,7 @@
 {
   "name": "ComponentQuotaStatusGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ComponentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentQuotaStatus"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentQuotaStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/quotastatus"
 }

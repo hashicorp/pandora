@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Guest agent install status.",
       "jsonName": "guestAgentInstallStatus",
       "name": "GuestAgentInstallStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GuestAgentInstallStatus"
+        "nullable": false,
+        "referenceName": "GuestAgentInstallStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HTTP Proxy configuration for the VM.",
       "jsonName": "httpProxyConfig",
       "name": "HTTPProxyConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPProxyConfiguration"
+        "nullable": false,
+        "referenceName": "HTTPProxyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "HardwareProfile - Specifies the hardware settings for the virtual machine instance.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesHardwareProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesHardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine instance view.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "NetworkProfile - describes the network configuration the virtual machine instance",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "OsProfile - describes the configuration of the operating system and sets login data",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the virtual machine instance.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateEnum"
+        "nullable": false,
+        "referenceName": "ProvisioningStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier defined by ARC to identify the guest of the VM.",
       "jsonName": "resourceUid",
       "name": "ResourceUid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SecurityProfile - Specifies the security settings for the virtual machine instance.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesSecurityProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +151,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstanceStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,11 +162,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "StorageProfile - contains information about the disks and storage information for the virtual machine instance",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesStorageProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,16 +178,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the vm resource.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

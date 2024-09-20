@@ -1,6 +1,7 @@
 {
   "name": "Dismiss",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ScopedAlertId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DismissAlertPayload"
+    "nullable": false,
+    "referenceName": "DismissAlertPayload",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Alert"
+    "nullable": false,
+    "referenceName": "Alert",
+    "referenceNameIsCommonType": null
   }
 }

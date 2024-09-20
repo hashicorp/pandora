@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolTransparentDataEncryptionsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TransparentDataEncryption"
+    "nullable": false,
+    "referenceName": "TransparentDataEncryption",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransparentDataEncryption"
+    "nullable": false,
+    "referenceName": "TransparentDataEncryption",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transparentDataEncryption/current"
 }

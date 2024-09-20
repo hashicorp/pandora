@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateParent",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,7 +11,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplyUpdate"
+    "nullable": false,
+    "referenceName": "ApplyUpdate",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Maintenance/applyUpdates/default"
 }

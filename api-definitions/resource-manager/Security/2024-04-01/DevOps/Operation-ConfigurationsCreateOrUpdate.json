@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SecurityConnectorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DevOpsConfiguration"
+    "nullable": false,
+    "referenceName": "DevOpsConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DevOpsConfiguration"
+    "nullable": false,
+    "referenceName": "DevOpsConfiguration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/devops/default"
 }

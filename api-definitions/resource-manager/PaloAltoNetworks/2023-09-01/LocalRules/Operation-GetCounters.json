@@ -1,6 +1,7 @@
 {
   "name": "GetCounters",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "LocalRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RuleCounter"
+    "nullable": false,
+    "referenceName": "RuleCounter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getCounters"
 }

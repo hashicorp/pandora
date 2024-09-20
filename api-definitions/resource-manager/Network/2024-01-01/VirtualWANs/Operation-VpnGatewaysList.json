@@ -1,6 +1,7 @@
 {
   "name": "VpnGatewaysList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnGateway"
+    "nullable": false,
+    "referenceName": "VpnGateway",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/vpnGateways"
 }

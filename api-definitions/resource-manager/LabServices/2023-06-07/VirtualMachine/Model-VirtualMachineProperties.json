@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lab user ID (not the PUID!) of who claimed the virtual machine.",
       "jsonName": "claimedByUserId",
       "name": "ClaimedByUserId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Profile for information about connecting to the virtual machine.",
       "jsonName": "connectionProfile",
       "name": "ConnectionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineConnectionProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineConnectionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +39,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +54,9 @@
       "name": "ResourceOperationError",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceOperationError"
+        "nullable": false,
+        "referenceName": "ResourceOperationError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The current state of the virtual machine",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineState"
+        "nullable": false,
+        "referenceName": "VirtualMachineState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +81,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of this VM resource",
       "jsonName": "vmType",
       "name": "VMType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineType"
+        "nullable": false,
+        "referenceName": "VirtualMachineType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

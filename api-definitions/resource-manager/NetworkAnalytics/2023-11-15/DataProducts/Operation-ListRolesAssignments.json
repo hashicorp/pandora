@@ -1,6 +1,7 @@
 {
   "name": "ListRolesAssignments",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "DataProductId",
   "requestObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ListRoleAssignments"
+    "nullable": false,
+    "referenceName": "ListRoleAssignments",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listRolesAssignments"
 }

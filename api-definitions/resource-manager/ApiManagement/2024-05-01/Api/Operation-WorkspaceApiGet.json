@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WorkspaceApiId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiContract"
+    "nullable": false,
+    "referenceName": "ApiContract",
+    "referenceNameIsCommonType": null
   }
 }

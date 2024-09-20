@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.",
       "jsonName": "customContextTag",
       "name": "CustomContextTag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Role Sink information.",
       "jsonName": "sinkInfo",
       "name": "SinkInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleSinkInfo"
+        "nullable": false,
+        "referenceName": "RoleSinkInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Periodic timer details.",
       "jsonName": "sourceInfo",
       "name": "SourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PeriodicTimerSourceInfo"
+        "nullable": false,
+        "referenceName": "PeriodicTimerSourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

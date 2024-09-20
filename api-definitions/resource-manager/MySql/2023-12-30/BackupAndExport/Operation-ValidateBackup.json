@@ -1,6 +1,7 @@
 {
   "name": "ValidateBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "FlexibleServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ValidateBackupResponse"
+    "nullable": false,
+    "referenceName": "ValidateBackupResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateBackup"
 }

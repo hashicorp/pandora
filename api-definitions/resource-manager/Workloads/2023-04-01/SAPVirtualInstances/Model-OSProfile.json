@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the password of the administrator account. \u003cbr\u003e\u003cbr\u003e **Minimum-length (Windows):** 8 characters \u003cbr\u003e\u003cbr\u003e **Minimum-length (Linux):** 6 characters \u003cbr\u003e\u003cbr\u003e **Max-length (Windows):** 123 characters \u003cbr\u003e\u003cbr\u003e **Max-length (Linux):** 72 characters \u003cbr\u003e\u003cbr\u003e **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled \u003cbr\u003e Has lower characters \u003cbr\u003eHas upper characters \u003cbr\u003e Has a digit \u003cbr\u003e Has a special character (Regex match [\\W_]) \u003cbr\u003e\u003cbr\u003e **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\", \"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\", \"Password22\", \"iloveyou!\" \u003cbr\u003e\u003cbr\u003e For resetting the password, see [How to reset the Remote Desktop service or its login password in a Windows VM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp) \u003cbr\u003e\u003cbr\u003e For resetting root password, see [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the name of the administrator account. \u003cbr\u003e\u003cbr\u003e This property cannot be updated after the VM is created. \u003cbr\u003e\u003cbr\u003e **Windows-only restriction:** Cannot end in \".\" \u003cbr\u003e\u003cbr\u003e **Disallowed values:** \"administrator\", \"admin\", \"user\", \"user1\", \"test\", \"user2\", \"test1\", \"user3\", \"admin1\", \"1\", \"123\", \"a\", \"actuser\", \"adm\", \"admin2\", \"aspnet\", \"backup\", \"console\", \"david\", \"guest\", \"john\", \"owner\", \"root\", \"server\", \"sql\", \"support\", \"support_388945a0\", \"sys\", \"test2\", \"test3\", \"user4\", \"user5\". \u003cbr\u003e\u003cbr\u003e **Minimum-length (Linux):** 1  character \u003cbr\u003e\u003cbr\u003e **Max-length (Linux):** 64 characters \u003cbr\u003e\u003cbr\u003e **Max-length (Windows):** 20 characters.",
       "jsonName": "adminUsername",
       "name": "AdminUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies Windows operating system settings on the virtual machine.",
       "jsonName": "osConfiguration",
       "name": "OsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSConfiguration"
+        "nullable": false,
+        "referenceName": "OSConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

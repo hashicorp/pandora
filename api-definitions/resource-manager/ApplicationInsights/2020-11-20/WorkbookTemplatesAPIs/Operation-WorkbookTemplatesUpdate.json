@@ -1,6 +1,7 @@
 {
   "name": "WorkbookTemplatesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "WorkbookTemplateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkbookTemplateUpdateParameters"
+    "nullable": false,
+    "referenceName": "WorkbookTemplateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkbookTemplate"
+    "nullable": false,
+    "referenceName": "WorkbookTemplate",
+    "referenceNameIsCommonType": null
   }
 }

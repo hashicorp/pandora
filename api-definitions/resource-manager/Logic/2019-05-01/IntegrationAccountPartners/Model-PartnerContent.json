@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The B2B partner content.",
       "jsonName": "b2b",
       "name": "B2b",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "B2BPartnerContent"
+        "nullable": false,
+        "referenceName": "B2BPartnerContent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

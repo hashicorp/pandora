@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details of the table response",
       "jsonName": "renderingProperties",
       "name": "RenderingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticRendering"
+        "nullable": false,
+        "referenceName": "DiagnosticRendering",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Table response",
       "jsonName": "table",
       "name": "Table",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticDataTableResponseObject"
+        "nullable": false,
+        "referenceName": "DiagnosticDataTableResponseObject",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

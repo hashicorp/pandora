@@ -1,6 +1,7 @@
 {
   "name": "AssetsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "AssetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Asset"
+    "nullable": false,
+    "referenceName": "Asset",
+    "referenceNameIsCommonType": null
   }
 }

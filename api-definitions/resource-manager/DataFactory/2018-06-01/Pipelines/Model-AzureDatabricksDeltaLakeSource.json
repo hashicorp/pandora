@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Databricks Delta Lake export settings.",
       "jsonName": "exportSettings",
       "name": "ExportSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDatabricksDeltaLakeExportCommand"
+        "nullable": false,
+        "referenceName": "AzureDatabricksDeltaLakeExportCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Azure Databricks Delta Lake Sql query. Type: string (or Expression with resultType string).",
       "jsonName": "query",
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySource",
   "discriminatedTypeValue": "AzureDatabricksDeltaLakeSource",
   "typeHintIn": "Type"

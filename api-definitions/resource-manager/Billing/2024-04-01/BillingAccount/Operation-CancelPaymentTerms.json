@@ -1,6 +1,7 @@
 {
   "name": "CancelPaymentTerms",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "DateTime",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingAccount"
+    "nullable": false,
+    "referenceName": "BillingAccount",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/cancelPaymentTerms"
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How ingress should communicate with this app backend service.",
       "jsonName": "backendProtocol",
       "name": "BackendProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendProtocol"
+        "nullable": false,
+        "referenceName": "BackendProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client-Certification Authentication.",
       "jsonName": "clientAuth",
       "name": "ClientAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressSettingsClientAuth"
+        "nullable": false,
+        "referenceName": "IngressSettingsClientAuth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress read time out in seconds.",
       "jsonName": "readTimeoutInSeconds",
       "name": "ReadTimeoutInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Ingress send time out in seconds.",
       "jsonName": "sendTimeoutInSeconds",
       "name": "SendTimeoutInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the affinity, set this to Cookie to enable session affinity.",
       "jsonName": "sessionAffinity",
       "name": "SessionAffinity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionAffinity"
+        "nullable": false,
+        "referenceName": "SessionAffinity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,16 +83,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Time in seconds until the cookie expires.",
       "jsonName": "sessionCookieMaxAge",
       "name": "SessionCookieMaxAge",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

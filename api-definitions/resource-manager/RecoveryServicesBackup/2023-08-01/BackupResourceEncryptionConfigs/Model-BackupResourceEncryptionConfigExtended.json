@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Encryption At Rest Type",
       "jsonName": "encryptionAtRestType",
       "name": "EncryptionAtRestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionAtRestType"
+        "nullable": false,
+        "referenceName": "EncryptionAtRestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "InfrastructureEncryptionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureEncryptionState"
+        "nullable": false,
+        "referenceName": "InfrastructureEncryptionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault Key URI",
       "jsonName": "keyUri",
       "name": "KeyUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +54,9 @@
       "name": "LastUpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastUpdateStatus"
+        "nullable": false,
+        "referenceName": "LastUpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +65,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key Vault Subscription Id",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +81,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "bool to indicate whether to use system Assigned Identity or not",
       "jsonName": "useSystemAssignedIdentity",
       "name": "UseSystemAssignedIdentity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +97,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User Assigned Identity Id",
       "jsonName": "userAssignedIdentity",
       "name": "UserAssignedIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

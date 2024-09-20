@@ -1,6 +1,7 @@
 {
   "name": "QueueCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "QueueId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageQueue"
+    "nullable": false,
+    "referenceName": "StorageQueue",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageQueue"
+    "nullable": false,
+    "referenceName": "StorageQueue",
+    "referenceNameIsCommonType": null
   }
 }

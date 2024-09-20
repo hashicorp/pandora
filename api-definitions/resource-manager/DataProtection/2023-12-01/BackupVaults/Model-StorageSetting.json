@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the type of the datastore.",
       "jsonName": "datastoreType",
       "name": "DatastoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSettingStoreTypes"
+        "nullable": false,
+        "referenceName": "StorageSettingStoreTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets the type.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSettingTypes"
+        "nullable": false,
+        "referenceName": "StorageSettingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

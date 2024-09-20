@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiSchemaCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -23,10 +24,14 @@
   "resourceIdName": "WorkspaceApiSchemaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SchemaContract"
+    "nullable": false,
+    "referenceName": "SchemaContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SchemaContract"
+    "nullable": false,
+    "referenceName": "SchemaContract",
+    "referenceNameIsCommonType": null
   }
 }

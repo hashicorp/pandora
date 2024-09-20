@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The platform of this runtime version (possible values: \"Java\" or \".NET\").",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedRuntimePlatform"
+        "nullable": false,
+        "referenceName": "SupportedRuntimePlatform",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The raw value which could be passed to deployment CRUD operations.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedRuntimeValue"
+        "nullable": false,
+        "referenceName": "SupportedRuntimeValue",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The detailed version (major.minor) of the platform.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The end group actions.",
       "jsonName": "endGroupActions",
       "name": "EndGroupActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPlanAction"
+          "nullable": false,
+          "referenceName": "RecoveryPlanAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The group type.",
       "jsonName": "groupType",
       "name": "GroupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPlanGroupType"
+        "nullable": false,
+        "referenceName": "RecoveryPlanGroupType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected items.",
       "jsonName": "replicationProtectedItems",
       "name": "ReplicationProtectedItems",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPlanProtectedItem"
+          "nullable": false,
+          "referenceName": "RecoveryPlanProtectedItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The start group actions.",
       "jsonName": "startGroupActions",
       "name": "StartGroupActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPlanAction"
+          "nullable": false,
+          "referenceName": "RecoveryPlanAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,5 +83,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

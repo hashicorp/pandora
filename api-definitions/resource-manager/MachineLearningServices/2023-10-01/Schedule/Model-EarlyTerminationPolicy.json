@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of intervals by which to delay the first evaluation.",
       "jsonName": "delayEvaluation",
       "name": "DelayEvaluation",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Interval (number of runs) between policy evaluations.",
       "jsonName": "evaluationInterval",
       "name": "EvaluationInterval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
+      "description": "[Required] Name of policy configuration",
       "jsonName": "policyType",
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicyType"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +50,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "PolicyType"
 }

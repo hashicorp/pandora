@@ -1,6 +1,7 @@
 {
   "name": "VolumesBreakReplication",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VolumeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BreakReplicationRequest"
+    "nullable": false,
+    "referenceName": "BreakReplicationRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/breakReplication"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListHybridConnections",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridConnection"
+    "nullable": false,
+    "referenceName": "HybridConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hybridConnectionRelays"
 }

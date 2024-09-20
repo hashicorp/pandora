@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifications of pull based data sources",
       "jsonName": "dataImports",
       "name": "DataImports",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataImportSources"
+        "nullable": false,
+        "referenceName": "DataImportSources",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Azure VM extension data source configurations.",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExtensionDataSource"
+          "nullable": false,
+          "referenceName": "ExtensionDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of IIS logs source configurations.",
       "jsonName": "iisLogs",
       "name": "IisLogs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IisLogsDataSource"
+          "nullable": false,
+          "referenceName": "IisLogsDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,14 +63,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Log files source configurations.",
       "jsonName": "logFiles",
       "name": "LogFiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LogFilesDataSource"
+          "nullable": false,
+          "referenceName": "LogFilesDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,14 +85,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of performance counter data source configurations.",
       "jsonName": "performanceCounters",
       "name": "PerformanceCounters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PerfCounterDataSource"
+          "nullable": false,
+          "referenceName": "PerfCounterDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,14 +107,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of platform telemetry configurations",
       "jsonName": "platformTelemetry",
       "name": "PlatformTelemetry",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PlatformTelemetryDataSource"
+          "nullable": false,
+          "referenceName": "PlatformTelemetryDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,14 +129,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Prometheus forwarder data source configurations.",
       "jsonName": "prometheusForwarder",
       "name": "PrometheusForwarder",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrometheusForwarderDataSource"
+          "nullable": false,
+          "referenceName": "PrometheusForwarderDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -118,14 +151,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Syslog data source configurations.",
       "jsonName": "syslog",
       "name": "Syslog",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SyslogDataSource"
+          "nullable": false,
+          "referenceName": "SyslogDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,14 +173,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Windows Event Log data source configurations.",
       "jsonName": "windowsEventLogs",
       "name": "WindowsEventLogs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WindowsEventLogDataSource"
+          "nullable": false,
+          "referenceName": "WindowsEventLogDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -152,14 +195,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of Windows Firewall logs source configurations.",
       "jsonName": "windowsFirewallLogs",
       "name": "WindowsFirewallLogs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WindowsFirewallLogsDataSource"
+          "nullable": false,
+          "referenceName": "WindowsFirewallLogsDataSource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -167,5 +215,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

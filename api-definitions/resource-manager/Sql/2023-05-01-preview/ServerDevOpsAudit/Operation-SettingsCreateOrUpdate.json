@@ -1,6 +1,7 @@
 {
   "name": "SettingsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerDevOpsAuditingSettings"
+    "nullable": false,
+    "referenceName": "ServerDevOpsAuditingSettings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerDevOpsAuditingSettings"
+    "nullable": false,
+    "referenceName": "ServerDevOpsAuditingSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/devOpsAuditingSettings/default"
 }

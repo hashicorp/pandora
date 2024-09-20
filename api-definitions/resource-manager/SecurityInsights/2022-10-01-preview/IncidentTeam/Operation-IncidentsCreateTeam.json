@@ -1,6 +1,7 @@
 {
   "name": "IncidentsCreateTeam",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "IncidentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TeamProperties"
+    "nullable": false,
+    "referenceName": "TeamProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TeamInformation"
+    "nullable": false,
+    "referenceName": "TeamInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createTeam"
 }

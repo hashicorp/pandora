@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ConsumerGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConsumerGroup"
+    "nullable": false,
+    "referenceName": "ConsumerGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConsumerGroup"
+    "nullable": false,
+    "referenceName": "ConsumerGroup",
+    "referenceNameIsCommonType": null
   }
 }

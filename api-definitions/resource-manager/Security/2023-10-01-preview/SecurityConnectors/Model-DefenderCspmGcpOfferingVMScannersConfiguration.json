@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VM tags that indicates that VM should not be scanned",
       "jsonName": "exclusionTags",
       "name": "ExclusionTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,16 +25,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The scanning mode for the VM scan.",
       "jsonName": "scanningMode",
       "name": "ScanningMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScanningMode"
+        "nullable": false,
+        "referenceName": "ScanningMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

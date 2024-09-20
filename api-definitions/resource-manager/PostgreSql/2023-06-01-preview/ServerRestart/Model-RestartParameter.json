@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Failover mode.",
       "jsonName": "failoverMode",
       "name": "FailoverMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverMode"
+        "nullable": false,
+        "referenceName": "FailoverMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to restart the server with failover.",
       "jsonName": "restartWithFailover",
       "name": "RestartWithFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

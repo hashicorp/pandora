@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of metric criteria for this 'all of' operation. ",
       "jsonName": "allOf",
       "name": "AllOf",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricCriteria"
+          "nullable": false,
+          "referenceName": "MetricCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +24,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MetricAlertCriteria",
   "discriminatedTypeValue": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
   "typeHintIn": "OdataType"

@@ -1,6 +1,7 @@
 {
   "name": "ListByHybridRunbookWorkerGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -22,7 +23,9 @@
   "resourceIdName": "HybridRunbookWorkerGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridRunbookWorker"
+    "nullable": false,
+    "referenceName": "HybridRunbookWorker",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hybridRunbookWorkers"
 }

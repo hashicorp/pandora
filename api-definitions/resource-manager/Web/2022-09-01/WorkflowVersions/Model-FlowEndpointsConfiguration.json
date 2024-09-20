@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The connector endpoints.",
       "jsonName": "connector",
       "name": "Connector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowEndpoints"
+        "nullable": false,
+        "referenceName": "FlowEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The workflow endpoints.",
       "jsonName": "workflow",
       "name": "Workflow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowEndpoints"
+        "nullable": false,
+        "referenceName": "FlowEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

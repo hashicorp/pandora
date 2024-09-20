@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Permission description text",
       "jsonName": "permissionsDisplayText",
       "name": "PermissionsDisplayText",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provider name",
       "jsonName": "provider",
       "name": "Provider",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProviderName"
+        "nullable": false,
+        "referenceName": "ProviderName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Permission provider display name",
       "jsonName": "providerDisplayName",
       "name": "ProviderDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Required permissions for the connector",
       "jsonName": "requiredPermissions",
       "name": "RequiredPermissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequiredPermissions"
+        "nullable": false,
+        "referenceName": "RequiredPermissions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,16 +67,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Permission provider scope",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PermissionProviderScope"
+        "nullable": false,
+        "referenceName": "PermissionProviderScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

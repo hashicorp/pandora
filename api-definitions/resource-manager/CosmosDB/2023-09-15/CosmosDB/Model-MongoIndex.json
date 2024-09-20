@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cosmos DB MongoDB collection index keys",
       "jsonName": "key",
       "name": "Key",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MongoIndexKeys"
+        "nullable": false,
+        "referenceName": "MongoIndexKeys",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cosmos DB MongoDB collection index key options",
       "jsonName": "options",
       "name": "Options",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MongoIndexOptions"
+        "nullable": false,
+        "referenceName": "MongoIndexOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Order"
+    "nullable": false,
+    "referenceName": "Order",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Order"
+    "nullable": false,
+    "referenceName": "Order",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/orders/default"
 }

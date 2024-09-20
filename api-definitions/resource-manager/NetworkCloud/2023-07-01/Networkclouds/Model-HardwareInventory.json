@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Freeform data extracted from the environment about this machine. This information varies depending on the specific hardware and configuration.",
       "jsonName": "additionalHostInformation",
       "name": "AdditionalHostInformation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of network interfaces and associated details for the bare metal machine.",
       "jsonName": "interfaces",
       "name": "Interfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HardwareInventoryNetworkInterface"
+          "nullable": false,
+          "referenceName": "HardwareInventoryNetworkInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Field Deprecated. Will be removed in an upcoming version. The list of network interface cards and associated details for the bare metal machine.",
       "jsonName": "nics",
       "name": "Nics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Nic"
+          "nullable": false,
+          "referenceName": "Nic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +61,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

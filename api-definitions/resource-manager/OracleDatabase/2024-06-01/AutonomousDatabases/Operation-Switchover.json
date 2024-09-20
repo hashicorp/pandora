@@ -1,6 +1,7 @@
 {
   "name": "Switchover",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "AutonomousDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PeerDbDetails"
+    "nullable": false,
+    "referenceName": "PeerDbDetails",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AutonomousDatabase"
+    "nullable": false,
+    "referenceName": "AutonomousDatabase",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/switchover"
 }

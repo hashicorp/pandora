@@ -1,6 +1,7 @@
 {
   "name": "Flush",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FlushParameters"
+    "nullable": false,
+    "referenceName": "FlushParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/flush"
 }

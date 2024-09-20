@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DH Group used in IKE Phase 1 for initial SA.",
       "jsonName": "dhGroup",
       "name": "DhGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DhGroup"
+        "nullable": false,
+        "referenceName": "DhGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec encryption algorithm (IKE phase 1).",
       "jsonName": "ipsecEncryption",
       "name": "IPsecEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPsecEncryption"
+        "nullable": false,
+        "referenceName": "IPsecEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec integrity algorithm (IKE phase 1).",
       "jsonName": "ipsecIntegrity",
       "name": "IPsecIntegrity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPsecIntegrity"
+        "nullable": false,
+        "referenceName": "IPsecIntegrity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IKE encryption algorithm (IKE phase 2).",
       "jsonName": "ikeEncryption",
       "name": "IkeEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IkeEncryption"
+        "nullable": false,
+        "referenceName": "IkeEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IKE integrity algorithm (IKE phase 2).",
       "jsonName": "ikeIntegrity",
       "name": "IkeIntegrity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IkeIntegrity"
+        "nullable": false,
+        "referenceName": "IkeIntegrity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Pfs Group used in IKE Phase 2 for new child SA.",
       "jsonName": "pfsGroup",
       "name": "PfsGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PfsGroup"
+        "nullable": false,
+        "referenceName": "PfsGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for P2S client..",
       "jsonName": "saDataSizeKilobytes",
       "name": "SaDataSizeKilobytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -94,16 +115,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for P2S client.",
       "jsonName": "saLifeTimeSeconds",
       "name": "SaLifeTimeSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

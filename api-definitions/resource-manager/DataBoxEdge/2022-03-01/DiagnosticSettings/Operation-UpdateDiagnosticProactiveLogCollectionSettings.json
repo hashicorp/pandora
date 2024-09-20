@@ -1,6 +1,7 @@
 {
   "name": "UpdateDiagnosticProactiveLogCollectionSettings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticProactiveLogCollectionSettings"
+    "nullable": false,
+    "referenceName": "DiagnosticProactiveLogCollectionSettings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiagnosticProactiveLogCollectionSettings"
+    "nullable": false,
+    "referenceName": "DiagnosticProactiveLogCollectionSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/diagnosticProactiveLogCollectionSettings/default"
 }

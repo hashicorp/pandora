@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "InstallMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatadogInstallMethod"
+        "nullable": false,
+        "referenceName": "DatadogInstallMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +38,15 @@
       "name": "LogsAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatadogLogsAgent"
+        "nullable": false,
+        "referenceName": "DatadogLogsAgent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

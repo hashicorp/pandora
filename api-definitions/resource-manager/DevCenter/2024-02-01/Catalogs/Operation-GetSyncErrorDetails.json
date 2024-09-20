@@ -1,6 +1,7 @@
 {
   "name": "GetSyncErrorDetails",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DevCenterCatalogId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncErrorDetails"
+    "nullable": false,
+    "referenceName": "SyncErrorDetails",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getSyncErrorDetails"
 }

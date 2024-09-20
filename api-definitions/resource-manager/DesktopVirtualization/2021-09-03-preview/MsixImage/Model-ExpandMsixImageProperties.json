@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User friendly Name to be displayed in the portal. ",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VHD/CIM image path on Network Share.",
       "jsonName": "imagePath",
       "name": "ImagePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Make this version of the package the active one across the hostpool. ",
       "jsonName": "isActive",
       "name": "IsActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies how to register Package in feed.",
       "jsonName": "isRegularRegistration",
       "name": "IsRegularRegistration",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +68,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Date Package was last updated, found in the appxmanifest.xml. ",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Alias of MSIX Package.",
       "jsonName": "packageAlias",
       "name": "PackageAlias",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,14 +100,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of package applications. ",
       "jsonName": "packageApplications",
       "name": "PackageApplications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MsixPackageApplications"
+          "nullable": false,
+          "referenceName": "MsixPackageApplications",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,14 +122,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of package dependencies. ",
       "jsonName": "packageDependencies",
       "name": "PackageDependencies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MsixPackageDependencies"
+          "nullable": false,
+          "referenceName": "MsixPackageDependencies",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -116,11 +144,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. ",
       "jsonName": "packageFamilyName",
       "name": "PackageFamilyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,11 +160,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package Full Name from appxmanifest.xml. ",
       "jsonName": "packageFullName",
       "name": "PackageFullName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,11 +176,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package Name from appxmanifest.xml. ",
       "jsonName": "packageName",
       "name": "PackageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,11 +192,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Relative Path to the package inside the image. ",
       "jsonName": "packageRelativePath",
       "name": "PackageRelativePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,16 +208,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Package Version found in the appxmanifest.xml. ",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

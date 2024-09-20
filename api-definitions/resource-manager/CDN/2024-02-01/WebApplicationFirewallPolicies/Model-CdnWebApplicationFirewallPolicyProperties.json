@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes custom rules inside the policy.",
       "jsonName": "customRules",
       "name": "CustomRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomRuleList"
+        "nullable": false,
+        "referenceName": "CustomRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes Azure CDN endpoints associated with this Web Application Firewall policy.",
       "jsonName": "endpointLinks",
       "name": "EndpointLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CdnEndpoint"
+          "nullable": false,
+          "referenceName": "CdnEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key-Value pair representing additional properties for Web Application Firewall policy.",
       "jsonName": "extendedProperties",
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes managed rules inside the policy.",
       "jsonName": "managedRules",
       "name": "ManagedRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleSetList"
+        "nullable": false,
+        "referenceName": "ManagedRuleSetList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes  policySettings for policy",
       "jsonName": "policySettings",
       "name": "PolicySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettings"
+        "nullable": false,
+        "referenceName": "PolicySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the WebApplicationFirewallPolicy.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Describes rate limit rules inside the policy.",
       "jsonName": "rateLimitRules",
       "name": "RateLimitRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RateLimitRuleList"
+        "nullable": false,
+        "referenceName": "RateLimitRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,12 +131,15 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyResourceState"
+        "nullable": false,
+        "referenceName": "PolicyResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

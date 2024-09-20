@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "These transformers shall not be used in featurization.",
       "jsonName": "blockedTransformers",
       "name": "BlockedTransformers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BlockedTransformers"
+          "nullable": false,
+          "referenceName": "BlockedTransformers",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dictionary of column name and its type (int, float, string, datetime etc).",
       "jsonName": "columnNameAndTypes",
       "name": "ColumnNameAndTypes",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Dataset language, useful for the text data.",
       "jsonName": "datasetLanguage",
       "name": "DatasetLanguage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether to use Dnn based featurizers for data featurization.",
       "jsonName": "enableDnnFeaturization",
       "name": "EnableDnnFeaturization",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.\r\nIf 'Off' is selected then no featurization is done.\r\nIf 'Custom' is selected then user can specify additional inputs to customize how featurization is done.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeaturizationMode"
+        "nullable": false,
+        "referenceName": "FeaturizationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,17 +95,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User can specify additional transformers to be used along with the columns to which it would be applied and parameters for the transformer constructor.",
       "jsonName": "transformerParams",
       "name": "TransformerParams",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "ColumnTransformer"
+            "nullable": false,
+            "referenceName": "ColumnTransformer",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -95,5 +121,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ApplicationProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationProfile"
+        "nullable": false,
+        "referenceName": "ApplicationProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BillingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfile"
+        "nullable": false,
+        "referenceName": "BillingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CapacityReservation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapacityReservationProfile"
+        "nullable": false,
+        "referenceName": "CapacityReservationProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DiagnosticsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsProfile"
+        "nullable": false,
+        "referenceName": "DiagnosticsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EvictionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineEvictionPolicyTypes"
+        "nullable": false,
+        "referenceName": "VirtualMachineEvictionPolicyTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +78,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies a collection of settings for extensions installed on virtual machines in the scale set.",
       "jsonName": "extensionProfile",
       "name": "ExtensionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetExtensionProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetExtensionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +94,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the hardware profile related details of a scale set. Minimum api-version: 2021-11-01.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetHardwareProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetHardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +110,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +126,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies properties of the network interfaces of the virtual machines in the scale set.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +142,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the operating system settings for the virtual machines in the scale set.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetOSProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetOSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +162,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePriorityTypes"
+        "nullable": false,
+        "referenceName": "VirtualMachinePriorityTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +177,9 @@
       "name": "ScheduledEventsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsProfile"
+        "nullable": false,
+        "referenceName": "ScheduledEventsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,11 +188,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01",
       "jsonName": "securityPostureReference",
       "name": "SecurityPostureReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityPostureReference"
+        "nullable": false,
+        "referenceName": "SecurityPostureReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +208,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01",
       "jsonName": "serviceArtifactReference",
       "name": "ServiceArtifactReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceArtifactReference"
+        "nullable": false,
+        "referenceName": "ServiceArtifactReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the storage settings for the virtual machine disks.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetStorageProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -212,11 +252,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Specifies the time in which this VM profile for the Virtual Machine Scale Set was created. This value will be added to VMSS Flex VM tags when creating/updating the VMSS VM Profile. Minimum API version for this property is 2023-09-01.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,16 +268,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of Channel Integrity Key stored in the Client Key Vault",
       "jsonName": "channelIntegrityKeyName",
       "name": "ChannelIntegrityKeyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of Channel Integrity Key stored in the Client Key Vault",
       "jsonName": "channelIntegrityKeyVersion",
       "name": "ChannelIntegrityKeyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Key Vault ARM Id for client secrets",
       "jsonName": "clientSecretStoreId",
       "name": "ClientSecretStoreId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The url to access the Client Key Vault",
       "jsonName": "clientSecretStoreUrl",
       "name": "ClientSecretStoreUrl",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Container for cloud witness in the storage account.",
       "jsonName": "cloudWitnessContainerName",
       "name": "CloudWitnessContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Cloud Witness Storage account name.",
       "jsonName": "cloudWitnessStorageAccountName",
       "name": "CloudWitnessStorageAccountName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Azure service endpoint of the cloud witness storage account.",
       "jsonName": "cloudWitnessStorageEndpoint",
       "name": "CloudWitnessStorageEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cluster Witness Type",
       "jsonName": "clusterWitnessType",
       "name": "ClusterWitnessType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterWitnessType"
+        "nullable": false,
+        "referenceName": "ClusterWitnessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,14 +131,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Device secrets, will be returned only with ODataFilter $expand=deviceSecrets",
       "jsonName": "deviceSecrets",
       "name": "DeviceSecrets",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The public part of the encryption certificate. Client uses this to encrypt any secret.",
       "jsonName": "encryptionKey",
       "name": "EncryptionKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The digital signature of encrypted certificate.",
       "jsonName": "encryptionKeyThumbprint",
       "name": "EncryptionKeyThumbprint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The witness location of file share.",
       "jsonName": "fileShareWitnessLocation",
       "name": "FileShareWitnessLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The username of file share.",
       "jsonName": "fileShareWitnessUsername",
       "name": "FileShareWitnessUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Key vault sync status",
       "jsonName": "keyVaultSyncStatus",
       "name": "KeyVaultSyncStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultSyncStatus"
+        "nullable": false,
+        "referenceName": "KeyVaultSyncStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,16 +233,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Resource ID of the Resource.",
       "jsonName": "resourceKey",
       "name": "ResourceKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

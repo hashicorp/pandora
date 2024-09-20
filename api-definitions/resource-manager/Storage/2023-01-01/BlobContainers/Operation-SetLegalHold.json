@@ -1,6 +1,7 @@
 {
   "name": "SetLegalHold",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "StorageContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LegalHold"
+    "nullable": false,
+    "referenceName": "LegalHold",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LegalHold"
+    "nullable": false,
+    "referenceName": "LegalHold",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/setLegalHold"
 }

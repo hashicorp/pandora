@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The input watermark mode.",
       "jsonName": "watermarkMode",
       "name": "WatermarkMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputWatermarkMode"
+        "nullable": false,
+        "referenceName": "InputWatermarkMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

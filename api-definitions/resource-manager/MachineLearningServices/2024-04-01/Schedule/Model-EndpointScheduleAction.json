@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Required] Defines Schedule action definition details.\r\n\u003csee href=\"TBD\" /\u003e",
       "jsonName": "endpointInvocationDefinition",
       "name": "EndpointInvocationDefinition",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +18,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ScheduleActionBase",
   "discriminatedTypeValue": "InvokeBatchEndpoint",
   "typeHintIn": "ActionType"

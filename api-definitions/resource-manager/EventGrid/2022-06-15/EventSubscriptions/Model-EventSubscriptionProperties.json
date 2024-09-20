@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.",
       "jsonName": "deadLetterDestination",
       "name": "DeadLetterDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterDestination"
+        "nullable": false,
+        "referenceName": "DeadLetterDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.",
       "jsonName": "deadLetterWithResourceIdentity",
       "name": "DeadLetterWithResourceIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterWithResourceIdentity"
+        "nullable": false,
+        "referenceName": "DeadLetterWithResourceIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.",
       "jsonName": "deliveryWithResourceIdentity",
       "name": "DeliveryWithResourceIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryWithResourceIdentity"
+        "nullable": false,
+        "referenceName": "DeliveryWithResourceIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.",
       "jsonName": "destination",
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionDestination"
+        "nullable": false,
+        "referenceName": "EventSubscriptionDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event delivery schema for the event subscription.",
       "jsonName": "eventDeliverySchema",
       "name": "EventDeliverySchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventDeliverySchema"
+        "nullable": false,
+        "referenceName": "EventDeliverySchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +84,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Expiration time of the event subscription.",
       "jsonName": "expirationTimeUtc",
       "name": "ExpirationTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,11 +100,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about the filter for the event subscription.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionFilter"
+        "nullable": false,
+        "referenceName": "EventSubscriptionFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,14 +116,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of user defined labels.",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -112,11 +138,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the event subscription.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionProvisioningState"
+        "nullable": false,
+        "referenceName": "EventSubscriptionProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,11 +154,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.",
       "jsonName": "retryPolicy",
       "name": "RetryPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetryPolicy"
+        "nullable": false,
+        "referenceName": "RetryPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,16 +170,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the topic of the event subscription.",
       "jsonName": "topic",
       "name": "Topic",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

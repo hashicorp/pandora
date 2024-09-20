@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The workflow scope repetition code.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The correlation properties.",
       "jsonName": "correlation",
       "name": "Correlation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunActionCorrelation"
+        "nullable": false,
+        "referenceName": "RunActionCorrelation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,11 +36,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The end time of the workflow scope repetition.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +56,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the inputs.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the link to inputs.",
       "jsonName": "inputsLink",
       "name": "InputsLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentLink"
+        "nullable": false,
+        "referenceName": "ContentLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +103,9 @@
       "name": "IterationCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,11 +114,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the outputs.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,11 +130,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the link to outputs.",
       "jsonName": "outputsLink",
       "name": "OutputsLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentLink"
+        "nullable": false,
+        "referenceName": "ContentLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,14 +146,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The repetition indexes.",
       "jsonName": "repetitionIndexes",
       "name": "RepetitionIndexes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RepetitionIndex"
+          "nullable": false,
+          "referenceName": "RepetitionIndex",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -138,14 +168,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the retry histories.",
       "jsonName": "retryHistory",
       "name": "RetryHistory",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RetryHistory"
+          "nullable": false,
+          "referenceName": "RetryHistory",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -156,11 +191,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The start time of the workflow scope repetition.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the workflow scope repetition.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowStatus"
+        "nullable": false,
+        "referenceName": "WorkflowStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the tracked properties.",
       "jsonName": "trackedProperties",
       "name": "TrackedProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -195,16 +239,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Gets the tracking id.",
       "jsonName": "trackingId",
       "name": "TrackingId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "ImportVirtualMachine",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "LabId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ImportLabVirtualMachineRequest"
+    "nullable": false,
+    "referenceName": "ImportLabVirtualMachineRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/importVirtualMachine"
 }

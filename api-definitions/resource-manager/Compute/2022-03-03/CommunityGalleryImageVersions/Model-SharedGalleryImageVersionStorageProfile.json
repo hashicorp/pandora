@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A list of data disk images.",
       "jsonName": "dataDiskImages",
       "name": "DataDiskImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharedGalleryDataDiskImage"
+          "nullable": false,
+          "referenceName": "SharedGalleryDataDiskImage",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +29,15 @@
       "name": "OsDiskImage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SharedGalleryDiskImage"
+        "nullable": false,
+        "referenceName": "SharedGalleryDiskImage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetRuleDetailsByHostingEnvironment",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -31,6 +32,8 @@
   "resourceIdName": "HostingEnvironmentRecommendationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecommendationRule"
+    "nullable": false,
+    "referenceName": "RecommendationRule",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "QueriesSearch",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,11 +33,15 @@
   "resourceIdName": "QueryPackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LogAnalyticsQueryPackQuerySearchProperties"
+    "nullable": false,
+    "referenceName": "LogAnalyticsQueryPackQuerySearchProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LogAnalyticsQueryPackQuery"
+    "nullable": false,
+    "referenceName": "LogAnalyticsQueryPackQuery",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/queries/search"
 }

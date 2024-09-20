@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Client authentication configuration of the application gateway resource.",
       "jsonName": "clientAuthConfiguration",
       "name": "ClientAuthConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayClientAuthConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayClientAuthConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +23,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SSL policy of the application gateway resource.",
       "jsonName": "sslPolicy",
       "name": "SslPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +50,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Array of references to application gateway trusted client certificates.",
       "jsonName": "trustedClientCertificates",
       "name": "TrustedClientCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +70,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

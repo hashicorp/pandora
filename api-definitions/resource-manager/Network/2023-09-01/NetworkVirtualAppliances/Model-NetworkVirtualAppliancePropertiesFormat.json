@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details required for Additional Network Interface.",
       "jsonName": "additionalNics",
       "name": "AdditionalNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplianceAdditionalNicProperties"
+          "nullable": false,
+          "referenceName": "VirtualApplianceAdditionalNicProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Address Prefix.",
       "jsonName": "addressPrefix",
       "name": "AddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "BootStrapConfigurationBlobs storage URLs.",
       "jsonName": "bootStrapConfigurationBlobs",
       "name": "BootStrapConfigurationBlobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CloudInitConfiguration string in plain text.",
       "jsonName": "cloudInitConfiguration",
       "name": "CloudInitConfiguration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,14 +79,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CloudInitConfigurationBlob storage URLs.",
       "jsonName": "cloudInitConfigurationBlobs",
       "name": "CloudInitConfigurationBlobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,11 +101,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The delegation for the Virtual Appliance",
       "jsonName": "delegation",
       "name": "Delegation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DelegationProperties"
+        "nullable": false,
+        "referenceName": "DelegationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,11 +117,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The deployment type. PartnerManaged for the SaaS NVA",
       "jsonName": "deploymentType",
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,14 +133,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of references to InboundSecurityRules.",
       "jsonName": "inboundSecurityRules",
       "name": "InboundSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,14 +155,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Resource Uri of Public IPs for Internet Ingress Scenario.",
       "jsonName": "internetIngressPublicIps",
       "name": "InternetIngressPublicIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InternetIngressPublicIPsProperties"
+          "nullable": false,
+          "referenceName": "InternetIngressPublicIPsProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,11 +177,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network Virtual Appliance SKU.",
       "jsonName": "nvaSku",
       "name": "NvaSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualApplianceSkuProperties"
+        "nullable": false,
+        "referenceName": "VirtualApplianceSkuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,11 +193,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The delegation for the Virtual Appliance",
       "jsonName": "partnerManagedResource",
       "name": "PartnerManagedResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerManagedResourceProperties"
+        "nullable": false,
+        "referenceName": "PartnerManagedResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,7 +213,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,11 +224,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Public key for SSH login.",
       "jsonName": "sshPublicKey",
       "name": "SshPublicKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,11 +240,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.",
       "jsonName": "virtualApplianceAsn",
       "name": "VirtualApplianceAsn",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,14 +256,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of references to VirtualApplianceConnections.",
       "jsonName": "virtualApplianceConnections",
       "name": "VirtualApplianceConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -222,14 +278,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of Virtual Appliance Network Interfaces.",
       "jsonName": "virtualApplianceNics",
       "name": "VirtualApplianceNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplianceNicProperties"
+          "nullable": false,
+          "referenceName": "VirtualApplianceNicProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -239,14 +300,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of references to VirtualApplianceSite.",
       "jsonName": "virtualApplianceSites",
       "name": "VirtualApplianceSites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -260,12 +326,15 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

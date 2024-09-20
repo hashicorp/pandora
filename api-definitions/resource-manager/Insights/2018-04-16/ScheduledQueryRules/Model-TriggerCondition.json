@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Trigger condition for metric query rule",
       "jsonName": "metricTrigger",
       "name": "MetricTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogMetricTrigger"
+        "nullable": false,
+        "referenceName": "LogMetricTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Result or count threshold based on which rule should be triggered.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Evaluation operation for rule - 'GreaterThan' or 'LessThan.",
       "jsonName": "thresholdOperator",
       "name": "ThresholdOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConditionalOperator"
+        "nullable": false,
+        "referenceName": "ConditionalOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the indexing policy is automatic",
       "jsonName": "automatic",
       "name": "Automatic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,17 +19,24 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of composite path list",
       "jsonName": "compositeIndexes",
       "name": "CompositeIndexes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "CompositePath"
+            "nullable": false,
+            "referenceName": "CompositePath",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -37,14 +47,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of paths to exclude from indexing",
       "jsonName": "excludedPaths",
       "name": "ExcludedPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExcludedPath"
+          "nullable": false,
+          "referenceName": "ExcludedPath",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,14 +69,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of paths to include in the indexing",
       "jsonName": "includedPaths",
       "name": "IncludedPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncludedPath"
+          "nullable": false,
+          "referenceName": "IncludedPath",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,11 +91,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the indexing mode.",
       "jsonName": "indexingMode",
       "name": "IndexingMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndexingMode"
+        "nullable": false,
+        "referenceName": "IndexingMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,14 +107,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of spatial specifics",
       "jsonName": "spatialIndexes",
       "name": "SpatialIndexes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SpatialSpec"
+          "nullable": false,
+          "referenceName": "SpatialSpec",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,5 +127,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

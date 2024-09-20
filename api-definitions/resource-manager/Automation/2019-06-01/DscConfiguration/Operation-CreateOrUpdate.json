@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DscConfigurationCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "DscConfigurationCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DscConfiguration"
+    "nullable": false,
+    "referenceName": "DscConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

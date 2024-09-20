@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "VariableId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VariableUpdateParameters"
+    "nullable": false,
+    "referenceName": "VariableUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Variable"
+    "nullable": false,
+    "referenceName": "Variable",
+    "referenceNameIsCommonType": null
   }
 }

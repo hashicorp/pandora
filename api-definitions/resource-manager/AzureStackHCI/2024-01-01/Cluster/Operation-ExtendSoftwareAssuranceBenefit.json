@@ -1,6 +1,7 @@
 {
   "name": "ExtendSoftwareAssuranceBenefit",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SoftwareAssuranceChangeRequest"
+    "nullable": false,
+    "referenceName": "SoftwareAssuranceChangeRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Cluster"
+    "nullable": false,
+    "referenceName": "Cluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extendSoftwareAssuranceBenefit"
 }

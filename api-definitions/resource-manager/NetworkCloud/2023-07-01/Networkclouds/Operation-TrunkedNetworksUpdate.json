@@ -1,6 +1,7 @@
 {
   "name": "TrunkedNetworksUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "TrunkedNetworkId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TrunkedNetworkPatchParameters"
+    "nullable": false,
+    "referenceName": "TrunkedNetworkPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TrunkedNetwork"
+    "nullable": false,
+    "referenceName": "TrunkedNetwork",
+    "referenceNameIsCommonType": null
   }
 }

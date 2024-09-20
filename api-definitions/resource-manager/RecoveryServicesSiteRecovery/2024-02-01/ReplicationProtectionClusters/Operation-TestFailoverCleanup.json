@@ -1,6 +1,7 @@
 {
   "name": "TestFailoverCleanup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationProtectionClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterTestFailoverCleanupInput"
+    "nullable": false,
+    "referenceName": "ClusterTestFailoverCleanupInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplicationProtectionCluster"
+    "nullable": false,
+    "referenceName": "ReplicationProtectionCluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/testFailoverCleanup"
 }

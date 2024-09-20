@@ -1,6 +1,7 @@
 {
   "name": "DomainEventSubscriptionsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DomainEventSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EventSubscriptionUpdateParameters"
+    "nullable": false,
+    "referenceName": "EventSubscriptionUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSubscription"
+    "nullable": false,
+    "referenceName": "EventSubscription",
+    "referenceNameIsCommonType": null
   }
 }

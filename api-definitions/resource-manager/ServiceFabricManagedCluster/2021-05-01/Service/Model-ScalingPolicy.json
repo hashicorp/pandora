@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the mechanism associated with this scaling policy",
       "jsonName": "scalingMechanism",
       "name": "ScalingMechanism",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScalingMechanism"
+        "nullable": false,
+        "referenceName": "ScalingMechanism",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the trigger associated with this scaling policy.",
       "jsonName": "scalingTrigger",
       "name": "ScalingTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScalingTrigger"
+        "nullable": false,
+        "referenceName": "ScalingTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "CpuUsage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerCPUUsage"
+        "nullable": false,
+        "referenceName": "ContainerCPUUsage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OnlineCPUCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SystemCPUUsage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ThrottlingData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerThrottlingData"
+        "nullable": false,
+        "referenceName": "ContainerThrottlingData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

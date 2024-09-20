@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is the aggregated replication status based on all the regional replication status flags.",
       "jsonName": "aggregatedState",
       "name": "AggregatedState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AggregatedReplicationState"
+        "nullable": false,
+        "referenceName": "AggregatedReplicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This is a summary of replication status for each region.",
       "jsonName": "summary",
       "name": "Summary",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegionalReplicationStatus"
+          "nullable": false,
+          "referenceName": "RegionalReplicationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +39,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

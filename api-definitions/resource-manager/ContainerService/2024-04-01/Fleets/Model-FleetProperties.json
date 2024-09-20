@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The FleetHubProfile configures the Fleet's hub.",
       "jsonName": "hubProfile",
       "name": "HubProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FleetHubProfile"
+        "nullable": false,
+        "referenceName": "FleetHubProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The status of the last operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FleetProvisioningState"
+        "nullable": false,
+        "referenceName": "FleetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

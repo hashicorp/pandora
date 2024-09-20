@@ -7,7 +7,9 @@
       "name": "ScheduledEventsAdditionalPublishingTargets",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsAdditionalPublishingTargets"
+        "nullable": false,
+        "referenceName": "ScheduledEventsAdditionalPublishingTargets",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "UserInitiatedReboot",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInitiatedReboot"
+        "nullable": false,
+        "referenceName": "UserInitiatedReboot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "UserInitiatedRedeploy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInitiatedRedeploy"
+        "nullable": false,
+        "referenceName": "UserInitiatedRedeploy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

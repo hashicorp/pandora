@@ -1,6 +1,7 @@
 {
   "name": "ListByRule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DataCollectionRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataCollectionRuleAssociationProxyOnlyResource"
+    "nullable": false,
+    "referenceName": "DataCollectionRuleAssociationProxyOnlyResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/associations"
 }

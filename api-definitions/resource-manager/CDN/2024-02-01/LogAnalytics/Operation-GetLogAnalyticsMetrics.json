@@ -1,6 +1,7 @@
 {
   "name": "GetLogAnalyticsMetrics",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -125,7 +126,9 @@
   "resourceIdName": "ProfileId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MetricsResponse"
+    "nullable": false,
+    "referenceName": "MetricsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getLogAnalyticsMetrics"
 }

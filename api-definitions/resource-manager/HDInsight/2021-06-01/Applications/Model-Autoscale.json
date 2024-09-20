@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters for load-based autoscale",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleCapacity"
+        "nullable": false,
+        "referenceName": "AutoscaleCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Parameters for schedule-based autoscale",
       "jsonName": "recurrence",
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleRecurrence"
+        "nullable": false,
+        "referenceName": "AutoscaleRecurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

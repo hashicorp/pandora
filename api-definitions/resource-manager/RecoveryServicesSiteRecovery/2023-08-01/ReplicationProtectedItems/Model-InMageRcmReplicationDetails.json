@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent version to which last agent upgrade was attempted.",
       "jsonName": "agentUpgradeAttemptToVersion",
       "name": "AgentUpgradeAttemptToVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent upgrade blocking error information.",
       "jsonName": "agentUpgradeBlockingErrorDetails",
       "name": "AgentUpgradeBlockingErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmAgentUpgradeBlockingErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmAgentUpgradeBlockingErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,11 +41,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent upgrade job Id.",
       "jsonName": "agentUpgradeJobId",
       "name": "AgentUpgradeJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The agent auto upgrade state.",
       "jsonName": "agentUpgradeState",
       "name": "AgentUpgradeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MobilityAgentUpgradeState"
+        "nullable": false,
+        "referenceName": "MobilityAgentUpgradeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The allocated memory in MB.",
       "jsonName": "allocatedMemoryInMB",
       "name": "AllocatedMemoryInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The discovered VM details.",
       "jsonName": "discoveredVmDetails",
       "name": "DiscoveredVMDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmDiscoveredProtectedVMDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmDiscoveredProtectedVMDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the discovered VM.",
       "jsonName": "discoveryType",
       "name": "DiscoveryType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ARM Id of the discovered VM.",
       "jsonName": "fabricDiscoveryMachineId",
       "name": "FabricDiscoveryMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The recovery point Id to which the VM was failed over.",
       "jsonName": "failoverRecoveryPointId",
       "name": "FailoverRecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The firmware type.",
       "jsonName": "firmwareType",
       "name": "FirmwareType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,11 +169,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.",
       "jsonName": "initialReplicationProcessedBytes",
       "name": "InitialReplicationProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,11 +185,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication progress health.",
       "jsonName": "initialReplicationProgressHealth",
       "name": "InitialReplicationProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,11 +201,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM.",
       "jsonName": "initialReplicationProgressPercentage",
       "name": "InitialReplicationProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,11 +217,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The initial replication transferred bytes from source VM to azure for all selected disks on source VM.",
       "jsonName": "initialReplicationTransferredBytes",
       "name": "InitialReplicationTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,11 +233,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine internal identifier.",
       "jsonName": "internalIdentifier",
       "name": "InternalIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,11 +249,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether agent registration was successful after failover.",
       "jsonName": "isAgentRegistrationSuccessfulAfterFailover",
       "name": "IsAgentRegistrationSuccessfulAfterFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,11 +265,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether last agent upgrade was successful or not.",
       "jsonName": "isLastUpgradeSuccessful",
       "name": "IsLastUpgradeSuccessful",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,14 +281,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last agent upgrade error information.",
       "jsonName": "lastAgentUpgradeErrorDetails",
       "name": "LastAgentUpgradeErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmLastAgentUpgradeErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmLastAgentUpgradeErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -245,11 +303,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last agent upgrade type.",
       "jsonName": "lastAgentUpgradeType",
       "name": "LastAgentUpgradeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,11 +319,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last recovery point Id.",
       "jsonName": "lastRecoveryPointId",
       "name": "LastRecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -272,11 +336,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last recovery point received time.",
       "jsonName": "lastRecoveryPointReceived",
       "name": "LastRecoveryPointReceived",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -286,11 +353,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "The last recovery point objective calculated time.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -299,11 +369,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The last recovery point objective value.",
       "jsonName": "lastRpoInSeconds",
       "name": "LastRpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -312,11 +385,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "License Type of the VM to be used.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -325,11 +401,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The mobility agent information.",
       "jsonName": "mobilityAgentDetails",
       "name": "MobilityAgentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmMobilityAgentDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmMobilityAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -338,11 +417,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The multi VM group name.",
       "jsonName": "multiVmGroupName",
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -351,11 +433,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of the OS on the VM.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -364,11 +449,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address of the primary network interface.",
       "jsonName": "primaryNicIpAddress",
       "name": "PrimaryNicIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -377,11 +465,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server Id.",
       "jsonName": "processServerId",
       "name": "ProcessServerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -390,11 +481,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The process server name.",
       "jsonName": "processServerName",
       "name": "ProcessServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -403,11 +497,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The processor core count.",
       "jsonName": "processorCoreCount",
       "name": "ProcessorCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -416,14 +513,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of protected disks.",
       "jsonName": "protectedDisks",
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -433,11 +535,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM.",
       "jsonName": "resyncProcessedBytes",
       "name": "ResyncProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -446,11 +551,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress health.",
       "jsonName": "resyncProgressHealth",
       "name": "ResyncProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -459,11 +567,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM.",
       "jsonName": "resyncProgressPercentage",
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -472,11 +583,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A value indicating whether resync is required.",
       "jsonName": "resyncRequired",
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -485,11 +599,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync state.",
       "jsonName": "resyncState",
       "name": "ResyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResyncState"
+        "nullable": false,
+        "referenceName": "ResyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -498,11 +615,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resync transferred bytes from source VM to azure for all selected disks on source VM.",
       "jsonName": "resyncTransferredBytes",
       "name": "ResyncTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -511,11 +631,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The run-as account Id.",
       "jsonName": "runAsAccountId",
       "name": "RunAsAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -524,11 +647,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The replication storage account ARM Id. This is applicable only for the blob based replication test hook.",
       "jsonName": "storageAccountId",
       "name": "StorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -537,11 +663,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability set Id.",
       "jsonName": "targetAvailabilitySetId",
       "name": "TargetAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -550,11 +679,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -563,11 +695,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target boot diagnostics storage account ARM Id.",
       "jsonName": "targetBootDiagnosticsStorageAccountId",
       "name": "TargetBootDiagnosticsStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -576,11 +711,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target generation.",
       "jsonName": "targetGeneration",
       "name": "TargetGeneration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -589,11 +727,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target location.",
       "jsonName": "targetLocation",
       "name": "TargetLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -602,11 +743,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target network Id.",
       "jsonName": "targetNetworkId",
       "name": "TargetNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -615,11 +759,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target proximity placement group Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -628,11 +775,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target resource group Id.",
       "jsonName": "targetResourceGroupId",
       "name": "TargetResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -641,11 +791,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Target VM name.",
       "jsonName": "targetVmName",
       "name": "TargetVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -654,11 +807,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target VM size.",
       "jsonName": "targetVmSize",
       "name": "TargetVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -667,11 +823,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The test network Id.",
       "jsonName": "testNetworkId",
       "name": "TestNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -680,14 +839,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The network details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmNicDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -696,6 +860,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

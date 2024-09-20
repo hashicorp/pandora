@@ -1,6 +1,7 @@
 {
   "name": "IPGeodataGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -21,7 +22,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnrichmentIPGeodata"
+    "nullable": false,
+    "referenceName": "EnrichmentIPGeodata",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.SecurityInsights/enrichment/ip/geodata"
 }

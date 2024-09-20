@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A link to the validation specification. The specification must be hosted on raw.githubusercontent.com.",
       "jsonName": "specification",
       "name": "Specification",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of validation to run against a matching request.",
       "jsonName": "validationType",
       "name": "ValidationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationType"
+        "nullable": false,
+        "referenceName": "ValidationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

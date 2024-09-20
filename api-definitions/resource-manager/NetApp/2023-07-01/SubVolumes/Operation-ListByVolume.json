@@ -1,6 +1,7 @@
 {
   "name": "ListByVolume",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VolumeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubvolumeInfo"
+    "nullable": false,
+    "referenceName": "SubvolumeInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/subVolumes"
 }

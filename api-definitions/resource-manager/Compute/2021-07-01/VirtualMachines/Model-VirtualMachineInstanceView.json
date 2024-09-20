@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2020-06-01.",
       "jsonName": "assignedHost",
       "name": "AssignedHost",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. \u003cbr\u003e\u003cbr\u003e You can easily view the output of your console log. \u003cbr\u003e\u003cbr\u003e Azure also enables you to see a screenshot of the VM from the hypervisor.",
       "jsonName": "bootDiagnostics",
       "name": "BootDiagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BootDiagnosticsInstanceView"
+        "nullable": false,
+        "referenceName": "BootDiagnosticsInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The computer name assigned to the virtual machine.",
       "jsonName": "computerName",
       "name": "ComputerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,14 +51,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The virtual machine disk information.",
       "jsonName": "disks",
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskInstanceView"
+          "nullable": false,
+          "referenceName": "DiskInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -59,14 +73,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extensions information.",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineExtensionInstanceView"
+          "nullable": false,
+          "referenceName": "VirtualMachineExtensionInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the HyperVGeneration Type associated with a resource",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGenerationType"
+        "nullable": false,
+        "referenceName": "HyperVGenerationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Maintenance Operation status on the virtual machine.",
       "jsonName": "maintenanceRedeployStatus",
       "name": "MaintenanceRedeployStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceRedeployStatus"
+        "nullable": false,
+        "referenceName": "MaintenanceRedeployStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Operating System running on the virtual machine.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The version of Operating System running on the virtual machine.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "[Preview Feature] The status of virtual machine patch operations.",
       "jsonName": "patchStatus",
       "name": "PatchStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePatchStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachinePatchStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the fault domain of the virtual machine.",
       "jsonName": "platformFaultDomain",
       "name": "PlatformFaultDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the update domain of the virtual machine.",
       "jsonName": "platformUpdateDomain",
       "name": "PlatformUpdateDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Remote desktop certificate thumbprint.",
       "jsonName": "rdpThumbPrint",
       "name": "RdpThumbPrint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,14 +223,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource status information.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,11 +245,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The VM Agent running on the virtual machine.",
       "jsonName": "vmAgent",
       "name": "VMAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineAgentInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineAgentInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,16 +261,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The health status for the VM.",
       "jsonName": "vmHealth",
       "name": "VMHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineHealthStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineHealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

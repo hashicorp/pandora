@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ADLA resource ID.",
       "jsonName": "adlaResourceId",
       "name": "AdlaResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or Disable AzureADOnlyAuthentication on All Workspace subresource",
       "jsonName": "azureADOnlyAuthentication",
       "name": "AzureADOnlyAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,14 +35,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connectivity endpoints",
       "jsonName": "connectivityEndpoints",
       "name": "ConnectivityEndpoints",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -46,11 +57,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Initial workspace AAD admin properties for a CSP subscription",
       "jsonName": "cspWorkspaceAdminProperties",
       "name": "CspWorkspaceAdminProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CspWorkspaceAdminProperties"
+        "nullable": false,
+        "referenceName": "CspWorkspaceAdminProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +73,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspace default data lake storage account details",
       "jsonName": "defaultDataLakeStorage",
       "name": "DefaultDataLakeStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataLakeStorageAccountDetails"
+        "nullable": false,
+        "referenceName": "DataLakeStorageAccountDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +89,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The encryption details of the workspace",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionDetails"
+        "nullable": false,
+        "referenceName": "EncryptionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +105,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspace level configs and feature flags",
       "jsonName": "extraProperties",
       "name": "ExtraProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +121,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'",
       "jsonName": "managedResourceGroupName",
       "name": "ManagedResourceGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,11 +137,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.",
       "jsonName": "managedVirtualNetwork",
       "name": "ManagedVirtualNetwork",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +153,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Managed Virtual Network Settings",
       "jsonName": "managedVirtualNetworkSettings",
       "name": "ManagedVirtualNetworkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedVirtualNetworkSettings"
+        "nullable": false,
+        "referenceName": "ManagedVirtualNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +169,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private endpoint connections to the workspace",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource provisioning state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Enable or Disable public network access to workspace",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspacePublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "WorkspacePublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Purview Configuration",
       "jsonName": "purviewConfiguration",
       "name": "PurviewConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurviewConfiguration"
+        "nullable": false,
+        "referenceName": "PurviewConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,14 +239,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Workspace settings",
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,11 +261,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Login for workspace SQL active directory administrator",
       "jsonName": "sqlAdministratorLogin",
       "name": "SqlAdministratorLogin",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,11 +277,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "SQL administrator login password",
       "jsonName": "sqlAdministratorLoginPassword",
       "name": "SqlAdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,11 +293,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Is trustedServiceBypassEnabled for the workspace",
       "jsonName": "trustedServiceBypassEnabled",
       "name": "TrustedServiceBypassEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,11 +309,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Virtual Network profile",
       "jsonName": "virtualNetworkProfile",
       "name": "VirtualNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,11 +325,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Git integration settings",
       "jsonName": "workspaceRepositoryConfiguration",
       "name": "WorkspaceRepositoryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceRepositoryConfiguration"
+        "nullable": false,
+        "referenceName": "WorkspaceRepositoryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,16 +341,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The workspace unique identifier",
       "jsonName": "workspaceUID",
       "name": "WorkspaceUID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

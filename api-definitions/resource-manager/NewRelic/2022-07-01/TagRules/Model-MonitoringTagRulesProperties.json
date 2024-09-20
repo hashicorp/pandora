@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of rules for sending logs for the Monitor resource.",
       "jsonName": "logRules",
       "name": "LogRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogRules"
+        "nullable": false,
+        "referenceName": "LogRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Set of rules for sending metrics for the Monitor resource.",
       "jsonName": "metricRules",
       "name": "MetricRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricRules"
+        "nullable": false,
+        "referenceName": "MetricRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,16 +35,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning State of the resource",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

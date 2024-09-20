@@ -1,6 +1,7 @@
 {
   "name": "GetBgpPeerStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -22,7 +23,9 @@
   "resourceIdName": "VirtualNetworkGatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BgpPeerStatusListResult"
+    "nullable": false,
+    "referenceName": "BgpPeerStatusListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getBgpPeerStatus"
 }

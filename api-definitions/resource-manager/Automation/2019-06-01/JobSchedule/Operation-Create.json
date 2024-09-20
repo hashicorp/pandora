@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "JobScheduleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "JobScheduleCreateParameters"
+    "nullable": false,
+    "referenceName": "JobScheduleCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JobSchedule"
+    "nullable": false,
+    "referenceName": "JobSchedule",
+    "referenceNameIsCommonType": null
   }
 }

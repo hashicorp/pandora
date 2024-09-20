@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "LabPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LabPlanUpdate"
+    "nullable": false,
+    "referenceName": "LabPlanUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LabPlan"
+    "nullable": false,
+    "referenceName": "LabPlan",
+    "referenceNameIsCommonType": null
   }
 }

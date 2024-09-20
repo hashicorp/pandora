@@ -1,6 +1,7 @@
 {
   "name": "ImportDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ImportNewDatabaseDefinition"
+    "nullable": false,
+    "referenceName": "ImportNewDatabaseDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ImportExportOperationResult"
+    "nullable": false,
+    "referenceName": "ImportExportOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/import"
 }

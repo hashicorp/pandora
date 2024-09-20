@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.",
       "jsonName": "cacheConfiguration",
       "name": "CacheConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdRouteCacheConfiguration"
+        "nullable": false,
+        "referenceName": "AfdRouteCacheConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Domains referenced by this endpoint.",
       "jsonName": "customDomains",
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ActivatedResourceReference"
+          "nullable": false,
+          "referenceName": "ActivatedResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +45,9 @@
       "name": "DeploymentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStatus"
+        "nullable": false,
+        "referenceName": "DeploymentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,11 +56,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledState"
+        "nullable": false,
+        "referenceName": "EnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,11 +72,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the endpoint which holds the route.",
       "jsonName": "endpointName",
       "name": "EndpointName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,11 +88,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Protocol this rule will use when forwarding traffic to backends.",
       "jsonName": "forwardingProtocol",
       "name": "ForwardingProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardingProtocol"
+        "nullable": false,
+        "referenceName": "ForwardingProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,11 +104,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.",
       "jsonName": "httpsRedirect",
       "name": "HTTPSRedirect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSRedirect"
+        "nullable": false,
+        "referenceName": "HTTPSRedirect",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,11 +120,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "whether this route will be linked to the default endpoint domain.",
       "jsonName": "linkToDefaultDomain",
       "name": "LinkToDefaultDomain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkToDefaultDomain"
+        "nullable": false,
+        "referenceName": "LinkToDefaultDomain",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +140,9 @@
       "name": "OriginGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,11 +151,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.",
       "jsonName": "originPath",
       "name": "OriginPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,14 +167,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The route patterns of the rule.",
       "jsonName": "patternsToMatch",
       "name": "PatternsToMatch",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,11 +189,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning status",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdProvisioningState"
+        "nullable": false,
+        "referenceName": "AfdProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,14 +205,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "rule sets referenced by this endpoint.",
       "jsonName": "ruleSets",
       "name": "RuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,14 +227,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of supported protocols for this route.",
       "jsonName": "supportedProtocols",
       "name": "SupportedProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AFDEndpointProtocols"
+          "nullable": false,
+          "referenceName": "AFDEndpointProtocols",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -199,5 +247,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

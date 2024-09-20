@@ -1,6 +1,7 @@
 {
   "name": "ListByMobileNetwork",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "MobileNetworkId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Slice"
+    "nullable": false,
+    "referenceName": "Slice",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/slices"
 }

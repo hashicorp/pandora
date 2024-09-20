@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of product feature updates.",
       "jsonName": "productFeatures",
       "name": "ProductFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProductFeatureUpdate"
+          "nullable": false,
+          "referenceName": "ProductFeatureUpdate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,11 +25,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the product type of the license.",
       "jsonName": "productType",
       "name": "ProductType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileProductType"
+        "nullable": false,
+        "referenceName": "LicenseProfileProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,16 +41,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the subscription status of the product.",
       "jsonName": "subscriptionStatus",
       "name": "SubscriptionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileSubscriptionStatusUpdate"
+        "nullable": false,
+        "referenceName": "LicenseProfileSubscriptionStatusUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

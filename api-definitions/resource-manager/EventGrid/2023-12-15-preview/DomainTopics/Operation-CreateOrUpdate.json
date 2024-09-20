@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "DomainTopicId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DomainTopic"
+    "nullable": false,
+    "referenceName": "DomainTopic",
+    "referenceNameIsCommonType": null
   }
 }

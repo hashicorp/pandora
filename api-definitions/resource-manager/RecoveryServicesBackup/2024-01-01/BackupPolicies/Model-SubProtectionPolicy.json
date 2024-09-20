@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of backup policy type",
       "jsonName": "policyType",
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyType"
+        "nullable": false,
+        "referenceName": "PolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Retention policy with the details on backup copy retention ranges.",
       "jsonName": "retentionPolicy",
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Backup schedule specified as part of backup policy.",
       "jsonName": "schedulePolicy",
       "name": "SchedulePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchedulePolicy"
+        "nullable": false,
+        "referenceName": "SchedulePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +55,9 @@
       "name": "SnapshotBackupAdditionalDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnapshotBackupAdditionalDetails"
+        "nullable": false,
+        "referenceName": "SnapshotBackupAdditionalDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,14 +66,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Tiering policy to automatically move RPs to another tier.\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier.",
       "jsonName": "tieringPolicy",
       "name": "TieringPolicy",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TieringPolicy"
+          "nullable": false,
+          "referenceName": "TieringPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +86,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

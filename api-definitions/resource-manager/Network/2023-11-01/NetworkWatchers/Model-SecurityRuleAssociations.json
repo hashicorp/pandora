@@ -3,14 +3,19 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of default security rules of the network security group.",
       "jsonName": "defaultSecurityRules",
       "name": "DefaultSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SecurityRule"
+          "nullable": false,
+          "referenceName": "SecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -20,14 +25,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of effective security rules.",
       "jsonName": "effectiveSecurityRules",
       "name": "EffectiveSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EffectiveNetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "EffectiveNetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,11 +47,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network interface and it's custom security rules.",
       "jsonName": "networkInterfaceAssociation",
       "name": "NetworkInterfaceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceAssociation"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,16 +63,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Subnet and it's custom security rules.",
       "jsonName": "subnetAssociation",
       "name": "SubnetAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubnetAssociation"
+        "nullable": false,
+        "referenceName": "SubnetAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

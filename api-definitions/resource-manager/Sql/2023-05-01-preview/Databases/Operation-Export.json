@@ -1,6 +1,7 @@
 {
   "name": "Export",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExportDatabaseDefinition"
+    "nullable": false,
+    "referenceName": "ExportDatabaseDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ImportExportOperationResult"
+    "nullable": false,
+    "referenceName": "ImportExportOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/export"
 }

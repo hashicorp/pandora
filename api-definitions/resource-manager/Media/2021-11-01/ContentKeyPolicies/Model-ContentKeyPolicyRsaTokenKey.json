@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RSA Parameter exponent",
       "jsonName": "exponent",
       "name": "Exponent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The RSA Parameter modulus",
       "jsonName": "modulus",
       "name": "Modulus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +34,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
   "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
   "typeHintIn": "OdataType"

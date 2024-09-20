@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'",
       "jsonName": "hostCaching",
       "name": "HostCaching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostCaching"
+        "nullable": false,
+        "referenceName": "HostCaching",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "This property indicates the size of the VHD to be created.",
       "jsonName": "sizeInGB",
       "name": "SizeInGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +39,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryDiskImageSource"
+        "nullable": false,
+        "referenceName": "GalleryDiskImageSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

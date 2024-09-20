@@ -1,6 +1,7 @@
 {
   "name": "AccountsListModels",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "AccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccountModel"
+    "nullable": false,
+    "referenceName": "AccountModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/models"
 }

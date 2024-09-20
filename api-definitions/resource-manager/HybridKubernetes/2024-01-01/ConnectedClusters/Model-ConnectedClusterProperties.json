@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "AAD profile for the connected cluster.",
       "jsonName": "aadProfile",
       "name": "AadProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AadProfile"
+        "nullable": false,
+        "referenceName": "AadProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.",
       "jsonName": "agentPublicKeyCertificate",
       "name": "AgentPublicKeyCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Version of the agent running on the connected cluster resource",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Arc agentry configuration for the provisioned cluster.",
       "jsonName": "arcAgentProfile",
       "name": "ArcAgentProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArcAgentProfile"
+        "nullable": false,
+        "referenceName": "ArcAgentProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether Azure Hybrid Benefit is opted in",
       "jsonName": "azureHybridBenefit",
       "name": "AzureHybridBenefit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureHybridBenefit"
+        "nullable": false,
+        "referenceName": "AzureHybridBenefit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the connectivity status of the connected cluster.",
       "jsonName": "connectivityStatus",
       "name": "ConnectivityStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityStatus"
+        "nullable": false,
+        "referenceName": "ConnectivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Kubernetes distribution running on this connected cluster.",
       "jsonName": "distribution",
       "name": "Distribution",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Kubernetes distribution version on this connected cluster.",
       "jsonName": "distributionVersion",
       "name": "DistributionVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.",
       "jsonName": "infrastructure",
       "name": "Infrastructure",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,11 +147,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Kubernetes version of the connected cluster resource",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,11 +164,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Time representing the last instance when heart beat was received from the cluster",
       "jsonName": "lastConnectivityTime",
       "name": "LastConnectivityTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,11 +181,14 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
+      "description": "Expiration time of the managed identity certificate",
       "jsonName": "managedIdentityCertificateExpirationTime",
       "name": "ManagedIdentityCertificateExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,14 +197,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "More properties related to the Connected Cluster",
       "jsonName": "miscellaneousProperties",
       "name": "MiscellaneousProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -178,11 +219,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Connected cluster offering",
       "jsonName": "offering",
       "name": "Offering",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,11 +235,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The resource id of the private link scope this connected cluster is assigned to, if any.",
       "jsonName": "privateLinkScopeResourceId",
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,11 +251,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Property which describes the state of private link on a connected cluster resource.",
       "jsonName": "privateLinkState",
       "name": "PrivateLinkState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLinkState"
+        "nullable": false,
+        "referenceName": "PrivateLinkState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,11 +267,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Provisioning state of the connected cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,11 +283,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of CPU cores present in the connected cluster resource",
       "jsonName": "totalCoreCount",
       "name": "TotalCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,16 +299,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Number of nodes present in the connected cluster resource",
       "jsonName": "totalNodeCount",
       "name": "TotalNodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

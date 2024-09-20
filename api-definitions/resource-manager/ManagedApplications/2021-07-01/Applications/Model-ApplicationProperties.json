@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified path of managed application definition Id.",
       "jsonName": "applicationDefinitionId",
       "name": "ApplicationDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,14 +19,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of managed application artifacts.",
       "jsonName": "artifacts",
       "name": "Artifacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationArtifact"
+          "nullable": false,
+          "referenceName": "ApplicationArtifact",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -33,14 +41,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The  read-only authorizations property that is retrieved from the application package.",
       "jsonName": "authorizations",
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationAuthorization"
+          "nullable": false,
+          "referenceName": "ApplicationAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,11 +63,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application billing details.",
       "jsonName": "billingDetails",
       "name": "BillingDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationBillingDetailsDefinition"
+        "nullable": false,
+        "referenceName": "ApplicationBillingDetailsDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,11 +79,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client entity that created the JIT request.",
       "jsonName": "createdBy",
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationClientDetails"
+        "nullable": false,
+        "referenceName": "ApplicationClientDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,11 +95,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The read-only customer support property that is retrieved from the application package.",
       "jsonName": "customerSupport",
       "name": "CustomerSupport",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationPackageContact"
+        "nullable": false,
+        "referenceName": "ApplicationPackageContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,11 +111,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application Jit access policy.",
       "jsonName": "jitAccessPolicy",
       "name": "JitAccessPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationJitAccessPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationJitAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,11 +127,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed resource group Id.",
       "jsonName": "managedResourceGroupId",
       "name": "ManagedResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,11 +143,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application management mode.",
       "jsonName": "managementMode",
       "name": "ManagementMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationManagementMode"
+        "nullable": false,
+        "referenceName": "ApplicationManagementMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,11 +159,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name and value pairs that define the managed application outputs.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,11 +175,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,11 +191,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed application provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,11 +207,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The publisher tenant Id.",
       "jsonName": "publisherTenantId",
       "name": "PublisherTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,11 +223,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The read-only support URLs property that is retrieved from the application package.",
       "jsonName": "supportUrls",
       "name": "SupportUrls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationPackageSupportUrls"
+        "nullable": false,
+        "referenceName": "ApplicationPackageSupportUrls",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,16 +239,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client entity that last updated the JIT request.",
       "jsonName": "updatedBy",
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationClientDetails"
+        "nullable": false,
+        "referenceName": "ApplicationClientDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Put",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateSummaries"
+    "nullable": false,
+    "referenceName": "UpdateSummaries",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpdateSummaries"
+    "nullable": false,
+    "referenceName": "UpdateSummaries",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateSummaries/default"
 }

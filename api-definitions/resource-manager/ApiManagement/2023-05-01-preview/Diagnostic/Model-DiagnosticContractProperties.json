@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Specifies for what type of messages sampling settings should not apply.",
       "jsonName": "alwaysLog",
       "name": "AlwaysLog",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlwaysLog"
+        "nullable": false,
+        "referenceName": "AlwaysLog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Backend",
       "jsonName": "backend",
       "name": "Backend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineDiagnosticSettings"
+        "nullable": false,
+        "referenceName": "PipelineDiagnosticSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.",
       "jsonName": "frontend",
       "name": "Frontend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineDiagnosticSettings"
+        "nullable": false,
+        "referenceName": "PipelineDiagnosticSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sets correlation protocol to use for Application Insights diagnostics.",
       "jsonName": "httpCorrelationProtocol",
       "name": "HTTPCorrelationProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPCorrelationProtocol"
+        "nullable": false,
+        "referenceName": "HTTPCorrelationProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log the ClientIP. Default is false.",
       "jsonName": "logClientIp",
       "name": "LogClientIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Resource Id of a target logger.",
       "jsonName": "loggerId",
       "name": "LoggerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -81,11 +99,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.",
       "jsonName": "metrics",
       "name": "Metrics",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,11 +115,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The format of the Operation Name for Application Insights telemetries. Default is Name.",
       "jsonName": "operationNameFormat",
       "name": "OperationNameFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationNameFormat"
+        "nullable": false,
+        "referenceName": "OperationNameFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,11 +131,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sampling settings for Diagnostic.",
       "jsonName": "sampling",
       "name": "Sampling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingSettings"
+        "nullable": false,
+        "referenceName": "SamplingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,16 +147,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The verbosity level applied to traces emitted by trace policies.",
       "jsonName": "verbosity",
       "name": "Verbosity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Verbosity"
+        "nullable": false,
+        "referenceName": "Verbosity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

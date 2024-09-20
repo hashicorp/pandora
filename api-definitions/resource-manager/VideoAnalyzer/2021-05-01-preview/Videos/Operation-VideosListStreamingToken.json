@@ -1,6 +1,7 @@
 {
   "name": "VideosListStreamingToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "VideoId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VideoStreamingToken"
+    "nullable": false,
+    "referenceName": "VideoStreamingToken",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listStreamingToken"
 }

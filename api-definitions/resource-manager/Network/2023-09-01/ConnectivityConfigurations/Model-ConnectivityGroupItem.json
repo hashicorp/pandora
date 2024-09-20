@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Group connectivity type.",
       "jsonName": "groupConnectivity",
       "name": "GroupConnectivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GroupConnectivity"
+        "nullable": false,
+        "referenceName": "GroupConnectivity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag if global is supported.",
       "jsonName": "isGlobal",
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsGlobal"
+        "nullable": false,
+        "referenceName": "IsGlobal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network group Id.",
       "jsonName": "networkGroupId",
       "name": "NetworkGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -42,16 +51,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Flag if need to use hub gateway.",
       "jsonName": "useHubGateway",
       "name": "UseHubGateway",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UseHubGateway"
+        "nullable": false,
+        "referenceName": "UseHubGateway",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recommended memory range.",
       "jsonName": "memory",
       "name": "Memory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRange"
+        "nullable": false,
+        "referenceName": "ResourceRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Recommended vCPU range.",
       "jsonName": "vCPUs",
       "name": "VCPUs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRange"
+        "nullable": false,
+        "referenceName": "ResourceRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

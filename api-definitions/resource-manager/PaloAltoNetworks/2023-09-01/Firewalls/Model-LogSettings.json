@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Application Insight details",
       "jsonName": "applicationInsights",
       "name": "ApplicationInsights",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsights"
+        "nullable": false,
+        "referenceName": "ApplicationInsights",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Common destination configurations",
       "jsonName": "commonDestination",
       "name": "CommonDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Decrypt destination configurations",
       "jsonName": "decryptLogDestination",
       "name": "DecryptLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Log option SAME/INDIVIDUAL",
       "jsonName": "logOption",
       "name": "LogOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogOption"
+        "nullable": false,
+        "referenceName": "LogOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "One of possible log type",
       "jsonName": "logType",
       "name": "LogType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogType"
+        "nullable": false,
+        "referenceName": "LogType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Threat destination configurations",
       "jsonName": "threatLogDestination",
       "name": "ThreatLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Traffic destination configurations",
       "jsonName": "trafficLogDestination",
       "name": "TrafficLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

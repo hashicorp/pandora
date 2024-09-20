@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if the image from which the OS disk is created supports accelerated networking.",
       "jsonName": "acceleratedNetwork",
       "name": "AcceleratedNetwork",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "CPU architecture supported by an OS disk.",
       "jsonName": "architecture",
       "name": "Architecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Architecture"
+        "nullable": false,
+        "referenceName": "Architecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

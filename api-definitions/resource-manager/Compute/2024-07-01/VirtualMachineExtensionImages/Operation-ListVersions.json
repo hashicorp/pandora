@@ -1,6 +1,7 @@
 {
   "name": "ListVersions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -41,10 +42,14 @@
   "resourceIdName": "TypeId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "VirtualMachineExtensionImage"
+      "nullable": false,
+      "referenceName": "VirtualMachineExtensionImage",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/versions"

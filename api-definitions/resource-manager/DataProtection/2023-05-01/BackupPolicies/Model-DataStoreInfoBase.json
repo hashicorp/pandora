@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "type of datastore; Operational/Vault/Archive",
       "jsonName": "dataStoreType",
       "name": "DataStoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataStoreTypes"
+        "nullable": false,
+        "referenceName": "DataStoreTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -16,16 +19,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of Datasource object, used to initialize the right inherited type",
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

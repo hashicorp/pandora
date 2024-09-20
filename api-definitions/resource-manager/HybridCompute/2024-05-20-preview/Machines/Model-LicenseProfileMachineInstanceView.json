@@ -7,7 +7,9 @@
       "name": "EsuProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileMachineInstanceViewEsuProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileMachineInstanceViewEsuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +18,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the license channel.",
       "jsonName": "licenseChannel",
       "name": "LicenseChannel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +34,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the license status of the OS.",
       "jsonName": "licenseStatus",
       "name": "LicenseStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseStatus"
+        "nullable": false,
+        "referenceName": "LicenseStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +50,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Hybrid Compute Product Profile properties",
       "jsonName": "productProfile",
       "name": "ProductProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmProductProfileProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmProductProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +70,15 @@
       "name": "SoftwareAssurance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileMachineInstanceViewSoftwareAssurance"
+        "nullable": false,
+        "referenceName": "LicenseProfileMachineInstanceViewSoftwareAssurance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

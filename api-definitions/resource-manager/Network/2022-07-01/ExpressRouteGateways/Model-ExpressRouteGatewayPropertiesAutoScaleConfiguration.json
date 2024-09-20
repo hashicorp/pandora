@@ -3,16 +3,20 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Minimum and maximum number of scale units to deploy.",
       "jsonName": "bounds",
       "name": "Bounds",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfigurationBounds"
+        "nullable": false,
+        "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfigurationBounds",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -3,11 +3,14 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of AS server administrators",
       "jsonName": "asAdministrators",
       "name": "AsAdministrators",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerAdministrators"
+        "nullable": false,
+        "referenceName": "ServerAdministrators",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -16,11 +19,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SAS container URI to the backup container.",
       "jsonName": "backupBlobContainerUri",
       "name": "BackupBlobContainerUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -29,11 +35,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The gateway details configured for the AS server.",
       "jsonName": "gatewayDetails",
       "name": "GatewayDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayDetails"
+        "nullable": false,
+        "referenceName": "GatewayDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,11 +51,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The firewall settings for the AS server.",
       "jsonName": "ipV4FirewallSettings",
       "name": "IPV4FirewallSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPv4FirewallSettings"
+        "nullable": false,
+        "referenceName": "IPv4FirewallSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,11 +67,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The managed mode of the server (0 = not managed, 1 = managed).",
       "jsonName": "managedMode",
       "name": "ManagedMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedMode"
+        "nullable": false,
+        "referenceName": "ManagedMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,11 +83,14 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "How the read-write server's participation in the query pool is controlled.\u003cbr/\u003eIt can have the following values: \u003cul\u003e\u003cli\u003ereadOnly - indicates that the read-write server is intended not to participate in query operations\u003c/li\u003e\u003cli\u003eall - indicates that the read-write server can participate in query operations\u003c/li\u003e\u003c/ul\u003eSpecifying readOnly when capacity is 1 results in error.",
       "jsonName": "querypoolConnectionMode",
       "name": "QuerypoolConnectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMode"
+        "nullable": false,
+        "referenceName": "ConnectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,16 +99,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The server monitor mode for AS server",
       "jsonName": "serverMonitorMode",
       "name": "ServerMonitorMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerMonitorMode"
+        "nullable": false,
+        "referenceName": "ServerMonitorMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

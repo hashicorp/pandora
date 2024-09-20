@@ -1,6 +1,7 @@
 {
   "name": "Test",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "InputId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Input"
+    "nullable": false,
+    "referenceName": "Input",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ResourceTestStatus"
+    "nullable": false,
+    "referenceName": "ResourceTestStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/test"
 }

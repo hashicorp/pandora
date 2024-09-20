@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AdvancedThreatProtectionForUpdate"
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtectionForUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AdvancedThreatProtection"
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/advancedThreatProtectionSettings/default"
 }

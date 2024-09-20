@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscriptions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -32,7 +33,9 @@
   "resourceIdName": "Subscriptions2Id",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Rule"
+    "nullable": false,
+    "referenceName": "Rule",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/rules"
 }

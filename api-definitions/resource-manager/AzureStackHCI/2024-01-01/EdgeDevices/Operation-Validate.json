@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopedEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ValidateRequest"
+    "nullable": false,
+    "referenceName": "ValidateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ValidateResponse"
+    "nullable": false,
+    "referenceName": "ValidateResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }
