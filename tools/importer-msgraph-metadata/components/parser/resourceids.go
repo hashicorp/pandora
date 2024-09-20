@@ -63,7 +63,7 @@ func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch
 }
 
 // ResourceId represents a unique path in Microsoft Graph that represents a resource. Resource IDs comprise a non-zero
-// number of segments, the last of which must always of type SegmentUserValue (i.e. specified by the user).
+// number of segments, the last of which must always be of type SegmentUserValue (i.e. specified by the user).
 // Whilst paths in Microsoft Graph can comprise different types of object identifiers, we currently only support simple
 // SegmentUserValue segments where the entire slug is provided. For example, these two paths are functionally equivalent:
 //
