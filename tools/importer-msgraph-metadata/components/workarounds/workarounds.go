@@ -20,6 +20,7 @@ var workarounds = []dataWorkaround{
 	// Model-specific workarounds
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
+	workaroundUnifiedRoleAssignment{},
 }
 
 // serviceWorkarounds make post-parsing changes to individual services and are able to make any changes to resources
