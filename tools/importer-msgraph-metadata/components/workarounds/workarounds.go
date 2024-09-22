@@ -33,6 +33,7 @@ var serviceWorkarounds = []serviceWorkaround{
 
 	// Service-specific workarounds
 	workaroundApplicationTemplates{},
+	workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope{},
 	workaroundGroups{},
 	workaroundSynchronizationSecrets{},
 }
