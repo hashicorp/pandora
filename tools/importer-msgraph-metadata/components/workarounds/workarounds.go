@@ -32,6 +32,7 @@ var serviceWorkarounds = []serviceWorkaround{
 
 	// Service-specific workarounds
 	workaroundApplicationTemplates{},
+	workaroundGroups{},
 	workaroundSynchronizationSecrets{},
 }
 
