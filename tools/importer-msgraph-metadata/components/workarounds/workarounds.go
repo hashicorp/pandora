@@ -18,6 +18,7 @@ var workarounds = []dataWorkaround{
 	workaroundRepeatingResourceIdSegments{},
 
 	// Model-specific workarounds
+	workaroundAccessPackageResourceRoleScope{},
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
 	workaroundUnifiedRoleAssignment{},
