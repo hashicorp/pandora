@@ -355,7 +355,7 @@ service "maps" {
 }
 service "mariadb" {
   name      = "MariaDB"
-  available = ["2018-06-01"]
+  available = ["2018-06-01", "2020-01-01"]
 }
 service "marketplaceordering" {
   name      = "MarketplaceOrdering"
