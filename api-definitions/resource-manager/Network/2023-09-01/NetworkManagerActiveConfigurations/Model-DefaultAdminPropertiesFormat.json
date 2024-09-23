@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the access allowed for this particular rule",
       "jsonName": "access",
       "name": "Access",
       "objectDefinition": {
@@ -78,6 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if the traffic matched against the rule in inbound or outbound.",
       "jsonName": "direction",
       "name": "Direction",
       "objectDefinition": {
@@ -125,6 +127,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Network protocol this rule applies to.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {

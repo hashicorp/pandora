@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Cluster configuration which enables the log daemon to export\napp logs to a destination. Currently only \"log-analytics\" is\nsupported",
       "jsonName": "appLogsConfiguration",
       "name": "AppLogsConfiguration",
       "objectDefinition": {
@@ -65,6 +66,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of Dapr component.",
       "jsonName": "daprConfiguration",
       "name": "DaprConfiguration",
       "objectDefinition": {
@@ -144,6 +146,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of Keda component.",
       "jsonName": "kedaConfiguration",
       "name": "KedaConfiguration",
       "objectDefinition": {
@@ -223,6 +226,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Vnet configuration for the environment",
       "jsonName": "vnetConfiguration",
       "name": "VnetConfiguration",
       "objectDefinition": {
