@@ -428,8 +428,9 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 						continue
 					}
 
-					// Binary payloads are handled by the SDK
 					if content.Schema.Value != nil && content.Schema.Value.Format == "binary" {
+						// Set the request type to Binary. When translating to Data API SDK types, we will also work in a
+						// ContentType option to be set by the caller.
 						requestType = pointer.To(parser.DataTypeBinary)
 						break
 					}
