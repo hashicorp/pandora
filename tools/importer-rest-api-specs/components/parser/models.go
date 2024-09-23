@@ -143,12 +143,12 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	result.Append(known)
 
 	field := sdkModels.SDKField{
-		Required:    isRequired,
-		Optional:    !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
-		ReadOnly:    false,       // TODO: re-enable readonly value.ReadOnly,
-		Sensitive:   false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
-		JsonName:    propertyName,
-		Description: value.Description,
+		Required:  isRequired,
+		Optional:  !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
+		ReadOnly:  false,       // TODO: re-enable readonly value.ReadOnly,
+		Sensitive: false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
+		JsonName:  propertyName,
+		//Description: value.Description, // TODO: currently causes flapping diff in api definitions, see https://github.com/hashicorp/pandora/issues/3325
 	}
 
 	// first get the object definition
