@@ -13,7 +13,7 @@ import (
 
 var _ serviceWorkaround = workaroundGroups{}
 
-// workaroundGroups adds a missing GET method for synchronization secrets, which is absent from upstream specs.
+// workaroundGroups supports an HTTP 200 response for the UpdateGroup operation.
 type workaroundGroups struct{}
 
 func (workaroundGroups) Name() string {
