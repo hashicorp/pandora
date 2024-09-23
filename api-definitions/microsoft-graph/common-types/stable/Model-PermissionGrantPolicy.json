@@ -1,0 +1,53 @@
+{
+  "name": "PermissionGrantPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Condition sets that are excluded in this permission grant policy. Automatically expanded on GET.",
+      "jsonName": "excludes",
+      "name": "Excludes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PermissionGrantConditionSet",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Condition sets that are included in this permission grant policy. Automatically expanded on GET.",
+      "jsonName": "includes",
+      "name": "Includes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PermissionGrantConditionSet",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.permissionGrantPolicy",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "AadUserNotificationRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft Entra user identifier. Use the List users method to get this ID.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TeamworkNotificationRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.aadUserNotificationRecipient",
+  "typeHintIn": "ODataType"
+}

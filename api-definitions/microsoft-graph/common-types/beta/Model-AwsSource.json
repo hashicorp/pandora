@@ -1,0 +1,25 @@
+{
+  "name": "AwsSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "AWS account ID.",
+      "jsonName": "accountId",
+      "name": "AccountId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemIdentitySource",
+  "discriminatedTypeValue": "#microsoft.graph.awsSource",
+  "typeHintIn": "ODataType"
+}

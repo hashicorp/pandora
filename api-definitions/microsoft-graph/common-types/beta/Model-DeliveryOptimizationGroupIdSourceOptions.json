@@ -1,0 +1,25 @@
+{
+  "name": "DeliveryOptimizationGroupIdSourceOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for the DeliveryOptimizationGroupIdOptionsType setting.",
+      "jsonName": "groupIdSourceOption",
+      "name": "GroupIdSourceOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeliveryOptimizationGroupIdOptionsType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryOptimizationGroupIdSource",
+  "discriminatedTypeValue": "#microsoft.graph.deliveryOptimizationGroupIdSourceOptions",
+  "typeHintIn": "ODataType"
+}

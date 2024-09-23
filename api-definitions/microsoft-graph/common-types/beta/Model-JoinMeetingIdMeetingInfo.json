@@ -1,0 +1,41 @@
+{
+  "name": "JoinMeetingIdMeetingInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID used to join the meeting.",
+      "jsonName": "joinMeetingId",
+      "name": "JoinMeetingId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The passcode used to join the meeting. Optional.",
+      "jsonName": "passcode",
+      "name": "Passcode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MeetingInfo",
+  "discriminatedTypeValue": "#microsoft.graph.joinMeetingIdMeetingInfo",
+  "typeHintIn": "ODataType"
+}

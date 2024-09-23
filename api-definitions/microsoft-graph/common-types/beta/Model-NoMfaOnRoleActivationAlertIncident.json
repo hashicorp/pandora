@@ -1,0 +1,41 @@
+{
+  "name": "NoMfaOnRoleActivationAlertIncident",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the Microsoft Entra ID directory role.",
+      "jsonName": "roleDisplayName",
+      "name": "RoleDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The globally unique identifier for a directory role.",
+      "jsonName": "roleTemplateId",
+      "name": "RoleTemplateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertIncident",
+  "discriminatedTypeValue": "#microsoft.graph.noMfaOnRoleActivationAlertIncident",
+  "typeHintIn": "ODataType"
+}

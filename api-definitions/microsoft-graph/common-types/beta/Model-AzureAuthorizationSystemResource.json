@@ -1,0 +1,25 @@
+{
+  "name": "AzureAuthorizationSystemResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The service associated with the resource in an Azure authorization system. This object is auto-expanded.",
+      "jsonName": "service",
+      "name": "Service",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemTypeService",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemResource",
+  "discriminatedTypeValue": "#microsoft.graph.azureAuthorizationSystemResource",
+  "typeHintIn": "ODataType"
+}

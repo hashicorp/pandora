@@ -1,0 +1,41 @@
+{
+  "name": "FileAssessmentRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Base64 encoded file content. The file content can't fetch back because it isn't stored.",
+      "jsonName": "contentData",
+      "name": "ContentData",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The file name.",
+      "jsonName": "fileName",
+      "name": "FileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ThreatAssessmentRequest",
+  "discriminatedTypeValue": "#microsoft.graph.fileAssessmentRequest",
+  "typeHintIn": "ODataType"
+}

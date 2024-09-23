@@ -1,0 +1,41 @@
+{
+  "name": "DomainDnsMxRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value used when configuring the answer/destination/value of the MX record at the DNS host.",
+      "jsonName": "mailExchange",
+      "name": "MailExchange",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value used when configuring the Preference/Priority property of the MX record at the DNS host.",
+      "jsonName": "preference",
+      "name": "Preference",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DomainDnsRecord",
+  "discriminatedTypeValue": "#microsoft.graph.domainDnsMxRecord",
+  "typeHintIn": "ODataType"
+}

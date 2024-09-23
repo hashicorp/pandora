@@ -1,0 +1,41 @@
+{
+  "name": "CreateMonitoringAlertRecordDeviceManagementChangePortalNotificationAsSent",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action changeAlertRecordsPortalNotificationAsSent. Set the isPortalNotificationSent property of all portal notification resources associated with the specified alertRecord to true, marking them as sent. A maximum of 100 alertRecord IDs can be received at one time, and a maximum of 100 portal notification resources can be changed in the isPortalNotificationSent property status.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateMonitoringAlertRecordDeviceManagementChangePortalNotificationAsSentRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/deviceManagement/monitoring/alertRecords/deviceManagement.changeAlertRecordsPortalNotificationAsSent"
+}

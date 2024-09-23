@@ -1,0 +1,57 @@
+{
+  "name": "RiskyUserHistoryItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The activity related to user risk level change.",
+      "jsonName": "activity",
+      "name": "Activity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RiskUserActivity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of actor that does the operation.",
+      "jsonName": "initiatedBy",
+      "name": "InitiatedBy",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the user.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RiskyUser",
+  "discriminatedTypeValue": "#microsoft.graph.riskyUserHistoryItem",
+  "typeHintIn": "ODataType"
+}

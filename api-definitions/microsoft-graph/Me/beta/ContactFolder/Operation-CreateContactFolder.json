@@ -1,0 +1,47 @@
+{
+  "name": "CreateContactFolder",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create ContactFolder. Create a new contactFolder under the user's default contacts folder. You can also create a new contactfolder as a child of any specified contact folder.",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ContactFolder",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ContactFolder",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/me/contactFolders"
+}

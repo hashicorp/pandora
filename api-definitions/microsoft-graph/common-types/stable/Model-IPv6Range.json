@@ -1,0 +1,41 @@
+{
+  "name": "IPv6Range",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Lower address.",
+      "jsonName": "lowerAddress",
+      "name": "LowerAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Upper address.",
+      "jsonName": "upperAddress",
+      "name": "UpperAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IPRange",
+  "discriminatedTypeValue": "#microsoft.graph.iPv6Range",
+  "typeHintIn": "ODataType"
+}

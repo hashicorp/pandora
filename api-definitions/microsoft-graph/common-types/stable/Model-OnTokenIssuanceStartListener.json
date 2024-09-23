@@ -1,0 +1,25 @@
+{
+  "name": "OnTokenIssuanceStartListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The handler to invoke when conditions are met for this onTokenIssuanceStartListener.",
+      "jsonName": "handler",
+      "name": "Handler",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnTokenIssuanceStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventListener",
+  "discriminatedTypeValue": "#microsoft.graph.onTokenIssuanceStartListener",
+  "typeHintIn": "ODataType"
+}

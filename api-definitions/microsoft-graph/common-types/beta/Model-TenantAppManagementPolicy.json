@@ -1,0 +1,57 @@
+{
+  "name": "TenantAppManagementPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Restrictions that apply as default to all application objects in the tenant.",
+      "jsonName": "applicationRestrictions",
+      "name": "ApplicationRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppManagementApplicationConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Denotes whether the policy is enabled. Default value is false.",
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Restrictions that apply as default to all service principal objects in the tenant.",
+      "jsonName": "servicePrincipalRestrictions",
+      "name": "ServicePrincipalRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppManagementServicePrincipalConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.tenantAppManagementPolicy",
+  "typeHintIn": "ODataType"
+}

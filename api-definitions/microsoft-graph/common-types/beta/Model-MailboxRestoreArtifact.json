@@ -1,0 +1,41 @@
+{
+  "name": "MailboxRestoreArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The new restored folder identifier for the user.",
+      "jsonName": "restoredFolderId",
+      "name": "RestoredFolderId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The new restored folder name.",
+      "jsonName": "restoredFolderName",
+      "name": "RestoredFolderName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RestoreArtifactBase",
+  "discriminatedTypeValue": "#microsoft.graph.mailboxRestoreArtifact",
+  "typeHintIn": "ODataType"
+}

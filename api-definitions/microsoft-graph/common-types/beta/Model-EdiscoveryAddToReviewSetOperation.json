@@ -1,0 +1,41 @@
+{
+  "name": "EdiscoveryAddToReviewSetOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The review set to which items matching the source collection query are added to.",
+      "jsonName": "reviewSet",
+      "name": "ReviewSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoveryReviewSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sourceCollection that items are being added from.",
+      "jsonName": "sourceCollection",
+      "name": "SourceCollection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdiscoverySourceCollection",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EdiscoveryCaseOperation",
+  "discriminatedTypeValue": "#microsoft.graph.ediscovery.addToReviewSetOperation",
+  "typeHintIn": "ODataType"
+}

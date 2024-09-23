@@ -1,0 +1,41 @@
+{
+  "name": "UpdateNotificationMessageTemplateLocalizedNotificationMessage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update localizedNotificationMessage. Update the properties of a localizedNotificationMessage object.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementNotificationMessageTemplateIdLocalizedNotificationMessageId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LocalizedNotificationMessage",
+    "referenceNameIsCommonType": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "GcpAuthorizationSystemResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The service associated with the resource in a GCP authorization system. This object is autoexpanded.",
+      "jsonName": "service",
+      "name": "Service",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemTypeService",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemResource",
+  "discriminatedTypeValue": "#microsoft.graph.gcpAuthorizationSystemResource",
+  "typeHintIn": "ODataType"
+}

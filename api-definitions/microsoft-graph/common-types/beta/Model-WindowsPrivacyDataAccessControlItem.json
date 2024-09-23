@@ -1,0 +1,73 @@
+{
+  "name": "WindowsPrivacyDataAccessControlItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determine the access level to specific Windows privacy data category.",
+      "jsonName": "accessLevel",
+      "name": "AccessLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsPrivacyDataAccessLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Package Family Name of a Windows app. When set, the access level applies to the specified application.",
+      "jsonName": "appDisplayName",
+      "name": "AppDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Package Family Name of a Windows app. When set, the access level applies to the specified application.",
+      "jsonName": "appPackageFamilyName",
+      "name": "AppPackageFamilyName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows privacy data category specifier for privacy data access.",
+      "jsonName": "dataCategory",
+      "name": "DataCategory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsPrivacyDataCategory",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsPrivacyDataAccessControlItem",
+  "typeHintIn": "ODataType"
+}

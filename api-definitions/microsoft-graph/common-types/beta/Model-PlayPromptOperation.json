@@ -1,0 +1,25 @@
+{
+  "name": "PlayPromptOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.",
+      "jsonName": "completionReason",
+      "name": "CompletionReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlayPromptCompletionReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CommsOperation",
+  "discriminatedTypeValue": "#microsoft.graph.playPromptOperation",
+  "typeHintIn": "ODataType"
+}

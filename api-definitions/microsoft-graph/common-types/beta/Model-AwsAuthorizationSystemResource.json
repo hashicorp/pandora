@@ -1,0 +1,25 @@
+{
+  "name": "AwsAuthorizationSystemResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The service associated with the resource in an AWS authorization system. This is autoexpanded.",
+      "jsonName": "service",
+      "name": "Service",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemTypeService",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemResource",
+  "discriminatedTypeValue": "#microsoft.graph.awsAuthorizationSystemResource",
+  "typeHintIn": "ODataType"
+}

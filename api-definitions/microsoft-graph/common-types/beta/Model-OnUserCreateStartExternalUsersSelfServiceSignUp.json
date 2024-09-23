@@ -1,0 +1,25 @@
+{
+  "name": "OnUserCreateStartExternalUsersSelfServiceSignUp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of user object to create. The possible values are: member, guest, unknownFutureValue.",
+      "jsonName": "userTypeToCreate",
+      "name": "UserTypeToCreate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnUserCreateStartHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onUserCreateStartExternalUsersSelfServiceSignUp",
+  "typeHintIn": "ODataType"
+}

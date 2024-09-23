@@ -1,0 +1,31 @@
+{
+  "name": "WindowsPhone81AppXBundle",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of AppX Package Information.",
+      "jsonName": "appXPackageInformationList",
+      "name": "AppXPackageInformationList",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsPackageInformation",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsPhone81AppX",
+  "discriminatedTypeValue": "#microsoft.graph.windowsPhone81AppXBundle",
+  "typeHintIn": "ODataType"
+}

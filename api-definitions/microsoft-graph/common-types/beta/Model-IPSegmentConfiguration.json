@@ -1,0 +1,30 @@
+{
+  "name": "IPSegmentConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationSegments",
+      "name": "ApplicationSegments",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IPApplicationSegment",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SegmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.ipSegmentConfiguration",
+  "typeHintIn": "ODataType"
+}

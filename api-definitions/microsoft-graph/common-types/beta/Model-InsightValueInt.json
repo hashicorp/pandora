@@ -1,0 +1,25 @@
+{
+  "name": "InsightValueInt",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The int value of the user experience analytics insight.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UserExperienceAnalyticsInsightValue",
+  "discriminatedTypeValue": "#microsoft.graph.insightValueInt",
+  "typeHintIn": "ODataType"
+}

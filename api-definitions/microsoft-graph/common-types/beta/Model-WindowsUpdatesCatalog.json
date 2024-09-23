@@ -1,0 +1,31 @@
+{
+  "name": "WindowsUpdatesCatalog",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Lists the content that you can approve for deployment. Read-only.",
+      "jsonName": "entries",
+      "name": "Entries",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsUpdatesCatalogEntry",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.catalog",
+  "typeHintIn": "ODataType"
+}

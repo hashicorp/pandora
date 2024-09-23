@@ -1,0 +1,73 @@
+{
+  "name": "ExternalUsersSelfServiceSignUpEventsFlow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The configuration for what to invoke when attributes are ready to be collected from the user.",
+      "jsonName": "onAttributeCollection",
+      "name": "OnAttributeCollection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAttributeCollectionHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.",
+      "jsonName": "onAuthenticationMethodLoadStart",
+      "name": "OnAuthenticationMethodLoadStart",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAuthenticationMethodLoadStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The configuration for what to invoke when an authentication flow is ready to be initiated.",
+      "jsonName": "onInteractiveAuthFlowStart",
+      "name": "OnInteractiveAuthFlowStart",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnInteractiveAuthFlowStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The configuration for what to invoke during user creation.",
+      "jsonName": "onUserCreateStart",
+      "name": "OnUserCreateStart",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnUserCreateStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventsFlow",
+  "discriminatedTypeValue": "#microsoft.graph.externalUsersSelfServiceSignUpEventsFlow",
+  "typeHintIn": "ODataType"
+}

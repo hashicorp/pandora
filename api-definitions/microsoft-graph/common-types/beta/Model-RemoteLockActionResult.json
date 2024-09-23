@@ -1,0 +1,25 @@
+{
+  "name": "RemoteLockActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Pin to unlock the client",
+      "jsonName": "unlockPin",
+      "name": "UnlockPin",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.remoteLockActionResult",
+  "typeHintIn": "ODataType"
+}

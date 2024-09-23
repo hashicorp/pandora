@@ -1,0 +1,25 @@
+{
+  "name": "UnifiedRoleManagementPolicyRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Not implemented. Defines details of scope that's targeted by role management policy rule. The details can include the principal type, the role assignment type, and actions affecting a role. Supports $filter (eq, ne).",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UnifiedRoleManagementPolicyRuleTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.unifiedRoleManagementPolicyRule",
+  "typeHintIn": "ODataType"
+}

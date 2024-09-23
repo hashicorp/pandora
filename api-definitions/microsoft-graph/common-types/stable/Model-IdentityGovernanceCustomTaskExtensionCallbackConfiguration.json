@@ -1,0 +1,30 @@
+{
+  "name": "IdentityGovernanceCustomTaskExtensionCallbackConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorizedApps",
+      "name": "AuthorizedApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Application",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomExtensionCallbackConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.customTaskExtensionCallbackConfiguration",
+  "typeHintIn": "ODataType"
+}

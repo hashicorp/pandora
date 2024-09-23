@@ -1,0 +1,57 @@
+{
+  "name": "CallTranscriptEventMessageDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the call.",
+      "jsonName": "callId",
+      "name": "CallId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for a call transcript.",
+      "jsonName": "callTranscriptICalUid",
+      "name": "CallTranscriptICalUid",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The organizer of the meeting.",
+      "jsonName": "meetingOrganizer",
+      "name": "MeetingOrganizer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessageDetail",
+  "discriminatedTypeValue": "#microsoft.graph.callTranscriptEventMessageDetail",
+  "typeHintIn": "ODataType"
+}

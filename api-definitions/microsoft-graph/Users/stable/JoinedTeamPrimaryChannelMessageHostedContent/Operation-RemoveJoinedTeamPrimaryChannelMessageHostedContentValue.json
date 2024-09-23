@@ -1,0 +1,47 @@
+{
+  "name": "RemoveJoinedTeamPrimaryChannelMessageHostedContentValue",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Delete media content for the navigation property hostedContents in users. The unique identifier for an entity. Read-only.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdJoinedTeamIdPrimaryChannelMessageIdHostedContentId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/$value"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "SharePointProtectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The rules associated with the SharePoint Protection policy.",
+      "jsonName": "siteInclusionRules",
+      "name": "SiteInclusionRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SiteProtectionRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The protection units (sites) that are protected under the site protection policy.",
+      "jsonName": "siteProtectionUnits",
+      "name": "SiteProtectionUnits",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SiteProtectionUnit",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionPolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.sharePointProtectionPolicy",
+  "typeHintIn": "ODataType"
+}

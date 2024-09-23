@@ -1,0 +1,25 @@
+{
+  "name": "AndroidManagedAppRegistration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The patch version for the current android app registration",
+      "jsonName": "patchVersion",
+      "name": "PatchVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ManagedAppRegistration",
+  "discriminatedTypeValue": "#microsoft.graph.androidManagedAppRegistration",
+  "typeHintIn": "ODataType"
+}

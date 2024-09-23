@@ -1,0 +1,57 @@
+{
+  "name": "Windows10XVpnConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID to the Authentication Certificate",
+      "jsonName": "authenticationCertificateId",
+      "name": "AuthenticationCertificateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom XML commands that configures the VPN connection. (UTF8 byte encoding)",
+      "jsonName": "customXml",
+      "name": "CustomXml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom Xml file name.",
+      "jsonName": "customXmlFileName",
+      "name": "CustomXmlFileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementResourceAccessProfileBase",
+  "discriminatedTypeValue": "#microsoft.graph.windows10XVpnConfiguration",
+  "typeHintIn": "ODataType"
+}

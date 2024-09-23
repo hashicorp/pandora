@@ -1,0 +1,24 @@
+{
+  "name": "MicrosoftAuthenticatorAuthenticationMethodTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authenticationMode",
+      "name": "AuthenticationMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftAuthenticatorAuthenticationMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethodTarget",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftAuthenticatorAuthenticationMethodTarget",
+  "typeHintIn": "ODataType"
+}

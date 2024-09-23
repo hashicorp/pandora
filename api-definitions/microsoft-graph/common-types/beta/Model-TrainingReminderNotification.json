@@ -1,0 +1,25 @@
+{
+  "name": "TrainingReminderNotification",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configurable frequency for the reminder email introduced during simulation creation. Possible values are: unknown, weekly, biWeekly, unknownFutureValue.",
+      "jsonName": "deliveryFrequency",
+      "name": "DeliveryFrequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NotificationDeliveryFrequency",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseEndUserNotification",
+  "discriminatedTypeValue": "#microsoft.graph.trainingReminderNotification",
+  "typeHintIn": "ODataType"
+}

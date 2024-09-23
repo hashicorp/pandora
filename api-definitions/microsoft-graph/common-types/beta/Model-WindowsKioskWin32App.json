@@ -1,0 +1,89 @@
+{
+  "name": "WindowsKioskWin32App",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode",
+      "jsonName": "classicAppPath",
+      "name": "ClassicAppPath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Edge kiosk (url) for Edge kiosk mode",
+      "jsonName": "edgeKiosk",
+      "name": "EdgeKiosk",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440",
+      "jsonName": "edgeKioskIdleTimeoutMinutes",
+      "name": "EdgeKioskIdleTimeoutMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Edge kiosk type",
+      "jsonName": "edgeKioskType",
+      "name": "EdgeKioskType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsEdgeKioskType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Edge first run flag for Edge kiosk mode",
+      "jsonName": "edgeNoFirstRun",
+      "name": "EdgeNoFirstRun",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskAppBase",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskWin32App",
+  "typeHintIn": "ODataType"
+}

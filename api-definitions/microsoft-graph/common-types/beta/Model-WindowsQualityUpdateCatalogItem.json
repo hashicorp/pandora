@@ -1,0 +1,57 @@
+{
+  "name": "WindowsQualityUpdateCatalogItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows quality update classification",
+      "jsonName": "classification",
+      "name": "Classification",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsQualityUpdateClassification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Flag indicating if update qualifies for expedite",
+      "jsonName": "isExpeditable",
+      "name": "IsExpeditable",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Knowledge base article id",
+      "jsonName": "kbArticleId",
+      "name": "KbArticleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdateCatalogItem",
+  "discriminatedTypeValue": "#microsoft.graph.windowsQualityUpdateCatalogItem",
+  "typeHintIn": "ODataType"
+}

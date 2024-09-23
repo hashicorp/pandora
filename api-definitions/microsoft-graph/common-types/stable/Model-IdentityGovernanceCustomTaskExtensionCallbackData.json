@@ -1,0 +1,25 @@
+{
+  "name": "IdentityGovernanceCustomTaskExtensionCallbackData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.",
+      "jsonName": "operationStatus",
+      "name": "OperationStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceCustomTaskExtensionOperationStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomExtensionData",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.customTaskExtensionCallbackData",
+  "typeHintIn": "ODataType"
+}

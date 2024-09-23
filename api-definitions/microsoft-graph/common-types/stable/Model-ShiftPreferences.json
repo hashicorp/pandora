@@ -1,0 +1,31 @@
+{
+  "name": "ShiftPreferences",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Availability of the user to be scheduled for work and its recurrence pattern.",
+      "jsonName": "availability",
+      "name": "Availability",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ShiftAvailability",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChangeTrackedEntity",
+  "discriminatedTypeValue": "#microsoft.graph.shiftPreferences",
+  "typeHintIn": "ODataType"
+}

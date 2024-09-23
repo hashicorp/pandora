@@ -1,0 +1,31 @@
+{
+  "name": "SamlOrWsFedExternalDomainFederation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of domain names of the external organizations that the tenant is federating with. Supports $filter (eq).",
+      "jsonName": "domains",
+      "name": "Domains",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ExternalDomainName",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SamlOrWsFedProvider",
+  "discriminatedTypeValue": "#microsoft.graph.samlOrWsFedExternalDomainFederation",
+  "typeHintIn": "ODataType"
+}

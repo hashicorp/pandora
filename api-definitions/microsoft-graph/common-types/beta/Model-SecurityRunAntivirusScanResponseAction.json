@@ -1,0 +1,24 @@
+{
+  "name": "SecurityRunAntivirusScanResponseAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDeviceIdEntityIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityResponseAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.runAntivirusScanResponseAction",
+  "typeHintIn": "ODataType"
+}

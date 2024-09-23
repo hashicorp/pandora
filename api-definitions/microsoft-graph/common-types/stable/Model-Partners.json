@@ -1,0 +1,25 @@
+{
+  "name": "Partners",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents billing details for billed and unbilled data.",
+      "jsonName": "billing",
+      "name": "Billing",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnersBillingBilling",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.partners",
+  "typeHintIn": "ODataType"
+}

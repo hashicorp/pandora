@@ -1,0 +1,30 @@
+{
+  "name": "AzureRolePermissionsDefinitionAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roles",
+      "name": "Roles",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PermissionsDefinitionAzureRole",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AzurePermissionsDefinitionAction",
+  "discriminatedTypeValue": "#microsoft.graph.azureRolePermissionsDefinitionAction",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "CallRecordsServiceUserAgent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "role",
+      "name": "Role",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CallRecordsServiceRole",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CallRecordsUserAgent",
+  "discriminatedTypeValue": "#microsoft.graph.callRecords.serviceUserAgent",
+  "typeHintIn": "ODataType"
+}

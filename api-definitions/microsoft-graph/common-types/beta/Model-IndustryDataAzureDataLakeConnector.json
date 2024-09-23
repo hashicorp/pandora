@@ -1,0 +1,25 @@
+{
+  "name": "IndustryDataAzureDataLakeConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The file format that external systems can upload using this connector.",
+      "jsonName": "fileFormat",
+      "name": "FileFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataFileFormatReferenceValue",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IndustryDataFileDataConnector",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.azureDataLakeConnector",
+  "typeHintIn": "ODataType"
+}

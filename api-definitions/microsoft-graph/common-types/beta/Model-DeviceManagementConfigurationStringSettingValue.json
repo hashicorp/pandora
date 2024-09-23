@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementConfigurationStringSettingValue",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value of the string setting.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSimpleSettingValue",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationStringSettingValue",
+  "typeHintIn": "ODataType"
+}

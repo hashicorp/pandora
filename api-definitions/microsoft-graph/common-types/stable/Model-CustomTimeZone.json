@@ -1,0 +1,57 @@
+{
+  "name": "CustomTimeZone",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time offset of the time zone from Coordinated Universal Time (UTC). This value is in minutes. Time zones that are ahead of UTC have a positive offset; time zones that are behind UTC have a negative offset.",
+      "jsonName": "bias",
+      "name": "Bias",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies when the time zone switches from standard time to daylight saving time.",
+      "jsonName": "daylightOffset",
+      "name": "DaylightOffset",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DaylightTimeZoneOffset",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies when the time zone switches from daylight saving time to standard time.",
+      "jsonName": "standardOffset",
+      "name": "StandardOffset",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StandardTimeZoneOffset",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TimeZoneBase",
+  "discriminatedTypeValue": "#microsoft.graph.customTimeZone",
+  "typeHintIn": "ODataType"
+}

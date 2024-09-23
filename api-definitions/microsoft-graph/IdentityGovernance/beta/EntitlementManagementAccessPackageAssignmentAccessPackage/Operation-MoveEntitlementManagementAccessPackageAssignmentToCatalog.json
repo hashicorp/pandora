@@ -1,0 +1,42 @@
+{
+  "name": "MoveEntitlementManagementAccessPackageAssignmentToCatalog",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action moveToCatalog. In Microsoft Entra entitlement management, this action moves the accessPackage to a specified target accessPackageCatalog. The resources in the access package must be present in the target catalog.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementAccessPackageAssignmentId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MoveEntitlementManagementAccessPackageAssignmentToCatalogRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/accessPackage/moveToCatalog"
+}

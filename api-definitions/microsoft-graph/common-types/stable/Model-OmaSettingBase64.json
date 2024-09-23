@@ -1,0 +1,41 @@
+{
+  "name": "OmaSettingBase64",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "File name associated with the Value property (.cer",
+      "jsonName": "fileName",
+      "name": "FileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value. (Base64 encoded string)",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OmaSetting",
+  "discriminatedTypeValue": "#microsoft.graph.omaSettingBase64",
+  "typeHintIn": "ODataType"
+}

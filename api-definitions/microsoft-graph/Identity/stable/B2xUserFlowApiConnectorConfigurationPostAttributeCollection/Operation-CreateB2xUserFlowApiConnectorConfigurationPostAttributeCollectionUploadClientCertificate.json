@@ -1,0 +1,48 @@
+{
+  "name": "CreateB2xUserFlowApiConnectorConfigurationPostAttributeCollectionUploadClientCertificate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action uploadClientCertificate. Upload a PKCS 12 format key (.pfx) to an API connector's authentication configuration. The input is a base-64 encoded value of the PKCS 12 certificate contents. This method returns an apiConnector.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityB2xUserFlowId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateB2xUserFlowApiConnectorConfigurationPostAttributeCollectionUploadClientCertificateRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IdentityApiConnector",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/apiConnectorConfiguration/postAttributeCollection/uploadClientCertificate"
+}

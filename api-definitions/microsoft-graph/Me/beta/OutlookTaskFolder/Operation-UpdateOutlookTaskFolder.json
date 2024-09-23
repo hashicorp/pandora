@@ -1,0 +1,41 @@
+{
+  "name": "UpdateOutlookTaskFolder",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update outlooktaskfolder (deprecated). Update the writable properties of an Outlook task folder. You cannot change the name property value of the default task folder, 'Tasks'.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeOutlookTaskFolderId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OutlookTaskFolder",
+    "referenceNameIsCommonType": true
+  }
+}

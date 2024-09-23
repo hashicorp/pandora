@@ -1,0 +1,25 @@
+{
+  "name": "WindowsStoreApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Windows app store URL.",
+      "jsonName": "appStoreUrl",
+      "name": "AppStoreUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsStoreApp",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "MobileAppProvisioningConfigGroupAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the AAD group in which the app provisioning configuration is being targeted.",
+      "jsonName": "targetGroupId",
+      "name": "TargetGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.mobileAppProvisioningConfigGroupAssignment",
+  "typeHintIn": "ODataType"
+}

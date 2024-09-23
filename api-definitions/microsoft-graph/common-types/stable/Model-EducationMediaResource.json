@@ -1,0 +1,25 @@
+{
+  "name": "EducationMediaResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Location of the file on shared point folder. Required",
+      "jsonName": "fileUrl",
+      "name": "FileUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationMediaResource",
+  "typeHintIn": "ODataType"
+}

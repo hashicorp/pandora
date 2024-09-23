@@ -1,0 +1,24 @@
+{
+  "name": "SecurityMoveToDeletedItemsResponseAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityEmailEntityIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityResponseAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.moveToDeletedItemsResponseAction",
+  "typeHintIn": "ODataType"
+}

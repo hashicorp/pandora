@@ -1,0 +1,41 @@
+{
+  "name": "IosVppAppAssignmentSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to use device licensing.",
+      "jsonName": "useDeviceLicensing",
+      "name": "UseDeviceLicensing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The VPN Configuration Id to apply for this app.",
+      "jsonName": "vpnConfigurationId",
+      "name": "VpnConfigurationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppAssignmentSettings",
+  "discriminatedTypeValue": "#microsoft.graph.iosVppAppAssignmentSettings",
+  "typeHintIn": "ODataType"
+}

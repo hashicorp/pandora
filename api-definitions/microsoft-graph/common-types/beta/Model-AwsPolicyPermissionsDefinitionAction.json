@@ -1,0 +1,46 @@
+{
+  "name": "AwsPolicyPermissionsDefinitionAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID for the role.",
+      "jsonName": "assignToRoleId",
+      "name": "AssignToRoleId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policies",
+      "name": "Policies",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PermissionsDefinitionAwsPolicy",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AwsPermissionsDefinitionAction",
+  "discriminatedTypeValue": "#microsoft.graph.awsPolicyPermissionsDefinitionAction",
+  "typeHintIn": "ODataType"
+}

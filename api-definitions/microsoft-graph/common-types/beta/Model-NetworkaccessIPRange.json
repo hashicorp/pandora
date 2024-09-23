@@ -1,0 +1,41 @@
+{
+  "name": "NetworkaccessIPRange",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the starting IP address of the IP range.",
+      "jsonName": "beginAddress",
+      "name": "BeginAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the ending IP address of the IP range.",
+      "jsonName": "endAddress",
+      "name": "EndAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRuleDestination",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.ipRange",
+  "typeHintIn": "ODataType"
+}

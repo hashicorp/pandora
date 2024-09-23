@@ -1,0 +1,25 @@
+{
+  "name": "TargetManager",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Manager level, between 1 and 4. The direct manager is 1.",
+      "jsonName": "managerLevel",
+      "name": "ManagerLevel",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectSet",
+  "discriminatedTypeValue": "#microsoft.graph.targetManager",
+  "typeHintIn": "ODataType"
+}

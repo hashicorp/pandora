@@ -1,0 +1,25 @@
+{
+  "name": "SecurityFileContentThreatSubmission",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "It specifies the file content in base 64 format.",
+      "jsonName": "fileContent",
+      "name": "FileContent",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFileThreatSubmission",
+  "discriminatedTypeValue": "#microsoft.graph.security.fileContentThreatSubmission",
+  "typeHintIn": "ODataType"
+}

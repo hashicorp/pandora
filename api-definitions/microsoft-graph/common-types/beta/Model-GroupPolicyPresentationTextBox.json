@@ -1,0 +1,57 @@
+{
+  "name": "GroupPolicyPresentationTextBox",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Localized default string displayed in the text box. The default value is empty.",
+      "jsonName": "defaultValue",
+      "name": "DefaultValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned integer that specifies the maximum number of text characters. Default value is 1023.",
+      "jsonName": "maxLength",
+      "name": "MaxLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Requirement to enter a value in the text box. Default value is false.",
+      "jsonName": "required",
+      "name": "Required",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupPolicyUploadedPresentation",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyPresentationTextBox",
+  "typeHintIn": "ODataType"
+}

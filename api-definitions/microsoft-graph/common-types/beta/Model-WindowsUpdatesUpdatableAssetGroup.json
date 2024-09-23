@@ -1,0 +1,31 @@
+{
+  "name": "WindowsUpdatesUpdatableAssetGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Members of the group. Read-only.",
+      "jsonName": "members",
+      "name": "Members",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsUpdatesUpdatableAsset",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesUpdatableAsset",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.updatableAssetGroup",
+  "typeHintIn": "ODataType"
+}

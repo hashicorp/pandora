@@ -1,0 +1,41 @@
+{
+  "name": "EventMessageResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An alternate date/time proposed by an invitee for a meeting request to start and end. Read-only. Not filterable.",
+      "jsonName": "proposedNewTime",
+      "name": "ProposedNewTime",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TimeSlot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the type of response to a meeting request. Possible values are: tentativelyAccepted, accepted, declined. For the eventMessageResponse type, none, organizer, and notResponded are not supported. Read-only. Not filterable.",
+      "jsonName": "responseType",
+      "name": "ResponseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResponseType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessage",
+  "discriminatedTypeValue": "#microsoft.graph.eventMessageResponse",
+  "typeHintIn": "ODataType"
+}

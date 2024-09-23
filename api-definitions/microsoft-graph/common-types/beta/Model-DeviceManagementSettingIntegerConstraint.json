@@ -1,0 +1,41 @@
+{
+  "name": "DeviceManagementSettingIntegerConstraint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum permitted value",
+      "jsonName": "maximumValue",
+      "name": "MaximumValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The minimum permitted value",
+      "jsonName": "minimumValue",
+      "name": "MinimumValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConstraint",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementSettingIntegerConstraint",
+  "typeHintIn": "ODataType"
+}

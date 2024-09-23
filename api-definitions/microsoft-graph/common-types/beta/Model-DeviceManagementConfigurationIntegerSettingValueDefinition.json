@@ -1,0 +1,41 @@
+{
+  "name": "DeviceManagementConfigurationIntegerSettingValueDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum allowed value of the integer",
+      "jsonName": "maximumValue",
+      "name": "MaximumValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum allowed value of the integer",
+      "jsonName": "minimumValue",
+      "name": "MinimumValue",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingValueDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueDefinition",
+  "typeHintIn": "ODataType"
+}

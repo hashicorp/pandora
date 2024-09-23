@@ -1,0 +1,41 @@
+{
+  "name": "ExternalConnectorsConnectionOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If status is failed, provides more information about the error that caused the failure.",
+      "jsonName": "error",
+      "name": "Error",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicError",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed.",
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExternalConnectorsConnectionOperationStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.externalConnectors.connectionOperation",
+  "typeHintIn": "ODataType"
+}

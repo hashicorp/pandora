@@ -1,0 +1,25 @@
+{
+  "name": "SwapShiftsChangeRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Shift ID for the recipient user with whom the request is to swap.",
+      "jsonName": "recipientShiftId",
+      "name": "RecipientShiftId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OfferShiftRequest",
+  "discriminatedTypeValue": "#microsoft.graph.swapShiftsChangeRequest",
+  "typeHintIn": "ODataType"
+}

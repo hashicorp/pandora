@@ -1,0 +1,30 @@
+{
+  "name": "GcpRolePermissionsDefinitionAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roles",
+      "name": "Roles",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PermissionsDefinitionGcpRole",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GcpPermissionsDefinitionAction",
+  "discriminatedTypeValue": "#microsoft.graph.gcpRolePermissionsDefinitionAction",
+  "typeHintIn": "ODataType"
+}

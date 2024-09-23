@@ -1,0 +1,25 @@
+{
+  "name": "EducationCsvDataProvider",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Optional customizations to be applied to the synchronization profile.",
+      "jsonName": "customizations",
+      "name": "Customizations",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationSynchronizationCustomizations",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationSynchronizationDataProvider",
+  "discriminatedTypeValue": "#microsoft.graph.educationCsvDataProvider",
+  "typeHintIn": "ODataType"
+}

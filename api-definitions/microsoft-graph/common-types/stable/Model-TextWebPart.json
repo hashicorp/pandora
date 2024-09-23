@@ -1,0 +1,25 @@
+{
+  "name": "TextWebPart",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The HTML string in text web part.",
+      "jsonName": "innerHtml",
+      "name": "InnerHtml",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WebPart",
+  "discriminatedTypeValue": "#microsoft.graph.textWebPart",
+  "typeHintIn": "ODataType"
+}

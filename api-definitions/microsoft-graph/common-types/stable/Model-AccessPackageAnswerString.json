@@ -1,0 +1,25 @@
+{
+  "name": "AccessPackageAnswerString",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessPackageAnswer",
+  "discriminatedTypeValue": "#microsoft.graph.accessPackageAnswerString",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "CustomAppScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customAttributes",
+      "name": "CustomAttributes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomAppScopeAttributesDictionary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AppScope",
+  "discriminatedTypeValue": "#microsoft.graph.customAppScope",
+  "typeHintIn": "ODataType"
+}

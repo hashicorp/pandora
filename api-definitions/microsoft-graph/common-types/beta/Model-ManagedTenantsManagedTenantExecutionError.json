@@ -1,0 +1,73 @@
+{
+  "name": "ManagedTenantsManagedTenantExecutionError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Additional error information for the exception. Optional. Read-only.",
+      "jsonName": "errorDetails",
+      "name": "ErrorDetails",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The node identifier where the exception occurred. Required. Read-only.",
+      "jsonName": "nodeId",
+      "name": "NodeId",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": true,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The token for the exception. Optional. Read-only.",
+      "jsonName": "rawToken",
+      "name": "RawToken",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The statement index for the exception. Required. Read-only.",
+      "jsonName": "statementIndex",
+      "name": "StatementIndex",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": true,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ManagedTenantsManagedTenantOperationError",
+  "discriminatedTypeValue": "#microsoft.graph.managedTenants.managedTenantExecutionError",
+  "typeHintIn": "ODataType"
+}

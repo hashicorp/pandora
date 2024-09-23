@@ -1,0 +1,40 @@
+{
+  "name": "GroupPolicyPresentationListBox",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.",
+      "jsonName": "explicitValue",
+      "name": "ExplicitValue",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "valuePrefix",
+      "name": "ValuePrefix",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupPolicyUploadedPresentation",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyPresentationListBox",
+  "typeHintIn": "ODataType"
+}

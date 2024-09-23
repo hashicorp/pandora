@@ -1,0 +1,97 @@
+{
+  "name": "EducationRubricOutcome",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A copy of the rubricQualityFeedback property that is made when the grade is released to the student.",
+      "jsonName": "publishedRubricQualityFeedback",
+      "name": "PublishedRubricQualityFeedback",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RubricQualityFeedbackModel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A copy of the rubricQualitySelectedLevels property that is made when the grade is released to the student.",
+      "jsonName": "publishedRubricQualitySelectedLevels",
+      "name": "PublishedRubricQualitySelectedLevels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RubricQualitySelectedColumnModel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of specific feedback for each quality of this rubric.",
+      "jsonName": "rubricQualityFeedback",
+      "name": "RubricQualityFeedback",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RubricQualityFeedbackModel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The level that the teacher has selected for each quality while grading this assignment.",
+      "jsonName": "rubricQualitySelectedLevels",
+      "name": "RubricQualitySelectedLevels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RubricQualitySelectedColumnModel",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationOutcome",
+  "discriminatedTypeValue": "#microsoft.graph.educationRubricOutcome",
+  "typeHintIn": "ODataType"
+}

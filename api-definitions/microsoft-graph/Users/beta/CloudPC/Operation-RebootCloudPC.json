@@ -1,0 +1,36 @@
+{
+  "name": "RebootCloudPC",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action reboot. Reboot a specific Cloud PC.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdCloudPCId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/reboot"
+}

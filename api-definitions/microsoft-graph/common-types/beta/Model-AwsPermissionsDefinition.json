@@ -1,0 +1,24 @@
+{
+  "name": "AwsPermissionsDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionInfo",
+      "name": "ActionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsPermissionsDefinitionAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PermissionsDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.awsPermissionsDefinition",
+  "typeHintIn": "ODataType"
+}

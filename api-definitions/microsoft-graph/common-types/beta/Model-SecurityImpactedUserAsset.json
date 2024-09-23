@@ -1,0 +1,24 @@
+{
+  "name": "SecurityImpactedUserAsset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityUserAssetIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityImpactedAsset",
+  "discriminatedTypeValue": "#microsoft.graph.security.impactedUserAsset",
+  "typeHintIn": "ODataType"
+}

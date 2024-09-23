@@ -1,0 +1,73 @@
+{
+  "name": "UnsupportedGroupPolicyExtension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ExtensionType of the unsupported extension.",
+      "jsonName": "extensionType",
+      "name": "ExtensionType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Namespace Url of the unsupported extension.",
+      "jsonName": "namespaceUrl",
+      "name": "NamespaceUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Node name of the unsupported extension.",
+      "jsonName": "nodeName",
+      "name": "NodeName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Scope of the group policy setting.",
+      "jsonName": "settingScope",
+      "name": "SettingScope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GroupPolicySettingScope",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.unsupportedGroupPolicyExtension",
+  "typeHintIn": "ODataType"
+}

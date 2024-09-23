@@ -1,0 +1,25 @@
+{
+  "name": "Edge",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A container for Internet Explorer mode resources.",
+      "jsonName": "internetExplorerMode",
+      "name": "InternetExplorerMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InternetExplorerMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.edge",
+  "typeHintIn": "ODataType"
+}

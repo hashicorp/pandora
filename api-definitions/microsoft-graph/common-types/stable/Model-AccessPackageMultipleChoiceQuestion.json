@@ -1,0 +1,47 @@
+{
+  "name": "AccessPackageMultipleChoiceQuestion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of answer choices.",
+      "jsonName": "choices",
+      "name": "Choices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AccessPackageAnswerChoice",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether requestor can select multiple choices as their answer.",
+      "jsonName": "isMultipleSelectionAllowed",
+      "name": "IsMultipleSelectionAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessPackageQuestion",
+  "discriminatedTypeValue": "#microsoft.graph.accessPackageMultipleChoiceQuestion",
+  "typeHintIn": "ODataType"
+}

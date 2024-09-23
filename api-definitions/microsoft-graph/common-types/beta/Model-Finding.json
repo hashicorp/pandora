@@ -1,0 +1,25 @@
+{
+  "name": "Finding",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines when the finding was created.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.finding",
+  "typeHintIn": "ODataType"
+}

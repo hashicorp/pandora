@@ -1,0 +1,46 @@
+{
+  "name": "SecurityBlockFileResponseAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device groups to which the actions set in the custom detection rule are applied. More information",
+      "jsonName": "deviceGroupNames",
+      "name": "DeviceGroupNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityFileEntityIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityResponseAction",
+  "discriminatedTypeValue": "#microsoft.graph.security.blockFileResponseAction",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "AgreementFileLocalization",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. Customized versions of the terms of use agreement in the Microsoft Entra tenant.",
+      "jsonName": "versions",
+      "name": "Versions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AgreementFileVersion",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AgreementFileProperties",
+  "discriminatedTypeValue": "#microsoft.graph.agreementFileLocalization",
+  "typeHintIn": "ODataType"
+}

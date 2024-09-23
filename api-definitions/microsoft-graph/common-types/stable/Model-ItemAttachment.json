@@ -1,0 +1,25 @@
+{
+  "name": "ItemAttachment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The attached message or event. Navigation property.",
+      "jsonName": "item",
+      "name": "Item",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OutlookItem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Attachment",
+  "discriminatedTypeValue": "#microsoft.graph.itemAttachment",
+  "typeHintIn": "ODataType"
+}

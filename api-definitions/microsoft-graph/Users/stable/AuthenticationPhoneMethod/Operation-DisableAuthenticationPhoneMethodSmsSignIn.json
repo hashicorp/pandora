@@ -1,0 +1,36 @@
+{
+  "name": "DisableAuthenticationPhoneMethodSmsSignIn",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action disableSmsSignIn. Disable SMS sign-in for an existing mobile phone number registered to a user. The number will no longer be available for SMS sign-in, which can prevent your user from signing in.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdAuthenticationPhoneMethodId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/disableSmsSignIn"
+}

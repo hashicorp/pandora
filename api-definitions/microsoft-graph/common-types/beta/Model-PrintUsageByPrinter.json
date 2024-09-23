@@ -1,0 +1,41 @@
+{
+  "name": "PrintUsageByPrinter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the printer represented by these statistics.",
+      "jsonName": "printerId",
+      "name": "PrinterId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the printer represented by these statistics.",
+      "jsonName": "printerName",
+      "name": "PrinterName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PrintUsage",
+  "discriminatedTypeValue": "#microsoft.graph.printUsageByPrinter",
+  "typeHintIn": "ODataType"
+}

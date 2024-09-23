@@ -1,0 +1,24 @@
+{
+  "name": "ClassificationJobResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "result",
+      "name": "Result",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DetectedSensitiveContentWrapper",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "JobResponseBase",
+  "discriminatedTypeValue": "#microsoft.graph.classificationJobResponse",
+  "typeHintIn": "ODataType"
+}

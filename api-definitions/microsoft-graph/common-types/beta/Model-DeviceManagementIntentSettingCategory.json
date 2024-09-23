@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementIntentSettingCategory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The settings this category contains",
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementSettingInstance",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementSettingCategory",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementIntentSettingCategory",
+  "typeHintIn": "ODataType"
+}

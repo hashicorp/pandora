@@ -1,0 +1,25 @@
+{
+  "name": "EdgeSearchEngine",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows IT admind to set a predefined default search engine for MDM-Controlled devices",
+      "jsonName": "edgeSearchEngineType",
+      "name": "EdgeSearchEngineType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EdgeSearchEngineType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EdgeSearchEngineBase",
+  "discriminatedTypeValue": "#microsoft.graph.edgeSearchEngine",
+  "typeHintIn": "ODataType"
+}

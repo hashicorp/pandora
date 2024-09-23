@@ -1,0 +1,62 @@
+{
+  "name": "ImportedWindowsAutopilotDeviceIdentityUpload",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "DateTime when the entity is created.",
+      "jsonName": "createdDateTimeUtc",
+      "name": "CreatedDateTimeUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of all Autopilot devices as a part of this upload.",
+      "jsonName": "deviceIdentities",
+      "name": "DeviceIdentities",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ImportedWindowsAutopilotDeviceIdentity",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ImportedWindowsAutopilotDeviceIdentityUploadStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.importedWindowsAutopilotDeviceIdentityUpload",
+  "typeHintIn": "ODataType"
+}

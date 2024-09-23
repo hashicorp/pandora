@@ -1,0 +1,24 @@
+{
+  "name": "WindowsUpdatesCatalogContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "catalogEntry",
+      "name": "CatalogEntry",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesCatalogEntry",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesDeployableContent",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.catalogContent",
+  "typeHintIn": "ODataType"
+}

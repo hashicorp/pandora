@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementComplexSettingInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The values that make up the complex setting",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementSettingInstance",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementComplexSettingInstance",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "EducationModuleResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Resource object that is with this module.",
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.educationModuleResource",
+  "typeHintIn": "ODataType"
+}

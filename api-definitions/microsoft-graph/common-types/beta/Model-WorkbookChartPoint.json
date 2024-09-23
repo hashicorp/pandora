@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookChartPoint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Encapsulates the format properties chart point. Read-only.",
+      "jsonName": "format",
+      "name": "Format",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartPointFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartPoint",
+  "typeHintIn": "ODataType"
+}

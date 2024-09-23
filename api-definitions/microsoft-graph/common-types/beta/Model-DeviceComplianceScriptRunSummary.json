@@ -1,0 +1,89 @@
+{
+  "name": "DeviceComplianceScriptRunSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices on which the detection script execution encountered an error and did not complete. Valid values -2147483648 to 2147483647",
+      "jsonName": "detectionScriptErrorDeviceCount",
+      "name": "DetectionScriptErrorDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices which have not yet run the latest version of the device compliance script. Valid values -2147483648 to 2147483647",
+      "jsonName": "detectionScriptPendingDeviceCount",
+      "name": "DetectionScriptPendingDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the detection script found an issue. Valid values -2147483648 to 2147483647",
+      "jsonName": "issueDetectedDeviceCount",
+      "name": "IssueDetectedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last run time for the script across all devices",
+      "jsonName": "lastScriptRunDateTime",
+      "name": "LastScriptRunDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of devices for which the detection script did not find an issue and the device is healthy. Valid values -2147483648 to 2147483647",
+      "jsonName": "noIssueDetectedDeviceCount",
+      "name": "NoIssueDetectedDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deviceComplianceScriptRunSummary",
+  "typeHintIn": "ODataType"
+}

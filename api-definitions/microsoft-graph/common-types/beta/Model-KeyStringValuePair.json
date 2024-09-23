@@ -1,0 +1,25 @@
+{
+  "name": "KeyStringValuePair",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The string value of the key-value pair.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "KeyTypedValuePair",
+  "discriminatedTypeValue": "#microsoft.graph.keyStringValuePair",
+  "typeHintIn": "ODataType"
+}

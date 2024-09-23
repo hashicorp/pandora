@@ -1,0 +1,25 @@
+{
+  "name": "IdentityGovernanceWorkflowVersion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The version of the workflow.Supports $filter(lt, le, gt, ge, eq, ne) and $orderby.",
+      "jsonName": "versionNumber",
+      "name": "VersionNumber",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceWorkflowBase",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.workflowVersion",
+  "typeHintIn": "ODataType"
+}

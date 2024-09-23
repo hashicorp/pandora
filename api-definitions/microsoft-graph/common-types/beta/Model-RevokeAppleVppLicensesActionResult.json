@@ -1,0 +1,41 @@
+{
+  "name": "RevokeAppleVppLicensesActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total number of Apple Vpp licenses that failed to revoke",
+      "jsonName": "failedLicensesCount",
+      "name": "FailedLicensesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total number of Apple Vpp licenses associated",
+      "jsonName": "totalLicensesCount",
+      "name": "TotalLicensesCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.revokeAppleVppLicensesActionResult",
+  "typeHintIn": "ODataType"
+}

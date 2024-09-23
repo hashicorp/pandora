@@ -1,0 +1,41 @@
+{
+  "name": "DeviceManagementConfigurationSimpleSettingCollectionDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of simple settings in the collection. Valid values 1 to 100",
+      "jsonName": "maximumCount",
+      "name": "MaximumCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum number of simple settings in the collection. Valid values 1 to 100",
+      "jsonName": "minimumCount",
+      "name": "MinimumCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSimpleSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSimpleSettingCollectionDefinition",
+  "typeHintIn": "ODataType"
+}

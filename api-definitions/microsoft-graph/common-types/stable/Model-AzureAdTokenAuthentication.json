@@ -1,0 +1,25 @@
+{
+  "name": "AzureAdTokenAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The appID of the Microsoft Entra application to use to authenticate an app with a custom extension.",
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomExtensionAuthenticationConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.azureAdTokenAuthentication",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "SecurityUnclassifiedArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The kind for this unclassifiedArtifact resource, describing what this value means.",
+      "jsonName": "kind",
+      "name": "Kind",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for this unclassifiedArtifact.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityArtifact",
+  "discriminatedTypeValue": "#microsoft.graph.security.unclassifiedArtifact",
+  "typeHintIn": "ODataType"
+}

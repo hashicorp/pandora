@@ -1,0 +1,31 @@
+{
+  "name": "UserExperienceAnalyticsOverview",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user experience analytics insights. Read-only.",
+      "jsonName": "insights",
+      "name": "Insights",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UserExperienceAnalyticsInsight",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsOverview",
+  "typeHintIn": "ODataType"
+}

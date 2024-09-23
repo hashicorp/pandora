@@ -1,0 +1,31 @@
+{
+  "name": "TrustedCertificateAuthorityAsEntityBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of trusted certificate authorities.",
+      "jsonName": "trustedCertificateAuthorities",
+      "name": "TrustedCertificateAuthorities",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CertificateAuthorityAsEntity",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DirectoryObject",
+  "discriminatedTypeValue": "#microsoft.graph.trustedCertificateAuthorityAsEntityBase",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "AzureCommunicationServicesUserConversationMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Azure Communication Services ID of the user.",
+      "jsonName": "azureCommunicationServicesId",
+      "name": "AzureCommunicationServicesId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConversationMember",
+  "discriminatedTypeValue": "#microsoft.graph.azureCommunicationServicesUserConversationMember",
+  "typeHintIn": "ODataType"
+}

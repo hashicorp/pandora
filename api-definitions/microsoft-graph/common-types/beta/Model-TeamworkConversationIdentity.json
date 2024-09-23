@@ -1,0 +1,25 @@
+{
+  "name": "TeamworkConversationIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Type of conversation. Possible values are: team, channel, and chat.",
+      "jsonName": "conversationIdentityType",
+      "name": "ConversationIdentityType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkConversationIdentityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.teamworkConversationIdentity",
+  "typeHintIn": "ODataType"
+}

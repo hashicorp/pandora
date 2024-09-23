@@ -1,0 +1,47 @@
+{
+  "name": "CustomClaimCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of groups (GUIDs) to which the user/application must be a member for this condition to be applied.",
+      "jsonName": "memberOf",
+      "name": "MemberOf",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of user this condition applies to. The possible values are: any, members, allGuests, aadGuests, externalGuests, unknownFutureValue.",
+      "jsonName": "userType",
+      "name": "UserType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ClaimConditionUserType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimConditionBase",
+  "discriminatedTypeValue": "#microsoft.graph.customClaimCondition",
+  "typeHintIn": "ODataType"
+}

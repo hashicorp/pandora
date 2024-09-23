@@ -1,0 +1,25 @@
+{
+  "name": "AwsAccessKey",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the owner of the access key.",
+      "jsonName": "owner",
+      "name": "Owner",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AwsUser",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AwsIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.awsAccessKey",
+  "typeHintIn": "ODataType"
+}

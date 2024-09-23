@@ -1,0 +1,151 @@
+{
+  "name": "MacOSExtensionsConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "All kernel extensions validly signed by the team identifiers in this list will be allowed to load.",
+      "jsonName": "kernelExtensionAllowedTeamIdentifiers",
+      "name": "KernelExtensionAllowedTeamIdentifiers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, users can approve additional kernel extensions not explicitly allowed by configurations profiles.",
+      "jsonName": "kernelExtensionOverridesAllowed",
+      "name": "KernelExtensionOverridesAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of kernel extensions that will be allowed to load. . This collection can contain a maximum of 500 elements.",
+      "jsonName": "kernelExtensionsAllowed",
+      "name": "KernelExtensionsAllowed",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MacOSKernelExtension",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a list of allowed macOS system extensions. This collection can contain a maximum of 500 elements.",
+      "jsonName": "systemExtensionsAllowed",
+      "name": "SystemExtensionsAllowed",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MacOSSystemExtension",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a list of allowed team identifiers. Any system extension signed with any of the specified team identifiers will be approved.",
+      "jsonName": "systemExtensionsAllowedTeamIdentifiers",
+      "name": "SystemExtensionsAllowedTeamIdentifiers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a list of allowed macOS system extension types. This collection can contain a maximum of 500 elements.",
+      "jsonName": "systemExtensionsAllowedTypes",
+      "name": "SystemExtensionsAllowedTypes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MacOSSystemExtensionTypeMapping",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets whether to allow the user to approve additional system extensions not explicitly allowed by configuration profiles.",
+      "jsonName": "systemExtensionsBlockOverride",
+      "name": "SystemExtensionsBlockOverride",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.macOSExtensionsConfiguration",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,53 @@
+{
+  "name": "ExchangeProtectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The rules associated with the Exchange protection policy.",
+      "jsonName": "mailboxInclusionRules",
+      "name": "MailboxInclusionRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MailboxProtectionRule",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The protection units (mailboxes) that are  protected under the Exchange protection policy.",
+      "jsonName": "mailboxProtectionUnits",
+      "name": "MailboxProtectionUnits",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MailboxProtectionUnit",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionPolicyBase",
+  "discriminatedTypeValue": "#microsoft.graph.exchangeProtectionPolicy",
+  "typeHintIn": "ODataType"
+}

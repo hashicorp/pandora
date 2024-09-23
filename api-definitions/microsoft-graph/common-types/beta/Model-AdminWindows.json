@@ -1,0 +1,25 @@
+{
+  "name": "AdminWindows",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Entity that acts as a container for all Windows Update for Business deployment service functionalities. Read-only.",
+      "jsonName": "updates",
+      "name": "Updates",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AdminWindowsUpdates",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.adminWindows",
+  "typeHintIn": "ODataType"
+}

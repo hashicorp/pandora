@@ -1,0 +1,47 @@
+{
+  "name": "DeviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Option Children",
+      "jsonName": "children",
+      "name": "Children",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSettingInstanceTemplate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Default Constant Value",
+      "jsonName": "settingDefinitionOptionId",
+      "name": "SettingDefinitionOptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationChoiceSettingValueDefaultTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationChoiceSettingValueConstantDefaultTemplate",
+  "typeHintIn": "ODataType"
+}

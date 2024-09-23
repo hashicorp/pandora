@@ -1,0 +1,31 @@
+{
+  "name": "UnmanagedDeviceDiscoveryTask",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unmanaged devices discovered in the network.",
+      "jsonName": "unmanagedDevices",
+      "name": "UnmanagedDevices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UnmanagedDevice",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceAppManagementTask",
+  "discriminatedTypeValue": "#microsoft.graph.unmanagedDeviceDiscoveryTask",
+  "typeHintIn": "ODataType"
+}

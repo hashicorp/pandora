@@ -1,0 +1,25 @@
+{
+  "name": "WindowsKioskActiveDirectoryGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the AD group that will be locked to this kiosk configuration",
+      "jsonName": "groupName",
+      "name": "GroupName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskUser",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskActiveDirectoryGroup",
+  "typeHintIn": "ODataType"
+}

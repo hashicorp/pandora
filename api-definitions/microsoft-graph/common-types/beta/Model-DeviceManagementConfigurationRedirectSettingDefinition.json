@@ -1,0 +1,57 @@
+{
+  "name": "DeviceManagementConfigurationRedirectSettingDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A deep link that points to the specific location in the Intune console where feature support must be managed from.",
+      "jsonName": "deepLink",
+      "name": "DeepLink",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A message that explains that clicking the link will redirect the user to a supported page to manage the settings.",
+      "jsonName": "redirectMessage",
+      "name": "RedirectMessage",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the reason for redirecting the user to an alternative location in the console.  For example: WiFi profiles are not supported in the settings catalog and must be created with a template policy.",
+      "jsonName": "redirectReason",
+      "name": "RedirectReason",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationRedirectSettingDefinition",
+  "typeHintIn": "ODataType"
+}

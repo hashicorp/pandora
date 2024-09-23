@@ -1,0 +1,24 @@
+{
+  "name": "PlannerSharedWithContainer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accessLevel",
+      "name": "AccessLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlannerPlanAccessLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerPlanContainer",
+  "discriminatedTypeValue": "#microsoft.graph.plannerSharedWithContainer",
+  "typeHintIn": "ODataType"
+}

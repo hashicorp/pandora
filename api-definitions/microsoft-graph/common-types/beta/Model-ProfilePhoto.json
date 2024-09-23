@@ -1,0 +1,41 @@
+{
+  "name": "ProfilePhoto",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The height of the photo. Read-only.",
+      "jsonName": "height",
+      "name": "Height",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The width of the photo. Read-only.",
+      "jsonName": "width",
+      "name": "Width",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.profilePhoto",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "CreateRecommendationImpactedResourceComplete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action complete. Complete an impactedResource object and update its status to completedByUser.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DirectoryRecommendationIdImpactedResourceId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImpactedResource",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/complete"
+}

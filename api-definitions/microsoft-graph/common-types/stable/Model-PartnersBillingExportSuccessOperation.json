@@ -1,0 +1,24 @@
+{
+  "name": "PartnersBillingExportSuccessOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceLocation",
+      "name": "ResourceLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnersBillingManifest",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PartnersBillingOperation",
+  "discriminatedTypeValue": "#microsoft.graph.partners.billing.exportSuccessOperation",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,41 @@
+{
+  "name": "WindowsUpdatesContentApprovalRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A filter to determine which content matches the rule on an ongoing basis.",
+      "jsonName": "contentFilter",
+      "name": "ContentFilter",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesContentFilter",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time before the deployment starts represented in ISO 8601 format for durations.",
+      "jsonName": "durationBeforeDeploymentStart",
+      "name": "DurationBeforeDeploymentStart",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesComplianceChangeRule",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.contentApprovalRule",
+  "typeHintIn": "ODataType"
+}

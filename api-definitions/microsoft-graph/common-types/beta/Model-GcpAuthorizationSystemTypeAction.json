@@ -1,0 +1,24 @@
+{
+  "name": "GcpAuthorizationSystemTypeAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "service",
+      "name": "Service",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthorizationSystemTypeService",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthorizationSystemTypeAction",
+  "discriminatedTypeValue": "#microsoft.graph.gcpAuthorizationSystemTypeAction",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookChartGridlinesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents chart line formatting. Read-only.",
+      "jsonName": "line",
+      "name": "Line",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartLineFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartGridlinesFormat",
+  "typeHintIn": "ODataType"
+}

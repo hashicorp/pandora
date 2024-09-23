@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementCollectionSettingDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Setting Definition ID that describes what each element of the collection looks like",
+      "jsonName": "elementDefinitionId",
+      "name": "ElementDefinitionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementSettingDefinition",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementCollectionSettingDefinition",
+  "typeHintIn": "ODataType"
+}

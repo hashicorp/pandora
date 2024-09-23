@@ -1,0 +1,58 @@
+{
+  "name": "RemoveEntitlementManagementAccessPackageIncompatibleGroupRefs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Remove group from incompatibleGroups. Remove a group from the list of groups marked as incompatible on an accessPackage.",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "Type": "Data",
+      "optional": true,
+      "queryString": "@id",
+      "required": false,
+      "field": "Id",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "Type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "Type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementAccessPackageId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/incompatibleGroups/$ref"
+}
