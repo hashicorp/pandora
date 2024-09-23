@@ -286,6 +286,149 @@ func (s Train) MarshalJSON() ([]byte, error) {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestTemplaterModelsImplementationWithModelBehaviors(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "Train",
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
+				"Number": {
+					Required: true,
+					JsonName: "number",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+				},
+				"Operator": {
+					Required: true,
+					JsonName: "operator",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+				},
+			},
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			ParentTypeName:                        stringPointer("ModeOfTransit"),
+			DiscriminatedValue:                    stringPointer("train"),
+		},
+	}.template(GeneratorData{
+		enableModelBehaviors: true,
+		packageName:          "somepackage",
+		models: map[string]models.SDKModel{
+			"ModeOfTransit": {
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+					"Type": {
+						ContainsDiscriminatedValue: true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+						Required: true,
+					},
+				},
+			},
+			"Train": {
+				Fields: map[string]models.SDKField{
+					"Number": {
+						Required: true,
+						JsonName: "number",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+					"Operator": {
+						Required: true,
+						JsonName: "operator",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+				},
+				DiscriminatedValue:                    stringPointer("train"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
+)
+
+// acctests licence placeholder
+
+var _ ModeOfTransit = Train{}
+
+type Train struct {
+	Number string ''json:"number"''
+	Operator string ''json:"operator"''
+
+	// Fields inherited from ModeOfTransit
+	Name string ''json:"name"''
+	Type string ''json:"type"''
+
+	// Model behaviors
+	OmitDiscriminatedValue bool ''json:"-"''
+}
+
+func (s Train) ModeOfTransit() BaseModeOfTransitImpl {
+	return BaseModeOfTransitImpl{
+		Name: s.Name,
+		Type: s.Type,
+	}
+}
+
+var _ json.Marshaler = Train{}
+
+func (s Train) MarshalJSON() ([]byte, error) {
+	type wrapper Train
+	wrapped := wrapper(s)
+	encoded, err := json.Marshal(wrapped)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling Train: %+v", err)
+	}
+
+	var decoded map[string]interface{}
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
+		return nil, fmt.Errorf("unmarshaling Train: %+v", err)
+	}
+
+	if !s.OmitDiscriminatedValue {
+		decoded["type"] = "train"
+	}
+
+	encoded, err = json.Marshal(decoded)
+	if err != nil {
+		return nil, fmt.Errorf("re-marshaling Train: %+v", err)
+	}
+
+	return encoded, nil
+}
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestTemplaterModelsFieldImplementation(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "TrainFactory",

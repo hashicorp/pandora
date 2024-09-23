@@ -78,12 +78,6 @@ func (c modelsTemplater) structCode(data GeneratorData) (*string, error) {
 	}
 	sort.Strings(fields)
 
-	// Build struct field lines
-	structLines, err := c.structLinesForModel(data, fields, false, false)
-	if err != nil {
-		return nil, fmt.Errorf("building struct lines for %q model: %+v", c.name, err)
-	}
-
 	// If this is a child model, determine its ancestry
 	parentAssignmentInfo := ""
 	ancestorTypeNames := make([]string, 0)
@@ -124,6 +118,12 @@ type %[1]s interface {
 `, c.name, strings.Join(interfaceLines, "\n"))
 	}
 
+	// Build struct field lines
+	structLines, err := c.structLinesForModel(data, fields, false, false)
+	if err != nil {
+		return nil, fmt.Errorf("building struct lines for %q model: %+v", c.name, err)
+	}
+
 	// Format the model struct field lines
 	formattedStructLines := make([]string, 0)
 	for i, v := range *structLines {
@@ -143,13 +143,25 @@ type %[1]s interface {
 		parentAssignmentInfo = fmt.Sprintf("var _ %[1]s = %[2]s{}", c.name, structName)
 	}
 
+	// Determine any behavioral struct field lines, if enabled
+	behavioralStructLines := ""
+	if data.enableModelBehaviors {
+		if c.model.FieldNameContainingDiscriminatedValue != nil {
+			behavioralStructLines += strings.ReplaceAll(`
+	// Model Behaviors
+	OmitDiscriminatedValue bool ''json:"-"''
+`, "''", "`")
+		}
+	}
+
 	// Output the model struct
 	out += fmt.Sprintf(`
-%[3]s
+%[4]s
 type %[1]s struct {
 %[2]s
+%[3]s
 }
-`, structName, strings.Join(formattedStructLines, "\n"), parentAssignmentInfo)
+`, structName, strings.Join(formattedStructLines, "\n"), behavioralStructLines, parentAssignmentInfo)
 
 	// When the struct name doesn't match the model name, output a method to satisfy the model interface
 	if structName != c.name {
@@ -235,8 +247,12 @@ func (c modelsTemplater) methods(data GeneratorData) (*string, error) {
 }
 
 func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []string, excludeComments, excludeDiscriminatedParentMembers bool) (*[]string, error) {
+	// When `excludeComments = true`, no code comments will be output
+	// When `excludeDiscriminatedParentMembers = true`, any fields that reference a parent model (i.e. an interface rather than a struct), will be omitted
+
 	output := make([]string, 0)
 
+	// Add the fields for this model
 	for _, fieldName := range fieldNames {
 		fieldDetails := c.model.Fields[fieldName]
 
@@ -263,7 +279,7 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 		output = append(output, *structLine)
 	}
 
-	// then add any inherited fields
+	// Then add any inherited fields
 	ancestorTypeNames := make([]string, 0)
 	if c.model.ParentTypeName != nil {
 		ancestorTypeNames = append(ancestorTypeNames, *c.model.ParentTypeName)
@@ -615,7 +631,15 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 			}
 		}
 
-		output += fmt.Sprintf("	decoded[%[1]q] = %[2]q\n", field.JsonName, *c.model.DiscriminatedValue)
+		if data.enableModelBehaviors {
+			output += fmt.Sprintf(`
+	if !s.OmitDiscriminatedValue {
+		decoded[%[1]q] = %[2]q
+	}
+`, field.JsonName, *c.model.DiscriminatedValue)
+		} else {
+			output += fmt.Sprintf("	decoded[%[1]q] = %[2]q\n", field.JsonName, *c.model.DiscriminatedValue)
+		}
 	}
 
 	output += fmt.Sprintf(`

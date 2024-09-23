@@ -74,6 +74,9 @@ type GeneratorData struct {
 	// the package name for the API version
 	versionPackageName string
 
+	// whether model behaviors are enabled
+	enableModelBehaviors bool
+
 	// whether descriptions should be generated for model fields etc.
 	generateDescriptionsForModels bool
 
@@ -117,6 +120,7 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 		commonTypesIncludePath:        commonTypesIncludePath,
 		commonTypesPackageName:        commonTypesPackageName,
 		constants:                     i.ResourceDetails.Constants,
+		enableModelBehaviors:          settings.EnableModelBehaviors,
 		generateDescriptionsForModels: settings.GenerateDescriptionsForModels,
 		isDataPlane:                   models.SourceDataTypeIsDataPlane(i.Type),
 		models:                        i.ResourceDetails.Models,

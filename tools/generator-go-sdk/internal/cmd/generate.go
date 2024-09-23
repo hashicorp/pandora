@@ -59,6 +59,7 @@ func (g GenerateCommand) Run(args []string) int {
 	}
 
 	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
+		input.settings.EnableModelBehaviors = true
 		input.settings.GenerateDescriptionsForModels = true
 		input.settings.RecurseParentModels = false
 
@@ -71,6 +72,8 @@ func (g GenerateCommand) Run(args []string) int {
 			"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
 		}
 	} else if g.sourceDataType == models.ResourceManagerSourceDataType {
+		input.settings.EnableModelBehaviors = false
+		input.settings.GenerateDescriptionsForModels = false
 		input.settings.RecurseParentModels = true
 
 		input.settings.UseOldBaseLayerFor(
