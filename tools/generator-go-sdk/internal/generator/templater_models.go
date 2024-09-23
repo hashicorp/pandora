@@ -145,7 +145,7 @@ type %[1]s interface {
 
 	// Determine any behavioral struct field lines, if enabled
 	behavioralStructLines := ""
-	if data.enableModelBehaviors {
+	if data.allowOmittingDiscriminatedValue {
 		if c.model.FieldNameContainingDiscriminatedValue != nil {
 			behavioralStructLines += strings.ReplaceAll(`
 	// Model Behaviors
@@ -631,7 +631,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 			}
 		}
 
-		if data.enableModelBehaviors {
+		if data.allowOmittingDiscriminatedValue {
 			output += fmt.Sprintf(`
 	if !s.OmitDiscriminatedValue {
 		decoded[%[1]q] = %[2]q
