@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current state of this QueryPack: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique ID of your application. This field cannot be changed.",
       "jsonName": "queryPackId",
       "name": "QueryPackId",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Creation Date for the Log Analytics QueryPack, in ISO 8601 format.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Last modified date of the Log Analytics QueryPack, in ISO 8601 format.",
       "jsonName": "timeModified",
       "name": "TimeModified",
       "objectDefinition": {

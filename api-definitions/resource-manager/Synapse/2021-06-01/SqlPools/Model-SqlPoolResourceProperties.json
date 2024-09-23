@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collation mode",
       "jsonName": "collation",
       "name": "Collation",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the mode of sql pool creation.\n\nDefault: regular sql pool creation.\n\nPointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.\n\nRecovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.\n\nRestore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Date the SQL pool was created",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum size in bytes",
       "jsonName": "maxSizeBytes",
       "name": "MaxSizeBytes",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Backup database to restore from",
       "jsonName": "recoverableDatabaseId",
       "name": "RecoverableDatabaseId",
       "objectDefinition": {
@@ -101,7 +95,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Snapshot time to restore",
       "jsonName": "restorePointInTime",
       "name": "RestorePointInTime",
       "objectDefinition": {
@@ -118,7 +111,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Specifies the time that the sql pool was deleted",
       "jsonName": "sourceDatabaseDeletionDate",
       "name": "SourceDatabaseDeletionDate",
       "objectDefinition": {
@@ -134,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source database to create from",
       "jsonName": "sourceDatabaseId",
       "name": "SourceDatabaseId",
       "objectDefinition": {
@@ -150,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource status",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -166,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The storage account type used to store backups for this sql pool.",
       "jsonName": "storageAccountType",
       "name": "StorageAccountType",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Job Activity Id",
       "jsonName": "activityID",
       "name": "ActivityID",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the Backup Instance",
       "jsonName": "backupInstanceFriendlyName",
       "name": "BackupInstanceFriendlyName",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM ID of the Backup Instance",
       "jsonName": "backupInstanceId",
       "name": "BackupInstanceId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM ID of the DataSource",
       "jsonName": "dataSourceId",
       "name": "DataSourceId",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Location of the DataSource",
       "jsonName": "dataSourceLocation",
       "name": "DataSourceLocation",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User Friendly Name of the DataSource",
       "jsonName": "dataSourceName",
       "name": "DataSourceName",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Data Source Set Name of the DataSource",
       "jsonName": "dataSourceSetName",
       "name": "DataSourceSetName",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of DataSource",
       "jsonName": "dataSourceType",
       "name": "DataSourceType",
       "objectDefinition": {
@@ -146,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Total run time of the job. ISO 8601 format.",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
@@ -163,7 +154,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "EndTime of the job(in UTC)",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
@@ -179,7 +169,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A List, detailing the errors related to the job",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
@@ -216,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Extended Information about the job",
       "jsonName": "extendedInfo",
       "name": "ExtendedInfo",
       "objectDefinition": {
@@ -232,7 +220,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicated that whether the job is adhoc(true) or scheduled(false)",
       "jsonName": "isUserTriggered",
       "name": "IsUserTriggered",
       "objectDefinition": {
@@ -248,7 +235,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "It indicates the type of Job i.e. Backup:full/log/diff ;Restore:ALR/OLR; Tiering:Backup/Archive ; Management:ConfigureProtection/UnConfigure",
       "jsonName": "operation",
       "name": "Operation",
       "objectDefinition": {
@@ -264,7 +250,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "It indicates the type of Job i.e. Backup/Restore/Tiering/Management",
       "jsonName": "operationCategory",
       "name": "OperationCategory",
       "objectDefinition": {
@@ -280,7 +265,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM ID of the policy",
       "jsonName": "policyId",
       "name": "PolicyId",
       "objectDefinition": {
@@ -296,7 +280,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the policy",
       "jsonName": "policyName",
       "name": "PolicyName",
       "objectDefinition": {
@@ -312,7 +295,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicated whether progress is enabled for the job",
       "jsonName": "progressEnabled",
       "name": "ProgressEnabled",
       "objectDefinition": {
@@ -328,7 +310,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Url which contains job's progress",
       "jsonName": "progressUrl",
       "name": "ProgressUrl",
       "objectDefinition": {
@@ -344,7 +325,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Priority to be used for rehydration",
       "jsonName": "rehydrationPriority",
       "name": "RehydrationPriority",
       "objectDefinition": {
@@ -360,7 +340,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "It indicates the sub type of operation i.e. in case of Restore it can be ALR/OLR",
       "jsonName": "restoreType",
       "name": "RestoreType",
       "objectDefinition": {
@@ -391,7 +370,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource Group Name of the Datasource",
       "jsonName": "sourceResourceGroup",
       "name": "SourceResourceGroup",
       "objectDefinition": {
@@ -407,7 +385,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SubscriptionId corresponding to the DataSource",
       "jsonName": "sourceSubscriptionID",
       "name": "SourceSubscriptionID",
       "objectDefinition": {
@@ -424,7 +401,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "StartTime of the job(in UTC)",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
@@ -440,7 +416,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Status of the job like InProgress/Success/Failed/Cancelled/SuccessWithWarning",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -456,7 +431,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subscription Id of the corresponding backup vault",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
@@ -472,7 +446,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of supported actions",
       "jsonName": "supportedActions",
       "name": "SupportedActions",
       "objectDefinition": {
@@ -494,7 +467,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the vault",
       "jsonName": "vaultName",
       "name": "VaultName",
       "objectDefinition": {

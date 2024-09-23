@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The association of IP address pools to the communities and peers, allowing for announcement of IPs.",
       "jsonName": "bgpAdvertisements",
       "name": "BgpAdvertisements",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined.",
       "jsonName": "bgpPeers",
       "name": "BgpPeers",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The indicator to specify if the load balancer peers with the network fabric.",
       "jsonName": "fabricPeeringEnabled",
       "name": "FabricPeeringEnabled",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of pools of IP addresses that can be allocated to Load Balancer services.",
       "jsonName": "ipAddressPools",
       "name": "IPAddressPools",
       "objectDefinition": {

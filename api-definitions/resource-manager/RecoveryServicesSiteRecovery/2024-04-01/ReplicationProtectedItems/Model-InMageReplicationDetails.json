@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The active location of the VM. If the VM is being protected from Azure, this field will take values from { Azure, OnPrem }. If the VM is being protected between two data-centers, this field will be OnPrem always.",
       "jsonName": "activeSiteType",
       "name": "ActiveSiteType",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The agent details.",
       "jsonName": "agentDetails",
       "name": "AgentDetails",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating the underlying Azure storage account. If the VM is not running in Azure, this value shall be set to null.",
       "jsonName": "azureStorageAccountId",
       "name": "AzureStorageAccountId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The compressed data change rate in MB.",
       "jsonName": "compressedDataRateInMB",
       "name": "CompressedDataRateInMB",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The collection of Consistency points.",
       "jsonName": "consistencyPoints",
       "name": "ConsistencyPoints",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The datastores of the on-premise machine Value can be list of strings that contain datastore names.",
       "jsonName": "datastores",
       "name": "DataStores",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating the discovery type of the machine.",
       "jsonName": "discoveryType",
       "name": "DiscoveryType",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating whether any disk is resized for this VM.",
       "jsonName": "diskResized",
       "name": "DiskResized",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source IP address.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The infrastructure VM Id.",
       "jsonName": "infrastructureVmId",
       "name": "InfrastructureVMId",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating whether additional IR stats are available or not.",
       "jsonName": "isAdditionalStatsAvailable",
       "name": "IsAdditionalStatsAvailable",
       "objectDefinition": {
@@ -192,7 +181,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last heartbeat received from the source server.",
       "jsonName": "lastHeartbeat",
       "name": "LastHeartbeat",
       "objectDefinition": {
@@ -209,7 +197,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last RPO calculated time.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
@@ -226,7 +213,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last update time received from on-prem components.",
       "jsonName": "lastUpdateReceivedTime",
       "name": "LastUpdateReceivedTime",
       "objectDefinition": {
@@ -242,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The master target Id.",
       "jsonName": "masterTargetId",
       "name": "MasterTargetId",
       "objectDefinition": {
@@ -258,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The multi vm group Id, if any.",
       "jsonName": "multiVmGroupId",
       "name": "MultiVMGroupId",
       "objectDefinition": {
@@ -274,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The multi vm group name, if any.",
       "jsonName": "multiVmGroupName",
       "name": "MultiVMGroupName",
       "objectDefinition": {
@@ -290,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating whether the multi vm sync is enabled or disabled.",
       "jsonName": "multiVmSyncStatus",
       "name": "MultiVMSyncStatus",
       "objectDefinition": {
@@ -306,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OS details.",
       "jsonName": "osDetails",
       "name": "OsDetails",
       "objectDefinition": {
@@ -322,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OS Version of the protected item.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
@@ -338,7 +318,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The process server Id.",
       "jsonName": "processServerId",
       "name": "ProcessServerId",
       "objectDefinition": {
@@ -354,7 +333,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of protected disks.",
       "jsonName": "protectedDisks",
       "name": "ProtectedDisks",
       "objectDefinition": {
@@ -376,7 +354,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protection stage.",
       "jsonName": "protectionStage",
       "name": "ProtectionStage",
       "objectDefinition": {
@@ -392,7 +369,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating whether the source server requires a restart after update.",
       "jsonName": "rebootAfterUpdateStatus",
       "name": "RebootAfterUpdateStatus",
       "objectDefinition": {
@@ -408,7 +384,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The replica id of the protected item.",
       "jsonName": "replicaId",
       "name": "ReplicaId",
       "objectDefinition": {
@@ -424,7 +399,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resync details of the machine.",
       "jsonName": "resyncDetails",
       "name": "ResyncDetails",
       "objectDefinition": {
@@ -441,7 +415,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The retention window end time.",
       "jsonName": "retentionWindowEnd",
       "name": "RetentionWindowEnd",
       "objectDefinition": {
@@ -458,7 +431,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The retention window start time.",
       "jsonName": "retentionWindowStart",
       "name": "RetentionWindowStart",
       "objectDefinition": {
@@ -474,7 +446,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The RPO in seconds.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
@@ -490,7 +461,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The CPU count of the VM on the primary side.",
       "jsonName": "sourceVmCpuCount",
       "name": "SourceVMCPUCount",
       "objectDefinition": {
@@ -506,7 +476,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The RAM size of the VM on the primary side.",
       "jsonName": "sourceVmRamSizeInMB",
       "name": "SourceVMRamSizeInMB",
       "objectDefinition": {
@@ -522,7 +491,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total transferred data in bytes.",
       "jsonName": "totalDataTransferred",
       "name": "TotalDataTransferred",
       "objectDefinition": {
@@ -538,7 +506,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The progress health.",
       "jsonName": "totalProgressHealth",
       "name": "TotalProgressHealth",
       "objectDefinition": {
@@ -554,7 +521,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The uncompressed data change rate in MB.",
       "jsonName": "uncompressedDataRateInMB",
       "name": "UncompressedDataRateInMB",
       "objectDefinition": {
@@ -570,7 +536,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The vCenter infrastructure Id.",
       "jsonName": "vCenterInfrastructureId",
       "name": "VCenterInfrastructureId",
       "objectDefinition": {
@@ -586,7 +551,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine Id.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
@@ -602,7 +566,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The PE Network details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
@@ -624,7 +587,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protection state for the vm.",
       "jsonName": "vmProtectionState",
       "name": "VMProtectionState",
       "objectDefinition": {
@@ -640,7 +602,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protection state description for the vm.",
       "jsonName": "vmProtectionStateDescription",
       "name": "VMProtectionStateDescription",
       "objectDefinition": {
@@ -656,7 +617,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The validation errors of the on-premise machine Value can be list of validation errors.",
       "jsonName": "validationErrors",
       "name": "ValidationErrors",
       "objectDefinition": {

@@ -18,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of patches that were not installed due to the user blocking their installation.",
       "jsonName": "excludedPatchCount",
       "name": "ExcludedPatchCount",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of patches that could not be installed due to some issue. See errors for details.",
       "jsonName": "failedPatchCount",
       "name": "FailedPatchCount",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.",
       "jsonName": "installationActivityId",
       "name": "InstallationActivityId",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of patches successfully installed.",
       "jsonName": "installedPatchCount",
       "name": "InstalledPatchCount",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the operation ran out of time before it completed all its intended actions.",
       "jsonName": "maintenanceWindowExceeded",
       "name": "MaintenanceWindowExceeded",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of patches that were detected as available for install, but did not meet the operation's criteria.",
       "jsonName": "notSelectedPatchCount",
       "name": "NotSelectedPatchCount",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The patches that were installed during the operation.",
       "jsonName": "patches",
       "name": "Patches",
       "objectDefinition": {
@@ -136,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of patches that were identified as meeting the installation criteria, but were not able to be installed. Typically this happens when maintenanceWindowExceeded == true.",
       "jsonName": "pendingPatchCount",
       "name": "PendingPatchCount",
       "objectDefinition": {
@@ -152,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reboot state of the VM following completion of the operation.",
       "jsonName": "rebootStatus",
       "name": "RebootStatus",
       "objectDefinition": {
@@ -169,7 +160,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The UTC timestamp when the operation began.",
       "jsonName": "startDateTime",
       "name": "StartDateTime",
       "objectDefinition": {
@@ -185,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The overall success or failure status of the operation. It remains \"InProgress\" until the operation completes. At that point it will become \"Failed\", \"Succeeded\", \"Unknown\" or \"CompletedWithWarnings.\"",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

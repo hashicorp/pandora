@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has the definition for the export.",
       "jsonName": "definition",
       "name": "Definition",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has delivery information for the export.",
       "jsonName": "deliveryInfo",
       "name": "DeliveryInfo",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The format of the export being delivered. Currently only 'Csv' is supported.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "If the export has an active schedule, provides an estimate of the next run time.",
       "jsonName": "nextRunTimeEstimate",
       "name": "NextRunTimeEstimate",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.",
       "jsonName": "partitionData",
       "name": "PartitionData",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If requested, has the most recent run history for the export.",
       "jsonName": "runHistory",
       "name": "RunHistory",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has schedule information for the export.",
       "jsonName": "schedule",
       "name": "Schedule",
       "objectDefinition": {

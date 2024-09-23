@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable this to allow Grafana to send email. Default is false",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Address used when sending out emails\r\nhttps://pkg.go.dev/net/mail#Address",
       "jsonName": "fromAddress",
       "name": "FromAddress",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name to be used when sending out emails. Default is \"Azure Managed Grafana Notification\"\r\nhttps://pkg.go.dev/net/mail#Address",
       "jsonName": "fromName",
       "name": "FromName",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SMTP server hostname with port, e.g. test.email.net:587",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Password of SMTP auth. If the password contains # or ;, then you have to wrap it with triple quotes",
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Verify SSL for SMTP server. Default is false\r\nhttps://pkg.go.dev/crypto/tls#Config",
       "jsonName": "skipVerify",
       "name": "SkipVerify",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User of SMTP auth",
       "jsonName": "user",
       "name": "User",
       "objectDefinition": {

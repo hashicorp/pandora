@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of bytes captured per packet, the remaining bytes are truncated.",
       "jsonName": "bytesToCapturePerPacket",
       "name": "BytesToCapturePerPacket",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of packet capture filters.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The storage location for a packet capture session.",
       "jsonName": "storageLocation",
       "name": "StorageLocation",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.",
       "jsonName": "target",
       "name": "Target",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target type of the resource provided.",
       "jsonName": "targetType",
       "name": "TargetType",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum duration of the capture session in seconds.",
       "jsonName": "timeLimitInSeconds",
       "name": "TimeLimitInSeconds",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum size of the capture output.",
       "jsonName": "totalBytesPerSession",
       "name": "TotalBytesPerSession",
       "objectDefinition": {

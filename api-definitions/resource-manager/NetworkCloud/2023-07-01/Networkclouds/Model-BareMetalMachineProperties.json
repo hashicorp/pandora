@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.",
       "jsonName": "associatedResourceIds",
       "name": "AssociatedResourceIds",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The connection string for the baseboard management controller including IP address and protocol.",
       "jsonName": "bmcConnectionString",
       "name": "BmcConnectionString",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The credentials of the baseboard management controller on this bare metal machine.",
       "jsonName": "bmcCredentials",
       "name": "BmcCredentials",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The MAC address of the BMC device.",
       "jsonName": "bmcMacAddress",
       "name": "BmcMacAddress",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The MAC address of a NIC connected to the PXE network.",
       "jsonName": "bootMacAddress",
       "name": "BootMacAddress",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the cluster this bare metal machine is associated with.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cordon status of the bare metal machine.",
       "jsonName": "cordonStatus",
       "name": "CordonStatus",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The more detailed status of the bare metal machine.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.",
       "jsonName": "hardwareInventory",
       "name": "HardwareInventory",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The details of the latest hardware validation performed for this bare metal machine.",
       "jsonName": "hardwareValidationStatus",
       "name": "HardwareValidationStatus",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.",
       "jsonName": "hybridAksClustersAssociatedIds",
       "name": "HybridAksClustersAssociatedIds",
       "objectDefinition": {
@@ -207,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of this machine represented by the host object in the Cluster's Kubernetes control plane.",
       "jsonName": "kubernetesNodeName",
       "name": "KubernetesNodeName",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of Kubernetes running on this machine.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The custom details provided by the customer.",
       "jsonName": "machineDetails",
       "name": "MachineDetails",
       "objectDefinition": {
@@ -255,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OS-level hostname assigned to this machine.",
       "jsonName": "machineName",
       "name": "MachineName",
       "objectDefinition": {
@@ -271,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique internal identifier of the bare metal machine SKU.",
       "jsonName": "machineSkuId",
       "name": "MachineSkuId",
       "objectDefinition": {
@@ -287,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The IPv4 address that is assigned to the bare metal machine during the cluster deployment.",
       "jsonName": "oamIpv4Address",
       "name": "OamIPv4Address",
       "objectDefinition": {
@@ -303,7 +285,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The IPv6 address that is assigned to the bare metal machine during the cluster deployment.",
       "jsonName": "oamIpv6Address",
       "name": "OamIPv6Address",
       "objectDefinition": {
@@ -319,7 +300,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The image that is currently provisioned to the OS disk.",
       "jsonName": "osImage",
       "name": "OsImage",
       "objectDefinition": {
@@ -335,7 +315,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The power state derived from the baseboard management controller.",
       "jsonName": "powerState",
       "name": "PowerState",
       "objectDefinition": {
@@ -351,7 +330,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the bare metal machine.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -367,7 +345,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the rack where this bare metal machine resides.",
       "jsonName": "rackId",
       "name": "RackId",
       "objectDefinition": {
@@ -383,7 +360,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.",
       "jsonName": "rackSlot",
       "name": "RackSlot",
       "objectDefinition": {
@@ -399,7 +375,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The indicator of whether the bare metal machine is ready to receive workloads.",
       "jsonName": "readyState",
       "name": "ReadyState",
       "objectDefinition": {
@@ -415,7 +390,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The serial number of the bare metal machine.",
       "jsonName": "serialNumber",
       "name": "SerialNumber",
       "objectDefinition": {
@@ -431,7 +405,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The discovered value of the machine's service tag.",
       "jsonName": "serviceTag",
       "name": "ServiceTag",
       "objectDefinition": {
@@ -447,7 +420,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.",
       "jsonName": "virtualMachinesAssociatedIds",
       "name": "VirtualMachinesAssociatedIds",
       "objectDefinition": {

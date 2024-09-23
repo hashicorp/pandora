@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Key auto rotation opt-in flag. Either true or false.",
       "jsonName": "autoRotationEnabled",
       "name": "AutoRotationEnabled",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The key creation date.",
       "jsonName": "creationDate",
       "name": "CreationDate",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The key type like 'ServiceManaged', 'AzureKeyVault'.",
       "jsonName": "serverKeyType",
       "name": "ServerKeyType",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Thumbprint of the key.",
       "jsonName": "thumbprint",
       "name": "Thumbprint",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.",
       "jsonName": "uri",
       "name": "Uri",
       "objectDefinition": {

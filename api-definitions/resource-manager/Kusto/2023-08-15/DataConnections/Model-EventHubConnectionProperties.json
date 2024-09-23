@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The event hub messages compression type",
       "jsonName": "compression",
       "name": "Compression",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The event hub consumer group.",
       "jsonName": "consumerGroup",
       "name": "ConsumerGroup",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The data format of the message. Optionally the data format can be added to each message.",
       "jsonName": "dataFormat",
       "name": "DataFormat",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indication for database routing information from the data connection, by default only database routing information is allowed",
       "jsonName": "databaseRouting",
       "name": "DatabaseRouting",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the event hub to be used to create a data connection.",
       "jsonName": "eventHubResourceId",
       "name": "EventHubResourceId",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "System properties of the event hub",
       "jsonName": "eventSystemProperties",
       "name": "EventSystemProperties",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object ID of the managedIdentityResourceId",
       "jsonName": "managedIdentityObjectId",
       "name": "ManagedIdentityObjectId",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.",
       "jsonName": "managedIdentityResourceId",
       "name": "ManagedIdentityResourceId",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.",
       "jsonName": "mappingRuleName",
       "name": "MappingRuleName",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioned state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -170,7 +160,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.",
       "jsonName": "retrievalStartDate",
       "name": "RetrievalStartDate",
       "objectDefinition": {
@@ -186,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The table where the data should be ingested. Optionally the table information can be added to each message.",
       "jsonName": "tableName",
       "name": "TableName",
       "objectDefinition": {

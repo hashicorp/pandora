@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.",
       "jsonName": "autoUpgradeMinorVersion",
       "name": "AutoUpgradeMinorVersion",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.",
       "jsonName": "enableAutomaticUpgrade",
       "name": "EnableAutomaticUpgrade",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. ",
       "jsonName": "protectedSettings",
       "name": "ProtectedSettings",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of extension names after which this extension needs to be provisioned.",
       "jsonName": "provisionAfterExtensions",
       "name": "ProvisionAfterExtensions",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Base64-encoded HTTPS certificate authority contents used to access git private git repositories over HTTPS",
       "jsonName": "httpsCACert",
       "name": "HTTPSCACert",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Plaintext HTTPS username used to access private git repositories over HTTPS",
       "jsonName": "httpsUser",
       "name": "HTTPSUser",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.",
       "jsonName": "localAuthRef",
       "name": "LocalAuthRef",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source reference for the GitRepository object.",
       "jsonName": "repositoryRef",
       "name": "RepositoryRef",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH",
       "jsonName": "sshKnownHosts",
       "name": "SshKnownHosts",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The interval at which to re-reconcile the cluster git repository source with the remote.",
       "jsonName": "syncIntervalInSeconds",
       "name": "SyncIntervalInSeconds",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum time to attempt to reconcile the cluster git repository source with the remote.",
       "jsonName": "timeoutInSeconds",
       "name": "TimeoutInSeconds",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URL to sync for the flux configuration git repository.",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {

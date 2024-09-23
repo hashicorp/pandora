@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource ID of the DNS Zone to be associated with the web app. Used only when Web App Routing is enabled.",
       "jsonName": "dnsZoneResourceId",
       "name": "DnsZoneResourceId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable Web App Routing.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Managed identity of the Web Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating all available inplace OS Upgrade configurations.",
       "jsonName": "allAvailableOSUpgradeConfigurations",
       "name": "AllAvailableOSUpgradeConfigurations",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure VM Disk details.",
       "jsonName": "azureVmDiskDetails",
       "name": "AzureVMDiskDetails",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum.",
       "jsonName": "enableRdpOnTargetOption",
       "name": "EnableRdpOnTargetOption",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encryption info.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Initial replication details.",
       "jsonName": "initialReplicationDetails",
       "name": "InitialReplicationDetails",
       "objectDefinition": {
@@ -96,7 +91,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last recovery point received time.",
       "jsonName": "lastRecoveryPointReceived",
       "name": "LastRecoveryPointReceived",
       "objectDefinition": {
@@ -113,7 +107,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The Last replication time.",
       "jsonName": "lastReplicatedTime",
       "name": "LastReplicatedTime",
       "objectDefinition": {
@@ -130,7 +123,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last RPO calculated time.",
       "jsonName": "lastRpoCalculatedTime",
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
@@ -146,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "License Type of the VM to be used.",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -162,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The operating system info.",
       "jsonName": "oSDetails",
       "name": "OSDetails",
       "objectDefinition": {
@@ -178,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of protected managed disks.",
       "jsonName": "protectedManagedDisks",
       "name": "ProtectedManagedDisks",
       "objectDefinition": {
@@ -200,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The recovery availability set Id.",
       "jsonName": "recoveryAvailabilitySetId",
       "name": "RecoveryAvailabilitySetId",
       "objectDefinition": {
@@ -216,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection.",
       "jsonName": "recoveryAzureLogStorageAccountId",
       "name": "RecoveryAzureLogStorageAccountId",
       "objectDefinition": {
@@ -232,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target resource group Id.",
       "jsonName": "recoveryAzureResourceGroupId",
       "name": "RecoveryAzureResourceGroupId",
       "objectDefinition": {
@@ -248,7 +234,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The recovery Azure storage account.",
       "jsonName": "recoveryAzureStorageAccount",
       "name": "RecoveryAzureStorageAccount",
       "objectDefinition": {
@@ -264,7 +249,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Recovery Azure given name.",
       "jsonName": "recoveryAzureVmName",
       "name": "RecoveryAzureVMName",
       "objectDefinition": {
@@ -280,7 +264,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Recovery Azure VM size.",
       "jsonName": "recoveryAzureVMSize",
       "name": "RecoveryAzureVMSize",
       "objectDefinition": {
@@ -296,7 +279,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Last RPO value.",
       "jsonName": "rpoInSeconds",
       "name": "RpoInSeconds",
       "objectDefinition": {
@@ -312,7 +294,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tags for the seed managed disks.",
       "jsonName": "seedManagedDiskTags",
       "name": "SeedManagedDiskTags",
       "objectDefinition": {
@@ -334,7 +315,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The selected recovery azure network Id.",
       "jsonName": "selectedRecoveryAzureNetworkId",
       "name": "SelectedRecoveryAzureNetworkId",
       "objectDefinition": {
@@ -350,7 +330,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The selected source nic Id which will be used as the primary nic during failover.",
       "jsonName": "selectedSourceNicId",
       "name": "SelectedSourceNicId",
       "objectDefinition": {
@@ -366,7 +345,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The CPU count of the VM on the primary side.",
       "jsonName": "sourceVmCpuCount",
       "name": "SourceVMCPUCount",
       "objectDefinition": {
@@ -382,7 +360,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The RAM size of the VM on the primary side.",
       "jsonName": "sourceVmRamSizeInMB",
       "name": "SourceVMRamSizeInMB",
       "objectDefinition": {
@@ -398,7 +375,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SQL Server license type.",
       "jsonName": "sqlServerLicenseType",
       "name": "SqlServerLicenseType",
       "objectDefinition": {
@@ -414,7 +390,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target availability zone.",
       "jsonName": "targetAvailabilityZone",
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
@@ -430,7 +405,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tags for the target managed disks.",
       "jsonName": "targetManagedDiskTags",
       "name": "TargetManagedDiskTags",
       "objectDefinition": {
@@ -452,7 +426,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tags for the target NICs.",
       "jsonName": "targetNicTags",
       "name": "TargetNicTags",
       "objectDefinition": {
@@ -474,7 +447,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target proximity placement group Id.",
       "jsonName": "targetProximityPlacementGroupId",
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
@@ -490,7 +462,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target VM security profile.",
       "jsonName": "targetVmSecurityProfile",
       "name": "TargetVMSecurityProfile",
       "objectDefinition": {
@@ -506,7 +477,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target VM tags.",
       "jsonName": "targetVmTags",
       "name": "TargetVMTags",
       "objectDefinition": {
@@ -528,7 +498,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating whether managed disks should be used during failover.",
       "jsonName": "useManagedDisks",
       "name": "UseManagedDisks",
       "objectDefinition": {
@@ -544,7 +513,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine Id.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
@@ -560,7 +528,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The PE Network details.",
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
@@ -582,7 +549,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protection state for the vm.",
       "jsonName": "vmProtectionState",
       "name": "VMProtectionState",
       "objectDefinition": {
@@ -598,7 +564,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protection state description for the vm.",
       "jsonName": "vmProtectionStateDescription",
       "name": "VMProtectionStateDescription",
       "objectDefinition": {

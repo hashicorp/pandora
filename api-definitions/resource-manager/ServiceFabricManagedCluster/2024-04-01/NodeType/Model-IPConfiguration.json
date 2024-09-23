@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to backend address pools of application gateways. A node type can reference backend address pools of multiple application gateways. Multiple node types cannot use the same application gateway.",
       "jsonName": "applicationGatewayBackendAddressPools",
       "name": "ApplicationGatewayBackendAddressPools",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to backend address pools of load balancers. A node type can reference backend address pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.\t",
       "jsonName": "loadBalancerBackendAddressPools",
       "name": "LoadBalancerBackendAddressPools",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to inbound Nat pools of the load balancers. A node type can reference inbound nat pools of one public and one internal load balancer. Multiple node types cannot use the same basic sku load balancer.",
       "jsonName": "loadBalancerInboundNatPools",
       "name": "LoadBalancerInboundNatPools",
       "objectDefinition": {
@@ -69,7 +66,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the network interface.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the IP configuration's private IP is IPv4 or IPv6. Default is IPv4.",
       "jsonName": "privateIPAddressVersion",
       "name": "PrivateIPAddressVersion",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The public IP address configuration of the network interface.",
       "jsonName": "publicIPAddressConfiguration",
       "name": "PublicIPAddressConfiguration",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the subnet of the network interface.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of ARM Ids of Action Groups that will be triggered on every Alert fired through this event subscription.\r\nEach resource ARM Id should follow this pattern: /subscriptions/{AzureSubscriptionId}/resourceGroups/{ResourceGroupName}/providers/Microsoft.Insights/actionGroups/{ActionGroupName}.",
       "jsonName": "actionGroups",
       "name": "ActionGroups",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The description that will be attached to every Alert fired through this event subscription.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The severity that will be attached to every Alert fired through this event subscription.\r\nThis field must be provided.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {

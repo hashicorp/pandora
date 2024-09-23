@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to require a CA-issued SSL certificate name to match the host name of the server when connecting over SSL. The default value is false.",
       "jsonName": "allowHostNameCNMismatch",
       "name": "AllowHostNameCNMismatch",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to allow self-signed certificates from the server. The default value is false.",
       "jsonName": "allowSelfSignedServerCert",
       "name": "AllowSelfSignedServerCert",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The authentication method used to access the Spark server.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the connections to the server are encrypted using SSL. The default value is false.",
       "jsonName": "enableSsl",
       "name": "EnableSsl",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The partial URL corresponding to the Spark server.",
       "jsonName": "httpPath",
       "name": "HTTPPath",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IP address or host name of the Spark server",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -130,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The TCP port that the Spark server uses to listen for client connections.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -146,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of Spark server.",
       "jsonName": "serverType",
       "name": "ServerType",
       "objectDefinition": {
@@ -162,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The transport protocol to use in the Thrift layer.",
       "jsonName": "thriftTransportProtocol",
       "name": "ThriftTransportProtocol",
       "objectDefinition": {
@@ -178,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR.",
       "jsonName": "trustedCertPath",
       "name": "TrustedCertPath",
       "objectDefinition": {
@@ -194,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false.",
       "jsonName": "useSystemTrustStore",
       "name": "UseSystemTrustStore",
       "objectDefinition": {
@@ -210,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user name that you use to access Spark Server.",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {

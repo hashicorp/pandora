@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Last time the message was sent, or a request was received, for this topic.",
       "jsonName": "accessedAt",
       "name": "AccessedAt",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.",
       "jsonName": "autoDeleteOnIdle",
       "name": "AutoDeleteOnIdle",
       "objectDefinition": {
@@ -52,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Exact time the message was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
@@ -68,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.",
       "jsonName": "defaultMessageTimeToLive",
       "name": "DefaultMessageTimeToLive",
       "objectDefinition": {
@@ -84,7 +80,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.",
       "jsonName": "duplicateDetectionHistoryTimeWindow",
       "name": "DuplicateDetectionHistoryTimeWindow",
       "objectDefinition": {
@@ -100,7 +95,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value that indicates whether server-side batched operations are enabled.",
       "jsonName": "enableBatchedOperations",
       "name": "EnableBatchedOperations",
       "objectDefinition": {
@@ -116,7 +110,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.",
       "jsonName": "enableExpress",
       "name": "EnableExpress",
       "objectDefinition": {
@@ -132,7 +125,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.",
       "jsonName": "enablePartitioning",
       "name": "EnablePartitioning",
       "objectDefinition": {
@@ -148,7 +140,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.",
       "jsonName": "maxMessageSizeInKilobytes",
       "name": "MaxMessageSizeInKilobytes",
       "objectDefinition": {
@@ -164,7 +155,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.",
       "jsonName": "maxSizeInMegabytes",
       "name": "MaxSizeInMegabytes",
       "objectDefinition": {
@@ -180,7 +170,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value indicating if this topic requires duplicate detection.",
       "jsonName": "requiresDuplicateDetection",
       "name": "RequiresDuplicateDetection",
       "objectDefinition": {
@@ -196,7 +185,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Size of the topic, in bytes.",
       "jsonName": "sizeInBytes",
       "name": "SizeInBytes",
       "objectDefinition": {
@@ -227,7 +215,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of subscriptions.",
       "jsonName": "subscriptionCount",
       "name": "SubscriptionCount",
       "objectDefinition": {
@@ -243,7 +230,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value that indicates whether the topic supports ordering.",
       "jsonName": "supportOrdering",
       "name": "SupportOrdering",
       "objectDefinition": {
@@ -260,7 +246,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The exact time the message was updated.",
       "jsonName": "updatedAt",
       "name": "UpdatedAt",
       "objectDefinition": {

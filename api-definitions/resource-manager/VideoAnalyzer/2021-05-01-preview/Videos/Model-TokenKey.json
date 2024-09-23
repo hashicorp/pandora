@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.",
       "jsonName": "kid",
       "name": "Kid",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
-      "description": "The discriminator for derived types.",
       "jsonName": "@type",
       "name": "Type",
       "objectDefinition": {

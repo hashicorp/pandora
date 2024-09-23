@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether AAD based authentication has been enabled or disabled for the cache",
       "jsonName": "aad-enabled",
       "name": "AadEnabled",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the aof backup is enabled",
       "jsonName": "aof-backup-enabled",
       "name": "AofBackupEnabled",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "First storage account connection string",
       "jsonName": "aof-storage-connection-string-0",
       "name": "AofStorageConnectionString0",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Second storage account connection string",
       "jsonName": "aof-storage-connection-string-1",
       "name": "AofStorageConnectionString1",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.",
       "jsonName": "authnotrequired",
       "name": "Authnotrequired",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The max clients config",
       "jsonName": "maxclients",
       "name": "Maxclients",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value in megabytes reserved for fragmentation per shard",
       "jsonName": "maxfragmentationmemory-reserved",
       "name": "MaxfragmentationmemoryReserved",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value in megabytes reserved for non-cache usage per shard e.g. failover.",
       "jsonName": "maxmemory-delta",
       "name": "MaxmemoryDelta",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The eviction strategy used when your data won't fit within its memory limit.",
       "jsonName": "maxmemory-policy",
       "name": "MaxmemoryPolicy",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value in megabytes reserved for non-cache usage per shard e.g. failover.",
       "jsonName": "maxmemory-reserved",
       "name": "MaxmemoryReserved",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The keyspace events which should be monitored.",
       "jsonName": "notify-keyspace-events",
       "name": "NotifyKeyspaceEvents",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS",
       "jsonName": "preferred-data-archive-auth-method",
       "name": "PreferredDataArchiveAuthMethod",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS",
       "jsonName": "preferred-data-persistence-auth-method",
       "name": "PreferredDataPersistenceAuthMethod",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the rdb backup is enabled",
       "jsonName": "rdb-backup-enabled",
       "name": "RdbBackupEnabled",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)",
       "jsonName": "rdb-backup-frequency",
       "name": "RdbBackupFrequency",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the maximum number of snapshots for rdb backup",
       "jsonName": "rdb-backup-max-snapshot-count",
       "name": "RdbBackupMaxSnapshotCount",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The storage account connection string for storing rdb file",
       "jsonName": "rdb-storage-connection-string",
       "name": "RdbStorageConnectionString",
       "objectDefinition": {
@@ -275,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.",
       "jsonName": "storage-subscription-id",
       "name": "StorageSubscriptionId",
       "objectDefinition": {
@@ -291,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Zonal Configuration",
       "jsonName": "zonal-configuration",
       "name": "ZonalConfiguration",
       "objectDefinition": {

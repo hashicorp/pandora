@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the AD fully qualified display name.",
       "jsonName": "adFqdn",
       "name": "AdFqdn",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.",
       "jsonName": "agentConfiguration",
       "name": "AgentConfiguration",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hybrid machine agent full version.",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Public Key that the client provides to be used during initial resource onboarding",
       "jsonName": "clientPublicKey",
       "name": "ClientPublicKey",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The metadata of the cloud environment (Azure/GCP/AWS/OCI...).",
       "jsonName": "cloudMetadata",
       "name": "CloudMetadata",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Detected properties from the machine.",
       "jsonName": "detectedProperties",
       "name": "DetectedProperties",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hybrid machine display name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the DNS fully qualified display name.",
       "jsonName": "dnsFqdn",
       "name": "DnsFqdn",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Windows domain name.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details about the error state.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Machine Extensions information (deprecated field)",
       "jsonName": "extensions",
       "name": "Extensions",
       "objectDefinition": {
@@ -198,7 +187,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time of the last status change.",
       "jsonName": "lastStatusChange",
       "name": "LastStatusChange",
       "objectDefinition": {
@@ -229,7 +217,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hybrid machine FQDN.",
       "jsonName": "machineFqdn",
       "name": "MachineFqdn",
       "objectDefinition": {
@@ -245,7 +232,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether any MS SQL instance is discovered on the machine.",
       "jsonName": "mssqlDiscovered",
       "name": "MssqlDiscovered",
       "objectDefinition": {
@@ -261,7 +247,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Operating System running on the hybrid machine.",
       "jsonName": "osName",
       "name": "OsName",
       "objectDefinition": {
@@ -277,7 +262,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the operating system settings for the hybrid machine.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
@@ -293,7 +277,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Operating System product SKU.",
       "jsonName": "osSku",
       "name": "OsSku",
       "objectDefinition": {
@@ -309,7 +292,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of Operating System (windows/linux).",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -325,7 +307,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of Operating System running on the hybrid machine.",
       "jsonName": "osVersion",
       "name": "OsVersion",
       "objectDefinition": {
@@ -341,7 +322,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.",
       "jsonName": "parentClusterResourceId",
       "name": "ParentClusterResourceId",
       "objectDefinition": {
@@ -357,7 +337,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource id of the private link scope this machine is assigned to, if any.",
       "jsonName": "privateLinkScopeResourceId",
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
@@ -373,7 +352,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -389,7 +367,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Statuses of dependent services that are reported back to ARM.",
       "jsonName": "serviceStatuses",
       "name": "ServiceStatuses",
       "objectDefinition": {
@@ -405,7 +382,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the hybrid machine agent.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -421,7 +397,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hybrid machine unique ID.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
@@ -437,7 +412,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Arc Machine's unique SMBIOS ID",
       "jsonName": "vmUuid",
       "name": "VMUuid",
       "objectDefinition": {

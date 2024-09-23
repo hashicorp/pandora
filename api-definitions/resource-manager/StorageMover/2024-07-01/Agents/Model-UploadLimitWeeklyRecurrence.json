@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The set of days of week for the schedule recurrence. A day must not be specified more than once in a recurrence.",
       "jsonName": "days",
       "name": "Days",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The end time of the schedule recurrence. Full hour and 30-minute intervals are supported.",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The WAN-link upload bandwidth (maximum data transfer rate) in megabits per second. Value of 0 indicates no throughput is allowed and any running migration job is effectively paused for the duration of this recurrence. Only data plane operations are governed by this limit. Control plane operations ensure seamless functionality. The agent may exceed this limit with control messages, if necessary.",
       "jsonName": "limitInMbps",
       "name": "LimitInMbps",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The start time of the schedule recurrence. Full hour and 30-minute intervals are supported.",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "different billing cycles like MONTHLY/WEEKLY. this could be enum",
       "jsonName": "billingCycle",
       "name": "BillingCycle",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "date when plan was applied",
       "jsonName": "effectiveDate",
       "name": "EffectiveDate",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "plan id as published by Logz",
       "jsonName": "planDetails",
       "name": "PlanDetails",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "different usage type like PAYG/COMMITTED. this could be enum",
       "jsonName": "usageType",
       "name": "UsageType",
       "objectDefinition": {

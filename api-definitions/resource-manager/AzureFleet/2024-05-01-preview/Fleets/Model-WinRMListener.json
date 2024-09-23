@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is the URL of a certificate that has been uploaded to Key Vault as a\nsecret. For adding a secret to the Key Vault, see [Add a key or secret to the\nkey\nvault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started/#add).\nIn this case, your certificate needs to be the Base64 encoding of the following\nJSON Object which is encoded in UTF-8: \u003cbr\u003e\u003cbr\u003e {\u003cbr\u003e\n\"data\":\"\u003cBase64-encoded-certificate\u003e\",\u003cbr\u003e  \"dataType\":\"pfx\",\u003cbr\u003e\n\"password\":\"\u003cpfx-file-password\u003e\"\u003cbr\u003e} \u003cbr\u003e To install certificates on a virtual\nmachine it is recommended to use the [Azure Key Vault virtual machine extension\nfor\nLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)\nor the [Azure Key Vault virtual machine extension for\nWindows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).",
       "jsonName": "certificateUrl",
       "name": "CertificateUrl",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the protocol of WinRM listener. Possible values are: **http,**\n**https.**",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {

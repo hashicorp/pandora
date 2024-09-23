@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "States if quota can be requested for this resource.",
       "jsonName": "isQuotaApplicable",
       "name": "IsQuotaApplicable",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource name provided by the resource provider. Use this property name when requesting quota.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional properties for the specific resource provider.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The time period for the summary of the quota usage values. For example:\r\n*P1D (per one day)\n*PT1M (per one minute)\n*PT1S (per one second).\r\nThis parameter is optional because it is not relevant for all resources such as compute.",
       "jsonName": "quotaPeriod",
       "name": "QuotaPeriod",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the resource type. Optional field.",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": " The units for the quota usage, such as Count and Bytes. When requesting quota, use the **unit** value returned in the GET response in the request body of your PUT operation.",
       "jsonName": "unit",
       "name": "Unit",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The quota limit properties for this resource.",
       "jsonName": "usages",
       "name": "Usages",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Benefit id the benefit utilization summaries report is for. Required for benefit id scope. Not supported for benefit order or any billing scopes.",
       "jsonName": "benefitId",
       "name": "BenefitId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Benefit order id the benefit utilization summaries report is for. Required for benefit order and benefit id scopes. Not supported for any billing scopes.",
       "jsonName": "benefitOrderId",
       "name": "BenefitOrderId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Billing account the benefit utilization summaries report is for. Required for billing account and billing profile scopes. Not supported for any benefit scopes.",
       "jsonName": "billingAccountId",
       "name": "BillingAccountId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Billing profile id the benefit utilization summaries report is for. Required for billing profile scope. Not supported for billing account or any benefit scopes.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end date of the summaries data that will be served in the report.",
       "jsonName": "endDate",
       "name": "EndDate",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The grain the summaries data is served at in the report. Accepted values are 'Daily' or 'Monthly'.",
       "jsonName": "grain",
       "name": "Grain",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of benefit data requested. Required for billing account and billing profile scopes. Implied and not to be passed at benefit scopes. Supported values are Reservation and SavingsPlan",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
@@ -117,7 +110,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The start date of the summaries data that will be served in the report.",
       "jsonName": "startDate",
       "name": "StartDate",
       "objectDefinition": {

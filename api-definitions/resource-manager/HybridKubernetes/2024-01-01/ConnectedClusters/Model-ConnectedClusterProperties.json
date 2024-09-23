@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "AAD profile for the connected cluster.",
       "jsonName": "aadProfile",
       "name": "AadProfile",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.",
       "jsonName": "agentPublicKeyCertificate",
       "name": "AgentPublicKeyCertificate",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of the agent running on the connected cluster resource",
       "jsonName": "agentVersion",
       "name": "AgentVersion",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Arc agentry configuration for the provisioned cluster.",
       "jsonName": "arcAgentProfile",
       "name": "ArcAgentProfile",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether Azure Hybrid Benefit is opted in",
       "jsonName": "azureHybridBenefit",
       "name": "AzureHybridBenefit",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the connectivity status of the connected cluster.",
       "jsonName": "connectivityStatus",
       "name": "ConnectivityStatus",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Kubernetes distribution running on this connected cluster.",
       "jsonName": "distribution",
       "name": "Distribution",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Kubernetes distribution version on this connected cluster.",
       "jsonName": "distributionVersion",
       "name": "DistributionVersion",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.",
       "jsonName": "infrastructure",
       "name": "Infrastructure",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Kubernetes version of the connected cluster resource",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -164,7 +154,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Time representing the last instance when heart beat was received from the cluster",
       "jsonName": "lastConnectivityTime",
       "name": "LastConnectivityTime",
       "objectDefinition": {
@@ -181,7 +170,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Expiration time of the managed identity certificate",
       "jsonName": "managedIdentityCertificateExpirationTime",
       "name": "ManagedIdentityCertificateExpirationTime",
       "objectDefinition": {
@@ -197,7 +185,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "More properties related to the Connected Cluster",
       "jsonName": "miscellaneousProperties",
       "name": "MiscellaneousProperties",
       "objectDefinition": {
@@ -219,7 +206,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Connected cluster offering",
       "jsonName": "offering",
       "name": "Offering",
       "objectDefinition": {
@@ -235,7 +221,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource id of the private link scope this connected cluster is assigned to, if any.",
       "jsonName": "privateLinkScopeResourceId",
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
@@ -251,7 +236,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Property which describes the state of private link on a connected cluster resource.",
       "jsonName": "privateLinkState",
       "name": "PrivateLinkState",
       "objectDefinition": {
@@ -267,7 +251,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning state of the connected cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -283,7 +266,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of CPU cores present in the connected cluster resource",
       "jsonName": "totalCoreCount",
       "name": "TotalCoreCount",
       "objectDefinition": {
@@ -299,7 +281,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of nodes present in the connected cluster resource",
       "jsonName": "totalNodeCount",
       "name": "TotalNodeCount",
       "objectDefinition": {

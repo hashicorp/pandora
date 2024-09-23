@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identity of the Extension resource in an AKS cluster",
       "jsonName": "aksAssignedIdentity",
       "name": "AksAssignedIdentity",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to note if this extension participates in auto upgrade of minor version, or not.",
       "jsonName": "autoUpgradeMinorVersion",
       "name": "AutoUpgradeMinorVersion",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration settings that are sensitive, as name-value pairs for configuring this extension.",
       "jsonName": "configurationProtectedSettings",
       "name": "ConfigurationProtectedSettings",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration settings, as name-value pairs for configuring this extension.",
       "jsonName": "configurationSettings",
       "name": "ConfigurationSettings",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Currently installed version of the extension.",
       "jsonName": "currentVersion",
       "name": "CurrentVersion",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom Location settings properties.",
       "jsonName": "customLocationSettings",
       "name": "CustomLocationSettings",
       "objectDefinition": {
@@ -132,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.",
       "jsonName": "extensionType",
       "name": "ExtensionType",
       "objectDefinition": {
@@ -148,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to note if this extension is a system extension",
       "jsonName": "isSystemExtension",
       "name": "IsSystemExtension",
       "objectDefinition": {
@@ -164,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Uri of the Helm package",
       "jsonName": "packageUri",
       "name": "PackageUri",
       "objectDefinition": {
@@ -195,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.",
       "jsonName": "releaseTrain",
       "name": "ReleaseTrain",
       "objectDefinition": {
@@ -211,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Scope at which the extension is installed.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
@@ -227,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Status from this extension.",
       "jsonName": "statuses",
       "name": "Statuses",
       "objectDefinition": {
@@ -249,7 +237,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

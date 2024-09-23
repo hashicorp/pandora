@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A dictionary that maps feature names to their respective data types.",
       "jsonName": "featureDataTypeOverride",
       "name": "FeatureDataTypeOverride",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The settings for computing feature importance.",
       "jsonName": "featureImportanceSettings",
       "name": "FeatureImportanceSettings",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The features to calculate drift over.",
       "jsonName": "features",
       "name": "Features",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] A list of metrics to calculate and their associated thresholds.",
       "jsonName": "metricThresholds",
       "name": "MetricThresholds",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] The data produced by the production service which drift will be calculated for.",
       "jsonName": "productionData",
       "name": "ProductionData",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] The data to calculate drift against.",
       "jsonName": "referenceData",
       "name": "ReferenceData",
       "objectDefinition": {

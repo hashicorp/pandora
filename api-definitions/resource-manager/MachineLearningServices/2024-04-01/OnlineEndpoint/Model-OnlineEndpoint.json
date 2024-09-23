@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.",
       "jsonName": "authMode",
       "name": "AuthMode",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM resource ID of the compute if it exists.\r\noptional",
       "jsonName": "compute",
       "name": "Compute",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the inference endpoint.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "EndpointAuthKeys to set initially on an Endpoint.\r\nThis property will always be returned as null. AuthKey values must be retrieved using the ListKeys API.",
       "jsonName": "keys",
       "name": "Keys",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.",
       "jsonName": "mirrorTraffic",
       "name": "MirrorTraffic",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Property dictionary. Properties can be added, but not removed or altered.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning state for the endpoint.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set to \"Enabled\" for endpoints that should allow public access when Private Link is enabled.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Endpoint URI.",
       "jsonName": "scoringUri",
       "name": "ScoringUri",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Endpoint Swagger URI.",
       "jsonName": "swaggerUri",
       "name": "SwaggerUri",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.",
       "jsonName": "traffic",
       "name": "Traffic",
       "objectDefinition": {

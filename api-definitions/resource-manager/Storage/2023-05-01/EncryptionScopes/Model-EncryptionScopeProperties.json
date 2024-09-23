@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the creation date and time of the encryption scope in UTC.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.",
       "jsonName": "keyVaultProperties",
       "name": "KeyVaultProperties",
       "objectDefinition": {
@@ -37,7 +35,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the last modification date and time of the encryption scope in UTC.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.",
       "jsonName": "requireInfrastructureEncryption",
       "name": "RequireInfrastructureEncryption",
       "objectDefinition": {
@@ -69,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -85,7 +80,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {

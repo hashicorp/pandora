@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs.",
       "jsonName": "activityId",
       "name": "ActivityId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes the availability of a given patch.",
       "jsonName": "assessmentState",
       "name": "AssessmentState",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The classification(s) of the patch as provided by the patch publisher.",
       "jsonName": "classifications",
       "name": "Classifications",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The KBID of the patch. Only applies to Windows patches.",
       "jsonName": "kbId",
       "name": "KbId",
       "objectDefinition": {
@@ -74,7 +70,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The UTC timestamp of the last update to this patch record.",
       "jsonName": "lastModifiedDateTime",
       "name": "LastModifiedDateTime",
       "objectDefinition": {
@@ -90,7 +85,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The friendly name of the patch.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -106,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A unique identifier for the patch.",
       "jsonName": "patchId",
       "name": "PatchId",
       "objectDefinition": {
@@ -123,7 +116,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The UTC timestamp when the repository published this patch.",
       "jsonName": "publishedDate",
       "name": "PublishedDate",
       "objectDefinition": {
@@ -139,7 +131,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes the reboot requirements of the patch.",
       "jsonName": "rebootBehavior",
       "name": "RebootBehavior",
       "objectDefinition": {
@@ -155,7 +146,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version number of the patch. This property applies only to Linux patches.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

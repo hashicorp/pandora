@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The authentication mode which the Batch service will use to manage the auto-storage account.",
       "jsonName": "authenticationMode",
       "name": "AuthenticationMode",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The UTC time at which storage keys were last synchronized with the Batch account.",
       "jsonName": "lastKeySync",
       "name": "LastKeySync",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.",
       "jsonName": "nodeIdentityReference",
       "name": "NodeIdentityReference",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the storage account to be used for auto-storage account.",
       "jsonName": "storageAccountId",
       "name": "StorageAccountId",
       "objectDefinition": {

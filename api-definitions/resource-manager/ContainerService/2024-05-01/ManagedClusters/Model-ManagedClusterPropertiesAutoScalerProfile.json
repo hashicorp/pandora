@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Valid values are 'true' and 'false'",
       "jsonName": "balance-similar-node-groups",
       "name": "BalanceSimilarNodeGroups",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.",
       "jsonName": "daemonset-eviction-for-empty-nodes",
       "name": "DaemonsetEvictionForEmptyNodes",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.",
       "jsonName": "daemonset-eviction-for-occupied-nodes",
       "name": "DaemonsetEvictionForOccupiedNodes",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.",
       "jsonName": "expander",
       "name": "Expander",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.",
       "jsonName": "ignore-daemonsets-utilization",
       "name": "IgnoreDaemonsetsUtilization",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is 10.",
       "jsonName": "max-empty-bulk-delete",
       "name": "MaxEmptyBulkDelete",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is 600.",
       "jsonName": "max-graceful-termination-sec",
       "name": "MaxGracefulTerminationSec",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "max-node-provision-time",
       "name": "MaxNodeProvisionTime",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is 45. The maximum is 100 and the minimum is 0.",
       "jsonName": "max-total-unready-percentage",
       "name": "MaxTotalUnreadyPercentage",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).",
       "jsonName": "new-pod-scale-up-delay",
       "name": "NewPodScaleUpDelay",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This must be an integer. The default is 3.",
       "jsonName": "ok-total-unready-count",
       "name": "OkTotalUnreadyCount",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-add",
       "name": "ScaleDownDelayAfterAdd",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-delete",
       "name": "ScaleDownDelayAfterDelete",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-delay-after-failure",
       "name": "ScaleDownDelayAfterFailure",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-unneeded-time",
       "name": "ScaleDownUnneededTime",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.",
       "jsonName": "scale-down-unready-time",
       "name": "ScaleDownUnreadyTime",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '0.5'.",
       "jsonName": "scale-down-utilization-threshold",
       "name": "ScaleDownUtilizationThreshold",
       "objectDefinition": {
@@ -275,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '10'. Values must be an integer number of seconds.",
       "jsonName": "scan-interval",
       "name": "ScanInterval",
       "objectDefinition": {
@@ -291,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is true.",
       "jsonName": "skip-nodes-with-local-storage",
       "name": "SkipNodesWithLocalStorage",
       "objectDefinition": {
@@ -307,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is true.",
       "jsonName": "skip-nodes-with-system-pods",
       "name": "SkipNodesWithSystemPods",
       "objectDefinition": {

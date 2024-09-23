@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object identifier of the current versioned Key Vault Key in use.",
       "jsonName": "currentVersionedKeyIdentifier",
       "name": "CurrentVersionedKeyIdentifier",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object identifier for a key vault key object. When applied, the encryption scope will use the key referenced by the identifier to enable customer-managed key support on this encryption scope.",
       "jsonName": "keyUri",
       "name": "KeyUri",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Timestamp of last rotation of the Key Vault Key.",
       "jsonName": "lastKeyRotationTimestamp",
       "name": "LastKeyRotationTimestamp",
       "objectDefinition": {

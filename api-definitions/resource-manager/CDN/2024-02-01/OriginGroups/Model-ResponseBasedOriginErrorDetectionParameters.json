@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of Http status code ranges that are considered as server errors for origin and it is marked as unhealthy.",
       "jsonName": "httpErrorRanges",
       "name": "HTTPErrorRanges",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of response errors for real user requests for which origin will be deemed unhealthy",
       "jsonName": "responseBasedDetectedErrorTypes",
       "name": "ResponseBasedDetectedErrorTypes",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The percentage of failed requests in the sample where failover should trigger.",
       "jsonName": "responseBasedFailoverThresholdPercentage",
       "name": "ResponseBasedFailoverThresholdPercentage",
       "objectDefinition": {

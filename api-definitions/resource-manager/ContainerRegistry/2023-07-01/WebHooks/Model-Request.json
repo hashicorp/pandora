@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The IP or hostname and possibly port of the client connection that initiated the event. This is the RemoteAddr from the standard http request.",
       "jsonName": "addr",
       "name": "Addr",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The externally accessible hostname of the registry instance, as specified by the http host header on incoming requests.",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the request that initiated the event.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The request method that generated the event.",
       "jsonName": "method",
       "name": "Method",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user agent header of the request.",
       "jsonName": "useragent",
       "name": "Useragent",
       "objectDefinition": {

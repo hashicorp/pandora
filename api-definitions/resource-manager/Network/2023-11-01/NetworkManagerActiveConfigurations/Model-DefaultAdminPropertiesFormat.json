@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the access allowed for this particular rule",
       "jsonName": "access",
       "name": "Access",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A description for this rule. Restricted to 140 chars.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The destination port ranges.",
       "jsonName": "destinationPortRanges",
       "name": "DestinationPortRanges",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The destination address prefixes. CIDR or destination IP ranges.",
       "jsonName": "destinations",
       "name": "Destinations",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the traffic matched against the rule in inbound or outbound.",
       "jsonName": "direction",
       "name": "Direction",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Default rule flag.",
       "jsonName": "flag",
       "name": "Flag",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Network protocol this rule applies to.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
@@ -158,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique identifier for this resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
@@ -174,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source port ranges.",
       "jsonName": "sourcePortRanges",
       "name": "SourcePortRanges",
       "objectDefinition": {
@@ -196,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The CIDR or source IP ranges.",
       "jsonName": "sources",
       "name": "Sources",
       "objectDefinition": {

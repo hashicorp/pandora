@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Billing address.",
       "jsonName": "billTo",
       "name": "BillTo",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identifies the billing relationship represented by the billing profile. The billing relationship may be between Microsoft, the customer, and/or a third-party.",
       "jsonName": "billingRelationshipType",
       "name": "BillingRelationshipType",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The currency in which the charges for the billing profile are billed.",
       "jsonName": "currency",
       "name": "Currency",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current payment term of the billing profile.",
       "jsonName": "currentPaymentTerm",
       "name": "CurrentPaymentTerm",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the billing profile.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Information about the enabled azure plans.",
       "jsonName": "enabledAzurePlans",
       "name": "EnabledAzurePlans",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether user has read access to the billing profile.",
       "jsonName": "hasReadAccess",
       "name": "HasReadAccess",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identifies the billing profile that is linked to another billing profile in indirect purchase motion.",
       "jsonName": "indirectRelationshipInfo",
       "name": "IndirectRelationshipInfo",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The day of the month when the invoice for the billing profile is generated.",
       "jsonName": "invoiceDay",
       "name": "InvoiceDay",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag controlling whether the invoices for the billing profile are sent through email.",
       "jsonName": "invoiceEmailOptIn",
       "name": "InvoiceEmailOptIn",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of email addresses to receive invoices by email for the billing profile.",
       "jsonName": "invoiceRecipients",
       "name": "InvoiceRecipients",
       "objectDefinition": {
@@ -191,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The other payment terms of the billing profile.",
       "jsonName": "otherPaymentTerms",
       "name": "OtherPaymentTerms",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default purchase order number that will appear on the invoices generated for the billing profile.",
       "jsonName": "poNumber",
       "name": "PoNumber",
       "objectDefinition": {
@@ -229,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the resource during a long-running operation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -245,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default address where the products are shipped, or the services are being used. If a ship to is not specified for a product or a subscription, then this address will be used.",
       "jsonName": "shipTo",
       "name": "ShipTo",
       "objectDefinition": {
@@ -261,7 +246,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The address of the individual or organization that is responsible for the billing account.",
       "jsonName": "soldTo",
       "name": "SoldTo",
       "objectDefinition": {
@@ -277,7 +261,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The billing profile spending limit.",
       "jsonName": "spendingLimit",
       "name": "SpendingLimit",
       "objectDefinition": {
@@ -293,7 +276,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The details of billing profile spending limit.",
       "jsonName": "spendingLimitDetails",
       "name": "SpendingLimitDetails",
       "objectDefinition": {
@@ -315,7 +297,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the billing profile.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -331,7 +312,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Reason for the specified billing profile status.",
       "jsonName": "statusReasonCode",
       "name": "StatusReasonCode",
       "objectDefinition": {
@@ -347,7 +327,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The system generated unique identifier for a billing profile.",
       "jsonName": "systemId",
       "name": "SystemId",
       "objectDefinition": {
@@ -363,7 +342,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dictionary of metadata associated with the resource. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain \u003c \u003e % \u0026 \\ ? /",
       "jsonName": "tags",
       "name": "Tags",
       "objectDefinition": {
@@ -379,7 +357,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identifies the cloud environments that are associated with a billing profile. This is a system managed optional field and gets updated as the billing profile gets associated with accounts in various clouds.",
       "jsonName": "targetClouds",
       "name": "TargetClouds",
       "objectDefinition": {

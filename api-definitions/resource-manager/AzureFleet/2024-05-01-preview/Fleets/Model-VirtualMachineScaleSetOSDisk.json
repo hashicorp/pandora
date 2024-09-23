@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the caching requirements. Possible values are: **None,**\n**ReadOnly,** **ReadWrite.** The default values are: **None for Standard\nstorage. ReadOnly for Premium storage.**",
       "jsonName": "caching",
       "name": "Caching",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies how the virtual machines in the scale set should be created. The only\nallowed value is: **FromImage.** This value is used when you are using an image\nto create the virtual machine. If you are using a platform image, you also use\nthe imageReference element described above. If you are using a marketplace\nimage, you  also use the plan element previously described.",
       "jsonName": "createOption",
       "name": "CreateOption",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion\n(This feature is available for VMSS with Flexible OrchestrationMode only).\n\u003cbr\u003e\u003cbr\u003e Possible values: \u003cbr\u003e\u003cbr\u003e **Delete** If this value is used, the OS\ndisk is deleted when VMSS Flex VM is deleted.\u003cbr\u003e\u003cbr\u003e **Detach** If this value\nis used, the OS disk is retained after VMSS Flex VM is deleted. \u003cbr\u003e\u003cbr\u003e The\ndefault value is set to **Delete**. For an Ephemeral OS Disk, the default value\nis set to **Delete**. User cannot change the delete option for Ephemeral OS\nDisk.",
       "jsonName": "deleteOption",
       "name": "DeleteOption",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the ephemeral disk Settings for the operating system disk used by the\nvirtual machine scale set.",
       "jsonName": "diffDiskSettings",
       "name": "DiffDiskSettings",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the size of an empty data disk in gigabytes. This element can be used\nto overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB'\nis the number of bytes x 1024^3 for the disk and the value cannot\nbe larger than 1023.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the unmanaged user image to base the scale set on.",
       "jsonName": "image",
       "name": "Image",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The managed disk parameters.",
       "jsonName": "managedDisk",
       "name": "ManagedDisk",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The disk name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This property allows you to specify the type of the OS that is included in the\ndisk if creating a VM from user-image or a specialized VHD. Possible values\nare: **Windows,** **Linux.**",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the container urls that are used to store operating system disks for\nthe scale set.",
       "jsonName": "vhdContainers",
       "name": "VhdContainers",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {

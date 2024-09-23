@@ -63,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Read-Write IOPS for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.",
       "jsonName": "diskIOPSReadWrite",
       "name": "DiskIOPSReadWrite",
       "objectDefinition": {
@@ -79,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the bandwidth in MB per second for the managed disk when StorageAccountType is UltraSSD_LRS. Returned only for VirtualMachine ScaleSet VM disks. Can be updated only via updates to the VirtualMachine Scale Set.",
       "jsonName": "diskMBpsReadWrite",
       "name": "DiskMBpsReadWrite",
       "objectDefinition": {
@@ -95,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the size of an empty data disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. The property 'diskSizeGB' is the number of bytes x 1024^3 for the disk and the value cannot be larger than 1023.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -126,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the logical unit number of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.",
       "jsonName": "lun",
       "name": "Lun",
       "objectDefinition": {
@@ -157,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The disk name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -188,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the data disk is in process of detachment from the VirtualMachine/VirtualMachineScaleset",
       "jsonName": "toBeDetached",
       "name": "ToBeDetached",
       "objectDefinition": {
@@ -219,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk.",
       "jsonName": "writeAcceleratorEnabled",
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the ephemeral disk settings for operating system disk.",
       "jsonName": "option",
       "name": "Option",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the ephemeral disk placement for operating system disk. Possible\nvalues are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is:\n**CacheDisk** if one is configured for the VM size otherwise **ResourceDisk**\nis used. Refer to the VM size documentation for Windows VM at\nhttps://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at\nhttps://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM\nsizes exposes a cache disk.",
       "jsonName": "placement",
       "name": "Placement",
       "objectDefinition": {

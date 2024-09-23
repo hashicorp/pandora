@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to note if this extension participates in auto upgrade of minor version, or not.",
       "jsonName": "autoUpgradeMinorVersion",
       "name": "AutoUpgradeMinorVersion",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration settings that are sensitive, as name-value pairs for configuring this extension.",
       "jsonName": "configurationProtectedSettings",
       "name": "ConfigurationProtectedSettings",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration settings, as name-value pairs for configuring this extension.",
       "jsonName": "configurationSettings",
       "name": "ConfigurationSettings",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.",
       "jsonName": "releaseTrain",
       "name": "ReleaseTrain",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of the extension for this extension, if it is 'pinned' to a specific version. autoUpgradeMinorVersion must be 'false'.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

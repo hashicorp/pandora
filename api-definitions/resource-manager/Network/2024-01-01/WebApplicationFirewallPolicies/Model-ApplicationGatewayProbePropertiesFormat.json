@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Host name to send the probe to.",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.",
       "jsonName": "interval",
       "name": "Interval",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum number of servers that are always marked healthy. Default value is 0.",
       "jsonName": "minServers",
       "name": "MinServers",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Relative path of probe. Valid path starts from '/'. Probe is sent to \u003cProtocol\u003e://\u003chost\u003e:\u003cport\u003e\u003cpath\u003e.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the host header should be picked from the backend http settings. Default value is false.",
       "jsonName": "pickHostNameFromBackendHttpSettings",
       "name": "PickHostNameFromBackendHTTPSettings",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the server name indication should be picked from the backend settings for Tls protocol. Default value is false.",
       "jsonName": "pickHostNameFromBackendSettings",
       "name": "PickHostNameFromBackendSettings",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Basic, Standard_v2 and WAF_v2 only.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -160,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.",
       "jsonName": "timeout",
       "name": "Timeout",
       "objectDefinition": {
@@ -176,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.",
       "jsonName": "unhealthyThreshold",
       "name": "UnhealthyThreshold",
       "objectDefinition": {

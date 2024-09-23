@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether auto renewal is turned on or off for a subscription.",
       "jsonName": "autoRenew",
       "name": "AutoRenew",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning tenant of the subscription.",
       "jsonName": "beneficiaryTenantId",
       "name": "BeneficiaryTenantId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The billing frequency of the subscription in the ISO8601 format. Example: P1M, P3M, P1Y",
       "jsonName": "billingFrequency",
       "name": "BillingFrequency",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dictionary of billing policies associated with the subscription.",
       "jsonName": "billingPolicies",
       "name": "BillingPolicies",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name of the billing profile to which the subscription is billed. This field is only applicable for Microsoft Customer Agreement billing accounts.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the billing profile to which the subscription is billed. This field is only applicable for Microsoft Customer Agreement billing accounts.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the billing profile to which the subscription is billed. This field is only applicable for Microsoft Customer Agreement billing accounts.",
       "jsonName": "billingProfileName",
       "name": "BillingProfileName",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the billing subscription with the subscription alias.",
       "jsonName": "billingSubscriptionId",
       "name": "BillingSubscriptionId",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cost center applied to the subscription. This field is only available for consumption subscriptions of Microsoft Customer Agreement Type billing accounts.",
       "jsonName": "consumptionCostCenter",
       "name": "ConsumptionCostCenter",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the customer for whom the subscription was created. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "customerDisplayName",
       "name": "CustomerDisplayName",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the customer for whom the subscription was created. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the customer for whom the subscription was created. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "customerName",
       "name": "CustomerName",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the subscription.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -217,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The enrollment Account name associated with the subscription. This field is available only for the Enterprise Agreement billing accounts.",
       "jsonName": "enrollmentAccountDisplayName",
       "name": "EnrollmentAccountDisplayName",
       "objectDefinition": {
@@ -233,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The enrollment Account ID associated with the subscription. This field is available only for the Enterprise Agreement billing accounts.",
       "jsonName": "enrollmentAccountId",
       "name": "EnrollmentAccountId",
       "objectDefinition": {
@@ -264,7 +249,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name of the invoice section to which the subscription is billed. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
@@ -280,7 +264,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the invoice section to which the subscription is billed. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
@@ -296,7 +279,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the invoice section to which the subscription is billed. The field is applicable only for Microsoft Partner Agreement billing accounts.",
       "jsonName": "invoiceSectionName",
       "name": "InvoiceSectionName",
       "objectDefinition": {
@@ -312,7 +294,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The last month's charges. This field is only available for usage based subscriptions of Microsoft Customer Agreement billing accounts.",
       "jsonName": "lastMonthCharges",
       "name": "LastMonthCharges",
       "objectDefinition": {
@@ -328,7 +309,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current month to date charges. This field is only available for usage based subscriptions of Microsoft Customer Agreement billing accounts.",
       "jsonName": "monthToDateCharges",
       "name": "MonthToDateCharges",
       "objectDefinition": {
@@ -344,7 +324,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Next billing cycle details of the subscription.",
       "jsonName": "nextBillingCycleDetails",
       "name": "NextBillingCycleDetails",
       "objectDefinition": {
@@ -360,7 +339,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The offer ID for the subscription. This field is only available for the Microsoft Online Services Program billing accounts.",
       "jsonName": "offerId",
       "name": "OfferId",
       "objectDefinition": {
@@ -376,7 +354,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The category of the product for which the subscription is purchased. Possible values include: AzureSupport, Hardware, ReservationOrder, SaaS, SavingsPlanOrder, Software, UsageBased, Other",
       "jsonName": "productCategory",
       "name": "ProductCategory",
       "objectDefinition": {
@@ -392,7 +369,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the product for which the subscription is purchased",
       "jsonName": "productType",
       "name": "ProductType",
       "objectDefinition": {
@@ -408,7 +384,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the product for which the subscription is purchased",
       "jsonName": "productTypeId",
       "name": "ProductTypeId",
       "objectDefinition": {
@@ -425,7 +400,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The purchase date of the subscription in UTC time.",
       "jsonName": "purchaseDate",
       "name": "PurchaseDate",
       "objectDefinition": {
@@ -441,7 +415,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of licenses purchased for the subscription",
       "jsonName": "quantity",
       "name": "Quantity",
       "objectDefinition": {
@@ -457,7 +430,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The term details of the subscription at the next renewal.",
       "jsonName": "renewalTermDetails",
       "name": "RenewalTermDetails",
       "objectDefinition": {
@@ -473,7 +445,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reseller for which the subscription is created. The field is available for Microsoft Partner Agreement billing accounts.",
       "jsonName": "reseller",
       "name": "Reseller",
       "objectDefinition": {
@@ -489,7 +460,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SKU description of the product for which the subscription is purchased. This field is only available for Microsoft Customer Agreement billing accounts.",
       "jsonName": "skuDescription",
       "name": "SkuDescription",
       "objectDefinition": {
@@ -505,7 +475,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SKU ID of the product for which the subscription is purchased. This field is only available for Microsoft Customer Agreement billing accounts.",
       "jsonName": "skuId",
       "name": "SkuId",
       "objectDefinition": {
@@ -521,7 +490,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the subscription. This field is not available for Enterprise Agreement billing accounts.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -537,7 +505,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the usage-based subscription. This field is only available for usage-based subscriptions of Microsoft Customer Agreement billing accounts.",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
@@ -553,7 +520,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The suspension reason for the subscription. This field is not available for Enterprise Agreement billing accounts.",
       "jsonName": "suspensionReasons",
       "name": "SuspensionReasons",
       "objectDefinition": {
@@ -575,7 +541,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The duration for which you can use the subscription. Example P1Y and P1M",
       "jsonName": "termDuration",
       "name": "TermDuration",
       "objectDefinition": {
@@ -592,7 +557,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end date of the term in UTC time.",
       "jsonName": "termEndDate",
       "name": "TermEndDate",
       "objectDefinition": {
@@ -609,7 +573,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The start date of the term in UTC time.",
       "jsonName": "termStartDate",
       "name": "TermStartDate",
       "objectDefinition": {

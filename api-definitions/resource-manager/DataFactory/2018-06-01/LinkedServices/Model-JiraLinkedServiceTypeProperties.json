@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The IP address or host name of the Jira service. (e.g. jira.example.com)",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The TCP port that the Jira server uses to listen for client connections. The default value is 443 if connecting through HTTPS, or 8080 if connecting through HTTP.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.",
       "jsonName": "useEncryptedEndpoints",
       "name": "UseEncryptedEndpoints",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.",
       "jsonName": "useHostVerification",
       "name": "UseHostVerification",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.",
       "jsonName": "usePeerVerification",
       "name": "UsePeerVerification",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user name that you use to access Jira Service.",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {

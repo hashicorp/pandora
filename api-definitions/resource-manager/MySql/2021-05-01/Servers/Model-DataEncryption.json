@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup",
       "jsonName": "geoBackupKeyURI",
       "name": "GeoBackupKeyURI",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup",
       "jsonName": "geoBackupUserAssignedIdentityId",
       "name": "GeoBackupUserAssignedIdentityId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Primary key uri",
       "jsonName": "primaryKeyURI",
       "name": "PrimaryKeyURI",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Primary user identity resource id",
       "jsonName": "primaryUserAssignedIdentityId",
       "name": "PrimaryUserAssignedIdentityId",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {

@@ -63,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine instance view.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
@@ -79,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the latest model has been applied to the virtual machine.",
       "jsonName": "latestModelApplied",
       "name": "LatestModelApplied",
       "objectDefinition": {
@@ -95,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -111,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.",
       "jsonName": "modelDefinitionApplied",
       "name": "ModelDefinitionApplied",
       "objectDefinition": {
@@ -142,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the network profile configuration of the virtual machine.",
       "jsonName": "networkProfileConfiguration",
       "name": "NetworkProfileConfiguration",
       "objectDefinition": {
@@ -173,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the protection policy of the virtual machine.",
       "jsonName": "protectionPolicy",
       "name": "ProtectionPolicy",
       "objectDefinition": {
@@ -189,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -236,7 +229,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Specifies the time at which the Virtual Machine resource was created.\u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-11-01.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -252,7 +244,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
@@ -268,7 +259,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure VM unique ID.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {

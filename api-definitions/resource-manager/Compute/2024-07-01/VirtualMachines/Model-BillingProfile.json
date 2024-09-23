@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the maximum price you are willing to pay for a Azure Spot VM/VMSS. This price is in US Dollars. \u003cbr\u003e\u003cbr\u003e This price will be compared with the current Azure Spot price for the VM size. Also, the prices are compared at the time of create/update of Azure Spot VM/VMSS and the operation will only succeed if  the maxPrice is greater than the current Azure Spot price. \u003cbr\u003e\u003cbr\u003e The maxPrice will also be used for evicting a Azure Spot VM/VMSS if the current Azure Spot price goes beyond the maxPrice after creation of VM/VMSS. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e - Any decimal value greater than zero. Example: 0.01538 \u003cbr\u003e\u003cbr\u003e -1 – indicates default price to be up-to on-demand. \u003cbr\u003e\u003cbr\u003e You can set the maxPrice to -1 to indicate that the Azure Spot VM/VMSS should not be evicted for price reasons. Also, the default max price is -1 if it is not provided by you. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2019-03-01.",
       "jsonName": "maxPrice",
       "name": "MaxPrice",
       "objectDefinition": {

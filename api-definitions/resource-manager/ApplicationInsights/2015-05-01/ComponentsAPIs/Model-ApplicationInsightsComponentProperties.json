@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Application Insights Unique ID for your Application.",
       "jsonName": "AppId",
       "name": "AppId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique ID of your application. This field mirrors the 'Name' field and cannot be changed.",
       "jsonName": "ApplicationId",
       "name": "ApplicationId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of application being monitored.",
       "jsonName": "Application_Type",
       "name": "ApplicationType",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Application Insights component connection string.",
       "jsonName": "ConnectionString",
       "name": "ConnectionString",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Creation Date for the Application Insights component, in ISO 8601 format.",
       "jsonName": "CreationDate",
       "name": "CreationDate",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Disable IP masking.",
       "jsonName": "DisableIpMasking",
       "name": "DisableIPMasking",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.",
       "jsonName": "Flow_Type",
       "name": "FlowType",
       "objectDefinition": {
@@ -116,7 +109,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.",
       "jsonName": "HockeyAppId",
       "name": "HockeyAppId",
       "objectDefinition": {
@@ -132,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Token used to authenticate communications with between Application Insights and HockeyApp.",
       "jsonName": "HockeyAppToken",
       "name": "HockeyAppToken",
       "objectDefinition": {
@@ -148,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Purge data immediately after 30 days.",
       "jsonName": "ImmediatePurgeDataOn30Days",
       "name": "ImmediatePurgeDataOn30Days",
       "objectDefinition": {
@@ -164,7 +154,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the flow of the ingestion.",
       "jsonName": "IngestionMode",
       "name": "IngestionMode",
       "objectDefinition": {
@@ -180,7 +169,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Application Insights Instrumentation key. A read-only value that applications can use to identify the destination for all telemetry sent to Azure Application Insights. This value will be supplied upon construction of each new Application Insights component.",
       "jsonName": "InstrumentationKey",
       "name": "InstrumentationKey",
       "objectDefinition": {
@@ -196,7 +184,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of linked private link scope resources.",
       "jsonName": "PrivateLinkScopedResources",
       "name": "PrivateLinkScopedResources",
       "objectDefinition": {
@@ -218,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current state of this component: whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -234,7 +220,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.",
       "jsonName": "Request_Source",
       "name": "RequestSource",
       "objectDefinition": {
@@ -250,7 +235,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Retention period in days.",
       "jsonName": "RetentionInDays",
       "name": "RetentionInDays",
       "objectDefinition": {
@@ -266,7 +250,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.",
       "jsonName": "SamplingPercentage",
       "name": "SamplingPercentage",
       "objectDefinition": {
@@ -282,7 +265,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure Tenant Id.",
       "jsonName": "TenantId",
       "name": "TenantId",
       "objectDefinition": {

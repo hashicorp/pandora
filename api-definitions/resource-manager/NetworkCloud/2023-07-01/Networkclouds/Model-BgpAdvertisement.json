@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False.",
       "jsonName": "advertiseToFabric",
       "name": "AdvertiseToFabric",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format.",
       "jsonName": "communities",
       "name": "Communities",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The names of the IP address pools associated with this announcement.",
       "jsonName": "ipAddressPools",
       "name": "IPAddressPools",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement.",
       "jsonName": "peers",
       "name": "Peers",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The azure resources that will be contained within the solutions. They will be locked and gets deleted automatically when the solution is deleted.",
       "jsonName": "containedResources",
       "name": "ContainedResources",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state for the solution.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resources that will be referenced from this solution. Deleting any of those solution out of band will break the solution.",
       "jsonName": "referencedResources",
       "name": "ReferencedResources",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The azure resourceId for the workspace where the solution will be deployed/enabled.",
       "jsonName": "workspaceResourceId",
       "name": "WorkspaceResourceId",
       "objectDefinition": {

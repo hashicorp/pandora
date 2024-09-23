@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of name/value pairs to describe the SKU capabilities.",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the service has different generations of hardware, for the same SKU, then that can be captured here.",
       "jsonName": "family",
       "name": "Family",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SKU supported locations.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the SKU. Ex - P3. It is typically a letter+number code",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the resource type",
       "jsonName": "resourceType",
       "name": "ResourceType",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. ",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
