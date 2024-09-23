@@ -12,6 +12,7 @@ import (
 type Settings struct {
 	CanonicalApiVersions          map[string]string
 	CommonTypesPackageName        string
+	EnableModelBehaviors          bool
 	GenerateDescriptionsForModels bool
 	RecurseParentModels           bool
 	VersionsToGenerateCommonTypes map[string]models.SourceDataOrigin
