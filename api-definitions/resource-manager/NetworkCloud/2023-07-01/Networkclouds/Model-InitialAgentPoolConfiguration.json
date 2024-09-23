@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The administrator credentials to be used for the nodes in this agent pool.",
       "jsonName": "administratorConfiguration",
       "name": "AdministratorConfiguration",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configurations that will be applied to each agent in this agent pool.",
       "jsonName": "agentOptions",
       "name": "AgentOptions",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.",
       "jsonName": "attachedNetworkConfiguration",
       "name": "AttachedNetworkConfiguration",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.",
       "jsonName": "availabilityZones",
       "name": "AvailabilityZones",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of virtual machines that use this configuration.",
       "jsonName": "count",
       "name": "Count",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The labels applied to the nodes in this agent pool.",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name that will be used for the agent pool resource representing this agent pool.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The taints applied to the nodes in this agent pool.",
       "jsonName": "taints",
       "name": "Taints",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration of the agent pool.",
       "jsonName": "upgradeSettings",
       "name": "UpgradeSettings",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the VM SKU that determines the size of resources allocated for node VMs.",
       "jsonName": "vmSkuName",
       "name": "VMSkuName",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IPv4 address of the DNS servers in your environment.",
       "jsonName": "dnsServers",
       "name": "DnsServers",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Default gateway that should be used for the provided IP address space.",
       "jsonName": "gateway",
       "name": "Gateway",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Range of IP addresses from which addresses are allocated for nodes within a subnet.",
       "jsonName": "ipPools",
       "name": "IPPools",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subnet mask that matches the provided IP address space.",
       "jsonName": "subnetMask",
       "name": "SubnetMask",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allows customers to use DHCP for Hosts and Cluster IPs. If not declared, the deployment will default to static IPs. When true, GW and DNS servers are not required",
       "jsonName": "useDhcp",
       "name": "UseDhcp",
       "objectDefinition": {

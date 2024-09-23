@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The groups containing all the users. Type: array of strings (or Expression with resultType array of strings).",
       "jsonName": "allowedGroups",
       "name": "AllowedGroups",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Column to apply the \u003cparamref name=\"StartTime\"/\u003e and \u003cparamref name=\"EndTime\"/\u003e. Type: string (or Expression with resultType string).",
       "jsonName": "dateFilterColumn",
       "name": "DateFilterColumn",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "End time of the requested range for this dataset. Type: string (or Expression with resultType string).",
       "jsonName": "endTime",
       "name": "EndTime",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The columns to be read out from the Office 365 table. Type: array of objects (or Expression with resultType array of objects). itemType: OutputColumn. Example: [ { \"name\": \"Id\" }, { \"name\": \"CreatedDateTime\" } ]",
       "jsonName": "outputColumns",
       "name": "OutputColumns",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Start time of the requested range for this dataset. Type: string (or Expression with resultType string).",
       "jsonName": "startTime",
       "name": "StartTime",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user scope uri. Type: string (or Expression with resultType string).",
       "jsonName": "userScopeFilterUri",
       "name": "UserScopeFilterUri",
       "objectDefinition": {

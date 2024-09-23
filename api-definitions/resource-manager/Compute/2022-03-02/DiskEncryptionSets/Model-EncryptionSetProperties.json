@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The key vault key which is currently used by this disk encryption set.",
       "jsonName": "activeKey",
       "name": "ActiveKey",
       "objectDefinition": {
@@ -49,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.",
       "jsonName": "federatedClientId",
       "name": "FederatedClientId",
       "objectDefinition": {
@@ -66,7 +64,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the active key of this disk encryption set was updated.",
       "jsonName": "lastKeyRotationTimestamp",
       "name": "LastKeyRotationTimestamp",
       "objectDefinition": {
@@ -82,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A readonly collection of key vault keys previously used by this disk encryption set while a key rotation is in progress. It will be empty if there is no ongoing key rotation.",
       "jsonName": "previousKeys",
       "name": "PreviousKeys",
       "objectDefinition": {
@@ -104,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The disk encryption set provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -120,7 +115,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.",
       "jsonName": "rotationToLatestKeyVersionEnabled",
       "name": "RotationToLatestKeyVersionEnabled",
       "objectDefinition": {

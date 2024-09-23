@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A flag indicating whether this is a persistent service which stores states on the local disk. If it is then the value of this property is true, if not it is false.",
       "jsonName": "hasPersistedState",
       "name": "HasPersistedState",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum replica set size as a number.",
       "jsonName": "minReplicaSetSize",
       "name": "MinReplicaSetSize",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum duration for which a partition is allowed to be in a state of quorum loss, represented in ISO 8601 format \"hh:mm:ss\".",
       "jsonName": "quorumLossWaitDuration",
       "name": "QuorumLossWaitDuration",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The duration between when a replica goes down and when a new replica is created, represented in ISO 8601 format \"hh:mm:ss\".",
       "jsonName": "replicaRestartWaitDuration",
       "name": "ReplicaRestartWaitDuration",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The duration for which replicas can stay InBuild before reporting that build is stuck, represented in ISO 8601 format \"hh:mm:ss\".",
       "jsonName": "servicePlacementTimeLimit",
       "name": "ServicePlacementTimeLimit",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The definition on how long StandBy replicas should be maintained before being removed, represented in ISO 8601 format \"hh:mm:ss\".",
       "jsonName": "standByReplicaKeepDuration",
       "name": "StandByReplicaKeepDuration",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target replica set size as a number.",
       "jsonName": "targetReplicaSetSize",
       "name": "TargetReplicaSetSize",
       "objectDefinition": {

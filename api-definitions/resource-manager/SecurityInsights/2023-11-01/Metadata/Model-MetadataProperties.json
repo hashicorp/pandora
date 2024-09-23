@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The creator of the content item.",
       "jsonName": "author",
       "name": "Author",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Categories for the solution content item",
       "jsonName": "categories",
       "name": "Categories",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name",
       "jsonName": "contentId",
       "name": "ContentId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Schema version of the content. Can be used to distinguish between different flow based on the schema version",
       "jsonName": "contentSchemaVersion",
       "name": "ContentSchemaVersion",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The custom version of the content. A optional free text",
       "jsonName": "customVersion",
       "name": "CustomVersion",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "first publish date solution content item",
       "jsonName": "firstPublishDate",
       "name": "FirstPublishDate",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the icon identifier. this id can later be fetched from the solution template",
       "jsonName": "icon",
       "name": "Icon",
       "objectDefinition": {
@@ -130,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The kind of content the metadata is for.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
@@ -146,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "last publish date for the solution content item",
       "jsonName": "lastPublishDate",
       "name": "LastPublishDate",
       "objectDefinition": {
@@ -162,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)",
       "jsonName": "parentId",
       "name": "ParentId",
       "objectDefinition": {
@@ -178,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "preview image file names. These will be taken from the solution artifacts",
       "jsonName": "previewImages",
       "name": "PreviewImages",
       "objectDefinition": {
@@ -200,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "preview image file names. These will be taken from the solution artifacts. used for dark theme support",
       "jsonName": "previewImagesDark",
       "name": "PreviewImagesDark",
       "objectDefinition": {
@@ -222,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Providers for the solution content item",
       "jsonName": "providers",
       "name": "Providers",
       "objectDefinition": {
@@ -244,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source of the content.  This is where/how it was created.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -260,7 +246,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Support information for the metadata - type, name, contact information",
       "jsonName": "support",
       "name": "Support",
       "objectDefinition": {
@@ -276,7 +261,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the tactics the resource covers",
       "jsonName": "threatAnalysisTactics",
       "name": "ThreatAnalysisTactics",
       "objectDefinition": {
@@ -298,7 +282,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the techniques the resource covers, these have to be aligned with the tactics being used",
       "jsonName": "threatAnalysisTechniques",
       "name": "ThreatAnalysisTechniques",
       "objectDefinition": {
@@ -320,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

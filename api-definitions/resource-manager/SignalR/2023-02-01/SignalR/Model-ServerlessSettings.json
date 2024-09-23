@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets or sets Client Connection Timeout. Optional to be set.\r\nValue in seconds.\r\nDefault value is 30 seconds.\r\nCustomer should set the timeout to a shorter period if messages are expected to be sent in shorter intervals,\r\nand want the client to disconnect more quickly after the last message is sent.\r\nYou can set the timeout to a longer period if messages are expected to be sent in longer intervals,\r\nand they want to keep the same client connection alive during this session.\r\nThe service considers the client disconnected if it hasn't received a message (including keep-alive) in this interval.",
       "jsonName": "connectionTimeoutInSeconds",
       "name": "ConnectionTimeoutInSeconds",
       "objectDefinition": {

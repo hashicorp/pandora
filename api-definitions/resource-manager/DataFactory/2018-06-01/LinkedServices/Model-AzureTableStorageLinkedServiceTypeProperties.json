@@ -18,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The connection string. It is mutually exclusive with sasUri property. Type: string, SecureString or AzureKeyVaultSecretReference.",
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
@@ -49,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -80,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SAS URI of the Azure Storage resource. It is mutually exclusive with connectionString property. Type: string, SecureString or AzureKeyVaultSecretReference.",
       "jsonName": "sasUri",
       "name": "SasUri",
       "objectDefinition": {
@@ -96,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Table service endpoint of the Azure Table Storage resource. It is mutually exclusive with connectionString, sasUri property.",
       "jsonName": "serviceEndpoint",
       "name": "ServiceEndpoint",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is only returned when the certificate provisioningState is 'Failed'.",
       "jsonName": "deleteCertificateError",
       "name": "DeleteCertificateError",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The previous provisioned state of the resource",
       "jsonName": "previousProvisioningState",
       "name": "PreviousProvisioningState",
       "objectDefinition": {
@@ -98,7 +95,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The public key of the certificate.",
       "jsonName": "publicData",
       "name": "PublicData",
       "objectDefinition": {
@@ -114,7 +110,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This must match the thumbprint from the name.",
       "jsonName": "thumbprint",
       "name": "Thumbprint",
       "objectDefinition": {
@@ -130,7 +125,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This must match the first portion of the certificate name. Currently required to be 'SHA1'.",
       "jsonName": "thumbprintAlgorithm",
       "name": "ThumbprintAlgorithm",
       "objectDefinition": {

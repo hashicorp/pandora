@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] The collection configuration. Each collection has it own configuration to collect model data and the name of collection can be arbitrary string.\r\nModel data collector can be used for either payload logging or custom logging or both of them. Collection request and response are reserved for payload logging, others are for custom logging.",
       "jsonName": "collections",
       "name": "Collections",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The request logging configuration for mdc, it includes advanced logging settings for all collections. It's optional.",
       "jsonName": "requestLogging",
       "name": "RequestLogging",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.\r\nIf the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.\r\nIf it's day, all data will be collected in blob path /yyyy/MM/dd/.\r\nThe other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.",
       "jsonName": "rollingRate",
       "name": "RollingRate",
       "objectDefinition": {

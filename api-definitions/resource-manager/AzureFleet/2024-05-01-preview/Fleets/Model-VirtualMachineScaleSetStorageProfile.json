@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the parameters that are used to add data disks to the virtual\nmachines in the scale set. For more information about disks, see [About disks\nand VHDs for Azure virtual\nmachines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
       "jsonName": "dataDisks",
       "name": "DataDisks",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the disk controller type configured for the virtual machines in the scale set. Minimum api-version: 2022-08-01",
       "jsonName": "diskControllerType",
       "name": "DiskControllerType",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the image to use. You can specify information about\nplatform images, marketplace images, or virtual machine images. This element is\nrequired when you want to use a platform image, marketplace image, or virtual\nmachine image, but is not used in other creation operations.",
       "jsonName": "imageReference",
       "name": "ImageReference",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the operating system disk used by the virtual\nmachines in the scale set. For more information about disks, see [About disks\nand VHDs for Azure virtual\nmachines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).",
       "jsonName": "osDisk",
       "name": "OsDisk",
       "objectDefinition": {

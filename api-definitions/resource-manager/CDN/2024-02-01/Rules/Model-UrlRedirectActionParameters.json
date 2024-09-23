@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #.",
       "jsonName": "customFragment",
       "name": "CustomFragment",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Host to redirect. Leave empty to use the incoming host as the destination host.",
       "jsonName": "customHostname",
       "name": "CustomHostname",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path.",
       "jsonName": "customPath",
       "name": "CustomPath",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in \u003ckey\u003e=\u003cvalue\u003e format. ? and \u0026 will be added automatically so do not include them.",
       "jsonName": "customQueryString",
       "name": "CustomQueryString",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Protocol to use for the redirect. The default value is MatchRequest",
       "jsonName": "destinationProtocol",
       "name": "DestinationProtocol",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The redirect type the rule will use when redirecting traffic.",
       "jsonName": "redirectType",
       "name": "RedirectType",
       "objectDefinition": {

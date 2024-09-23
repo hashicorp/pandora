@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.",
       "jsonName": "clientProtocol",
       "name": "ClientProtocol",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Clustering policy - default is OSSCluster. Specified at create time.",
       "jsonName": "clusteringPolicy",
       "name": "ClusteringPolicy",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade",
       "jsonName": "deferUpgrade",
       "name": "DeferUpgrade",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Redis eviction policy - default is VolatileLRU",
       "jsonName": "evictionPolicy",
       "name": "EvictionPolicy",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional set of properties to configure geo replication for this database.",
       "jsonName": "geoReplication",
       "name": "GeoReplication",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional set of redis modules to enable in this database - modules can only be added at creation time.",
       "jsonName": "modules",
       "name": "Modules",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Persistence settings",
       "jsonName": "persistence",
       "name": "Persistence",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "TCP port of the database endpoint. Specified at create time. Defaults to an available port.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current provisioning status of the database",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of Redis the database is running on, e.g. '6.0'",
       "jsonName": "redisVersion",
       "name": "RedisVersion",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current resource status of the database",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {

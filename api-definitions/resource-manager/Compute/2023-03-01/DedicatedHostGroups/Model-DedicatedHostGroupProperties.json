@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.",
       "jsonName": "additionalCapabilities",
       "name": "AdditionalCapabilities",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of references to all dedicated hosts in the dedicated host group.",
       "jsonName": "hosts",
       "name": "Hosts",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of fault domains that the host group can span.",
       "jsonName": "platformFaultDomainCount",
       "name": "PlatformFaultDomainCount",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.",
       "jsonName": "supportAutomaticPlacement",
       "name": "SupportAutomaticPlacement",
       "objectDefinition": {

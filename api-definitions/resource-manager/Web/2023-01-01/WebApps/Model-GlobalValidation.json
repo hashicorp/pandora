@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The paths for which unauthenticated flow would not be redirected to the login page.",
       "jsonName": "excludedPaths",
       "name": "ExcludedPaths",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default authentication provider to use when multiple providers are configured.\nThis setting is only needed if multiple providers are configured and the unauthenticated client\naction is set to \"RedirectToLoginPage\".",
       "jsonName": "redirectToProvider",
       "name": "RedirectToProvider",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e if the authentication flow is required any request is made; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "requireAuthentication",
       "name": "RequireAuthentication",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The action to take when an unauthenticated client attempts to access the app.",
       "jsonName": "unauthenticatedClientAction",
       "name": "UnauthenticatedClientAction",
       "objectDefinition": {

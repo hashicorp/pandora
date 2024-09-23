@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the password of the administrator account. \u003cbr\u003e\u003cbr\u003e **Minimum-length\n(Windows):** 8 characters \u003cbr\u003e\u003cbr\u003e **Minimum-length (Linux):** 6 characters\n\u003cbr\u003e\u003cbr\u003e **Max-length (Windows):** 123 characters \u003cbr\u003e\u003cbr\u003e **Max-length\n(Linux):** 72 characters \u003cbr\u003e\u003cbr\u003e **Complexity requirements:** 3 out of 4\nconditions below need to be fulfilled \u003cbr\u003e Has lower characters \u003cbr\u003eHas upper\ncharacters \u003cbr\u003e Has a digit \u003cbr\u003e Has a special character (Regex match [\\W_])\n\u003cbr\u003e\u003cbr\u003e **Disallowed values:** \"abc@123\", \"P@$$w0rd\", \"P@ssw0rd\",\n\"P@ssword123\", \"Pa$$word\", \"pass@word1\", \"Password!\", \"Password1\",\n\"Password22\", \"iloveyou!\" \u003cbr\u003e\u003cbr\u003e For resetting the password, see [How to\nreset the Remote Desktop service or its login password in a Windows\nVM](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/reset-rdp)\n\u003cbr\u003e\u003cbr\u003e For resetting root password, see [Manage users, SSH, and check or\nrepair disks on Azure Linux VMs using the VMAccess\nExtension](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection)",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the name of the administrator account. \u003cbr\u003e\u003cbr\u003e **Windows-only\nrestriction:** Cannot end in \".\" \u003cbr\u003e\u003cbr\u003e **Disallowed values:**\n\"administrator\", \"admin\", \"user\", \"user1\", \"test\", \"user2\", \"test1\", \"user3\",\n\"admin1\", \"1\", \"123\", \"a\", \"actuser\", \"adm\", \"admin2\", \"aspnet\", \"backup\",\n\"console\", \"david\", \"guest\", \"john\", \"owner\", \"root\", \"server\", \"sql\",\n\"support\", \"support_388945a0\", \"sys\", \"test2\", \"test3\", \"user4\", \"user5\".\n\u003cbr\u003e\u003cbr\u003e **Minimum-length (Linux):** 1  character \u003cbr\u003e\u003cbr\u003e **Max-length\n(Linux):** 64 characters \u003cbr\u003e\u003cbr\u003e **Max-length (Windows):** 20 characters",
       "jsonName": "adminUsername",
       "name": "AdminUsername",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether extension operations should be allowed on the virtual machine\nscale set. This may only be set to False when no extensions are present on the\nvirtual machine scale set.",
       "jsonName": "allowExtensionOperations",
       "name": "AllowExtensionOperations",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the computer name prefix for all of the virtual machines in the scale\nset. Computer name prefixes must be 1 to 15 characters long.",
       "jsonName": "computerNamePrefix",
       "name": "ComputerNamePrefix",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies a base-64 encoded string of custom data. The base-64 encoded string\nis decoded to a binary array that is saved as a file on the Virtual Machine.\nThe maximum length of the binary array is 65535 bytes. For using cloud-init for\nyour VM, see [Using cloud-init to customize a Linux VM during\ncreation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)",
       "jsonName": "customData",
       "name": "CustomData",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Linux operating system settings on the virtual machine. For a\nlist of supported Linux distributions, see [Linux on Azure-Endorsed\nDistributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).",
       "jsonName": "linuxConfiguration",
       "name": "LinuxConfiguration",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional property which must either be set to True or omitted.",
       "jsonName": "requireGuestProvisionSignal",
       "name": "RequireGuestProvisionSignal",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies set of certificates that should be installed onto the virtual\nmachines in the scale set. To install certificates on a virtual machine it is\nrecommended to use the [Azure Key Vault virtual machine extension for\nLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux)\nor the [Azure Key Vault virtual machine extension for\nWindows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies Windows operating system settings on the virtual machine.",
       "jsonName": "windowsConfiguration",
       "name": "WindowsConfiguration",
       "objectDefinition": {

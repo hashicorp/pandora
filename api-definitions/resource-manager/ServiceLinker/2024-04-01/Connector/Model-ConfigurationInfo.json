@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional, indicate whether to apply configurations on source application. If enable, generate configurations and applied to the source application. Default is enable. If optOut, no configuration change will be made on source.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A dictionary of additional configurations to be added. Service will auto generate a set of basic configurations and this property is to full fill more customized configurations",
       "jsonName": "additionalConfigurations",
       "name": "AdditionalConfigurations",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A dictionary of additional properties to be added in the end of connection string.",
       "jsonName": "additionalConnectionStringProperties",
       "name": "AdditionalConnectionStringProperties",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An option to store configuration into different place",
       "jsonName": "configurationStore",
       "name": "ConfigurationStore",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional. A dictionary of default key name and customized key name mapping. If not specified, default key name will be used for generate configurations",
       "jsonName": "customizedKeys",
       "name": "CustomizedKeys",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates some additional properties for dapr client type",
       "jsonName": "daprProperties",
       "name": "DaprProperties",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether to clean up previous operation when Linker is updating or deleting",
       "jsonName": "deleteOrUpdateBehavior",
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Base Virtual Machine Profile Properties to be specified according to \"specification/compute/resource-manager/Microsoft.Compute/ComputeRP/stable/{computeApiVersion}/virtualMachineScaleSet.json#/definitions/VirtualMachineScaleSetVMProfile\"",
       "jsonName": "baseVirtualMachineProfile",
       "name": "BaseVirtualMachineProfile",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Microsoft.Compute API version to use when creating underlying Virtual Machine scale sets and Virtual Machines.\nThe default value will be the latest supported computeApiVersion by Compute Fleet.",
       "jsonName": "computeApiVersion",
       "name": "ComputeApiVersion",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the number of fault domains to use when creating the underlying VMSS.\nA fault domain is a logical group of hardware within an Azure datacenter.\nVMs in the same fault domain share a common power source and network switch.\nIf not specified, defaults to 1, which represents \"Max Spreading\" (using as many fault domains as possible).\nThis property cannot be updated.",
       "jsonName": "platformFaultDomainCount",
       "name": "PlatformFaultDomainCount",
       "objectDefinition": {

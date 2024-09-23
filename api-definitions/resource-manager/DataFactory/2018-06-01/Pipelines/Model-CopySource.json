@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "disableMetricsCollection",
       "name": "DisableMetricsCollection",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).",
       "jsonName": "maxConcurrentConnections",
       "name": "MaxConcurrentConnections",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source retry count. Type: integer (or Expression with resultType integer).",
       "jsonName": "sourceRetryCount",
       "name": "SourceRetryCount",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source retry wait. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).",
       "jsonName": "sourceRetryWait",
       "name": "SourceRetryWait",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
-      "description": "Copy source type.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {

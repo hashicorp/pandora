@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the blob which contains data for this backup.",
       "jsonName": "blobName",
       "name": "BlobName",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Timestamp of the backup creation.",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of databases included in the backup.",
       "jsonName": "databases",
       "name": "Databases",
       "objectDefinition": {
@@ -75,7 +71,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Timestamp when this backup finished.",
       "jsonName": "finishedTimeStamp",
       "name": "FinishedTimeStamp",
       "objectDefinition": {
@@ -91,7 +86,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Id of the backup.",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
@@ -108,7 +102,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Timestamp of a last restore operation which used this backup.",
       "jsonName": "lastRestoreTimeStamp",
       "name": "LastRestoreTimeStamp",
       "objectDefinition": {
@@ -124,7 +117,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details regarding this backup. Might contain an error message.",
       "jsonName": "log",
       "name": "Log",
       "objectDefinition": {
@@ -140,7 +132,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of this backup.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -156,7 +147,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if this backup has been created due to a schedule being triggered.",
       "jsonName": "scheduled",
       "name": "Scheduled",
       "objectDefinition": {
@@ -172,7 +162,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Size of the backup in bytes.",
       "jsonName": "sizeInBytes",
       "name": "SizeInBytes",
       "objectDefinition": {
@@ -188,7 +177,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Backup status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -204,7 +192,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SAS URL for the storage account container which contains this backup.",
       "jsonName": "storageAccountUrl",
       "name": "StorageAccountUrl",
       "objectDefinition": {
@@ -220,7 +207,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Size of the original web app which has been backed up.",
       "jsonName": "websiteSizeInBytes",
       "name": "WebsiteSizeInBytes",
       "objectDefinition": {

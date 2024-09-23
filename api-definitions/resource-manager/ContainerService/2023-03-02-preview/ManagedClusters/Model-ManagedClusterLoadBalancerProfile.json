@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.",
       "jsonName": "allocatedOutboundPorts",
       "name": "AllocatedOutboundPorts",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the managed inbound Load Balancer BackendPool.",
       "jsonName": "backendPoolType",
       "name": "BackendPoolType",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The effective outbound IP resources of the cluster load balancer.",
       "jsonName": "effectiveOutboundIPs",
       "name": "EffectiveOutboundIPs",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable multiple standard load balancers per AKS cluster or not.",
       "jsonName": "enableMultipleStandardLoadBalancers",
       "name": "EnableMultipleStandardLoadBalancers",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.",
       "jsonName": "idleTimeoutInMinutes",
       "name": "IdleTimeoutInMinutes",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Desired managed outbound IPs for the cluster load balancer.",
       "jsonName": "managedOutboundIPs",
       "name": "ManagedOutboundIPs",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Desired outbound IP Prefix resources for the cluster load balancer.",
       "jsonName": "outboundIPPrefixes",
       "name": "OutboundIPPrefixes",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Desired outbound IP resources for the cluster load balancer.",
       "jsonName": "outboundIPs",
       "name": "OutboundIPs",
       "objectDefinition": {

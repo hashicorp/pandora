@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.",
       "jsonName": "allowedAuthenticationModes",
       "name": "AllowedAuthenticationModes",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The properties related to the auto-storage account.",
       "jsonName": "autoStorage",
       "name": "AutoStorage",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A reference to the Azure key vault associated with the Batch account.",
       "jsonName": "keyVaultReference",
       "name": "KeyVaultReference",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The network profile only takes effect when publicNetworkAccess is enabled.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.",
       "jsonName": "poolAllocationMode",
       "name": "PoolAllocationMode",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If not specified, the default value is 'enabled'.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {

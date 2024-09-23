@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.",
       "jsonName": "maintenanceWindowTimeZone",
       "name": "MaintenanceWindowTimeZone",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of maintenance windows. Maintenance windows are 2 hours long.",
       "jsonName": "maintenanceWindows",
       "name": "MaintenanceWindows",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of maintenance for session host components.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to use localTime of the virtual machine.",
       "jsonName": "useSessionHostLocalTime",
       "name": "UseSessionHostLocalTime",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the Agent assigned to this run.",
       "jsonName": "agentName",
       "name": "AgentName",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified resource id of the Agent assigned to this run.",
       "jsonName": "agentResourceId",
       "name": "AgentResourceId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data that will not be transferred, as they are excluded by user configuration.",
       "jsonName": "bytesExcluded",
       "name": "BytesExcluded",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data that were attempted to transfer and failed.",
       "jsonName": "bytesFailed",
       "name": "BytesFailed",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data that will not be transferred, as they are already found on target (e.g. mirror mode).",
       "jsonName": "bytesNoTransferNeeded",
       "name": "BytesNoTransferNeeded",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data scanned so far in source.",
       "jsonName": "bytesScanned",
       "name": "BytesScanned",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data successfully transferred to target.",
       "jsonName": "bytesTransferred",
       "name": "BytesTransferred",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bytes of data that will not be transferred, as they are unsupported on target.",
       "jsonName": "bytesUnsupported",
       "name": "BytesUnsupported",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Error details.",
       "jsonName": "error",
       "name": "Error",
       "objectDefinition": {
@@ -148,7 +139,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "End time of the run. Null if Agent has not reported that the job has ended.",
       "jsonName": "executionEndTime",
       "name": "ExecutionEndTime",
       "objectDefinition": {
@@ -165,7 +155,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Start time of the run. Null if no Agent reported that the job has started.",
       "jsonName": "executionStartTime",
       "name": "ExecutionStartTime",
       "objectDefinition": {
@@ -181,7 +170,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items that will not be transferred, as they are excluded by user configuration.",
       "jsonName": "itemsExcluded",
       "name": "ItemsExcluded",
       "objectDefinition": {
@@ -197,7 +185,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items that were attempted to transfer and failed.",
       "jsonName": "itemsFailed",
       "name": "ItemsFailed",
       "objectDefinition": {
@@ -213,7 +200,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items that will not be transferred, as they are already found on target (e.g. mirror mode).",
       "jsonName": "itemsNoTransferNeeded",
       "name": "ItemsNoTransferNeeded",
       "objectDefinition": {
@@ -229,7 +215,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items scanned so far in source.",
       "jsonName": "itemsScanned",
       "name": "ItemsScanned",
       "objectDefinition": {
@@ -245,7 +230,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items successfully transferred to target.",
       "jsonName": "itemsTransferred",
       "name": "ItemsTransferred",
       "objectDefinition": {
@@ -261,7 +245,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of items that will not be transferred, as they are unsupported on target.",
       "jsonName": "itemsUnsupported",
       "name": "ItemsUnsupported",
       "objectDefinition": {
@@ -277,7 +260,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy of parent Job Definition's properties at time of Job Run creation.",
       "jsonName": "jobDefinitionProperties",
       "name": "JobDefinitionProperties",
       "objectDefinition": {
@@ -294,7 +276,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last updated time of the Job Run.",
       "jsonName": "lastStatusUpdate",
       "name": "LastStatusUpdate",
       "objectDefinition": {
@@ -310,7 +291,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of this resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -326,7 +306,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of Agent's scanning of source.",
       "jsonName": "scanStatus",
       "name": "ScanStatus",
       "objectDefinition": {
@@ -342,7 +321,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of source Endpoint resource. This resource may no longer exist.",
       "jsonName": "sourceName",
       "name": "SourceName",
       "objectDefinition": {
@@ -358,7 +336,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy of source Endpoint resource's properties at time of Job Run creation.",
       "jsonName": "sourceProperties",
       "name": "SourceProperties",
       "objectDefinition": {
@@ -374,7 +351,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified resource id of source Endpoint. This id may no longer exist.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
@@ -390,7 +366,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the job execution.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -406,7 +381,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of target Endpoint resource. This resource may no longer exist.",
       "jsonName": "targetName",
       "name": "TargetName",
       "objectDefinition": {
@@ -422,7 +396,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy of Endpoint resource's properties at time of Job Run creation.",
       "jsonName": "targetProperties",
       "name": "TargetProperties",
       "objectDefinition": {
@@ -438,7 +411,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified resource id of of Endpoint. This id may no longer exist.",
       "jsonName": "targetResourceId",
       "name": "TargetResourceId",
       "objectDefinition": {

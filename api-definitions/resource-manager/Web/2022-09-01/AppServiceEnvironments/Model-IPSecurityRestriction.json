@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow or Deny access for this IP range.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IP restriction rule description.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IP restriction rule headers.\nX-Forwarded-Host (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-Host#Examples). \nThe matching logic is ..\n- If the property is null or empty (default), all hosts(or lack of) are allowed.\n- A value is compared using ordinal-ignore-case (excluding port number).\n- Subdomain wildcards are permitted but don't match the root domain. For example, *.contoso.com matches the subdomain foo.contoso.com\n but not the root domain contoso.com or multi-level foo.bar.contoso.com\n- Unicode host names are allowed but are converted to Punycode for matching.\n\nX-Forwarded-For (https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Forwarded-For#Examples).\nThe matching logic is ..\n- If the property is null or empty (default), any forwarded-for chains (or lack of) are allowed.\n- If any address (excluding port number) in the chain (comma separated) matches the CIDR defined by the property.\n\nX-Azure-FDID and X-FD-HealthProbe.\nThe matching logic is exact match.",
       "jsonName": "headers",
       "name": "Headers",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IP address the security restriction is valid for.\nIt can be in form of pure ipv4 address (required SubnetMask property) or\nCIDR notation such as ipv4/mask (leading bit match). For CIDR,\nSubnetMask property must not be specified.",
       "jsonName": "ipAddress",
       "name": "IPAddress",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IP restriction rule name.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Priority of IP restriction rule.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subnet mask for the range of IP addresses the restriction is valid for.",
       "jsonName": "subnetMask",
       "name": "SubnetMask",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(internal) Subnet traffic tag",
       "jsonName": "subnetTrafficTag",
       "name": "SubnetTrafficTag",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines what this IP filter will be used for. This is to support IP filtering on proxies.",
       "jsonName": "tag",
       "name": "Tag",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual network resource id",
       "jsonName": "vnetSubnetResourceId",
       "name": "VnetSubnetResourceId",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(internal) Vnet traffic tag",
       "jsonName": "vnetTrafficTag",
       "name": "VnetTrafficTag",
       "objectDefinition": {

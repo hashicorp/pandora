@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the extension should use a newer minor version if one is\navailable at deployment time. Once deployed, however, the extension will not\nupgrade minor versions unless redeployed, even with this property set to true.",
       "jsonName": "autoUpgradeMinorVersion",
       "name": "AutoUpgradeMinorVersion",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the extension should be automatically upgraded by the\nplatform if there is a newer version of the extension available.",
       "jsonName": "enableAutomaticUpgrade",
       "name": "EnableAutomaticUpgrade",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If a value is provided and is different from the previous value, the extension\nhandler will be forced to update even if the extension configuration has not\nchanged.",
       "jsonName": "forceUpdateTag",
       "name": "ForceUpdateTag",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The extension can contain either protectedSettings or\nprotectedSettingsFromKeyVault or no protected settings at all.",
       "jsonName": "protectedSettings",
       "name": "ProtectedSettings",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The extensions protected settings that are passed by reference, and consumed\nfrom key vault",
       "jsonName": "protectedSettingsFromKeyVault",
       "name": "ProtectedSettingsFromKeyVault",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of extension names after which this extension needs to be\nprovisioned.",
       "jsonName": "provisionAfterExtensions",
       "name": "ProvisionAfterExtensions",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the extension handler publisher.",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Json formatted public settings for the extension.",
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether failures stemming from the extension will be suppressed\n(Operational failures such as not connecting to the VM will not be suppressed\nregardless of this value). The default is false.",
       "jsonName": "suppressFailures",
       "name": "SuppressFailures",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the type of the extension; an example is \"CustomScriptExtension\".",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the version of the script handler.",
       "jsonName": "typeHandlerVersion",
       "name": "TypeHandlerVersion",
       "objectDefinition": {

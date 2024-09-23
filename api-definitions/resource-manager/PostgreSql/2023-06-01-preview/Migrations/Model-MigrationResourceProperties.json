@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "To trigger cancel for entire migration we need to send this flag as True",
       "jsonName": "cancel",
       "name": "Cancel",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current status of migration",
       "jsonName": "currentStatus",
       "name": "CurrentStatus",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When you want to trigger cancel for specific databases send cancel flag as True and database names in this array",
       "jsonName": "dbsToCancelMigrationOn",
       "name": "DbsToCancelMigrationOn",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of databases to migrate",
       "jsonName": "dbsToMigrate",
       "name": "DbsToMigrate",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array",
       "jsonName": "dbsToTriggerCutoverOn",
       "name": "DbsToTriggerCutoverOn",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ID for migration, a GUID.",
       "jsonName": "migrationId",
       "name": "MigrationId",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "There are two types of migration modes Online and Offline",
       "jsonName": "migrationMode",
       "name": "MigrationMode",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This indicates the supported Migration option for the migration",
       "jsonName": "migrationOption",
       "name": "MigrationOption",
       "objectDefinition": {
@@ -150,7 +142,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "End time in UTC for migration window",
       "jsonName": "migrationWindowEndTimeInUtc",
       "name": "MigrationWindowEndTimeInUtc",
       "objectDefinition": {
@@ -167,7 +158,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Start time in UTC for migration window",
       "jsonName": "migrationWindowStartTimeInUtc",
       "name": "MigrationWindowStartTimeInUtc",
       "objectDefinition": {
@@ -183,7 +173,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.",
       "jsonName": "overwriteDbsInTarget",
       "name": "OverwriteDbsInTarget",
       "objectDefinition": {
@@ -199,7 +188,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Migration secret parameters",
       "jsonName": "secretParameters",
       "name": "SecretParameters",
       "objectDefinition": {
@@ -215,7 +203,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether to setup LogicalReplicationOnSourceDb, if needed",
       "jsonName": "setupLogicalReplicationOnSourceDbIfNeeded",
       "name": "SetupLogicalReplicationOnSourceDbIfNeeded",
       "objectDefinition": {
@@ -231,7 +218,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection",
       "jsonName": "sourceDbServerFullyQualifiedDomainName",
       "name": "SourceDbServerFullyQualifiedDomainName",
       "objectDefinition": {
@@ -247,7 +233,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Metadata of the source database server",
       "jsonName": "sourceDbServerMetadata",
       "name": "SourceDbServerMetadata",
       "objectDefinition": {
@@ -263,7 +248,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ResourceId of the source database server in case the sourceType is PostgreSQLSingleServer. For other source types this should be ipaddress:port@username or hostname:port@username",
       "jsonName": "sourceDbServerResourceId",
       "name": "SourceDbServerResourceId",
       "objectDefinition": {
@@ -279,7 +263,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "migration source server type : OnPremises, AWS, GCP, AzureVM or PostgreSQLSingleServer",
       "jsonName": "sourceType",
       "name": "SourceType",
       "objectDefinition": {
@@ -295,7 +278,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SSL modes for migration. Default SSL mode for PostgreSQLSingleServer is VerifyFull and Prefer for other source types",
       "jsonName": "sslMode",
       "name": "SslMode",
       "objectDefinition": {
@@ -311,7 +293,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the data migration should start right away",
       "jsonName": "startDataMigration",
       "name": "StartDataMigration",
       "objectDefinition": {
@@ -327,7 +308,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection",
       "jsonName": "targetDbServerFullyQualifiedDomainName",
       "name": "TargetDbServerFullyQualifiedDomainName",
       "objectDefinition": {
@@ -343,7 +323,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Metadata of the target database server",
       "jsonName": "targetDbServerMetadata",
       "name": "TargetDbServerMetadata",
       "objectDefinition": {
@@ -359,7 +338,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ResourceId of the source database server",
       "jsonName": "targetDbServerResourceId",
       "name": "TargetDbServerResourceId",
       "objectDefinition": {
@@ -375,7 +353,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "To trigger cutover for entire migration we need to send this flag as True",
       "jsonName": "triggerCutover",
       "name": "TriggerCutover",
       "objectDefinition": {

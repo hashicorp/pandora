@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional copy options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalCopyOptions\": { \"DATE_FORMAT\": \"MM/DD/YYYY\", \"TIME_FORMAT\": \"'HH24:MI:SS.FF'\" }",
       "jsonName": "additionalCopyOptions",
       "name": "AdditionalCopyOptions",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional format options directly passed to snowflake Copy Command. Type: key value pairs (value should be string type) (or Expression with resultType object). Example: \"additionalFormatOptions\": { \"FORCE\": \"TRUE\", \"LOAD_UNCERTAIN_FILES\": \"'FALSE'\" }",
       "jsonName": "additionalFormatOptions",
       "name": "AdditionalFormatOptions",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the snowflake storage integration to use for the copy operation. Type: string (or Expression with resultType string).",
       "jsonName": "storageIntegration",
       "name": "StorageIntegration",
       "objectDefinition": {

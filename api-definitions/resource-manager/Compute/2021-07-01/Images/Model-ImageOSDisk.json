@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Virtual Hard Disk.",
       "jsonName": "blobUri",
       "name": "BlobUri",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the caching requirements. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **None** \u003cbr\u003e\u003cbr\u003e **ReadOnly** \u003cbr\u003e\u003cbr\u003e **ReadWrite** \u003cbr\u003e\u003cbr\u003e Default: **None for Standard storage. ReadOnly for Premium storage**",
       "jsonName": "caching",
       "name": "Caching",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the customer managed disk encryption set resource id for the managed image disk.",
       "jsonName": "diskEncryptionSet",
       "name": "DiskEncryptionSet",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. \u003cbr\u003e\u003cbr\u003e This value cannot be larger than 1023 GB",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The managedDisk.",
       "jsonName": "managedDisk",
       "name": "ManagedDisk",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OS State.",
       "jsonName": "osState",
       "name": "OsState",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. \u003cbr\u003e\u003cbr\u003e Possible values are: \u003cbr\u003e\u003cbr\u003e **Windows** \u003cbr\u003e\u003cbr\u003e **Linux**",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The snapshot.",
       "jsonName": "snapshot",
       "name": "Snapshot",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.",
       "jsonName": "storageAccountType",
       "name": "StorageAccountType",
       "objectDefinition": {

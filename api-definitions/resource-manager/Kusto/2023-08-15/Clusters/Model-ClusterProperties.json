@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster's accepted audiences.",
       "jsonName": "acceptedAudiences",
       "name": "AcceptedAudiences",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.",
       "jsonName": "allowedFqdnList",
       "name": "AllowedFqdnList",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of ips in the format of CIDR allowed to connect to the cluster.",
       "jsonName": "allowedIpRangeList",
       "name": "AllowedIPRangeList",
       "objectDefinition": {
@@ -69,7 +66,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster data ingestion URI.",
       "jsonName": "dataIngestionUri",
       "name": "DataIngestionUri",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).",
       "jsonName": "enableAutoStop",
       "name": "EnableAutoStop",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean value that indicates if the cluster's disks are encrypted.",
       "jsonName": "enableDiskEncryption",
       "name": "EnableDiskEncryption",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean value that indicates if double encryption is enabled.",
       "jsonName": "enableDoubleEncryption",
       "name": "EnableDoubleEncryption",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean value that indicates if the purge operations are enabled.",
       "jsonName": "enablePurge",
       "name": "EnablePurge",
       "objectDefinition": {
@@ -149,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean value that indicates if the streaming ingest is enabled.",
       "jsonName": "enableStreamingIngest",
       "name": "EnableStreamingIngest",
       "objectDefinition": {
@@ -165,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The engine type",
       "jsonName": "engineType",
       "name": "EngineType",
       "objectDefinition": {
@@ -181,7 +171,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "KeyVault properties for the cluster encryption.",
       "jsonName": "keyVaultProperties",
       "name": "KeyVaultProperties",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of the cluster's language extensions.",
       "jsonName": "languageExtensions",
       "name": "LanguageExtensions",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Properties of the peer cluster involved in a migration to/from this cluster.",
       "jsonName": "migrationCluster",
       "name": "MigrationCluster",
       "objectDefinition": {
@@ -229,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optimized auto scale definition.",
       "jsonName": "optimizedAutoscale",
       "name": "OptimizedAutoscale",
       "objectDefinition": {
@@ -245,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of private endpoint connections.",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
@@ -267,7 +252,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioned state of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -283,7 +267,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)",
       "jsonName": "publicIPType",
       "name": "PublicIPType",
       "objectDefinition": {
@@ -299,7 +282,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -315,7 +297,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "restrictOutboundNetworkAccess",
       "name": "RestrictOutboundNetworkAccess",
       "objectDefinition": {
@@ -331,7 +312,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the resource.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
@@ -347,7 +327,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reason for the cluster's current state.",
       "jsonName": "stateReason",
       "name": "StateReason",
       "objectDefinition": {
@@ -363,7 +342,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster's external tenants.",
       "jsonName": "trustedExternalTenants",
       "name": "TrustedExternalTenants",
       "objectDefinition": {
@@ -385,7 +363,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster URI.",
       "jsonName": "uri",
       "name": "Uri",
       "objectDefinition": {
@@ -401,7 +378,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual Cluster graduation properties",
       "jsonName": "virtualClusterGraduationProperties",
       "name": "VirtualClusterGraduationProperties",
       "objectDefinition": {
@@ -417,7 +393,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual network definition.",
       "jsonName": "virtualNetworkConfiguration",
       "name": "VirtualNetworkConfiguration",
       "objectDefinition": {

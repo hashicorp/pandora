@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Administrator username for the server. Once created it cannot be changed.",
       "jsonName": "administratorLogin",
       "name": "AdministratorLogin",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The administrator login password (required for server creation).",
       "jsonName": "administratorLoginPassword",
       "name": "AdministratorLoginPassword",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.",
       "jsonName": "administrators",
       "name": "Administrators",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Status of external governance.",
       "jsonName": "externalGovernanceStatus",
       "name": "ExternalGovernanceStatus",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client id used for cross tenant CMK scenario",
       "jsonName": "federatedClientId",
       "name": "FederatedClientId",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fully qualified domain name of the server.",
       "jsonName": "fullyQualifiedDomainName",
       "name": "FullyQualifiedDomainName",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "isIPv6Enabled",
       "name": "IsIPv6Enabled",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A CMK URI of the key to use for encryption.",
       "jsonName": "keyId",
       "name": "KeyId",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource id of a user assigned identity to be used by default.",
       "jsonName": "primaryUserAssignedIdentityId",
       "name": "PrimaryUserAssignedIdentityId",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of private endpoint connections on a server",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "restrictOutboundNetworkAccess",
       "name": "RestrictOutboundNetworkAccess",
       "objectDefinition": {
@@ -217,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the server.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
@@ -233,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of the server.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {
@@ -249,7 +234,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not existing server has a workspace created and if it allows connection from workspace",
       "jsonName": "workspaceFeature",
       "name": "WorkspaceFeature",
       "objectDefinition": {

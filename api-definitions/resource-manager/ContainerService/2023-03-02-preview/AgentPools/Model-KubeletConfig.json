@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).",
       "jsonName": "allowedUnsafeSysctls",
       "name": "AllowedUnsafeSysctls",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of container log files that can be present for a container. The number must be ≥ 2.",
       "jsonName": "containerLogMaxFiles",
       "name": "ContainerLogMaxFiles",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum size (e.g. 10Mi) of container log file before it is rotated.",
       "jsonName": "containerLogMaxSizeMB",
       "name": "ContainerLogMaxSizeMB",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is true.",
       "jsonName": "cpuCfsQuota",
       "name": "CpuCfsQuota",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.",
       "jsonName": "cpuCfsQuotaPeriod",
       "name": "CpuCfsQuotaPeriod",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.",
       "jsonName": "cpuManagerPolicy",
       "name": "CpuManagerPolicy",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true it will make the Kubelet fail to start if swap is enabled on the node.",
       "jsonName": "failSwapOn",
       "name": "FailSwapOn",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "To disable image garbage collection, set to 100. The default is 85%",
       "jsonName": "imageGcHighThreshold",
       "name": "ImageGcHighThreshold",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This cannot be set higher than imageGcHighThreshold. The default is 80%",
       "jsonName": "imageGcLowThreshold",
       "name": "ImageGcLowThreshold",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of processes per pod.",
       "jsonName": "podMaxPids",
       "name": "PodMaxPids",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.",
       "jsonName": "topologyManagerPolicy",
       "name": "TopologyManagerPolicy",
       "objectDefinition": {

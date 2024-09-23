@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Either encryptedCredential or username/password must be provided. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URL of SAP Cloud for Customer OData API. For example, '[https://[tenantname].crm.ondemand.com/sap/c4c/odata/v1]'. Type: string (or Expression with resultType string).",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The username for Basic authentication. Type: string (or Expression with resultType string).",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The content type of the raw content. For now, only text/csv is valid",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the watchlist was created",
       "jsonName": "created",
       "name": "Created",
       "objectDefinition": {
@@ -51,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default duration of a watchlist (in ISO 8601 duration format)",
       "jsonName": "defaultDuration",
       "name": "DefaultDuration",
       "objectDefinition": {
@@ -67,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A description of the watchlist",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -83,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name of the watchlist",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -99,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A flag that indicates if the watchlist is deleted or not",
       "jsonName": "isDeleted",
       "name": "IsDeleted",
       "objectDefinition": {
@@ -115,7 +109,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.",
       "jsonName": "itemsSearchKey",
       "name": "ItemsSearchKey",
       "objectDefinition": {
@@ -131,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of labels relevant to this watchlist",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
@@ -153,7 +145,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of lines in a csv content to skip before the header",
       "jsonName": "numberOfLinesToSkip",
       "name": "NumberOfLinesToSkip",
       "objectDefinition": {
@@ -169,7 +160,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provider of the watchlist",
       "jsonName": "provider",
       "name": "Provider",
       "objectDefinition": {
@@ -185,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The raw content that represents to watchlist items to create. Example : This line will be skipped\nheader1,header2\nvalue1,value2",
       "jsonName": "rawContent",
       "name": "RawContent",
       "objectDefinition": {
@@ -201,7 +190,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source of the watchlist. Only accepts \"Local file\" and \"Remote storage\". And it must included in the request.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -217,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tenantId where the watchlist belongs to",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
@@ -234,7 +221,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last time the watchlist was updated",
       "jsonName": "updated",
       "name": "Updated",
       "objectDefinition": {
@@ -265,7 +251,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted",
       "jsonName": "uploadStatus",
       "name": "UploadStatus",
       "objectDefinition": {
@@ -281,7 +266,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The alias of the watchlist",
       "jsonName": "watchlistAlias",
       "name": "WatchlistAlias",
       "objectDefinition": {
@@ -297,7 +281,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The id (a Guid) of the watchlist",
       "jsonName": "watchlistId",
       "name": "WatchlistId",
       "objectDefinition": {
@@ -313,7 +296,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the watchlist",
       "jsonName": "watchlistType",
       "name": "WatchlistType",
       "objectDefinition": {

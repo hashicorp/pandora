@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the customer managed disk encryption set resource id for the managed\ndisk that is used for Customer Managed Key encrypted ConfidentialVM OS Disk and\nVMGuest blob.",
       "jsonName": "diskEncryptionSet",
       "name": "DiskEncryptionSet",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the EncryptionType of the managed disk. It is set to\nDiskWithVMGuestState for encryption of the managed disk along with VMGuestState\nblob, VMGuestStateOnly for encryption of just the VMGuestState blob, and\nNonPersistedTPM for not persisting firmware state in the VMGuestState blob..\n**Note:** It can be set for only Confidential VMs.",
       "jsonName": "securityEncryptionType",
       "name": "SecurityEncryptionType",
       "objectDefinition": {

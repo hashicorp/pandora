@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' ",
       "jsonName": "arguments",
       "name": "Arguments",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure CLI module version to be used.",
       "jsonName": "azCliVersion",
       "name": "AzCliVersion",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.",
       "jsonName": "cleanupPreference",
       "name": "CleanupPreference",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Container settings.",
       "jsonName": "containerSettings",
       "name": "ContainerSettings",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The environment variables to pass over to the script.",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.",
       "jsonName": "forceUpdateTag",
       "name": "ForceUpdateTag",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of script outputs.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Uri for the script. This is the entry point for the external script.",
       "jsonName": "primaryScriptUri",
       "name": "PrimaryScriptUri",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "State of the script execution. This only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).",
       "jsonName": "retentionInterval",
       "name": "RetentionInterval",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Script body.",
       "jsonName": "scriptContent",
       "name": "ScriptContent",
       "objectDefinition": {
@@ -191,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Contains the results of script execution.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -207,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Storage Account settings.",
       "jsonName": "storageAccountSettings",
       "name": "StorageAccountSettings",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Supporting files for the external script.",
       "jsonName": "supportingScriptUris",
       "name": "SupportingScriptUris",
       "objectDefinition": {
@@ -245,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D",
       "jsonName": "timeout",
       "name": "Timeout",
       "objectDefinition": {

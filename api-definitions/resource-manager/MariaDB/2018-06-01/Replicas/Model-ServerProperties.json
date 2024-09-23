@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).",
       "jsonName": "administratorLogin",
       "name": "AdministratorLogin",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Earliest restore point creation time (ISO8601 format)",
       "jsonName": "earliestRestoreDate",
       "name": "EarliestRestoreDate",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fully qualified domain name of a server.",
       "jsonName": "fullyQualifiedDomainName",
       "name": "FullyQualifiedDomainName",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The master server id of a replica server.",
       "jsonName": "masterServerId",
       "name": "MasterServerId",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enforce a minimal Tls version for the server.",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of private endpoint connections on a server",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
@@ -106,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -122,7 +115,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of replicas that a master server can have.",
       "jsonName": "replicaCapacity",
       "name": "ReplicaCapacity",
       "objectDefinition": {
@@ -138,7 +130,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The replication role of the server.",
       "jsonName": "replicationRole",
       "name": "ReplicationRole",
       "objectDefinition": {
@@ -154,7 +145,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable ssl enforcement or not when connect to server.",
       "jsonName": "sslEnforcement",
       "name": "SslEnforcement",
       "objectDefinition": {
@@ -170,7 +160,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Storage profile of a server.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
@@ -186,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A state of a server that is visible to user.",
       "jsonName": "userVisibleState",
       "name": "UserVisibleState",
       "objectDefinition": {
@@ -202,7 +190,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Server version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

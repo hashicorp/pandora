@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.",
       "jsonName": "allowForwardedTraffic",
       "name": "AllowForwardedTraffic",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If gateway links can be used in remote virtual networking to link to this virtual network.",
       "jsonName": "allowGatewayTransit",
       "name": "AllowGatewayTransit",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.",
       "jsonName": "allowVirtualNetworkAccess",
       "name": "AllowVirtualNetworkAccess",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If we need to verify the provisioning state of the remote gateway.",
       "jsonName": "doNotVerifyRemoteGateways",
       "name": "DoNotVerifyRemoteGateways",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether only Ipv6 address space is peered for subnet peering.",
       "jsonName": "enableOnlyIPv6Peering",
       "name": "EnableOnlyIPv6Peering",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The local address space of the local virtual network that is peered.",
       "jsonName": "localAddressSpace",
       "name": "LocalAddressSpace",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of local subnet names that are subnet peered with remote virtual network.",
       "jsonName": "localSubnetNames",
       "name": "LocalSubnetNames",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current local address space of the local virtual network that is peered.",
       "jsonName": "localVirtualNetworkAddressSpace",
       "name": "LocalVirtualNetworkAddressSpace",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether complete virtual network address space is peered.",
       "jsonName": "peerCompleteVnets",
       "name": "PeerCompleteVnets",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the virtual network peering.",
       "jsonName": "peeringState",
       "name": "PeeringState",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The peering sync status of the virtual network peering.",
       "jsonName": "peeringSyncLevel",
       "name": "PeeringSyncLevel",
       "objectDefinition": {
@@ -200,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reference to the address space peered with the remote virtual network.",
       "jsonName": "remoteAddressSpace",
       "name": "RemoteAddressSpace",
       "objectDefinition": {
@@ -216,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reference to the remote virtual network's Bgp Communities.",
       "jsonName": "remoteBgpCommunities",
       "name": "RemoteBgpCommunities",
       "objectDefinition": {
@@ -232,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of remote subnet names from remote virtual network that are subnet peered.",
       "jsonName": "remoteSubnetNames",
       "name": "RemoteSubnetNames",
       "objectDefinition": {
@@ -269,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reference to the current address space of the remote virtual network.",
       "jsonName": "remoteVirtualNetworkAddressSpace",
       "name": "RemoteVirtualNetworkAddressSpace",
       "objectDefinition": {
@@ -285,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reference to the remote virtual network's encryption",
       "jsonName": "remoteVirtualNetworkEncryption",
       "name": "RemoteVirtualNetworkEncryption",
       "objectDefinition": {
@@ -301,7 +285,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resourceGuid property of the Virtual Network peering resource.",
       "jsonName": "resourceGuid",
       "name": "ResourceGuid",
       "objectDefinition": {
@@ -317,7 +300,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.",
       "jsonName": "useRemoteGateways",
       "name": "UseRemoteGateways",
       "objectDefinition": {

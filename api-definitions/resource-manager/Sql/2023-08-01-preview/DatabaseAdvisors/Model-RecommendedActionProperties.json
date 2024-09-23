@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets additional details specific to this recommended action.",
       "jsonName": "details",
       "name": "Details",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the error details if and why this recommended action is put to error state.",
       "jsonName": "errorDetails",
       "name": "ErrorDetails",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change",
       "jsonName": "estimatedImpact",
       "name": "EstimatedImpact",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation",
       "jsonName": "executeActionDuration",
       "name": "ExecuteActionDuration",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets if approval for applying this recommended action was given by user/system.",
       "jsonName": "executeActionInitiatedBy",
       "name": "ExecuteActionInitiatedBy",
       "objectDefinition": {
@@ -96,7 +91,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the time when this recommended action was approved for execution.",
       "jsonName": "executeActionInitiatedTime",
       "name": "ExecuteActionInitiatedTime",
       "objectDefinition": {
@@ -113,7 +107,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time",
       "jsonName": "executeActionStartTime",
       "name": "ExecuteActionStartTime",
       "objectDefinition": {
@@ -129,7 +122,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the implementation details of this recommended action for user to apply it manually.",
       "jsonName": "implementationDetails",
       "name": "ImplementationDetails",
       "objectDefinition": {
@@ -145,7 +137,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again.",
       "jsonName": "isArchivedAction",
       "name": "IsArchivedAction",
       "objectDefinition": {
@@ -161,7 +152,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets if this recommended action is actionable by user",
       "jsonName": "isExecutableAction",
       "name": "IsExecutableAction",
       "objectDefinition": {
@@ -177,7 +167,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets if changes applied by this recommended action can be reverted by user",
       "jsonName": "isRevertableAction",
       "name": "IsRevertableAction",
       "objectDefinition": {
@@ -194,7 +183,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets time when this recommended action was last refreshed.",
       "jsonName": "lastRefresh",
       "name": "LastRefresh",
       "objectDefinition": {
@@ -210,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the linked objects, if any.",
       "jsonName": "linkedObjects",
       "name": "LinkedObjects",
       "objectDefinition": {
@@ -232,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change",
       "jsonName": "observedImpact",
       "name": "ObservedImpact",
       "objectDefinition": {
@@ -254,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the reason for recommending this action. e.g., DuplicateIndex",
       "jsonName": "recommendationReason",
       "name": "RecommendationReason",
       "objectDefinition": {
@@ -270,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index.",
       "jsonName": "revertActionDuration",
       "name": "RevertActionDuration",
       "objectDefinition": {
@@ -286,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets if approval for reverting this recommended action was given by user/system.",
       "jsonName": "revertActionInitiatedBy",
       "name": "RevertActionInitiatedBy",
       "objectDefinition": {
@@ -303,7 +286,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the time when this recommended action was approved for revert.",
       "jsonName": "revertActionInitiatedTime",
       "name": "RevertActionInitiatedTime",
       "objectDefinition": {
@@ -320,7 +302,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed.",
       "jsonName": "revertActionStartTime",
       "name": "RevertActionStartTime",
       "objectDefinition": {
@@ -336,7 +317,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact",
       "jsonName": "score",
       "name": "Score",
       "objectDefinition": {
@@ -352,7 +332,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the info of the current state the recommended action is in.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
@@ -368,7 +347,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets the time series info of metrics for this recommended action e.g., CPU consumption time series",
       "jsonName": "timeSeries",
       "name": "TimeSeries",
       "objectDefinition": {
@@ -391,7 +369,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Gets the time since when this recommended action is valid.",
       "jsonName": "validSince",
       "name": "ValidSince",
       "objectDefinition": {

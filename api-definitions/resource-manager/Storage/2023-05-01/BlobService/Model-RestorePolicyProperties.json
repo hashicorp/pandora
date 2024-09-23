@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days.",
       "jsonName": "days",
       "name": "Days",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Blob restore is enabled if set to true.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Deprecated in favor of minRestoreTime property.",
       "jsonName": "lastEnabledTime",
       "name": "LastEnabledTime",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Returns the minimum date and time that the restore can be started.",
       "jsonName": "minRestoreTime",
       "name": "MinRestoreTime",
       "objectDefinition": {

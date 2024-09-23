@@ -18,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e if the domain should be automatically renewed; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "autoRenew",
       "name": "AutoRenew",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Legal agreement consent.",
       "jsonName": "consent",
       "name": "Consent",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Administrative contact.",
       "jsonName": "contactAdmin",
       "name": "ContactAdmin",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Billing contact.",
       "jsonName": "contactBilling",
       "name": "ContactBilling",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Registrant contact.",
       "jsonName": "contactRegistrant",
       "name": "ContactRegistrant",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Technical contact.",
       "jsonName": "contactTech",
       "name": "ContactTech",
       "objectDefinition": {
@@ -115,7 +109,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Domain creation timestamp.",
       "jsonName": "createdTime",
       "name": "CreatedTime",
       "objectDefinition": {
@@ -131,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Current DNS type",
       "jsonName": "dnsType",
       "name": "DnsType",
       "objectDefinition": {
@@ -147,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure DNS Zone to use",
       "jsonName": "dnsZoneId",
       "name": "DnsZoneId",
       "objectDefinition": {
@@ -163,7 +154,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Reasons why domain is not renewable.",
       "jsonName": "domainNotRenewableReasons",
       "name": "DomainNotRenewableReasons",
       "objectDefinition": {
@@ -186,7 +176,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Domain expiration timestamp.",
       "jsonName": "expirationTime",
       "name": "ExpirationTime",
       "objectDefinition": {
@@ -203,7 +192,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Timestamp when the domain was renewed last time.",
       "jsonName": "lastRenewedTime",
       "name": "LastRenewedTime",
       "objectDefinition": {
@@ -219,7 +207,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "All hostnames derived from the domain and assigned to Azure resources.",
       "jsonName": "managedHostNames",
       "name": "ManagedHostNames",
       "objectDefinition": {
@@ -241,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name servers.",
       "jsonName": "nameServers",
       "name": "NameServers",
       "objectDefinition": {
@@ -263,7 +249,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e if domain privacy is enabled for this domain; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "privacy",
       "name": "Privacy",
       "objectDefinition": {
@@ -279,7 +264,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Domain provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -295,7 +279,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e if Azure can assign this domain to App Service apps; otherwise, \u003ccode\u003efalse\u003c/code\u003e. This value will be \u003ccode\u003etrue\u003c/code\u003e if domain registration status is active and \n it is hosted on name servers Azure has programmatic access to.",
       "jsonName": "readyForDnsRecordManagement",
       "name": "ReadyForDnsRecordManagement",
       "objectDefinition": {
@@ -311,7 +294,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Domain registration status.",
       "jsonName": "registrationStatus",
       "name": "RegistrationStatus",
       "objectDefinition": {
@@ -327,7 +309,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target DNS type (would be used for migration)",
       "jsonName": "targetDnsType",
       "name": "TargetDnsType",
       "objectDefinition": {

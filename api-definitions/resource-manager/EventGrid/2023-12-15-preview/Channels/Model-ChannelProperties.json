@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the event channel which represents the direction flow of events.",
       "jsonName": "channelType",
       "name": "ChannelType",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,\r\nthe channel and corresponding partner topic are deleted.",
       "jsonName": "expirationTimeIfNotActivatedUtc",
       "name": "ExpirationTimeIfNotActivatedUtc",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Context or helpful message that can be used during the approval process by the subscriber.",
       "jsonName": "messageForActivation",
       "name": "MessageForActivation",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.",
       "jsonName": "partnerDestinationInfo",
       "name": "PartnerDestinationInfo",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.",
       "jsonName": "partnerTopicInfo",
       "name": "PartnerTopicInfo",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning state of the channel.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The readiness state of the corresponding partner topic.",
       "jsonName": "readinessState",
       "name": "ReadinessState",
       "objectDefinition": {

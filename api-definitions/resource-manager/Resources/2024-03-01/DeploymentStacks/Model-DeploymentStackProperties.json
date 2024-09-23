@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.",
       "jsonName": "actionOnUnmanage",
       "name": "ActionOnUnmanage",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.",
       "jsonName": "bypassStackOutOfSyncError",
       "name": "BypassStackOutOfSyncError",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The debug setting of the deployment.",
       "jsonName": "debugSetting",
       "name": "DebugSetting",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.",
       "jsonName": "deletedResources",
       "name": "DeletedResources",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines how resources deployed by the stack are locked.",
       "jsonName": "denySettings",
       "name": "DenySettings",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resourceId of the deployment resource created by the deployment stack.",
       "jsonName": "deploymentId",
       "name": "DeploymentId",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').",
       "jsonName": "deploymentScope",
       "name": "DeploymentScope",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Deployment stack description. Max length of 4096 characters.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.",
       "jsonName": "detachedResources",
       "name": "DetachedResources",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The duration of the last successful Deployment stack update.",
       "jsonName": "duration",
       "name": "Duration",
       "objectDefinition": {
@@ -206,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.",
       "jsonName": "failedResources",
       "name": "FailedResources",
       "objectDefinition": {
@@ -228,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The outputs of the deployment resource created by the deployment stack.",
       "jsonName": "outputs",
       "name": "Outputs",
       "objectDefinition": {
@@ -244,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
@@ -266,7 +252,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.",
       "jsonName": "parametersLink",
       "name": "ParametersLink",
       "objectDefinition": {
@@ -282,7 +267,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "State of the deployment stack.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -298,7 +282,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of resources currently managed by the deployment stack.",
       "jsonName": "resources",
       "name": "Resources",
       "objectDefinition": {
@@ -320,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.",
       "jsonName": "template",
       "name": "Template",
       "objectDefinition": {
@@ -336,7 +318,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URI of the template. Use either the templateLink property or the template property, but not both.",
       "jsonName": "templateLink",
       "name": "TemplateLink",
       "objectDefinition": {

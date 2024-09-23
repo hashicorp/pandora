@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the flag that indicates whether the alert should be auto resolved or not. The default is true.",
       "jsonName": "autoMitigate",
       "name": "AutoMitigate",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "defines the specific alert criteria information.",
       "jsonName": "criteria",
       "name": "Criteria",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the description of the metric alert that will be included in the alert email.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the flag that indicates whether the metric alert is enabled.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "how often the metric alert is evaluated represented in ISO 8601 duration format.",
       "jsonName": "evaluationFrequency",
       "name": "EvaluationFrequency",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the value indicating whether this alert rule is migrated.",
       "jsonName": "isMigrated",
       "name": "IsMigrated",
       "objectDefinition": {
@@ -122,7 +115,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Last time the rule was updated in ISO8601 format.",
       "jsonName": "lastUpdatedTime",
       "name": "LastUpdatedTime",
       "objectDefinition": {
@@ -138,7 +130,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the list of resource id's that this metric alert is scoped to.",
       "jsonName": "scopes",
       "name": "Scopes",
       "objectDefinition": {
@@ -160,7 +151,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Alert severity {0, 1, 2, 3, 4}",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {
@@ -176,7 +166,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the region of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.",
       "jsonName": "targetResourceRegion",
       "name": "TargetResourceRegion",
       "objectDefinition": {
@@ -192,7 +181,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the resource type of the target resource(s) on which the alert is created/updated. Mandatory for MultipleResourceMultipleMetricCriteria.",
       "jsonName": "targetResourceType",
       "name": "TargetResourceType",
       "objectDefinition": {
@@ -208,7 +196,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the period of time (in ISO 8601 duration format) that is used to monitor alert activity based on the threshold.",
       "jsonName": "windowSize",
       "name": "WindowSize",
       "objectDefinition": {

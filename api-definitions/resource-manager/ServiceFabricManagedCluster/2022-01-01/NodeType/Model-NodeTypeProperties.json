@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional managed data disks.",
       "jsonName": "additionalDataDisks",
       "name": "AdditionalDataDisks",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
       "jsonName": "applicationPorts",
       "name": "ApplicationPorts",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.",
       "jsonName": "capacities",
       "name": "Capacities",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.",
       "jsonName": "dataDiskLetter",
       "name": "DataDiskLetter",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Disk size for the managed disk attached to the vms on the node type in GBs.",
       "jsonName": "dataDiskSizeGB",
       "name": "DataDiskSizeGB",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Managed data disk type. Specifies the storage account type for the managed disk",
       "jsonName": "dataDiskType",
       "name": "DataDiskType",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the network interface is accelerated networking-enabled.",
       "jsonName": "enableAcceleratedNetworking",
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.",
       "jsonName": "enableEncryptionAtHost",
       "name": "EnableEncryptionAtHost",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.",
       "jsonName": "enableOverProvisioning",
       "name": "EnableOverProvisioning",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ephemeral ports that nodes in this node type should be configured with.",
       "jsonName": "ephemeralPorts",
       "name": "EphemeralPorts",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.",
       "jsonName": "frontendConfigurations",
       "name": "FrontendConfigurations",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.",
       "jsonName": "isPrimary",
       "name": "IsPrimary",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the node type can only host Stateless workloads.",
       "jsonName": "isStateless",
       "name": "IsStateless",
       "objectDefinition": {
@@ -229,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if scale set associated with the node type can be composed of multiple placement groups.",
       "jsonName": "multiplePlacementGroups",
       "name": "MultiplePlacementGroups",
       "objectDefinition": {
@@ -245,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.",
       "jsonName": "networkSecurityRules",
       "name": "NetworkSecurityRules",
       "objectDefinition": {
@@ -267,7 +252,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.",
       "jsonName": "placementProperties",
       "name": "PlacementProperties",
       "objectDefinition": {
@@ -289,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the node type resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -305,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.",
       "jsonName": "useDefaultPublicLoadBalancer",
       "name": "UseDefaultPublicLoadBalancer",
       "objectDefinition": {
@@ -321,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.",
       "jsonName": "useTempDataDisk",
       "name": "UseTempDataDisk",
       "objectDefinition": {
@@ -337,7 +318,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set of extensions that should be installed onto the virtual machines.",
       "jsonName": "vmExtensions",
       "name": "VMExtensions",
       "objectDefinition": {
@@ -359,7 +339,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.",
       "jsonName": "vmImageOffer",
       "name": "VMImageOffer",
       "objectDefinition": {
@@ -375,7 +354,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.",
       "jsonName": "vmImagePublisher",
       "name": "VMImagePublisher",
       "objectDefinition": {
@@ -391,7 +369,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.",
       "jsonName": "vmImageSku",
       "name": "VMImageSku",
       "objectDefinition": {
@@ -407,7 +384,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.",
       "jsonName": "vmImageVersion",
       "name": "VMImageVersion",
       "objectDefinition": {
@@ -423,7 +399,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of nodes in the node type. \u003cbr /\u003e\u003cbr /\u003e**Values:** \u003cbr /\u003e-1 - Use when auto scale rules are configured or sku.capacity is defined \u003cbr /\u003e 0 - Not supported \u003cbr /\u003e \u003e0 - Use for manual scale.",
       "jsonName": "vmInstanceCount",
       "name": "VMInstanceCount",
       "objectDefinition": {
@@ -439,7 +414,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identities to assign to the virtual machine scale set under the node type.",
       "jsonName": "vmManagedIdentity",
       "name": "VMManagedIdentity",
       "objectDefinition": {
@@ -455,7 +429,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The secrets to install in the virtual machines.",
       "jsonName": "vmSecrets",
       "name": "VMSecrets",
       "objectDefinition": {
@@ -477,7 +450,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {

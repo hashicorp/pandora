@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets cannot use the same application gateway.",
       "jsonName": "applicationGatewayBackendAddressPools",
       "name": "ApplicationGatewayBackendAddressPools",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to application security group.",
       "jsonName": "applicationSecurityGroups",
       "name": "ApplicationSecurityGroups",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.",
       "jsonName": "loadBalancerBackendAddressPools",
       "name": "LoadBalancerBackendAddressPools",
       "objectDefinition": {
@@ -69,7 +66,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies an array of references to inbound Nat pools of the load balancers. A scale set can reference inbound nat pools of one public and one internal load balancer. Multiple scale sets cannot use the same basic sku load balancer.",
       "jsonName": "loadBalancerInboundNatPools",
       "name": "LoadBalancerInboundNatPools",
       "objectDefinition": {
@@ -91,7 +87,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the primary network interface in case the virtual machine has more than 1 network interface.",
       "jsonName": "primary",
       "name": "Primary",
       "objectDefinition": {
@@ -107,7 +102,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'.",
       "jsonName": "privateIPAddressVersion",
       "name": "PrivateIPAddressVersion",
       "objectDefinition": {
@@ -123,7 +117,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The publicIPAddressConfiguration.",
       "jsonName": "publicIPAddressConfiguration",
       "name": "PublicIPAddressConfiguration",
       "objectDefinition": {
@@ -139,7 +132,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the identifier of the subnet.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {

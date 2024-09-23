@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of namespaces excluded from guardrails checks",
       "jsonName": "excludedNamespaces",
       "name": "ExcludedNamespaces",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The guardrails level to be used. By default, Guardrails is enabled for all namespaces except those that AKS excludes via systemExcludedNamespaces",
       "jsonName": "level",
       "name": "Level",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of namespaces specified by AKS to be excluded from Guardrails",
       "jsonName": "systemExcludedNamespaces",
       "name": "SystemExcludedNamespaces",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of constraints to use",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

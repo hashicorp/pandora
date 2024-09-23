@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A read-only list of all endpoints for which traffic should not be sent to the proxy. This list is a superset of noProxy and values injected by AKS.",
       "jsonName": "effectiveNoProxy",
       "name": "EffectiveNoProxy",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The HTTP proxy server endpoint to use.",
       "jsonName": "httpProxy",
       "name": "HTTPProxy",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The HTTPS proxy server endpoint to use.",
       "jsonName": "httpsProxy",
       "name": "HTTPSProxy",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The endpoints that should not go through proxy.",
       "jsonName": "noProxy",
       "name": "NoProxy",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Alternative CA cert to use for connecting to proxy servers.",
       "jsonName": "trustedCa",
       "name": "TrustedCa",
       "objectDefinition": {

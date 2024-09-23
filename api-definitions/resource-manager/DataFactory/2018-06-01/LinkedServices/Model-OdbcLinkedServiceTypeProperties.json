@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of authentication used to connect to the ODBC data store. Possible values are: Anonymous and Basic. Type: string (or Expression with resultType string).",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The non-access credential portion of the connection string as well as an optional encrypted credential. Type: string, or SecureString, or AzureKeyVaultSecretReference, or Expression with resultType string.",
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -81,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User name for Basic authentication. Type: string (or Expression with resultType string).",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {

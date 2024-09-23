@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether OS image rollback feature should be disabled.",
       "jsonName": "disableAutomaticRollback",
       "name": "DisableAutomaticRollback",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether OS upgrades should automatically be applied to scale set instances in a rolling fashion when a newer version of the OS image becomes available. \u003cbr /\u003e\u003cbr /\u003e If this is set to true for Windows based pools, [WindowsConfiguration.enableAutomaticUpdates](https://learn.microsoft.com/en-us/rest/api/batchmanagement/pool/create?tabs=HTTP#windowsconfiguration) cannot be set to true.",
       "jsonName": "enableAutomaticOSUpgrade",
       "name": "EnableAutomaticOSUpgrade",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defer OS upgrades on the TVMs if they are running tasks.",
       "jsonName": "osRollingUpgradeDeferral",
       "name": "OsRollingUpgradeDeferral",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether rolling upgrade policy should be used during Auto OS Upgrade. Auto OS Upgrade will fallback to the default policy if no policy is defined on the VMSS.",
       "jsonName": "useRollingUpgradePolicy",
       "name": "UseRollingUpgradePolicy",
       "objectDefinition": {

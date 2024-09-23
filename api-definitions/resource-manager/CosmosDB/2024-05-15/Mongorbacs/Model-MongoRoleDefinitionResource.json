@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The database name for which access is being granted for this Role Definition.",
       "jsonName": "databaseName",
       "name": "DatabaseName",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.",
       "jsonName": "privileges",
       "name": "Privileges",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A user-friendly name for the Role Definition. Must be unique for the database account.",
       "jsonName": "roleName",
       "name": "RoleName",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The set of roles inherited by this Role Definition.",
       "jsonName": "roles",
       "name": "Roles",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the Role Definition was built-in or user created.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {

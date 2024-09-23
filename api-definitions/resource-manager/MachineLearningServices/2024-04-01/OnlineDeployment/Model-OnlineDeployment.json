@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, enables Application Insights logging.",
       "jsonName": "appInsightsEnabled",
       "name": "AppInsightsEnabled",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Code configuration for the endpoint deployment.",
       "jsonName": "codeConfiguration",
       "name": "CodeConfiguration",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The mdc configuration, we disable mdc when it's null.",
       "jsonName": "dataCollector",
       "name": "DataCollector",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the endpoint deployment.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.",
       "jsonName": "egressPublicNetworkAccess",
       "name": "EgressPublicNetworkAccess",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
-      "description": "[Required] The compute type of the endpoint.",
       "jsonName": "endpointComputeType",
       "name": "EndpointComputeType",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM resource ID or AssetId of the environment specification for the endpoint deployment.",
       "jsonName": "environmentId",
       "name": "EnvironmentId",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Environment variables configuration for the deployment.",
       "jsonName": "environmentVariables",
       "name": "EnvironmentVariables",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Compute instance type.",
       "jsonName": "instanceType",
       "name": "InstanceType",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Liveness probe monitors the health of the container regularly.",
       "jsonName": "livenessProbe",
       "name": "LivenessProbe",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URI path to the model.",
       "jsonName": "model",
       "name": "Model",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The path to mount the model in custom container.",
       "jsonName": "modelMountPath",
       "name": "ModelMountPath",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Property dictionary. Properties can be added, but not removed or altered.",
       "jsonName": "properties",
       "name": "Properties",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning state for the endpoint deployment.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe.",
       "jsonName": "readinessProbe",
       "name": "ReadinessProbe",
       "objectDefinition": {
@@ -255,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Request settings for the deployment.",
       "jsonName": "requestSettings",
       "name": "RequestSettings",
       "objectDefinition": {
@@ -271,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Scale settings for the deployment.\r\nIf it is null or not provided,\r\nit defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment\r\nand to DefaultScaleSettings for ManagedOnlineDeployment.",
       "jsonName": "scaleSettings",
       "name": "ScaleSettings",
       "objectDefinition": {

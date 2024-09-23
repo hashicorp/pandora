@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Location for the underlying compute",
       "jsonName": "computeLocation",
       "name": "ComputeLocation",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": true,
-      "description": "The type of compute",
       "jsonName": "computeType",
       "name": "ComputeType",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the compute was created.",
       "jsonName": "createdOn",
       "name": "CreatedOn",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The description of the Machine Learning compute.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication.",
       "jsonName": "disableLocalAuth",
       "name": "DisableLocalAuth",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false.",
       "jsonName": "isAttachedCompute",
       "name": "IsAttachedCompute",
       "objectDefinition": {
@@ -101,7 +95,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the compute was last modified.",
       "jsonName": "modifiedOn",
       "name": "ModifiedOn",
       "objectDefinition": {
@@ -117,7 +110,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Errors during provisioning",
       "jsonName": "provisioningErrors",
       "name": "ProvisioningErrors",
       "objectDefinition": {
@@ -139,7 +131,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -155,7 +146,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM resource id of the underlying compute",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {

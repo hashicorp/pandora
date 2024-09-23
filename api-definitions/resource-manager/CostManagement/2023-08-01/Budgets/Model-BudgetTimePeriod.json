@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end date for the budget.\n\n- Constraints for **CategoryType: Cost** - No constraints. If not provided, we default this to 10 years from the start date.\n\n- Constraints for **CategoryType: ReservationUtilization** - End date cannot be more than 3 years after the start date.",
       "jsonName": "endDate",
       "name": "EndDate",
       "objectDefinition": {
@@ -21,7 +20,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The start date for the budget.\n\n- Constraints for **CategoryType: Cost** - Must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period.\n\n- Constraints for **CategoryType: ReservationUtilization** - Must be on or after the current date and less than the end date.",
       "jsonName": "startDate",
       "name": "StartDate",
       "objectDefinition": {

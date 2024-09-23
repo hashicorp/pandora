@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The lower limit of the load below which a scale in operation should be performed.",
       "jsonName": "lowerLoadThreshold",
       "name": "LowerLoadThreshold",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the metric for which usage should be tracked.",
       "jsonName": "metricName",
       "name": "MetricName",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The period in seconds on which a decision is made whether to scale or not. This property should come in ISO 8601 format \"hh:mm:ss\".",
       "jsonName": "scaleInterval",
       "name": "ScaleInterval",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The upper limit of the load beyond which a scale out operation should be performed.",
       "jsonName": "upperLoadThreshold",
       "name": "UpperLoadThreshold",
       "objectDefinition": {

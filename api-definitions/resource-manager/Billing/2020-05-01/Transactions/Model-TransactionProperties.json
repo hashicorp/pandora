@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The amount of any Azure credits automatically applied to this transaction.",
       "jsonName": "azureCreditApplied",
       "name": "AzureCreditApplied",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of azure plan of the subscription that was used for the transaction.",
       "jsonName": "azurePlan",
       "name": "AzurePlan",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ISO 4217 code for the currency in which this transaction is billed.",
       "jsonName": "billingCurrency",
       "name": "BillingCurrency",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the billing profile which will be billed for the transaction.",
       "jsonName": "billingProfileDisplayName",
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the billing profile which will be billed for the transaction.",
       "jsonName": "billingProfileId",
       "name": "BillingProfileId",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the customer for which the transaction took place. The field is applicable only for Microsoft Partner Agreement billing account.",
       "jsonName": "customerDisplayName",
       "name": "CustomerDisplayName",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the customer for which the transaction took place. The field is applicable only for Microsoft Partner Agreement billing account.",
       "jsonName": "customerId",
       "name": "CustomerId",
       "objectDefinition": {
@@ -116,7 +109,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The date of transaction.",
       "jsonName": "date",
       "name": "Date",
       "objectDefinition": {
@@ -132,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The percentage discount, if any, applied to this transaction.",
       "jsonName": "discount",
       "name": "Discount",
       "objectDefinition": {
@@ -148,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The price of the product after applying any discounts.",
       "jsonName": "effectivePrice",
       "name": "EffectivePrice",
       "objectDefinition": {
@@ -164,7 +154,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The exchange rate used to convert charged amount to billing currency, if applicable.",
       "jsonName": "exchangeRate",
       "name": "ExchangeRate",
       "objectDefinition": {
@@ -180,7 +169,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Invoice on which the transaction was billed or 'pending' if the transaction is not billed.",
       "jsonName": "invoice",
       "name": "Invoice",
       "objectDefinition": {
@@ -196,7 +184,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the invoice on which the transaction was billed. This field is only applicable for transactions which are billed.",
       "jsonName": "invoiceId",
       "name": "InvoiceId",
       "objectDefinition": {
@@ -212,7 +199,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the invoice section which will be billed for the transaction.",
       "jsonName": "invoiceSectionDisplayName",
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
@@ -228,7 +214,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the invoice section which will be billed for the transaction.",
       "jsonName": "invoiceSectionId",
       "name": "InvoiceSectionId",
       "objectDefinition": {
@@ -244,7 +229,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The kind of transaction. Options are all or reservation.",
       "jsonName": "kind",
       "name": "Kind",
       "objectDefinition": {
@@ -260,7 +244,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The retail price of the product.",
       "jsonName": "marketPrice",
       "name": "MarketPrice",
       "objectDefinition": {
@@ -276,7 +259,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The order ID of the reservation. The field is only applicable for transaction of kind reservation.",
       "jsonName": "orderId",
       "name": "OrderId",
       "objectDefinition": {
@@ -292,7 +274,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the reservation order. The field is only applicable for transactions of kind reservation.",
       "jsonName": "orderName",
       "name": "OrderName",
       "objectDefinition": {
@@ -308,7 +289,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ISO 4217 code for the currency in which the product is priced.",
       "jsonName": "pricingCurrency",
       "name": "PricingCurrency",
       "objectDefinition": {
@@ -324,7 +304,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The description of the product for which the transaction took place.",
       "jsonName": "productDescription",
       "name": "ProductDescription",
       "objectDefinition": {
@@ -340,7 +319,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The family of the product for which the transaction took place.",
       "jsonName": "productFamily",
       "name": "ProductFamily",
       "objectDefinition": {
@@ -356,7 +334,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the product for which the transaction took place.",
       "jsonName": "productType",
       "name": "ProductType",
       "objectDefinition": {
@@ -372,7 +349,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the product type for which the transaction took place.",
       "jsonName": "productTypeId",
       "name": "ProductTypeId",
       "objectDefinition": {
@@ -388,7 +364,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The quantity purchased in the transaction.",
       "jsonName": "quantity",
       "name": "Quantity",
       "objectDefinition": {
@@ -405,7 +380,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end date of the product term, or the end date of the month in which usage ended.",
       "jsonName": "servicePeriodEndDate",
       "name": "ServicePeriodEndDate",
       "objectDefinition": {
@@ -422,7 +396,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The date of the purchase of the product, or the start date of the month in which usage started.",
       "jsonName": "servicePeriodStartDate",
       "name": "ServicePeriodStartDate",
       "objectDefinition": {
@@ -438,7 +411,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The pre-tax charged amount for the transaction.",
       "jsonName": "subTotal",
       "name": "SubTotal",
       "objectDefinition": {
@@ -454,7 +426,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ID of the subscription that was used for the transaction. The field is only applicable for transaction of kind reservation.",
       "jsonName": "subscriptionId",
       "name": "SubscriptionId",
       "objectDefinition": {
@@ -470,7 +441,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the subscription that was used for the transaction. The field is only applicable for transaction of kind reservation.",
       "jsonName": "subscriptionName",
       "name": "SubscriptionName",
       "objectDefinition": {
@@ -486,7 +456,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tax amount applied to the transaction.",
       "jsonName": "tax",
       "name": "Tax",
       "objectDefinition": {
@@ -502,7 +471,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The charge associated with the transaction.",
       "jsonName": "transactionAmount",
       "name": "TransactionAmount",
       "objectDefinition": {
@@ -518,7 +486,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of transaction.",
       "jsonName": "transactionType",
       "name": "TransactionType",
       "objectDefinition": {
@@ -534,7 +501,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unit of measure used to bill for the product. For example, compute services are billed per hour.",
       "jsonName": "unitOfMeasure",
       "name": "UnitOfMeasure",
       "objectDefinition": {
@@ -550,7 +516,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The description for the unit of measure for a given product.",
       "jsonName": "unitType",
       "name": "UnitType",
       "objectDefinition": {
@@ -566,7 +531,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of units used for a given product.",
       "jsonName": "units",
       "name": "Units",
       "objectDefinition": {

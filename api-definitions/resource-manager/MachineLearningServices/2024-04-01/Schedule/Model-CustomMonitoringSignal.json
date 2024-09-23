@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] Reference to the component asset used to calculate the custom metrics.",
       "jsonName": "componentId",
       "name": "ComponentId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Monitoring assets to take as input. Key is the component input port name, value is the data asset.",
       "jsonName": "inputAssets",
       "name": "InputAssets",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Extra component parameters to take as input. Key is the component literal input port name, value is the parameter value.",
       "jsonName": "inputs",
       "name": "Inputs",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "[Required] A list of metrics to calculate and their associated thresholds.",
       "jsonName": "metricThresholds",
       "name": "MetricThresholds",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, BitLocker XTS_AES 256-bit encryption is enabled for all data-at-rest on the OS volume of your Azure Stack HCI cluster. This setting is TPM-hardware dependent. ",
       "jsonName": "bitlockerBootVolume",
       "name": "BitlockerBootVolume",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, BitLocker XTS-AES 256-bit encryption is enabled for all data-at-rest on your Azure Stack HCI cluster shared volumes.",
       "jsonName": "bitlockerDataVolumes",
       "name": "BitlockerDataVolumes",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, Credential Guard is enabled.",
       "jsonName": "credentialGuardEnforced",
       "name": "CredentialGuardEnforced",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, the security baseline is re-applied regularly.",
       "jsonName": "driftControlEnforced",
       "name": "DriftControlEnforced",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "By default, Secure Boot is enabled on your Azure HCI cluster. This setting is hardware dependent.",
       "jsonName": "drtmProtection",
       "name": "DrtmProtection",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "By default, Hypervisor-protected Code Integrity is enabled on your Azure HCI cluster.",
       "jsonName": "hvciProtection",
       "name": "HvciProtection",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, all the side channel mitigations are enabled",
       "jsonName": "sideChannelMitigationEnforced",
       "name": "SideChannelMitigationEnforced",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, cluster east-west traffic is encrypted.",
       "jsonName": "smbClusterEncryption",
       "name": "SmbClusterEncryption",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, the SMB default instance requires sign in for the client and server services.",
       "jsonName": "smbSigningEnforced",
       "name": "SmbSigningEnforced",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "WDAC is enabled by default and limits the applications and the code that you can run on your Azure Stack HCI cluster.",
       "jsonName": "wdacEnforced",
       "name": "WdacEnforced",
       "objectDefinition": {

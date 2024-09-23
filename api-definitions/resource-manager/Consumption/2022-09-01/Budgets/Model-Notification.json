@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.",
       "jsonName": "contactEmails",
       "name": "ContactEmails",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes.",
       "jsonName": "contactGroups",
       "name": "ContactGroups",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Contact roles to send the budget notification to when the threshold is exceeded.",
       "jsonName": "contactRoles",
       "name": "ContactRoles",
       "objectDefinition": {
@@ -69,7 +66,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The notification is enabled or not.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Language in which the recipient will receive the notification",
       "jsonName": "locale",
       "name": "Locale",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The comparison operator.",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of threshold",
       "jsonName": "thresholdType",
       "name": "ThresholdType",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.",
       "jsonName": "burstingEnabled",
       "name": "BurstingEnabled",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM id of the DiskAccess resource for using private endpoints on disks.",
       "jsonName": "diskAccessId",
       "name": "DiskAccessId",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.",
       "jsonName": "diskIOPSReadOnly",
       "name": "DiskIOPSReadOnly",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.",
       "jsonName": "diskIOPSReadWrite",
       "name": "DiskIOPSReadWrite",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.",
       "jsonName": "diskMBpsReadOnly",
       "name": "DiskMBpsReadOnly",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.",
       "jsonName": "diskMBpsReadWrite",
       "name": "DiskMBpsReadWrite",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -160,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.",
       "jsonName": "maxShares",
       "name": "MaxShares",
       "objectDefinition": {
@@ -191,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.",
       "jsonName": "optimizedForFrequentAttach",
       "name": "OptimizedForFrequentAttach",
       "objectDefinition": {
@@ -207,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the Operating System type.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -223,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Properties of the disk for which update is pending.",
       "jsonName": "propertyUpdatesInProgress",
       "name": "PropertyUpdatesInProgress",
       "objectDefinition": {
@@ -284,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the OS on a disk supports hibernation.",
       "jsonName": "supportsHibernation",
       "name": "SupportsHibernation",
       "objectDefinition": {
@@ -300,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.",
       "jsonName": "tier",
       "name": "Tier",
       "objectDefinition": {

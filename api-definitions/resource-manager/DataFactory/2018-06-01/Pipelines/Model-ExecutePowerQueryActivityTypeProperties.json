@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Compute properties for data flow activity.",
       "jsonName": "compute",
       "name": "Compute",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Continuation settings for execute data flow activity.",
       "jsonName": "continuationSettings",
       "name": "ContinuationSettings",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Continue on error setting used for data flow execution. Enables processing to continue if a sink fails. Type: boolean (or Expression with resultType boolean)",
       "jsonName": "continueOnError",
       "name": "ContinueOnError",
       "objectDefinition": {
@@ -81,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of mapping for Power Query mashup query to sink dataset(s).",
       "jsonName": "queries",
       "name": "Queries",
       "objectDefinition": {
@@ -103,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)",
       "jsonName": "runConcurrently",
       "name": "RunConcurrently",
       "objectDefinition": {
@@ -119,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.",
       "jsonName": "sinks",
       "name": "Sinks",
       "objectDefinition": {
@@ -141,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)",
       "jsonName": "sourceStagingConcurrency",
       "name": "SourceStagingConcurrency",
       "objectDefinition": {
@@ -172,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)",
       "jsonName": "traceLevel",
       "name": "TraceLevel",
       "objectDefinition": {

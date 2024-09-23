@@ -18,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual IP address(es) for the control plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to anycast traffic for this address to the control plane access interfaces on the active and standby nodes. In non-HA system this list should be omitted or empty.",
       "jsonName": "controlPlaneAccessVirtualIpv4Addresses",
       "name": "ControlPlaneAccessVirtualIPv4Addresses",
       "objectDefinition": {
@@ -55,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration for uploading packet core diagnostics",
       "jsonName": "diagnosticsUpload",
       "name": "DiagnosticsUpload",
       "objectDefinition": {
@@ -71,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configuration for sending packet core events to an Azure Event Hub.",
       "jsonName": "eventHub",
       "name": "EventHub",
       "objectDefinition": {
@@ -87,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the secret containing private keys and keyIds for SUPI concealment.",
       "jsonName": "homeNetworkPrivateKeysProvisioning",
       "name": "HomeNetworkPrivateKeysProvisioning",
       "objectDefinition": {
@@ -103,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The installation state of the packet core control plane resource.",
       "jsonName": "installation",
       "name": "Installation",
       "objectDefinition": {
@@ -119,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The currently installed version of the packet core software.",
       "jsonName": "installedVersion",
       "name": "InstalledVersion",
       "objectDefinition": {
@@ -135,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Settings to allow interoperability with third party components e.g. RANs and UEs.",
       "jsonName": "interopSettings",
       "name": "InteropSettings",
       "objectDefinition": {
@@ -151,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.",
       "jsonName": "localDiagnosticsAccess",
       "name": "LocalDiagnosticsAccess",
       "objectDefinition": {
@@ -167,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The platform where the packet core is deployed.",
       "jsonName": "platform",
       "name": "Platform",
       "objectDefinition": {
@@ -198,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The previous version of the packet core software that was deployed. Used when performing the rollback action.",
       "jsonName": "rollbackVersion",
       "name": "RollbackVersion",
       "objectDefinition": {
@@ -214,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Signaling configuration for the packet core.",
       "jsonName": "signaling",
       "name": "Signaling",
       "objectDefinition": {
@@ -230,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Site(s) under which this packet core control plane should be deployed. The sites must be in the same location as the packet core control plane.",
       "jsonName": "sites",
       "name": "Sites",
       "objectDefinition": {
@@ -267,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The MTU (in bytes) signaled to the UE. The same MTU is set on the user plane data links for all data networks. The MTU set on the user plane access link is calculated to be 60 bytes greater than this value to allow for GTP encapsulation.",
       "jsonName": "ueMtu",
       "name": "UeMtu",
       "objectDefinition": {
@@ -283,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The desired version of the packet core software.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

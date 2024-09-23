@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).",
       "jsonName": "additionalColumns",
       "name": "AdditionalColumns",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the maximum number of rows that will be retrieved at a time when retrieving data from SAP Table. Type: integer (or Expression with resultType integer).",
       "jsonName": "batchSize",
       "name": "BatchSize",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the custom RFC function module that will be used to read data from SAP Table. Type: string (or Expression with resultType string).",
       "jsonName": "customRfcReadTableFunctionModule",
       "name": "CustomRfcReadTableFunctionModule",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The partition mechanism that will be used for SAP table read in parallel. Possible values include: \"None\", \"PartitionOnInt\", \"PartitionOnCalendarYear\", \"PartitionOnCalendarMonth\", \"PartitionOnCalendarDate\", \"PartitionOnTime\".",
       "jsonName": "partitionOption",
       "name": "PartitionOption",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The settings that will be leveraged for SAP table source partitioning.",
       "jsonName": "partitionSettings",
       "name": "PartitionSettings",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).",
       "jsonName": "queryTimeout",
       "name": "QueryTimeout",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fields of the SAP table that will be retrieved. For example, column0, column1. Type: string (or Expression with resultType string).",
       "jsonName": "rfcTableFields",
       "name": "RfcTableFields",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The options for the filtering of the SAP Table. For example, COLUMN0 EQ SOME VALUE. Type: string (or Expression with resultType string).",
       "jsonName": "rfcTableOptions",
       "name": "RfcTableOptions",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of rows to be retrieved. Type: integer(or Expression with resultType integer).",
       "jsonName": "rowCount",
       "name": "RowCount",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of rows that will be skipped. Type: integer (or Expression with resultType integer).",
       "jsonName": "rowSkips",
       "name": "RowSkips",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The single character that will be used as delimiter passed to SAP RFC as well as splitting the output data retrieved. Type: string (or Expression with resultType string).",
       "jsonName": "sapDataColumnDelimiter",
       "name": "SapDataColumnDelimiter",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Alert rule name.",
       "jsonName": "alert",
       "name": "Alert",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.",
       "jsonName": "annotations",
       "name": "Annotations",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable/disable rule.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.",
       "jsonName": "expression",
       "name": "Expression",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The amount of time alert must be active before firing.",
       "jsonName": "for",
       "name": "For",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Labels to add or overwrite before storing the result.",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Recorded metrics name.",
       "jsonName": "record",
       "name": "Record",
       "objectDefinition": {
@@ -149,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the configuration for resolving fired alerts. Only relevant for alerts.",
       "jsonName": "resolveConfiguration",
       "name": "ResolveConfiguration",
       "objectDefinition": {
@@ -165,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The severity of the alerts fired by the rule. Must be between 0 and 4.",
       "jsonName": "severity",
       "name": "Severity",
       "objectDefinition": {

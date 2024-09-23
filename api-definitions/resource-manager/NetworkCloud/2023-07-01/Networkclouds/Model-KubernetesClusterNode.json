@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the agent pool that this node belongs to. This value is not represented on control plane nodes.",
       "jsonName": "agentPoolId",
       "name": "AgentPoolId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The availability zone this node is running within.",
       "jsonName": "availabilityZone",
       "name": "AvailabilityZone",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the bare metal machine that hosts this node.",
       "jsonName": "bareMetalMachineId",
       "name": "BareMetalMachineId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of CPU cores configured for this node, derived from the VM SKU specified.",
       "jsonName": "cpuCores",
       "name": "CpuCores",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The detailed state of this node.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of the disk configured for this node.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The machine image used to deploy this node.",
       "jsonName": "image",
       "name": "Image",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The currently running version of Kubernetes and bundled features running on this node.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of labels on this node that have been assigned to the agent pool containing this node.",
       "jsonName": "labels",
       "name": "Labels",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The amount of memory configured for this node, derived from the vm SKU specified.",
       "jsonName": "memorySizeGB",
       "name": "MemorySizeGB",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The mode of the agent pool containing this node. Not applicable for control plane nodes.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of this node, as realized in the Kubernetes cluster.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -217,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The NetworkAttachments made to this node.",
       "jsonName": "networkAttachments",
       "name": "NetworkAttachments",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The power state of this node.",
       "jsonName": "powerState",
       "name": "PowerState",
       "objectDefinition": {
@@ -255,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The role of this node in the cluster.",
       "jsonName": "role",
       "name": "Role",
       "objectDefinition": {
@@ -271,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of taints that have been assigned to the agent pool containing this node.",
       "jsonName": "taints",
       "name": "Taints",
       "objectDefinition": {
@@ -293,7 +276,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The VM SKU name that was used to create this cluster node.",
       "jsonName": "vmSkuName",
       "name": "VMSkuName",
       "objectDefinition": {

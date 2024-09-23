@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the global database account",
       "jsonName": "accountName",
       "name": "AccountName",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The API type of the restorable database account.",
       "jsonName": "apiType",
       "name": "ApiType",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The creation time of the restorable database account (ISO-8601 format).",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the restorable database account has been deleted (ISO-8601 format).",
       "jsonName": "deletionTime",
       "name": "DeletionTime",
       "objectDefinition": {
@@ -70,7 +66,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The least recent time at which the database account can be restored to (ISO-8601 format).",
       "jsonName": "oldestRestorableTime",
       "name": "OldestRestorableTime",
       "objectDefinition": {
@@ -86,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of regions where the of the database account can be restored from.",
       "jsonName": "restorableLocations",
       "name": "RestorableLocations",
       "objectDefinition": {

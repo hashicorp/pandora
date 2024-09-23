@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "contactEmails",
       "name": "ContactEmails",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "contactGroups",
       "name": "ContactGroups",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "contactRoles",
       "name": "ContactRoles",
       "objectDefinition": {
@@ -69,7 +66,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The notification is enabled or not.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).\n\n Supported for CategoryType(s): ReservationUtilization.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Language in which the recipient will receive the notification, \n\n Supported for CategoryType(s): Cost, ReservationUtilization.",
       "jsonName": "locale",
       "name": "Locale",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The comparison operator.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n Supported operators for **CategoryType: Cost**\n- GreaterThan\n- GreaterThanOrEqualTo\n\n Supported operators for **CategoryType: ReservationUtilization**\n- LessThan",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.\n\n **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold.",
       "jsonName": "threshold",
       "name": "Threshold",
       "objectDefinition": {
@@ -149,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of threshold.\n\n Supported for CategoryType(s): Cost.",
       "jsonName": "thresholdType",
       "name": "ThresholdType",
       "objectDefinition": {

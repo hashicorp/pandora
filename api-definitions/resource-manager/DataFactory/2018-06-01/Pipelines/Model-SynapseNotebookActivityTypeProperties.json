@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Spark configuration properties, which will override the 'conf' of the notebook you provide.",
       "jsonName": "conf",
       "name": "Conf",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the spark config.",
       "jsonName": "configurationType",
       "name": "ConfigurationType",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of core and memory to be used for driver allocated in the specified Spark pool for the session, which will be used for overriding 'driverCores' and 'driverMemory' of the notebook you provide. Type: string (or Expression with resultType string).",
       "jsonName": "driverSize",
       "name": "DriverSize",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of core and memory to be used for executors allocated in the specified Spark pool for the session, which will be used for overriding 'executorCores' and 'executorMemory' of the notebook you provide. Type: string (or Expression with resultType string).",
       "jsonName": "executorSize",
       "name": "ExecutorSize",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Synapse notebook reference.",
       "jsonName": "notebook",
       "name": "Notebook",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of executors to launch for this session, which will override the 'numExecutors' of the notebook you provide. Type: integer (or Expression with resultType integer).",
       "jsonName": "numExecutors",
       "name": "NumExecutors",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Notebook parameters.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Spark configuration property.",
       "jsonName": "sparkConfig",
       "name": "SparkConfig",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the big data pool which will be used to execute the notebook.",
       "jsonName": "sparkPool",
       "name": "SparkPool",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The spark configuration of the spark job.",
       "jsonName": "targetSparkConfiguration",
       "name": "TargetSparkConfiguration",
       "objectDefinition": {

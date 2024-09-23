@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of add-on features to enable on the cluster.",
       "jsonName": "addonFeatures",
       "name": "AddonFeatures",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "VM admin user password.",
       "jsonName": "adminPassword",
       "name": "AdminPassword",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "VM admin user name.",
       "jsonName": "adminUserName",
       "name": "AdminUserName",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false.",
       "jsonName": "allowRdpAccess",
       "name": "AllowRdpAccess",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The policy used to clean up unused versions.",
       "jsonName": "applicationTypeVersionsCleanupPolicy",
       "name": "ApplicationTypeVersionsCleanupPolicy",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The AAD authentication settings of the cluster.",
       "jsonName": "azureActiveDirectory",
       "name": "AzureActiveDirectory",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The port used for client connections to the cluster.",
       "jsonName": "clientConnectionPort",
       "name": "ClientConnectionPort",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Client certificates that are allowed to manage the cluster.",
       "jsonName": "clients",
       "name": "Clients",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of thumbprints of the cluster certificates.",
       "jsonName": "clusterCertificateThumbprints",
       "name": "ClusterCertificateThumbprints",
       "objectDefinition": {
@@ -165,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.",
       "jsonName": "clusterCodeVersion",
       "name": "ClusterCodeVersion",
       "objectDefinition": {
@@ -181,7 +171,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A service generated unique identifier for the cluster resource.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current state of the cluster.",
       "jsonName": "clusterState",
       "name": "ClusterState",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.",
       "jsonName": "clusterUpgradeCadence",
       "name": "ClusterUpgradeCadence",
       "objectDefinition": {
@@ -244,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster dns name.",
       "jsonName": "dnsName",
       "name": "DnsName",
       "objectDefinition": {
@@ -260,7 +246,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.",
       "jsonName": "enableAutoOSUpgrade",
       "name": "EnableAutoOSUpgrade",
       "objectDefinition": {
@@ -276,7 +261,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of custom fabric settings to configure the cluster.",
       "jsonName": "fabricSettings",
       "name": "FabricSettings",
       "objectDefinition": {
@@ -298,7 +282,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fully qualified domain name associated with the public load balancer of the cluster.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
@@ -314,7 +297,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The port used for HTTP connections to the cluster.",
       "jsonName": "httpGatewayConnectionPort",
       "name": "HTTPGatewayConnectionPort",
       "objectDefinition": {
@@ -330,7 +312,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The IPv4 address associated with the public load balancer of the cluster.",
       "jsonName": "ipv4Address",
       "name": "IPv4Address",
       "objectDefinition": {
@@ -346,7 +327,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Load balancing rules that are applied to the public load balancer of the cluster.",
       "jsonName": "loadBalancingRules",
       "name": "LoadBalancingRules",
       "objectDefinition": {
@@ -368,7 +348,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom Network Security Rules that are applied to the virtual network of the cluster.",
       "jsonName": "networkSecurityRules",
       "name": "NetworkSecurityRules",
       "objectDefinition": {
@@ -390,7 +369,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the managed cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -406,7 +384,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the cluster has zone resiliency.",
       "jsonName": "zonalResiliency",
       "name": "ZonalResiliency",
       "objectDefinition": {

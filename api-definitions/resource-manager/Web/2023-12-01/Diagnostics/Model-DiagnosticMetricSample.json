@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the values are aggregates across all workers or not",
       "jsonName": "isAggregated",
       "name": "IsAggregated",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum of the metric sampled during the time period",
       "jsonName": "maximum",
       "name": "Maximum",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum of the metric sampled during the time period",
       "jsonName": "minimum",
       "name": "Minimum",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Role Instance. Null if this counter is not per instance \nThis is returned and should be whichever instance name we desire to be returned\ni.e. CPU and Memory return RDWORKERNAME (LargeDed..._IN_0) \nwhere RDWORKERNAME is Machine name below and RoleInstance name in parenthesis",
       "jsonName": "roleInstance",
       "name": "RoleInstance",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Time at which metric is measured",
       "jsonName": "timestamp",
       "name": "Timestamp",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Total value of the metric. If multiple measurements are made this will have sum of all.",
       "jsonName": "total",
       "name": "Total",
       "objectDefinition": {

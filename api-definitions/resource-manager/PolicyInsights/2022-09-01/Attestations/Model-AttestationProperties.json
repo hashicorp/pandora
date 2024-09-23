@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the evidence was assessed",
       "jsonName": "assessmentDate",
       "name": "AssessmentDate",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Comments describing why this attestation was created.",
       "jsonName": "comments",
       "name": "Comments",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The compliance state that should be set on the resource.",
       "jsonName": "complianceState",
       "name": "ComplianceState",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The evidence supporting the compliance state set in this attestation.",
       "jsonName": "evidence",
       "name": "Evidence",
       "objectDefinition": {
@@ -75,7 +71,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the compliance state should expire.",
       "jsonName": "expiresOn",
       "name": "ExpiresOn",
       "objectDefinition": {
@@ -92,7 +87,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the compliance state was last changed in this attestation.",
       "jsonName": "lastComplianceStateChangeAt",
       "name": "LastComplianceStateChangeAt",
       "objectDefinition": {
@@ -108,7 +102,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional metadata for this attestation",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
@@ -124,7 +117,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.",
       "jsonName": "owner",
       "name": "Owner",
       "objectDefinition": {
@@ -140,7 +132,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the policy assignment that the attestation is setting the state for.",
       "jsonName": "policyAssignmentId",
       "name": "PolicyAssignmentId",
       "objectDefinition": {
@@ -156,7 +147,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.",
       "jsonName": "policyDefinitionReferenceId",
       "name": "PolicyDefinitionReferenceId",
       "objectDefinition": {
@@ -172,7 +162,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the attestation.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {

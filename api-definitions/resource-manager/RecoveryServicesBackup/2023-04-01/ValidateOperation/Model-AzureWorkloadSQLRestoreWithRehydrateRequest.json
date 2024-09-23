@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Data directory details",
       "jsonName": "alternateDirectoryPaths",
       "name": "AlternateDirectoryPaths",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SQL specific property where user can chose to set no-recovery when restore operation is tried",
       "jsonName": "isNonRecoverable",
       "name": "IsNonRecoverable",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Workload specific property bag.",
       "jsonName": "propertyBag",
       "name": "PropertyBag",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines whether the current recovery mode is file restore or database restore",
       "jsonName": "recoveryMode",
       "name": "RecoveryMode",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "RP Rehydration Info",
       "jsonName": "recoveryPointRehydrationInfo",
       "name": "RecoveryPointRehydrationInfo",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of this recovery.",
       "jsonName": "recoveryType",
       "name": "RecoveryType",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Default option set to true. If this is set to false, alternate data directory must be provided",
       "jsonName": "shouldUseAlternateTargetLocation",
       "name": "ShouldUseAlternateTargetLocation",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified ARM ID of the VM on which workload that was running is being recovered.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details of target database",
       "jsonName": "targetInfo",
       "name": "TargetInfo",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is the complete ARM Id of the target VM\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}",
       "jsonName": "targetVirtualMachineId",
       "name": "TargetVirtualMachineId",
       "objectDefinition": {

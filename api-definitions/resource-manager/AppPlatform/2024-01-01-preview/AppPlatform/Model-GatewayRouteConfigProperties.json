@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource Id of the Azure Spring Apps app, required unless route defines `uri`.",
       "jsonName": "appResourceId",
       "name": "AppResourceId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "To modify the request before sending it to the target endpoint, or the received response in app level.",
       "jsonName": "filters",
       "name": "Filters",
       "objectDefinition": {
@@ -56,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A number of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.",
       "jsonName": "predicates",
       "name": "Predicates",
       "objectDefinition": {
@@ -78,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Protocol of routed Azure Spring Apps applications.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {
@@ -94,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "State of the Spring Cloud Gateway route config.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -110,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Array of API routes, each route contains properties such as `title`, `uri`, `ssoEnabled`, `predicates`, `filters`.",
       "jsonName": "routes",
       "name": "Routes",
       "objectDefinition": {
@@ -132,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable Single Sign-On in app level.",
       "jsonName": "ssoEnabled",
       "name": "SsoEnabled",
       "objectDefinition": {

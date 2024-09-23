@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes the revision of the API. If no value is provided, default revision 1 is created",
       "jsonName": "apiRevision",
       "name": "ApiRevision",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the API Revision.",
       "jsonName": "apiRevisionDescription",
       "name": "ApiRevisionDescription",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of API to create. \n * `http` creates a REST API \n * `soap` creates a SOAP pass-through API  \n * `websocket` creates websocket API \n * `graphql` creates GraphQL API.",
       "jsonName": "apiType",
       "name": "ApiType",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the version identifier of the API if the API is versioned",
       "jsonName": "apiVersion",
       "name": "ApiVersion",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the API Version.",
       "jsonName": "apiVersionDescription",
       "name": "ApiVersionDescription",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version set details",
       "jsonName": "apiVersionSet",
       "name": "ApiVersionSet",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A resource identifier for the related ApiVersionSet.",
       "jsonName": "apiVersionSetId",
       "name": "ApiVersionSetId",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of authentication settings included into this API.",
       "jsonName": "authenticationSettings",
       "name": "AuthenticationSettings",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Contact information for the API.",
       "jsonName": "contact",
       "name": "Contact",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the API. May include HTML formatting tags.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "API name. Must be 1 to 300 characters long.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Format of the Content in which the API is getting imported.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if API revision is current api revision.",
       "jsonName": "isCurrent",
       "name": "IsCurrent",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if API revision is accessible via the gateway.",
       "jsonName": "isOnline",
       "name": "IsOnline",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "License information for the API.",
       "jsonName": "license",
       "name": "License",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes on which protocols the operations in this API can be invoked.",
       "jsonName": "protocols",
       "name": "Protocols",
       "objectDefinition": {
@@ -281,7 +264,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.",
       "jsonName": "serviceUrl",
       "name": "ServiceUrl",
       "objectDefinition": {
@@ -297,7 +279,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "API identifier of the source API.",
       "jsonName": "sourceApiId",
       "name": "SourceApiId",
       "objectDefinition": {
@@ -313,7 +294,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Protocols over which API is made available.",
       "jsonName": "subscriptionKeyParameterNames",
       "name": "SubscriptionKeyParameterNames",
       "objectDefinition": {
@@ -329,7 +309,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether an API or Product subscription is required for accessing the API.",
       "jsonName": "subscriptionRequired",
       "name": "SubscriptionRequired",
       "objectDefinition": {
@@ -345,7 +324,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": " A URL to the Terms of Service for the API. MUST be in the format of a URL.",
       "jsonName": "termsOfServiceUrl",
       "name": "TermsOfServiceUrl",
       "objectDefinition": {
@@ -361,7 +339,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'",
       "jsonName": "translateRequiredQueryParameters",
       "name": "TranslateRequiredQueryParameters",
       "objectDefinition": {
@@ -377,7 +354,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of API.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
@@ -393,7 +369,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Content value when Importing an API.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {
@@ -409,7 +384,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Criteria to limit import of WSDL to a subset of the document.",
       "jsonName": "wsdlSelector",
       "name": "WsdlSelector",
       "objectDefinition": {

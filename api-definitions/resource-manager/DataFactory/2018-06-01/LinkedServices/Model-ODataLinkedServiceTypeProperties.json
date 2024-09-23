@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the resource you are requesting authorization to use Directory. Type: string (or Expression with resultType string).",
       "jsonName": "aadResourceId",
       "name": "AadResourceId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the credential type (key or cert) is used for service principal.",
       "jsonName": "aadServicePrincipalCredentialType",
       "name": "AadServicePrincipalCredentialType",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The additional HTTP headers in the request to RESTful API used for authorization. Type: key value pairs (value should be string type).",
       "jsonName": "authHeaders",
       "name": "AuthHeaders",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of authentication used to connect to the OData service.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).",
       "jsonName": "azureCloudType",
       "name": "AzureCloudType",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -150,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the application id of your application registered in Azure Active Directory. Type: string (or Expression with resultType string).",
       "jsonName": "servicePrincipalId",
       "name": "ServicePrincipalId",
       "objectDefinition": {
@@ -181,7 +174,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the tenant information (domain name or tenant ID) under which your application resides. Type: string (or Expression with resultType string).",
       "jsonName": "tenant",
       "name": "Tenant",
       "objectDefinition": {
@@ -197,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URL of the OData service endpoint. Type: string (or Expression with resultType string).",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {
@@ -213,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User name of the OData service. Type: string (or Expression with resultType string).",
       "jsonName": "userName",
       "name": "UserName",
       "objectDefinition": {

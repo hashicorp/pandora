@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Client OCI backup subnet CIDR, default is 192.168.252.0/22",
       "jsonName": "backupSubnetCidr",
       "name": "BackupSubnetCidr",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cloud Exadata Infrastructure ID",
       "jsonName": "cloudExadataInfrastructureId",
       "name": "CloudExadataInfrastructureId",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cluster name for cloud VM cluster. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive. ",
       "jsonName": "clusterName",
       "name": "ClusterName",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cluster compartmentId",
       "jsonName": "compartmentId",
       "name": "CompartmentId",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of compute servers to be added to the cloud VM cluster.",
       "jsonName": "computeNodes",
       "name": "ComputeNodes",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of CPU cores enabled on the cloud VM cluster.",
       "jsonName": "cpuCoreCount",
       "name": "CpuCoreCount",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates user preferences for the various diagnostic collection options for the VM cluster/Cloud VM cluster/VMBM DBCS.",
       "jsonName": "dataCollectionOptions",
       "name": "DataCollectionOptions",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The percentage assigned to DATA storage (user data and database files). The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 35, 40, 60 and 80. The default is 80 percent assigned to DATA storage. See [Storage Configuration](/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage. ",
       "jsonName": "dataStoragePercentage",
       "name": "DataStoragePercentage",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The data disk group size to be allocated in TBs.",
       "jsonName": "dataStorageSizeInTbs",
       "name": "DataStorageSizeInTbs",
       "objectDefinition": {
@@ -153,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The local node storage to be allocated in GBs.",
       "jsonName": "dbNodeStorageSizeInGbs",
       "name": "DbNodeStorageSizeInGbs",
       "objectDefinition": {
@@ -169,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of DB servers.",
       "jsonName": "dbServers",
       "name": "DbServers",
       "objectDefinition": {
@@ -191,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of redundancy configured for the cloud Vm cluster. NORMAL is 2-way redundancy. HIGH is 3-way redundancy. ",
       "jsonName": "diskRedundancy",
       "name": "DiskRedundancy",
       "objectDefinition": {
@@ -207,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Display Name",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The domain name for the cloud VM cluster.",
       "jsonName": "domain",
       "name": "Domain",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Oracle Grid Infrastructure (GI) software version",
       "jsonName": "giVersion",
       "name": "GiVersion",
       "objectDefinition": {
@@ -255,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hostname for the cloud VM cluster.",
       "jsonName": "hostname",
       "name": "Hostname",
       "objectDefinition": {
@@ -271,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "iormConfigCache details for cloud VM cluster.",
       "jsonName": "iormConfigCache",
       "name": "IormConfigCache",
       "objectDefinition": {
@@ -287,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, database backup on local Exadata storage is configured for the cloud VM cluster. If false, database backup on local Exadata storage is not available in the cloud VM cluster. ",
       "jsonName": "isLocalBackupEnabled",
       "name": "IsLocalBackupEnabled",
       "objectDefinition": {
@@ -303,7 +285,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, sparse disk group is configured for the cloud VM cluster. If false, sparse disk group is not created. ",
       "jsonName": "isSparseDiskgroupEnabled",
       "name": "IsSparseDiskgroupEnabled",
       "objectDefinition": {
@@ -319,7 +300,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OCID of the last maintenance update history entry.",
       "jsonName": "lastUpdateHistoryEntryId",
       "name": "LastUpdateHistoryEntryId",
       "objectDefinition": {
@@ -335,7 +315,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Oracle license model that applies to the cloud VM cluster. The default is LICENSE_INCLUDED. ",
       "jsonName": "licenseModel",
       "name": "LicenseModel",
       "objectDefinition": {
@@ -351,7 +330,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional information about the current lifecycle state.",
       "jsonName": "lifecycleDetails",
       "name": "LifecycleDetails",
       "objectDefinition": {
@@ -367,7 +345,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "CloudVmCluster lifecycle state",
       "jsonName": "lifecycleState",
       "name": "LifecycleState",
       "objectDefinition": {
@@ -383,7 +360,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The port number configured for the listener on the cloud VM cluster.",
       "jsonName": "listenerPort",
       "name": "ListenerPort",
       "objectDefinition": {
@@ -399,7 +375,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The memory to be allocated in GBs.",
       "jsonName": "memorySizeInGbs",
       "name": "MemorySizeInGbs",
       "objectDefinition": {
@@ -415,7 +390,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of nodes in the cloud VM cluster. ",
       "jsonName": "nodeCount",
       "name": "NodeCount",
       "objectDefinition": {
@@ -431,7 +405,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "CIDR blocks for additional NSG ingress rules. The VNET CIDRs used to provision the VM Cluster will be added by default.",
       "jsonName": "nsgCidrs",
       "name": "NsgCidrs",
       "objectDefinition": {
@@ -453,7 +426,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "HTTPS link to OCI Network Security Group exposed to Azure Customer via the Azure Interface.",
       "jsonName": "nsgUrl",
       "name": "NsgUrl",
       "objectDefinition": {
@@ -469,7 +441,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "HTTPS link to OCI resources exposed to Azure Customer via Azure Interface.",
       "jsonName": "ociUrl",
       "name": "OciUrl",
       "objectDefinition": {
@@ -485,7 +456,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cloud VM Cluster ocid",
       "jsonName": "ocid",
       "name": "Ocid",
       "objectDefinition": {
@@ -501,7 +471,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of OCPU cores to enable on the cloud VM cluster. Only 1 decimal place is allowed for the fractional part.",
       "jsonName": "ocpuCount",
       "name": "OcpuCount",
       "objectDefinition": {
@@ -517,7 +486,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "CloudVmCluster provisioning state",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -533,7 +501,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The FQDN of the DNS record for the SCAN IP addresses that are associated with the cloud VM cluster. ",
       "jsonName": "scanDnsName",
       "name": "ScanDnsName",
       "objectDefinition": {
@@ -549,7 +516,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OCID of the DNS record for the SCAN IP addresses that are associated with the cloud VM cluster.",
       "jsonName": "scanDnsRecordId",
       "name": "ScanDnsRecordId",
       "objectDefinition": {
@@ -565,7 +531,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Single Client Access Name (SCAN) IP addresses associated with the cloud VM cluster. SCAN IP addresses are typically used for load balancing and are not assigned to any interface. Oracle Clusterware directs the requests to the appropriate nodes in the cluster. **Note:** For a single-node DB system, this list is empty.",
       "jsonName": "scanIpIds",
       "name": "ScanIPIds",
       "objectDefinition": {
@@ -587,7 +552,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The TCP Single Client Access Name (SCAN) port. The default port is 1521.",
       "jsonName": "scanListenerPortTcp",
       "name": "ScanListenerPortTcp",
       "objectDefinition": {
@@ -603,7 +567,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The TCPS Single Client Access Name (SCAN) port. The default port is 2484.",
       "jsonName": "scanListenerPortTcpSsl",
       "name": "ScanListenerPortTcpSsl",
       "objectDefinition": {
@@ -619,7 +582,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The model name of the Exadata hardware running the cloud VM cluster.",
       "jsonName": "shape",
       "name": "Shape",
       "objectDefinition": {
@@ -635,7 +597,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The public key portion of one or more key pairs used for SSH access to the cloud VM cluster.",
       "jsonName": "sshPublicKeys",
       "name": "SshPublicKeys",
       "objectDefinition": {
@@ -657,7 +618,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The data disk group size to be allocated in GBs per VM.",
       "jsonName": "storageSizeInGbs",
       "name": "StorageSizeInGbs",
       "objectDefinition": {
@@ -673,7 +633,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Client subnet",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
@@ -689,7 +648,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cluster subnet ocid",
       "jsonName": "subnetOcid",
       "name": "SubnetOcid",
       "objectDefinition": {
@@ -705,7 +663,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Operating system version of the image.",
       "jsonName": "systemVersion",
       "name": "SystemVersion",
       "objectDefinition": {
@@ -722,7 +679,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The date and time that the cloud VM cluster was created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -738,7 +694,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The time zone of the cloud VM cluster. For details, see [Exadata Infrastructure Time Zones](/Content/Database/References/timezones.htm).",
       "jsonName": "timeZone",
       "name": "TimeZone",
       "objectDefinition": {
@@ -754,7 +709,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual IP (VIP) addresses associated with the cloud VM cluster. The Cluster Ready Services (CRS) creates and maintains one VIP address for each node in the Exadata Cloud Service instance to enable failover. If one node fails, the VIP is reassigned to another active node in the cluster. **Note:** For a single-node DB system, this list is empty.",
       "jsonName": "vipIds",
       "name": "VipIds",
       "objectDefinition": {
@@ -776,7 +730,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "VNET for network connectivity",
       "jsonName": "vnetId",
       "name": "VnetId",
       "objectDefinition": {
@@ -792,7 +745,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OCID of the zone the cloud VM cluster is associated with.",
       "jsonName": "zoneId",
       "name": "ZoneId",
       "objectDefinition": {

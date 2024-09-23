@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Extended Info that provides data directory details. Will be populated in two cases:\r\nWhen a specific recovery point is accessed using GetRecoveryPoint\r\nOr when ListRecoveryPoints is called for Log RP only with ExtendedInfo query filter",
       "jsonName": "extendedInfo",
       "name": "ExtendedInfo",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Eligibility of RP to be moved to another tier",
       "jsonName": "recoveryPointMoveReadinessInfo",
       "name": "RecoveryPointMoveReadinessInfo",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Properties of Recovery Point",
       "jsonName": "recoveryPointProperties",
       "name": "RecoveryPointProperties",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Recovery point tier information.",
       "jsonName": "recoveryPointTierDetails",
       "name": "RecoveryPointTierDetails",
       "objectDefinition": {
@@ -80,7 +76,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "UTC time at which recovery point was created",
       "jsonName": "recoveryPointTimeInUTC",
       "name": "RecoveryPointTimeInUTC",
       "objectDefinition": {
@@ -96,7 +91,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of log ranges",
       "jsonName": "timeRanges",
       "name": "TimeRanges",
       "objectDefinition": {
@@ -118,7 +112,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of restore point",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "These transformers shall not be used in featurization.",
       "jsonName": "blockedTransformers",
       "name": "BlockedTransformers",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dictionary of column name and its type (int, float, string, datetime etc).",
       "jsonName": "columnNameAndTypes",
       "name": "ColumnNameAndTypes",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dataset language, useful for the text data.",
       "jsonName": "datasetLanguage",
       "name": "DatasetLanguage",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Determines whether to use Dnn based featurizers for data featurization.",
       "jsonName": "enableDnnFeaturization",
       "name": "EnableDnnFeaturization",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.\r\nIf 'Off' is selected then no featurization is done.\r\nIf 'Custom' is selected then user can specify additional inputs to customize how featurization is done.",
       "jsonName": "mode",
       "name": "Mode",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User can specify additional transformers to be used along with the columns to which it would be applied and parameters for the transformer constructor.",
       "jsonName": "transformerParams",
       "name": "TransformerParams",
       "objectDefinition": {

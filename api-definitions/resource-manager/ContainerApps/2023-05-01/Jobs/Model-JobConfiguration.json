@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Trigger configuration of an event driven job.",
       "jsonName": "eventTriggerConfig",
       "name": "EventTriggerConfig",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Manual trigger configuration for a single execution job. Properties replicaCompletionCount and parallelism would be set to 1 by default",
       "jsonName": "manualTriggerConfig",
       "name": "ManualTriggerConfig",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of private container registry credentials used by a Container apps job",
       "jsonName": "registries",
       "name": "Registries",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of retries before failing the job.",
       "jsonName": "replicaRetryLimit",
       "name": "ReplicaRetryLimit",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of seconds a replica is allowed to run.",
       "jsonName": "replicaTimeout",
       "name": "ReplicaTimeout",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cron formatted repeating trigger schedule (\"* * * * *\") for cronjobs. Properties completions and parallelism would be set to 1 by default",
       "jsonName": "scheduleTriggerConfig",
       "name": "ScheduleTriggerConfig",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of secrets used by a Container Apps Job",
       "jsonName": "secrets",
       "name": "Secrets",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Trigger type of the job",
       "jsonName": "triggerType",
       "name": "TriggerType",
       "objectDefinition": {

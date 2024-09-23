@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of redis instances to reboot, specified by per-instance SSL ports or non-SSL ports.",
       "jsonName": "ports",
       "name": "Ports",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Which Redis node(s) to reboot. Depending on this value data loss is possible.",
       "jsonName": "rebootType",
       "name": "RebootType",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If clustering is enabled, the ID of the shard to be rebooted.",
       "jsonName": "shardId",
       "name": "ShardId",
       "objectDefinition": {

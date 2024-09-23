@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the source of the SSL certificate",
       "jsonName": "certificateSource",
       "name": "CertificateSource",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)",
       "jsonName": "frontDoorCertificateSourceParameters",
       "name": "FrontDoorCertificateSourceParameters",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "KeyVault certificate source parameters (if certificateSource=AzureKeyVault)",
       "jsonName": "keyVaultCertificateSourceParameters",
       "name": "KeyVaultCertificateSourceParameters",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum TLS version required from the clients to establish an SSL handshake with Front Door.",
       "jsonName": "minimumTlsVersion",
       "name": "MinimumTlsVersion",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the TLS extension protocol that is used for secure delivery",
       "jsonName": "protocolType",
       "name": "ProtocolType",
       "objectDefinition": {

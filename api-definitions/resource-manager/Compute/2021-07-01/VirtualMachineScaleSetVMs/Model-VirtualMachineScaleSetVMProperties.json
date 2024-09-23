@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.",
       "jsonName": "additionalCapabilities",
       "name": "AdditionalCapabilities",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). \u003cbr\u003e\u003cbr\u003e For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) \u003cbr\u003e\u003cbr\u003e Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.",
       "jsonName": "availabilitySet",
       "name": "AvailabilitySet",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the boot diagnostic settings state. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2015-06-15.",
       "jsonName": "diagnosticsProfile",
       "name": "DiagnosticsProfile",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hardware settings for the virtual machine.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine instance view.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the latest model has been applied to the virtual machine.",
       "jsonName": "latestModelApplied",
       "name": "LatestModelApplied",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.",
       "jsonName": "modelDefinitionApplied",
       "name": "ModelDefinitionApplied",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the network interfaces of the virtual machine.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the network profile configuration of the virtual machine.",
       "jsonName": "networkProfileConfiguration",
       "name": "NetworkProfileConfiguration",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the operating system settings for the virtual machine.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the protection policy of the virtual machine.",
       "jsonName": "protectionPolicy",
       "name": "ProtectionPolicy",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Security related profile settings for the virtual machine.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the storage settings for the virtual machine disks.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Azure VM unique ID.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {

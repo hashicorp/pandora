@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of authentication (Required to specify MSI) used to connect to AzureFunction. Type: string (or Expression with resultType string).",
       "jsonName": "authentication",
       "name": "Authentication",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The endpoint of the Azure Function App. URL will be in the format https://\u003caccountName\u003e.azurewebsites.net. Type: string (or Expression with resultType string).",
       "jsonName": "functionAppUrl",
       "name": "FunctionAppUrl",
       "objectDefinition": {
@@ -81,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allowed token audiences for azure function. Type: string (or Expression with resultType string).",
       "jsonName": "resourceId",
       "name": "ResourceId",
       "objectDefinition": {

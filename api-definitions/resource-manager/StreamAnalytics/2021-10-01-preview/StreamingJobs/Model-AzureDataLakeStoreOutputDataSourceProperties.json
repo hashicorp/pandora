@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the Azure Data Lake Store account. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "accountName",
       "name": "AccountName",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The date format. Wherever {date} appears in filePathPrefix, the value of this property is used as the date format instead.",
       "jsonName": "dateFormat",
       "name": "DateFormat",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The location of the file to which the output should be written to. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "filePathPrefix",
       "name": "FilePathPrefix",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A refresh token that can be used to obtain a valid access token that can then be used to authenticate with the data source. A valid refresh token is currently only obtainable via the Azure Portal. It is recommended to put a dummy string value here when creating the data source and then going to the Azure Portal to authenticate the data source which will update this property with a valid refresh token. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "refreshToken",
       "name": "RefreshToken",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The tenant id of the user used to obtain the refresh token. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "tenantId",
       "name": "TenantId",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The time format. Wherever {time} appears in filePathPrefix, the value of this property is used as the time format instead.",
       "jsonName": "timeFormat",
       "name": "TimeFormat",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user display name of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.",
       "jsonName": "tokenUserDisplayName",
       "name": "TokenUserDisplayName",
       "objectDefinition": {
@@ -130,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The user principal name (UPN) of the user that was used to obtain the refresh token. Use this property to help remember which user was used to obtain the refresh token.",
       "jsonName": "tokenUserPrincipalName",
       "name": "TokenUserPrincipalName",
       "objectDefinition": {

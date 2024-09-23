@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Last time a message was sent, or the last time there was a receive request to this queue.",
       "jsonName": "accessedAt",
       "name": "AccessedAt",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.",
       "jsonName": "autoDeleteOnIdle",
       "name": "AutoDeleteOnIdle",
       "objectDefinition": {
@@ -52,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The exact time the message was created.",
       "jsonName": "createdAt",
       "name": "CreatedAt",
       "objectDefinition": {
@@ -68,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value that indicates whether this queue has dead letter support when a message expires.",
       "jsonName": "deadLetteringOnMessageExpiration",
       "name": "DeadLetteringOnMessageExpiration",
       "objectDefinition": {
@@ -84,7 +80,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.",
       "jsonName": "defaultMessageTimeToLive",
       "name": "DefaultMessageTimeToLive",
       "objectDefinition": {
@@ -100,7 +95,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.",
       "jsonName": "duplicateDetectionHistoryTimeWindow",
       "name": "DuplicateDetectionHistoryTimeWindow",
       "objectDefinition": {
@@ -116,7 +110,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value that indicates whether server-side batched operations are enabled.",
       "jsonName": "enableBatchedOperations",
       "name": "EnableBatchedOperations",
       "objectDefinition": {
@@ -132,7 +125,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.",
       "jsonName": "enableExpress",
       "name": "EnableExpress",
       "objectDefinition": {
@@ -148,7 +140,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value that indicates whether the queue is to be partitioned across multiple message brokers.",
       "jsonName": "enablePartitioning",
       "name": "EnablePartitioning",
       "objectDefinition": {
@@ -164,7 +155,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Queue/Topic name to forward the Dead Letter message",
       "jsonName": "forwardDeadLetteredMessagesTo",
       "name": "ForwardDeadLetteredMessagesTo",
       "objectDefinition": {
@@ -180,7 +170,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Queue/Topic name to forward the messages",
       "jsonName": "forwardTo",
       "name": "ForwardTo",
       "objectDefinition": {
@@ -196,7 +185,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.",
       "jsonName": "lockDuration",
       "name": "LockDuration",
       "objectDefinition": {
@@ -212,7 +200,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.",
       "jsonName": "maxDeliveryCount",
       "name": "MaxDeliveryCount",
       "objectDefinition": {
@@ -228,7 +215,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.",
       "jsonName": "maxMessageSizeInKilobytes",
       "name": "MaxMessageSizeInKilobytes",
       "objectDefinition": {
@@ -244,7 +230,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.",
       "jsonName": "maxSizeInMegabytes",
       "name": "MaxSizeInMegabytes",
       "objectDefinition": {
@@ -260,7 +245,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of messages in the queue.",
       "jsonName": "messageCount",
       "name": "MessageCount",
       "objectDefinition": {
@@ -276,7 +260,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value indicating if this queue requires duplicate detection.",
       "jsonName": "requiresDuplicateDetection",
       "name": "RequiresDuplicateDetection",
       "objectDefinition": {
@@ -292,7 +275,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A value that indicates whether the queue supports the concept of sessions.",
       "jsonName": "requiresSession",
       "name": "RequiresSession",
       "objectDefinition": {
@@ -308,7 +290,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of the queue, in bytes.",
       "jsonName": "sizeInBytes",
       "name": "SizeInBytes",
       "objectDefinition": {
@@ -340,7 +321,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The exact time the message was updated.",
       "jsonName": "updatedAt",
       "name": "UpdatedAt",
       "objectDefinition": {

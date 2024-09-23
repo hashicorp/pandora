@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "More detailed description of the step.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "When the step reached a terminal state.",
       "jsonName": "endTimeUtc",
       "name": "EndTimeUtc",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Error message, specified if the step is in a failed state.",
       "jsonName": "errorMessage",
       "name": "ErrorMessage",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Completion time of this step or the last completed sub-step.",
       "jsonName": "lastUpdatedTimeUtc",
       "name": "LastUpdatedTimeUtc",
       "objectDefinition": {
@@ -69,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the step.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -86,7 +81,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "When the step started, or empty if it has not started executing.",
       "jsonName": "startTimeUtc",
       "name": "StartTimeUtc",
       "objectDefinition": {
@@ -102,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -118,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Recursive model for child steps of this step.",
       "jsonName": "steps",
       "name": "Steps",
       "objectDefinition": {

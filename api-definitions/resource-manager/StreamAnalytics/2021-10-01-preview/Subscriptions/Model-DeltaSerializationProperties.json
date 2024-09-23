@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the path of the Delta Lake table that the output will be written to.",
       "jsonName": "deltaTablePath",
       "name": "DeltaTablePath",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the names of the columns for which the Delta Lake table will be partitioned. We are only supporting 1 partition column, but keeping it as an array for extensibility.",
       "jsonName": "partitionColumns",
       "name": "PartitionColumns",
       "objectDefinition": {

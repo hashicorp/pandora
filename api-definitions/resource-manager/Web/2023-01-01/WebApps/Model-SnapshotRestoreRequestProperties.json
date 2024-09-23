@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, custom hostname conflicts will be ignored when recovering to a target web app.\nThis setting is only necessary when RecoverConfiguration is enabled.",
       "jsonName": "ignoreConflictingHostNames",
       "name": "IgnoreConflictingHostNames",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If \u003ccode\u003etrue\u003c/code\u003e the restore operation can overwrite source app; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "overwrite",
       "name": "Overwrite",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, site configuration, in addition to content, will be reverted.",
       "jsonName": "recoverConfiguration",
       "name": "RecoverConfiguration",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional. Specifies the web app that snapshot contents will be retrieved from.\nIf empty, the targeted web app will be used as the source.",
       "jsonName": "recoverySource",
       "name": "RecoverySource",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Point in time in which the app restore should be done, formatted as a DateTime string.",
       "jsonName": "snapshotTime",
       "name": "SnapshotTime",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, the snapshot is retrieved from DRSecondary endpoint.",
       "jsonName": "useDRSecondary",
       "name": "UseDRSecondary",
       "objectDefinition": {

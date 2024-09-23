@@ -108,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2020-06-01",
       "jsonName": "extensionsTimeBudget",
       "name": "ExtensionsTimeBudget",
       "objectDefinition": {
@@ -169,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine instance view.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
@@ -185,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -231,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.\u003cbr\u003e\u003cli\u003eThis is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.\u003cli\u003eThe Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' \u0026gt; 1.\u003cli\u003eThis property cannot be updated once the Virtual Machine is created.\u003cli\u003eFault domain assignment can be viewed in the Virtual Machine Instance View.\u003cbr\u003e\u003cbr\u003eMinimum api‐version: 2020‐12‐01",
       "jsonName": "platformFaultDomain",
       "name": "PlatformFaultDomain",
       "objectDefinition": {
@@ -262,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -339,7 +334,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Specifies the time at which the Virtual Machine resource was created.\u003cbr\u003e\u003cbr\u003eMinimum api-version: 2022-03-01.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -355,7 +349,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
@@ -371,7 +364,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {

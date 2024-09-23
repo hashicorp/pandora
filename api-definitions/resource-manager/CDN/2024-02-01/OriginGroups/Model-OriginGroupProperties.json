@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Health probe settings to the origin that is used to determine the health of the origin.",
       "jsonName": "healthProbeSettings",
       "name": "HealthProbeSettings",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source of the content being delivered via CDN within given origin group.",
       "jsonName": "origins",
       "name": "Origins",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning status of the origin group.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource status of the origin group.",
       "jsonName": "resourceState",
       "name": "ResourceState",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.",
       "jsonName": "responseBasedOriginErrorDetectionSettings",
       "name": "ResponseBasedOriginErrorDetectionSettings",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.",
       "jsonName": "trafficRestorationTimeToHealedOrNewEndpointsInMinutes",
       "name": "TrafficRestorationTimeToHealedOrNewEndpointsInMinutes",
       "objectDefinition": {

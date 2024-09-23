@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The column of the table over which the given query should run",
       "jsonName": "column",
       "name": "Column",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When filtering over custom dimensions, this key will be used as the name of the custom dimension.",
       "jsonName": "key",
       "name": "Key",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A query operator to evaluate over the provided column and value(s). Supported operators are ==, =~, in, in~, \u003e, \u003e=, \u003c, \u003c=, between, and have the same behavior as they would in a KQL query.",
       "jsonName": "operator",
       "name": "Operator",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "the value for the operator to function over. This can be a number (e.g., \u003e 100), a string (timestamp \u003e= '2017-09-01') or array of values.",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {

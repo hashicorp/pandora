@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the source files need to be deleted after copy completion. Default is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "deleteFilesAfterCompletion",
       "name": "DeleteFilesAfterCompletion",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether to enable partition discovery. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enablePartitionDiscovery",
       "name": "EnablePartitionDiscovery",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Point to a text file that lists each file (relative path to the path configured in the dataset) that you want to copy. Type: string (or Expression with resultType string).",
       "jsonName": "fileListPath",
       "name": "FileListPath",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Lists files after the value (exclusive) based on file/folder names’ lexicographical order. Applies under the folderPath in data set, and filter files/sub-folders under the folderPath. Type: string (or Expression with resultType string).",
       "jsonName": "listAfter",
       "name": "ListAfter",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Lists files before the value (inclusive) based on file/folder names’ lexicographical order. Applies under the folderPath in data set, and filter files/sub-folders under the folderPath. Type: string (or Expression with resultType string).",
       "jsonName": "listBefore",
       "name": "ListBefore",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The end of file's modified datetime. Type: string (or Expression with resultType string).",
       "jsonName": "modifiedDatetimeEnd",
       "name": "ModifiedDatetimeEnd",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The start of file's modified datetime. Type: string (or Expression with resultType string).",
       "jsonName": "modifiedDatetimeStart",
       "name": "ModifiedDatetimeStart",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the root path where partition discovery starts from. Type: string (or Expression with resultType string).",
       "jsonName": "partitionRootPath",
       "name": "PartitionRootPath",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, files under the folder path will be read recursively. Default is true. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "recursive",
       "name": "Recursive",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ADLS wildcardFileName. Type: string (or Expression with resultType string).",
       "jsonName": "wildcardFileName",
       "name": "WildcardFileName",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ADLS wildcardFolderPath. Type: string (or Expression with resultType string).",
       "jsonName": "wildcardFolderPath",
       "name": "WildcardFolderPath",
       "objectDefinition": {

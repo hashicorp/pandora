@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek.",
       "jsonName": "dayOfMonth",
       "name": "DayOfMonth",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly.",
       "jsonName": "daysOfWeek",
       "name": "DaysOfWeek",
       "objectDefinition": {
@@ -42,7 +40,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end date and time of the scheduled action (UTC).",
       "jsonName": "endDate",
       "name": "EndDate",
       "objectDefinition": {
@@ -58,7 +55,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Frequency of the schedule.",
       "jsonName": "frequency",
       "name": "Frequency",
       "objectDefinition": {
@@ -74,7 +70,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UTC time at which cost analysis data will be emailed.",
       "jsonName": "hourOfDay",
       "name": "HourOfDay",
       "objectDefinition": {
@@ -91,7 +86,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The start date and time of the scheduled action (UTC).",
       "jsonName": "startDate",
       "name": "StartDate",
       "objectDefinition": {
@@ -107,7 +101,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek.",
       "jsonName": "weeksOfMonth",
       "name": "WeeksOfMonth",
       "objectDefinition": {

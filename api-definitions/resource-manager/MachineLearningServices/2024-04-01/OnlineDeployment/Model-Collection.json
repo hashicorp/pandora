@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The msi client id used to collect logging to blob storage. If it's null,backend will pick a registered endpoint identity to auth.",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable or disable data collection.",
       "jsonName": "dataCollectionMode",
       "name": "DataCollectionMode",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The data asset arm resource id. Client side will ensure data asset is pointing to the blob storage, and backend will collect data to the blob storage.",
       "jsonName": "dataId",
       "name": "DataId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The sampling rate for collection. Sampling rate 1.0 means we collect 100% of data by default.",
       "jsonName": "samplingRate",
       "name": "SamplingRate",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.",
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Database name for connection. Type: string.",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of the MariaDB driver. Type: string. V1 or empty for legacy driver, V2 for new driver. V1 can support connection string and property bag, V2 can only support connection string. The legacy driver is scheduled for deprecation by October 2024.",
       "jsonName": "driverVersion",
       "name": "DriverVersion",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The port for the connection. Type: integer.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Server name for connection. Type: string.",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
@@ -114,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This option specifies whether the driver uses TLS encryption and verification when connecting to MariaDB. E.g., SSLMode=\u003c0/1/2/3/4\u003e. Options: DISABLED (0) / PREFERRED (1) (Default) / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4), REQUIRED (2) is recommended to only allow connections encrypted with SSL/TLS.",
       "jsonName": "sslMode",
       "name": "SslMode",
       "objectDefinition": {
@@ -130,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. UseSystemTrustStore=\u003c0/1\u003e; Options: Enabled (1) / Disabled (0) (Default)",
       "jsonName": "useSystemTrustStore",
       "name": "UseSystemTrustStore",
       "objectDefinition": {
@@ -146,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Username for authentication. Type: string.",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {

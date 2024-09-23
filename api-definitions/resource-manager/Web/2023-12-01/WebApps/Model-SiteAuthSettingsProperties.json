@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets a JSON string containing the Azure AD Acl settings.",
       "jsonName": "aadClaimsAuthorization",
       "name": "AadClaimsAuthorization",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Login parameters to send to the OpenID Connect authorization endpoint when\na user logs in. Each parameter must be in the form \"key=value\".",
       "jsonName": "additionalLoginParams",
       "name": "AdditionalLoginParams",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allowed audience values to consider when validating JSON Web Tokens issued by \nAzure Active Directory. Note that the \u003ccode\u003eClientID\u003c/code\u003e value is always considered an\nallowed audience, regardless of this setting.",
       "jsonName": "allowedAudiences",
       "name": "AllowedAudiences",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.\nThis is an advanced setting typically only needed by Windows Store application backends.\nNote that URLs within the current domain are always implicitly allowed.",
       "jsonName": "allowedExternalRedirectUrls",
       "name": "AllowedExternalRedirectUrls",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The path of the config file containing auth settings.\nIf the path is relative, base will the site's root directory.",
       "jsonName": "authFilePath",
       "name": "AuthFilePath",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client ID of this relying party application, known as the client_id.\nThis setting is required for enabling OpenID Connection authentication with Azure Active Directory or \nother 3rd party OpenID Connect providers.\nMore information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).\nThis setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.\nOtherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.\nMore information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html",
       "jsonName": "clientSecret",
       "name": "ClientSecret",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as\na replacement for the Client Secret. It is also optional.",
       "jsonName": "clientSecretCertificateThumbprint",
       "name": "ClientSecretCertificateThumbprint",
       "objectDefinition": {
@@ -149,7 +141,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name that contains the client secret of the relying party application.",
       "jsonName": "clientSecretSettingName",
       "name": "ClientSecretSettingName",
       "objectDefinition": {
@@ -165,7 +156,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ConfigVersion of the Authentication / Authorization feature in use for the current app.\nThe setting in this value can control the behavior of the control plane for Authentication / Authorization.",
       "jsonName": "configVersion",
       "name": "ConfigVersion",
       "objectDefinition": {
@@ -181,7 +171,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default authentication provider to use when multiple providers are configured.\nThis setting is only needed if multiple providers are configured and the unauthenticated client\naction is set to \"RedirectToLoginPage\".",
       "jsonName": "defaultProvider",
       "name": "DefaultProvider",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e if the Authentication / Authorization feature is enabled for the current app; otherwise, \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The App ID of the Facebook app used for login.\nThis setting is required for enabling Facebook Login.\nFacebook Login documentation: https://developers.facebook.com/docs/facebook-login",
       "jsonName": "facebookAppId",
       "name": "FacebookAppId",
       "objectDefinition": {
@@ -229,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The App Secret of the Facebook app used for Facebook Login.\nThis setting is required for enabling Facebook Login.\nFacebook Login documentation: https://developers.facebook.com/docs/facebook-login",
       "jsonName": "facebookAppSecret",
       "name": "FacebookAppSecret",
       "objectDefinition": {
@@ -245,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name that contains the app secret used for Facebook Login.",
       "jsonName": "facebookAppSecretSettingName",
       "name": "FacebookAppSecretSettingName",
       "objectDefinition": {
@@ -261,7 +246,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.\nThis setting is optional.\nFacebook Login documentation: https://developers.facebook.com/docs/facebook-login",
       "jsonName": "facebookOAuthScopes",
       "name": "FacebookOAuthScopes",
       "objectDefinition": {
@@ -283,7 +267,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client Id of the GitHub app used for login.\nThis setting is required for enabling Github login",
       "jsonName": "gitHubClientId",
       "name": "GitHubClientId",
       "objectDefinition": {
@@ -299,7 +282,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client Secret of the GitHub app used for Github Login.\nThis setting is required for enabling Github login.",
       "jsonName": "gitHubClientSecret",
       "name": "GitHubClientSecret",
       "objectDefinition": {
@@ -315,7 +297,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name that contains the client secret of the Github\napp used for GitHub Login.",
       "jsonName": "gitHubClientSecretSettingName",
       "name": "GitHubClientSecretSettingName",
       "objectDefinition": {
@@ -331,7 +312,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.\nThis setting is optional",
       "jsonName": "gitHubOAuthScopes",
       "name": "GitHubOAuthScopes",
       "objectDefinition": {
@@ -353,7 +333,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OpenID Connect Client ID for the Google web application.\nThis setting is required for enabling Google Sign-In.\nGoogle Sign-In documentation: https://developers.google.com/identity/sign-in/web/",
       "jsonName": "googleClientId",
       "name": "GoogleClientId",
       "objectDefinition": {
@@ -369,7 +348,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The client secret associated with the Google web application.\nThis setting is required for enabling Google Sign-In.\nGoogle Sign-In documentation: https://developers.google.com/identity/sign-in/web/",
       "jsonName": "googleClientSecret",
       "name": "GoogleClientSecret",
       "objectDefinition": {
@@ -385,7 +363,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name that contains the client secret associated with \nthe Google web application.",
       "jsonName": "googleClientSecretSettingName",
       "name": "GoogleClientSecretSettingName",
       "objectDefinition": {
@@ -401,7 +378,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.\nThis setting is optional. If not specified, \"openid\", \"profile\", and \"email\" are used as default scopes.\nGoogle Sign-In documentation: https://developers.google.com/identity/sign-in/web/",
       "jsonName": "googleOAuthScopes",
       "name": "GoogleOAuthScopes",
       "objectDefinition": {
@@ -423,7 +399,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\"true\" if the auth config settings should be read from a file,\n\"false\" otherwise",
       "jsonName": "isAuthFromFile",
       "name": "IsAuthFromFile",
       "objectDefinition": {
@@ -439,7 +414,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.\nWhen using Azure Active Directory, this value is the URI of the directory tenant, e.g. https://sts.windows.net/{tenant-guid}/.\nThis URI is a case-sensitive identifier for the token issuer.\nMore information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html",
       "jsonName": "issuer",
       "name": "Issuer",
       "objectDefinition": {
@@ -455,7 +429,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 client ID that was created for the app used for authentication.\nThis setting is required for enabling Microsoft Account authentication.\nMicrosoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm",
       "jsonName": "microsoftAccountClientId",
       "name": "MicrosoftAccountClientId",
       "objectDefinition": {
@@ -471,7 +444,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 client secret that was created for the app used for authentication.\nThis setting is required for enabling Microsoft Account authentication.\nMicrosoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm",
       "jsonName": "microsoftAccountClientSecret",
       "name": "MicrosoftAccountClientSecret",
       "objectDefinition": {
@@ -487,7 +459,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name containing the OAuth 2.0 client secret that was created for the\napp used for authentication.",
       "jsonName": "microsoftAccountClientSecretSettingName",
       "name": "MicrosoftAccountClientSecretSettingName",
       "objectDefinition": {
@@ -503,7 +474,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.\nThis setting is optional. If not specified, \"wl.basic\" is used as the default scope.\nMicrosoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx",
       "jsonName": "microsoftAccountOAuthScopes",
       "name": "MicrosoftAccountOAuthScopes",
       "objectDefinition": {
@@ -525,7 +495,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The RuntimeVersion of the Authentication / Authorization feature in use for the current app.\nThe setting in this value can control the behavior of certain features in the Authentication / Authorization module.",
       "jsonName": "runtimeVersion",
       "name": "RuntimeVersion",
       "objectDefinition": {
@@ -541,7 +510,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of hours after session token expiration that a session token can be used to\ncall the token refresh API. The default is 72 hours.",
       "jsonName": "tokenRefreshExtensionHours",
       "name": "TokenRefreshExtensionHours",
       "objectDefinition": {
@@ -557,7 +525,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "\u003ccode\u003etrue\u003c/code\u003e to durably store platform-specific security tokens that are obtained during login flows; otherwise, \u003ccode\u003efalse\u003c/code\u003e.\n The default is \u003ccode\u003efalse\u003c/code\u003e.",
       "jsonName": "tokenStoreEnabled",
       "name": "TokenStoreEnabled",
       "objectDefinition": {
@@ -573,7 +540,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 1.0a consumer key of the Twitter application used for sign-in.\nThis setting is required for enabling Twitter Sign-In.\nTwitter Sign-In documentation: https://dev.twitter.com/web/sign-in",
       "jsonName": "twitterConsumerKey",
       "name": "TwitterConsumerKey",
       "objectDefinition": {
@@ -589,7 +555,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 1.0a consumer secret of the Twitter application used for sign-in.\nThis setting is required for enabling Twitter Sign-In.\nTwitter Sign-In documentation: https://dev.twitter.com/web/sign-in",
       "jsonName": "twitterConsumerSecret",
       "name": "TwitterConsumerSecret",
       "objectDefinition": {
@@ -605,7 +570,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The app setting name that contains the OAuth 1.0a consumer secret of the Twitter\napplication used for sign-in.",
       "jsonName": "twitterConsumerSecretSettingName",
       "name": "TwitterConsumerSecretSettingName",
       "objectDefinition": {
@@ -621,7 +585,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The action to take when an unauthenticated client attempts to access the app.",
       "jsonName": "unauthenticatedClientAction",
       "name": "UnauthenticatedClientAction",
       "objectDefinition": {
@@ -637,7 +600,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.",
       "jsonName": "validateIssuer",
       "name": "ValidateIssuer",
       "objectDefinition": {

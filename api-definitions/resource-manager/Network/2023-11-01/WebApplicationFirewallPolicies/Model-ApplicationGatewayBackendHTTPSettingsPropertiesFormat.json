@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cookie name to use for the affinity cookie.",
       "jsonName": "affinityCookieName",
       "name": "AffinityCookieName",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Array of references to application gateway authentication certificates.",
       "jsonName": "authenticationCertificates",
       "name": "AuthenticationCertificates",
       "objectDefinition": {
@@ -56,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Cookie based affinity.",
       "jsonName": "cookieBasedAffinity",
       "name": "CookieBasedAffinity",
       "objectDefinition": {
@@ -72,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Host header to be sent to the backend servers.",
       "jsonName": "hostName",
       "name": "HostName",
       "objectDefinition": {
@@ -88,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.",
       "jsonName": "path",
       "name": "Path",
       "objectDefinition": {
@@ -104,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to pick host header should be picked from the host name of the backend server. Default value is false.",
       "jsonName": "pickHostNameFromBackendAddress",
       "name": "PickHostNameFromBackendAddress",
       "objectDefinition": {
@@ -120,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The destination port on the backend.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -151,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the probe is enabled. Default value is false.",
       "jsonName": "probeEnabled",
       "name": "ProbeEnabled",
       "objectDefinition": {
@@ -197,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.",
       "jsonName": "requestTimeout",
       "name": "RequestTimeout",
       "objectDefinition": {
@@ -213,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Array of references to application gateway trusted root certificates.",
       "jsonName": "trustedRootCertificates",
       "name": "TrustedRootCertificates",
       "objectDefinition": {

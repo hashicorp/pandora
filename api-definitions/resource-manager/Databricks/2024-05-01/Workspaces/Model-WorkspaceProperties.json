@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Access Connector Resource that is going to be associated with Databricks Workspace",
       "jsonName": "accessConnector",
       "name": "AccessConnector",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The workspace provider authorizations.",
       "jsonName": "authorizations",
       "name": "Authorizations",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the Object ID, PUID and Application ID of entity that created the workspace.",
       "jsonName": "createdBy",
       "name": "CreatedBy",
       "objectDefinition": {
@@ -58,7 +55,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Specifies the date and time when the workspace is created.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
@@ -74,7 +70,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Properties for Default Catalog configuration during workspace creation.",
       "jsonName": "defaultCatalog",
       "name": "DefaultCatalog",
       "objectDefinition": {
@@ -90,7 +85,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets or Sets Default Storage Firewall configuration information",
       "jsonName": "defaultStorageFirewall",
       "name": "DefaultStorageFirewall",
       "objectDefinition": {
@@ -106,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource Id of the managed disk encryption set.",
       "jsonName": "diskEncryptionSetId",
       "name": "DiskEncryptionSetId",
       "objectDefinition": {
@@ -122,7 +115,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Encryption properties for databricks workspace",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
@@ -138,7 +130,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Contains settings related to the Enhanced Security and Compliance Add-On.",
       "jsonName": "enhancedSecurityCompliance",
       "name": "EnhancedSecurityCompliance",
       "objectDefinition": {
@@ -154,7 +145,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether unity catalog enabled for the workspace or not.",
       "jsonName": "isUcEnabled",
       "name": "IsUcEnabled",
       "objectDefinition": {
@@ -170,7 +160,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption",
       "jsonName": "managedDiskIdentity",
       "name": "ManagedDiskIdentity",
       "objectDefinition": {
@@ -186,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The managed resource group Id.",
       "jsonName": "managedResourceGroupId",
       "name": "ManagedResourceGroupId",
       "objectDefinition": {
@@ -202,7 +190,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The workspace's custom parameters.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
@@ -218,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Private endpoint connections created on the workspace",
       "jsonName": "privateEndpointConnections",
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
@@ -240,7 +226,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The workspace provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -256,7 +241,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The network access type for accessing workspace. Set value to disabled to access workspace only via private link.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -272,7 +256,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.",
       "jsonName": "requiredNsgRules",
       "name": "RequiredNsgRules",
       "objectDefinition": {
@@ -288,7 +271,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The details of Managed Identity of Storage Account",
       "jsonName": "storageAccountIdentity",
       "name": "StorageAccountIdentity",
       "objectDefinition": {
@@ -304,7 +286,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The blob URI where the UI definition file is located.",
       "jsonName": "uiDefinitionUri",
       "name": "UiDefinitionUri",
       "objectDefinition": {
@@ -320,7 +301,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.",
       "jsonName": "updatedBy",
       "name": "UpdatedBy",
       "objectDefinition": {
@@ -336,7 +316,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique identifier of the databricks workspace in databricks control plane.",
       "jsonName": "workspaceId",
       "name": "WorkspaceId",
       "objectDefinition": {
@@ -352,7 +331,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'",
       "jsonName": "workspaceUrl",
       "name": "WorkspaceUrl",
       "objectDefinition": {
