@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The JSON Path of the Nested Array that is going to do cross-apply. Type: object (or Expression with resultType object).",
       "jsonName": "collectionReference",
       "name": "CollectionReference",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Column mappings. Example: \"UserId: MyUserId, Group: MyGroup, Name: MyName\" Type: string (or Expression with resultType string). This property will be retired. Please use mappings property.",
       "jsonName": "columnMappings",
       "name": "ColumnMappings",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to map complex (array and object) values to simple strings in json format. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "mapComplexValuesToString",
       "name": "MapComplexValuesToString",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Column mappings with logical types. Tabular-\u003etabular example: [{\"source\":{\"name\":\"CustomerName\",\"type\":\"String\"},\"sink\":{\"name\":\"ClientName\",\"type\":\"String\"}},{\"source\":{\"name\":\"CustomerAddress\",\"type\":\"String\"},\"sink\":{\"name\":\"ClientAddress\",\"type\":\"String\"}}].  Hierarchical-\u003etabular example: [{\"source\":{\"path\":\"$.CustomerName\",\"type\":\"String\"},\"sink\":{\"name\":\"ClientName\",\"type\":\"String\"}},{\"source\":{\"path\":\"$.CustomerAddress\",\"type\":\"String\"},\"sink\":{\"name\":\"ClientAddress\",\"type\":\"String\"}}]. Type: object (or Expression with resultType object).",
       "jsonName": "mappings",
       "name": "Mappings",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The schema mapping to map between tabular data and hierarchical data. Example: {\"Column1\": \"$.Column1\", \"Column2\": \"$.Column2.Property1\", \"Column3\": \"$.Column2.Property2\"}. Type: object (or Expression with resultType object). This property will be retired. Please use mappings property.",
       "jsonName": "schemaMapping",
       "name": "SchemaMapping",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable the advanced type conversion feature in the Copy activity. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "typeConversion",
       "name": "TypeConversion",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type conversion settings",
       "jsonName": "typeConversionSettings",
       "name": "TypeConversionSettings",
       "objectDefinition": {

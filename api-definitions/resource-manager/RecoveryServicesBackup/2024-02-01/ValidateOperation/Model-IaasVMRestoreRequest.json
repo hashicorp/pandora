@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Affinity group associated to VM to be restored. Used only for Classic Compute Virtual Machines.",
       "jsonName": "affinityGroup",
       "name": "AffinityGroup",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Should a new cloud service be created while restoring the VM. If this is false, VM will be restored to the same\r\ncloud service as it was at the time of backup.",
       "jsonName": "createNewCloudService",
       "name": "CreateNewCloudService",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DiskEncryptionSet's ID - needed if the VM needs to be encrypted at rest during restore with customer managed key.",
       "jsonName": "diskEncryptionSetId",
       "name": "DiskEncryptionSetId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details needed if the VM was encrypted at the time of backup.",
       "jsonName": "encryptionDetails",
       "name": "EncryptionDetails",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target extended location where the VM should be restored,\r\nshould be null if restore is to be done in public cloud",
       "jsonName": "extendedLocation",
       "name": "ExtendedLocation",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IaaS VM workload specific restore details for restores using managed identity.",
       "jsonName": "identityBasedRestoreDetails",
       "name": "IdentityBasedRestoreDetails",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Managed Identity information required to access customer storage account.",
       "jsonName": "identityInfo",
       "name": "IdentityInfo",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Original Storage Account Option",
       "jsonName": "originalStorageAccountOption",
       "name": "OriginalStorageAccountOption",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ID of the backup copy to be recovered.",
       "jsonName": "recoveryPointId",
       "name": "RecoveryPointId",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of this recovery.",
       "jsonName": "recoveryType",
       "name": "RecoveryType",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Region in which the virtual machine is restored.",
       "jsonName": "region",
       "name": "Region",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of Disk LUNs for partial restore",
       "jsonName": "restoreDiskLunList",
       "name": "RestoreDiskLunList",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to denote of an Unmanaged disk VM should be restored with Managed disks.",
       "jsonName": "restoreWithManagedDisks",
       "name": "RestoreWithManagedDisks",
       "objectDefinition": {
@@ -217,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Stores Secured VM Details",
       "jsonName": "securedVMDetails",
       "name": "SecuredVMDetails",
       "objectDefinition": {
@@ -233,7 +219,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified ARM ID of the VM which is being recovered.",
       "jsonName": "sourceResourceId",
       "name": "SourceResourceId",
       "objectDefinition": {
@@ -249,7 +234,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified ARM ID of the storage account to which the VM has to be restored.",
       "jsonName": "storageAccountId",
       "name": "StorageAccountId",
       "objectDefinition": {
@@ -265,7 +249,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Subnet ID, is the subnet ID associated with the to be restored VM. For Classic VMs it would be\r\n{VnetID}/Subnet/{SubnetName} and, for the Azure Resource Manager VMs it would be ARM resource ID used to represent\r\nthe subnet.",
       "jsonName": "subnetId",
       "name": "SubnetId",
       "objectDefinition": {
@@ -281,7 +264,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies target network access settings for disks of VM to be restored,",
       "jsonName": "targetDiskNetworkAccessSettings",
       "name": "TargetDiskNetworkAccessSettings",
       "objectDefinition": {
@@ -297,7 +279,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Fully qualified ARM ID of the domain name to be associated to the VM being restored. This applies only to Classic\r\nVirtual Machines.",
       "jsonName": "targetDomainNameId",
       "name": "TargetDomainNameId",
       "objectDefinition": {
@@ -313,7 +294,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is the ARM Id of the resource group that you want to create for this Virtual machine and other artifacts.\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}",
       "jsonName": "targetResourceGroupId",
       "name": "TargetResourceGroupId",
       "objectDefinition": {
@@ -329,7 +309,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is the complete ARM Id of the VM that will be created.\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}",
       "jsonName": "targetVirtualMachineId",
       "name": "TargetVirtualMachineId",
       "objectDefinition": {
@@ -345,7 +324,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is the virtual network Id of the vnet that will be attached to the virtual machine.\r\nUser will be validated for join action permissions in the linked access.",
       "jsonName": "virtualNetworkId",
       "name": "VirtualNetworkId",
       "objectDefinition": {
@@ -361,7 +339,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target zone where the VM and its disks should be restored.",
       "jsonName": "zones",
       "name": "Zones",
       "objectDefinition": {

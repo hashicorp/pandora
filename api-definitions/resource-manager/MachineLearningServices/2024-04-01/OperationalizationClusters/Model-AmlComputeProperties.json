@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allocation state of the compute. Possible values are: steady - Indicates that the compute is not resizing. There are no changes to the number of compute nodes in the compute in progress. A compute enters this state when it is created and when no operations are being performed on the compute to change the number of compute nodes. resizing - Indicates that the compute is resizing; that is, compute nodes are being added to or removed from the compute.",
       "jsonName": "allocationState",
       "name": "AllocationState",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the compute entered its current allocation state.",
       "jsonName": "allocationStateTransitionTime",
       "name": "AllocationStateTransitionTime",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of compute nodes currently assigned to the compute.",
       "jsonName": "currentNodeCount",
       "name": "CurrentNodeCount",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable or disable node public IP address provisioning. Possible values are: Possible values are: true - Indicates that the compute nodes will have public IPs provisioned. false - Indicates that the compute nodes will have a private endpoint and no public IPs.",
       "jsonName": "enableNodePublicIp",
       "name": "EnableNodePublicIP",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Collection of errors encountered by various compute nodes during node setup.",
       "jsonName": "errors",
       "name": "Errors",
       "objectDefinition": {
@@ -90,7 +85,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Network is isolated or not",
       "jsonName": "isolatedNetwork",
       "name": "IsolatedNetwork",
       "objectDefinition": {
@@ -106,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Counts of various node states on the compute.",
       "jsonName": "nodeStateCounts",
       "name": "NodeStateCounts",
       "objectDefinition": {
@@ -122,7 +115,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Compute OS Type",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -138,7 +130,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A property bag containing additional properties.",
       "jsonName": "propertyBag",
       "name": "PropertyBag",
       "objectDefinition": {
@@ -154,7 +145,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.",
       "jsonName": "remoteLoginPortPublicAccess",
       "name": "RemoteLoginPortPublicAccess",
       "objectDefinition": {
@@ -170,7 +160,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Scale settings for AML Compute",
       "jsonName": "scaleSettings",
       "name": "ScaleSettings",
       "objectDefinition": {
@@ -186,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual network subnet resource ID the compute nodes belong to.",
       "jsonName": "subnet",
       "name": "Subnet",
       "objectDefinition": {
@@ -202,7 +190,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The target number of compute nodes for the compute. If the allocationState is resizing, this property denotes the target node count for the ongoing resize operation. If the allocationState is steady, this property denotes the target node count for the previous resize operation.",
       "jsonName": "targetNodeCount",
       "name": "TargetNodeCount",
       "objectDefinition": {
@@ -218,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Credentials for an administrator user account that will be created on each compute node.",
       "jsonName": "userAccountCredentials",
       "name": "UserAccountCredentials",
       "objectDefinition": {
@@ -234,7 +220,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual Machine priority",
       "jsonName": "vmPriority",
       "name": "VMPriority",
       "objectDefinition": {
@@ -250,7 +235,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual Machine Size",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {
@@ -266,7 +250,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Virtual Machine image for AML Compute - windows only",
       "jsonName": "virtualMachineImage",
       "name": "VirtualMachineImage",
       "objectDefinition": {

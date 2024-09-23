@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.",
       "jsonName": "accessTier",
       "name": "AccessTier",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.",
       "jsonName": "allowBlobPublicAccess",
       "name": "AllowBlobPublicAccess",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.",
       "jsonName": "allowCrossTenantReplication",
       "name": "AllowCrossTenantReplication",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.",
       "jsonName": "allowSharedKeyAccess",
       "name": "AllowSharedKeyAccess",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.",
       "jsonName": "allowedCopyScope",
       "name": "AllowedCopyScope",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provides the identity based authentication settings for Azure Files.",
       "jsonName": "azureFilesIdentityBasedAuthentication",
       "name": "AzureFilesIdentityBasedAuthentication",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom domain assigned to the storage account by the user. Name is the CNAME source. Only one custom domain is supported per storage account at this time. To clear the existing custom domain, use an empty string for the custom domain name property.",
       "jsonName": "customDomain",
       "name": "CustomDomain",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A boolean flag which indicates whether the default authentication is OAuth or not. The default interpretation is false for this property.",
       "jsonName": "defaultToOAuthAuthentication",
       "name": "DefaultToOAuthAuthentication",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.",
       "jsonName": "dnsEndpointType",
       "name": "DnsEndpointType",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables extended group support with local users feature, if set to true",
       "jsonName": "enableExtendedGroups",
       "name": "EnableExtendedGroups",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Not applicable. Azure Storage encryption at rest is enabled by default for all storage accounts and cannot be disabled.",
       "jsonName": "encryption",
       "name": "Encryption",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The property is immutable and can only be set to true at the account creation time. When set to true, it enables object level immutability for all the containers in the account by default.",
       "jsonName": "immutableStorageWithVersioning",
       "name": "ImmutableStorageWithVersioning",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables local users feature, if set to true",
       "jsonName": "isLocalUserEnabled",
       "name": "IsLocalUserEnabled",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables Secure File Transfer Protocol, if set to true",
       "jsonName": "isSftpEnabled",
       "name": "IsSftpEnabled",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "KeyPolicy assigned to the storage account.",
       "jsonName": "keyPolicy",
       "name": "KeyPolicy",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow large file shares if sets to Enabled. It cannot be disabled once it is enabled.",
       "jsonName": "largeFileSharesState",
       "name": "LargeFileSharesState",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set the minimum TLS version to be permitted on requests to storage. The default interpretation is TLS 1.0 for this property.",
       "jsonName": "minimumTlsVersion",
       "name": "MinimumTlsVersion",
       "objectDefinition": {
@@ -275,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Network rule set",
       "jsonName": "networkAcls",
       "name": "NetworkAcls",
       "objectDefinition": {
@@ -291,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow, disallow, or let Network Security Perimeter configuration to evaluate public network access to Storage Account. Value is optional but if passed in, must be 'Enabled', 'Disabled' or 'SecuredByPerimeter'.",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -307,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maintains information about the network routing choice opted by the user for data transfer",
       "jsonName": "routingPreference",
       "name": "RoutingPreference",
       "objectDefinition": {
@@ -323,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SasPolicy assigned to the storage account.",
       "jsonName": "sasPolicy",
       "name": "SasPolicy",
       "objectDefinition": {
@@ -339,7 +318,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allows https traffic only to storage service if sets to true.",
       "jsonName": "supportsHttpsTrafficOnly",
       "name": "SupportsHTTPSTrafficOnly",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
       "jsonName": "condition",
       "name": "Condition",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of the condition. Currently accepted value is '2.0'",
       "jsonName": "conditionVersion",
       "name": "ConditionVersion",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "DateTime when role eligibility schedule was created",
       "jsonName": "createdOn",
       "name": "CreatedOn",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The endDateTime of the role eligibility schedule instance",
       "jsonName": "endDateTime",
       "name": "EndDateTime",
       "objectDefinition": {
@@ -69,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Additional properties of principal, scope and role definition",
       "jsonName": "expandedProperties",
       "name": "ExpandedProperties",
       "objectDefinition": {
@@ -85,7 +80,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Membership type of the role eligibility schedule",
       "jsonName": "memberType",
       "name": "MemberType",
       "objectDefinition": {
@@ -101,7 +95,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The principal ID.",
       "jsonName": "principalId",
       "name": "PrincipalId",
       "objectDefinition": {
@@ -117,7 +110,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The principal type of the assigned principal ID.",
       "jsonName": "principalType",
       "name": "PrincipalType",
       "objectDefinition": {
@@ -133,7 +125,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The role definition ID.",
       "jsonName": "roleDefinitionId",
       "name": "RoleDefinitionId",
       "objectDefinition": {
@@ -149,7 +140,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Id of the master role eligibility schedule",
       "jsonName": "roleEligibilityScheduleId",
       "name": "RoleEligibilityScheduleId",
       "objectDefinition": {
@@ -165,7 +155,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The role eligibility schedule scope.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
@@ -182,7 +171,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The startDateTime of the role eligibility schedule instance",
       "jsonName": "startDateTime",
       "name": "StartDateTime",
       "objectDefinition": {
@@ -198,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the role eligibility schedule instance",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

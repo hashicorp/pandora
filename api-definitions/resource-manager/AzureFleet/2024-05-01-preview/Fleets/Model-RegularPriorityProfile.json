@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allocation strategy to follow when determining the VM sizes distribution for Regular VMs.",
       "jsonName": "allocationStrategy",
       "name": "AllocationStrategy",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Total capacity to achieve. It is currently in terms of number of VMs.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum capacity to achieve which cannot be updated. If we will not be able to \"guarantee\" minimum capacity, we will reject the request in the sync path itself.",
       "jsonName": "minCapacity",
       "name": "MinCapacity",
       "objectDefinition": {

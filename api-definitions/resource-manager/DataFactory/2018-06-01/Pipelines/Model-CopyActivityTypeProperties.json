@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.",
       "jsonName": "dataIntegrationUnits",
       "name": "DataIntegrationUnits",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to skip incompatible row. Default value is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enableSkipIncompatibleRow",
       "name": "EnableSkipIncompatibleRow",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to copy data via an interim staging. Default value is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "enableStaging",
       "name": "EnableStaging",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Log settings customer needs provide when enabling log.",
       "jsonName": "logSettings",
       "name": "LogSettings",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated. Please use LogSettings) Log storage settings customer need to provide when enabling session log.",
       "jsonName": "logStorageSettings",
       "name": "LogStorageSettings",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of concurrent sessions opened on the source or sink to avoid overloading the data store. Type: integer (or Expression with resultType integer), minimum: 0.",
       "jsonName": "parallelCopies",
       "name": "ParallelCopies",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Preserve rules.",
       "jsonName": "preserve",
       "name": "Preserve",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Preserve Rules.",
       "jsonName": "preserveRules",
       "name": "PreserveRules",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Redirect incompatible row settings when EnableSkipIncompatibleRow is true.",
       "jsonName": "redirectIncompatibleRowSettings",
       "name": "RedirectIncompatibleRowSettings",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy activity sink.",
       "jsonName": "sink",
       "name": "Sink",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specify the fault tolerance for data consistency.",
       "jsonName": "skipErrorFile",
       "name": "SkipErrorFile",
       "objectDefinition": {
@@ -191,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy activity source.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -207,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies interim staging settings when EnableStaging is true.",
       "jsonName": "stagingSettings",
       "name": "StagingSettings",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Copy activity translator. If not specified, tabular translator is used.",
       "jsonName": "translator",
       "name": "Translator",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable Data Consistency validation. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "validateDataConsistency",
       "name": "ValidateDataConsistency",
       "objectDefinition": {

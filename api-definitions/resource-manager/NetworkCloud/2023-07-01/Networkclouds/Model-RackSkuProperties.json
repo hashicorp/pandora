@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of machine SKUs and associated rack slot for the compute-dedicated machines in this rack model.",
       "jsonName": "computeMachines",
       "name": "ComputeMachines",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of machine SKUs and associated rack slot for the control-plane dedicated machines in this rack model.",
       "jsonName": "controllerMachines",
       "name": "ControllerMachines",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The free-form text describing the rack.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of compute racks supported by an aggregator rack. 0 if this is a compute rack or a rack for a single rack cluster(rackType=\"Single\").",
       "jsonName": "maxClusterSlots",
       "name": "MaxClusterSlots",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the rack SKU resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the rack.",
       "jsonName": "rackType",
       "name": "RackType",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of appliance SKUs and associated rack slot for the storage appliance(s) in this rack model.",
       "jsonName": "storageAppliances",
       "name": "StorageAppliances",
       "objectDefinition": {
@@ -133,7 +126,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of supported SKUs if the rack is an aggregator.",
       "jsonName": "supportedRackSkuIds",
       "name": "SupportedRackSkuIds",
       "objectDefinition": {

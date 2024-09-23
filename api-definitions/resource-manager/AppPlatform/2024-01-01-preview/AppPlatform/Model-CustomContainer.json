@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Arguments to the entrypoint. The docker image's CMD is used if this is not provided.",
       "jsonName": "args",
       "name": "Args",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided.",
       "jsonName": "command",
       "name": "Command",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Container image of the custom container. This should be in the form of \u003crepository\u003e:\u003ctag\u003e without the server name of the registry",
       "jsonName": "containerImage",
       "name": "ContainerImage",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Credential of the image registry",
       "jsonName": "imageRegistryCredential",
       "name": "ImageRegistryCredential",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Language framework of the container image uploaded. Supported values: \"springboot\", \"\", null.",
       "jsonName": "languageFramework",
       "name": "LanguageFramework",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the registry that contains the container image",
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {

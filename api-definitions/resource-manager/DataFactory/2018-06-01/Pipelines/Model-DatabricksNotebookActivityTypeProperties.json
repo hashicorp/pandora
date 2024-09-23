@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Base parameters to be used for each run of this job.If the notebook takes a parameter that is not specified, the default value from the notebook will be used.",
       "jsonName": "baseParameters",
       "name": "BaseParameters",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of libraries to be installed on the cluster that will execute the job.",
       "jsonName": "libraries",
       "name": "Libraries",
       "objectDefinition": {
@@ -53,7 +51,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The absolute path of the notebook to be run in the Databricks Workspace. This path must begin with a slash. Type: string (or Expression with resultType string).",
       "jsonName": "notebookPath",
       "name": "NotebookPath",
       "objectDefinition": {

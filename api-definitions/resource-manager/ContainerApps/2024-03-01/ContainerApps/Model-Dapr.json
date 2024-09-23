@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dapr application identifier",
       "jsonName": "appId",
       "name": "AppId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Tells Dapr which port your application is listening on",
       "jsonName": "appPort",
       "name": "AppPort",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http",
       "jsonName": "appProtocol",
       "name": "AppProtocol",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables API logging for the Dapr sidecar",
       "jsonName": "enableApiLogging",
       "name": "EnableApiLogging",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Boolean indicating if the Dapr side car is enabled",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB.",
       "jsonName": "httpMaxRequestSize",
       "name": "HTTPMaxRequestSize",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB.",
       "jsonName": "httpReadBufferSize",
       "name": "HTTPReadBufferSize",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info.",
       "jsonName": "logLevel",
       "name": "LogLevel",
       "objectDefinition": {

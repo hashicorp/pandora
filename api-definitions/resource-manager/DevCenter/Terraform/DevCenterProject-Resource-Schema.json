@@ -1,9 +1,6 @@
 {
   "fields": [
     {
-      "documentation": {
-        "markdown": "Description of the project."
-      },
       "forceNew": true,
       "hclName": "description",
       "optional": true,
@@ -14,9 +11,6 @@
       }
     },
     {
-      "documentation": {
-        "markdown": "Resource Id of an associated DevCenter."
-      },
       "forceNew": true,
       "hclName": "dev_center_id",
       "name": "DevCenterId",
@@ -28,9 +22,6 @@
     },
     {
       "computed": true,
-      "documentation": {
-        "markdown": "The URI of the Dev Center resource this project is associated with."
-      },
       "hclName": "dev_center_uri",
       "name": "DevCenterUri",
       "objectDefinition": {
@@ -52,9 +43,6 @@
       "required": true
     },
     {
-      "documentation": {
-        "markdown": "When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project."
-      },
       "hclName": "maximum_dev_boxes_per_user",
       "optional": true,
       "name": "MaximumDevBoxesPerUser",

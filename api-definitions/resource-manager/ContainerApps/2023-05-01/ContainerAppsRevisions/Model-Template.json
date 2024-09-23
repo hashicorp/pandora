@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of container definitions for the Container App.",
       "jsonName": "containers",
       "name": "Containers",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of specialized containers that run before app containers.",
       "jsonName": "initContainers",
       "name": "InitContainers",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User friendly suffix that is appended to the revision name",
       "jsonName": "revisionSuffix",
       "name": "RevisionSuffix",
       "objectDefinition": {
@@ -78,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of container app services bound to the app",
       "jsonName": "serviceBinds",
       "name": "ServiceBinds",
       "objectDefinition": {
@@ -100,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional duration in seconds the Container App Instance needs to terminate gracefully. Value must be non-negative integer. The value zero indicates stop immediately via the kill signal (no opportunity to shut down). If this value is nil, the default grace period will be used instead. Set this value longer than the expected cleanup time for your process. Defaults to 30 seconds.",
       "jsonName": "terminationGracePeriodSeconds",
       "name": "TerminationGracePeriodSeconds",
       "objectDefinition": {
@@ -116,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of volume definitions for the Container App.",
       "jsonName": "volumes",
       "name": "Volumes",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Compilation mode of U-SQL. Must be one of these values : Semantic, Full and SingleBox. Type: string (or Expression with resultType string).",
       "jsonName": "compilationMode",
       "name": "CompilationMode",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of nodes simultaneously used to run the job. Default value is 1. Type: integer (or Expression with resultType integer), minimum: 1.",
       "jsonName": "degreeOfParallelism",
       "name": "DegreeOfParallelism",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Parameters for U-SQL job request.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Determines which jobs out of all that are queued should be selected to run first. The lower the number, the higher the priority. Default value is 1000. Type: integer (or Expression with resultType integer), minimum: 1.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Runtime version of the U-SQL engine to use. Type: string (or Expression with resultType string).",
       "jsonName": "runtimeVersion",
       "name": "RuntimeVersion",
       "objectDefinition": {
@@ -104,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Case-sensitive path to folder that contains the U-SQL script. Type: string (or Expression with resultType string).",
       "jsonName": "scriptPath",
       "name": "ScriptPath",
       "objectDefinition": {

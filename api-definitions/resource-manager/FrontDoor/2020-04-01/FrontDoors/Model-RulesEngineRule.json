@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Actions to perform on the request and response if all of the match conditions are met.",
       "jsonName": "action",
       "name": "Action",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of match conditions that must meet in order for the actions of this rule to run. Having no match conditions means the actions will always run.",
       "jsonName": "matchConditions",
       "name": "MatchConditions",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.",
       "jsonName": "matchProcessingBehavior",
       "name": "MatchProcessingBehavior",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A name to refer to this specific rule.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A priority assigned to this rule. ",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {

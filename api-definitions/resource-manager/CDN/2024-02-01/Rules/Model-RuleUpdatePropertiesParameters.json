@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of actions that are executed when all the conditions of a rule are satisfied.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of conditions that must be matched for the actions to be executed",
       "jsonName": "conditions",
       "name": "Conditions",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.",
       "jsonName": "matchProcessingBehavior",
       "name": "MatchProcessingBehavior",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.",
       "jsonName": "order",
       "name": "Order",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the rule set containing the rule.",
       "jsonName": "ruleSetName",
       "name": "RuleSetName",
       "objectDefinition": {

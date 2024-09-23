@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The content type of this file.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the file was imported.",
       "jsonName": "createdTimeUTC",
       "name": "CreatedTimeUTC",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the error file (if the import was ingested with errors or failed the validation).",
       "jsonName": "errorFile",
       "name": "ErrorFile",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An ordered list of some of the errors that were encountered during validation.",
       "jsonName": "errorsPreview",
       "name": "ErrorsPreview",
       "objectDefinition": {
@@ -75,7 +71,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the files associated with this import are deleted from the storage account.",
       "jsonName": "filesValidUntilTimeUTC",
       "name": "FilesValidUntilTimeUTC",
       "objectDefinition": {
@@ -91,7 +86,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the imported file.",
       "jsonName": "importFile",
       "name": "ImportFile",
       "objectDefinition": {
@@ -108,7 +102,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time the file import record is soft deleted from the database and history.",
       "jsonName": "importValidUntilTimeUTC",
       "name": "ImportValidUntilTimeUTC",
       "objectDefinition": {
@@ -124,7 +117,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of records that have been successfully ingested.",
       "jsonName": "ingestedRecordCount",
       "name": "IngestedRecordCount",
       "objectDefinition": {
@@ -140,7 +132,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes how to ingest the records in the file.",
       "jsonName": "ingestionMode",
       "name": "IngestionMode",
       "objectDefinition": {
@@ -156,7 +147,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The source for the data in the file.",
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -172,7 +162,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the file import.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
@@ -188,7 +177,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of records in the file.",
       "jsonName": "totalRecordCount",
       "name": "TotalRecordCount",
       "objectDefinition": {
@@ -204,7 +192,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of records that have passed validation.",
       "jsonName": "validRecordCount",
       "name": "ValidRecordCount",
       "objectDefinition": {

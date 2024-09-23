@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Restore operation may create multiple files inside location pointed by Url\r\nBelow will be the common prefix for all of them",
       "jsonName": "filePrefix",
       "name": "FilePrefix",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Denotes the target location where the data will be restored,\r\nstring value for the enum {Microsoft.Internal.AzureBackup.DataProtection.Common.Interface.RestoreTargetLocationType}",
       "jsonName": "restoreTargetLocationType",
       "name": "RestoreTargetLocationType",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Full ARM Id denoting the restore destination. It is the ARM Id pointing to container / file share\r\nThis is optional if the target subscription can be identified with the URL field. If not\r\nthen this is needed if CrossSubscriptionRestore field of BackupVault is in any of the disabled states",
       "jsonName": "targetResourceArmId",
       "name": "TargetResourceArmId",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Url denoting the restore destination. It can point to container / file share etc",
       "jsonName": "url",
       "name": "Url",
       "objectDefinition": {

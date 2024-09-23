@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Dictionary of aggregation expression to use in the forecast. The key of each item in the dictionary is the alias for the aggregated column. forecast can have up to 2 aggregation clauses.",
       "jsonName": "aggregation",
       "name": "Aggregation",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided.",
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has filter expression to use in the forecast.",
       "jsonName": "filter",
       "name": "Filter",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The granularity of rows in the forecast.",
       "jsonName": "granularity",
       "name": "Granularity",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specified the community gallery image unique id for vm deployment. This can be\nfetched from community gallery image GET call.",
       "jsonName": "communityGalleryImageId",
       "name": "CommunityGalleryImageId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies in decimal numbers, the version of platform image or marketplace\nimage used to create the virtual machine. This readonly field differs from 'version',\nonly if the value specified in 'version' field is 'latest'.",
       "jsonName": "exactVersion",
       "name": "ExactVersion",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource Id",
       "jsonName": "id",
       "name": "Id",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the offer of the platform image or marketplace image used to create\nthe virtual machine.",
       "jsonName": "offer",
       "name": "Offer",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The image publisher.",
       "jsonName": "publisher",
       "name": "Publisher",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specified the shared gallery image unique id for vm deployment. This can be\nfetched from shared gallery image GET call.",
       "jsonName": "sharedGalleryImageId",
       "name": "SharedGalleryImageId",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The image SKU.",
       "jsonName": "sku",
       "name": "Sku",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the version of the platform image or marketplace image used to create\nthe virtual machine. The allowed formats are Major.Minor.Build or 'latest'.\nMajor, Minor, and Build are decimal numbers. Specify 'latest' to use the latest\nversion of an image available at deploy time. Even if you use 'latest', the VM\nimage will not automatically update after deploy time even if a new version\nbecomes available. Please do not use field 'version' for gallery image\ndeployment, gallery image should always use 'id' field for deployment, to use 'latest'\nversion of gallery image, just set\n'/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageName}'\nin the 'id' field without version input.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

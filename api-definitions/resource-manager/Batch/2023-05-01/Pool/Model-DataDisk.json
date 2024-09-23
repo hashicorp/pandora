@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Values are:\n\n none - The caching mode for the disk is not enabled.\n readOnly - The caching mode for the disk is read only.\n readWrite - The caching mode for the disk is read and write.\n\n The default value for caching is none. For information about the caching options see: https://blogs.msdn.microsoft.com/windowsazurestorage/2012/06/27/exploring-windows-azure-drives-disks-and-images/.",
       "jsonName": "caching",
       "name": "Caching",
       "objectDefinition": {
@@ -34,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun. The value must be between 0 and 63, inclusive.",
       "jsonName": "lun",
       "name": "Lun",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If omitted, the default is \"Standard_LRS\". Values are:\n\n Standard_LRS - The data disk should use standard locally redundant storage.\n Premium_LRS - The data disk should use premium locally redundant storage.",
       "jsonName": "storageAccountType",
       "name": "StorageAccountType",
       "objectDefinition": {

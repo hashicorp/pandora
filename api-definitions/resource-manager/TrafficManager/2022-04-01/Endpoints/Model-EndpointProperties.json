@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.",
       "jsonName": "alwaysServe",
       "name": "AlwaysServe",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of custom headers.",
       "jsonName": "customHeaders",
       "name": "CustomHeaders",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.",
       "jsonName": "endpointLocation",
       "name": "EndpointLocation",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The monitoring status of the endpoint.",
       "jsonName": "endpointMonitorStatus",
       "name": "EndpointMonitorStatus",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.",
       "jsonName": "endpointStatus",
       "name": "EndpointStatus",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.",
       "jsonName": "geoMapping",
       "name": "GeoMapping",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.",
       "jsonName": "minChildEndpoints",
       "name": "MinChildEndpoints",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.",
       "jsonName": "minChildEndpointsIPv4",
       "name": "MinChildEndpointsIPv4",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.",
       "jsonName": "minChildEndpointsIPv6",
       "name": "MinChildEndpointsIPv6",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.",
       "jsonName": "subnets",
       "name": "Subnets",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.",
       "jsonName": "target",
       "name": "Target",
       "objectDefinition": {
@@ -213,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.",
       "jsonName": "targetResourceId",
       "name": "TargetResourceId",
       "objectDefinition": {
@@ -229,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {

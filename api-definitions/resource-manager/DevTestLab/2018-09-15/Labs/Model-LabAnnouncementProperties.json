@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Is the lab announcement active/enabled at this time?",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the announcement expires (null for never)",
       "jsonName": "expirationDate",
       "name": "ExpirationDate",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Has this announcement expired?",
       "jsonName": "expired",
       "name": "Expired",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The markdown text (if any) that this lab displays in the UI. If left empty/null, nothing will be shown.",
       "jsonName": "markdown",
       "name": "Markdown",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning status of the resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The plain text title for the lab announcement",
       "jsonName": "title",
       "name": "Title",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique immutable identifier of a resource (Guid).",
       "jsonName": "uniqueIdentifier",
       "name": "UniqueIdentifier",
       "objectDefinition": {

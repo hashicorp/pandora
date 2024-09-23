@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Default the container to use specified encryption scope for all writes.",
       "jsonName": "defaultEncryptionScope",
       "name": "DefaultEncryptionScope",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the blob container was deleted.",
       "jsonName": "deleted",
       "name": "Deleted",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Blob container deletion time.",
       "jsonName": "deletedTime",
       "name": "DeletedTime",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Block override of encryption scope from the container default.",
       "jsonName": "denyEncryptionScopeOverride",
       "name": "DenyEncryptionScopeOverride",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable NFSv3 all squash on blob container.",
       "jsonName": "enableNfsV3AllSquash",
       "name": "EnableNfsV3AllSquash",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable NFSv3 root squash on blob container.",
       "jsonName": "enableNfsV3RootSquash",
       "name": "EnableNfsV3RootSquash",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.",
       "jsonName": "hasImmutabilityPolicy",
       "name": "HasImmutabilityPolicy",
       "objectDefinition": {
@@ -116,7 +109,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.",
       "jsonName": "hasLegalHold",
       "name": "HasLegalHold",
       "objectDefinition": {
@@ -132,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ImmutabilityPolicy property of the container.",
       "jsonName": "immutabilityPolicy",
       "name": "ImmutabilityPolicy",
       "objectDefinition": {
@@ -148,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.",
       "jsonName": "immutableStorageWithVersioning",
       "name": "ImmutableStorageWithVersioning",
       "objectDefinition": {
@@ -165,7 +155,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Returns the date and time the container was last modified.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
@@ -181,7 +170,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.",
       "jsonName": "leaseDuration",
       "name": "LeaseDuration",
       "objectDefinition": {
@@ -197,7 +185,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Lease state of the container.",
       "jsonName": "leaseState",
       "name": "LeaseState",
       "objectDefinition": {
@@ -213,7 +200,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The lease status of the container.",
       "jsonName": "leaseStatus",
       "name": "LeaseStatus",
       "objectDefinition": {
@@ -229,7 +215,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The LegalHold property of the container.",
       "jsonName": "legalHold",
       "name": "LegalHold",
       "objectDefinition": {
@@ -245,7 +230,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A name-value pair to associate with the container as metadata.",
       "jsonName": "metadata",
       "name": "Metadata",
       "objectDefinition": {
@@ -267,7 +251,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether data in the container may be accessed publicly and the level of access.",
       "jsonName": "publicAccess",
       "name": "PublicAccess",
       "objectDefinition": {
@@ -283,7 +266,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Remaining retention days for soft deleted blob container.",
       "jsonName": "remainingRetentionDays",
       "name": "RemainingRetentionDays",
       "objectDefinition": {
@@ -299,7 +281,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of the deleted blob container.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

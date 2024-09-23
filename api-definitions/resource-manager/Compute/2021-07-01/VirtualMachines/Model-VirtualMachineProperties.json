@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies additional capabilities enabled or disabled on the virtual machine.",
       "jsonName": "additionalCapabilities",
       "name": "AdditionalCapabilities",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the gallery applications that should be made available to the VM/VMSS",
       "jsonName": "applicationProfile",
       "name": "ApplicationProfile",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). \u003cbr\u003e\u003cbr\u003e For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) \u003cbr\u003e\u003cbr\u003e Currently, a VM can only be added to availability set at creation time. The availability set to which the VM is being added should be under the same resource group as the availability set resource. An existing VM cannot be added to an availability set. \u003cbr\u003e\u003cbr\u003eThis property cannot exist along with a non-null properties.virtualMachineScaleSet reference.",
       "jsonName": "availabilitySet",
       "name": "AvailabilitySet",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the billing related details of a Azure Spot virtual machine. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2019-03-01.",
       "jsonName": "billingProfile",
       "name": "BillingProfile",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the capacity reservation that is used to allocate virtual machine. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-04-01.",
       "jsonName": "capacityReservation",
       "name": "CapacityReservation",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the boot diagnostic settings state. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2015-06-15.",
       "jsonName": "diagnosticsProfile",
       "name": "DiagnosticsProfile",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. \u003cbr\u003e\u003cbr\u003eFor Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. \u003cbr\u003e\u003cbr\u003eFor Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.",
       "jsonName": "evictionPolicy",
       "name": "EvictionPolicy",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. The default value is 90 minutes (PT1H30M). \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2020-06-01",
       "jsonName": "extensionsTimeBudget",
       "name": "ExtensionsTimeBudget",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hardware settings for the virtual machine.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the dedicated host that the virtual machine resides in. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2018-10-01.",
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the dedicated host group that the virtual machine resides in. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2020-06-01. \u003cbr\u003e\u003cbr\u003eNOTE: User cannot specify both host and hostGroup properties.",
       "jsonName": "hostGroup",
       "name": "HostGroup",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The virtual machine instance view.",
       "jsonName": "instanceView",
       "name": "InstanceView",
       "objectDefinition": {
@@ -195,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -211,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the network interfaces of the virtual machine.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
@@ -227,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the operating system settings used while creating the virtual machine. Some of the settings cannot be changed once VM is provisioned.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
@@ -243,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the scale set logical fault domain into which the Virtual Machine will be created. By default, the Virtual Machine will by automatically assigned to a fault domain that best maintains balance across available fault domains.\u003cbr\u003e\u003cli\u003eThis is applicable only if the 'virtualMachineScaleSet' property of this Virtual Machine is set.\u003cli\u003eThe Virtual Machine Scale Set that is referenced, must have 'platformFaultDomainCount' \u0026gt; 1.\u003cli\u003eThis property cannot be updated once the Virtual Machine is created.\u003cli\u003eFault domain assignment can be viewed in the Virtual Machine Instance View.\u003cbr\u003e\u003cbr\u003eMinimum api‐version: 2020‐12‐01",
       "jsonName": "platformFaultDomain",
       "name": "PlatformFaultDomain",
       "objectDefinition": {
@@ -259,7 +243,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the priority for the virtual machine. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2019-03-01",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -275,7 +258,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state, which only appears in the response.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -291,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the proximity placement group that the virtual machine should be assigned to. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2018-04-01.",
       "jsonName": "proximityPlacementGroup",
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
@@ -307,7 +288,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies Scheduled Event related configurations.",
       "jsonName": "scheduledEventsProfile",
       "name": "ScheduledEventsProfile",
       "objectDefinition": {
@@ -323,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the Security related profile settings for the virtual machine.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
@@ -339,7 +318,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the storage settings for the virtual machine disks.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
@@ -355,7 +333,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
@@ -371,7 +348,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the VM unique ID which is a 128-bits identifier that is encoded and stored in all Azure IaaS VMs SMBIOS and can be read using platform BIOS commands.",
       "jsonName": "vmId",
       "name": "VMId",
       "objectDefinition": {
@@ -387,7 +363,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies information about the virtual machine scale set that the virtual machine should be assigned to. Virtual machines specified in the same virtual machine scale set are allocated to different nodes to maximize availability. Currently, a VM can only be added to virtual machine scale set at creation time. An existing VM cannot be added to a virtual machine scale set. \u003cbr\u003e\u003cbr\u003eThis property cannot exist along with a non-null properties.availabilitySet reference. \u003cbr\u003e\u003cbr\u003eMinimum api‐version: 2019‐03‐01",
       "jsonName": "virtualMachineScaleSet",
       "name": "VirtualMachineScaleSet",
       "objectDefinition": {

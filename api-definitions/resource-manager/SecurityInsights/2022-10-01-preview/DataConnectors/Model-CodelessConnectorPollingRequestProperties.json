@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describe the endpoint we should pull the data from",
       "jsonName": "apiEndpoint",
       "name": "ApiEndpoint",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This will be used the query events from the end of the time window",
       "jsonName": "endTimeAttributeName",
       "name": "EndTimeAttributeName",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The http method type we will use in the poll request, GET or POST",
       "jsonName": "httpMethod",
       "name": "HTTPMethod",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describe the headers sent in the poll request",
       "jsonName": "headers",
       "name": "Headers",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describe the query parameters sent in the poll request",
       "jsonName": "queryParameters",
       "name": "QueryParameters",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For advanced scenarios for example user name/password embedded in nested JSON payload",
       "jsonName": "queryParametersTemplate",
       "name": "QueryParametersTemplate",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The time format will be used the query events in a specific window",
       "jsonName": "queryTimeFormat",
       "name": "QueryTimeFormat",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The window interval we will use the pull the data",
       "jsonName": "queryWindowInMin",
       "name": "QueryWindowInMin",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the rate limit QPS",
       "jsonName": "rateLimitQps",
       "name": "RateLimitQps",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describe the amount of time we should try and poll the data in case of failure",
       "jsonName": "retryCount",
       "name": "RetryCount",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This will be used the query events from a start of the time window",
       "jsonName": "startTimeAttributeName",
       "name": "StartTimeAttributeName",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of seconds we will consider as a request timeout",
       "jsonName": "timeoutInSeconds",
       "name": "TimeoutInSeconds",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The key to sign the account SAS token with.",
       "jsonName": "keyToSign",
       "name": "KeyToSign",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the shared access signature becomes invalid.",
       "jsonName": "signedExpiry",
       "name": "SignedExpiry",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An IP address or a range of IP addresses from which to accept requests.",
       "jsonName": "signedIp",
       "name": "SignedIP",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).",
       "jsonName": "signedPermission",
       "name": "SignedPermission",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The protocol permitted for a request made with the account SAS.",
       "jsonName": "signedProtocol",
       "name": "SignedProtocol",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The signed resource types that are accessible with the account SAS. Service (s): Access to service-level APIs; Container (c): Access to container-level APIs; Object (o): Access to object-level APIs for blobs, queue messages, table entities, and files.",
       "jsonName": "signedResourceTypes",
       "name": "SignedResourceTypes",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The signed services accessible with the account SAS. Possible values include: Blob (b), Queue (q), Table (t), File (f).",
       "jsonName": "signedServices",
       "name": "SignedServices",
       "objectDefinition": {
@@ -117,7 +110,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time at which the SAS becomes valid.",
       "jsonName": "signedStart",
       "name": "SignedStart",
       "objectDefinition": {

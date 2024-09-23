@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allowed session types in addition to the default session type. Must not duplicate the default session type.",
       "jsonName": "additionalAllowedSessionTypes",
       "name": "AdditionalAllowedSessionTypes",
       "objectDefinition": {
@@ -40,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.",
       "jsonName": "allowedServices",
       "name": "AllowedServices",
       "objectDefinition": {
@@ -107,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.",
       "jsonName": "maximumNumberOfBufferedPackets",
       "name": "MaximumNumberOfBufferedPackets",
       "objectDefinition": {

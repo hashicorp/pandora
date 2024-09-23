@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last time when a scan was done on the device.",
       "jsonName": "deviceLastScannedDateTime",
       "name": "DeviceLastScannedDateTime",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current version of the device in format: 1.2.17312.13.\",",
       "jsonName": "deviceVersionNumber",
       "name": "DeviceVersionNumber",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current version of the device in text format.",
       "jsonName": "friendlyDeviceVersionName",
       "name": "FriendlyDeviceVersionName",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The job ID of the download job in progress.",
       "jsonName": "inProgressDownloadJobId",
       "name": "InProgressDownloadJobId",
       "objectDefinition": {
@@ -69,7 +65,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the currently running download (if any) started.",
       "jsonName": "inProgressDownloadJobStartedDateTime",
       "name": "InProgressDownloadJobStartedDateTime",
       "objectDefinition": {
@@ -85,7 +80,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The job ID of the install job in progress.",
       "jsonName": "inProgressInstallJobId",
       "name": "InProgressInstallJobId",
       "objectDefinition": {
@@ -102,7 +96,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the currently running install (if any) started.",
       "jsonName": "inProgressInstallJobStartedDateTime",
       "name": "InProgressInstallJobStartedDateTime",
       "objectDefinition": {
@@ -119,7 +112,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the last Download job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedDownloadJobDateTime",
       "name": "LastCompletedDownloadJobDateTime",
       "objectDefinition": {
@@ -135,7 +127,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "JobId of the last ran download job.(Can be success/cancelled/failed)",
       "jsonName": "lastCompletedDownloadJobId",
       "name": "LastCompletedDownloadJobId",
       "objectDefinition": {
@@ -152,7 +143,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the last Install job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedInstallJobDateTime",
       "name": "LastCompletedInstallJobDateTime",
       "objectDefinition": {
@@ -168,7 +158,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "JobId of the last ran install job.(Can be success/cancelled/failed)",
       "jsonName": "lastCompletedInstallJobId",
       "name": "LastCompletedInstallJobId",
       "objectDefinition": {
@@ -185,7 +174,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the last scan job was completed (success/cancelled/failed) on the appliance.",
       "jsonName": "lastCompletedScanJobDateTime",
       "name": "LastCompletedScanJobDateTime",
       "objectDefinition": {
@@ -201,7 +189,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "JobStatus of the last ran download job.",
       "jsonName": "lastDownloadJobStatus",
       "name": "LastDownloadJobStatus",
       "objectDefinition": {
@@ -217,7 +204,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "JobStatus of the last ran install job.",
       "jsonName": "lastInstallJobStatus",
       "name": "LastInstallJobStatus",
       "objectDefinition": {
@@ -234,7 +220,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the Last Install job was completed successfully on the appliance",
       "jsonName": "lastSuccessfulInstallJobDateTime",
       "name": "LastSuccessfulInstallJobDateTime",
       "objectDefinition": {
@@ -251,7 +236,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Time when the last scan job is successfully completed.",
       "jsonName": "lastSuccessfulScanJobTime",
       "name": "LastSuccessfulScanJobTime",
       "objectDefinition": {
@@ -267,7 +251,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current update operation.",
       "jsonName": "ongoingUpdateOperation",
       "name": "OngoingUpdateOperation",
       "objectDefinition": {
@@ -283,7 +266,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if updates are available and at least one of the updates needs a reboot.",
       "jsonName": "rebootBehavior",
       "name": "RebootBehavior",
       "objectDefinition": {
@@ -299,7 +281,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of updates available for the current device version as per the last device scan.",
       "jsonName": "totalNumberOfUpdatesAvailable",
       "name": "TotalNumberOfUpdatesAvailable",
       "objectDefinition": {
@@ -315,7 +296,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total number of items pending download.",
       "jsonName": "totalNumberOfUpdatesPendingDownload",
       "name": "TotalNumberOfUpdatesPendingDownload",
       "objectDefinition": {
@@ -331,7 +311,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total number of items pending install.",
       "jsonName": "totalNumberOfUpdatesPendingInstall",
       "name": "TotalNumberOfUpdatesPendingInstall",
       "objectDefinition": {
@@ -347,7 +326,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total time in Minutes",
       "jsonName": "totalTimeInMinutes",
       "name": "TotalTimeInMinutes",
       "objectDefinition": {
@@ -363,7 +341,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The total size of updates available for download in bytes.",
       "jsonName": "totalUpdateSizeInBytes",
       "name": "TotalUpdateSizeInBytes",
       "objectDefinition": {
@@ -379,7 +356,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of updates available for install.",
       "jsonName": "updateTitles",
       "name": "UpdateTitles",
       "objectDefinition": {
@@ -401,7 +377,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of updates available for install.",
       "jsonName": "updates",
       "name": "Updates",
       "objectDefinition": {

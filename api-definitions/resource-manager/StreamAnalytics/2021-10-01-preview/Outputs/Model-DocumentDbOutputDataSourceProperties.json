@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The DocumentDB account name or ID. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "accountId",
       "name": "AccountId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The account key for the DocumentDB account. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "accountKey",
       "name": "AccountKey",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The collection name pattern for the collections to be used. The collection name format can be constructed using the optional {partition} token, where partitions start from 0. See the DocumentDB section of https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output for more information. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "collectionNamePattern",
       "name": "CollectionNamePattern",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the DocumentDB database. Required on PUT (CreateOrReplace) requests.",
       "jsonName": "database",
       "name": "Database",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the field in output events used to specify the primary key which insert or update operations are based on.",
       "jsonName": "documentId",
       "name": "DocumentId",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the field in output events used to specify the key for partitioning output across collections. If 'collectionNamePattern' contains the {partition} token, this property is required to be specified.",
       "jsonName": "partitionKey",
       "name": "PartitionKey",
       "objectDefinition": {

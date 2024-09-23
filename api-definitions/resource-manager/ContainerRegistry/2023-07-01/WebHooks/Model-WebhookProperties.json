@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of actions that trigger the webhook to post notifications.",
       "jsonName": "actions",
       "name": "Actions",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the webhook at the time the operation was called.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the webhook at the time the operation was called.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

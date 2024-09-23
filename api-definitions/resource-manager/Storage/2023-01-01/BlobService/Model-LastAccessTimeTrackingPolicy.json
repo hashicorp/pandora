@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of predefined supported blob types. Only blockBlob is the supported value. This field is currently read only",
       "jsonName": "blobType",
       "name": "BlobType",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true last access time based tracking is enabled.",
       "jsonName": "enable",
       "name": "Enable",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the policy. The valid value is AccessTimeTracking. This field is currently read only",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The field specifies blob object tracking granularity in days, typically how often the blob object should be tracked.This field is currently read only with value as 1",
       "jsonName": "trackingGranularityInDays",
       "name": "TrackingGranularityInDays",
       "objectDefinition": {

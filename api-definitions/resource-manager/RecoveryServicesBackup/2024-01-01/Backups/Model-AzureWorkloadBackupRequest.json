@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of backup, viz. Full, Differential, Log or CopyOnlyFull",
       "jsonName": "backupType",
       "name": "BackupType",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Bool for Compression setting",
       "jsonName": "enableCompression",
       "name": "EnableCompression",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Backup copy will expire after the time specified (UTC).",
       "jsonName": "recoveryPointExpiryTimeInUTC",
       "name": "RecoveryPointExpiryTimeInUTC",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allowed models for forecasting task.",
       "jsonName": "allowedTrainingAlgorithms",
       "name": "AllowedTrainingAlgorithms",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Blocked models for forecasting task.",
       "jsonName": "blockedTrainingAlgorithms",
       "name": "BlockedTrainingAlgorithms",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable recommendation of DNN models.",
       "jsonName": "enableDnnTraining",
       "name": "EnableDnnTraining",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to turn on explainability on best model.",
       "jsonName": "enableModelExplainability",
       "name": "EnableModelExplainability",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag for enabling onnx compatible models.",
       "jsonName": "enableOnnxCompatibleModels",
       "name": "EnableOnnxCompatibleModels",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable stack ensemble run.",
       "jsonName": "enableStackEnsemble",
       "name": "EnableStackEnsemble",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable voting ensemble run.",
       "jsonName": "enableVoteEnsemble",
       "name": "EnableVoteEnsemble",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "During VotingEnsemble and StackEnsemble model generation, multiple fitted models from the previous child runs are downloaded.\r\nConfigure this parameter with a higher value than 300 secs, if more time is needed.",
       "jsonName": "ensembleModelDownloadTimeout",
       "name": "EnsembleModelDownloadTimeout",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Stack ensemble settings for stack ensemble run.",
       "jsonName": "stackEnsembleSettings",
       "name": "StackEnsembleSettings",
       "objectDefinition": {

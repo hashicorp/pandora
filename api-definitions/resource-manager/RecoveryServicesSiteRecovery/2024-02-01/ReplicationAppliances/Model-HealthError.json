@@ -4,7 +4,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Error creation time (UTC).",
       "jsonName": "creationTimeUtc",
       "name": "CreationTimeUtc",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Value indicating whether the health error is customer resolvable.",
       "jsonName": "customerResolvability",
       "name": "CustomerResolvability",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ID of the entity.",
       "jsonName": "entityId",
       "name": "EntityId",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Category of error.",
       "jsonName": "errorCategory",
       "name": "ErrorCategory",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Error code.",
       "jsonName": "errorCode",
       "name": "ErrorCode",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The health error unique id.",
       "jsonName": "errorId",
       "name": "ErrorId",
       "objectDefinition": {
@@ -100,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Level of error.",
       "jsonName": "errorLevel",
       "name": "ErrorLevel",
       "objectDefinition": {
@@ -116,7 +109,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Error message.",
       "jsonName": "errorMessage",
       "name": "ErrorMessage",
       "objectDefinition": {
@@ -132,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Source of error.",
       "jsonName": "errorSource",
       "name": "ErrorSource",
       "objectDefinition": {
@@ -148,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of error.",
       "jsonName": "errorType",
       "name": "ErrorType",
       "objectDefinition": {
@@ -164,7 +154,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The inner health errors. HealthError having a list of HealthError as child errors is problematic. InnerHealthError is used because this will prevent an infinite loop of structures when Hydra tries to auto-generate the contract. We are exposing the related health errors as inner health errors and all API consumers can utilize this in the same fashion as Exception -\u0026gt; InnerException.",
       "jsonName": "innerHealthErrors",
       "name": "InnerHealthErrors",
       "objectDefinition": {
@@ -186,7 +175,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Possible causes of error.",
       "jsonName": "possibleCauses",
       "name": "PossibleCauses",
       "objectDefinition": {
@@ -202,7 +190,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Recommended action to resolve error.",
       "jsonName": "recommendedAction",
       "name": "RecommendedAction",
       "objectDefinition": {
@@ -218,7 +205,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DRA error message.",
       "jsonName": "recoveryProviderErrorMessage",
       "name": "RecoveryProviderErrorMessage",
       "objectDefinition": {
@@ -234,7 +220,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Summary message of the entity.",
       "jsonName": "summaryMessage",
       "name": "SummaryMessage",
       "objectDefinition": {

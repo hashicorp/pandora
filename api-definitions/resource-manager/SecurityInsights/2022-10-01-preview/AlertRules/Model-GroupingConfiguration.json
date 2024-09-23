@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Grouping enabled",
       "jsonName": "enabled",
       "name": "Enabled",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of alert details to group by (when matchingMethod is Selected)",
       "jsonName": "groupByAlertDetails",
       "name": "GroupByAlertDetails",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of custom details keys to group by (when matchingMethod is Selected). Only keys defined in the current alert rule may be used.",
       "jsonName": "groupByCustomDetails",
       "name": "GroupByCustomDetails",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of entity types to group by (when matchingMethod is Selected). Only entities defined in the current alert rule may be used.",
       "jsonName": "groupByEntities",
       "name": "GroupByEntities",
       "objectDefinition": {
@@ -85,7 +81,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Limit the group to alerts created within the lookback duration (in ISO 8601 duration format)",
       "jsonName": "lookbackDuration",
       "name": "LookbackDuration",
       "objectDefinition": {
@@ -101,7 +96,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.",
       "jsonName": "matchingMethod",
       "name": "MatchingMethod",
       "objectDefinition": {
@@ -117,7 +111,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Re-open closed matching incidents",
       "jsonName": "reopenClosedIncident",
       "name": "ReopenClosedIncident",
       "objectDefinition": {

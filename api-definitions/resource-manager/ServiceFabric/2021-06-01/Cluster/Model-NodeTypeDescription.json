@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
       "jsonName": "applicationPorts",
       "name": "ApplicationPorts",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.",
       "jsonName": "capacities",
       "name": "Capacities",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The TCP cluster management endpoint port.",
       "jsonName": "clientConnectionEndpointPort",
       "name": "ClientConnectionEndpointPort",
       "objectDefinition": {
@@ -72,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ephemeral ports that nodes in this node type should be configured with.",
       "jsonName": "ephemeralPorts",
       "name": "EphemeralPorts",
       "objectDefinition": {
@@ -88,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The HTTP cluster management endpoint port.",
       "jsonName": "httpGatewayEndpointPort",
       "name": "HTTPGatewayEndpointPort",
       "objectDefinition": {
@@ -104,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.",
       "jsonName": "isPrimary",
       "name": "IsPrimary",
       "objectDefinition": {
@@ -120,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the node type can only host Stateless workloads.",
       "jsonName": "isStateless",
       "name": "IsStateless",
       "objectDefinition": {
@@ -136,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the node type is enabled to support multiple zones.",
       "jsonName": "multipleAvailabilityZones",
       "name": "MultipleAvailabilityZones",
       "objectDefinition": {
@@ -152,7 +144,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the node type.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -168,7 +159,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.",
       "jsonName": "placementProperties",
       "name": "PlacementProperties",
       "objectDefinition": {
@@ -190,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The endpoint used by reverse proxy.",
       "jsonName": "reverseProxyEndpointPort",
       "name": "ReverseProxyEndpointPort",
       "objectDefinition": {
@@ -206,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "VMInstanceCount should be 1 to n, where n indicates the number of VM instances corresponding to this nodeType. VMInstanceCount = 0 can be done only in these scenarios: NodeType is a secondary nodeType. Durability = Bronze or Durability \u003e= Bronze and InfrastructureServiceManager = true. If VMInstanceCount = 0, implies the VMs for this nodeType will not be used for the initial cluster size computation.",
       "jsonName": "vmInstanceCount",
       "name": "VMInstanceCount",
       "objectDefinition": {

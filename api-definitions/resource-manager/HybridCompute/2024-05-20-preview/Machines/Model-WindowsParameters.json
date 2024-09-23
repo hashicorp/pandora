@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The update classifications to select when installing patches for Windows.",
       "jsonName": "classificationsToInclude",
       "name": "ClassificationsToInclude",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Filters out Kbs that don't have an InstallationRebootBehavior of 'NeverReboots' when this is set to true.",
       "jsonName": "excludeKbsRequiringReboot",
       "name": "ExcludeKbsRequiringReboot",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Kbs to exclude in the patch operation",
       "jsonName": "kbNumbersToExclude",
       "name": "KbNumbersToExclude",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Kbs to include in the patch operation",
       "jsonName": "kbNumbersToInclude",
       "name": "KbNumbersToInclude",
       "objectDefinition": {
@@ -86,7 +82,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "This is used to install patches that were published on or before this given max published date.",
       "jsonName": "maxPatchPublishDate",
       "name": "MaxPatchPublishDate",
       "objectDefinition": {

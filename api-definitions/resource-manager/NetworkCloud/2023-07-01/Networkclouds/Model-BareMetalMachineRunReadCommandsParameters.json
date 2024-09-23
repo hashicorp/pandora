@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of read-only commands to be executed directly against the target machine.",
       "jsonName": "commands",
       "name": "Commands",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum time the commands are allowed to run.\nIf the execution time exceeds the maximum, the script will be stopped, any output produced until then will be captured, and the exit code matching a timeout will be returned (252).",
       "jsonName": "limitTimeSeconds",
       "name": "LimitTimeSeconds",
       "objectDefinition": {

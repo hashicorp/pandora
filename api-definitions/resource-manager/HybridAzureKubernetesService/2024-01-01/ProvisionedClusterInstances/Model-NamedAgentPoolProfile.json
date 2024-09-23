@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of nodes in the agent pool. The default value is 1.",
       "jsonName": "count",
       "name": "Count",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable auto-scaler. Default value is false",
       "jsonName": "enableAutoScaling",
       "name": "EnableAutoScaling",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version of Kubernetes in use by the agent pool. This is inherited from the kubernetesVersion of the provisioned cluster.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of nodes for auto-scaling",
       "jsonName": "maxCount",
       "name": "MaxCount",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum number of pods that can run on a node.",
       "jsonName": "maxPods",
       "name": "MaxPods",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum number of nodes for auto-scaling",
       "jsonName": "minCount",
       "name": "MinCount",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique name of the default agent pool in the context of the provisioned cluster. Default value is \u003cclusterName\u003e-nodepool1",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The node labels to be persisted across all nodes in agent pool.",
       "jsonName": "nodeLabels",
       "name": "NodeLabels",
       "objectDefinition": {
@@ -137,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.",
       "jsonName": "nodeTaints",
       "name": "NodeTaints",
       "objectDefinition": {
@@ -189,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The VM sku size of the agent pool node VMs.",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {

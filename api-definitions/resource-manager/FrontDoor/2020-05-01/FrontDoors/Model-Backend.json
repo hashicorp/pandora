@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Location of the backend (IP address or FQDN)",
       "jsonName": "address",
       "name": "Address",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host.",
       "jsonName": "backendHostHeader",
       "name": "BackendHostHeader",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'",
       "jsonName": "enabledState",
       "name": "EnabledState",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The HTTP TCP port number. Must be between 1 and 65535.",
       "jsonName": "httpPort",
       "name": "HTTPPort",
       "objectDefinition": {
@@ -67,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The HTTPS TCP port number. Must be between 1 and 65535.",
       "jsonName": "httpsPort",
       "name": "HTTPSPort",
       "objectDefinition": {
@@ -83,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy.",
       "jsonName": "priority",
       "name": "Priority",
       "objectDefinition": {
@@ -99,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Approval status for the connection to the Private Link",
       "jsonName": "privateEndpointStatus",
       "name": "PrivateEndpointStatus",
       "objectDefinition": {
@@ -115,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
       "jsonName": "privateLinkAlias",
       "name": "PrivateLinkAlias",
       "objectDefinition": {
@@ -131,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A custom message to be included in the approval request to connect to the Private Link",
       "jsonName": "privateLinkApprovalMessage",
       "name": "PrivateLinkApprovalMessage",
       "objectDefinition": {
@@ -147,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated",
       "jsonName": "privateLinkLocation",
       "name": "PrivateLinkLocation",
       "objectDefinition": {
@@ -163,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'",
       "jsonName": "privateLinkResourceId",
       "name": "PrivateLinkResourceId",
       "objectDefinition": {
@@ -179,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Weight of this endpoint for load balancing purposes.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {

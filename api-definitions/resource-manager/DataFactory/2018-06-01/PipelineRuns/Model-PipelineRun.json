@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The duration of a pipeline run.",
       "jsonName": "durationInMs",
       "name": "DurationInMs",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Entity that started the pipeline run.",
       "jsonName": "invokedBy",
       "name": "InvokedBy",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the recovered pipeline run is the latest in its group.",
       "jsonName": "isLatest",
       "name": "IsLatest",
       "objectDefinition": {
@@ -52,7 +49,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The last updated timestamp for the pipeline run event in ISO8601 format.",
       "jsonName": "lastUpdated",
       "name": "LastUpdated",
       "objectDefinition": {
@@ -68,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The message from a pipeline run.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
@@ -84,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The full or partial list of parameter name, value pair used in the pipeline run.",
       "jsonName": "parameters",
       "name": "Parameters",
       "objectDefinition": {
@@ -106,7 +100,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The pipeline name.",
       "jsonName": "pipelineName",
       "name": "PipelineName",
       "objectDefinition": {
@@ -122,7 +115,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Run dimensions emitted by Pipeline run.",
       "jsonName": "runDimensions",
       "name": "RunDimensions",
       "objectDefinition": {
@@ -145,7 +137,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The end time of a pipeline run in ISO8601 format.",
       "jsonName": "runEnd",
       "name": "RunEnd",
       "objectDefinition": {
@@ -161,7 +152,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identifier that correlates all the recovery runs of a pipeline run.",
       "jsonName": "runGroupId",
       "name": "RunGroupId",
       "objectDefinition": {
@@ -177,7 +167,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identifier of a run.",
       "jsonName": "runId",
       "name": "RunId",
       "objectDefinition": {
@@ -194,7 +183,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The start time of a pipeline run in ISO8601 format.",
       "jsonName": "runStart",
       "name": "RunStart",
       "objectDefinition": {
@@ -210,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of a pipeline run. Possible values: Queued, InProgress, Succeeded, Failed, Canceling, Cancelled",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

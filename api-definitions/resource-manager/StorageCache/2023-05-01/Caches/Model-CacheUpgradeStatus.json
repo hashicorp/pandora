@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Version string of the firmware currently installed on this cache.",
       "jsonName": "currentFirmwareVersion",
       "name": "CurrentFirmwareVersion",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Time at which the pending firmware update will automatically be installed on the cache.",
       "jsonName": "firmwareUpdateDeadline",
       "name": "FirmwareUpdateDeadline",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if there is a firmware update ready to install on this cache. The firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.",
       "jsonName": "firmwareUpdateStatus",
       "name": "FirmwareUpdateStatus",
       "objectDefinition": {
@@ -53,7 +50,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Time of the last successful firmware update.",
       "jsonName": "lastFirmwareUpdate",
       "name": "LastFirmwareUpdate",
       "objectDefinition": {
@@ -69,7 +65,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When firmwareUpdateAvailable is true, this field holds the version string for the update.",
       "jsonName": "pendingFirmwareVersion",
       "name": "PendingFirmwareVersion",
       "objectDefinition": {

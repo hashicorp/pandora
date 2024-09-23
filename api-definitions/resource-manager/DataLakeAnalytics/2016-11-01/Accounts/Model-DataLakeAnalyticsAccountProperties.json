@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The unique identifier associated with this Data Lake Analytics account.",
       "jsonName": "accountId",
       "name": "AccountId",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of compute policies associated with this account.",
       "jsonName": "computePolicies",
       "name": "ComputePolicies",
       "objectDefinition": {
@@ -42,7 +40,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The account creation time.",
       "jsonName": "creationTime",
       "name": "CreationTime",
       "objectDefinition": {
@@ -58,7 +55,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The commitment tier in use for the current month.",
       "jsonName": "currentTier",
       "name": "CurrentTier",
       "objectDefinition": {
@@ -74,7 +70,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of Data Lake Store accounts associated with this account.",
       "jsonName": "dataLakeStoreAccounts",
       "name": "DataLakeStoreAccounts",
       "objectDefinition": {
@@ -96,7 +91,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current state of the DebugDataAccessLevel for this account.",
       "jsonName": "debugDataAccessLevel",
       "name": "DebugDataAccessLevel",
       "objectDefinition": {
@@ -112,7 +106,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default Data Lake Store account associated with this account.",
       "jsonName": "defaultDataLakeStoreAccount",
       "name": "DefaultDataLakeStoreAccount",
       "objectDefinition": {
@@ -128,7 +121,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The full CName endpoint for this account.",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
@@ -144,7 +136,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.",
       "jsonName": "firewallAllowAzureIps",
       "name": "FirewallAllowAzureIPs",
       "objectDefinition": {
@@ -160,7 +151,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of firewall rules associated with this account.",
       "jsonName": "firewallRules",
       "name": "FirewallRules",
       "objectDefinition": {
@@ -182,7 +172,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current state of the IP address firewall for this account.",
       "jsonName": "firewallState",
       "name": "FirewallState",
       "objectDefinition": {
@@ -198,7 +187,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of hiveMetastores associated with this account.",
       "jsonName": "hiveMetastores",
       "name": "HiveMetastores",
       "objectDefinition": {
@@ -221,7 +209,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The account last modified time.",
       "jsonName": "lastModifiedTime",
       "name": "LastModifiedTime",
       "objectDefinition": {
@@ -237,7 +224,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported active jobs under the account at the same time.",
       "jsonName": "maxActiveJobCountPerUser",
       "name": "MaxActiveJobCountPerUser",
       "objectDefinition": {
@@ -253,7 +239,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported degree of parallelism for this account.",
       "jsonName": "maxDegreeOfParallelism",
       "name": "MaxDegreeOfParallelism",
       "objectDefinition": {
@@ -269,7 +254,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported degree of parallelism per job for this account.",
       "jsonName": "maxDegreeOfParallelismPerJob",
       "name": "MaxDegreeOfParallelismPerJob",
       "objectDefinition": {
@@ -285,7 +269,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported jobs running under the account at the same time.",
       "jsonName": "maxJobCount",
       "name": "MaxJobCount",
       "objectDefinition": {
@@ -301,7 +284,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported active jobs under the account at the same time.",
       "jsonName": "maxJobRunningTimeInMin",
       "name": "MaxJobRunningTimeInMin",
       "objectDefinition": {
@@ -317,7 +299,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum supported jobs queued under the account at the same time.",
       "jsonName": "maxQueuedJobCountPerUser",
       "name": "MaxQueuedJobCountPerUser",
       "objectDefinition": {
@@ -333,7 +314,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The minimum supported priority per job for this account.",
       "jsonName": "minPriorityPerJob",
       "name": "MinPriorityPerJob",
       "objectDefinition": {
@@ -349,7 +329,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The commitment tier for the next month.",
       "jsonName": "newTier",
       "name": "NewTier",
       "objectDefinition": {
@@ -365,7 +344,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning status of the Data Lake Analytics account.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -381,7 +359,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of Data Lake Store accounts associated with this account.",
       "jsonName": "publicDataLakeStoreAccounts",
       "name": "PublicDataLakeStoreAccounts",
       "objectDefinition": {
@@ -403,7 +380,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of days that job metadata is retained.",
       "jsonName": "queryStoreRetention",
       "name": "QueryStoreRetention",
       "objectDefinition": {
@@ -419,7 +395,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The state of the Data Lake Analytics account.",
       "jsonName": "state",
       "name": "State",
       "objectDefinition": {
@@ -435,7 +410,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of Azure Blob Storage accounts associated with this account.",
       "jsonName": "storageAccounts",
       "name": "StorageAccounts",
       "objectDefinition": {
@@ -457,7 +431,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The system defined maximum supported degree of parallelism for this account, which restricts the maximum value of parallelism the user can set for the account.",
       "jsonName": "systemMaxDegreeOfParallelism",
       "name": "SystemMaxDegreeOfParallelism",
       "objectDefinition": {
@@ -473,7 +446,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The system defined maximum supported jobs running under the account at the same time, which restricts the maximum number of running jobs the user can set for the account.",
       "jsonName": "systemMaxJobCount",
       "name": "SystemMaxJobCount",
       "objectDefinition": {
@@ -489,7 +461,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of virtualNetwork rules associated with this account.",
       "jsonName": "virtualNetworkRules",
       "name": "VirtualNetworkRules",
       "objectDefinition": {

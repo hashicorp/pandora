@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Analytical storage specific properties.",
       "jsonName": "analyticalStorageConfiguration",
       "name": "AnalyticalStorageConfiguration",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "API specific properties. Currently, supported only for MongoDB API.",
       "jsonName": "apiProperties",
       "name": "ApiProperties",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object representing the policy for taking backups on an account.",
       "jsonName": "backupPolicy",
       "name": "BackupPolicy",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of Cosmos DB capabilities for the account",
       "jsonName": "capabilities",
       "name": "Capabilities",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The object that represents all properties related to capacity enforcement on an account.",
       "jsonName": "capacity",
       "name": "Capacity",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The cassandra connector offer type for the Cosmos DB database C* account.",
       "jsonName": "connectorOffer",
       "name": "ConnectorOffer",
       "objectDefinition": {
@@ -105,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The consistency policy for the Cosmos DB account.",
       "jsonName": "consistencyPolicy",
       "name": "ConsistencyPolicy",
       "objectDefinition": {
@@ -121,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The CORS policy for the Cosmos DB database account.",
       "jsonName": "cors",
       "name": "Cors",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enum to indicate the mode of account creation.",
       "jsonName": "createMode",
       "name": "CreateMode",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The offer type for the database",
       "jsonName": "databaseAccountOfferType",
       "name": "DatabaseAccountOfferType",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more.",
       "jsonName": "defaultIdentity",
       "name": "DefaultIdentity",
       "objectDefinition": {
@@ -191,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Disable write operations on metadata resources (databases, containers, throughput) via account keys",
       "jsonName": "disableKeyBasedMetadataWriteAccess",
       "name": "DisableKeyBasedMetadataWriteAccess",
       "objectDefinition": {
@@ -207,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.",
       "jsonName": "disableLocalAuth",
       "name": "DisableLocalAuth",
       "objectDefinition": {
@@ -223,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to indicate whether to enable storage analytics.",
       "jsonName": "enableAnalyticalStorage",
       "name": "EnableAnalyticalStorage",
       "objectDefinition": {
@@ -239,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.",
       "jsonName": "enableAutomaticFailover",
       "name": "EnableAutomaticFailover",
       "objectDefinition": {
@@ -255,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables the cassandra connector on the Cosmos DB C* account",
       "jsonName": "enableCassandraConnector",
       "name": "EnableCassandraConnector",
       "objectDefinition": {
@@ -271,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to indicate whether Free Tier is enabled.",
       "jsonName": "enableFreeTier",
       "name": "EnableFreeTier",
       "objectDefinition": {
@@ -287,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enables the account to write in multiple locations",
       "jsonName": "enableMultipleWriteLocations",
       "name": "EnableMultipleWriteLocations",
       "objectDefinition": {
@@ -303,7 +285,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to indicate enabling/disabling of Partition Merge feature on the account",
       "jsonName": "enablePartitionMerge",
       "name": "EnablePartitionMerge",
       "objectDefinition": {
@@ -319,7 +300,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of IpRules.",
       "jsonName": "ipRules",
       "name": "IPRules",
       "objectDefinition": {
@@ -341,7 +321,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag to indicate whether to enable/disable Virtual Network ACL rules.",
       "jsonName": "isVirtualNetworkFilterEnabled",
       "name": "IsVirtualNetworkFilterEnabled",
       "objectDefinition": {
@@ -357,7 +336,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URI of the key vault",
       "jsonName": "keyVaultKeyUri",
       "name": "KeyVaultKeyUri",
       "objectDefinition": {
@@ -373,7 +351,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This property is ignored during the update/create operation, as the metadata is read-only. The object represents the metadata for the Account Keys of the Cosmos DB account.",
       "jsonName": "keysMetadata",
       "name": "KeysMetadata",
       "objectDefinition": {
@@ -389,7 +366,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array that contains the georeplication locations enabled for the Cosmos DB account.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
@@ -411,7 +387,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.",
       "jsonName": "minimalTlsVersion",
       "name": "MinimalTlsVersion",
       "objectDefinition": {
@@ -427,7 +402,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates what services are allowed to bypass firewall checks.",
       "jsonName": "networkAclBypass",
       "name": "NetworkAclBypass",
       "objectDefinition": {
@@ -443,7 +417,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.",
       "jsonName": "networkAclBypassResourceIds",
       "name": "NetworkAclBypassResourceIds",
       "objectDefinition": {
@@ -465,7 +438,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether requests from Public Network are allowed",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -481,7 +453,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Parameters to indicate the information about the restore.",
       "jsonName": "restoreParameters",
       "name": "RestoreParameters",
       "objectDefinition": {
@@ -497,7 +468,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of Virtual Network ACL rules configured for the Cosmos DB account.",
       "jsonName": "virtualNetworkRules",
       "name": "VirtualNetworkRules",
       "objectDefinition": {

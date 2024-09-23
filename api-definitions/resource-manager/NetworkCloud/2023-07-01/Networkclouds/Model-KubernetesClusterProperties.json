@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Azure Active Directory Integration properties.",
       "jsonName": "aadConfiguration",
       "name": "AadConfiguration",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.",
       "jsonName": "administratorConfiguration",
       "name": "AdministratorConfiguration",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The full list of network resource IDs that are attached to this cluster, including those attached only to specific agent pools.",
       "jsonName": "attachedNetworkIds",
       "name": "AttachedNetworkIds",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of versions that this Kubernetes cluster can be upgraded to.",
       "jsonName": "availableUpgrades",
       "name": "AvailableUpgrades",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the Network Cloud cluster.",
       "jsonName": "clusterId",
       "name": "ClusterId",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resource ID of the connected cluster set up when this Kubernetes cluster is created.",
       "jsonName": "connectedClusterId",
       "name": "ConnectedClusterId",
       "objectDefinition": {
@@ -111,7 +105,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current running version of Kubernetes on the control plane.",
       "jsonName": "controlPlaneKubernetesVersion",
       "name": "ControlPlaneKubernetesVersion",
       "objectDefinition": {
@@ -127,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The defining characteristics of the control plane for this Kubernetes Cluster.",
       "jsonName": "controlPlaneNodeConfiguration",
       "name": "ControlPlaneNodeConfiguration",
       "objectDefinition": {
@@ -143,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current status of the Kubernetes cluster.",
       "jsonName": "detailedStatus",
       "name": "DetailedStatus",
       "objectDefinition": {
@@ -159,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The descriptive message about the current detailed status.",
       "jsonName": "detailedStatusMessage",
       "name": "DetailedStatusMessage",
       "objectDefinition": {
@@ -175,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current feature settings.",
       "jsonName": "featureStatuses",
       "name": "FeatureStatuses",
       "objectDefinition": {
@@ -197,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.",
       "jsonName": "initialAgentPoolConfigurations",
       "name": "InitialAgentPoolConfigurations",
       "objectDefinition": {
@@ -219,7 +207,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -235,7 +222,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration of the managed resource group associated with the resource.",
       "jsonName": "managedResourceGroupConfiguration",
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
@@ -251,7 +237,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.",
       "jsonName": "networkConfiguration",
       "name": "NetworkConfiguration",
       "objectDefinition": {
@@ -267,7 +252,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The details of the nodes in this cluster.",
       "jsonName": "nodes",
       "name": "Nodes",
       "objectDefinition": {
@@ -289,7 +273,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the Kubernetes cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {

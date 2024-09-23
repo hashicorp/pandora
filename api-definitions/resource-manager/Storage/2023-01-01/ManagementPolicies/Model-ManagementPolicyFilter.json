@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of blob index tag based filters, there can be at most 10 tag filters",
       "jsonName": "blobIndexMatch",
       "name": "BlobIndexMatch",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of predefined enum values. Currently blockBlob supports all tiering and delete actions. Only delete actions are supported for appendBlob.",
       "jsonName": "blobTypes",
       "name": "BlobTypes",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An array of strings for prefixes to be match.",
       "jsonName": "prefixMatch",
       "name": "PrefixMatch",
       "objectDefinition": {

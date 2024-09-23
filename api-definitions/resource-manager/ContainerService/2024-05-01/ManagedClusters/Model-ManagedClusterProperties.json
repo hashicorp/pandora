@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Azure Active Directory configuration.",
       "jsonName": "aadProfile",
       "name": "AadProfile",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The profile of managed cluster add-on.",
       "jsonName": "addonProfiles",
       "name": "AddonProfiles",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The agent pool properties.",
       "jsonName": "agentPoolProfiles",
       "name": "AgentPoolProfiles",
       "objectDefinition": {
@@ -63,7 +60,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The access profile for managed cluster API server.",
       "jsonName": "apiServerAccessProfile",
       "name": "ApiServerAccessProfile",
       "objectDefinition": {
@@ -79,7 +75,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Parameters to be applied to the cluster-autoscaler when enabled",
       "jsonName": "autoScalerProfile",
       "name": "AutoScalerProfile",
       "objectDefinition": {
@@ -95,7 +90,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The auto upgrade configuration.",
       "jsonName": "autoUpgradeProfile",
       "name": "AutoUpgradeProfile",
       "objectDefinition": {
@@ -126,7 +120,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.",
       "jsonName": "azurePortalFQDN",
       "name": "AzurePortalFQDN",
       "objectDefinition": {
@@ -142,7 +135,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If kubernetesVersion was a fully specified version \u003cmajor.minor.patch\u003e, this field will be exactly equal to it. If kubernetesVersion was \u003cmajor.minor\u003e, this field will contain the full \u003cmajor.minor.patch\u003e version being used.",
       "jsonName": "currentKubernetesVersion",
       "name": "CurrentKubernetesVersion",
       "objectDefinition": {
@@ -158,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).",
       "jsonName": "disableLocalAccounts",
       "name": "DisableLocalAccounts",
       "objectDefinition": {
@@ -174,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'",
       "jsonName": "diskEncryptionSetID",
       "name": "DiskEncryptionSetID",
       "objectDefinition": {
@@ -190,7 +180,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This cannot be updated once the Managed Cluster has been created.",
       "jsonName": "dnsPrefix",
       "name": "DnsPrefix",
       "objectDefinition": {
@@ -206,7 +195,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.",
       "jsonName": "enablePodSecurityPolicy",
       "name": "EnablePodSecurityPolicy",
       "objectDefinition": {
@@ -222,7 +210,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether to enable Kubernetes Role-Based Access Control.",
       "jsonName": "enableRBAC",
       "name": "EnableRBAC",
       "objectDefinition": {
@@ -238,7 +225,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The FQDN of the master pool.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
@@ -254,7 +240,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "This cannot be updated once the Managed Cluster has been created.",
       "jsonName": "fqdnSubdomain",
       "name": "FqdnSubdomain",
       "objectDefinition": {
@@ -270,7 +255,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Configurations for provisioning the cluster with HTTP proxy servers.",
       "jsonName": "httpProxyConfig",
       "name": "HTTPProxyConfig",
       "objectDefinition": {
@@ -286,7 +270,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identities associated with the cluster.",
       "jsonName": "identityProfile",
       "name": "IdentityProfile",
       "objectDefinition": {
@@ -308,7 +291,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Ingress profile for the managed cluster.",
       "jsonName": "ingressProfile",
       "name": "IngressProfile",
       "objectDefinition": {
@@ -324,7 +306,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Both patch version \u003cmajor.minor.patch\u003e (e.g. 1.20.13) and \u003cmajor.minor\u003e (e.g. 1.20) are supported. When \u003cmajor.minor\u003e is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same \u003cmajor.minor\u003e once it has been created (e.g. 1.14.x -\u003e 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -\u003e 1.15.x or 1.15.x -\u003e 1.16.x are allowed, however 1.14.x -\u003e 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.",
       "jsonName": "kubernetesVersion",
       "name": "KubernetesVersion",
       "objectDefinition": {
@@ -340,7 +321,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The profile for Linux VMs in the Managed Cluster.",
       "jsonName": "linuxProfile",
       "name": "LinuxProfile",
       "objectDefinition": {
@@ -356,7 +336,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The max number of agent pools for the managed cluster.",
       "jsonName": "maxAgentPools",
       "name": "MaxAgentPools",
       "objectDefinition": {
@@ -372,7 +351,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional cluster metrics configuration.",
       "jsonName": "metricsProfile",
       "name": "MetricsProfile",
       "objectDefinition": {
@@ -388,7 +366,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The network configuration profile.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
@@ -404,7 +381,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the resource group containing agent pool nodes.",
       "jsonName": "nodeResourceGroup",
       "name": "NodeResourceGroup",
       "objectDefinition": {
@@ -420,7 +396,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OIDC issuer profile of the Managed Cluster.",
       "jsonName": "oidcIssuerProfile",
       "name": "OidcIssuerProfile",
       "objectDefinition": {
@@ -436,7 +411,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.",
       "jsonName": "podIdentityProfile",
       "name": "PodIdentityProfile",
       "objectDefinition": {
@@ -452,7 +426,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Power State of the cluster.",
       "jsonName": "powerState",
       "name": "PowerState",
       "objectDefinition": {
@@ -468,7 +441,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The FQDN of private cluster.",
       "jsonName": "privateFQDN",
       "name": "PrivateFQDN",
       "objectDefinition": {
@@ -484,7 +456,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Private link resources associated with the cluster.",
       "jsonName": "privateLinkResources",
       "name": "PrivateLinkResources",
       "objectDefinition": {
@@ -506,7 +477,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -522,7 +492,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Allow or deny public network access for AKS",
       "jsonName": "publicNetworkAccess",
       "name": "PublicNetworkAccess",
       "objectDefinition": {
@@ -538,7 +507,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The resourceUID uniquely identifies ManagedClusters that reuse ARM ResourceIds (i.e: create, delete, create sequence)",
       "jsonName": "resourceUID",
       "name": "ResourceUID",
       "objectDefinition": {
@@ -554,7 +522,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Security profile for the managed cluster.",
       "jsonName": "securityProfile",
       "name": "SecurityProfile",
       "objectDefinition": {
@@ -585,7 +552,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs.",
       "jsonName": "servicePrincipalProfile",
       "name": "ServicePrincipalProfile",
       "objectDefinition": {
@@ -601,7 +567,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Storage profile for the managed cluster.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
@@ -617,7 +582,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.",
       "jsonName": "supportPlan",
       "name": "SupportPlan",
       "objectDefinition": {
@@ -633,7 +597,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Settings for upgrading a cluster.",
       "jsonName": "upgradeSettings",
       "name": "UpgradeSettings",
       "objectDefinition": {
@@ -649,7 +612,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The profile for Windows VMs in the Managed Cluster.",
       "jsonName": "windowsProfile",
       "name": "WindowsProfile",
       "objectDefinition": {

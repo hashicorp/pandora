@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ports from which cluster assigned port to Service Fabric applications.",
       "jsonName": "applicationPorts",
       "name": "ApplicationPorts",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.",
       "jsonName": "capacities",
       "name": "Capacities",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Disk size for each vm in the node type in GBs.",
       "jsonName": "dataDiskSizeGB",
       "name": "DataDiskSizeGB",
       "objectDefinition": {
@@ -72,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of ephemeral ports that nodes in this node type should be configured with.",
       "jsonName": "ephemeralPorts",
       "name": "EphemeralPorts",
       "objectDefinition": {
@@ -88,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The node type on which system services will run. Only one node type should be marked as primary. Primary node type cannot be deleted or changed for existing clusters.",
       "jsonName": "isPrimary",
       "name": "IsPrimary",
       "objectDefinition": {
@@ -104,7 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if the node type can only host Stateless workloads.",
       "jsonName": "isStateless",
       "name": "IsStateless",
       "objectDefinition": {
@@ -120,7 +114,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if scale set associated with the node type can be composed of multiple placement groups.",
       "jsonName": "multiplePlacementGroups",
       "name": "MultiplePlacementGroups",
       "objectDefinition": {
@@ -136,7 +129,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.",
       "jsonName": "placementProperties",
       "name": "PlacementProperties",
       "objectDefinition": {
@@ -158,7 +150,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The provisioning state of the managed cluster resource.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -174,7 +165,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set of extensions that should be installed onto the virtual machines.",
       "jsonName": "vmExtensions",
       "name": "VMExtensions",
       "objectDefinition": {
@@ -196,7 +186,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.",
       "jsonName": "vmImageOffer",
       "name": "VMImageOffer",
       "objectDefinition": {
@@ -212,7 +201,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.",
       "jsonName": "vmImagePublisher",
       "name": "VMImagePublisher",
       "objectDefinition": {
@@ -228,7 +216,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.",
       "jsonName": "vmImageSku",
       "name": "VMImageSku",
       "objectDefinition": {
@@ -244,7 +231,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.",
       "jsonName": "vmImageVersion",
       "name": "VMImageVersion",
       "objectDefinition": {
@@ -260,7 +246,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of nodes in the node type.",
       "jsonName": "vmInstanceCount",
       "name": "VMInstanceCount",
       "objectDefinition": {
@@ -291,7 +276,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The secrets to install in the virtual machines.",
       "jsonName": "vmSecrets",
       "name": "VMSecrets",
       "objectDefinition": {
@@ -313,7 +297,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.",
       "jsonName": "vmSize",
       "name": "VMSize",
       "objectDefinition": {

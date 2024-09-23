@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The endpoint of the Eloqua server. (i.e. eloqua.example.com)",
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
@@ -50,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.",
       "jsonName": "useEncryptedEndpoints",
       "name": "UseEncryptedEndpoints",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.",
       "jsonName": "useHostVerification",
       "name": "UseHostVerification",
       "objectDefinition": {
@@ -82,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.",
       "jsonName": "usePeerVerification",
       "name": "UsePeerVerification",
       "objectDefinition": {
@@ -98,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The site name and user name of your Eloqua account in the form: sitename/username. (i.e. Eloqua/Alice)",
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {

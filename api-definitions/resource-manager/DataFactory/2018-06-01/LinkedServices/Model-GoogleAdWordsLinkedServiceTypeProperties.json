@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OAuth 2.0 authentication mechanism used for authentication. ServiceAuthentication can only be used on self-hosted IR.",
       "jsonName": "authenticationType",
       "name": "AuthenticationType",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Client customer ID of the AdWords account that you want to fetch report data for. Type: string (or Expression with resultType string).",
       "jsonName": "clientCustomerID",
       "name": "ClientCustomerID",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The client id of the google application used to acquire the refresh token. Type: string (or Expression with resultType string).",
       "jsonName": "clientId",
       "name": "ClientId",
       "objectDefinition": {
@@ -66,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated) Properties used to connect to GoogleAds. It is mutually exclusive with any other properties in the linked service. Type: object.",
       "jsonName": "connectionProperties",
       "name": "ConnectionProperties",
       "objectDefinition": {
@@ -97,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The service account email ID that is used for ServiceAuthentication and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
       "jsonName": "email",
       "name": "Email",
       "objectDefinition": {
@@ -113,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.",
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
       "objectDefinition": {
@@ -129,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Google Ads API major version such as v14. The supported major versions could be found on https://developers.google.com/google-ads/api/docs/release-notes. Type: string (or Expression with resultType string).",
       "jsonName": "googleAdsApiVersion",
       "name": "GoogleAdsApiVersion",
       "objectDefinition": {
@@ -145,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated) The full path to the .p12 key file that is used to authenticate the service account email address and can only be used on self-hosted IR. Type: string (or Expression with resultType string).",
       "jsonName": "keyFilePath",
       "name": "KeyFilePath",
       "objectDefinition": {
@@ -161,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The customer ID of the Google Ads Manager account through which you want to fetch report data of specific Customer. Type: string (or Expression with resultType string).",
       "jsonName": "loginCustomerID",
       "name": "LoginCustomerID",
       "objectDefinition": {
@@ -207,7 +198,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether to use the legacy data type mappings, which maps float, int32 and int64 from Google to string. Do not set this to true unless you want to keep backward compatibility with legacy driver's data type mappings. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "supportLegacyDataTypes",
       "name": "SupportLegacyDataTypes",
       "objectDefinition": {
@@ -223,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated) The full path of the .pem file containing trusted CA certificates for verifying the server when connecting over SSL. This property can only be set when using SSL on self-hosted IR. The default value is the cacerts.pem file installed with the IR. Type: string (or Expression with resultType string).",
       "jsonName": "trustedCertPath",
       "name": "TrustedCertPath",
       "objectDefinition": {
@@ -239,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "(Deprecated) Specifies whether to use a CA certificate from the system trust store or from a specified PEM file. The default value is false. Type: boolean (or Expression with resultType boolean).",
       "jsonName": "useSystemTrustStore",
       "name": "UseSystemTrustStore",
       "objectDefinition": {

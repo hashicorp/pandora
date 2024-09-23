@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An identifier for the Azure SIM onboarding public key used for encrypted upload.",
       "jsonName": "azureKeyIdentifier",
       "name": "AzureKeyIdentifier",
       "objectDefinition": {
@@ -19,7 +18,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The transport key used for encrypting SIM credentials, encrypted using the SIM onboarding public key.",
       "jsonName": "encryptedTransportKey",
       "name": "EncryptedTransportKey",
       "objectDefinition": {
@@ -35,7 +33,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The encrypted transport key, signed using the SIM vendor private key.",
       "jsonName": "signedTransportKey",
       "name": "SignedTransportKey",
       "objectDefinition": {
@@ -51,7 +48,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of SIMs to upload, with encrypted properties.",
       "jsonName": "sims",
       "name": "Sims",
       "objectDefinition": {
@@ -73,7 +69,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The fingerprint of the SIM vendor public key. The private counterpart is used for signing the encrypted transport key.",
       "jsonName": "vendorKeyFingerprint",
       "name": "VendorKeyFingerprint",
       "objectDefinition": {
@@ -89,7 +84,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The upload file format version.",
       "jsonName": "version",
       "name": "Version",
       "objectDefinition": {

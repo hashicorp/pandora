@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Percentage complete for the background copy when a resource is created via the CopyStart operation.",
       "jsonName": "completionPercent",
       "name": "CompletionPercent",
       "objectDefinition": {
@@ -64,7 +63,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ARM id of the DiskAccess resource for using private endpoints on disks.",
       "jsonName": "diskAccessId",
       "name": "DiskAccessId",
       "objectDefinition": {
@@ -80,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of the disk in bytes. This field is read only.",
       "jsonName": "diskSizeBytes",
       "name": "DiskSizeBytes",
       "objectDefinition": {
@@ -96,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.",
       "jsonName": "diskSizeGB",
       "name": "DiskSizeGB",
       "objectDefinition": {
@@ -157,7 +153,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The hypervisor generation of the Virtual Machine. Applicable to OS disks only.",
       "jsonName": "hyperVGeneration",
       "name": "HyperVGeneration",
       "objectDefinition": {
@@ -173,7 +168,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.",
       "jsonName": "incremental",
       "name": "Incremental",
       "objectDefinition": {
@@ -189,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.",
       "jsonName": "incrementalSnapshotFamilyId",
       "name": "IncrementalSnapshotFamilyId",
       "objectDefinition": {
@@ -220,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Operating System type.",
       "jsonName": "osType",
       "name": "OsType",
       "objectDefinition": {
@@ -236,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The disk provisioning state.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -312,7 +303,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the OS on a snapshot supports hibernation.",
       "jsonName": "supportsHibernation",
       "name": "SupportsHibernation",
       "objectDefinition": {
@@ -329,7 +319,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the snapshot was created.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -345,7 +334,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique Guid identifying the resource.",
       "jsonName": "uniqueId",
       "name": "UniqueId",
       "objectDefinition": {

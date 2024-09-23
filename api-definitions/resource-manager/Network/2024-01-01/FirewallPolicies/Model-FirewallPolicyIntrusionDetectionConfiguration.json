@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of rules for traffic to bypass.",
       "jsonName": "bypassTrafficSettings",
       "name": "BypassTrafficSettings",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "IDPS Private IP address ranges are used to identify traffic direction (i.e. inbound, outbound, etc.). By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. To modify default ranges, specify your Private IP address ranges with this property",
       "jsonName": "privateRanges",
       "name": "PrivateRanges",
       "objectDefinition": {
@@ -47,7 +45,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of specific signatures states.",
       "jsonName": "signatureOverrides",
       "name": "SignatureOverrides",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku",
       "jsonName": "elasticScaleEnabled",
       "name": "ElasticScaleEnabled",
       "objectDefinition": {
@@ -20,7 +19,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the server farm free offer expires.",
       "jsonName": "freeOfferExpirationTime",
       "name": "FreeOfferExpirationTime",
       "objectDefinition": {
@@ -36,7 +34,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Geographical location for the App Service plan.",
       "jsonName": "geoRegion",
       "name": "GeoRegion",
       "objectDefinition": {
@@ -67,7 +64,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If Hyper-V container app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise.",
       "jsonName": "hyperV",
       "name": "HyperV",
       "objectDefinition": {
@@ -83,7 +79,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If \u003ccode\u003etrue\u003c/code\u003e, this App Service Plan owns spot instances.",
       "jsonName": "isSpot",
       "name": "IsSpot",
       "objectDefinition": {
@@ -99,7 +94,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Obsolete: If Hyper-V container app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise.",
       "jsonName": "isXenon",
       "name": "IsXenon",
       "objectDefinition": {
@@ -130,7 +124,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan",
       "jsonName": "maximumElasticWorkerCount",
       "name": "MaximumElasticWorkerCount",
       "objectDefinition": {
@@ -146,7 +139,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of instances that can be assigned to this App Service plan.",
       "jsonName": "maximumNumberOfWorkers",
       "name": "MaximumNumberOfWorkers",
       "objectDefinition": {
@@ -162,7 +154,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of apps assigned to this App Service plan.",
       "jsonName": "numberOfSites",
       "name": "NumberOfSites",
       "objectDefinition": {
@@ -178,7 +169,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of instances that are assigned to this App Service plan.",
       "jsonName": "numberOfWorkers",
       "name": "NumberOfWorkers",
       "objectDefinition": {
@@ -194,7 +184,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If \u003ccode\u003etrue\u003c/code\u003e, apps assigned to this App Service plan can be scaled independently.\nIf \u003ccode\u003efalse\u003c/code\u003e, apps assigned to this App Service plan will scale to all instances of the plan.",
       "jsonName": "perSiteScaling",
       "name": "PerSiteScaling",
       "objectDefinition": {
@@ -210,7 +199,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provisioning state of the App Service Plan.",
       "jsonName": "provisioningState",
       "name": "ProvisioningState",
       "objectDefinition": {
@@ -226,7 +214,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If Linux app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise.",
       "jsonName": "reserved",
       "name": "Reserved",
       "objectDefinition": {
@@ -242,7 +229,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Resource group of the App Service plan.",
       "jsonName": "resourceGroup",
       "name": "ResourceGroup",
       "objectDefinition": {
@@ -259,7 +245,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "The time when the server farm expires. Valid only if it is a spot server farm.",
       "jsonName": "spotExpirationTime",
       "name": "SpotExpirationTime",
       "objectDefinition": {
@@ -275,7 +260,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "App Service plan status.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {
@@ -291,7 +275,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "App Service plan subscription.",
       "jsonName": "subscription",
       "name": "Subscription",
       "objectDefinition": {
@@ -307,7 +290,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Scaling worker count.",
       "jsonName": "targetWorkerCount",
       "name": "TargetWorkerCount",
       "objectDefinition": {
@@ -323,7 +305,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Scaling worker size ID.",
       "jsonName": "targetWorkerSizeId",
       "name": "TargetWorkerSizeId",
       "objectDefinition": {
@@ -339,7 +320,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Target worker tier assigned to the App Service plan.",
       "jsonName": "workerTierName",
       "name": "WorkerTierName",
       "objectDefinition": {
@@ -355,7 +335,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If \u003ccode\u003etrue\u003c/code\u003e, this App Service Plan will perform availability zone balancing.\nIf \u003ccode\u003efalse\u003c/code\u003e, this App Service Plan will not perform availability zone balancing.",
       "jsonName": "zoneRedundant",
       "name": "ZoneRedundant",
       "objectDefinition": {

@@ -3,7 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of event types that cause this trigger to fire.",
       "jsonName": "events",
       "name": "Events",
       "objectDefinition": {
@@ -25,7 +24,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The ARM resource ID of the Azure Event Grid Topic.",
       "jsonName": "scope",
       "name": "Scope",
       "objectDefinition": {
@@ -41,7 +39,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The event subject must begin with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.",
       "jsonName": "subjectBeginsWith",
       "name": "SubjectBeginsWith",
       "objectDefinition": {
@@ -57,7 +54,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The event subject must end with the pattern provided for trigger to fire. At least one of these must be provided: subjectBeginsWith, subjectEndsWith.",
       "jsonName": "subjectEndsWith",
       "name": "SubjectEndsWith",
       "objectDefinition": {

@@ -78,7 +78,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies a collection of settings for extensions installed on virtual machines in the scale set.",
       "jsonName": "extensionProfile",
       "name": "ExtensionProfile",
       "objectDefinition": {
@@ -94,7 +93,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the hardware profile related details of a scale set. Minimum api-version: 2021-11-01.",
       "jsonName": "hardwareProfile",
       "name": "HardwareProfile",
       "objectDefinition": {
@@ -110,7 +108,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15",
       "jsonName": "licenseType",
       "name": "LicenseType",
       "objectDefinition": {
@@ -126,7 +123,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies properties of the network interfaces of the virtual machines in the scale set.",
       "jsonName": "networkProfile",
       "name": "NetworkProfile",
       "objectDefinition": {
@@ -142,7 +138,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the operating system settings for the virtual machines in the scale set.",
       "jsonName": "osProfile",
       "name": "OsProfile",
       "objectDefinition": {
@@ -188,7 +183,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the security posture to be used in the scale set. Minimum api-version: 2023-03-01",
       "jsonName": "securityPostureReference",
       "name": "SecurityPostureReference",
       "objectDefinition": {
@@ -219,7 +213,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version. Minimum api-version: 2022-11-01",
       "jsonName": "serviceArtifactReference",
       "name": "ServiceArtifactReference",
       "objectDefinition": {
@@ -235,7 +228,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the storage settings for the virtual machine disks.",
       "jsonName": "storageProfile",
       "name": "StorageProfile",
       "objectDefinition": {
@@ -252,7 +244,6 @@
     {
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
-      "description": "Specifies the time in which this VM profile for the Virtual Machine Scale Set was created. Minimum API version for this property is 2024-03-01. This value will be added to VMSS Flex VM tags when creating/updating the VMSS VM Profile with minimum api-version 2024-03-01.",
       "jsonName": "timeCreated",
       "name": "TimeCreated",
       "objectDefinition": {
@@ -268,7 +259,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01.",
       "jsonName": "userData",
       "name": "UserData",
       "objectDefinition": {
