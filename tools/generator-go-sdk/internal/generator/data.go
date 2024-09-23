@@ -74,8 +74,8 @@ type GeneratorData struct {
 	// the package name for the API version
 	versionPackageName string
 
-	// whether model behaviors are enabled
-	enableModelBehaviors bool
+	// whether callers can configure models to omit the discriminated value field when marshalling
+	allowOmittingDiscriminatedValue bool
 
 	// whether descriptions should be generated for model fields etc.
 	generateDescriptionsForModels bool
@@ -113,27 +113,27 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	}
 
 	return GeneratorData{
-		apiVersion:                    i.VersionName,
-		canonicalApiVersion:           settings.CanonicalApiVersion(i.VersionName),
-		baseClientPackage:             baseClientPackageForSdk(i.Type),
-		commonTypes:                   i.CommonTypes,
-		commonTypesIncludePath:        commonTypesIncludePath,
-		commonTypesPackageName:        commonTypesPackageName,
-		constants:                     i.ResourceDetails.Constants,
-		enableModelBehaviors:          settings.EnableModelBehaviors,
-		generateDescriptionsForModels: settings.GenerateDescriptionsForModels,
-		isDataPlane:                   models.SourceDataTypeIsDataPlane(i.Type),
-		models:                        i.ResourceDetails.Models,
-		operations:                    i.ResourceDetails.Operations,
-		packageName:                   resourcePackageName,
-		recurseParentModels:           settings.RecurseParentModels,
-		resourceIds:                   i.ResourceDetails.ResourceIDs,
-		resourceOutputPath:            resourceOutputPath,
-		serviceClientName:             fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
-		servicePackageName:            strings.ToLower(i.ServiceName),
-		source:                        i.Source,
-		sourceType:                    i.Type,
-		useNewBaseLayer:               useNewBaseLayer,
+		apiVersion:                      i.VersionName,
+		canonicalApiVersion:             settings.CanonicalApiVersion(i.VersionName),
+		baseClientPackage:               baseClientPackageForSdk(i.Type),
+		commonTypes:                     i.CommonTypes,
+		commonTypesIncludePath:          commonTypesIncludePath,
+		commonTypesPackageName:          commonTypesPackageName,
+		constants:                       i.ResourceDetails.Constants,
+		allowOmittingDiscriminatedValue: settings.AllowOmittingDiscriminatedValue,
+		generateDescriptionsForModels:   settings.GenerateDescriptionsForModels,
+		isDataPlane:                     models.SourceDataTypeIsDataPlane(i.Type),
+		models:                          i.ResourceDetails.Models,
+		operations:                      i.ResourceDetails.Operations,
+		packageName:                     resourcePackageName,
+		recurseParentModels:             settings.RecurseParentModels,
+		resourceIds:                     i.ResourceDetails.ResourceIDs,
+		resourceOutputPath:              resourceOutputPath,
+		serviceClientName:               fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
+		servicePackageName:              strings.ToLower(i.ServiceName),
+		source:                          i.Source,
+		sourceType:                      i.Type,
+		useNewBaseLayer:                 useNewBaseLayer,
 	}
 }
 

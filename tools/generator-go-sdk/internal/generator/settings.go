@@ -10,13 +10,13 @@ import (
 )
 
 type Settings struct {
-	CanonicalApiVersions          map[string]string
-	CommonTypesPackageName        string
-	EnableModelBehaviors          bool
-	GenerateDescriptionsForModels bool
-	RecurseParentModels           bool
-	VersionsToGenerateCommonTypes map[string]models.SourceDataOrigin
-	servicesUsingOldBaseLayer     map[string]struct{}
+	CanonicalApiVersions            map[string]string
+	CommonTypesPackageName          string
+	AllowOmittingDiscriminatedValue bool
+	GenerateDescriptionsForModels   bool
+	RecurseParentModels             bool
+	VersionsToGenerateCommonTypes   map[string]models.SourceDataOrigin
+	servicesUsingOldBaseLayer       map[string]struct{}
 }
 
 func (s *Settings) CanonicalApiVersion(version string) *string {

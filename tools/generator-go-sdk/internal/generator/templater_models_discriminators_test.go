@@ -311,8 +311,8 @@ func TestTemplaterModelsImplementationWithModelBehaviors(t *testing.T) {
 			DiscriminatedValue:                    stringPointer("train"),
 		},
 	}.template(GeneratorData{
-		enableModelBehaviors: true,
-		packageName:          "somepackage",
+		allowOmittingDiscriminatedValue: true,
+		packageName:                     "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
 				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
