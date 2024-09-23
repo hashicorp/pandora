@@ -14,7 +14,7 @@ import (
 
 var _ serviceWorkaround = workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope{}
 
-// workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope adds a missing GET method for synchronization secrets, which is absent from upstream specs.
+// workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope supports an HTTP 200 response for the DeleteEntitlementManagementAccessPackageResourceRoleScope operation.
 type workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope struct{}
 
 func (workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope) Name() string {

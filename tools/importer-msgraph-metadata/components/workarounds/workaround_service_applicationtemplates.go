@@ -13,7 +13,7 @@ import (
 
 var _ serviceWorkaround = workaroundApplicationTemplates{}
 
-// workaroundApplicationTemplates adds a missing GET method for synchronization secrets, which is absent from upstream specs.
+// workaroundApplicationTemplates supports an HTTP 201 response for the InstantiateApplicationTemplate operation.
 type workaroundApplicationTemplates struct{}
 
 func (workaroundApplicationTemplates) Name() string {
