@@ -18,8 +18,10 @@ var workarounds = []dataWorkaround{
 	workaroundRepeatingResourceIdSegments{},
 
 	// Model-specific workarounds
+	workaroundAccessPackageResourceRoleScope{},
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
+	workaroundUnifiedRoleAssignment{},
 }
 
 // serviceWorkarounds make post-parsing changes to individual services and are able to make any changes to resources
@@ -30,6 +32,9 @@ var serviceWorkarounds = []serviceWorkaround{
 	workaroundBlacklist{},
 
 	// Service-specific workarounds
+	workaroundApplicationTemplates{},
+	workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope{},
+	workaroundGroups{},
 	workaroundSynchronizationSecrets{},
 }
 
