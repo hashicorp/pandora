@@ -55,7 +55,7 @@ type Option struct {
 	//   Data: this option specifies Request data, as described in ObjectDefinition, HeaderName, ODataFieldName and/or QueryStringName.
 	//   ContentType: this option specifies a custom Content Type for the Request to be specified by the caller.
 	//   RetryFunc: this option specifies a client.RequestRetryFunc that can be passed in.
-	Type string
+	Type string `json:"type"`
 
 	// HeaderName is the name of the Http Header which this Option should be set into
 	// (e.g. `If-Match`, `x-ms-client-request-id`)
