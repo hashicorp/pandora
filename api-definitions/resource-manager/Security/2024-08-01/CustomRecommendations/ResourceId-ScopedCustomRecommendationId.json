@@ -1,0 +1,34 @@
+{
+  "name": "ScopedCustomRecommendationId",
+  "id": "/{scope}/providers/Microsoft.Security/customRecommendations/{customRecommendationName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftSecurity",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Security"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticCustomRecommendations",
+      "type": "Static",
+      "value": "customRecommendations"
+    },
+    {
+      "exampleValue": "customRecommendationName",
+      "name": "customRecommendationName",
+      "type": "UserSpecified"
+    }
+  ]
+}

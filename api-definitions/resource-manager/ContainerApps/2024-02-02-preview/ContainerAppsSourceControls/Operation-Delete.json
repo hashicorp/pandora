@@ -11,6 +11,7 @@
   "httpMethod": "DELETE",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "deleteWorkflow",
       "required": false,
@@ -21,6 +22,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "ignoreWorkflowDeletionFailure",
       "required": false,
@@ -31,9 +33,10 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "x-ms-github-auxiliary",
-      "optional": false,
-      "required": true,
+      "optional": true,
+      "required": false,
       "field": "XMsGitHubAuxiliary",
       "optionsObjectDefinition": {
         "type": "String",

@@ -1,0 +1,26 @@
+{
+  "name": "SwitchBilling",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "MonitorId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SwitchBillingRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NewRelicMonitorResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/switchBilling"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "RegionalCheckNameAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "LocationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NameAvailabilityStatus",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/checkNameAvailability"
+}
