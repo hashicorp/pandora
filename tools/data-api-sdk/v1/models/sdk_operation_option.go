@@ -21,7 +21,7 @@ type SDKOperationOption struct {
 	//   Data: this option specifies Request data, as described in ObjectDefinition, HeaderName, ODataFieldName and/or QueryStringName.
 	//   ContentType: this option specifies a custom Content Type for the Request to be specified by the caller.
 	//   RetryFunc: this option specifies a client.RequestRetryFunc that can be passed in.
-	Type SDKOperationOptionType
+	Type SDKOperationOptionType `json:"type"`
 
 	// ODataFieldName specifies the name for the OData query string parameter associated with this Option.
 	ODataFieldName *string `json:"odataFieldName,omitempty"`
