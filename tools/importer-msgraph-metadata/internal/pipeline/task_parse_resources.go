@@ -5,6 +5,7 @@ package pipeline
 
 import (
 	"fmt"
+	"net/http"
 	"sort"
 	"strconv"
 	"strings"
@@ -141,16 +142,18 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				continue
 			}
 
-			listOperation := false
-			responses := make([]parser.Response, 0)
-			if operation.Responses != nil {
-				for stat, resp := range operation.Responses {
-					var status int
-					var responseContentType, responseReferenceName *string
-					var responseType *parser.DataType
-					var responseConstant *parser.Constant
-					var responseModel *parser.Model
+			var responseContentType, responseReferenceName *string
+			var responseType *parser.DataType
+			var responseConstant *parser.Constant
+			var responseModel *parser.Model
 
+			listOperation := false
+			if operation.Responses != nil {
+				responseFound := false
+
+				for stat, resp := range operation.Responses {
+
+					var status int
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
 					}
@@ -274,18 +277,14 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 								return nil, fmt.Errorf("unsupported content-type: %q", contentType)
 							}
 
+							responseFound = true
 							break
 						}
 					}
 
-					responses = append(responses, parser.Response{
-						Status:        status,
-						ContentType:   responseContentType,
-						ReferenceName: responseReferenceName,
-						Type:          responseType,
-						Constant:      responseConstant,
-						Model:         responseModel,
-					})
+					if responseFound {
+						break
+					}
 				}
 			}
 
@@ -337,12 +336,18 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			// Remove duplicate words in the operationName
 			operationName = normalize.DeDuplicateName(operationName)
 
+			// Since the spec does not distinguish between different 20X status codes, and also because many APIs
+			// are inconsistent in the status codes they return, we intentionally support any status codes that
+			// make sense for the type of operation.
+			statusCodes := make([]int, 0)
+
 			// Now qualify the operation name based on the type of operation. Additionally, if the operation name
 			// matches a known verb, move that verb to the beginning and use it instead of a standard verb.
 			// For example, a Create operation for "Application" should get an operation name of "CreateApplication",
 			// but a Create operation for "ApplicationTemplateInstantiate" should get an operation name of "InstantiateApplicationTemplate"
 			switch operationType {
 			case parser.OperationTypeList:
+				statusCodes = []int{http.StatusOK}
 				if _, ok = normalize.Verbs.Match(shortResourceName); ok {
 					operationName = normalize.Pluralize(normalize.Singularize(operationName))
 				} else {
@@ -350,9 +355,16 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 
 			case parser.OperationTypeRead:
+				statusCodes = []int{http.StatusOK}
 				operationName = fmt.Sprintf("Get%s", normalize.Singularize(operationName))
 
 			case parser.OperationTypeCreate:
+				statusCodes = []int{
+					http.StatusOK,
+					http.StatusCreated,
+					http.StatusAccepted,
+					http.StatusNoContent,
+				}
 				if _, ok = normalize.Verbs.Match(shortResourceName); !ok {
 					if lastSegment.Type == parser.SegmentODataReference {
 						operationName = fmt.Sprintf("Add%s", normalize.Singularize(operationName))
@@ -362,12 +374,27 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 				}
 
 			case parser.OperationTypeCreateUpdate:
+				statusCodes = []int{
+					http.StatusOK,
+					http.StatusCreated,
+					http.StatusAccepted,
+					http.StatusNoContent,
+				}
 				operationName = fmt.Sprintf("Set%s", normalize.Singularize(operationName))
 
 			case parser.OperationTypeUpdate:
+				statusCodes = []int{
+					http.StatusOK,
+					http.StatusAccepted,
+					http.StatusNoContent,
+				}
 				operationName = fmt.Sprintf("Update%s", normalize.Singularize(operationName))
 
 			case parser.OperationTypeDelete:
+				statusCodes = []int{
+					http.StatusOK,
+					http.StatusNoContent,
+				}
 				if lastSegment.Type == parser.SegmentODataReference {
 					operationName = fmt.Sprintf("Remove%s", operationName)
 				} else {
@@ -379,40 +406,35 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			// persist them in the global constants or models map. Though unlikely, we _might_ have more than one ad-hoc
 			// response model, so for any subsequent ones we just append an integer to ensure the resulting SDK code compiles.
 			// Ad-hoc response models are those that are described in the response but don't exist as a formal constant/model.
-			if len(responses) > 0 {
-				usedNames := make(map[string]struct{})
-
-				nextAvailableObjectName := func() string {
-					proposed := fmt.Sprintf("%sResult", operationName)
-					var count int
-					for {
-						if _, ok := usedNames[proposed]; !ok {
-							break
-						}
-						count++
-						proposed = fmt.Sprintf("%s%dResult", operationName, count)
+			usedNames := make(map[string]struct{})
+			nextAvailableObjectName := func() string {
+				proposed := fmt.Sprintf("%sResult", operationName)
+				var count int
+				for {
+					if _, ok := usedNames[proposed]; !ok {
+						break
 					}
-					usedNames[proposed] = struct{}{}
-					return proposed
+					count++
+					proposed = fmt.Sprintf("%s%dResult", operationName, count)
 				}
+				usedNames[proposed] = struct{}{}
+				return proposed
+			}
 
-				for i, response := range responses {
-					if response.ReferenceName != nil && *response.ReferenceName == "ResponseObject" {
-						objectName := nextAvailableObjectName()
-						responses[i].ReferenceName = pointer.To(objectName)
+			if responseReferenceName != nil && *responseReferenceName == "ResponseObject" {
+				objectName := nextAvailableObjectName()
+				responseReferenceName = pointer.To(objectName)
 
-						if response.Constant != nil && response.Constant.Name == "ResponseObject" {
-							response.Constant.Name = objectName
+				if responseConstant != nil && responseConstant.Name == "ResponseObject" {
+					responseConstant.Name = objectName
 
-							// Persist the constant to the global constants
-							constants[objectName] = response.Constant
-						} else if response.Model != nil && response.Model.Name == "ResponseObject" {
-							response.Model.Name = objectName
+					// Persist the constant to the global constants
+					constants[objectName] = responseConstant
+				} else if responseModel != nil && responseModel.Name == "ResponseObject" {
+					responseModel.Name = objectName
 
-							// Persist the model to the global models
-							models[objectName] = response.Model
-						}
-					}
+					// Persist the model to the global models
+					models[objectName] = responseModel
 				}
 			}
 
@@ -516,22 +538,28 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			operationDescription := strings.Join(descriptionChunks, ". ")
 			operationDescription = strings.TrimRight(operationDescription, ":;")
 
+			// Save the operation
 			resources[resourceName].Operations = append(resources[resourceName].Operations, parser.Operation{
-				Name:               operationName,
-				Description:        operationDescription,
-				Type:               operationType,
-				Method:             method,
-				ResourceId:         resourceId,
-				UriSuffix:          uriSuffix,
-				RequestContentType: requestContentType,
-				RequestModelName:   requestModelName,
-				RequestModel:       requestModel,
-				RequestHeaders:     requestHeaders,
-				RequestParams:      requestParams,
-				RequestType:        requestType,
-				Responses:          responses,
-				PaginationField:    paginationField,
-				Tags:               operation.Tags,
+				Name:                  operationName,
+				Description:           operationDescription,
+				Type:                  operationType,
+				Method:                method,
+				ResourceId:            resourceId,
+				UriSuffix:             uriSuffix,
+				PaginationField:       paginationField,
+				RequestContentType:    requestContentType,
+				RequestModelName:      requestModelName,
+				RequestModel:          requestModel,
+				RequestHeaders:        requestHeaders,
+				RequestParams:         requestParams,
+				RequestType:           requestType,
+				ResponseStatusCodes:   statusCodes,
+				ResponseContentType:   responseContentType,
+				ResponseReferenceName: responseReferenceName,
+				ResponseType:          responseType,
+				ResponseConstant:      responseConstant,
+				ResponseModel:         responseModel,
+				Tags:                  operation.Tags,
 			})
 		}
 	}

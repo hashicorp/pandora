@@ -52,6 +52,10 @@ type Operation struct {
 	// The remainder of the URI after the resource ID
 	UriSuffix *string
 
+	// When the content type is JSON or XML, and this is a List operation, the name of the field
+	// that specifies a URL to retrieve the next page of results
+	PaginationField *string
+
 	// The content-type of the request body
 	RequestContentType *string
 
@@ -71,35 +75,26 @@ type Operation struct {
 	// and the request is not described by a model
 	RequestType *DataType
 
-	// The expected *success* responses for this operation
-	Responses []Response
-
-	// When the content type is JSON or XML, and this is a List operation, the name of the field
-	// that specifies a URL to retrieve the next page of results
-	PaginationField *string
-
-	// OpenAPI3 tags for this operation, used to reconcile operations to services
-	Tags []string
-}
-
-type Response struct {
-	// The HTTP status code associated with this expected response
-	Status int
+	// The HTTP status codes associated with this expected response
+	ResponseStatusCodes []int
 
 	// The expected content type for this resource
-	ContentType *string
+	ResponseContentType *string
 
 	// Specifies a referenced model or constant for the response, noting that this
 	// should be the full type name from the spec prior to normalizing
-	ReferenceName *string
+	ResponseReferenceName *string
 
 	// The internal data type for the response, used when the content type is JSON or XML,
 	// and the response is not described by a model
-	Type *DataType
+	ResponseType *DataType
 
 	// Model and Constant are used internally for ad-hoc response models
-	Model    *Model
-	Constant *Constant
+	ResponseModel    *Model
+	ResponseConstant *Constant
+
+	// OpenAPI3 tags for this operation, used to reconcile operations to services
+	Tags []string
 }
 
 type Header struct {
