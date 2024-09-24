@@ -28,7 +28,7 @@ service "app" {
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
-  available = ["2023-03-01"]
+  available = ["2023-03-01", "2024-05-01"]
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
@@ -96,7 +96,7 @@ service "chaos" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2023-05-01", "2023-10-01-preview"]
+  available = ["2023-05-01", "2023-10-01-preview", "2024-10-01"]
 }
 service "communication" {
   name      = "Communication"
@@ -133,7 +133,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15", "2024-05-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15", "2024-05-15", "2024-08-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -356,6 +356,7 @@ service "maps" {
 service "mariadb" {
   name      = "MariaDB"
   available = ["2018-06-01"]
+  ignore    = ["2020-01-01"]
 }
 service "marketplaceordering" {
   name      = "MarketplaceOrdering"
@@ -396,7 +397,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-03-01"]
 }
 service "networkanalytics" {
   name      = "NetworkAnalytics"
@@ -412,7 +413,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2022-07-01", "2024-03-01"]
+  available = ["2022-07-01", "2024-03-01", "2024-10-01"]
   ignore    = ["2024-01-01"]
 }
 service "nginx" {
@@ -501,7 +502,7 @@ service "redisenterprise" {
 }
 service "relay" {
   name      = "Relay"
-  available = ["2021-11-01"]
+  available = ["2021-11-01", "2024-01-01"]
 }
 service "resourceconnector" {
   name      = "ResourceConnector"
@@ -526,7 +527,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-10-01-preview", "2023-11-15", "2024-01-01", "2024-04-01"]
+  available = ["2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-10-01-preview", "2023-11-15", "2024-01-01", "2024-04-01", "2024-08-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
@@ -534,7 +535,7 @@ service "securityinsights" {
 }
 service "servicebus" {
   name      = "ServiceBus"
-  available = ["2021-06-01-preview", "2021-11-01", "2022-01-01-preview", "2022-10-01-preview"]
+  available = ["2021-06-01-preview", "2021-11-01", "2022-01-01-preview", "2022-10-01-preview", "2024-01-01"]
 }
 service "servicefabric" {
   name      = "ServiceFabric"
