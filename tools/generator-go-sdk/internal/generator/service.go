@@ -5,7 +5,6 @@ package generator
 
 import (
 	"fmt"
-	"os"
 	"os/exec"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -38,7 +37,7 @@ type ServiceGeneratorInput struct {
 func (s *Generator) Generate(input ServiceGeneratorInput) error {
 	data := input.generatorData(s.settings)
 
-	if err := cleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
+	if err := CleanAndRecreateWorkingDirectory(data.resourceOutputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.resourceOutputPath, err)
 	}
 
@@ -98,7 +97,7 @@ func (s *Generator) GenerateForVersion(input VersionGeneratorInput) error {
 func (s *Generator) GenerateCommonTypes(input VersionGeneratorInput) error {
 	data := input.generatorData(s.settings)
 
-	if err := cleanAndRecreateWorkingDirectory(data.commonTypesOutputPath); err != nil {
+	if err := CleanAndRecreateWorkingDirectory(data.commonTypesOutputPath); err != nil {
 		return fmt.Errorf("cleaning/recreating working directory %q: %+v", data.commonTypesOutputPath, err)
 	}
 
@@ -130,23 +129,4 @@ func runGoImports(path string) {
 	cmd := exec.Command("goimports", "-w", path)
 	_ = cmd.Start()
 	_ = cmd.Wait()
-}
-
-func cleanAndRecreateWorkingDirectory(path string) error {
-	// rm -r 💥
-	if err := os.RemoveAll(path); err != nil {
-		return fmt.Errorf("deleting %q: %+v", path, err)
-	}
-
-	return ensureWorkingDirectoryExists(path)
-}
-
-func ensureWorkingDirectoryExists(path string) error {
-	if err := os.MkdirAll(path, 0777); err != nil {
-		if !os.IsExist(err) {
-			return fmt.Errorf("creating %q: %+v", path, err)
-		}
-	}
-
-	return nil
 }
