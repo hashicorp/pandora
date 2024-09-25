@@ -32,6 +32,7 @@ var serviceWorkarounds = []serviceWorkaround{
 	workaroundBlacklist{},
 
 	// Service-specific workarounds
+	workaroundAdministrativeUnits{},
 	workaroundApplicationTemplates{},
 	workaroundEntitlementManagementAccessPackageAccessPackageResourceRoleScope{},
 	workaroundEntitlementManagementRoleAssignment{},
