@@ -3,13 +3,15 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Update authenticationEventsFlow. Update the properties of an authenticationEventsFlow object by ID. You must specify the @odata.type property and the value of the authenticationEventsFlow object type to update. The following derived subtypes are supported:\n- externalUsersSelfServiceSignupEventsFlow",
   "expectedStatusCodes": [
+    200,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "PATCH",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +22,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

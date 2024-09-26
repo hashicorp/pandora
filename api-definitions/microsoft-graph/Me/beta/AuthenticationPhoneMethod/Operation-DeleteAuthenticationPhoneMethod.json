@@ -3,13 +3,14 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Delete phoneAuthenticationMethod. Delete a user's phone authentication method.  Remember that a user may not have an alternateMobile number without a mobile number. If you want to remove a mobile number from a user that also has an alternateMobile number, first update the mobile number to the new number, then delete the alternateMobile number. If the phone number is the user's default Azure multifactor authentication (MFA) authentication method, it cannot be deleted. Have the user change their default authentication method, and then delete the number.",
   "expectedStatusCodes": [
+    200,
     204
   ],
   "longRunning": false,
   "httpMethod": "DELETE",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -20,7 +21,7 @@
       }
     },
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -31,7 +32,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

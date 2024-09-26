@@ -3,13 +3,15 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Update accessReviewInstance. Update the properties of an accessReviewInstance object. Only the reviewers and fallbackReviewers properties can be updated but the scope property is also required in the request body. You can only add reviewers to the fallbackReviewers property but can't remove existing fallbackReviewers. To update an accessReviewInstance, its status must be InProgress.",
   "expectedStatusCodes": [
+    200,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "PATCH",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +22,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",
