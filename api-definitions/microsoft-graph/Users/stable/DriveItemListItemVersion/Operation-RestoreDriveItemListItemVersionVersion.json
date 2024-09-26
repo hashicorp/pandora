@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Invoke action restoreVersion. Restore a previous version of a ListItem to be the current version. This will create a new version with the contents of the previous version, but preserves all existing versions of the item.",
   "expectedStatusCodes": [
+    200,
+    201,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Create oAuth2PermissionGrant (a delegated permission grant). Create a delegated permission grant represented by an oAuth2PermissionGrant object. A delegated permission grant authorizes a client service principal (representing a client application) to access a resource service principal (representing an API), on behalf of a signed-in user, for the level of access limited by the delegated permissions which were granted.",
   "expectedStatusCodes": [
-    201
+    200,
+    201,
+    202,
+    204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

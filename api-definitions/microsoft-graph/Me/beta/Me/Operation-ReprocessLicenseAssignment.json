@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Invoke action reprocessLicenseAssignment. Reprocess all group-based license assignments for the user. To learn more about group-based licensing, see What is group-based licensing in Microsoft Entra ID. Also see Identify and resolve license assignment problems for a group in Microsoft Entra ID for more details.",
   "expectedStatusCodes": [
-    200
+    200,
+    201,
+    202,
+    204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

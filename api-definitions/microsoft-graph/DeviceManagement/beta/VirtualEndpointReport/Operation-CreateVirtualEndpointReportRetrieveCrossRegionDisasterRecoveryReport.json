@@ -3,13 +3,16 @@
   "contentType": "application/octet-stream",
   "description": "Invoke action retrieveCrossRegionDisasterRecoveryReport. Retrieve the Windows 365 cross-region disaster recovery report, including CloudPcId, UserId, DeviceId, CloudPCDeviceDisplayName, UserPrincipalName, IsCrossRegionEnabled, CrossRegionHealthStatus, LicenseType, DisasterRecoveryStatus, CurrentRestorePointDateTime, and ActivationExpirationDateTime.",
   "expectedStatusCodes": [
-    200
+    200,
+    201,
+    202,
+    204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

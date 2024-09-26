@@ -3,13 +3,15 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Update inferenceClassificationOverride. Change the classifyAs field of a focused Inbox override as specified. You cannot use PATCH to change any other fields in an inferenceClassificationOverride instance. If an override exists for a sender and the sender changes his/her display name, you can use POST to force an update to the name field in the existing override. If an override exists for a sender and the sender changes his/her SMTP address, deleting the existing override and creating a new one with\nthe new SMTP address is the only way to 'update' the override for this sender.",
   "expectedStatusCodes": [
+    200,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "PATCH",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +22,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Invoke action recordAllDecisions. As a reviewer of an access review, record a decision for an accessReviewInstanceDecisionItem that is assigned to you and that matches the principal or resource IDs specified. If no IDs are specified, the decisions will apply to every accessReviewInstanceDecisionItem for which you are the reviewer.",
   "expectedStatusCodes": [
+    200,
+    201,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

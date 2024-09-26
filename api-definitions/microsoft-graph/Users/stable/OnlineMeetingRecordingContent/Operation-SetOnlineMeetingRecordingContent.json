@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Update content for the navigation property recordings in users. The content of the recording. Read-only.",
   "expectedStatusCodes": [
+    200,
+    201,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "PUT",
   "options": [
     {
-      "Type": "ContentType",
+      "type": "ContentType",
       "optional": true,
       "required": false,
       "field": "ContentType",
@@ -19,7 +22,7 @@
       }
     },
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -30,7 +33,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Create invitation. Use this API to create a new invitation or reset the redemption status for a guest user who already redeemed their invitation. Invitation adds an external user to the organization. When creating a new invitation, you have several options available",
   "expectedStatusCodes": [
-    201
+    200,
+    201,
+    202,
+    204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",
