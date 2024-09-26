@@ -1,0 +1,54 @@
+{
+  "name": "LocationBasedModelCapacitiesList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "modelFormat",
+      "required": true,
+      "field": "ModelFormat",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "modelName",
+      "required": true,
+      "field": "ModelName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "modelVersion",
+      "required": true,
+      "field": "ModelVersion",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ModelCapacityListResultValueInlined",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/modelCapacities"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "TopicsCreateOrUpdateAuthorizationRule",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "TopicAuthorizationRuleId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SBAuthorizationRule",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SBAuthorizationRule",
+    "referenceNameIsCommonType": null
+  }
+}

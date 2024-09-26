@@ -1,0 +1,18 @@
+{
+  "name": "CassandraResourcesGetCassandraKeyspaceThroughput",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "CassandraKeyspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ThroughputSettingsGetResults",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/throughputSettings/default"
+}
