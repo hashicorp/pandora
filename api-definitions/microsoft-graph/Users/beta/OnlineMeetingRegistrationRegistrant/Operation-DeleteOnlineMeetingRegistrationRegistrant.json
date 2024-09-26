@@ -3,13 +3,14 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Unenroll meeting registrant (deprecated). Cancel an onlineMeeting registration for a meetingRegistrant on behalf of the registrant. Only use this method when the allowedRegistrant property of the meetingRegistration object has a value of organization and the registrant's delegated permission was used to enroll. When the allowedRegistrant value is everyone, registrants can only use the link in the email they receive to cancel their registration.",
   "expectedStatusCodes": [
+    200,
     204
   ],
   "longRunning": false,
   "httpMethod": "DELETE",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -20,7 +21,7 @@
       }
     },
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -31,7 +32,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

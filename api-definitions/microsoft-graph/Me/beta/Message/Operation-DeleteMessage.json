@@ -3,13 +3,14 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Delete message. Delete a message in the specified user's mailbox, or delete a relationship of the message. For example, you can delete a specific @-mention of the specified user in the message.",
   "expectedStatusCodes": [
+    200,
     204
   ],
   "longRunning": false,
   "httpMethod": "DELETE",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -20,7 +21,7 @@
       }
     },
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -31,7 +32,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

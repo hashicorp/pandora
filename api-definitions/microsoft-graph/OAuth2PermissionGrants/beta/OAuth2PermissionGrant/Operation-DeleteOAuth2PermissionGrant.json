@@ -3,13 +3,14 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Delete oAuth2PermissionGrant (a delegated permission grant). Delete an oAuth2PermissionGrant, representing a delegated permission grant. When a delegated permission grant is deleted, the access it granted is revoked. Existing access tokens will continue to be valid for their lifetime, but new access tokens will not be granted for the delegated permissions identified in the deleted oAuth2PermissionGrant.",
   "expectedStatusCodes": [
+    200,
     204
   ],
   "longRunning": false,
   "httpMethod": "DELETE",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -20,7 +21,7 @@
       }
     },
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -31,7 +32,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

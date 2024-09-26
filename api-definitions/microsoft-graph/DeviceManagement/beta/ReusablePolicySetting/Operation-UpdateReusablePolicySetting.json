@@ -3,13 +3,15 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Update the navigation property reusablePolicySettings in deviceManagement",
   "expectedStatusCodes": [
+    200,
+    202,
     204
   ],
   "longRunning": false,
   "httpMethod": "PATCH",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +22,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",

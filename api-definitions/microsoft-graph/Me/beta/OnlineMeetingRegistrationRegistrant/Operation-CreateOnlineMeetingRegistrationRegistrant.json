@@ -3,13 +3,16 @@
   "contentType": "application/json; charset=utf-8",
   "description": "Create externalMeetingRegistrant (deprecated). Enroll an externalMeetingRegistrant in an online meeting which has externalMeetingRegistration enabled. The meeting organizer enrolls someone by providing a unique id in the external registration system and gets the unique joinWebUrl of this registrant.",
   "expectedStatusCodes": [
-    201
+    200,
+    201,
+    202,
+    204
   ],
   "longRunning": false,
   "httpMethod": "POST",
   "options": [
     {
-      "Type": "Data",
+      "type": "Data",
       "odataFieldName": "Metadata",
       "optional": true,
       "required": false,
@@ -20,7 +23,7 @@
       }
     },
     {
-      "Type": "RetryFunc",
+      "type": "RetryFunc",
       "optional": true,
       "required": false,
       "field": "RetryFunc",
