@@ -1,0 +1,25 @@
+{
+  "name": "ImportFromStorageResponseType",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "estimatedCompletionTime",
+      "name": "EstimatedCompletionTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OperationProgressResponseType",
+  "discriminatedTypeValue": "ImportFromStorageResponse",
+  "typeHintIn": "ObjectType"
+}

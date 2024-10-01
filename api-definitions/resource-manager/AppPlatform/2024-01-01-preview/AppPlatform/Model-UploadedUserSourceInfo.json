@@ -1,0 +1,24 @@
+{
+  "name": "UploadedUserSourceInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "relativePath",
+      "name": "RelativePath",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UserSourceInfo",
+  "discriminatedTypeValue": "UploadedUserSourceInfo",
+  "typeHintIn": "Type"
+}

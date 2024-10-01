@@ -2,7 +2,7 @@
   "name": "ResourceDetails",
   "fields": [
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "jsonName": "source",
       "name": "Source",
       "objectDefinition": {
@@ -17,5 +17,6 @@
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "typeHintIn": "Source"
 }

@@ -1,0 +1,24 @@
+{
+  "name": "PostgreSqlV2LinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PostgreSqlV2LinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "PostgreSqlV2",
+  "typeHintIn": "Type"
+}

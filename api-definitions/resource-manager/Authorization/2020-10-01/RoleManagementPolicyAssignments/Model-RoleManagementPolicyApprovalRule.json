@@ -1,0 +1,24 @@
+{
+  "name": "RoleManagementPolicyApprovalRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "setting",
+      "name": "Setting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApprovalSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RoleManagementPolicyRule",
+  "discriminatedTypeValue": "RoleManagementPolicyApprovalRule",
+  "typeHintIn": "RuleType"
+}
