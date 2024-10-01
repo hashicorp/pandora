@@ -8,6 +8,7 @@ import (
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/parsingcontext"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/resourceids"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
 func parseOperation(parsingContext *parsingcontext.Context, operation parsedOperation, resourceProvider *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation) (*sdkModels.SDKOperation, *parserModels.ParseResult, error) {
@@ -58,7 +59,11 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 		return nil, nil, err
 	}
 	if usesADifferentResourceProvider != nil && *usesADifferentResourceProvider {
-		return nil, nil, nil
+		// this check currently disabled as we want to import all resources defined for a service, even when
+		// the ResourceProvider may be different across those resources. prior to refactoring the importer to use
+		// Data API SDK types, this check never worked, but now it does, and we don't need it.
+		logging.Tracef("Skipping default ResourceProvider check for %q (%q)", *resourceId.ResourceIdName, *resourceProvider)
+		//return nil, nil, nil
 	}
 
 	operationData := sdkModels.SDKOperation{
