@@ -3,7 +3,7 @@ package comparison
 import (
 	"fmt"
 	"strings"
-	
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
@@ -32,8 +32,16 @@ func ObjectDefinitionsMatch(first, second *sdkModels.SDKObjectDefinition) (bool,
 		return false, fmt.Errorf("ReferenceName differed - %q vs %q", pointer.From(first.ReferenceName), pointer.From(second.ReferenceName))
 	}
 	if first.ReferenceNameIsCommonType != second.ReferenceNameIsCommonType {
-		logging.Tracef("ReferenceNameIsCommonType differed - %t vs %t", first.ReferenceNameIsCommonType, second.ReferenceNameIsCommonType)
-		return false, fmt.Errorf("ReferenceNameIsCommonType differed - %t vs %t", first.ReferenceNameIsCommonType, second.ReferenceNameIsCommonType)
+		firstValue := "nil"
+		secondValue := "nil"
+		if first.ReferenceNameIsCommonType != nil {
+			firstValue = fmt.Sprintf("%t", *first.ReferenceNameIsCommonType)
+		}
+		if second.ReferenceNameIsCommonType != nil {
+			secondValue = fmt.Sprintf("%t", *second.ReferenceNameIsCommonType)
+		}
+		logging.Tracef("ReferenceNameIsCommonType differed - %s vs %s", firstValue, secondValue)
+		return false, fmt.Errorf("ReferenceNameIsCommonType differed - %s vs %s", firstValue, secondValue)
 	}
 	if first.NestedItem != nil && second.NestedItem != nil {
 		if ok, err := ObjectDefinitionsMatch(first.NestedItem, second.NestedItem); !ok {

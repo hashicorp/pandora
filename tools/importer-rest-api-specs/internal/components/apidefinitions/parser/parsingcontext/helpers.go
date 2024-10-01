@@ -2,6 +2,7 @@ package parsingcontext
 
 import (
 	"fmt"
+	"net/url"
 	"strings"
 
 	"github.com/go-openapi/spec"
@@ -22,6 +23,10 @@ func fragmentNameFromString(fragmentName string) *string {
 	if fragmentName != "" {
 		fragments := strings.Split(fragmentName, "/") // format #/definitions/ConfigurationStoreListResult
 		referenceName := fragments[len(fragments)-1]
+
+		// url-decode the referenceName, as it comes from the fragment which might contain urlencoded characters like
+		// `[` or `]` - ignoring any errors here, since this function will err if invalid escape sequences are present
+		referenceName, _ = url.QueryUnescape(referenceName)
 		return &referenceName
 	}
 

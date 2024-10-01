@@ -61,7 +61,7 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 
 			parsedService, err := apidefinitions.ParseService(*availableDataSet)
 			if err != nil {
-				t.Errorf("parsing Data for Service %q: %+v", service.Name, err)
+				t.Fatalf("parsing Data for Service %q: %+v", service.Name, err)
 			}
 
 			t.Logf("Service %q contains %d API Versions", service.Name, len(availableDataSet.DataSetsForAPIVersions))

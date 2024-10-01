@@ -2,6 +2,7 @@ package parsingcontext
 
 import (
 	"fmt"
+	"net/url"
 	"path/filepath"
 	"strings"
 
@@ -31,7 +32,7 @@ import (
 // are mangled and thus fail to be ingested. To prevent accidental clobbering of models/constants in external swagger
 // files that have the same name, we specifically only compile the models/constants that are being remotely referenced,
 // as well as any references they may have to ensure no reference remains unresolved. To trick the `analysis.Flatten`
-// function, we strip out the paths in remove references after resolving them, to make it appear like everything was
+// function, we strip out the paths in remote references after resolving them, to make it appear like everything was
 // loaded from the original swagger file.
 func BuildFromFile(filePath string) (*Context, error) {
 
@@ -59,7 +60,6 @@ func BuildFromFile(filePath string) (*Context, error) {
 		Verbose:      true,
 		Expand:       false,
 		RemoveUnused: false,
-		//ContinueOnError: true,
 
 		BasePath: basePath,
 		Spec:     analysis.New(swaggerDocWithReferences.Spec()),
@@ -92,7 +92,6 @@ func BuildFromFile(filePath string) (*Context, error) {
 		Verbose:      true,
 		Expand:       false,
 		RemoveUnused: false,
-		//ContinueOnError: true,
 
 		BasePath: basePath,
 		Spec:     analysis.New(expandedSwaggerDoc.Spec()),
@@ -322,9 +321,13 @@ func modelNamePathFromRef(ref spec.Ref, sourcePath, topLevelDir string) (modelNa
 		modelFilePath = filepath.Join(sourceDir, modelFilePath)
 	}
 
-	// get the modelName from the last URL fragment
+	// get the modelName from the last slug in the URL fragment
 	fragments := strings.Split(refUrl.Fragment, "/")
 	modelName = fragments[len(fragments)-1]
+
+	// url-decode the model name, as it comes from the fragment which might contain urlencoded characters like `[` or `]`
+	// ignoring any errors here, since this function will err if invalid escape sequences are present
+	modelName, _ = url.QueryUnescape(modelName)
 
 	return
 }
