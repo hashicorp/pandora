@@ -2,7 +2,6 @@ package models
 
 import (
 	"fmt"
-	"reflect"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -44,9 +43,15 @@ func (r *ParseResult) AppendConstants(other map[string]sdkModels.SDKConstant) er
 			return fmt.Errorf("conflicting constant %q with different types - first type %q - second type %q", k, string(existing.Type), string(v.Type))
 		}
 
-		if !reflect.DeepEqual(existing.Values, v.Values) {
-			return fmt.Errorf("conflicting constant %q with different values. First: %+v. Second: %+v", k, existing.Values, v.Values)
+		// where the constant types are the same, we will combine their values instead of failing here.
+		// originally added for: SecurityInsights@2022-10-01-preview / EntityQueryKind
+		for valueName, valueValue := range v.Values {
+			r.Constants[k].Values[valueName] = valueValue
 		}
+
+		//if !reflect.DeepEqual(existing.Values, v.Values) {
+		//	return fmt.Errorf("conflicting constant %q with different values. First: %+v. Second: %+v", k, existing.Values, v.Values)
+		//}
 	}
 
 	return nil
