@@ -25,7 +25,6 @@ func TestDiscoverDataSetForAPIVersion_IgnoresExamples(t *testing.T) {
 		FilePathsContainingAPIDefinitions: []string{
 			"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
 		},
-		FilePathsContainingSupplementaryData: make([]string, 0),
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
 	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
@@ -55,36 +54,6 @@ func TestDiscoverDataSetForAPIVersion_IgnoresNonJSONFiles(t *testing.T) {
 		FilePathsContainingAPIDefinitions: []string{
 			"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
 		},
-		FilePathsContainingSupplementaryData: make([]string, 0),
-	}
-	logging.Log = hclog.New(hclog.DefaultOptions)
-	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
-	if err != nil {
-		t.Fatalf("unexpected error: %+v", err)
-	}
-	if actual == nil {
-		t.Fatalf("expected a value but got nil")
-	}
-	if !reflect.DeepEqual(expected, *actual) {
-		t.Fatalf("expected and actual did not match - expected |%+v| but got |%+v", expected, *actual)
-	}
-}
-
-func TestDiscoverDataSetForAPIVersion_IdentifiesDiscriminatedTypesAsSupplementaryData(t *testing.T) {
-	apiVersion := "2020-01-01"
-	filePaths := []string{
-		"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
-		"specification/compute/resource-manager/stable/2020-01-01/entities/virtualMachineTypes.json",
-	}
-	expected := models.AvailableDataSetForAPIVersion{
-		APIVersion:               "2020-01-01",
-		ContainsStableAPIVersion: true,
-		FilePathsContainingAPIDefinitions: []string{
-			"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
-		},
-		FilePathsContainingSupplementaryData: []string{
-			"specification/compute/resource-manager/stable/2020-01-01/entities/virtualMachineTypes.json",
-		},
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
 	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
@@ -111,7 +80,6 @@ func TestDiscoverDataSetForAPIVersion_PreviewAPIVersion(t *testing.T) {
 		FilePathsContainingAPIDefinitions: []string{
 			"specification/compute/resource-manager/stable/2020-01-01-preview/virtualMachines.json",
 		},
-		FilePathsContainingSupplementaryData: make([]string, 0),
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
 	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
@@ -138,7 +106,6 @@ func TestDiscoverDataSetForAPIVersion_StableAPIVersion(t *testing.T) {
 		FilePathsContainingAPIDefinitions: []string{
 			"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
 		},
-		FilePathsContainingSupplementaryData: make([]string, 0),
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
 	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)

@@ -23,7 +23,6 @@ func ParseSwaggerFileForTesting(t *testing.T, filePath string, serviceName *stri
 				FilePathsContainingAPIDefinitions: []string{
 					filepath.Join("testdata", filePath),
 				},
-				FilePathsContainingSupplementaryData: []string{},
 			},
 		},
 		ResourceProvider: nil,

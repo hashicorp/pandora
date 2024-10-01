@@ -15,7 +15,6 @@ func TestDebugSingleSwaggerFile(t *testing.T) {
 		FilePathsContainingAPIDefinitions: []string{
 			"/path/to/submodules/rest-api-specs/specification/storagecache/resource-manager/Microsoft.StorageCache/stable/2023-05-01/amlfilesystem.json",
 		},
-		FilePathsContainingSupplementaryData: []string{},
 	}
 	result, err := parseAPIVersion("StorageCache", input, pointer.To("Microsoft.StorageCache"))
 	if err != nil {

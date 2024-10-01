@@ -13,8 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-// discoverDataSetForAPIVersion parses a set of filePaths and identifies the files which contain API Definitions and
-// those containing supplementary information for the API Version in question.
+// discoverDataSetForAPIVersion parses a set of filePaths and identifies the files which contain API Definitions for the API Version.
 func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*models.AvailableDataSetForAPIVersion, error) {
 	// handle this being Stable/Preview etc
 	// e.g. /2020-02-01/ to ensure we don't unintentionally also bring in Preview API versions
@@ -54,7 +53,6 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 
 	// now that we know which files are available, let's go through and bucket them
 	filePathsContainingAPIDefinitions := make([]string, 0)
-	filePathsContainingSupplementaryData := make([]string, 0)
 	for _, filePath := range filePathsForThisAPIVersion {
 		logging.Tracef("Processing %q..", filePath)
 		// However since there's multiple different directory structures, we only need to pull out the files within the directory for this API Version
@@ -74,24 +72,16 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 			continue
 		}
 
-		withinASubDirectory := len(components) > 1
-		if withinASubDirectory {
-			// anything located within a sub-directory that hasn't been ignored will be supplementary data
-			filePathsContainingSupplementaryData = append(filePathsContainingSupplementaryData, filePath)
-		} else {
-			filePathsContainingAPIDefinitions = append(filePathsContainingAPIDefinitions, filePath)
-		}
+		filePathsContainingAPIDefinitions = append(filePathsContainingAPIDefinitions, filePath)
 	}
 
 	sort.Strings(filePathsContainingAPIDefinitions)
-	sort.Strings(filePathsContainingSupplementaryData)
 
 	containsStableAPIVersion := isStableAPIVersion(apiVersion)
 	return &models.AvailableDataSetForAPIVersion{
-		APIVersion:                           apiVersion,
-		ContainsStableAPIVersion:             containsStableAPIVersion,
-		FilePathsContainingAPIDefinitions:    filePathsContainingAPIDefinitions,
-		FilePathsContainingSupplementaryData: filePathsContainingSupplementaryData,
+		APIVersion:                        apiVersion,
+		ContainsStableAPIVersion:          containsStableAPIVersion,
+		FilePathsContainingAPIDefinitions: filePathsContainingAPIDefinitions,
 	}, nil
 }
 
