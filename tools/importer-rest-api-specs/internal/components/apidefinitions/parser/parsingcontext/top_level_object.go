@@ -8,13 +8,13 @@ import (
 )
 
 func (c *Context) findTopLevelObject(name string) (*spec.Schema, error) {
-	for modelName, model := range c.SwaggerSpecRaw.Definitions {
+	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
 		}
 	}
 
-	for modelName, model := range c.SwaggerSpecExtendedRaw.Definitions {
+	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
 		}

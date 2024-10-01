@@ -378,24 +378,26 @@ func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fi
 		}
 	}
 
-	// this would be an Implementation
-	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
-		details.DiscriminatedValue = &v
+	// look for a potential ancestor
+	parentTypeName, discriminator, err := c.FindAncestorType(input)
+	if err != nil {
+		return nil, fmt.Errorf("finding ancestor type for %q: %+v", modelName, err)
+	}
+	if parentTypeName != nil && discriminator != nil {
+		details.ParentTypeName = parentTypeName
+		details.FieldNameContainingDiscriminatedValue = discriminator
 
-		// so we need to find the ancestor details
-		parentTypeName, discriminator, err := c.FindAncestorType(input)
-		if err != nil {
-			return nil, fmt.Errorf("finding ancestor type for %q: %+v", modelName, err)
+		// look for the discriminated value, or use the model name
+		if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
+			details.DiscriminatedValue = &v
+		} else {
+			details.DiscriminatedValue = pointer.To(modelName)
 		}
-		if parentTypeName != nil && discriminator != nil {
-			details.ParentTypeName = parentTypeName
-			details.FieldNameContainingDiscriminatedValue = discriminator
-		}
+	}
 
-		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
-		if details.ParentTypeName == nil || details.FieldNameContainingDiscriminatedValue == nil {
-			details.DiscriminatedValue = nil
-		}
+	// if there is a discriminated value but no parent type - this is bad data - so we should ignore it
+	if details.ParentTypeName == nil || details.FieldNameContainingDiscriminatedValue == nil {
+		details.DiscriminatedValue = nil
 	}
 
 	return &details, nil

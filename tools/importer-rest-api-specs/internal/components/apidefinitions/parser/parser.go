@@ -11,12 +11,12 @@ type apiDefinitionsParser struct {
 }
 
 func NewAPIDefinitionsParser(filePath string) (*apiDefinitionsParser, error) {
-	paringContext, err := parsingcontext.BuildFromFile(filePath)
+	parsingContext, err := parsingcontext.BuildFromFile(filePath)
 	if err != nil {
 		return nil, fmt.Errorf("building the parsing context: %+v", err)
 	}
 
 	return &apiDefinitionsParser{
-		context: paringContext,
+		context: parsingContext,
 	}, nil
 }

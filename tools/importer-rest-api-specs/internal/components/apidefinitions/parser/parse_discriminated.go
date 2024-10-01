@@ -15,7 +15,7 @@ func (p *apiDefinitionsParser) FindOrphanedDiscriminatedModels(serviceName strin
 		Models:    map[string]sdkModels.SDKModel{},
 	}
 
-	for modelName, definition := range p.context.SwaggerSpecRaw.Definitions {
+	for modelName, definition := range p.context.SwaggerSpecWithReferencesRaw.Definitions {
 		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
 			details, err := p.context.ParseModel(modelName, definition)
 			if err != nil {

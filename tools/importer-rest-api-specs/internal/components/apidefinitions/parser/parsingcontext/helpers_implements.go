@@ -47,7 +47,7 @@ func (c *Context) doesModelImplement(modelName string, value spec.Schema, parent
 func (c *Context) findModelNamesWhichImplement(parentName string) (*[]string, error) {
 	modelNames := make([]string, 0)
 
-	for childName, value := range c.SwaggerSpecExtendedRaw.Definitions {
+	for childName, value := range c.SwaggerSpecWithReferencesRaw.Definitions {
 		implementsParent, err := c.doesModelImplement(childName, value, parentName)
 		if err != nil {
 			return nil, fmt.Errorf("determining if model %q implements %q: %+v", childName, parentName, err)
