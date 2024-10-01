@@ -992,9 +992,40 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 						DiscriminatedValue:                    pointer.To("human"),
 					},
-					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
-					// it's just an abstract type (defining the shared fields for Car and Human), rather than
-					// being directly used.
+					"NamedEntity": {
+						Fields: map[string]sdkModels.SDKField{
+							"FirstName": {
+								JsonName: "firstName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+							"LastName": {
+								JsonName: "lastName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+							},
+							"SomeField": {
+								JsonName: "someField",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: false,
+							},
+							"TypeName": {
+								JsonName: "typeName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("NamedEntity"),
+					},
 				},
 				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
@@ -1145,9 +1176,40 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
 						DiscriminatedValue:                    pointer.To("human"),
 					},
-					// NOTE: Whilst NamedEntity is present in the Swagger it shouldn't be in the result since
-					// it's just an abstract type (defining the shared fields for Car and Human), rather than
-					// being directly used.
+					"NamedEntity": {
+						Fields: map[string]sdkModels.SDKField{
+							"FirstName": {
+								JsonName: "firstName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+							"LastName": {
+								JsonName: "lastName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+							},
+							"SomeField": {
+								JsonName: "someField",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: false,
+							},
+							"TypeName": {
+								JsonName: "typeName",
+								ObjectDefinition: sdkModels.SDKObjectDefinition{
+									Type: sdkModels.StringSDKObjectDefinitionType,
+								},
+								Required: true,
+							},
+						},
+						ParentTypeName:                        pointer.To("BiologicalEntity"),
+						FieldNameContainingDiscriminatedValue: pointer.To("TypeName"),
+						DiscriminatedValue:                    pointer.To("NamedEntity"),
+					},
 				},
 				Operations: map[string]sdkModels.SDKOperation{
 					"Test": {
