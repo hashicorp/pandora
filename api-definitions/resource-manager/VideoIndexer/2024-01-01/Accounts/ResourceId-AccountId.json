@@ -1,6 +1,6 @@
 {
-  "name": "UserId",
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}",
+  "name": "AccountId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VideoIndexer/accounts/{accountName}",
   "segments": [
     {
       "exampleValue": "",
@@ -32,30 +32,19 @@
     },
     {
       "exampleValue": "",
-      "name": "staticMicrosoftDevTestLab",
+      "name": "staticMicrosoftVideoIndexer",
       "type": "ResourceProvider",
-      "value": "Microsoft.DevTestLab"
+      "value": "Microsoft.VideoIndexer"
     },
     {
       "exampleValue": "",
-      "name": "staticLabs",
+      "name": "staticAccounts",
       "type": "Static",
-      "value": "labs"
+      "value": "accounts"
     },
     {
-      "exampleValue": "labName",
-      "name": "labName",
-      "type": "UserSpecified"
-    },
-    {
-      "exampleValue": "",
-      "name": "staticUsers",
-      "type": "Static",
-      "value": "users"
-    },
-    {
-      "exampleValue": "name",
-      "name": "userName",
+      "exampleValue": "accountName",
+      "name": "accountName",
       "type": "UserSpecified"
     }
   ]
