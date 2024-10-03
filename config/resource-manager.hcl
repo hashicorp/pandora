@@ -606,13 +606,13 @@ service "trafficmanager" {
   name      = "TrafficManager"
   available = ["2022-04-01"]
 }
-service "videoanalyzer" {
-  name      = "VideoAnalyzer"
-  available = ["2021-05-01-preview"]
-}
 service "vi" {
   name      = "VideoIndexer"
   available = ["2024-01-01"]
+}
+service "videoanalyzer" {
+  name      = "VideoAnalyzer"
+  available = ["2021-05-01-preview"]
 }
 service "vmware" {
   name      = "VMware"
