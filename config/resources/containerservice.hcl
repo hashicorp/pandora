@@ -4,7 +4,7 @@
 service "ContainerService" {
   terraform_package = "containers"
 
-  api "2023-03-02-preview" {
+  api "2024-05-01" {
     package "TrustedAccess" {
       definition "kubernetes_cluster_trusted_access_role_binding" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}"
@@ -12,7 +12,6 @@ service "ContainerService" {
         website_subcategory = "Container"
         description = <<HERE
 Manages a Kubernetes Cluster Trusted Access Role Binding
-~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
 HERE
         test_data {
           basic_variables {
