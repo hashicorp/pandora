@@ -632,5 +632,5 @@ service "webpubsub" {
 }
 service "workloads" {
   name      = "Workloads"
-  available = ["2023-04-01"]
+  available = ["2023-04-01", "2024-09-01"]
 }
