@@ -470,6 +470,7 @@ func NormalizeCanonicalisation(input string) string {
 	output = strings.ReplaceAll(output, "Vm", "VM")
 	output = strings.ReplaceAll(output, "vm", "VM")
 	output = strings.ReplaceAll(output, "Cpu", "CPU")
+	output = strings.ReplaceAll(output, "Url", "URL")
 
 	output = strings.ReplaceAll(output, "Https", "HTTPS")
 	output = strings.ReplaceAll(output, "Http", "HTTP")
