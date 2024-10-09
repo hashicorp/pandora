@@ -37,10 +37,16 @@
       "jsonName": "entityMapping",
       "name": "EntityMapping",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +73,16 @@
       "jsonName": "itemsKeyValue",
       "name": "ItemsKeyValue",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": false,
       "readOnly": false,
