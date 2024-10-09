@@ -10,7 +10,7 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operationPayloads, mappings *sdkModels.TerraformMappingDefinition, resourceDisplayName string) (*map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operationPayloads, mappings *sdkModels.TerraformMappingDefinition, resourceDisplayName string) (map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
 	allFields := make(map[string]struct{})
 	for _, model := range input.createReadUpdatePayloads() {
 		for k := range model.Fields {
@@ -179,7 +179,7 @@ func (b Builder) schemaFromTopLevelFields(schemaModelName string, input operatio
 
 	// TODO: go through any fields _only_ in the Read function which are ReadOnly/Computed
 
-	return &schemaFields, mappings, nil
+	return schemaFields, mappings, nil
 }
 
 func directAssignmentMappingForTopLevelField(schemaModelName, schemaModelField string, input operationPayloads, sdkFieldName string, hasCreate bool, hasUpdate bool, hasRead bool) []sdkModels.TerraformFieldMappingDefinition {

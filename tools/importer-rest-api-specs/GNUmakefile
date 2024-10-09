@@ -16,6 +16,9 @@ import: build
 import-with-api: build
 	./importer-rest-api-specs import --data-api=http://localhost:8080
 
+validate: build
+	./importer-rest-api-specs validate
+
 test: build
 	go test -v ./... -timeout=60m
 

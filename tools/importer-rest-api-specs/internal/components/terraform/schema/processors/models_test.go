@@ -54,22 +54,22 @@ func mappingTypesMatch(t *testing.T, first sdkModels.TerraformFieldMappingDefini
 		t.Fatalf("encoding second: %+v", err)
 		return false
 	}
-	if !reflect.DeepEqual(*firstEncoded, *secondEncoded) {
-		t.Fatalf("mapping types didn't match - first [%+v] - second [%+v]", *firstEncoded, *secondEncoded)
+	if !reflect.DeepEqual(firstEncoded, secondEncoded) {
+		t.Fatalf("mapping types didn't match - first [%+v] - second [%+v]", firstEncoded, secondEncoded)
 		return false
 	}
 	return true
 }
 
-func modelDefinitionsMatch(t *testing.T, actual *map[string]sdkModels.TerraformSchemaModel, expected map[string]sdkModels.TerraformSchemaModel) {
+func modelDefinitionsMatch(t *testing.T, actual map[string]sdkModels.TerraformSchemaModel, expected map[string]sdkModels.TerraformSchemaModel) {
 	if actual == nil {
 		t.Fatalf("actual was nil")
 	}
-	if len(*actual) != len(expected) {
-		t.Fatalf("actual had %d models but expected had %d models", len(*actual), len(expected))
+	if len(actual) != len(expected) {
+		t.Fatalf("actual had %d models but expected had %d models", len(actual), len(expected))
 	}
 
-	for key, firstVal := range *actual {
+	for key, firstVal := range actual {
 		secondVal, ok := expected[key]
 		if !ok {
 			t.Fatalf("key %q was present in actual but not expected", key)
@@ -190,15 +190,15 @@ func validatorsMatch(t *testing.T, first sdkModels.TerraformSchemaFieldValidatio
 		return false
 	}
 
-	if !reflect.DeepEqual(*firstEncoded, *secondEncoded) {
-		t.Fatalf("validation values didn't match - first [%+v] / second [%+v]", *firstEncoded, *secondEncoded)
+	if !reflect.DeepEqual(firstEncoded, secondEncoded) {
+		t.Fatalf("validation values didn't match - first [%+v] / second [%+v]", firstEncoded, secondEncoded)
 		return false
 	}
 
 	return true
 }
 
-func marshalValue(input any) (*map[string]any, error) {
+func marshalValue(input any) (map[string]any, error) {
 	encoded, err := json.Marshal(input)
 	if err != nil {
 		return nil, err
@@ -208,7 +208,7 @@ func marshalValue(input any) (*map[string]any, error) {
 	if err := json.Unmarshal(encoded, &out); err != nil {
 		return nil, fmt.Errorf("decoding into `map[string]any`: %+v", err)
 	}
-	return &out, nil
+	return out, nil
 }
 
 func stringifyValues(input []interface{}) []string {
