@@ -45,6 +45,8 @@ func (workaroundInconsistentlyDefinedSegments) Process(apiDefinition importerMod
 							val.Name = singularNameOfPrevious
 							if !strings.HasSuffix(val.Name, "Name") {
 								val.Name = fmt.Sprintf("%sName", singularNameOfPrevious)
+								// the parser sets the same value into Name and ExampleValue so this needs to be applied to ExampleValue as well
+								val.ExampleValue = fmt.Sprintf("%sName", singularNameOfPrevious)
 							}
 						}
 					}
