@@ -66,10 +66,16 @@
       "jsonName": "protectedSettings",
       "name": "ProtectedSettings",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +117,16 @@
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
