@@ -28,3 +28,31 @@ type APIResource struct {
 	// NOTE: the Resource ID Name is a valid Identifier.
 	ResourceIDs map[string]ResourceID
 }
+
+func (a APIResource) Merge(b *APIResource) APIResource {
+	for k, v := range b.Constants {
+		if _, ok := a.Constants[k]; !ok {
+			a.Constants[k] = v
+		}
+	}
+
+	for k, v := range b.Models {
+		if _, ok := a.Models[k]; !ok {
+			a.Models[k] = v
+		}
+	}
+
+	for k, v := range b.Operations {
+		if _, ok := a.Operations[k]; !ok {
+			a.Operations[k] = v
+		}
+	}
+
+	for k, v := range b.ResourceIDs {
+		if _, ok := a.ResourceIDs[k]; !ok {
+			a.ResourceIDs[k] = v
+		}
+	}
+
+	return a
+}
