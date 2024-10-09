@@ -14,7 +14,7 @@ var _ ModelProcessor = modelFlattenSkuName{}
 
 type modelFlattenSkuName struct{}
 
-func (modelFlattenSkuName) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (modelFlattenSkuName) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	fields := make(map[string]sdkModels.TerraformSchemaField)
 	for fieldName, fieldValue := range model.Fields {
 		fields[fieldName] = fieldValue
@@ -48,5 +48,5 @@ func (modelFlattenSkuName) ProcessModel(modelName string, model sdkModels.Terraf
 	}
 	model.Fields = fields
 	schemaModels[modelName] = model
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }

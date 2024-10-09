@@ -5,11 +5,11 @@ package discovery
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"path/filepath"
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
