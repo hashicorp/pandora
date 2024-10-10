@@ -1,0 +1,24 @@
+{
+  "name": "CustomContainerUserSourceInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customContainer",
+      "name": "CustomContainer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomContainer",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UserSourceInfo",
+  "discriminatedTypeValue": "Container",
+  "typeHintIn": "Type"
+}

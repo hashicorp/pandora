@@ -1,0 +1,24 @@
+{
+  "name": "AzureFileVolume",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shareName",
+      "name": "ShareName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomPersistentDiskProperties",
+  "discriminatedTypeValue": "AzureFileVolume",
+  "typeHintIn": "Type"
+}

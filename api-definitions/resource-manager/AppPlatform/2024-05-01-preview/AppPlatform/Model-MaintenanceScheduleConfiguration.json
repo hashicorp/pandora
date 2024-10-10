@@ -1,0 +1,22 @@
+{
+  "name": "MaintenanceScheduleConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "frequency",
+      "name": "Frequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Frequency",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "Frequency"
+}

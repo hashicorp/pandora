@@ -1,0 +1,24 @@
+{
+  "name": "BuildResultUserSourceInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "buildResultId",
+      "name": "BuildResultId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UserSourceInfo",
+  "discriminatedTypeValue": "BuildResult",
+  "typeHintIn": "Type"
+}
