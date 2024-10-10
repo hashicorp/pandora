@@ -36,7 +36,7 @@ service "applicationinsights" {
 }
 service "appplatform" {
   name      = "AppPlatform"
-  available = ["2024-01-01-preview", "2024-05-01-preview"]]
+  available = ["2024-01-01-preview", "2024-05-01-preview"]
 }
 service "attestation" {
   name      = "Attestation"
