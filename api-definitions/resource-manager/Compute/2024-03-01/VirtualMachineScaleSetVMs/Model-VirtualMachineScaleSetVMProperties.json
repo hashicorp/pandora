@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "AdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilitySet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DiagnosticsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsProfile"
+        "nullable": false,
+        "referenceName": "DiagnosticsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HardwareProfile"
+        "nullable": false,
+        "referenceName": "HardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetVMInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetVMInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "LatestModelApplied",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ModelDefinitionApplied",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "NetworkProfileConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetVMNetworkProfileConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetVMNetworkProfileConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfile"
+        "nullable": false,
+        "referenceName": "OSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "ProtectionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetVMProtectionPolicy"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetVMProtectionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,7 +217,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,7 +233,9 @@
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,7 +248,9 @@
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -229,12 +263,15 @@
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

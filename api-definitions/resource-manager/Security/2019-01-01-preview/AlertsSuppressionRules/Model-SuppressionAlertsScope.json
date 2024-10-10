@@ -7,10 +7,14 @@
       "name": "AllOf",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScopeElement"
+          "nullable": false,
+          "referenceName": "ScopeElement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +22,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

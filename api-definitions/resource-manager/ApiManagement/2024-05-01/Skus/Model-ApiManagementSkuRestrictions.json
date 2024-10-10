@@ -7,7 +7,9 @@
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionsReasonCode"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionsReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RestrictionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionInfo"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementSkuRestrictionsType"
+        "nullable": false,
+        "referenceName": "ApiManagementSkuRestrictionsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

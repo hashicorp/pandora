@@ -7,7 +7,9 @@
       "name": "FabricLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPlanActionLocation"
+        "nullable": false,
+        "referenceName": "RecoveryPlanActionLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RunbookId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPlanActionDetails",
   "discriminatedTypeValue": "AutomationRunbookActionDetails",
   "typeHintIn": "InstanceType"

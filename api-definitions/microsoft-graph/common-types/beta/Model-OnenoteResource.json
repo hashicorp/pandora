@@ -1,0 +1,41 @@
+{
+  "name": "OnenoteResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The content of the resource.",
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL for the content stream.",
+      "jsonName": "contentUrl",
+      "name": "ContentUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnenoteEntityBaseModel",
+  "discriminatedTypeValue": "#microsoft.graph.onenoteResource",
+  "typeHintIn": "ODataType"
+}

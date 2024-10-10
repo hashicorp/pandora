@@ -7,10 +7,14 @@
       "name": "AllowedEndpointRecordTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AllowedEndpointRecordType"
+          "nullable": false,
+          "referenceName": "AllowedEndpointRecordType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "DnsConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsConfig"
+        "nullable": false,
+        "referenceName": "DnsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Endpoint"
+          "nullable": false,
+          "referenceName": "Endpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "MaxReturn",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "MonitorConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorConfig"
+        "nullable": false,
+        "referenceName": "MonitorConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProfileStatus"
+        "nullable": false,
+        "referenceName": "ProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "TrafficRoutingMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrafficRoutingMethod"
+        "nullable": false,
+        "referenceName": "TrafficRoutingMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,12 +124,15 @@
       "name": "TrafficViewEnrollmentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrafficViewEnrollmentStatus"
+        "nullable": false,
+        "referenceName": "TrafficViewEnrollmentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

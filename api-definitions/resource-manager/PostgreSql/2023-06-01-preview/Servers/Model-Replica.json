@@ -7,7 +7,9 @@
       "name": "Capacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PromoteMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadReplicaPromoteMode"
+        "nullable": false,
+        "referenceName": "ReadReplicaPromoteMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PromoteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationPromoteOption"
+        "nullable": false,
+        "referenceName": "ReplicationPromoteOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationState"
+        "nullable": false,
+        "referenceName": "ReplicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationRole"
+        "nullable": false,
+        "referenceName": "ReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

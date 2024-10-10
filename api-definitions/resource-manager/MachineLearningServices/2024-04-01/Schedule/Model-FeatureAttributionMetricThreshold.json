@@ -7,7 +7,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureAttributionMetric"
+        "nullable": false,
+        "referenceName": "FeatureAttributionMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Threshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringThreshold"
+        "nullable": false,
+        "referenceName": "MonitoringThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "ContentTypesToCompress",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeepCreatedCustomDomain"
+          "nullable": false,
+          "referenceName": "DeepCreatedCustomDomain",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "DefaultOriginGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "DeliveryPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointPropertiesUpdateParametersDeliveryPolicy"
+        "nullable": false,
+        "referenceName": "EndpointPropertiesUpdateParametersDeliveryPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "GeoFilters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GeoFilter"
+          "nullable": false,
+          "referenceName": "GeoFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "IsCompressionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "IsHTTPAllowed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "IsHTTPSAllowed",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "OptimizationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptimizationType"
+        "nullable": false,
+        "referenceName": "OptimizationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,10 +175,14 @@
       "name": "OriginGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeepCreatedOriginGroup"
+          "nullable": false,
+          "referenceName": "DeepCreatedOriginGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,7 +196,9 @@
       "name": "OriginHostHeader",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +211,9 @@
       "name": "OriginPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,10 +226,14 @@
       "name": "Origins",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeepCreatedOrigin"
+          "nullable": false,
+          "referenceName": "DeepCreatedOrigin",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -209,7 +247,9 @@
       "name": "ProbePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,7 +262,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointProvisioningState"
+        "nullable": false,
+        "referenceName": "EndpointProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -235,7 +277,9 @@
       "name": "QueryStringCachingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryStringCachingBehavior"
+        "nullable": false,
+        "referenceName": "QueryStringCachingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -248,7 +292,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointResourceState"
+        "nullable": false,
+        "referenceName": "EndpointResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -261,10 +307,14 @@
       "name": "UrlSigningKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UrlSigningKey"
+          "nullable": false,
+          "referenceName": "URLSigningKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -278,12 +328,15 @@
       "name": "WebApplicationFirewallPolicyLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink"
+        "nullable": false,
+        "referenceName": "EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

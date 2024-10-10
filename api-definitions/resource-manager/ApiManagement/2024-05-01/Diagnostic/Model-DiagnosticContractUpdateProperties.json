@@ -7,7 +7,9 @@
       "name": "AlwaysLog",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlwaysLog"
+        "nullable": false,
+        "referenceName": "AlwaysLog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Backend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineDiagnosticSettings"
+        "nullable": false,
+        "referenceName": "PipelineDiagnosticSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Frontend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineDiagnosticSettings"
+        "nullable": false,
+        "referenceName": "PipelineDiagnosticSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HTTPCorrelationProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPCorrelationProtocol"
+        "nullable": false,
+        "referenceName": "HTTPCorrelationProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LogClientIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "LoggerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Metrics",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "OperationNameFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationNameFormat"
+        "nullable": false,
+        "referenceName": "OperationNameFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Sampling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingSettings"
+        "nullable": false,
+        "referenceName": "SamplingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,12 +142,15 @@
       "name": "Verbosity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Verbosity"
+        "nullable": false,
+        "referenceName": "Verbosity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

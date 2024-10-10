@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileTriggerProperties"
+        "nullable": false,
+        "referenceName": "FileTriggerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Trigger",
   "discriminatedTypeValue": "FileEvent",
   "typeHintIn": "Kind"

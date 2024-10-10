@@ -1,0 +1,89 @@
+{
+  "name": "Windows81VpnConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value indicating whether this policy only applies to Windows 8.1. This property is read-only.",
+      "jsonName": "applyOnlyToWindows81",
+      "name": "ApplyOnlyToWindows81",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows VPN connection type.",
+      "jsonName": "connectionType",
+      "name": "ConnectionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsVpnConnectionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enable split tunneling for the VPN.",
+      "jsonName": "enableSplitTunneling",
+      "name": "EnableSplitTunneling",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Login group or domain when connection type is set to Dell SonicWALL Mobile Connection.",
+      "jsonName": "loginGroupOrDomain",
+      "name": "LoginGroupOrDomain",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Proxy Server.",
+      "jsonName": "proxyServer",
+      "name": "ProxyServer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Windows81VpnProxyServer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "WindowsVpnConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows81VpnConfiguration",
+  "typeHintIn": "ODataType"
+}

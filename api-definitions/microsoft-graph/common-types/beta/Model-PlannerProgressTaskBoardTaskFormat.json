@@ -1,0 +1,25 @@
+{
+  "name": "PlannerProgressTaskBoardTaskFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Hint value used to order the task on the progress view of the task board. For details about the supported format, see Using order hints in Planner.",
+      "jsonName": "orderHint",
+      "name": "OrderHint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerDelta",
+  "discriminatedTypeValue": "#microsoft.graph.plannerProgressTaskBoardTaskFormat",
+  "typeHintIn": "ODataType"
+}

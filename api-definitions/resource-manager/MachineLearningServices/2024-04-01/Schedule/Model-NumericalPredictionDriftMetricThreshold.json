@@ -7,7 +7,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NumericalPredictionDriftMetric"
+        "nullable": false,
+        "referenceName": "NumericalPredictionDriftMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PredictionDriftMetricThresholdBase",
   "discriminatedTypeValue": "Numerical",
   "typeHintIn": "DataType"

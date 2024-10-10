@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataExportSettingProperties"
+        "nullable": false,
+        "referenceName": "DataExportSettingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Setting",
   "discriminatedTypeValue": "DataExportSettings",
   "typeHintIn": "Kind"

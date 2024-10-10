@@ -7,7 +7,9 @@
       "name": "Datasource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReferenceInputDataSource"
+        "nullable": false,
+        "referenceName": "ReferenceInputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InputProperties",
   "discriminatedTypeValue": "Reference",
   "typeHintIn": "Type"

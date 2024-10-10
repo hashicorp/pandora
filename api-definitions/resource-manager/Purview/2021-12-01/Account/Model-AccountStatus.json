@@ -7,7 +7,9 @@
       "name": "AccountProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountProvisioningState"
+        "nullable": false,
+        "referenceName": "AccountProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorModel"
+        "nullable": false,
+        "referenceName": "ErrorModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

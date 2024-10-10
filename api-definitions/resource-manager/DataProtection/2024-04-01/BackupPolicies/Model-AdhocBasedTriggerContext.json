@@ -7,7 +7,9 @@
       "name": "TaggingCriteria",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdhocBasedTaggingCriteria"
+        "nullable": false,
+        "referenceName": "AdhocBasedTaggingCriteria",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TriggerContext",
   "discriminatedTypeValue": "AdhocBasedTriggerContext",
   "typeHintIn": "ObjectType"

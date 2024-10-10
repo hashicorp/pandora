@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslProtocolMatchConditionParameters"
+        "nullable": false,
+        "referenceName": "SslProtocolMatchConditionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleCondition",
   "discriminatedTypeValue": "SslProtocol",
   "typeHintIn": "Name"

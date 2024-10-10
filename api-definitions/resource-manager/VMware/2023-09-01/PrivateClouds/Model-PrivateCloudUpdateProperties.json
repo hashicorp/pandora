@@ -7,7 +7,9 @@
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityProperties"
+        "nullable": false,
+        "referenceName": "AvailabilityProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DnsZoneType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsZoneType"
+        "nullable": false,
+        "referenceName": "DnsZoneType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "ExtendedNetworkBlocks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,10 +73,14 @@
       "name": "IdentitySources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IdentitySource"
+          "nullable": false,
+          "referenceName": "IdentitySource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "Internet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InternetEnum"
+        "nullable": false,
+        "referenceName": "InternetEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,12 +109,15 @@
       "name": "ManagementCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementCluster"
+        "nullable": false,
+        "referenceName": "ManagementCluster",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

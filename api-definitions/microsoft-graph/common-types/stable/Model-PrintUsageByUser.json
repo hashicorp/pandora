@@ -1,0 +1,25 @@
+{
+  "name": "PrintUsageByUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The UPN of the user represented by these statistics.",
+      "jsonName": "userPrincipalName",
+      "name": "UserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PrintUsage",
+  "discriminatedTypeValue": "#microsoft.graph.printUsageByUser",
+  "typeHintIn": "ODataType"
+}

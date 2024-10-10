@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "MapId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccountMap"
+    "nullable": false,
+    "referenceName": "IntegrationAccountMap",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationAccountMap"
+    "nullable": false,
+    "referenceName": "IntegrationAccountMap",
+    "referenceNameIsCommonType": null
   }
 }

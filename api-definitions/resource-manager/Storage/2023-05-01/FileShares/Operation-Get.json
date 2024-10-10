@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$expand",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "x-ms-snapshot",
       "optional": true,
       "required": false,
@@ -31,6 +34,8 @@
   "resourceIdName": "ShareId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FileShare"
+    "nullable": false,
+    "referenceName": "FileShare",
+    "referenceNameIsCommonType": null
   }
 }

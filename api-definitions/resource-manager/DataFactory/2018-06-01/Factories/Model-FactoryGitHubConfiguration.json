@@ -7,7 +7,9 @@
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubClientSecret"
+        "nullable": false,
+        "referenceName": "GitHubClientSecret",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FactoryRepoConfiguration",
   "discriminatedTypeValue": "FactoryGitHubConfiguration",
   "typeHintIn": "Type"

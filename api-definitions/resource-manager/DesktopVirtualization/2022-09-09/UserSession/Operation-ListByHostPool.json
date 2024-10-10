@@ -1,6 +1,7 @@
 {
   "name": "ListByHostPool",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "initialSkip",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "isDescending",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "pageSize",
       "required": false,
@@ -52,7 +57,9 @@
   "resourceIdName": "HostPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserSession"
+    "nullable": false,
+    "referenceName": "UserSession",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/userSessions"
 }

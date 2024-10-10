@@ -1,6 +1,7 @@
 {
   "name": "CreateMSDeployOperationSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SlotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MSDeploy"
+    "nullable": false,
+    "referenceName": "MSDeploy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MSDeployStatus"
+    "nullable": false,
+    "referenceName": "MSDeployStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extensions/mSDeploy"
 }

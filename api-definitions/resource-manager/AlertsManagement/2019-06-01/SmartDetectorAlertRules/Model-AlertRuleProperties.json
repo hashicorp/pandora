@@ -7,7 +7,9 @@
       "name": "ActionGroups",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionGroupsInformation"
+        "nullable": false,
+        "referenceName": "ActionGroupsInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Detector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Detector"
+        "nullable": false,
+        "referenceName": "Detector",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -76,7 +88,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertRuleState"
+        "nullable": false,
+        "referenceName": "AlertRuleState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "Throttling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThrottlingInformation"
+        "nullable": false,
+        "referenceName": "ThrottlingInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *sdkModels.TerraformResourceDefinition, mappings *sdkModels.TerraformMappingDefinition, resourceDefinition definitions.ResourceDefinition) (*map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *sdkModels.TerraformResourceDefinition, mappings *sdkModels.TerraformMappingDefinition, resourceDefinition definitions.ResourceDefinition) (map[string]sdkModels.TerraformSchemaField, *sdkModels.TerraformMappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	propertiesPayloads := input.createReadUpdatePayloadsProperties()
 	for _, model := range propertiesPayloads {
@@ -177,7 +177,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 	}
 
-	return &out, mappings, nil
+	return out, mappings, nil
 }
 
 func fieldExists(payload sdkModels.SDKModel, fieldName string) bool {

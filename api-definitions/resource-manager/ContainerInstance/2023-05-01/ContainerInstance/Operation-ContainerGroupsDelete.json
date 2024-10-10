@@ -1,6 +1,7 @@
 {
   "name": "ContainerGroupsDelete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202,
@@ -11,6 +12,8 @@
   "resourceIdName": "ContainerGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerGroup"
+    "nullable": false,
+    "referenceName": "ContainerGroup",
+    "referenceNameIsCommonType": null
   }
 }

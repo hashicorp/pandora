@@ -57,17 +57,39 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				resourceIdName = &operation.ResourceId.Name
 			}
 
+			options := map[string]sdkModels.SDKOperationOption{
+				// All operations can specify the odata.metadata Accept parameter
+				"Metadata": {
+					Type:           sdkModels.SDKOperationOptionTypeData,
+					ODataFieldName: pointer.To("Metadata"),
+					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
+						ReferenceName: pointer.To("odata.Metadata"),
+						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
+					},
+				},
+
+				// All operations can accept a custom RetryFunc
+				"RetryFunc": {
+					Type: sdkModels.SDKOperationOptionTypeRetryFunc,
+				},
+			}
+
 			var requestObject *sdkModels.SDKObjectDefinition
 
-			if operation.RequestModel != nil {
-				schemaName := *operation.RequestModel
+			if operation.RequestModelName != nil {
+				schemaName := *operation.RequestModelName
 				requestObjectIsCommonType := true
 
-				if !p.models.Found(schemaName) {
-					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
+				var model *parser.Model
+				if operation.RequestModel != nil {
+					model = operation.RequestModel
+				} else if p.models.Found(schemaName) {
+					model = p.models[schemaName]
 				}
 
-				model := p.models[schemaName]
+				if model == nil {
+					return nil, fmt.Errorf("request model %q was not found for operation: %s", schemaName, operation.Name)
+				}
 
 				if !model.Common {
 					requestObjectIsCommonType = false
@@ -75,28 +97,27 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 
 				requestObject = &sdkModels.SDKObjectDefinition{
-					ReferenceName:             pointer.To(normalize.CleanName(*operation.RequestModel)),
+					ReferenceName:             pointer.To(normalize.CleanName(*operation.RequestModelName)),
 					ReferenceNameIsCommonType: &requestObjectIsCommonType,
 					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
 				}
 			} else if operation.RequestType != nil {
 				requestObject = &sdkModels.SDKObjectDefinition{
+					// This is a regular type, i.e. not a model or typed constant
 					Type: operation.RequestType.DataApiSdkObjectDefinitionType(),
 				}
-			}
 
-			options := map[string]sdkModels.SDKOperationOption{
-				"Metadata": {
-					ODataFieldName: pointer.To("Metadata"),
-					ObjectDefinition: sdkModels.SDKOperationOptionObjectDefinition{
-						ReferenceName: pointer.To("odata.Metadata"),
-						Type:          sdkModels.ReferenceSDKOperationOptionObjectDefinitionType,
-					},
-				},
+				if *operation.RequestType == parser.DataTypeBinary {
+					// Add a ContentType option so the caller can specify the media type for the request body
+					options["ContentType"] = sdkModels.SDKOperationOption{
+						Type: sdkModels.SDKOperationOptionTypeContentType,
+					}
+				}
 			}
 
 			if operation.RequestHeaders != nil {
 				for _, header := range *operation.RequestHeaders {
+					// Some operations support the ConsistencyLevel header, this is structured via the odata package
 					if strings.EqualFold(header.Name, "ConsistencyLevel") {
 						options[normalize.CleanName(header.Name)] = sdkModels.SDKOperationOption{
 							ODataFieldName: &header.Name,
@@ -206,6 +227,7 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 				}
 			}
 
+			// Allow the caller to control paging for list operations
 			if operation.Type == parser.OperationTypeList {
 				options["Top"] = sdkModels.SDKOperationOption{
 					ODataFieldName: pointer.To("Top"),
@@ -224,76 +246,64 @@ func (p pipelineForService) translateServiceToDataApiSdkTypes() (*sdkModels.Serv
 
 			var responseObject *sdkModels.SDKObjectDefinition
 
-			for _, response := range operation.Responses {
-				if response.Type != nil && *response.Type == parser.DataTypeReference && response.ReferenceName != nil {
-					schemaName := *response.ReferenceName
-					responseObjectIsCommonType := true
+			if operation.ResponseType != nil && *operation.ResponseType == parser.DataTypeReference && operation.ResponseReferenceName != nil {
+				schemaName := *operation.ResponseReferenceName
+				responseObjectIsCommonType := true
 
-					if !p.constants.Found(schemaName) && !p.models.Found(schemaName) {
-						return nil, fmt.Errorf("response constant or model %q was not found for operation: %s", schemaName, operation.Name)
-					}
-					if p.constants.Found(schemaName) && p.models.Found(schemaName) {
-						return nil, fmt.Errorf("response object %q was found as both a constant and a model for operation: %s", schemaName, operation.Name)
-					}
+				if !p.constants.Found(schemaName) && !p.models.Found(schemaName) {
+					return nil, fmt.Errorf("response constant or model %q was not found for operation: %s", schemaName, operation.Name)
+				}
+				if p.constants.Found(schemaName) && p.models.Found(schemaName) {
+					return nil, fmt.Errorf("response object %q was found as both a constant and a model for operation: %s", schemaName, operation.Name)
+				}
 
-					if p.constants.Found(schemaName) {
-						constant := p.constants[schemaName]
+				if p.constants.Found(schemaName) {
+					constant := p.constants[schemaName]
 
-						if !constant.Common {
-							responseObjectIsCommonType = false
-							serviceConstants[schemaName] = constant
-						}
-					}
-
-					if p.models.Found(schemaName) {
-						model := p.models[schemaName]
-
-						if !model.Common {
-							responseObjectIsCommonType = false
-							serviceModels[schemaName] = model
-						}
-					}
-
-					responseObject = &sdkModels.SDKObjectDefinition{
-						ReferenceName:             pointer.To(normalize.CleanName(schemaName)),
-						ReferenceNameIsCommonType: &responseObjectIsCommonType,
-						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
-					}
-				} else if response.Type != nil {
-					responseObject = &sdkModels.SDKObjectDefinition{
-						Type: response.Type.DataApiSdkObjectDefinitionType(),
+					if !constant.Common {
+						responseObjectIsCommonType = false
+						serviceConstants[schemaName] = constant
 					}
 				}
 
-				// Only one response object is currently supported by the SDK, so break here. This doesn't affect
-				// us right now since we already ignored error responses during parsing, and to date the specs
-				// have at most one "success" response per operation.
-				break
+				if p.models.Found(schemaName) {
+					model := p.models[schemaName]
+
+					if !model.Common {
+						responseObjectIsCommonType = false
+						serviceModels[schemaName] = model
+					}
+				}
+
+				responseObject = &sdkModels.SDKObjectDefinition{
+					ReferenceName:             pointer.To(normalize.CleanName(schemaName)),
+					ReferenceNameIsCommonType: &responseObjectIsCommonType,
+					Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
+				}
+			} else if operation.ResponseType != nil {
+				responseObject = &sdkModels.SDKObjectDefinition{
+					Type: operation.ResponseType.DataApiSdkObjectDefinitionType(),
+				}
 			}
 
 			contentType := "application/json"
-			expectedStatusCodes := make([]int, 0)
-			for _, response := range operation.Responses {
-				expectedStatusCodes = append(expectedStatusCodes, response.Status)
-
-				if response.ContentType != nil && *response.ContentType != "" {
-					contentType = *response.ContentType
-				}
+			if operation.ResponseContentType != nil && *operation.ResponseContentType != "" {
+				contentType = *operation.ResponseContentType
 			}
 
 			sdkService.APIVersions[resource.Version].Resources[resource.Category].Operations[operation.Name] = sdkModels.SDKOperation{
 				ContentType:                      contentType,
 				Description:                      operation.Description,
-				ExpectedStatusCodes:              expectedStatusCodes,
+				ExpectedStatusCodes:              operation.ResponseStatusCodes,
 				FieldContainingPaginationDetails: operation.PaginationField,
 				LongRunning:                      false,
 				Method:                           operation.Method,
 				Options:                          options,
-				RequestObject:                    requestObject,
 				ResourceIDName:                   resourceIdName,
 				ResourceIDNameIsCommonType:       pointer.To(true),
-				ResponseObject:                   responseObject,
 				URISuffix:                        operation.UriSuffix,
+				RequestObject:                    requestObject,
+				ResponseObject:                   responseObject,
 			}
 		}
 

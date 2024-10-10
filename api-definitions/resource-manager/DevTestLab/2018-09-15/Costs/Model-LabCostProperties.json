@@ -8,7 +8,9 @@
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CurrencyCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -35,7 +39,9 @@
       "name": "EndDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,10 +54,14 @@
       "name": "LabCostDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LabCostDetailsProperties"
+          "nullable": false,
+          "referenceName": "LabCostDetailsProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,7 +75,9 @@
       "name": "LabCostSummary",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabCostSummaryProperties"
+        "nullable": false,
+        "referenceName": "LabCostSummaryProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,10 +105,14 @@
       "name": "ResourceCosts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LabResourceCostProperties"
+          "nullable": false,
+          "referenceName": "LabResourceCostProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -109,7 +127,9 @@
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -122,7 +142,9 @@
       "name": "TargetCost",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetCostProperties"
+        "nullable": false,
+        "referenceName": "TargetCostProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -135,12 +157,15 @@
       "name": "UniqueIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

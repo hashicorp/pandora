@@ -1,0 +1,57 @@
+{
+  "name": "RemoteAssistanceSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.",
+      "jsonName": "allowSessionsToUnenrolledDevices",
+      "name": "AllowSessionsToUnenrolledDevices",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.",
+      "jsonName": "blockChat",
+      "name": "BlockChat",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "State of remote assistance for the account",
+      "jsonName": "remoteAssistanceState",
+      "name": "RemoteAssistanceState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RemoteAssistanceState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.remoteAssistanceSettings",
+  "typeHintIn": "ODataType"
+}

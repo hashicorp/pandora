@@ -7,7 +7,9 @@
       "name": "DiskEncryptionKeyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionKeyInfo"
+        "nullable": false,
+        "referenceName": "DiskEncryptionKeyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "KeyEncryptionKeyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyEncryptionKeyInfo"
+        "nullable": false,
+        "referenceName": "KeyEncryptionKeyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

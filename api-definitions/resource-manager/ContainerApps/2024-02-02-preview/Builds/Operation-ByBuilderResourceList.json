@@ -1,6 +1,7 @@
 {
   "name": "ByBuilderResourceList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "BuilderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BuildResource"
+    "nullable": false,
+    "referenceName": "BuildResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/builds"
 }

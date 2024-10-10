@@ -7,7 +7,9 @@
       "name": "AutoTrackingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoTrackingConfiguration"
+        "nullable": false,
+        "referenceName": "AutoTrackingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EventHubUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Links",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContactProfileLink"
+          "nullable": false,
+          "referenceName": "ContactProfileLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -50,7 +58,9 @@
       "name": "MinimumElevationDegrees",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "MinimumViableContactDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContactProfilesPropertiesNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "ContactProfilesPropertiesNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "ThirdPartyConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContactProfileThirdPartyConfiguration"
+          "nullable": false,
+          "referenceName": "ContactProfileThirdPartyConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,5 +133,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

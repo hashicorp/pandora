@@ -7,7 +7,9 @@
       "name": "ClientProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Protocol"
+        "nullable": false,
+        "referenceName": "Protocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusteringPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusteringPolicy"
+        "nullable": false,
+        "referenceName": "ClusteringPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EvictionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EvictionPolicy"
+        "nullable": false,
+        "referenceName": "EvictionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "GeoReplication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabasePropertiesGeoReplication"
+        "nullable": false,
+        "referenceName": "DatabasePropertiesGeoReplication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Modules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Module"
+          "nullable": false,
+          "referenceName": "Module",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,7 +88,9 @@
       "name": "Persistence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Persistence"
+        "nullable": false,
+        "referenceName": "Persistence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Port",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +133,15 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceState"
+        "nullable": false,
+        "referenceName": "ResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

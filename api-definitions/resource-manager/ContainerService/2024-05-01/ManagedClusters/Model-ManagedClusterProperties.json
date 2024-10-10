@@ -7,7 +7,9 @@
       "name": "AadProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAADProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAADProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "AddonProfiles",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterAddonProfile"
+          "nullable": false,
+          "referenceName": "ManagedClusterAddonProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "AgentPoolProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedClusterAgentPoolProfile"
+          "nullable": false,
+          "referenceName": "ManagedClusterAgentPoolProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ApiServerAccessProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAPIServerAccessProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAPIServerAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "AutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPropertiesAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterPropertiesAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "AutoUpgradeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAutoUpgradeProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAutoUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "AzureMonitorProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterAzureMonitorProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "AzurePortalFQDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "CurrentKubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "DisableLocalAccounts",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "DiskEncryptionSetID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +184,9 @@
       "name": "DnsPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +199,9 @@
       "name": "EnablePodSecurityPolicy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +214,9 @@
       "name": "EnableRBAC",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +229,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "FqdnSubdomain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "HTTPProxyConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterHTTPProxyConfig"
+        "nullable": false,
+        "referenceName": "ManagedClusterHTTPProxyConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,10 +274,14 @@
       "name": "IdentityProfile",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAssignedIdentity"
+          "nullable": false,
+          "referenceName": "UserAssignedIdentity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -253,7 +295,9 @@
       "name": "IngressProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterIngressProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterIngressProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,7 +310,9 @@
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,7 +325,9 @@
       "name": "LinuxProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceLinuxProfile"
+        "nullable": false,
+        "referenceName": "ContainerServiceLinuxProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,7 +340,9 @@
       "name": "MaxAgentPools",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,7 +355,9 @@
       "name": "MetricsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterMetricsProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterMetricsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,7 +370,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceNetworkProfile"
+        "nullable": false,
+        "referenceName": "ContainerServiceNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,7 +385,9 @@
       "name": "NodeResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -344,7 +400,9 @@
       "name": "OidcIssuerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterOIDCIssuerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterOIDCIssuerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -357,7 +415,9 @@
       "name": "PodIdentityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPodIdentityProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterPodIdentityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -370,7 +430,9 @@
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PowerState"
+        "nullable": false,
+        "referenceName": "PowerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -383,7 +445,9 @@
       "name": "PrivateFQDN",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -396,10 +460,14 @@
       "name": "PrivateLinkResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkResource"
+          "nullable": false,
+          "referenceName": "PrivateLinkResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -413,7 +481,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -426,7 +496,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -439,7 +511,9 @@
       "name": "ResourceUID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -452,7 +526,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -465,7 +541,9 @@
       "name": "ServiceMeshProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceMeshProfile"
+        "nullable": false,
+        "referenceName": "ServiceMeshProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -478,7 +556,9 @@
       "name": "ServicePrincipalProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterServicePrincipalProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterServicePrincipalProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -491,7 +571,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -504,7 +586,9 @@
       "name": "SupportPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesSupportPlan"
+        "nullable": false,
+        "referenceName": "KubernetesSupportPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -517,7 +601,9 @@
       "name": "UpgradeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeSettings"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -530,7 +616,9 @@
       "name": "WindowsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWindowsProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterWindowsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -543,12 +631,15 @@
       "name": "WorkloadAutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterWorkloadAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterWorkloadAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

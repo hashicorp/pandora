@@ -7,7 +7,9 @@
       "name": "AgentAutoUpgrade",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpgradeOptions"
+        "nullable": false,
+        "referenceName": "AutoUpgradeOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "DesiredAgentVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

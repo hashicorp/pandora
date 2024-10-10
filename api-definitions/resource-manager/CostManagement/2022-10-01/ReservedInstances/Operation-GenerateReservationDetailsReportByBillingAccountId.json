@@ -1,6 +1,7 @@
 {
   "name": "GenerateReservationDetailsReportByBillingAccountId",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "endDate",
       "required": true,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "startDate",
       "required": true,
@@ -32,7 +35,9 @@
   "resourceIdName": "BillingAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationStatus"
+    "nullable": false,
+    "referenceName": "OperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/generateReservationDetailsReport"
 }

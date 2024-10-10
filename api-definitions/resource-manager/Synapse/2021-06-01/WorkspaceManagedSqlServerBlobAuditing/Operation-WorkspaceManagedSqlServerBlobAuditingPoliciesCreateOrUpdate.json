@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceManagedSqlServerBlobAuditingPoliciesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerBlobAuditingPolicy"
+    "nullable": false,
+    "referenceName": "ServerBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerBlobAuditingPolicy"
+    "nullable": false,
+    "referenceName": "ServerBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/auditingSettings/default"
 }

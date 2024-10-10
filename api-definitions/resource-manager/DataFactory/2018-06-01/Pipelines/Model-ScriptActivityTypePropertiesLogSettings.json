@@ -7,7 +7,9 @@
       "name": "LogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptActivityLogDestination"
+        "nullable": false,
+        "referenceName": "ScriptActivityLogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LogLocationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogLocationSettings"
+        "nullable": false,
+        "referenceName": "LogLocationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "headerName": "clientRequestId",
       "optional": true,
       "required": false,
@@ -21,6 +23,8 @@
   "resourceIdName": "SoftwareUpdateConfigurationRunId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SoftwareUpdateConfigurationRun"
+    "nullable": false,
+    "referenceName": "SoftwareUpdateConfigurationRun",
+    "referenceNameIsCommonType": null
   }
 }

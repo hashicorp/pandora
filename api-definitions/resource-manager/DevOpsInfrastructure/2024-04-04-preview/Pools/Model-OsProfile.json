@@ -7,7 +7,9 @@
       "name": "LogonType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogonType"
+        "nullable": false,
+        "referenceName": "LogonType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SecretsManagementSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretsManagementSettings"
+        "nullable": false,
+        "referenceName": "SecretsManagementSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

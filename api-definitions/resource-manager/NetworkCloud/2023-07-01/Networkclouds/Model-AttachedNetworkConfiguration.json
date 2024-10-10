@@ -7,10 +7,14 @@
       "name": "L2Networks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "L2NetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "L2NetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "L3Networks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "L3NetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "L3NetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "TrunkedNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrunkedNetworkAttachmentConfiguration"
+          "nullable": false,
+          "referenceName": "TrunkedNetworkAttachmentConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,5 +64,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

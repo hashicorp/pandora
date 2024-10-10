@@ -7,7 +7,9 @@
       "name": "AgentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentProperties"
+        "nullable": false,
+        "referenceName": "AgentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Credentials"
+        "nullable": false,
+        "referenceName": "Credentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EncodedTaskContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "EncodedValuesContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformProperties"
+        "nullable": false,
+        "referenceName": "PlatformProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SourceLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SetValue"
+          "nullable": false,
+          "referenceName": "SetValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,6 +128,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RunRequest",
   "discriminatedTypeValue": "EncodedTaskRunRequest",
   "typeHintIn": "Type"

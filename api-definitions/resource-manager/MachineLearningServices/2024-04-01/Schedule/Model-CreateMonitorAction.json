@@ -7,7 +7,9 @@
       "name": "MonitorDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorDefinition"
+        "nullable": false,
+        "referenceName": "MonitorDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ScheduleActionBase",
   "discriminatedTypeValue": "CreateMonitor",
   "typeHintIn": "ActionType"

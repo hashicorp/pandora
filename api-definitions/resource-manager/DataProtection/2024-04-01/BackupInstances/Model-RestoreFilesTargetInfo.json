@@ -7,7 +7,9 @@
       "name": "TargetDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetDetails"
+        "nullable": false,
+        "referenceName": "TargetDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreTargetInfoBase",
   "discriminatedTypeValue": "RestoreFilesTargetInfo",
   "typeHintIn": "ObjectType"

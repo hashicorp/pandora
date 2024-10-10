@@ -1,6 +1,7 @@
 {
   "name": "CreateCheckpoint",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineCreateCheckpoint"
+    "nullable": false,
+    "referenceName": "VirtualMachineCreateCheckpoint",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/createCheckpoint"
 }

@@ -7,7 +7,9 @@
       "name": "BackendConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointConfiguration"
+        "nullable": false,
+        "referenceName": "EndpointConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FrontendConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointConfiguration"
+        "nullable": false,
+        "referenceName": "EndpointConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolType"
+        "nullable": false,
+        "referenceName": "ProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

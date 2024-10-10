@@ -1,6 +1,7 @@
 {
   "name": "WithScopeList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationList"
+    "nullable": false,
+    "referenceName": "OperationList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ManagedServices/operations"
 }

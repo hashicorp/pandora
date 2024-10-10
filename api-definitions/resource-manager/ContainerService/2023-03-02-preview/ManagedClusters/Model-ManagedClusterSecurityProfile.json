@@ -7,7 +7,9 @@
       "name": "AzureKeyVaultKms",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultKms"
+        "nullable": false,
+        "referenceName": "AzureKeyVaultKms",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "CustomCATrustCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Defender",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileDefender"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileDefender",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ImageCleaner",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileImageCleaner"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileImageCleaner",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "NodeRestriction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileNodeRestriction"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileNodeRestriction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "WorkloadIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DataType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataType"
+        "nullable": false,
+        "referenceName": "DataType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndexKind"
+        "nullable": false,
+        "referenceName": "IndexKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Precision",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

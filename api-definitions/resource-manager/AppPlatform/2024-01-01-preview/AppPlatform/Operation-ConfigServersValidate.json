@@ -1,6 +1,7 @@
 {
   "name": "ConfigServersValidate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConfigServerSettings"
+    "nullable": false,
+    "referenceName": "ConfigServerSettings",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigServerSettingsValidateResult"
+    "nullable": false,
+    "referenceName": "ConfigServerSettingsValidateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configServers/validate"
 }

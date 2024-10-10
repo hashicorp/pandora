@@ -8,7 +8,9 @@
       "name": "EffectiveDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionStatusReason"
+        "nullable": false,
+        "referenceName": "SubscriptionStatusReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

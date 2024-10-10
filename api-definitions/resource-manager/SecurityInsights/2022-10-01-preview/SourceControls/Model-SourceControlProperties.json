@@ -7,10 +7,14 @@
       "name": "ContentTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContentType"
+          "nullable": false,
+          "referenceName": "ContentType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "LastDeploymentInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentInfo"
+        "nullable": false,
+        "referenceName": "DeploymentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "RepoType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RepoType"
+        "nullable": false,
+        "referenceName": "RepoType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Repository",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Repository"
+        "nullable": false,
+        "referenceName": "Repository",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "RepositoryResourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RepositoryResourceInfo"
+        "nullable": false,
+        "referenceName": "RepositoryResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +133,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Version"
+        "nullable": false,
+        "referenceName": "Version",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

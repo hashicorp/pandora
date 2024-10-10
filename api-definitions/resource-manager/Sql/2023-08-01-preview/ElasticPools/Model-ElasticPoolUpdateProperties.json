@@ -7,7 +7,9 @@
       "name": "AutoPauseDelay",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityZoneType"
+        "nullable": false,
+        "referenceName": "AvailabilityZoneType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HighAvailabilityReplicaCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticPoolLicenseType"
+        "nullable": false,
+        "referenceName": "ElasticPoolLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MaintenanceConfigurationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "MaxSizeBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "MinCapacity",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "PerDatabaseSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticPoolPerDatabaseSettings"
+        "nullable": false,
+        "referenceName": "ElasticPoolPerDatabaseSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "PreferredEnclaveType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlwaysEncryptedEnclaveType"
+        "nullable": false,
+        "referenceName": "AlwaysEncryptedEnclaveType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,12 +142,15 @@
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

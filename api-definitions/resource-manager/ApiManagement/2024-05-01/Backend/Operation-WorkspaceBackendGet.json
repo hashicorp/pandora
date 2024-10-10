@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceBackendGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WorkspaceBackendId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackendContract"
+    "nullable": false,
+    "referenceName": "BackendContract",
+    "referenceNameIsCommonType": null
   }
 }

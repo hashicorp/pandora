@@ -1,0 +1,31 @@
+{
+  "name": "AppleDeviceFeaturesConfigurationBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An array of AirPrint printers that should always be shown. This collection can contain a maximum of 500 elements.",
+      "jsonName": "airPrintDestinations",
+      "name": "AirPrintDestinations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AirPrintDestination",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.appleDeviceFeaturesConfigurationBase",
+  "typeHintIn": "ODataType"
+}

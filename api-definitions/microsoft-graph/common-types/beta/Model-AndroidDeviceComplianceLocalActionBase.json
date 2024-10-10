@@ -1,0 +1,25 @@
+{
+  "name": "AndroidDeviceComplianceLocalActionBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647",
+      "jsonName": "gracePeriodInMinutes",
+      "name": "GracePeriodInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceComplianceLocalActionBase",
+  "typeHintIn": "ODataType"
+}

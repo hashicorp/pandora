@@ -7,7 +7,9 @@
       "name": "AccessConnector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspacePropertiesAccessConnector"
+        "nullable": false,
+        "referenceName": "WorkspacePropertiesAccessConnector",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkspaceProviderAuthorization"
+          "nullable": false,
+          "referenceName": "WorkspaceProviderAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreatedBy"
+        "nullable": false,
+        "referenceName": "CreatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "CreatedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "DefaultCatalog",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultCatalogProperties"
+        "nullable": false,
+        "referenceName": "DefaultCatalogProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "DefaultStorageFirewall",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultStorageFirewall"
+        "nullable": false,
+        "referenceName": "DefaultStorageFirewall",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "DiskEncryptionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspacePropertiesEncryption"
+        "nullable": false,
+        "referenceName": "WorkspacePropertiesEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "EnhancedSecurityCompliance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityComplianceDefinition"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityComplianceDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,7 +149,9 @@
       "name": "IsUcEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,7 +164,9 @@
       "name": "ManagedDiskIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedIdentityConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,7 +179,9 @@
       "name": "ManagedResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -168,7 +194,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceCustomParameters"
+        "nullable": false,
+        "referenceName": "WorkspaceCustomParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,10 +209,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -198,7 +230,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,7 +245,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,7 +260,9 @@
       "name": "RequiredNsgRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequiredNsgRules"
+        "nullable": false,
+        "referenceName": "RequiredNsgRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,7 +275,9 @@
       "name": "StorageAccountIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedIdentityConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -250,7 +290,9 @@
       "name": "UiDefinitionUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -263,7 +305,9 @@
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreatedBy"
+        "nullable": false,
+        "referenceName": "CreatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,7 +320,9 @@
       "name": "WorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -286,15 +332,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "workspaceUrl",
-      "name": "WorkspaceUrl",
+      "name": "WorkspaceURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

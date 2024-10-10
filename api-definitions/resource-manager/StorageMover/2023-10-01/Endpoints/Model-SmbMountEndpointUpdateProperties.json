@@ -7,7 +7,9 @@
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultSmbCredentials"
+        "nullable": false,
+        "referenceName": "AzureKeyVaultSmbCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EndpointBaseUpdateProperties",
   "discriminatedTypeValue": "SmbMount",
   "typeHintIn": "EndpointType"

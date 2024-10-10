@@ -7,7 +7,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertCategory"
+        "nullable": false,
+        "referenceName": "AlertCategory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Criteria",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertCriteria"
+        "nullable": false,
+        "referenceName": "AlertCriteria",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertType"
+        "nullable": false,
+        "referenceName": "AlertType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

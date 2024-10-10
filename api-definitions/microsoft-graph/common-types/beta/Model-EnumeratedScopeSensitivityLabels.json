@@ -1,0 +1,31 @@
+{
+  "name": "EnumeratedScopeSensitivityLabels",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sensitivity labels that are applicable to the scope type and have been preapproved. Required.",
+      "jsonName": "sensitivityLabels",
+      "name": "SensitivityLabels",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScopeSensitivityLabels",
+  "discriminatedTypeValue": "#microsoft.graph.enumeratedScopeSensitivityLabels",
+  "typeHintIn": "ODataType"
+}

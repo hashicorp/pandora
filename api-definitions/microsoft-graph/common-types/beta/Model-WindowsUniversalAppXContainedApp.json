@@ -1,0 +1,25 @@
+{
+  "name": "WindowsUniversalAppXContainedApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The app user model ID of the contained app of a WindowsUniversalAppX app.",
+      "jsonName": "appUserModelId",
+      "name": "AppUserModelId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileContainedApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUniversalAppXContainedApp",
+  "typeHintIn": "ODataType"
+}

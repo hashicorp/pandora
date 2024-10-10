@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "ConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationForUpdate"
+    "nullable": false,
+    "referenceName": "ConfigurationForUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Configuration"
+    "nullable": false,
+    "referenceName": "Configuration",
+    "referenceNameIsCommonType": null
   }
 }

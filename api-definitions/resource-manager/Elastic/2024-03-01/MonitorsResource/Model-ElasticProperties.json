@@ -7,7 +7,9 @@
       "name": "ElasticCloudDeployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticCloudDeployment"
+        "nullable": false,
+        "referenceName": "ElasticCloudDeployment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ElasticCloudUser",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticCloudUser"
+        "nullable": false,
+        "referenceName": "ElasticCloudUser",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

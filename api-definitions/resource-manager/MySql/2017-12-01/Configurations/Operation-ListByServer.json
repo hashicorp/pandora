@@ -1,6 +1,7 @@
 {
   "name": "ListByServer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationListResult"
+    "nullable": false,
+    "referenceName": "ConfigurationListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configurations"
 }

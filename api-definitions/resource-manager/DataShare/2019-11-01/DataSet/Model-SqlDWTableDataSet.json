@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlDWTableProperties"
+        "nullable": false,
+        "referenceName": "SqlDWTableProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSet",
   "discriminatedTypeValue": "SqlDWTable",
   "typeHintIn": "Kind"

@@ -7,7 +7,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NaptEnabled"
+        "nullable": false,
+        "referenceName": "NaptEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PinholeLimits",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PinholeTimeouts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PinholeTimeouts"
+        "nullable": false,
+        "referenceName": "PinholeTimeouts",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PortRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortRange"
+        "nullable": false,
+        "referenceName": "PortRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "PortReuseHoldTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortReuseHoldTimes"
+        "nullable": false,
+        "referenceName": "PortReuseHoldTimes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

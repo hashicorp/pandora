@@ -1,0 +1,48 @@
+{
+  "name": "RemoveOwnerRef",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Remove service principal owner. Remove an owner from a servicePrincipal object. As a recommended best practice, service principals should have at least two owners.",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ServicePrincipalIdOwnerId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/$ref"
+}

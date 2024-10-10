@@ -1,6 +1,7 @@
 {
   "name": "QuotaCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedQuotaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CurrentQuotaLimitBase"
+    "nullable": false,
+    "referenceName": "CurrentQuotaLimitBase",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CurrentQuotaLimitBase"
+    "nullable": false,
+    "referenceName": "CurrentQuotaLimitBase",
+    "referenceNameIsCommonType": null
   }
 }

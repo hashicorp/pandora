@@ -7,7 +7,9 @@
       "name": "AdministratorLogin",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Zone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Backup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Backup"
+        "nullable": false,
+        "referenceName": "Backup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "FullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "HighAvailability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailability"
+        "nullable": false,
+        "referenceName": "HighAvailability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceWindow"
+        "nullable": false,
+        "referenceName": "MaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "MinorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "Network",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Network"
+        "nullable": false,
+        "referenceName": "Network",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +158,9 @@
       "name": "PointInTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,7 +173,9 @@
       "name": "SourceServerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,7 +188,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerState"
+        "nullable": false,
+        "referenceName": "ServerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,7 +203,9 @@
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Storage"
+        "nullable": false,
+        "referenceName": "Storage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,12 +218,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerVersion"
+        "nullable": false,
+        "referenceName": "ServerVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

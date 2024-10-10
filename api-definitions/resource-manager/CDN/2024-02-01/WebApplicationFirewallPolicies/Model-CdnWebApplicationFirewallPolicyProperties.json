@@ -7,7 +7,9 @@
       "name": "CustomRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomRuleList"
+        "nullable": false,
+        "referenceName": "CustomRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "EndpointLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CdnEndpoint"
+          "nullable": false,
+          "referenceName": "CdnEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ManagedRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleSetList"
+        "nullable": false,
+        "referenceName": "ManagedRuleSetList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "PolicySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettings"
+        "nullable": false,
+        "referenceName": "PolicySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "RateLimitRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RateLimitRuleList"
+        "nullable": false,
+        "referenceName": "RateLimitRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,12 +124,15 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyResourceState"
+        "nullable": false,
+        "referenceName": "PolicyResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

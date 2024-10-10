@@ -1,6 +1,7 @@
 {
   "name": "Invoke",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-logicApps-proxy-method",
       "optional": false,
       "required": true,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "x-ms-logicApps-proxy-path",
       "optional": false,
       "required": true,
@@ -31,7 +34,9 @@
   "resourceIdName": "LogicAppId",
   "responseObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/invoke"
 }

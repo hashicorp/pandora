@@ -7,7 +7,9 @@
       "name": "CloudServiceCreationOption",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MultiVMSyncPointOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MultiVMSyncPointOption"
+        "nullable": false,
+        "referenceName": "MultiVMSyncPointOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "A2ARpRecoveryPointType"
+        "nullable": false,
+        "referenceName": "A2ARpRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

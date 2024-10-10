@@ -1,0 +1,41 @@
+{
+  "name": "OmaSettingInteger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "By setting to true, the CSP (configuration service provider) specified in the OMA-URI will perform a get, instead of set",
+      "jsonName": "isReadOnly",
+      "name": "IsReadOnly",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OmaSetting",
+  "discriminatedTypeValue": "#microsoft.graph.omaSettingInteger",
+  "typeHintIn": "ODataType"
+}

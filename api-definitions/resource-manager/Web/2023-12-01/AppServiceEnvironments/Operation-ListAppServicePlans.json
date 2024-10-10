@@ -1,6 +1,7 @@
 {
   "name": "ListAppServicePlans",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServicePlan"
+    "nullable": false,
+    "referenceName": "AppServicePlan",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/serverFarms"
 }

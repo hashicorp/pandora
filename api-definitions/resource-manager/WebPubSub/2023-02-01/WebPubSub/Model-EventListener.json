@@ -7,7 +7,9 @@
       "name": "Endpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventListenerEndpoint"
+        "nullable": false,
+        "referenceName": "EventListenerEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventListenerFilter"
+        "nullable": false,
+        "referenceName": "EventListenerFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

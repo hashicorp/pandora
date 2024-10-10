@@ -1,0 +1,39 @@
+{
+  "name": "CancelPrivilegedAccessGroupEligibilityScheduleRequest",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action cancel. Cancel an eligibility assignment request to a group whose membership and ownership are governed by PIM.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernancePrivilegedAccessGroupEligibilityScheduleRequestId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/cancel"
+}

@@ -1,0 +1,31 @@
+{
+  "name": "InviteParticipantsOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The participants to invite.",
+      "jsonName": "participants",
+      "name": "Participants",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "InvitationParticipantInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CommsOperation",
+  "discriminatedTypeValue": "#microsoft.graph.inviteParticipantsOperation",
+  "typeHintIn": "ODataType"
+}

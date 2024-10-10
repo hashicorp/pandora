@@ -7,7 +7,9 @@
       "name": "CloudInitDataSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudInitDataSource"
+        "nullable": false,
+        "referenceName": "CloudInitDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContainerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Identifier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageIdentifier"
+        "nullable": false,
+        "referenceName": "GalleryImageIdentifier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateEnum"
+        "nullable": false,
+        "referenceName": "ProvisioningStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceGalleryImageStatus"
+        "nullable": false,
+        "referenceName": "MarketplaceGalleryImageStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageVersion"
+        "nullable": false,
+        "referenceName": "GalleryImageVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

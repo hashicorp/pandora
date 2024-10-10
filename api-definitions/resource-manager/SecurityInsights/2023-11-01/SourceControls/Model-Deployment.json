@@ -7,7 +7,9 @@
       "name": "DeploymentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,10 +19,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "deploymentLogsUrl",
-      "name": "DeploymentLogsUrl",
+      "name": "DeploymentLogsURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DeploymentResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentResult"
+        "nullable": false,
+        "referenceName": "DeploymentResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DeploymentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentState"
+        "nullable": false,
+        "referenceName": "DeploymentState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,12 +68,15 @@
       "name": "DeploymentTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

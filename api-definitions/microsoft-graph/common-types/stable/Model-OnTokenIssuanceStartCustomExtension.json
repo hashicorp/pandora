@@ -1,0 +1,31 @@
+{
+  "name": "OnTokenIssuanceStartCustomExtension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of claims to be returned by the API called by this custom authentication extension. Used to populate claims mapping experience in Microsoft Entra admin center. Optional.",
+      "jsonName": "claimsForTokenConfiguration",
+      "name": "ClaimsForTokenConfiguration",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OnTokenIssuanceStartReturnClaim",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomAuthenticationExtension",
+  "discriminatedTypeValue": "#microsoft.graph.onTokenIssuanceStartCustomExtension",
+  "typeHintIn": "ODataType"
+}

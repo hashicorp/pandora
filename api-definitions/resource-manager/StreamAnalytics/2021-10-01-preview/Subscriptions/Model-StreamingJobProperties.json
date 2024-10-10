@@ -7,7 +7,9 @@
       "name": "Cluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterInfo"
+        "nullable": false,
+        "referenceName": "ClusterInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CompatibilityLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompatibilityLevel"
+        "nullable": false,
+        "referenceName": "CompatibilityLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ContentStoragePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentStoragePolicy"
+        "nullable": false,
+        "referenceName": "ContentStoragePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "DataLocale",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "EventsLateArrivalMaxDelayInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "EventsOutOfOrderMaxDelayInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "EventsOutOfOrderPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventsOutOfOrderPolicy"
+        "nullable": false,
+        "referenceName": "EventsOutOfOrderPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "Externals",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "External"
+        "nullable": false,
+        "referenceName": "External",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,10 +158,14 @@
       "name": "Functions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Function"
+          "nullable": false,
+          "referenceName": "Function",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -155,10 +179,14 @@
       "name": "Inputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Input"
+          "nullable": false,
+          "referenceName": "Input",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -172,7 +200,9 @@
       "name": "JobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,7 +215,9 @@
       "name": "JobState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,7 +230,9 @@
       "name": "JobStorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobStorageAccount"
+        "nullable": false,
+        "referenceName": "JobStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,7 +245,9 @@
       "name": "JobType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobType"
+        "nullable": false,
+        "referenceName": "JobType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -225,7 +261,9 @@
       "name": "LastOutputEventTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -238,7 +276,9 @@
       "name": "OutputErrorPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputErrorPolicy"
+        "nullable": false,
+        "referenceName": "OutputErrorPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,7 +291,9 @@
       "name": "OutputStartMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputStartMode"
+        "nullable": false,
+        "referenceName": "OutputStartMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,7 +307,9 @@
       "name": "OutputStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,10 +322,14 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Output"
+          "nullable": false,
+          "referenceName": "Output",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -295,7 +343,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -308,7 +358,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -321,12 +373,15 @@
       "name": "Transformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Transformation"
+        "nullable": false,
+        "referenceName": "Transformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

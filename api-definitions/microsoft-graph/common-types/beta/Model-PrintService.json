@@ -1,0 +1,31 @@
+{
+  "name": "PrintService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Endpoints that can be used to access the service. Read-only. Nullable.",
+      "jsonName": "endpoints",
+      "name": "Endpoints",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PrintServiceEndpoint",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.printService",
+  "typeHintIn": "ODataType"
+}

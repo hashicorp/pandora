@@ -7,7 +7,9 @@
       "name": "Availability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Availability"
+        "nullable": false,
+        "referenceName": "Availability",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ConnectivityCriteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectivityCriteria"
+          "nullable": false,
+          "referenceName": "ConnectivityCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,7 +43,9 @@
       "name": "CustomImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "DataTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LastDataReceivedDataType"
+          "nullable": false,
+          "referenceName": "LastDataReceivedDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -67,7 +79,9 @@
       "name": "DescriptionMarkdown",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,10 +94,14 @@
       "name": "GraphQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GraphQueries"
+          "nullable": false,
+          "referenceName": "GraphQueries",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -97,7 +115,9 @@
       "name": "GraphQueriesTableName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -110,10 +130,14 @@
       "name": "InstructionSteps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstructionSteps"
+          "nullable": false,
+          "referenceName": "InstructionSteps",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -127,7 +151,9 @@
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Permissions"
+        "nullable": false,
+        "referenceName": "Permissions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -140,7 +166,9 @@
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -153,10 +181,14 @@
       "name": "SampleQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SampleQueries"
+          "nullable": false,
+          "referenceName": "SampleQueries",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -170,12 +202,15 @@
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

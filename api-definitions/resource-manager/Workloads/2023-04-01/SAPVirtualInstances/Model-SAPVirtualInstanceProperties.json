@@ -7,7 +7,9 @@
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPConfiguration"
+        "nullable": false,
+        "referenceName": "SAPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Environment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPEnvironmentType"
+        "nullable": false,
+        "referenceName": "SAPEnvironmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceError"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPHealthState"
+        "nullable": false,
+        "referenceName": "SAPHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRGConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedRGConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapVirtualInstanceProvisioningState"
+        "nullable": false,
+        "referenceName": "SapVirtualInstanceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "SapProduct",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPProductType"
+        "nullable": false,
+        "referenceName": "SAPProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceState"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPVirtualInstanceStatus"
+        "nullable": false,
+        "referenceName": "SAPVirtualInstanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

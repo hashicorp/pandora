@@ -7,7 +7,9 @@
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseType"
+        "nullable": false,
+        "referenceName": "SAPDatabaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DbVMSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDeploymentType"
+        "nullable": false,
+        "referenceName": "SAPDeploymentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Environment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPEnvironmentType"
+        "nullable": false,
+        "referenceName": "SAPEnvironmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "SapProduct",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPProductType"
+        "nullable": false,
+        "referenceName": "SAPProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

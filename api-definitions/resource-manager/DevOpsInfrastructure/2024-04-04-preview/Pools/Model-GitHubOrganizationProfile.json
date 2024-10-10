@@ -7,10 +7,14 @@
       "name": "Organizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GitHubOrganization"
+          "nullable": false,
+          "referenceName": "GitHubOrganization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OrganizationProfile",
   "discriminatedTypeValue": "GitHub",
   "typeHintIn": "Kind"

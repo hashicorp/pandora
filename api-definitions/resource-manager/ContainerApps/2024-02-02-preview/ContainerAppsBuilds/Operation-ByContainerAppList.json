@@ -1,6 +1,7 @@
 {
   "name": "ByContainerAppList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ContainerAppId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerAppsBuildResource"
+    "nullable": false,
+    "referenceName": "ContainerAppsBuildResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/builds"
 }

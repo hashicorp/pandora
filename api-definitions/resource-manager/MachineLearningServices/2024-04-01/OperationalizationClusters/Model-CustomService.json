@@ -7,7 +7,9 @@
       "name": "Docker",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Docker"
+        "nullable": false,
+        "referenceName": "Docker",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Endpoint"
+          "nullable": false,
+          "referenceName": "Endpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EnvironmentVariable"
+          "nullable": false,
+          "referenceName": "EnvironmentVariable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "Image",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Image"
+        "nullable": false,
+        "referenceName": "Image",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,10 +94,14 @@
       "name": "Volumes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VolumeDefinition"
+          "nullable": false,
+          "referenceName": "VolumeDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

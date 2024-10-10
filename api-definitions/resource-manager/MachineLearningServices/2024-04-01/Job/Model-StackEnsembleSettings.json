@@ -7,7 +7,9 @@
       "name": "StackMetaLearnerKWargs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "StackMetaLearnerTrainPercentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "StackMetaLearnerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StackMetaLearnerType"
+        "nullable": false,
+        "referenceName": "StackMetaLearnerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

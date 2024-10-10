@@ -1,0 +1,34 @@
+{
+  "name": "ScopedStandardAssignmentId",
+  "id": "/{resourceId}/providers/Microsoft.Security/standardAssignments/{standardAssignmentName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "resourceId",
+      "type": "Scope"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftSecurity",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Security"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticStandardAssignments",
+      "type": "Static",
+      "value": "standardAssignments"
+    },
+    {
+      "exampleValue": "standardAssignmentName",
+      "name": "standardAssignmentName",
+      "type": "UserSpecified"
+    }
+  ]
+}

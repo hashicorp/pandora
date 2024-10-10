@@ -7,10 +7,14 @@
       "name": "BlobRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BlobRestoreRange"
+          "nullable": false,
+          "referenceName": "BlobRestoreRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -25,12 +29,15 @@
       "name": "TimeToRestore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

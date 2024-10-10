@@ -4,10 +4,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "apiDefinitionUrl",
-      "name": "ApiDefinitionUrl",
+      "name": "ApiDefinitionURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApiDefinitions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceDefinitions"
+        "nullable": false,
+        "referenceName": "ApiResourceDefinitions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BackendService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceBackendService"
+        "nullable": false,
+        "referenceName": "ApiResourceBackendService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,10 +73,14 @@
       "name": "ConnectionParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionParameter"
+          "nullable": false,
+          "referenceName": "ConnectionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "GeneralInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceGeneralInformation"
+        "nullable": false,
+        "referenceName": "ApiResourceGeneralInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceMetadata"
+        "nullable": false,
+        "referenceName": "ApiResourceMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "Policies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourcePolicies"
+        "nullable": false,
+        "referenceName": "ApiResourcePolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,13 +151,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "runtimeUrls",
-      "name": "RuntimeUrls",
+      "name": "RuntimeURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,12 +175,15 @@
       "name": "Swagger",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

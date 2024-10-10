@@ -7,10 +7,14 @@
       "name": "ApplicableFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "IsBackingResource",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "NetworkSecurityPerimeter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeter"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ParentAssociationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Profile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,10 +88,14 @@
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProvisioningIssue"
+          "nullable": false,
+          "referenceName": "ProvisioningIssue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ResourceAssociation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation"
+        "nullable": false,
+        "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,12 +139,15 @@
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

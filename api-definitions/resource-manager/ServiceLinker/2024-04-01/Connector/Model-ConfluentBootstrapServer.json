@@ -7,7 +7,9 @@
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TargetServiceBase",
   "discriminatedTypeValue": "ConfluentBootstrapServer",
   "typeHintIn": "Type"

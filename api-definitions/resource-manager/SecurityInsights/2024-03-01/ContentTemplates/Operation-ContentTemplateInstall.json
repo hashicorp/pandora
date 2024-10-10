@@ -1,6 +1,7 @@
 {
   "name": "ContentTemplateInstall",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ContentTemplateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TemplateModel"
+    "nullable": false,
+    "referenceName": "TemplateModel",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TemplateModel"
+    "nullable": false,
+    "referenceName": "TemplateModel",
+    "referenceNameIsCommonType": null
   }
 }

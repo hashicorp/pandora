@@ -59,6 +59,8 @@ func (g GenerateCommand) Run(args []string) int {
 	}
 
 	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
+		input.settings.AllowOmittingDiscriminatedValue = true
+		input.settings.DeleteExistingResourcesForVersion = true
 		input.settings.GenerateDescriptionsForModels = true
 		input.settings.RecurseParentModels = false
 
@@ -71,6 +73,9 @@ func (g GenerateCommand) Run(args []string) int {
 			"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
 		}
 	} else if g.sourceDataType == models.ResourceManagerSourceDataType {
+		input.settings.AllowOmittingDiscriminatedValue = false
+		input.settings.DeleteExistingResourcesForVersion = false
+		input.settings.GenerateDescriptionsForModels = false
 		input.settings.RecurseParentModels = true
 
 		input.settings.UseOldBaseLayerFor(
@@ -165,6 +170,17 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 				var commonTypes models.CommonTypes
 				if v, ok := data.CommonTypes[versionNumber]; ok {
 					commonTypes = v
+				}
+
+				if input.settings.DeleteExistingResourcesForVersion {
+					logging.Debugf("Deleting existing definitions for Service %q / Version %q", serviceName, versionNumber)
+					servicePackageName := strings.ToLower(serviceName)
+					versionDirectoryName := strings.ToLower(versionNumber)
+					versionOutputPath := filepath.Join(input.outputDirectory, servicePackageName, versionDirectoryName)
+					if err = generator.CleanAndRecreateWorkingDirectory(versionOutputPath); err != nil {
+						addErr(fmt.Errorf("cleaning/recreating working directory %q: %+v", versionOutputPath, err))
+						return
+					}
 				}
 
 				for resourceName, resourceDetails := range versionDetails.Resources {

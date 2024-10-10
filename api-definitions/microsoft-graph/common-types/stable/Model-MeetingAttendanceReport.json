@@ -1,0 +1,79 @@
+{
+  "name": "MeetingAttendanceReport",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of attendance records of an attendance report. Read-only.",
+      "jsonName": "attendanceRecords",
+      "name": "AttendanceRecords",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AttendanceRecord",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "UTC time when the meeting ended. Read-only.",
+      "jsonName": "meetingEndDateTime",
+      "name": "MeetingEndDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "UTC time when the meeting started. Read-only.",
+      "jsonName": "meetingStartDateTime",
+      "name": "MeetingStartDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total number of participants. Read-only.",
+      "jsonName": "totalParticipantCount",
+      "name": "TotalParticipantCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.meetingAttendanceReport",
+  "typeHintIn": "ODataType"
+}

@@ -7,10 +7,14 @@
       "name": "PendingFields",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PendingField"
+          "nullable": false,
+          "referenceName": "PendingField",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "ResourceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CheckRestrictionsResourceDetails"
+        "nullable": false,
+        "referenceName": "CheckRestrictionsResourceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

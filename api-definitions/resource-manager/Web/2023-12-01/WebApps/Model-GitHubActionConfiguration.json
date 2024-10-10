@@ -7,7 +7,9 @@
       "name": "CodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionCodeConfiguration"
+        "nullable": false,
+        "referenceName": "GitHubActionCodeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContainerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHubActionContainerConfiguration"
+        "nullable": false,
+        "referenceName": "GitHubActionContainerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "GenerateWorkflowFile",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "IsLinux",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

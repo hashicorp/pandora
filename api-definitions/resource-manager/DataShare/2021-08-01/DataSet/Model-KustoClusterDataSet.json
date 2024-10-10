@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KustoClusterDataSetProperties"
+        "nullable": false,
+        "referenceName": "KustoClusterDataSetProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSet",
   "discriminatedTypeValue": "KustoCluster",
   "typeHintIn": "Kind"

@@ -1,14 +1,17 @@
 {
   "name": "GetCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "CertificateId",
+  "resourceIdName": "CertificateOrderCertificateId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateResource"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateResource",
+    "referenceNameIsCommonType": null
   }
 }

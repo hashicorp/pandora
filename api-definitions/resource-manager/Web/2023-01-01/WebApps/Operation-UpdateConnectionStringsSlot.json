@@ -1,6 +1,7 @@
 {
   "name": "UpdateConnectionStringsSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SlotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionStringDictionary"
+    "nullable": false,
+    "referenceName": "ConnectionStringDictionary",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionStringDictionary"
+    "nullable": false,
+    "referenceName": "ConnectionStringDictionary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/connectionStrings"
 }

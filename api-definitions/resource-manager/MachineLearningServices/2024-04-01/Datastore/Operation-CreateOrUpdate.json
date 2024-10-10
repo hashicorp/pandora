@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "skipValidation",
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "DataStoreId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatastoreResource"
+    "nullable": false,
+    "referenceName": "DatastoreResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatastoreResource"
+    "nullable": false,
+    "referenceName": "DatastoreResource",
+    "referenceNameIsCommonType": null
   }
 }

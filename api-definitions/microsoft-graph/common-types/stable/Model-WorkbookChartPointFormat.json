@@ -1,0 +1,25 @@
+{
+  "name": "WorkbookChartPointFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the fill format of a chart, which includes background formatting information. Read-only.",
+      "jsonName": "fill",
+      "name": "Fill",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkbookChartFill",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.workbookChartPointFormat",
+  "typeHintIn": "ODataType"
+}

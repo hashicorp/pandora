@@ -7,7 +7,9 @@
       "name": "PrivateEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedInstancePrivateEndpointProperty"
+        "nullable": false,
+        "referenceName": "ManagedInstancePrivateEndpointProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PrivateLinkServiceConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedInstancePrivateLinkServiceConnectionStateProperty"
+        "nullable": false,
+        "referenceName": "ManagedInstancePrivateLinkServiceConnectionStateProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

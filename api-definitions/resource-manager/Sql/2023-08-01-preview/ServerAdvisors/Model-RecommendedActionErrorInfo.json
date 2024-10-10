@@ -7,7 +7,9 @@
       "name": "ErrorCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "IsRetryable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsRetryable"
+        "nullable": false,
+        "referenceName": "IsRetryable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

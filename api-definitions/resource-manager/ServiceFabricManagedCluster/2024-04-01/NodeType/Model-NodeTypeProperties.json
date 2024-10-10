@@ -7,10 +7,14 @@
       "name": "AdditionalDataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSSDataDisk"
+          "nullable": false,
+          "referenceName": "VMSSDataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "AdditionalNetworkInterfaceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdditionalNetworkInterfaceConfiguration"
+          "nullable": false,
+          "referenceName": "AdditionalNetworkInterfaceConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "ApplicationPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,10 +64,14 @@
       "name": "Capacities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +85,9 @@
       "name": "ComputerNamePrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,7 +100,9 @@
       "name": "DataDiskLetter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "DataDiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "DataDiskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskType"
+        "nullable": false,
+        "referenceName": "DiskType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "DscpConfigurationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "EnableAcceleratedNetworking",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "EnableEncryptionAtHost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "EnableNodePublicIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +205,9 @@
       "name": "EnableNodePublicIPv6",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,7 +220,9 @@
       "name": "EnableOverProvisioning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,7 +235,9 @@
       "name": "EphemeralPorts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointRangeDescription"
+        "nullable": false,
+        "referenceName": "EndpointRangeDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,7 +250,9 @@
       "name": "EvictionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EvictionPolicyType"
+        "nullable": false,
+        "referenceName": "EvictionPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,10 +265,14 @@
       "name": "FrontendConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendConfiguration"
+          "nullable": false,
+          "referenceName": "FrontendConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -244,7 +286,9 @@
       "name": "HostGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -257,7 +301,9 @@
       "name": "IsPrimary",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -270,7 +316,9 @@
       "name": "IsSpotVM",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -283,7 +331,9 @@
       "name": "IsStateless",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,7 +346,9 @@
       "name": "MultiplePlacementGroups",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,10 +361,14 @@
       "name": "NatConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NodeTypeNatConfig"
+          "nullable": false,
+          "referenceName": "NodeTypeNatConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -326,7 +382,9 @@
       "name": "NatGatewayId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -339,10 +397,14 @@
       "name": "NetworkSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "NetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -356,10 +418,14 @@
       "name": "PlacementProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -373,7 +439,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -386,7 +454,9 @@
       "name": "SecureBootEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -399,7 +469,9 @@
       "name": "SecurityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityType"
+        "nullable": false,
+        "referenceName": "SecurityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -412,7 +484,9 @@
       "name": "ServiceArtifactReferenceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -425,7 +499,9 @@
       "name": "SpotRestoreTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -438,7 +514,9 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -451,7 +529,9 @@
       "name": "UseDefaultPublicLoadBalancer",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -464,7 +544,9 @@
       "name": "UseEphemeralOSDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -477,7 +559,9 @@
       "name": "UseTempDataDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -490,10 +574,14 @@
       "name": "VMExtensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSSExtension"
+          "nullable": false,
+          "referenceName": "VMSSExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -507,7 +595,9 @@
       "name": "VMImageOffer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -520,7 +610,9 @@
       "name": "VMImagePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMImagePlan"
+        "nullable": false,
+        "referenceName": "VMImagePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -533,7 +625,9 @@
       "name": "VMImagePublisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -546,7 +640,9 @@
       "name": "VMImageResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -559,7 +655,9 @@
       "name": "VMImageSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -572,7 +670,9 @@
       "name": "VMImageVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -585,7 +685,9 @@
       "name": "VMInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -598,7 +700,9 @@
       "name": "VMManagedIdentity",
       "objectDefinition": {
         "type": "UserAssignedIdentityList",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -611,10 +715,14 @@
       "name": "VMSecrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VaultSecretGroup"
+          "nullable": false,
+          "referenceName": "VaultSecretGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -628,10 +736,14 @@
       "name": "VMSetupActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMSetupAction"
+          "nullable": false,
+          "referenceName": "VMSetupAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -645,7 +757,9 @@
       "name": "VMSharedGalleryImageId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -658,7 +772,9 @@
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -671,12 +787,15 @@
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

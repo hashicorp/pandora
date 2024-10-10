@@ -1,6 +1,7 @@
 {
   "name": "SpaceAllocation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CacheId",
   "requestObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "StorageTargetSpaceAllocation"
+      "nullable": false,
+      "referenceName": "StorageTargetSpaceAllocation",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/spaceAllocation"

@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "DataCollectionEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataCollectionEndpointResource"
+    "nullable": false,
+    "referenceName": "DataCollectionEndpointResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataCollectionEndpointResource"
+    "nullable": false,
+    "referenceName": "DataCollectionEndpointResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputePowerAction"
+        "nullable": false,
+        "referenceName": "ComputePowerAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Cron",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Cron"
+        "nullable": false,
+        "referenceName": "Cron",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStatus"
+        "nullable": false,
+        "referenceName": "ProvisioningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Recurrence"
+        "nullable": false,
+        "referenceName": "Recurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleBase"
+        "nullable": false,
+        "referenceName": "ScheduleBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleStatus"
+        "nullable": false,
+        "referenceName": "ScheduleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "TriggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeTriggerType"
+        "nullable": false,
+        "referenceName": "ComputeTriggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

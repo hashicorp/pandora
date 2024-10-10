@@ -7,7 +7,9 @@
       "name": "AdditionalColumns",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DelimitedTextReadSettings"
+        "nullable": false,
+        "referenceName": "DelimitedTextReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "StoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreReadSettings"
+        "nullable": false,
+        "referenceName": "StoreReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySource",
   "discriminatedTypeValue": "DelimitedTextSource",
   "typeHintIn": "Type"

@@ -7,7 +7,9 @@
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanUpdate"
+        "nullable": false,
+        "referenceName": "PlanUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OracleSubscriptionUpdateProperties"
+        "nullable": false,
+        "referenceName": "OracleSubscriptionUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

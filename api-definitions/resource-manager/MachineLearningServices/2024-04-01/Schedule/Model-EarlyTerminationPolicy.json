@@ -7,7 +7,9 @@
       "name": "DelayEvaluation",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EvaluationInterval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicyType"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +47,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "PolicyType"
 }

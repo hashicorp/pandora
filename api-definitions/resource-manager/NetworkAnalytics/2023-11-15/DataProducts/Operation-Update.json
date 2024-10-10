@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DataProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataProductUpdate"
+    "nullable": false,
+    "referenceName": "DataProductUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataProduct"
+    "nullable": false,
+    "referenceName": "DataProduct",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "EventType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "WebhookType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebhookType"
+        "nullable": false,
+        "referenceName": "WebhookType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "WebhookType"
 }

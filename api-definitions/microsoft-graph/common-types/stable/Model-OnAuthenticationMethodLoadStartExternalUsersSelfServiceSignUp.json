@@ -1,0 +1,30 @@
+{
+  "name": "OnAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identityProviders",
+      "name": "IdentityProviders",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IdentityProviderBase",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnAuthenticationMethodLoadStartHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onAuthenticationMethodLoadStartExternalUsersSelfServiceSignUp",
+  "typeHintIn": "ODataType"
+}

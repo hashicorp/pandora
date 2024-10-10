@@ -1,6 +1,7 @@
 {
   "name": "DataConnectorsConnect",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataConnectorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataConnectorConnectBody"
+    "nullable": false,
+    "referenceName": "DataConnectorConnectBody",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/connect"
 }

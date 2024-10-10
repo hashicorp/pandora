@@ -7,7 +7,9 @@
       "name": "PeriodicModeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PeriodicModeProperties"
+        "nullable": false,
+        "referenceName": "PeriodicModeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BackupPolicy",
   "discriminatedTypeValue": "Periodic",
   "typeHintIn": "Type"

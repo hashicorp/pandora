@@ -1,6 +1,7 @@
 {
   "name": "BmcKeySetsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "BmcKeySetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BmcKeySet"
+    "nullable": false,
+    "referenceName": "BmcKeySet",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BmcKeySet"
+    "nullable": false,
+    "referenceName": "BmcKeySet",
+    "referenceNameIsCommonType": null
   }
 }

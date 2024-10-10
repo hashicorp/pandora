@@ -1,6 +1,7 @@
 {
   "name": "VirtualNetworksListUsage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualNetworkId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualNetworkUsage"
+    "nullable": false,
+    "referenceName": "VirtualNetworkUsage",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/usages"
 }

@@ -7,7 +7,9 @@
       "name": "HostCaching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostCaching"
+        "nullable": false,
+        "referenceName": "HostCaching",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SizeInGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryDiskImageSource"
+        "nullable": false,
+        "referenceName": "GalleryDiskImageSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

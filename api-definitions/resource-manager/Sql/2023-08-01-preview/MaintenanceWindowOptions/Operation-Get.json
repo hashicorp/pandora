@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "maintenanceWindowOptionsName",
       "required": true,
@@ -21,7 +23,9 @@
   "resourceIdName": "SqlDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MaintenanceWindowOptions"
+    "nullable": false,
+    "referenceName": "MaintenanceWindowOptions",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/maintenanceWindowOptions/current"
 }

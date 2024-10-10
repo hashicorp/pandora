@@ -7,7 +7,9 @@
       "name": "DataFlow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowDebugResource"
+        "nullable": false,
+        "referenceName": "DataFlowDebugResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DataFlows",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataFlowDebugResource"
+          "nullable": false,
+          "referenceName": "DataFlowDebugResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "Datasets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatasetDebugResource"
+          "nullable": false,
+          "referenceName": "DatasetDebugResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "DebugSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowDebugPackageDebugSettings"
+        "nullable": false,
+        "referenceName": "DataFlowDebugPackageDebugSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "LinkedServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedServiceDebugResource"
+          "nullable": false,
+          "referenceName": "LinkedServiceDebugResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "SessionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,12 +115,15 @@
       "name": "Staging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowStagingInfo"
+        "nullable": false,
+        "referenceName": "DataFlowStagingInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

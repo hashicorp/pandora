@@ -1,0 +1,39 @@
+{
+  "name": "CheckoutDriveItem",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action checkout. Check out a driveItem resource to prevent others from editing the document, and prevent your changes from being visible until the documented is checked in.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeDriveIdItemId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/checkout"
+}

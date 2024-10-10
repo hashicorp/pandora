@@ -1,6 +1,7 @@
 {
   "name": "UpdateStaticSiteUser",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "UserId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserARMResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserARMResource",
+    "referenceNameIsCommonType": null
   }
 }

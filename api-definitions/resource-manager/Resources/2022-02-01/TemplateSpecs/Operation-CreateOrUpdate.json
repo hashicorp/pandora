@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TemplateSpecId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TemplateSpec"
+    "nullable": false,
+    "referenceName": "TemplateSpec",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TemplateSpec"
+    "nullable": false,
+    "referenceName": "TemplateSpec",
+    "referenceNameIsCommonType": null
   }
 }

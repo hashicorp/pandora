@@ -1,6 +1,7 @@
 {
   "name": "GetPublicIP",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "PublicIPId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkPublicIP"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkPublicIP",
+    "referenceNameIsCommonType": null
   }
 }

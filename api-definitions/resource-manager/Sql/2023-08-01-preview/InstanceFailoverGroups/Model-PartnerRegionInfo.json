@@ -7,7 +7,9 @@
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ReplicationRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceFailoverGroupReplicationRole"
+        "nullable": false,
+        "referenceName": "InstanceFailoverGroupReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

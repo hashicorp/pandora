@@ -7,7 +7,9 @@
       "name": "Activity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointChangeEnumerationActivity"
+        "nullable": false,
+        "referenceName": "CloudEndpointChangeEnumerationActivity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LastEnumerationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudEndpointLastChangeEnumerationStatus"
+        "nullable": false,
+        "referenceName": "CloudEndpointLastChangeEnumerationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

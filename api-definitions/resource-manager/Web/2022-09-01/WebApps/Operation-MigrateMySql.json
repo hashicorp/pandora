@@ -1,6 +1,7 @@
 {
   "name": "MigrateMySql",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MigrateMySqlRequest"
+    "nullable": false,
+    "referenceName": "MigrateMySqlRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Operation"
+    "nullable": false,
+    "referenceName": "Operation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/migrateMySql"
 }

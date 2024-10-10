@@ -7,7 +7,9 @@
       "name": "ItemKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SortOrder",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreatIntelligenceSortingOrder"
+        "nullable": false,
+        "referenceName": "ThreatIntelligenceSortingOrder",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

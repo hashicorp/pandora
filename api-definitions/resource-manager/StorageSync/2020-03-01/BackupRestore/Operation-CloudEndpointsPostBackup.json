@@ -1,6 +1,7 @@
 {
   "name": "CloudEndpointsPostBackup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "CloudEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupRequest"
+    "nullable": false,
+    "referenceName": "BackupRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PostBackupResponse"
+    "nullable": false,
+    "referenceName": "PostBackupResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/postbackup"
 }

@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerParameters"
+        "nullable": false,
+        "referenceName": "TriggerParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerType"
+        "nullable": false,
+        "referenceName": "TriggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AutoPause",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoPauseProperties"
+        "nullable": false,
+        "referenceName": "AutoPauseProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoScale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleProperties"
+        "nullable": false,
+        "referenceName": "AutoScaleProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CacheSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,10 +68,14 @@
       "name": "CustomLibraries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LibraryInfo"
+          "nullable": false,
+          "referenceName": "LibraryInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -77,7 +89,9 @@
       "name": "DefaultSparkLogFolder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "DynamicExecutorAllocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicExecutorAllocation"
+        "nullable": false,
+        "referenceName": "DynamicExecutorAllocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "IsAutotuneEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "IsComputeIsolationEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,7 +150,9 @@
       "name": "LastSucceededTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -143,7 +165,9 @@
       "name": "LibraryRequirements",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LibraryRequirements"
+        "nullable": false,
+        "referenceName": "LibraryRequirements",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -156,7 +180,9 @@
       "name": "NodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,7 +195,9 @@
       "name": "NodeSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeSize"
+        "nullable": false,
+        "referenceName": "NodeSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -182,7 +210,9 @@
       "name": "NodeSizeFamily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeSizeFamily"
+        "nullable": false,
+        "referenceName": "NodeSizeFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -195,7 +225,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,7 +240,9 @@
       "name": "SessionLevelPackagesEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,7 +255,9 @@
       "name": "SparkConfigProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SparkConfigProperties"
+        "nullable": false,
+        "referenceName": "SparkConfigProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,7 +270,9 @@
       "name": "SparkEventsFolder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -247,12 +285,15 @@
       "name": "SparkVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

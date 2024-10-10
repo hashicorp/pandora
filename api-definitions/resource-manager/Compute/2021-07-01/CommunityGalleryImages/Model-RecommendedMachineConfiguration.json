@@ -7,7 +7,9 @@
       "name": "Memory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRange"
+        "nullable": false,
+        "referenceName": "ResourceRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "VCPUs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRange"
+        "nullable": false,
+        "referenceName": "ResourceRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

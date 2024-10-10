@@ -7,7 +7,9 @@
       "name": "BillingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfile"
+        "nullable": false,
+        "referenceName": "BillingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DiagnosticsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsProfile"
+        "nullable": false,
+        "referenceName": "DiagnosticsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ExtensionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetExtensionProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetExtensionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetHardwareProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetHardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateOSProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateOSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ScheduledEventsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsProfile"
+        "nullable": false,
+        "referenceName": "ScheduledEventsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "SecurityPostureReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityPostureReferenceUpdate"
+        "nullable": false,
+        "referenceName": "SecurityPostureReferenceUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateStorageProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,12 +172,15 @@
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

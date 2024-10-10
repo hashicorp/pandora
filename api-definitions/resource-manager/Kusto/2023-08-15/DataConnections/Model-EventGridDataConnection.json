@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGridConnectionProperties"
+        "nullable": false,
+        "referenceName": "EventGridConnectionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnection",
   "discriminatedTypeValue": "EventGrid",
   "typeHintIn": "Kind"

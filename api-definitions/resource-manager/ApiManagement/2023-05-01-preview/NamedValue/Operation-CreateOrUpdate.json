@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "NamedValueId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NamedValueCreateContract"
+    "nullable": false,
+    "referenceName": "NamedValueCreateContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NamedValueContract"
+    "nullable": false,
+    "referenceName": "NamedValueContract",
+    "referenceNameIsCommonType": null
   }
 }

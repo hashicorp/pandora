@@ -62,6 +62,16 @@ func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch
 	return nil, false
 }
 
+// ResourceId represents a unique path in Microsoft Graph that represents a resource. Resource IDs comprise a non-zero
+// number of segments, the last of which must always be of type SegmentUserValue (i.e. specified by the user).
+// Whilst paths in Microsoft Graph can comprise different types of object identifiers, we currently only support simple
+// SegmentUserValue segments where the entire slug is provided. For example, these two paths are functionally equivalent:
+//
+//	/applications/{id}/federatedIdentityCredentials/{federatedIdentityCredentialId}
+//	/applications(appId='{appId}')/federatedIdentityCredentials/{federatedIdentityCredentialName}
+//
+// however we only support the first style, where the user-provided portion of each SegmentUserValue comprises the entire
+// slug. Complex segments such as `(appId='{appId}')` are not supported at this time.
 type ResourceId struct {
 	Name     string
 	Service  string
@@ -74,6 +84,16 @@ func (r ResourceId) ID() string {
 		segments[i] = s.Value
 	}
 	return "/" + strings.Join(segments, "/")
+}
+
+// ResourceIdName returns a name for the ResourceId. This calls FullyQualifiedResourceName with a common suffix to be
+// appended to all words preceding a user value. For example:
+//
+//	/groups/{groupId}/photos/{photoId} becomes GroupIdPhotoId
+//	/users/{userId}/messages/{messageId}/attachments/{attachmentId} becomes UserIdMessageIdAttachmentId
+func (r ResourceId) ResourceIdName() (*string, bool) {
+	name, ok := r.FullyQualifiedResourceName(pointer.To(ResourceIdSuffix))
+	return name, ok
 }
 
 // DataApiSdkResourceId converts the internal ResourceId representation to a Data API SDK ResourceID, so it can be
@@ -136,12 +156,13 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 // e.g.
 // if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
 // will be `ApplicationSynchronizationJob`
+// See unit test cases for more examples.
 func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*string, bool) {
 	name := ""
 	verb := ""
 	for i, segment := range r.Segments {
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			newName := normalize.CleanName(segment.Value)
+			segmentName := normalize.CleanName(segment.Value)
 			shouldSingularize := false
 
 			if segment.Type == SegmentLabel {
@@ -153,40 +174,44 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 					shouldSingularize = false
 				}
 
-				if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
-					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
-					// Example: in the following ID, we want to _not_ singularize the `jobs` label
-					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
-					if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
+				if len(r.Segments) == i+2 {
+					if r.Segments[i+1].Type != SegmentUserValue {
+						// Look for a verb match in the final segment if is not a SegmentUserValue
+						// Example: in the following ID, we want to _not_ singularize the `jobs` label
+						//          /applications/{applicationId}/synchronization/jobs/validateCredentials
+						if _, ok := normalize.Verbs.Match(normalize.CleanName(r.Segments[i+1].Value)); ok {
+							shouldSingularize = false
+						}
+					}
+
+					if r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count") {
+						// $count indicates a plural entity (noting that this only applies when the current
+						// segment is a label and not user-specified).
 						shouldSingularize = false
 					}
 				}
+			}
 
-				if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && (r.Segments[i+1].Value == "$count") {
-					// $count indicates a plural entity (noting that this only applies when the current
-					// segment is a label and not user-specified).
+			if i == len(r.Segments)-1 {
+				// Explicitly pluralize a $ref segment when the previous segment was a label and plural
+				if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
+					segmentName = normalize.Pluralize(segmentName)
+					shouldSingularize = false
+				}
+
+				// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
+				if v, ok := normalize.Verbs.Match(segmentName); ok && verb == "" {
+					verb = *v
+					segmentName = segmentName[len(verb):]
 					shouldSingularize = false
 				}
 			}
 
-			// Explicitly pluralize a $ref segment when the previous segment was a label and plural
-			if segment.Type == SegmentODataReference && segment.Value == "$ref" && r.Segments[i-1].plural {
-				newName = normalize.Pluralize(newName)
-				shouldSingularize = false
-			}
-
-			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
-			if v, ok := normalize.Verbs.Match(newName); ok && verb == "" {
-				verb = *v
-				newName = newName[len(verb):]
-				shouldSingularize = false
-			}
-
 			if shouldSingularize {
-				newName = normalize.Singularize(newName)
+				segmentName = normalize.Singularize(segmentName)
 			}
 
-			name = name + newName
+			name = name + segmentName
 		} else if segment.Type == SegmentUserValue && suffixQualification != nil {
 			name = name + *suffixQualification
 		}
@@ -206,77 +231,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	return &name, true
 }
 
-// FindResourceName returns a short resource name based on the last significant segments of the ResourceId. Singularization
-// follows the same rules as FullyQualifiedResourceName.
-// e.g.
-// if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the (shortened)
-// returned name will be `SynchronizationJob`.
-func (r ResourceId) FindResourceName() (*string, bool) {
-	r2 := ResourceId{
-		Segments: make([]ResourceIdSegment, 0),
-	}
-	idx := len(r.Segments) - 1
-
-	for i := idx; i >= 0; i-- {
-		if idSegment := r.Segments[i]; idSegment.Type == SegmentAction || idSegment.Type == SegmentLabel || idSegment.Type == SegmentODataReference {
-			idx = i
-			break
-		}
-	}
-
-	// Note we're working backwards through the segments, starting at the end
-	for j := idx; j >= 0; j-- {
-		segment := r.Segments[j]
-		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			r2.Segments = append([]ResourceIdSegment{segment}, r2.Segments...)
-
-			// Hop over a SegmentUserValue if we only have an action or ref, to prevent unqualified resource names like "Stop" or "Ref",
-			// however also include the SegmentUserValue in the shortened ResourceId so that FullyQualifiedResourceName() can determine plurality
-			// Example: /applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/validateCredentials
-			if (segment.Type == SegmentAction || segment.Type == SegmentODataReference) && j > 0 {
-				if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
-					r2.Segments = append([]ResourceIdSegment{precedingSegment}, r2.Segments...)
-					j--
-				}
-			}
-
-			// Hop over a SegmentUserValue if we only have an unqualified label describing a relationship (determined by a succeeding SegmentODataReference)
-			if segment.Type == SegmentLabel && j > 0 {
-				if j+1 == len(r.Segments) {
-					if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
-						// Example: /agreements/{agreementId}/file
-						j--
-					}
-				} else {
-					if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
-						if succeedingSegment := r.Segments[j+1]; succeedingSegment.Type == SegmentODataReference {
-							// Example: /applications/{applicationId}/owners/$ref
-							j--
-						} else if j+2 < len(r.Segments) && succeedingSegment.Type == SegmentUserValue {
-							if nextSucceedingSegment := r.Segments[j+2]; nextSucceedingSegment.Type == SegmentODataReference {
-								// Example: /applications/{applicationId}/owners/{ownerId}/$ref
-								j--
-							}
-						}
-					}
-				}
-			}
-
-			continue
-		}
-		break
-	}
-
-	return r2.FullyQualifiedResourceName(pointer.To(ResourceSuffix))
-}
-
-// FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
-// but may be changed in future if the ResourceId needs to be distinctly named.
-func (r ResourceId) FindResourceIdName() (*string, bool) {
-	name, ok := r.FullyQualifiedResourceName(pointer.To(ResourceIdSuffix))
-	return name, ok
-}
-
+// HasUserValue returns true if the ResourceId contains one or more SegmentUserValue segments.
 func (r ResourceId) HasUserValue() bool {
 	for _, s := range r.Segments {
 		if s.Type == SegmentUserValue {
@@ -360,6 +315,9 @@ const (
 	SegmentFunction       ResourceIdSegmentType = "Function"
 )
 
+// NewResourceId analyses the provided path and returns a parsed ResourceId with typed segments. Any tags provided are
+// used to determine the type of certain matching segments, as it is otherwise not possible to distinguish between a
+// SegmentAction or SegmentCast because they have the same format.
 func NewResourceId(path string, tags []string) (id ResourceId) {
 	tagSuffix := func(suffix string) bool {
 		for _, t := range tags {
@@ -378,15 +336,15 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]
-			value = normalize.CleanName(value)
-			field := value
-			value = strings.ToLower(value[0:1]) + value[1:]
+			field := normalize.CleanName(value)
+			value = normalize.CleanNameCamel(value)
 			segment = ResourceIdSegment{
 				Type:  SegmentUserValue,
 				Value: fmt.Sprintf("{%s}", value),
 				field: &field,
 			}
 		} else if strings.Contains(s, "(") {
+			// Note: this will need updating if we are going to support complex user values such as `applications(appId='{appId}')`
 			segment = ResourceIdSegment{
 				Type:  SegmentFunction,
 				Value: s,
@@ -449,8 +407,10 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	return
 }
 
-func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
+// ResourceIDs parses the provided openapi3.Paths and returns a map of ResourceId containing all possible detected resource IDs
+func ResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
 	resourceIds = make(ResourceIds)
+
 	for path, item := range paths {
 		operations := item.Operations()
 		operationTags := make([]string, 0)
@@ -491,7 +451,7 @@ func ParseResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds Re
 		}
 
 		resourceIdName := ""
-		if r, ok := id.FindResourceIdName(); ok {
+		if r, ok := id.ResourceIdName(); ok {
 			resourceIdName = normalize.Singularize(normalize.CleanName(*r))
 		}
 

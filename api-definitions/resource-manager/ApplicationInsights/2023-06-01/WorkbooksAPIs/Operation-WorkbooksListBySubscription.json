@@ -1,6 +1,7 @@
 {
   "name": "WorkbooksListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "canFetchContent",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "category",
       "required": true,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "tags",
       "required": false,
@@ -46,7 +50,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Workbook"
+    "nullable": false,
+    "referenceName": "Workbook",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/workbooks"
 }

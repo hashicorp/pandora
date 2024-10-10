@@ -1,0 +1,41 @@
+{
+  "name": "SecurityFilePlanCitation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the jurisdiction or agency that published the filePlanCitation.",
+      "jsonName": "citationJurisdiction",
+      "name": "CitationJurisdiction",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the URL to the published filePlanCitation.",
+      "jsonName": "citationUrl",
+      "name": "CitationUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFilePlanDescriptorBase",
+  "discriminatedTypeValue": "#microsoft.graph.security.filePlanCitation",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "AutoScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentScalingPropertiesAutoScaleSettings"
+        "nullable": false,
+        "referenceName": "NginxDeploymentScalingPropertiesAutoScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Capacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

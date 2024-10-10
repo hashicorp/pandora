@@ -1,0 +1,73 @@
+{
+  "name": "AuthorizationSystem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID of the authorization system retrieved from the customer cloud environment. Supports $filter(eq, contains) and $orderBy.",
+      "jsonName": "authorizationSystemId",
+      "name": "AuthorizationSystemId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the authorization system detected after onboarding. Supports $filter(eq,contains) and $orderBy.",
+      "jsonName": "authorizationSystemName",
+      "name": "AuthorizationSystemName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of authorization system. Can be gcp, azure, or aws. Supports $filter(eq).",
+      "jsonName": "authorizationSystemType",
+      "name": "AuthorizationSystemType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines how and whether Permissions Management collects data from the onboarded authorization system. Supports $filter (eq) as follows:  $filter=dataCollectionInfo/entitlements/permissionsModificationCapability and $filter=dataCollectionInfo/entitlements/status.",
+      "jsonName": "dataCollectionInfo",
+      "name": "DataCollectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataCollectionInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.authorizationSystem",
+  "typeHintIn": "ODataType"
+}

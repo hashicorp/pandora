@@ -7,7 +7,9 @@
       "name": "ConnectVia",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnvironmentPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ExecutionCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISExecutionCredential"
+        "nullable": false,
+        "referenceName": "SSISExecutionCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LogLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISLogLocation"
+        "nullable": false,
+        "referenceName": "SSISLogLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LoggingLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,13 +82,19 @@
       "name": "PackageConnectionManagers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "SSISExecutionParameter"
+            "nullable": false,
+            "referenceName": "SSISExecutionParameter",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -93,7 +109,9 @@
       "name": "PackageLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISPackageLocation"
+        "nullable": false,
+        "referenceName": "SSISPackageLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,10 +124,14 @@
       "name": "PackageParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISExecutionParameter"
+          "nullable": false,
+          "referenceName": "SSISExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,13 +145,19 @@
       "name": "ProjectConnectionManagers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Dictionary",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "SSISExecutionParameter"
+            "nullable": false,
+            "referenceName": "SSISExecutionParameter",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -144,10 +172,14 @@
       "name": "ProjectParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISExecutionParameter"
+          "nullable": false,
+          "referenceName": "SSISExecutionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -161,10 +193,14 @@
       "name": "PropertyOverrides",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SSISPropertyOverride"
+          "nullable": false,
+          "referenceName": "SSISPropertyOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -178,12 +214,15 @@
       "name": "Runtime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

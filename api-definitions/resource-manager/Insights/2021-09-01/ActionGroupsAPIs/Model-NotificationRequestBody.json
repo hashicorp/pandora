@@ -7,7 +7,9 @@
       "name": "AlertType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ArmRoleReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ArmRoleReceiver"
+          "nullable": false,
+          "referenceName": "ArmRoleReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "AutomationRunbookReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRunbookReceiver"
+          "nullable": false,
+          "referenceName": "AutomationRunbookReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "AzureAppPushReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureAppPushReceiver"
+          "nullable": false,
+          "referenceName": "AzureAppPushReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,10 +85,14 @@
       "name": "AzureFunctionReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFunctionReceiver"
+          "nullable": false,
+          "referenceName": "AzureFunctionReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,10 +106,14 @@
       "name": "EmailReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EmailReceiver"
+          "nullable": false,
+          "referenceName": "EmailReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -105,10 +127,14 @@
       "name": "EventHubReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubReceiver"
+          "nullable": false,
+          "referenceName": "EventHubReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,10 +148,14 @@
       "name": "ItsmReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ItsmReceiver"
+          "nullable": false,
+          "referenceName": "ItsmReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -139,10 +169,14 @@
       "name": "LogicAppReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LogicAppReceiver"
+          "nullable": false,
+          "referenceName": "LogicAppReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -156,10 +190,14 @@
       "name": "SmsReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmsReceiver"
+          "nullable": false,
+          "referenceName": "SmsReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -173,10 +211,14 @@
       "name": "VoiceReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VoiceReceiver"
+          "nullable": false,
+          "referenceName": "VoiceReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -190,10 +232,14 @@
       "name": "WebhookReceivers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebhookReceiver"
+          "nullable": false,
+          "referenceName": "WebhookReceiver",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,5 +247,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

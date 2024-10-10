@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubEventSubscriptionDestinationProperties"
+        "nullable": false,
+        "referenceName": "EventHubEventSubscriptionDestinationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSubscriptionDestination",
   "discriminatedTypeValue": "EventHub",
   "typeHintIn": "EndpointType"

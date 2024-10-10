@@ -7,7 +7,9 @@
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JavaComponentIngress"
+        "nullable": false,
+        "referenceName": "JavaComponentIngress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JavaComponentProperties",
   "discriminatedTypeValue": "Nacos",
   "typeHintIn": "ComponentType"

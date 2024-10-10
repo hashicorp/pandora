@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QuotaUpdateParameters"
+    "nullable": false,
+    "referenceName": "QuotaUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpdateWorkspaceQuotas"
+    "nullable": false,
+    "referenceName": "UpdateWorkspaceQuotas",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateQuotas"
 }

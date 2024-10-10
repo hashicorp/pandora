@@ -7,10 +7,14 @@
       "name": "HostingEnvironmentDeploymentInfos",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostingEnvironmentDeploymentInfo"
+          "nullable": false,
+          "referenceName": "HostingEnvironmentDeploymentInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "HostingEnvironments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AppServiceEnvironment"
+          "nullable": false,
+          "referenceName": "AppServiceEnvironment",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "Locations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GeoRegion"
+          "nullable": false,
+          "referenceName": "GeoRegion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,5 +64,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

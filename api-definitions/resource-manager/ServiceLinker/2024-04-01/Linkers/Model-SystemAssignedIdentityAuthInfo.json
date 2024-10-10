@@ -7,7 +7,9 @@
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOrUpdateBehavior"
+        "nullable": false,
+        "referenceName": "DeleteOrUpdateBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Roles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -45,6 +53,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AuthInfoBase",
   "discriminatedTypeValue": "systemAssignedIdentity",
   "typeHintIn": "AuthType"

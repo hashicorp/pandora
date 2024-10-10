@@ -7,7 +7,9 @@
       "name": "LoadBalancerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfileLoadBalancerProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfileLoadBalancerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetworkPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPolicy"
+        "nullable": false,
+        "referenceName": "NetworkPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PodCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

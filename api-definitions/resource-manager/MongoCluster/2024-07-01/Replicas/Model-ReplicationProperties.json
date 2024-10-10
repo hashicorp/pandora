@@ -7,7 +7,9 @@
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationState"
+        "nullable": false,
+        "referenceName": "ReplicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationRole"
+        "nullable": false,
+        "referenceName": "ReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

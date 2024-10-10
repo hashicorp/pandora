@@ -7,7 +7,9 @@
       "name": "Definition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDefinition"
+        "nullable": false,
+        "referenceName": "ExportDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeliveryInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDeliveryInfo"
+        "nullable": false,
+        "referenceName": "ExportDeliveryInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FormatType"
+        "nullable": false,
+        "referenceName": "FormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "NextRunTimeEstimate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "PartitionData",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,12 +83,15 @@
       "name": "RunHistory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportExecutionListResult"
+        "nullable": false,
+        "referenceName": "ExportExecutionListResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

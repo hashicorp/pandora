@@ -7,7 +7,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlacementPolicyProvisioningState"
+        "nullable": false,
+        "referenceName": "PlacementPolicyProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlacementPolicyState"
+        "nullable": false,
+        "referenceName": "PlacementPolicyState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlacementPolicyType"
+        "nullable": false,
+        "referenceName": "PlacementPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,5 +62,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Type"
 }

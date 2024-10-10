@@ -7,7 +7,9 @@
       "name": "ExtendedInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GenericContainerExtendedInfo"
+        "nullable": false,
+        "referenceName": "GenericContainerExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FabricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionContainer",
   "discriminatedTypeValue": "GenericContainer",
   "typeHintIn": "ContainerType"

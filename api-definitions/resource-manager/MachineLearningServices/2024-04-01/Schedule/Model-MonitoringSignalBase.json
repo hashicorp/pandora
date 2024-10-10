@@ -7,10 +7,14 @@
       "name": "NotificationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringNotificationType"
+          "nullable": false,
+          "referenceName": "MonitoringNotificationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "SignalType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSignalType"
+        "nullable": false,
+        "referenceName": "MonitoringSignalType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -49,5 +59,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "SignalType"
 }

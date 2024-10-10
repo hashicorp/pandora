@@ -7,7 +7,9 @@
       "name": "WorkloadItemType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadItemType"
+        "nullable": false,
+        "referenceName": "WorkloadItemType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionIntent",
   "discriminatedTypeValue": "AzureWorkloadSQLAutoProtectionIntent",
   "typeHintIn": "ProtectionIntentItemType"

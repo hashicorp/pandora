@@ -1,6 +1,7 @@
 {
   "name": "TableResourcesCreateUpdateTable",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "TableId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TableCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "TableCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TableGetResults"
+    "nullable": false,
+    "referenceName": "TableGetResults",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PartnerNamespaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PartnerNamespaceUpdateParameters"
+    "nullable": false,
+    "referenceName": "PartnerNamespaceUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PartnerNamespace"
+    "nullable": false,
+    "referenceName": "PartnerNamespace",
+    "referenceNameIsCommonType": null
   }
 }

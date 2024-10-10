@@ -1,6 +1,7 @@
 {
   "name": "ListSlotDifferencesFromProduction",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CsmSlotEntity"
+    "nullable": false,
+    "referenceName": "CsmSlotEntity",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SlotDifference"
+    "nullable": false,
+    "referenceName": "SlotDifference",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/slotsdiffs"
 }

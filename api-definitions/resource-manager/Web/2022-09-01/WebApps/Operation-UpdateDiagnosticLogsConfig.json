@@ -1,6 +1,7 @@
 {
   "name": "UpdateDiagnosticLogsConfig",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SiteLogsConfig"
+    "nullable": false,
+    "referenceName": "SiteLogsConfig",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteLogsConfig"
+    "nullable": false,
+    "referenceName": "SiteLogsConfig",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/logs"
 }

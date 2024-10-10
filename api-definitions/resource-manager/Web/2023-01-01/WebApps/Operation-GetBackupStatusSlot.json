@@ -1,6 +1,7 @@
 {
   "name": "GetBackupStatusSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotBackupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupItem"
+    "nullable": false,
+    "referenceName": "BackupItem",
+    "referenceNameIsCommonType": null
   }
 }

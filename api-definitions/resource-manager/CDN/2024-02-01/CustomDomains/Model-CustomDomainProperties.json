@@ -7,7 +7,9 @@
       "name": "CustomHTTPSParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDomainHTTPSParameters"
+        "nullable": false,
+        "referenceName": "CustomDomainHTTPSParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomHTTPSProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningState"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CustomHTTPSProvisioningSubstate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningSubstate"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningSubstate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningState"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomDomainResourceState"
+        "nullable": false,
+        "referenceName": "CustomDomainResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "ValidationData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

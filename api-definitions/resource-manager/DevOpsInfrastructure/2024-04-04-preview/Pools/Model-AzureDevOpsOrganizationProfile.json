@@ -7,10 +7,14 @@
       "name": "Organizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Organization"
+          "nullable": false,
+          "referenceName": "Organization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "PermissionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDevOpsPermissionProfile"
+        "nullable": false,
+        "referenceName": "AzureDevOpsPermissionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -32,6 +38,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OrganizationProfile",
   "discriminatedTypeValue": "AzureDevOps",
   "typeHintIn": "Kind"

@@ -7,7 +7,9 @@
       "name": "Backup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeBackupProperties"
+        "nullable": false,
+        "referenceName": "VolumeBackupProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Snapshot",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeSnapshotProperties"
+        "nullable": false,
+        "referenceName": "VolumeSnapshotProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

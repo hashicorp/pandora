@@ -1,6 +1,7 @@
 {
   "name": "ListByCloudExadataInfrastructure",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "CloudExadataInfrastructureId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DbServer"
+    "nullable": false,
+    "referenceName": "DbServer",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dbServers"
 }

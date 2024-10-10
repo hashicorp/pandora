@@ -7,7 +7,9 @@
       "name": "PanoramaServer2Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerStatus"
+        "nullable": false,
+        "referenceName": "ServerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "PanoramaServerStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerStatus"
+        "nullable": false,
+        "referenceName": "ServerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

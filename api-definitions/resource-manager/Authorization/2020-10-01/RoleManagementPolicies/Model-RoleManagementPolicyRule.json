@@ -7,7 +7,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RuleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleManagementPolicyRuleType"
+        "nullable": false,
+        "referenceName": "RoleManagementPolicyRuleType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Target",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleManagementPolicyRuleTarget"
+        "nullable": false,
+        "referenceName": "RoleManagementPolicyRuleTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,5 +47,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "RuleType"
 }

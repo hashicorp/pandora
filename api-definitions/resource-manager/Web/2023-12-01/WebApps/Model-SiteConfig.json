@@ -7,7 +7,9 @@
       "name": "AcrUseManagedIdentityCreds",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AcrUserManagedIdentityID",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AlwaysOn",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ApiDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiDefinitionInfo"
+        "nullable": false,
+        "referenceName": "ApiDefinitionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ApiManagementConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiManagementConfig"
+        "nullable": false,
+        "referenceName": "ApiManagementConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "AppCommandLine",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "AppSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NameValuePair"
+          "nullable": false,
+          "referenceName": "NameValuePair",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "AutoHealEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "AutoHealRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoHealRules"
+        "nullable": false,
+        "referenceName": "AutoHealRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "AutoSwapSlotName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,10 +163,14 @@
       "name": "AzureStorageAccounts",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureStorageInfoValue"
+          "nullable": false,
+          "referenceName": "AzureStorageInfoValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,10 +184,14 @@
       "name": "ConnectionStrings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnStringInfo"
+          "nullable": false,
+          "referenceName": "ConnStringInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,7 +205,9 @@
       "name": "Cors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsSettings"
+        "nullable": false,
+        "referenceName": "CorsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,10 +220,14 @@
       "name": "DefaultDocuments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -205,7 +241,9 @@
       "name": "DetailedErrorLoggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,7 +256,9 @@
       "name": "DocumentRoot",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -231,7 +271,9 @@
       "name": "ElasticWebAppScaleLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,7 +286,9 @@
       "name": "Experiments",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Experiments"
+        "nullable": false,
+        "referenceName": "Experiments",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -257,7 +301,9 @@
       "name": "FtpsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FtpsState"
+        "nullable": false,
+        "referenceName": "FtpsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -270,7 +316,9 @@
       "name": "FunctionAppScaleLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -283,7 +331,9 @@
       "name": "FunctionsRuntimeScaleMonitoringEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,7 +346,9 @@
       "name": "HTTP20Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,7 +361,9 @@
       "name": "HTTPLoggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -322,10 +376,14 @@
       "name": "HandlerMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HandlerMapping"
+          "nullable": false,
+          "referenceName": "HandlerMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -339,7 +397,9 @@
       "name": "HealthCheckPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -352,10 +412,14 @@
       "name": "IPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestriction"
+          "nullable": false,
+          "referenceName": "IPSecurityRestriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -369,7 +433,9 @@
       "name": "IPSecurityRestrictionsDefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -382,7 +448,9 @@
       "name": "JavaContainer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -395,7 +463,9 @@
       "name": "JavaContainerVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -408,7 +478,9 @@
       "name": "JavaVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -421,7 +493,9 @@
       "name": "KeyVaultReferenceIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -434,7 +508,9 @@
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteLimits"
+        "nullable": false,
+        "referenceName": "SiteLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -447,7 +523,9 @@
       "name": "LinuxFxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -460,7 +538,9 @@
       "name": "LoadBalancing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteLoadBalancing"
+        "nullable": false,
+        "referenceName": "SiteLoadBalancing",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -473,7 +553,9 @@
       "name": "LocalMySqlEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -486,7 +568,9 @@
       "name": "LogsDirectorySizeLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -499,7 +583,9 @@
       "name": "MachineKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteMachineKey"
+        "nullable": false,
+        "referenceName": "SiteMachineKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -512,7 +598,9 @@
       "name": "ManagedPipelineMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedPipelineMode"
+        "nullable": false,
+        "referenceName": "ManagedPipelineMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -525,7 +613,9 @@
       "name": "ManagedServiceIdentityId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -538,10 +628,14 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NameValuePair"
+          "nullable": false,
+          "referenceName": "NameValuePair",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -555,7 +649,9 @@
       "name": "MinTlsCipherSuite",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsCipherSuites"
+        "nullable": false,
+        "referenceName": "TlsCipherSuites",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -568,7 +664,9 @@
       "name": "MinTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedTlsVersions"
+        "nullable": false,
+        "referenceName": "SupportedTlsVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -581,7 +679,9 @@
       "name": "MinimumElasticInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -594,7 +694,9 @@
       "name": "NetFrameworkVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -607,7 +709,9 @@
       "name": "NodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -620,7 +724,9 @@
       "name": "NumberOfWorkers",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -633,7 +739,9 @@
       "name": "PhpVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -646,7 +754,9 @@
       "name": "PowerShellVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -659,7 +769,9 @@
       "name": "PreWarmedInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -672,7 +784,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -685,7 +799,9 @@
       "name": "PublishingUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -698,7 +814,9 @@
       "name": "Push",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PushSettings"
+        "nullable": false,
+        "referenceName": "PushSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -711,7 +829,9 @@
       "name": "PythonVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -724,7 +844,9 @@
       "name": "RemoteDebuggingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -737,7 +859,9 @@
       "name": "RemoteDebuggingVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -750,7 +874,9 @@
       "name": "RequestTracingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -764,7 +890,9 @@
       "name": "RequestTracingExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -777,10 +905,14 @@
       "name": "ScmIPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestriction"
+          "nullable": false,
+          "referenceName": "IPSecurityRestriction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -794,7 +926,9 @@
       "name": "ScmIPSecurityRestrictionsDefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -807,7 +941,9 @@
       "name": "ScmIPSecurityRestrictionsUseMain",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -820,7 +956,9 @@
       "name": "ScmMinTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedTlsVersions"
+        "nullable": false,
+        "referenceName": "SupportedTlsVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -833,7 +971,9 @@
       "name": "ScmType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScmType"
+        "nullable": false,
+        "referenceName": "ScmType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -846,7 +986,9 @@
       "name": "TracingOptions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -859,7 +1001,9 @@
       "name": "Use32BitWorkerProcess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -872,10 +1016,14 @@
       "name": "VirtualApplications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplication"
+          "nullable": false,
+          "referenceName": "VirtualApplication",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -889,7 +1037,9 @@
       "name": "VnetName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -902,7 +1052,9 @@
       "name": "VnetPrivatePortsCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -915,7 +1067,9 @@
       "name": "VnetRouteAllEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -928,7 +1082,9 @@
       "name": "WebSocketsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -941,7 +1097,9 @@
       "name": "WebsiteTimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -954,7 +1112,9 @@
       "name": "WindowsFxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -967,12 +1127,15 @@
       "name": "XManagedServiceIdentityId",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

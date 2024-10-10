@@ -7,7 +7,9 @@
       "name": "CompressionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompressionSettings"
+        "nullable": false,
+        "referenceName": "CompressionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "QueryParameters",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "QueryStringCachingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdQueryStringCachingBehavior"
+        "nullable": false,
+        "referenceName": "AfdQueryStringCachingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

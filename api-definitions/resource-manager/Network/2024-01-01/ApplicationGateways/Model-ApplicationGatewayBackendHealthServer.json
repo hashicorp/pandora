@@ -7,7 +7,9 @@
       "name": "Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayBackendHealthServerHealth"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayBackendHealthServerHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HealthProbeLog",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "IPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkInterfaceIPConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkInterfaceIPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

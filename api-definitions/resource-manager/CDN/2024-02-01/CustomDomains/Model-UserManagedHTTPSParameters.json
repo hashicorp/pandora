@@ -7,7 +7,9 @@
       "name": "CertificateSourceParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultCertificateSourceParameters"
+        "nullable": false,
+        "referenceName": "KeyVaultCertificateSourceParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CustomDomainHTTPSParameters",
   "discriminatedTypeValue": "AzureKeyVault",
   "typeHintIn": "CertificateSource"

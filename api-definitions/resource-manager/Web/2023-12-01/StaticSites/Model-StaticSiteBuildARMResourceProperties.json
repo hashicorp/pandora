@@ -7,7 +7,9 @@
       "name": "BuildId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "DatabaseConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseConnectionOverview"
+          "nullable": false,
+          "referenceName": "DatabaseConnectionOverview",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,7 +59,9 @@
       "name": "Hostname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -65,7 +75,9 @@
       "name": "LastUpdatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,10 +90,14 @@
       "name": "LinkedBackends",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteLinkedBackend"
+          "nullable": false,
+          "referenceName": "StaticSiteLinkedBackend",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -95,7 +111,9 @@
       "name": "PullRequestTitle",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,7 +126,9 @@
       "name": "SourceBranch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,7 +141,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BuildStatus"
+        "nullable": false,
+        "referenceName": "BuildStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,10 +156,14 @@
       "name": "UserProvidedFunctionApps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteUserProvidedFunctionApp"
+          "nullable": false,
+          "referenceName": "StaticSiteUserProvidedFunctionApp",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,5 +171,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

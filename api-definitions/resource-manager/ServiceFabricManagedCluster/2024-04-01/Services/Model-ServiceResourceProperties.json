@@ -7,10 +7,14 @@
       "name": "CorrelationScheme",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceCorrelation"
+          "nullable": false,
+          "referenceName": "ServiceCorrelation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "DefaultMoveCost",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MoveCost"
+        "nullable": false,
+        "referenceName": "MoveCost",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "PartitionDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Partition"
+        "nullable": false,
+        "referenceName": "Partition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "PlacementConstraints",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,10 +88,14 @@
       "name": "ScalingPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScalingPolicy"
+          "nullable": false,
+          "referenceName": "ScalingPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "ServiceDnsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ServiceKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceKind"
+        "nullable": false,
+        "referenceName": "ServiceKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,10 +139,14 @@
       "name": "ServiceLoadMetrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceLoadMetric"
+          "nullable": false,
+          "referenceName": "ServiceLoadMetric",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,7 +160,9 @@
       "name": "ServicePackageActivationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePackageActivationMode"
+        "nullable": false,
+        "referenceName": "ServicePackageActivationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,10 +175,14 @@
       "name": "ServicePlacementPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServicePlacementPolicy"
+          "nullable": false,
+          "referenceName": "ServicePlacementPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,7 +196,9 @@
       "name": "ServiceTypeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -174,5 +206,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ServiceKind"
 }

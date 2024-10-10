@@ -7,7 +7,9 @@
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedDiskEncryption"
+        "nullable": false,
+        "referenceName": "ManagedDiskEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ManagedServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionV2"
+        "nullable": false,
+        "referenceName": "EncryptionV2",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

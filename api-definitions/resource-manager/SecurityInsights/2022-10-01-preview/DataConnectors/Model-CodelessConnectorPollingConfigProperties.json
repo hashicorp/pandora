@@ -7,7 +7,9 @@
       "name": "Auth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingAuthProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingAuthProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IsActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Paging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingPagingProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingPagingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingRequestProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingRequestProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodelessConnectorPollingResponseProperties"
+        "nullable": false,
+        "referenceName": "CodelessConnectorPollingResponseProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

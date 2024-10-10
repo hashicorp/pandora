@@ -7,7 +7,9 @@
       "name": "CniConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CniConfig"
+        "nullable": false,
+        "referenceName": "CniConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LoadBalancerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerConfig"
+        "nullable": false,
+        "referenceName": "LoadBalancerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

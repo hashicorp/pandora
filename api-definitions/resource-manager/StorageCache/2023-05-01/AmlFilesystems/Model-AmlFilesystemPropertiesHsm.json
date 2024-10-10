@@ -7,10 +7,14 @@
       "name": "ArchiveStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AmlFilesystemArchive"
+          "nullable": false,
+          "referenceName": "AmlFilesystemArchive",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "Settings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemHsmSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemHsmSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ApplicationState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApplicationType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ComputeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeProfile"
+        "nullable": false,
+        "referenceName": "ComputeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Errors"
+          "nullable": false,
+          "referenceName": "Errors",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "HTTPSEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGetHTTPSEndpoint"
+          "nullable": false,
+          "referenceName": "ApplicationGetHTTPSEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,10 +109,14 @@
       "name": "InstallScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RuntimeScriptAction"
+          "nullable": false,
+          "referenceName": "RuntimeScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,7 +130,9 @@
       "name": "MarketplaceIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,10 +145,14 @@
       "name": "PrivateLinkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkConfiguration"
+          "nullable": false,
+          "referenceName": "PrivateLinkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,7 +166,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,10 +181,14 @@
       "name": "SshEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGetEndpoint"
+          "nullable": false,
+          "referenceName": "ApplicationGetEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -170,10 +202,14 @@
       "name": "UninstallScriptActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RuntimeScriptAction"
+          "nullable": false,
+          "referenceName": "RuntimeScriptAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -181,5 +217,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceCertificateCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "WorkspaceCertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CertificateCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "CertificateCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CertificateContract"
+    "nullable": false,
+    "referenceName": "CertificateContract",
+    "referenceNameIsCommonType": null
   }
 }

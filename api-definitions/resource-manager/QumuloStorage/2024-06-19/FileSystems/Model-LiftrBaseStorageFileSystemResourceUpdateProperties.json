@@ -7,7 +7,9 @@
       "name": "DelegatedSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrBaseMarketplaceDetails"
+        "nullable": false,
+        "referenceName": "LiftrBaseMarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrBaseUserDetails"
+        "nullable": false,
+        "referenceName": "LiftrBaseUserDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

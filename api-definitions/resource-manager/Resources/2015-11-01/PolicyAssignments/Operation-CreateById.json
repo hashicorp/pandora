@@ -1,6 +1,7 @@
 {
   "name": "CreateById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PolicyAssignmentIdId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PolicyAssignment"
+    "nullable": false,
+    "referenceName": "PolicyAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PolicyAssignment"
+    "nullable": false,
+    "referenceName": "PolicyAssignment",
+    "referenceNameIsCommonType": null
   }
 }

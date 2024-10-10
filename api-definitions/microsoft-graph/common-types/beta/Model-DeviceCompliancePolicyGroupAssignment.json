@@ -1,0 +1,57 @@
+{
+  "name": "DeviceCompliancePolicyGroupAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The navigation link to the  device compliance polic targeted.",
+      "jsonName": "deviceCompliancePolicy",
+      "name": "DeviceCompliancePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceCompliancePolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates if this group is should be excluded. Defaults that the group should be included",
+      "jsonName": "excludeGroup",
+      "name": "ExcludeGroup",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the AAD group we are targeting the device compliance policy to.",
+      "jsonName": "targetGroupId",
+      "name": "TargetGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deviceCompliancePolicyGroupAssignment",
+  "typeHintIn": "ODataType"
+}

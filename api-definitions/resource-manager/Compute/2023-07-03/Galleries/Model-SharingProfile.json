@@ -7,7 +7,9 @@
       "name": "CommunityGalleryInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommunityGalleryInfo"
+        "nullable": false,
+        "referenceName": "CommunityGalleryInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Groups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharingProfileGroup"
+          "nullable": false,
+          "referenceName": "SharingProfileGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +43,15 @@
       "name": "Permissions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GallerySharingPermissionTypes"
+        "nullable": false,
+        "referenceName": "GallerySharingPermissionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

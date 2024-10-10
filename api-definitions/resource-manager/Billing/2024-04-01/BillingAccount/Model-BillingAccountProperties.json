@@ -7,7 +7,9 @@
       "name": "AccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountStatus"
+        "nullable": false,
+        "referenceName": "AccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AccountStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingAccountStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingAccountStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AccountSubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountSubType"
+        "nullable": false,
+        "referenceName": "AccountSubType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "AccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountType"
+        "nullable": false,
+        "referenceName": "AccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "AgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "BillingRelationshipTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingRelationshipType"
+          "nullable": false,
+          "referenceName": "BillingRelationshipType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "EnrollmentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrollmentDetails"
+        "nullable": false,
+        "referenceName": "EnrollmentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "HasNoBillingProfiles",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "HasReadAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "NotificationEmailAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "PrimaryBillingTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "Qualifications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "RegistrationNumber",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegistrationNumber"
+        "nullable": false,
+        "referenceName": "RegistrationNumber",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "SoldTo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,10 +259,14 @@
       "name": "TaxIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TaxIdentifier"
+          "nullable": false,
+          "referenceName": "TaxIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -234,5 +274,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

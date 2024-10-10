@@ -1,0 +1,47 @@
+{
+  "name": "SecurityEdiscoveryFile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custodians associated with the file.",
+      "jsonName": "custodian",
+      "name": "Custodian",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityEdiscoveryCustodian",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Tags associated with the file.",
+      "jsonName": "tags",
+      "name": "Tags",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityEdiscoveryReviewTag",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFile",
+  "discriminatedTypeValue": "#microsoft.graph.security.ediscoveryFile",
+  "typeHintIn": "ODataType"
+}

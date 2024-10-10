@@ -7,7 +7,9 @@
       "name": "AutomaticSnapshotPolicyEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ChangeFeed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChangeFeed"
+        "nullable": false,
+        "referenceName": "ChangeFeed",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ContainerDeleteRetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteRetentionPolicy"
+        "nullable": false,
+        "referenceName": "DeleteRetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Cors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsRules"
+        "nullable": false,
+        "referenceName": "CorsRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DefaultServiceVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "DeleteRetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteRetentionPolicy"
+        "nullable": false,
+        "referenceName": "DeleteRetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "IsVersioningEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "LastAccessTimeTrackingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastAccessTimeTrackingPolicy"
+        "nullable": false,
+        "referenceName": "LastAccessTimeTrackingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "RestorePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePolicyProperties"
+        "nullable": false,
+        "referenceName": "RestorePolicyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

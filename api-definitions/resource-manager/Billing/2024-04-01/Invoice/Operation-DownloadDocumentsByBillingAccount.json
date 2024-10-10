@@ -1,6 +1,7 @@
 {
   "name": "DownloadDocumentsByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,15 +11,21 @@
   "resourceIdName": "BillingAccountId",
   "requestObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "DocumentDownloadRequest"
+      "nullable": false,
+      "referenceName": "DocumentDownloadRequest",
+      "referenceNameIsCommonType": null
     }
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DocumentDownloadResult"
+    "nullable": false,
+    "referenceName": "DocumentDownloadResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/downloadDocuments"
 }

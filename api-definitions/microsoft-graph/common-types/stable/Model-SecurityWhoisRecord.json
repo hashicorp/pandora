@@ -1,0 +1,31 @@
+{
+  "name": "SecurityWhoisRecord",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of historical records associated to this WHOIS object.",
+      "jsonName": "history",
+      "name": "History",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityWhoisHistoryRecord",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityWhoisBaseRecord",
+  "discriminatedTypeValue": "#microsoft.graph.security.whoisRecord",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoricalDataQualityMetric"
+        "nullable": false,
+        "referenceName": "CategoricalDataQualityMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataQualityMetricThresholdBase",
   "discriminatedTypeValue": "Categorical",
   "typeHintIn": "DataType"

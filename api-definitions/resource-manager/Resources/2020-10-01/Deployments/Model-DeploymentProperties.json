@@ -7,7 +7,9 @@
       "name": "DebugSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DebugSetting"
+        "nullable": false,
+        "referenceName": "DebugSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExpressionEvaluationOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressionEvaluationOptions"
+        "nullable": false,
+        "referenceName": "ExpressionEvaluationOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentMode"
+        "nullable": false,
+        "referenceName": "DeploymentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "OnErrorDeployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnErrorDeployment"
+        "nullable": false,
+        "referenceName": "OnErrorDeployment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ParametersLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParametersLink"
+        "nullable": false,
+        "referenceName": "ParametersLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Template",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemplateLink"
+        "nullable": false,
+        "referenceName": "TemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

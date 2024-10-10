@@ -7,10 +7,14 @@
       "name": "MatchValues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "NegateCondition",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequestBodyOperator"
+        "nullable": false,
+        "referenceName": "RequestBodyOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Transforms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Transform"
+          "nullable": false,
+          "referenceName": "Transform",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -62,6 +74,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleConditionParameters",
   "discriminatedTypeValue": "DeliveryRuleRequestBodyConditionParameters",
   "typeHintIn": "TypeName"

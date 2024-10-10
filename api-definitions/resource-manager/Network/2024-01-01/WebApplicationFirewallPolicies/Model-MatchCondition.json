@@ -7,10 +7,14 @@
       "name": "MatchValues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,10 +28,14 @@
       "name": "MatchVariables",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MatchVariable"
+          "nullable": false,
+          "referenceName": "MatchVariable",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -41,7 +49,9 @@
       "name": "NegationConditon",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallOperator"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "Transforms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebApplicationFirewallTransform"
+          "nullable": false,
+          "referenceName": "WebApplicationFirewallTransform",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -78,5 +94,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "EnterpriseAgreementPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnterpriseAgreementPolicies"
+        "nullable": false,
+        "referenceName": "EnterpriseAgreementPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MarketplacePurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplacePurchasesPolicy"
+        "nullable": false,
+        "referenceName": "MarketplacePurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Policies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PolicySummary"
+          "nullable": false,
+          "referenceName": "PolicySummary",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ReservationPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "ReservationPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "SavingsPlanPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SavingsPlanPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "SavingsPlanPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ContainersHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FabricsHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProtectedItemsHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceHealthSummary"
+        "nullable": false,
+        "referenceName": "ResourceHealthSummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "VaultErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthError"
+          "nullable": false,
+          "referenceName": "HealthError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

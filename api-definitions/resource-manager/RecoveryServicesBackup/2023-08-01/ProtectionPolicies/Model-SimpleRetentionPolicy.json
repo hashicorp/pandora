@@ -7,7 +7,9 @@
       "name": "RetentionDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDuration"
+        "nullable": false,
+        "referenceName": "RetentionDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RetentionPolicy",
   "discriminatedTypeValue": "SimpleRetentionPolicy",
   "typeHintIn": "RetentionPolicyType"

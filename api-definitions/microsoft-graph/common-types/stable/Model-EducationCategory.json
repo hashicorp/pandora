@@ -1,0 +1,25 @@
+{
+  "name": "EducationCategory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the category.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.educationCategory",
+  "typeHintIn": "ODataType"
+}

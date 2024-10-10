@@ -7,7 +7,9 @@
       "name": "RecurrenceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuppressionType"
+        "nullable": false,
+        "referenceName": "SuppressionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuppressionSchedule"
+        "nullable": false,
+        "referenceName": "SuppressionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

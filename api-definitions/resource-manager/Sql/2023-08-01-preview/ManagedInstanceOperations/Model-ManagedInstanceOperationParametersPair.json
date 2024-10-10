@@ -7,7 +7,9 @@
       "name": "CurrentParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpsertManagedServerOperationParameters"
+        "nullable": false,
+        "referenceName": "UpsertManagedServerOperationParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "RequestedParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpsertManagedServerOperationParameters"
+        "nullable": false,
+        "referenceName": "UpsertManagedServerOperationParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

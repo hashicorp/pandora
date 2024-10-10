@@ -1,0 +1,45 @@
+{
+  "name": "VirtualEventRegistrationCustomQuestion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "answerChoices",
+      "name": "AnswerChoices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "answerInputType",
+      "name": "AnswerInputType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventRegistrationQuestionAnswerInputType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VirtualEventRegistrationQuestionBase",
+  "discriminatedTypeValue": "#microsoft.graph.virtualEventRegistrationCustomQuestion",
+  "typeHintIn": "ODataType"
+}

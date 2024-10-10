@@ -7,7 +7,9 @@
       "name": "ClusterConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterConfiguration"
+        "nullable": false,
+        "referenceName": "ClusterConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterManagerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterManagerType"
+        "nullable": false,
+        "referenceName": "ClusterManagerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ScaleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleType"
+        "nullable": false,
+        "referenceName": "ScaleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "SqlImageOffer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SqlImageSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlVMGroupImageSku"
+        "nullable": false,
+        "referenceName": "SqlVMGroupImageSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "WsfcDomainProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WsfcDomainProfile"
+        "nullable": false,
+        "referenceName": "WsfcDomainProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Flags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VideoFlags"
+        "nullable": false,
+        "referenceName": "VideoFlags",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MediaInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VideoMediaInfo"
+        "nullable": false,
+        "referenceName": "VideoMediaInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Streaming",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VideoStreaming"
+        "nullable": false,
+        "referenceName": "VideoStreaming",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VideoType"
+        "nullable": false,
+        "referenceName": "VideoType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

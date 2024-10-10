@@ -7,7 +7,9 @@
       "name": "AttackSignaturesPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BotSignaturesPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ComponentVersions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallComponentVersions"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallComponentVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ThreatCampaignsPackage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallPackage"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallPackage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

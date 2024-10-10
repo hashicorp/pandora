@@ -7,7 +7,9 @@
       "name": "ActualState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActualState"
+        "nullable": false,
+        "referenceName": "ActualState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DesiredState"
+        "nullable": false,
+        "referenceName": "DesiredState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

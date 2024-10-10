@@ -7,7 +7,9 @@
       "name": "BindingType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BindingType"
+        "nullable": false,
+        "referenceName": "BindingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LaunchProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BuildpackBindingLaunchProperties"
+        "nullable": false,
+        "referenceName": "BuildpackBindingLaunchProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BuildpackBindingProvisioningState"
+        "nullable": false,
+        "referenceName": "BuildpackBindingProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

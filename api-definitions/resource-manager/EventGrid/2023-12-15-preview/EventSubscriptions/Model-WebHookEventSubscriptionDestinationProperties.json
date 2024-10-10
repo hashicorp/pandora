@@ -7,7 +7,9 @@
       "name": "AzureActiveDirectoryApplicationIdOrUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureActiveDirectoryTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "DeliveryAttributeMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeliveryAttributeMapping"
+          "nullable": false,
+          "referenceName": "DeliveryAttributeMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -47,10 +55,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "endpointBaseUrl",
-      "name": "EndpointBaseUrl",
+      "name": "EndpointBaseURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,10 +70,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "endpointUrl",
-      "name": "EndpointUrl",
+      "name": "EndpointURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "MaxEventsPerBatch",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "MinimumTlsVersionAllowed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsVersion"
+        "nullable": false,
+        "referenceName": "TlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "PreferredBatchSizeInKilobytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

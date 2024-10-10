@@ -1,6 +1,7 @@
 {
   "name": "IndicatorReplaceTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "IndicatorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ThreatIntelligenceIndicatorModel"
+    "nullable": false,
+    "referenceName": "ThreatIntelligenceIndicatorModel",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ThreatIntelligenceInformation"
+    "nullable": false,
+    "referenceName": "ThreatIntelligenceInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/replaceTags"
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetTimelinelist",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "EntityId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EntityTimelineParameters"
+    "nullable": false,
+    "referenceName": "EntityTimelineParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityTimelineResponse"
+    "nullable": false,
+    "referenceName": "EntityTimelineResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getTimeline"
 }

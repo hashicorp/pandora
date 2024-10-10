@@ -1,6 +1,7 @@
 {
   "name": "ApmsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ApmId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApmResource"
+    "nullable": false,
+    "referenceName": "ApmResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApmResource"
+    "nullable": false,
+    "referenceName": "ApmResource",
+    "referenceNameIsCommonType": null
   }
 }

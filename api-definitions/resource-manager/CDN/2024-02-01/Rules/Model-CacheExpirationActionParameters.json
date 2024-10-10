@@ -7,7 +7,9 @@
       "name": "CacheBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheBehavior"
+        "nullable": false,
+        "referenceName": "CacheBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CacheDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CacheType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheType"
+        "nullable": false,
+        "referenceName": "CacheType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleCacheExpirationActionParameters",
   "typeHintIn": "TypeName"

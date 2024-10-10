@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RawInputDatasourceProperties"
+        "nullable": false,
+        "referenceName": "RawInputDatasourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReferenceInputDataSource",
   "discriminatedTypeValue": "Raw",
   "typeHintIn": "Type"

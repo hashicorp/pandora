@@ -7,7 +7,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SelfHostedIntegrationRuntimeTypeProperties"
+        "nullable": false,
+        "referenceName": "SelfHostedIntegrationRuntimeTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "IntegrationRuntime",
   "discriminatedTypeValue": "SelfHosted",
   "typeHintIn": "Type"

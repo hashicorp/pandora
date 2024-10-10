@@ -7,7 +7,9 @@
       "name": "AllRecommendationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllSavingsList"
+        "nullable": false,
+        "referenceName": "AllSavingsList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ArmSkuName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CommitmentGranularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Grain"
+        "nullable": false,
+        "referenceName": "Grain",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "CostWithoutBenefit",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "CurrencyCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "FirstConsumptionDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "LastConsumptionDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "LookBackPeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LookBackPeriod"
+        "nullable": false,
+        "referenceName": "LookBackPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,7 +129,9 @@
       "name": "RecommendationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllSavingsBenefitDetails"
+        "nullable": false,
+        "referenceName": "AllSavingsBenefitDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,7 +144,9 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Scope"
+        "nullable": false,
+        "referenceName": "Scope",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -139,7 +159,9 @@
       "name": "Term",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Term"
+        "nullable": false,
+        "referenceName": "Term",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,7 +174,9 @@
       "name": "TotalHours",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,7 +189,9 @@
       "name": "Usage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendationUsageDetails"
+        "nullable": false,
+        "referenceName": "RecommendationUsageDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,5 +199,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Scope"
 }

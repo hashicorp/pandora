@@ -7,7 +7,9 @@
       "name": "EndpointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterEndPointType"
+        "nullable": false,
+        "referenceName": "DeadLetterEndPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,5 +17,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "EndpointType"
 }

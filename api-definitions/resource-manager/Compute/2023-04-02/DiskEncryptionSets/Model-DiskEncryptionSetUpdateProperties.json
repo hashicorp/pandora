@@ -7,7 +7,9 @@
       "name": "ActiveKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyForDiskEncryptionSet"
+        "nullable": false,
+        "referenceName": "KeyForDiskEncryptionSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionSetType"
+        "nullable": false,
+        "referenceName": "DiskEncryptionSetType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FederatedClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "RotationToLatestKeyVersionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

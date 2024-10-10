@@ -1,6 +1,7 @@
 {
   "name": "GetConnectionInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "IntegrationRuntimeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationRuntimeConnectionInfo"
+    "nullable": false,
+    "referenceName": "IntegrationRuntimeConnectionInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getConnectionInfo"
 }

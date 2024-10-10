@@ -7,10 +7,14 @@
       "name": "AgentDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AgentDetails"
+          "nullable": false,
+          "referenceName": "AgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ControlPlaneUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "DataPlaneUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Dras",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DraDetails"
+          "nullable": false,
+          "referenceName": "DraDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,10 +79,14 @@
       "name": "MarsAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MarsAgentDetails"
+          "nullable": false,
+          "referenceName": "MarsAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "PhysicalSiteId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,10 +115,14 @@
       "name": "ProcessServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ProcessServerDetails"
+          "nullable": false,
+          "referenceName": "ProcessServerDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,10 +136,14 @@
       "name": "PushInstallers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PushInstallerDetails"
+          "nullable": false,
+          "referenceName": "PushInstallerDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,10 +157,14 @@
       "name": "RcmProxies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RcmProxyDetails"
+          "nullable": false,
+          "referenceName": "RcmProxyDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,10 +178,14 @@
       "name": "ReplicationAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicationAgentDetails"
+          "nullable": false,
+          "referenceName": "ReplicationAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -165,10 +199,14 @@
       "name": "ReprotectAgents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReprotectAgentDetails"
+          "nullable": false,
+          "referenceName": "ReprotectAgentDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -182,7 +220,9 @@
       "name": "ServiceContainerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -195,7 +235,9 @@
       "name": "ServiceEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,7 +250,9 @@
       "name": "ServiceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,7 +265,9 @@
       "name": "SourceAgentIdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityProviderDetails"
+        "nullable": false,
+        "referenceName": "IdentityProviderDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,7 +280,9 @@
       "name": "VMwareSiteId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,6 +290,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FabricSpecificDetails",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

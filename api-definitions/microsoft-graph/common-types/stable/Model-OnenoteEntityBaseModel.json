@@ -1,0 +1,25 @@
+{
+  "name": "OnenoteEntityBaseModel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The endpoint where you can get details about the page. Read-only.",
+      "jsonName": "self",
+      "name": "Self",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.onenoteEntityBaseModel",
+  "typeHintIn": "ODataType"
+}

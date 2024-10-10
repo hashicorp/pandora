@@ -8,7 +8,9 @@
       "name": "CreatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Details",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CostAllocationRuleDetails"
+        "nullable": false,
+        "referenceName": "CostAllocationRuleDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleStatus"
+        "nullable": false,
+        "referenceName": "RuleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -61,12 +69,15 @@
       "name": "UpdatedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

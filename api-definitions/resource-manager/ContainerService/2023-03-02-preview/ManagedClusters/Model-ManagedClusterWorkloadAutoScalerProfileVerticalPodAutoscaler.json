@@ -7,7 +7,9 @@
       "name": "ControlledValues",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlledValues"
+        "nullable": false,
+        "referenceName": "ControlledValues",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "UpdateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateMode"
+        "nullable": false,
+        "referenceName": "UpdateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

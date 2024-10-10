@@ -1,0 +1,25 @@
+{
+  "name": "EducationFileResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Location on disk of the file resource.",
+      "jsonName": "fileUrl",
+      "name": "FileUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationFileResource",
+  "typeHintIn": "ODataType"
+}

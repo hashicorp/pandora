@@ -1,0 +1,41 @@
+{
+  "name": "SecurityCitationTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the jurisdiction or agency that published the citation.",
+      "jsonName": "citationJurisdiction",
+      "name": "CitationJurisdiction",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the URL to the published citation.",
+      "jsonName": "citationUrl",
+      "name": "CitationUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFilePlanDescriptorTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.security.citationTemplate",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "DefaultServiceTypeDeltaHealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceTypeDeltaHealthPolicy"
+        "nullable": false,
+        "referenceName": "ServiceTypeDeltaHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ServiceTypeDeltaHealthPolicies",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceTypeDeltaHealthPolicy"
+          "nullable": false,
+          "referenceName": "ServiceTypeDeltaHealthPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +37,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

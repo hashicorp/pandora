@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ArcAddonProperties"
+        "nullable": false,
+        "referenceName": "ArcAddonProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Addon",
   "discriminatedTypeValue": "ArcForKubernetes",
   "typeHintIn": "Kind"

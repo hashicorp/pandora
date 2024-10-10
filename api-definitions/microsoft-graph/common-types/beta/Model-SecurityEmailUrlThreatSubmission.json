@@ -1,0 +1,25 @@
+{
+  "name": "SecurityEmailUrlThreatSubmission",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the url of the message to be submitted.",
+      "jsonName": "messageUrl",
+      "name": "MessageUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityEmailThreatSubmission",
+  "discriminatedTypeValue": "#microsoft.graph.security.emailUrlThreatSubmission",
+  "typeHintIn": "ODataType"
+}

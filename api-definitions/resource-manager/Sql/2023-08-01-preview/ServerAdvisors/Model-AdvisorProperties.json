@@ -7,7 +7,9 @@
       "name": "AdvisorStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdvisorStatus"
+        "nullable": false,
+        "referenceName": "AdvisorStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoExecuteStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoExecuteStatus"
+        "nullable": false,
+        "referenceName": "AutoExecuteStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AutoExecuteStatusInheritedFrom",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoExecuteStatusInheritedFrom"
+        "nullable": false,
+        "referenceName": "AutoExecuteStatusInheritedFrom",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "LastChecked",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "RecommendationsStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,10 +83,14 @@
       "name": "RecommendedActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecommendedAction"
+          "nullable": false,
+          "referenceName": "RecommendedAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,5 +98,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "ExclusionManagedRuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExclusionManagedRuleSet"
+          "nullable": false,
+          "referenceName": "ExclusionManagedRuleSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "MatchVariable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OwaspCrsExclusionEntryMatchVariable"
+        "nullable": false,
+        "referenceName": "OwaspCrsExclusionEntryMatchVariable",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Selector",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "SelectorMatchOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OwaspCrsExclusionEntrySelectorMatchOperator"
+        "nullable": false,
+        "referenceName": "OwaspCrsExclusionEntrySelectorMatchOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

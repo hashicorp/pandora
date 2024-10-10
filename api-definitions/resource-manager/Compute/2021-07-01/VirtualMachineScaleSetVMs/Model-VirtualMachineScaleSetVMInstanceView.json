@@ -7,7 +7,9 @@
       "name": "AssignedHost",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BootDiagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BootDiagnosticsInstanceView"
+        "nullable": false,
+        "referenceName": "BootDiagnosticsInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskInstanceView"
+          "nullable": false,
+          "referenceName": "DiskInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineExtensionInstanceView"
+          "nullable": false,
+          "referenceName": "VirtualMachineExtensionInstanceView",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "MaintenanceRedeployStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceRedeployStatus"
+        "nullable": false,
+        "referenceName": "MaintenanceRedeployStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "PlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "PlatformFaultDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "PlatformUpdateDomain",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "RdpThumbPrint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,10 +154,14 @@
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,7 +175,9 @@
       "name": "VMAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineAgentInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineAgentInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,12 +190,15 @@
       "name": "VMHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineHealthStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineHealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

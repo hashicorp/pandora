@@ -7,7 +7,9 @@
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MinimalTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimalTlsVersionEnum"
+        "nullable": false,
+        "referenceName": "MinimalTlsVersionEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessEnum"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SslEnforcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslEnforcementEnum"
+        "nullable": false,
+        "referenceName": "SslEnforcementEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerVersion"
+        "nullable": false,
+        "referenceName": "ServerVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,5 +92,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "CreateMode"
 }

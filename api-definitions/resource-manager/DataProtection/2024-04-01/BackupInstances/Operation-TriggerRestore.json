@@ -1,6 +1,7 @@
 {
   "name": "TriggerRestore",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-authorization-auxiliary",
       "optional": true,
       "required": false,
@@ -22,11 +24,15 @@
   "resourceIdName": "BackupInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupRestoreRequest"
+    "nullable": false,
+    "referenceName": "AzureBackupRestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationJobExtendedInfo"
+    "nullable": false,
+    "referenceName": "OperationJobExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restore"
 }

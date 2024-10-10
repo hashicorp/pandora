@@ -7,10 +7,14 @@
       "name": "CostThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CostThresholdProperties"
+          "nullable": false,
+          "referenceName": "CostThresholdProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -25,7 +29,9 @@
       "name": "CycleEndDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -39,7 +45,9 @@
       "name": "CycleStartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -52,7 +60,9 @@
       "name": "CycleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportingCycleType"
+        "nullable": false,
+        "referenceName": "ReportingCycleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -65,7 +75,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetCostStatus"
+        "nullable": false,
+        "referenceName": "TargetCostStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,12 +90,15 @@
       "name": "Target",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseType"
+        "nullable": false,
+        "referenceName": "SAPDatabaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SapProduct",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPProductType"
+        "nullable": false,
+        "referenceName": "SAPProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

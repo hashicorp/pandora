@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CapacityReservationGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CapacityReservationGroupUpdate"
+    "nullable": false,
+    "referenceName": "CapacityReservationGroupUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CapacityReservationGroup"
+    "nullable": false,
+    "referenceName": "CapacityReservationGroup",
+    "referenceNameIsCommonType": null
   }
 }

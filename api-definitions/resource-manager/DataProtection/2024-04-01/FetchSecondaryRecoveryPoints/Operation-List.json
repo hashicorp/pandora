@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -22,11 +24,15 @@
   "resourceIdName": "ProviderLocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FetchSecondaryRPsRequestParameters"
+    "nullable": false,
+    "referenceName": "FetchSecondaryRPsRequestParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureBackupRecoveryPointResource"
+    "nullable": false,
+    "referenceName": "AzureBackupRecoveryPointResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/fetchSecondaryRecoveryPoints"
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualMachineProviders2GuestConfigurationAssignmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GuestConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "GuestConfigurationAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GuestConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "GuestConfigurationAssignment",
+    "referenceNameIsCommonType": null
   }
 }

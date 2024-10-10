@@ -8,7 +8,9 @@
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceFrequency"
+        "nullable": false,
+        "referenceName": "RecurrenceFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Interval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +53,14 @@
       "name": "WeekDays",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WeekDay"
+          "nullable": false,
+          "referenceName": "WeekDay",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,5 +68,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

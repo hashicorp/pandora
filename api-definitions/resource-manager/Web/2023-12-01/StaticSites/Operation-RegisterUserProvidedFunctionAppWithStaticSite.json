@@ -1,6 +1,7 @@
 {
   "name": "RegisterUserProvidedFunctionAppWithStaticSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "isForced",
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "UserProvidedFunctionAppId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserProvidedFunctionAppARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserProvidedFunctionAppARMResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteUserProvidedFunctionAppARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteUserProvidedFunctionAppARMResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Dataset",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasetReference"
+        "nullable": false,
+        "referenceName": "DatasetReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "FieldList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FormatReadSettings"
+        "nullable": false,
+        "referenceName": "FormatReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "StoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreReadSettings"
+        "nullable": false,
+        "referenceName": "StoreReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

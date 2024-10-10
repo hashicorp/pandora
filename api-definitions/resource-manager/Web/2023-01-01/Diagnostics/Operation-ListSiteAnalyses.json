@@ -1,6 +1,7 @@
 {
   "name": "ListSiteAnalyses",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DiagnosticId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AnalysisDefinition"
+    "nullable": false,
+    "referenceName": "AnalysisDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/analyses"
 }

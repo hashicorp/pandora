@@ -1,0 +1,31 @@
+{
+  "name": "ServiceHostedMediaConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of media to pre-fetch.",
+      "jsonName": "preFetchMedia",
+      "name": "PreFetchMedia",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MediaInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MediaConfig",
+  "discriminatedTypeValue": "#microsoft.graph.serviceHostedMediaConfig",
+  "typeHintIn": "ODataType"
+}

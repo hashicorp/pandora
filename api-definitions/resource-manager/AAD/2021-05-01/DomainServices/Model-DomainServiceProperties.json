@@ -7,7 +7,9 @@
       "name": "ConfigDiagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigDiagnostics"
+        "nullable": false,
+        "referenceName": "ConfigDiagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeploymentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DomainConfigurationType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DomainSecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainSecuritySettings"
+        "nullable": false,
+        "referenceName": "DomainSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "FilteredSync",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FilteredSync"
+        "nullable": false,
+        "referenceName": "FilteredSync",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "LdapsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LdapsSettings"
+        "nullable": false,
+        "referenceName": "LdapsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "MigrationProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationProperties"
+        "nullable": false,
+        "referenceName": "MigrationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "NotificationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationSettings"
+        "nullable": false,
+        "referenceName": "NotificationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,10 +157,14 @@
       "name": "ReplicaSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaSet"
+          "nullable": false,
+          "referenceName": "ReplicaSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,7 +178,9 @@
       "name": "ResourceForestSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceForestSettings"
+        "nullable": false,
+        "referenceName": "ResourceForestSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "SyncOwner",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +223,9 @@
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,12 +238,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

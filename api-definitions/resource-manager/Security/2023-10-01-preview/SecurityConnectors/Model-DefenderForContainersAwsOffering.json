@@ -7,7 +7,9 @@
       "name": "AutoProvisioning",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CloudWatchToKinesis",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingCloudWatchToKinesis"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingCloudWatchToKinesis",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ContainerVulnerabilityAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessment"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ContainerVulnerabilityAssessmentTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTask"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingContainerVulnerabilityAssessmentTask",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EnableContainerVulnerabilityAssessment",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "KinesisToS3",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKinesisToS3"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKinesisToS3",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "KubeAuditRetentionTime",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "KubernetesScubaReader",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKubernetesScubaReader"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesScubaReader",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "KubernetesService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingKubernetesService"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingKubernetesService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersAwsOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderForContainersAwsOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "ScubaExternalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,6 +182,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForContainersAws",
   "typeHintIn": "OfferingType"

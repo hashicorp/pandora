@@ -7,7 +7,9 @@
       "name": "ContactInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContactDetails"
+        "nullable": false,
+        "referenceName": "ContactDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CurrentStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrderStatus"
+        "nullable": false,
+        "referenceName": "OrderStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "DeliveryTrackingInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackingInfo"
+          "nullable": false,
+          "referenceName": "TrackingInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "OrderHistory",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OrderStatus"
+          "nullable": false,
+          "referenceName": "OrderStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "OrderId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,10 +94,14 @@
       "name": "ReturnTrackingInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackingInfo"
+          "nullable": false,
+          "referenceName": "TrackingInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,7 +115,9 @@
       "name": "SerialNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "ShipmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShipmentType"
+        "nullable": false,
+        "referenceName": "ShipmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,12 +145,15 @@
       "name": "ShippingAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Address"
+        "nullable": false,
+        "referenceName": "Address",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "MongoDBResourcesListMongoDBCollections",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "MongodbDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MongoDBCollectionListResult"
+    "nullable": false,
+    "referenceName": "MongoDBCollectionListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/collections"
 }

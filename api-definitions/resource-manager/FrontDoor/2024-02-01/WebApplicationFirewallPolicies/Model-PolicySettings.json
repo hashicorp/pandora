@@ -7,7 +7,9 @@
       "name": "CustomBlockResponseBody",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomBlockResponseStatusCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyEnabledState"
+        "nullable": false,
+        "referenceName": "PolicyEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "JavascriptChallengeExpirationInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LogScrubbing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettingsLogScrubbing"
+        "nullable": false,
+        "referenceName": "PolicySettingsLogScrubbing",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyMode"
+        "nullable": false,
+        "referenceName": "PolicyMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,10 +94,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "redirectUrl",
-      "name": "RedirectUrl",
+      "name": "RedirectURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "RequestBodyCheck",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyRequestBodyCheck"
+        "nullable": false,
+        "referenceName": "PolicyRequestBodyCheck",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

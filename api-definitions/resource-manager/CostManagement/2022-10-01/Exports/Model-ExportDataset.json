@@ -7,7 +7,9 @@
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "ExportDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GranularityType"
+        "nullable": false,
+        "referenceName": "GranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

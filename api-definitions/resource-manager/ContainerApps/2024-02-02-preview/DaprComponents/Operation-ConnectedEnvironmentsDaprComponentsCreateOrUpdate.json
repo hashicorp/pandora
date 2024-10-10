@@ -1,6 +1,7 @@
 {
   "name": "ConnectedEnvironmentsDaprComponentsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ConnectedEnvironmentDaprComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DaprComponent"
+    "nullable": false,
+    "referenceName": "DaprComponent",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DaprComponent"
+    "nullable": false,
+    "referenceName": "DaprComponent",
+    "referenceNameIsCommonType": null
   }
 }

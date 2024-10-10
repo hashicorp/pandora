@@ -7,7 +7,9 @@
       "name": "MTmsi",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MmeId",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MmeId"
+        "nullable": false,
+        "referenceName": "MmeId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Plmn",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlmnId"
+        "nullable": false,
+        "referenceName": "PlmnId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

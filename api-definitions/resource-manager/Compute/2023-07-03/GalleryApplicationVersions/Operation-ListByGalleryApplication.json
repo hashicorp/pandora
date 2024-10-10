@@ -1,6 +1,7 @@
 {
   "name": "ListByGalleryApplication",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ApplicationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GalleryApplicationVersion"
+    "nullable": false,
+    "referenceName": "GalleryApplicationVersion",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

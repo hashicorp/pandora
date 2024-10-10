@@ -1,0 +1,31 @@
+{
+  "name": "AwsUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Roles assumed by the user.",
+      "jsonName": "assumableRoles",
+      "name": "AssumableRoles",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AwsRole",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AwsIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.awsUser",
+  "typeHintIn": "ODataType"
+}

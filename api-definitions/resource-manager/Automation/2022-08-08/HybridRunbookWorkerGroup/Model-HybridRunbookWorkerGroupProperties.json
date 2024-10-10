@@ -7,7 +7,9 @@
       "name": "Credential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunAsCredentialAssociationProperty"
+        "nullable": false,
+        "referenceName": "RunAsCredentialAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "GroupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GroupTypeEnum"
+        "nullable": false,
+        "referenceName": "GroupTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

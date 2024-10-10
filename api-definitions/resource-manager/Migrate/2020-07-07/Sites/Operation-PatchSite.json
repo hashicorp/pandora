@@ -1,6 +1,7 @@
 {
   "name": "PatchSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VMwareSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VMwareSite"
+    "nullable": false,
+    "referenceName": "VMwareSite",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMwareSite"
+    "nullable": false,
+    "referenceName": "VMwareSite",
+    "referenceNameIsCommonType": null
   }
 }

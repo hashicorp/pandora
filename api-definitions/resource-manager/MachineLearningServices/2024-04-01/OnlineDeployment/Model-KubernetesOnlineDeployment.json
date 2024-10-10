@@ -7,7 +7,9 @@
       "name": "ContainerResourceRequirements",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerResourceRequirements"
+        "nullable": false,
+        "referenceName": "ContainerResourceRequirements",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OnlineDeployment",
   "discriminatedTypeValue": "Kubernetes",
   "typeHintIn": "EndpointComputeType"

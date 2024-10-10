@@ -7,7 +7,9 @@
       "name": "CertificateType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateType"
+        "nullable": false,
+        "referenceName": "CertificateType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CertificateSourceParameters",
   "discriminatedTypeValue": "CdnCertificateSourceParameters",
   "typeHintIn": "TypeName"

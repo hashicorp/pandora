@@ -1,6 +1,7 @@
 {
   "name": "ComputeGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ComputeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ComputeResource"
+    "nullable": false,
+    "referenceName": "ComputeResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "ActionOnUnmanage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionOnUnmanage"
+        "nullable": false,
+        "referenceName": "ActionOnUnmanage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DenySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DenySettings"
+        "nullable": false,
+        "referenceName": "DenySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DeploymentScope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeploymentParameter"
+          "nullable": false,
+          "referenceName": "DeploymentParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStacksTemplateLink"
+        "nullable": false,
+        "referenceName": "DeploymentStacksTemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "ValidatedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -113,5 +133,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

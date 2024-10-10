@@ -1,6 +1,7 @@
 {
   "name": "Publish",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "EnvironmentVersionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DestinationAsset"
+    "nullable": false,
+    "referenceName": "DestinationAsset",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/publish"
 }

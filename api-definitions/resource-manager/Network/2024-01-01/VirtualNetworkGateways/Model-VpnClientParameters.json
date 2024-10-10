@@ -7,7 +7,9 @@
       "name": "AuthenticationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationMethod"
+        "nullable": false,
+        "referenceName": "AuthenticationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ProcessorArchitecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProcessorArchitecture"
+        "nullable": false,
+        "referenceName": "ProcessorArchitecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "RadiusServerAuthCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "CacheConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AfdRouteCacheConfiguration"
+        "nullable": false,
+        "referenceName": "AfdRouteCacheConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ActivatedResourceReference"
+          "nullable": false,
+          "referenceName": "ActivatedResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledState"
+        "nullable": false,
+        "referenceName": "EnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "EndpointName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ForwardingProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardingProtocol"
+        "nullable": false,
+        "referenceName": "ForwardingProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "HTTPSRedirect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSRedirect"
+        "nullable": false,
+        "referenceName": "HTTPSRedirect",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "LinkToDefaultDomain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkToDefaultDomain"
+        "nullable": false,
+        "referenceName": "LinkToDefaultDomain",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "OriginGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "OriginPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,10 +148,14 @@
       "name": "PatternsToMatch",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,10 +169,14 @@
       "name": "RuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,10 +190,14 @@
       "name": "SupportedProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AFDEndpointProtocols"
+          "nullable": false,
+          "referenceName": "AFDEndpointProtocols",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -173,5 +205,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

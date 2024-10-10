@@ -7,7 +7,9 @@
       "name": "Ciem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingCiem"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingCiem",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataSensitivityDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingDataSensitivityDiscovery"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingDataSensitivityDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DatabasesDspm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingDatabasesDspm"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingDatabasesDspm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmAwsOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderCspmAwsOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +92,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderCspmAws",
   "typeHintIn": "OfferingType"

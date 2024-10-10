@@ -1,0 +1,25 @@
+{
+  "name": "SecurityContainerRegistryEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registry URI.",
+      "jsonName": "registry",
+      "name": "Registry",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.containerRegistryEvidence",
+  "typeHintIn": "ODataType"
+}

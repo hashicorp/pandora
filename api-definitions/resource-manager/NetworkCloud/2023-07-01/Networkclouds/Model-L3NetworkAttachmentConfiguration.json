@@ -7,7 +7,9 @@
       "name": "IPamEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "L3NetworkConfigurationIPamEnabled"
+        "nullable": false,
+        "referenceName": "L3NetworkConfigurationIPamEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PluginType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesPluginType"
+        "nullable": false,
+        "referenceName": "KubernetesPluginType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

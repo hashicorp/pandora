@@ -7,7 +7,9 @@
       "name": "Api",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "ApiTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "OperationTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Product",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "ProductTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Tag",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TagTagResourceContractProperties"
+        "nullable": false,
+        "referenceName": "TagTagResourceContractProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

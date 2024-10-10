@@ -1,6 +1,7 @@
 {
   "name": "ExportRequestRateByInterval",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RequestRateByIntervalInput"
+    "nullable": false,
+    "referenceName": "RequestRateByIntervalInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LogAnalyticsOperationResult"
+    "nullable": false,
+    "referenceName": "LogAnalyticsOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/logAnalytics/apiAccess/getRequestRateByInterval"
 }

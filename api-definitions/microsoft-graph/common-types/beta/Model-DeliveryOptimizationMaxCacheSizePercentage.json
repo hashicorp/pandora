@@ -1,0 +1,25 @@
+{
+  "name": "DeliveryOptimizationMaxCacheSizePercentage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the maximum cache size that Delivery Optimization can utilize, as a percentage of disk size (1-100). Valid values 1 to 100",
+      "jsonName": "maximumCacheSizePercentage",
+      "name": "MaximumCacheSizePercentage",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryOptimizationMaxCacheSize",
+  "discriminatedTypeValue": "#microsoft.graph.deliveryOptimizationMaxCacheSizePercentage",
+  "typeHintIn": "ODataType"
+}

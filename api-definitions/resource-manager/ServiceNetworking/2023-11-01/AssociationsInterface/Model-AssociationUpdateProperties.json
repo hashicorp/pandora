@@ -7,7 +7,9 @@
       "name": "AssociationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssociationType"
+        "nullable": false,
+        "referenceName": "AssociationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssociationSubnetUpdate"
+        "nullable": false,
+        "referenceName": "AssociationSubnetUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

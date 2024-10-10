@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MsTeamsChannelProperties"
+        "nullable": false,
+        "referenceName": "MsTeamsChannelProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Channel",
   "discriminatedTypeValue": "MsTeamsChannel",
   "typeHintIn": "ChannelName"

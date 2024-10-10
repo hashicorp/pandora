@@ -7,7 +7,9 @@
       "name": "BackupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupType"
+        "nullable": false,
+        "referenceName": "BackupType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableCompression",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "RecoveryPointExpiryTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -42,6 +48,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BackupRequest",
   "discriminatedTypeValue": "AzureWorkloadBackupRequest",
   "typeHintIn": "ObjectType"

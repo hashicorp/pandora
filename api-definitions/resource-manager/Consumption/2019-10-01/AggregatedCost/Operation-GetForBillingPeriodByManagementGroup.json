@@ -1,6 +1,7 @@
 {
   "name": "GetForBillingPeriodByManagementGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "Providers2BillingPeriodId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagementGroupAggregatedCostResult"
+    "nullable": false,
+    "referenceName": "ManagementGroupAggregatedCostResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/Microsoft.Consumption/aggregatedCost"
 }

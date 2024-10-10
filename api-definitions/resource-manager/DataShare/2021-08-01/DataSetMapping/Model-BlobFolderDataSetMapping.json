@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobFolderMappingProperties"
+        "nullable": false,
+        "referenceName": "BlobFolderMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSetMapping",
   "discriminatedTypeValue": "BlobFolder",
   "typeHintIn": "Kind"

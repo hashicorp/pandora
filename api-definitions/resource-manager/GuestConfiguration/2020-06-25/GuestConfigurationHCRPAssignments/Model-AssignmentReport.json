@@ -7,7 +7,9 @@
       "name": "Assignment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentInfo"
+        "nullable": false,
+        "referenceName": "AssignmentInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "OperationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Type"
+        "nullable": false,
+        "referenceName": "Type",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "ReportId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,10 +98,14 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AssignmentReportResource"
+          "nullable": false,
+          "referenceName": "AssignmentReportResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -104,7 +120,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,12 +135,15 @@
       "name": "VM",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMInfo"
+        "nullable": false,
+        "referenceName": "VMInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

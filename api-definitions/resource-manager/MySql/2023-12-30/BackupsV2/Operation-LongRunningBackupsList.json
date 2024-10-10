@@ -1,6 +1,7 @@
 {
   "name": "LongRunningBackupsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "FlexibleServerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ServerBackupV2"
+    "nullable": false,
+    "referenceName": "ServerBackupV2",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupsV2"
 }

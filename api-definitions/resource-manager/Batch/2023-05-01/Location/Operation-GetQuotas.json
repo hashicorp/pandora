@@ -1,6 +1,7 @@
 {
   "name": "GetQuotas",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BatchLocationQuota"
+    "nullable": false,
+    "referenceName": "BatchLocationQuota",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/quotas"
 }

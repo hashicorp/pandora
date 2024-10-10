@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "SqlDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LogicalDatabaseTransparentDataEncryption"
+    "nullable": false,
+    "referenceName": "LogicalDatabaseTransparentDataEncryption",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LogicalDatabaseTransparentDataEncryption"
+    "nullable": false,
+    "referenceName": "LogicalDatabaseTransparentDataEncryption",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transparentDataEncryption/current"
 }

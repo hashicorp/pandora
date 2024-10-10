@@ -1,0 +1,25 @@
+{
+  "name": "DeviceEnrollmentLimitConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of devices that a user can enroll",
+      "jsonName": "limit",
+      "name": "Limit",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.deviceEnrollmentLimitConfiguration",
+  "typeHintIn": "ODataType"
+}

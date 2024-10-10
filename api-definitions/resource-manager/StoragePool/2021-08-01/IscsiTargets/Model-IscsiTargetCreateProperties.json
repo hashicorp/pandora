@@ -7,7 +7,9 @@
       "name": "AclMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IscsiTargetAclMode"
+        "nullable": false,
+        "referenceName": "IscsiTargetAclMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Luns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IscsiLun"
+          "nullable": false,
+          "referenceName": "IscsiLun",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "StaticAcls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Acl"
+          "nullable": false,
+          "referenceName": "Acl",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,12 +64,15 @@
       "name": "TargetIqn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

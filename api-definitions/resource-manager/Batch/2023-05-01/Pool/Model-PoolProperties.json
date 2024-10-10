@@ -7,7 +7,9 @@
       "name": "AllocationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllocationState"
+        "nullable": false,
+        "referenceName": "AllocationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "AllocationStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "ApplicationLicenses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,10 +59,14 @@
       "name": "ApplicationPackages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationPackageReference"
+          "nullable": false,
+          "referenceName": "ApplicationPackageReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -68,7 +80,9 @@
       "name": "AutoScaleRun",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoScaleRun"
+        "nullable": false,
+        "referenceName": "AutoScaleRun",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,10 +95,14 @@
       "name": "Certificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CertificateReference"
+          "nullable": false,
+          "referenceName": "CertificateReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,7 +117,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +132,9 @@
       "name": "CurrentDedicatedNodes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +147,9 @@
       "name": "CurrentLowPriorityNodes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +162,9 @@
       "name": "CurrentNodeCommunicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeCommunicationMode"
+        "nullable": false,
+        "referenceName": "NodeCommunicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,7 +177,9 @@
       "name": "DeploymentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentConfiguration"
+        "nullable": false,
+        "referenceName": "DeploymentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,7 +192,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,7 +207,9 @@
       "name": "InterNodeCommunication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InterNodeCommunicationState"
+        "nullable": false,
+        "referenceName": "InterNodeCommunicationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,7 +223,9 @@
       "name": "LastModified",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,10 +238,14 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetadataItem"
+          "nullable": false,
+          "referenceName": "MetadataItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -221,10 +259,14 @@
       "name": "MountConfiguration",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountConfiguration"
+          "nullable": false,
+          "referenceName": "MountConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -238,7 +280,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -251,7 +295,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PoolProvisioningState"
+        "nullable": false,
+        "referenceName": "PoolProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,7 +311,9 @@
       "name": "ProvisioningStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,7 +326,9 @@
       "name": "ResizeOperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResizeOperationStatus"
+        "nullable": false,
+        "referenceName": "ResizeOperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -291,7 +341,9 @@
       "name": "ScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleSettings"
+        "nullable": false,
+        "referenceName": "ScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -304,7 +356,9 @@
       "name": "StartTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StartTask"
+        "nullable": false,
+        "referenceName": "StartTask",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -317,7 +371,9 @@
       "name": "TargetNodeCommunicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeCommunicationMode"
+        "nullable": false,
+        "referenceName": "NodeCommunicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -330,7 +386,9 @@
       "name": "TaskSchedulingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskSchedulingPolicy"
+        "nullable": false,
+        "referenceName": "TaskSchedulingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -343,7 +401,9 @@
       "name": "TaskSlotsPerNode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -356,10 +416,14 @@
       "name": "UserAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAccount"
+          "nullable": false,
+          "referenceName": "UserAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -373,12 +437,15 @@
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

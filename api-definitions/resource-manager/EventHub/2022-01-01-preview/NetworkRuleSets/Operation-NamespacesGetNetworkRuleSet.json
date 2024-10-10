@@ -1,6 +1,7 @@
 {
   "name": "NamespacesGetNetworkRuleSet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "NamespaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkRuleSet"
+    "nullable": false,
+    "referenceName": "NetworkRuleSet",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/networkRuleSets/default"
 }

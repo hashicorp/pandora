@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequestMethodMatchConditionParameters"
+        "nullable": false,
+        "referenceName": "RequestMethodMatchConditionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleCondition",
   "discriminatedTypeValue": "RequestMethod",
   "typeHintIn": "Name"

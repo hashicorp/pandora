@@ -1,6 +1,7 @@
 {
   "name": "ServersValidateEstimateHighAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HighAvailabilityValidationEstimation"
+    "nullable": false,
+    "referenceName": "HighAvailabilityValidationEstimation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HighAvailabilityValidationEstimation"
+    "nullable": false,
+    "referenceName": "HighAvailabilityValidationEstimation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateEstimateHighAvailability"
 }

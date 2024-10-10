@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheKeyQueryStringActionParameters"
+        "nullable": false,
+        "referenceName": "CacheKeyQueryStringActionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleAction",
   "discriminatedTypeValue": "CacheKeyQueryString",
   "typeHintIn": "Name"

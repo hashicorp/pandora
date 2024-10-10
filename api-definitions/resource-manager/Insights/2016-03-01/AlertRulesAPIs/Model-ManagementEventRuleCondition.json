@@ -7,7 +7,9 @@
       "name": "Aggregation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementEventAggregationCondition"
+        "nullable": false,
+        "referenceName": "ManagementEventAggregationCondition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RuleCondition",
   "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
   "typeHintIn": "OdataType"

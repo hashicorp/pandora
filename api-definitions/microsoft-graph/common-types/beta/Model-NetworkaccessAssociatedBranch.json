@@ -1,0 +1,25 @@
+{
+  "name": "NetworkaccessAssociatedBranch",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identifier for the branch.",
+      "jsonName": "branchId",
+      "name": "BranchId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessAssociation",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.associatedBranch",
+  "typeHintIn": "ODataType"
+}

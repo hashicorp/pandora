@@ -7,7 +7,9 @@
       "name": "AzureGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetDetailedStatus"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -60,10 +68,14 @@
       "name": "JumpHostsAllowed",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -78,7 +90,9 @@
       "name": "LastValidation",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,7 +105,9 @@
       "name": "OsGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -104,7 +120,9 @@
       "name": "PrivilegeLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetPrivilegeLevel"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetPrivilegeLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -117,7 +135,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineKeySetProvisioningState"
+        "nullable": false,
+        "referenceName": "BareMetalMachineKeySetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,10 +150,14 @@
       "name": "UserList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUser"
+          "nullable": false,
+          "referenceName": "KeySetUser",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -147,10 +171,14 @@
       "name": "UserListStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUserStatus"
+          "nullable": false,
+          "referenceName": "KeySetUserStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,5 +186,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

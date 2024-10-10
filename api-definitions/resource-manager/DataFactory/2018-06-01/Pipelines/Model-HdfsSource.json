@@ -7,7 +7,9 @@
       "name": "DistcpSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DistcpSettings"
+        "nullable": false,
+        "referenceName": "DistcpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Recursive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySource",
   "discriminatedTypeValue": "HdfsSource",
   "typeHintIn": "Type"

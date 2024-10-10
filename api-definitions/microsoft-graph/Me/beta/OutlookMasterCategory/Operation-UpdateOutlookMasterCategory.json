@@ -1,0 +1,43 @@
+{
+  "name": "UpdateOutlookMasterCategory",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update outlookCategory. Update the writable property, color, of the specified outlookCategory object. You can't modify the displayName property once you have created the category.",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeOutlookMasterCategoryId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OutlookCategory",
+    "referenceNameIsCommonType": true
+  }
+}

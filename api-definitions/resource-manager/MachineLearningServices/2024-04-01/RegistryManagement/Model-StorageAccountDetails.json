@@ -7,7 +7,9 @@
       "name": "SystemCreatedStorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SystemCreatedStorageAccount"
+        "nullable": false,
+        "referenceName": "SystemCreatedStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "UserCreatedStorageAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserCreatedStorageAccount"
+        "nullable": false,
+        "referenceName": "UserCreatedStorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

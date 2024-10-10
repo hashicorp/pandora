@@ -7,7 +7,9 @@
       "name": "Cluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScopeCluster"
+        "nullable": false,
+        "referenceName": "ScopeCluster",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Namespace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScopeNamespace"
+        "nullable": false,
+        "referenceName": "ScopeNamespace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

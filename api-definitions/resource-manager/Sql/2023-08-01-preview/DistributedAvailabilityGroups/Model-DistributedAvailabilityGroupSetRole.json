@@ -7,7 +7,9 @@
       "name": "InstanceRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceRole"
+        "nullable": false,
+        "referenceName": "InstanceRole",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "RoleChangeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleChangeType"
+        "nullable": false,
+        "referenceName": "RoleChangeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

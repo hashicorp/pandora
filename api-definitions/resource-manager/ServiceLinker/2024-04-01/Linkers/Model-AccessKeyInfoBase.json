@@ -7,10 +7,14 @@
       "name": "Permissions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AccessKeyPermissions"
+          "nullable": false,
+          "referenceName": "AccessKeyPermissions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AuthInfoBase",
   "discriminatedTypeValue": "accessKey",
   "typeHintIn": "AuthType"

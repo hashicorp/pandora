@@ -1,0 +1,25 @@
+{
+  "name": "BusinessScenarioGroupTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the group.",
+      "jsonName": "groupId",
+      "name": "GroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BusinessScenarioTaskTargetBase",
+  "discriminatedTypeValue": "#microsoft.graph.businessScenarioGroupTarget",
+  "typeHintIn": "ODataType"
+}

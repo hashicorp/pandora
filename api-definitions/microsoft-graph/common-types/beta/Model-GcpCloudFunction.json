@@ -1,0 +1,25 @@
+{
+  "name": "GcpCloudFunction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the resources in an authorization system..",
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GcpAuthorizationSystemResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GcpIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.gcpCloudFunction",
+  "typeHintIn": "ODataType"
+}

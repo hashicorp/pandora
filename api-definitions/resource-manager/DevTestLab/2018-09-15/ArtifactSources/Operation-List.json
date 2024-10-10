@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$expand",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$orderby",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -52,7 +57,9 @@
   "resourceIdName": "LabId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ArtifactSource"
+    "nullable": false,
+    "referenceName": "ArtifactSource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/artifactSources"
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListByDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$expand",
       "required": false,
@@ -21,10 +23,14 @@
   "resourceIdName": "SqlDatabaseId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "Advisor"
+      "nullable": false,
+      "referenceName": "Advisor",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/advisors"

@@ -7,7 +7,9 @@
       "name": "HostPlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HostPlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostPlatformType"
+        "nullable": false,
+        "referenceName": "HostPlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "KubernetesClusterInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesClusterInfo"
+        "nullable": false,
+        "referenceName": "KubernetesClusterInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "KubernetesRoleResources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesRoleResources"
+        "nullable": false,
+        "referenceName": "KubernetesRoleResources",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesState"
+        "nullable": false,
+        "referenceName": "KubernetesState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "RoleStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleStatus"
+        "nullable": false,
+        "referenceName": "RoleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

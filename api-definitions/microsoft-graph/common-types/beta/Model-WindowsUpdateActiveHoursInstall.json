@@ -1,0 +1,41 @@
+{
+  "name": "WindowsUpdateActiveHoursInstall",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Active Hours End",
+      "jsonName": "activeHoursEnd",
+      "name": "ActiveHoursEnd",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Active Hours Start",
+      "jsonName": "activeHoursStart",
+      "name": "ActiveHoursStart",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdateInstallScheduleType",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdateActiveHoursInstall",
+  "typeHintIn": "ODataType"
+}

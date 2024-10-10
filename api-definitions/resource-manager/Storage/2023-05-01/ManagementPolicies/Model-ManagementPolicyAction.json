@@ -7,7 +7,9 @@
       "name": "BaseBlob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyBaseBlob"
+        "nullable": false,
+        "referenceName": "ManagementPolicyBaseBlob",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Snapshot",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicySnapShot"
+        "nullable": false,
+        "referenceName": "ManagementPolicySnapShot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyVersion"
+        "nullable": false,
+        "referenceName": "ManagementPolicyVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

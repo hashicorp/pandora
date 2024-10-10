@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AutomationCompilationJobId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DscCompilationJobCreateParameters"
+    "nullable": false,
+    "referenceName": "DscCompilationJobCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DscCompilationJob"
+    "nullable": false,
+    "referenceName": "DscCompilationJob",
+    "referenceNameIsCommonType": null
   }
 }

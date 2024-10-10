@@ -1,6 +1,7 @@
 {
   "name": "UpdateSlotConfigurationNames",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "AppServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SlotConfigNamesResource"
+    "nullable": false,
+    "referenceName": "SlotConfigNamesResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SlotConfigNamesResource"
+    "nullable": false,
+    "referenceName": "SlotConfigNamesResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/slotConfigNames"
 }

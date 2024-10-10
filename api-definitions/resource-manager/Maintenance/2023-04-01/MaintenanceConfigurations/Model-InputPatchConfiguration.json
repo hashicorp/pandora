@@ -7,7 +7,9 @@
       "name": "LinuxParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputLinuxParameters"
+        "nullable": false,
+        "referenceName": "InputLinuxParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RebootOptions"
+        "nullable": false,
+        "referenceName": "RebootOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "WindowsParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputWindowsParameters"
+        "nullable": false,
+        "referenceName": "InputWindowsParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

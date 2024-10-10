@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DedicatedHostGroupPropertiesAdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "DedicatedHostGroupPropertiesAdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Hosts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceReadOnly"
+          "nullable": false,
+          "referenceName": "SubResourceReadOnly",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DedicatedHostGroupInstanceView"
+        "nullable": false,
+        "referenceName": "DedicatedHostGroupInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "PlatformFaultDomainCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "SupportAutomaticPlacement",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

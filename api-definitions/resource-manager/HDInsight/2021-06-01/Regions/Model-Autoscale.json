@@ -7,7 +7,9 @@
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleCapacity"
+        "nullable": false,
+        "referenceName": "AutoscaleCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoscaleRecurrence"
+        "nullable": false,
+        "referenceName": "AutoscaleRecurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

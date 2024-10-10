@@ -7,7 +7,9 @@
       "name": "Apple",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Apple"
+        "nullable": false,
+        "referenceName": "Apple",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureActiveDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectory"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AzureStaticWebApps",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureStaticWebApps"
+        "nullable": false,
+        "referenceName": "AzureStaticWebApps",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "CustomOpenIdConnectProviders",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomOpenIdConnectProvider"
+          "nullable": false,
+          "referenceName": "CustomOpenIdConnectProvider",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "Facebook",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Facebook"
+        "nullable": false,
+        "referenceName": "Facebook",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitHub"
+        "nullable": false,
+        "referenceName": "GitHub",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Google",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Google"
+        "nullable": false,
+        "referenceName": "Google",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "Twitter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Twitter"
+        "nullable": false,
+        "referenceName": "Twitter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

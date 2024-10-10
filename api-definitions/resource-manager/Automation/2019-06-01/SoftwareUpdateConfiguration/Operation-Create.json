@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "clientRequestId",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "SoftwareUpdateConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SoftwareUpdateConfiguration"
+    "nullable": false,
+    "referenceName": "SoftwareUpdateConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SoftwareUpdateConfiguration"
+    "nullable": false,
+    "referenceName": "SoftwareUpdateConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

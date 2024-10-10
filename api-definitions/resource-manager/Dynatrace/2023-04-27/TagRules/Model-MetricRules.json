@@ -7,10 +7,14 @@
       "name": "FilteringTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FilteringTag"
+          "nullable": false,
+          "referenceName": "FilteringTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "SendingMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SendingMetricsStatus"
+        "nullable": false,
+        "referenceName": "SendingMetricsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

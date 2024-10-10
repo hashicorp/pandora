@@ -1,0 +1,25 @@
+{
+  "name": "GovernanceInsight",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates when the insight was created.",
+      "jsonName": "insightCreatedDateTime",
+      "name": "InsightCreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.governanceInsight",
+  "typeHintIn": "ODataType"
+}

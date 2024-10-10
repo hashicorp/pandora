@@ -7,7 +7,9 @@
       "name": "ApplicationLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "ApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DetailedErrorMessages",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledConfig"
+        "nullable": false,
+        "referenceName": "EnabledConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FailedRequestsTracing",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledConfig"
+        "nullable": false,
+        "referenceName": "EnabledConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "HTTPLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "HTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

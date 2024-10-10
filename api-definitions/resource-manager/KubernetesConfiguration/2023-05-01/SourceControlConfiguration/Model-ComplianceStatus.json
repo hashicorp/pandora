@@ -7,7 +7,9 @@
       "name": "ComplianceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStateType"
+        "nullable": false,
+        "referenceName": "ComplianceStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastConfigApplied",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,12 +53,15 @@
       "name": "MessageLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MessageLevelType"
+        "nullable": false,
+        "referenceName": "MessageLevelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

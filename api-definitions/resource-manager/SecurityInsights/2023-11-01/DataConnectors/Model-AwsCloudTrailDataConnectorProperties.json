@@ -7,7 +7,9 @@
       "name": "AwsRoleArn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "DataTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AwsCloudTrailDataConnectorDataTypes"
+        "nullable": false,
+        "referenceName": "AwsCloudTrailDataConnectorDataTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

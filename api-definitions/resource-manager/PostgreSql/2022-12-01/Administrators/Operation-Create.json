@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "AdministratorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ActiveDirectoryAdministratorAdd"
+    "nullable": false,
+    "referenceName": "ActiveDirectoryAdministratorAdd",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ActiveDirectoryAdministrator"
+    "nullable": false,
+    "referenceName": "ActiveDirectoryAdministrator",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-client-request-id",
       "optional": true,
       "required": false,
@@ -21,6 +23,8 @@
   "resourceIdName": "CreateQueryKeyId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryKey"
+    "nullable": false,
+    "referenceName": "QueryKey",
+    "referenceNameIsCommonType": null
   }
 }

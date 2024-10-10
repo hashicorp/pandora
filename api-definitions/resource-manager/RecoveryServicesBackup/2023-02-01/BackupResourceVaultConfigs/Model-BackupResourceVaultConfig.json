@@ -7,7 +7,9 @@
       "name": "EnhancedSecurityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityState"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IsSoftDeleteFeatureStateEditable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "SoftDeleteFeatureState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteFeatureState"
+        "nullable": false,
+        "referenceName": "SoftDeleteFeatureState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "SoftDeleteRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "StorageModelType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "StorageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageType"
+        "nullable": false,
+        "referenceName": "StorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "StorageTypeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageTypeState"
+        "nullable": false,
+        "referenceName": "StorageTypeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

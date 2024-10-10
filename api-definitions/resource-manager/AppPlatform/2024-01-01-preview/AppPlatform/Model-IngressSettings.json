@@ -7,7 +7,9 @@
       "name": "BackendProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendProtocol"
+        "nullable": false,
+        "referenceName": "BackendProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressSettingsClientAuth"
+        "nullable": false,
+        "referenceName": "IngressSettingsClientAuth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ReadTimeoutInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SendTimeoutInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "SessionAffinity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionAffinity"
+        "nullable": false,
+        "referenceName": "SessionAffinity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "SessionCookieMaxAge",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ChannelType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChannelType"
+        "nullable": false,
+        "referenceName": "ChannelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "ExpirationTimeIfNotActivatedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "MessageForActivation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "PartnerTopicInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerTopicInfo"
+        "nullable": false,
+        "referenceName": "PartnerTopicInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChannelProvisioningState"
+        "nullable": false,
+        "referenceName": "ChannelProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,12 +83,15 @@
       "name": "ReadinessState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadinessState"
+        "nullable": false,
+        "referenceName": "ReadinessState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AggregateState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionAggregateState"
+        "nullable": false,
+        "referenceName": "ExtensionAggregateState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExtensionParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionParameters"
+        "nullable": false,
+        "referenceName": "ExtensionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ManagedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtensionManagedBy"
+        "nullable": false,
+        "referenceName": "ExtensionManagedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "PerNodeExtensionDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PerNodeExtensionState"
+          "nullable": false,
+          "referenceName": "PerNodeExtensionState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,12 +73,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "Args",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Command",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "Env",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EnvironmentVar"
+          "nullable": false,
+          "referenceName": "EnvironmentVar",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,7 +70,9 @@
       "name": "Image",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,7 +85,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,10 +100,14 @@
       "name": "Probes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerAppProbe"
+          "nullable": false,
+          "referenceName": "ContainerAppProbe",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,7 +121,9 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerResources"
+        "nullable": false,
+        "referenceName": "ContainerResources",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,10 +136,14 @@
       "name": "VolumeMounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VolumeMount"
+          "nullable": false,
+          "referenceName": "VolumeMount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -125,5 +151,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

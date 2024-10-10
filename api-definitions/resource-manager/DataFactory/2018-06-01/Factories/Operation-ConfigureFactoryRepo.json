@@ -1,6 +1,7 @@
 {
   "name": "ConfigureFactoryRepo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FactoryRepoUpdate"
+    "nullable": false,
+    "referenceName": "FactoryRepoUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Factory"
+    "nullable": false,
+    "referenceName": "Factory",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configureFactoryRepo"
 }

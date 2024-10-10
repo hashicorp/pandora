@@ -1,6 +1,7 @@
 {
   "name": "UpdateTags",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "ProviderPrivateLinkScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagsResource"
+    "nullable": false,
+    "referenceName": "TagsResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridComputePrivateLinkScope"
+    "nullable": false,
+    "referenceName": "HybridComputePrivateLinkScope",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "GenerateDetailedCostReportCreateOperation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GenerateDetailedCostReportDefinition"
+    "nullable": false,
+    "referenceName": "GenerateDetailedCostReportDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GenerateDetailedCostReportOperationResult"
+    "nullable": false,
+    "referenceName": "GenerateDetailedCostReportOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/generateDetailedCostReport"
 }

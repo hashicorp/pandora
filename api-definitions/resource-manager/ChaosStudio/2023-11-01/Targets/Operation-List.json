@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "continuationToken",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Target"
+    "nullable": false,
+    "referenceName": "Target",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Chaos/targets"
 }

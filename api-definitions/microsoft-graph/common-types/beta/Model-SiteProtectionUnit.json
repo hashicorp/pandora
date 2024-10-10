@@ -1,0 +1,57 @@
+{
+  "name": "SiteProtectionUnit",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of the SharePoint site.",
+      "jsonName": "siteId",
+      "name": "SiteId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the SharePoint site.",
+      "jsonName": "siteName",
+      "name": "SiteName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The web URL of the SharePoint site.",
+      "jsonName": "siteWebUrl",
+      "name": "SiteWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionUnitBase",
+  "discriminatedTypeValue": "#microsoft.graph.siteProtectionUnit",
+  "typeHintIn": "ODataType"
+}

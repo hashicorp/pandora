@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "GalleryImageId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GalleryImagesUpdateRequest"
+    "nullable": false,
+    "referenceName": "GalleryImagesUpdateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GalleryImages"
+    "nullable": false,
+    "referenceName": "GalleryImages",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "NodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DscNodeConfigurationAssociationProperty"
+        "nullable": false,
+        "referenceName": "DscNodeConfigurationAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "NodeId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

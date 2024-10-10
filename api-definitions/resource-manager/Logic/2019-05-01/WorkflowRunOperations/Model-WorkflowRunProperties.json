@@ -7,7 +7,9 @@
       "name": "Code",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Correlation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Correlation"
+        "nullable": false,
+        "referenceName": "Correlation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,10 +83,14 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkflowOutputParameter"
+          "nullable": false,
+          "referenceName": "WorkflowOutputParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -90,7 +104,9 @@
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowRunTrigger"
+        "nullable": false,
+        "referenceName": "WorkflowRunTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -104,7 +120,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,7 +135,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowStatus"
+        "nullable": false,
+        "referenceName": "WorkflowStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,7 +150,9 @@
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowRunTrigger"
+        "nullable": false,
+        "referenceName": "WorkflowRunTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,7 +166,9 @@
       "name": "WaitEndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,12 +181,15 @@
       "name": "Workflow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

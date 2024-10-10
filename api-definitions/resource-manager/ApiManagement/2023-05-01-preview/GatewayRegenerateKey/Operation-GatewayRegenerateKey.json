@@ -1,6 +1,7 @@
 {
   "name": "GatewayRegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "GatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GatewayKeyRegenerationRequestContract"
+    "nullable": false,
+    "referenceName": "GatewayKeyRegenerationRequestContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

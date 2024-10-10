@@ -7,7 +7,9 @@
       "name": "RestoreRequest",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoreRequest"
+        "nullable": false,
+        "referenceName": "RestoreRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ValidateOperationRequest",
   "discriminatedTypeValue": "ValidateRestoreOperationRequest",
   "typeHintIn": "ObjectType"

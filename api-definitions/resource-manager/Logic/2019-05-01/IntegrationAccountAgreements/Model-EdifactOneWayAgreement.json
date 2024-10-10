@@ -7,7 +7,9 @@
       "name": "ProtocolSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EdifactProtocolSettings"
+        "nullable": false,
+        "referenceName": "EdifactProtocolSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ReceiverBusinessIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SenderBusinessIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

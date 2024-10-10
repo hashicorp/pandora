@@ -7,7 +7,9 @@
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SchedulePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchedulePolicy"
+        "nullable": false,
+        "referenceName": "SchedulePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionPolicy",
   "discriminatedTypeValue": "MAB",
   "typeHintIn": "BackupManagementType"

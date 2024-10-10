@@ -7,7 +7,9 @@
       "name": "MarketplacePurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplacePurchasesPolicy"
+        "nullable": false,
+        "referenceName": "MarketplacePurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ReservationPurchases",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchasesPolicy"
+        "nullable": false,
+        "referenceName": "ReservationPurchasesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ViewCharges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ViewChargesPolicy"
+        "nullable": false,
+        "referenceName": "ViewChargesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

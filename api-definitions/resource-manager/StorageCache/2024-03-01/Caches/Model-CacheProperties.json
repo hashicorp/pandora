@@ -7,7 +7,9 @@
       "name": "CacheSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DirectoryServicesSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheDirectorySettings"
+        "nullable": false,
+        "referenceName": "CacheDirectorySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheEncryptionSettings"
+        "nullable": false,
+        "referenceName": "CacheEncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheHealth"
+        "nullable": false,
+        "referenceName": "CacheHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "MountAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,7 +88,9 @@
       "name": "NetworkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheNetworkSettings"
+        "nullable": false,
+        "referenceName": "CacheNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "PrimingJobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrimingJob"
+          "nullable": false,
+          "referenceName": "PrimingJob",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,7 +124,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateType"
+        "nullable": false,
+        "referenceName": "ProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheSecuritySettings"
+        "nullable": false,
+        "referenceName": "CacheSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,10 +154,14 @@
       "name": "SpaceAllocation",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageTargetSpaceAllocation"
+          "nullable": false,
+          "referenceName": "StorageTargetSpaceAllocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,7 +175,9 @@
       "name": "Subnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "UpgradeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheUpgradeSettings"
+        "nullable": false,
+        "referenceName": "CacheUpgradeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +205,9 @@
       "name": "UpgradeStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheUpgradeStatus"
+        "nullable": false,
+        "referenceName": "CacheUpgradeStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,12 +220,15 @@
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

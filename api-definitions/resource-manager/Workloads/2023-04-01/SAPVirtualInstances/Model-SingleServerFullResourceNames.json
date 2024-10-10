@@ -7,7 +7,9 @@
       "name": "VirtualMachine",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineResourceNames"
+        "nullable": false,
+        "referenceName": "VirtualMachineResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SingleServerCustomResourceNames",
   "discriminatedTypeValue": "FullResourceName",
   "typeHintIn": "NamingPatternType"

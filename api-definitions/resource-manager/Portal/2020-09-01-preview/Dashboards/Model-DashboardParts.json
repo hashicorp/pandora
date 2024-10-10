@@ -7,7 +7,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashboardPartMetadata"
+        "nullable": false,
+        "referenceName": "DashboardPartMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Position",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DashboardPartsPosition"
+        "nullable": false,
+        "referenceName": "DashboardPartsPosition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

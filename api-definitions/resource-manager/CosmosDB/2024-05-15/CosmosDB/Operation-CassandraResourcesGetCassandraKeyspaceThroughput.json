@@ -1,6 +1,7 @@
 {
   "name": "CassandraResourcesGetCassandraKeyspaceThroughput",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CassandraKeyspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ThroughputSettingsGetResults"
+    "nullable": false,
+    "referenceName": "ThroughputSettingsGetResults",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/throughputSettings/default"
 }

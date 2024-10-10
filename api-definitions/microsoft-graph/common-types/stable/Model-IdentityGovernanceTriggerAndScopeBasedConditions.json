@@ -1,0 +1,41 @@
+{
+  "name": "IdentityGovernanceTriggerAndScopeBasedConditions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines who the workflow runs for.",
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SubjectSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "What triggers a workflow to run.",
+      "jsonName": "trigger",
+      "name": "Trigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceWorkflowExecutionTrigger",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceWorkflowExecutionConditions",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.triggerAndScopeBasedConditions",
+  "typeHintIn": "ODataType"
+}

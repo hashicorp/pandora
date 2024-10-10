@@ -7,10 +7,14 @@
       "name": "MonitoredSubscriptionList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoredSubscription"
+          "nullable": false,
+          "referenceName": "MonitoredSubscription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Operation"
+        "nullable": false,
+        "referenceName": "Operation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

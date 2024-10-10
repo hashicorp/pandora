@@ -7,7 +7,9 @@
       "name": "GuestAgentInstallStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GuestAgentInstallStatus"
+        "nullable": false,
+        "referenceName": "GuestAgentInstallStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HTTPProxyConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPProxyConfiguration"
+        "nullable": false,
+        "referenceName": "HTTPProxyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesHardwareProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesHardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstanceView"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesNetworkProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateEnum"
+        "nullable": false,
+        "referenceName": "ProvisioningStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ResourceUid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesSecurityProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesSecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstanceStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesStorageProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesStorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,12 +172,15 @@
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

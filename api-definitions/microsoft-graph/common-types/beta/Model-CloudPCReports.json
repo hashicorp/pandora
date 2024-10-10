@@ -1,0 +1,31 @@
+{
+  "name": "CloudPCReports",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The export jobs created for downloading reports.",
+      "jsonName": "exportJobs",
+      "name": "ExportJobs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CloudPCExportJob",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcReports",
+  "typeHintIn": "ODataType"
+}

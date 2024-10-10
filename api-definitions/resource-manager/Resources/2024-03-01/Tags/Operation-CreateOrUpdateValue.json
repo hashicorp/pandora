@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateValue",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "TagValueId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagValue"
+    "nullable": false,
+    "referenceName": "TagValue",
+    "referenceNameIsCommonType": null
   }
 }

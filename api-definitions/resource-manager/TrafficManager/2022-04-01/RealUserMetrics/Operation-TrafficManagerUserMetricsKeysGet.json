@@ -1,6 +1,7 @@
 {
   "name": "TrafficManagerUserMetricsKeysGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserMetricsModel"
+    "nullable": false,
+    "referenceName": "UserMetricsModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/trafficManagerUserMetricsKeys/default"
 }

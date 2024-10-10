@@ -7,7 +7,9 @@
       "name": "ConsumerGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsumerGroup"
+        "nullable": false,
+        "referenceName": "ConsumerGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HostFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostFormatType"
+        "nullable": false,
+        "referenceName": "HostFormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "IsRegional",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolType"
+        "nullable": false,
+        "referenceName": "ProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SessionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionModeType"
+        "nullable": false,
+        "referenceName": "SessionModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "SyntaxFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyntaxFormatType"
+        "nullable": false,
+        "referenceName": "SyntaxFormatType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "TlsAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsAuthenticationType"
+        "nullable": false,
+        "referenceName": "TlsAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

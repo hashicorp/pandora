@@ -7,10 +7,14 @@
       "name": "AgentPoolProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NamedAgentPoolProfile"
+          "nullable": false,
+          "referenceName": "NamedAgentPoolProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AutoScalerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterPropertiesAutoScalerProfile"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterPropertiesAutoScalerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "CloudProviderProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudProviderProfile"
+        "nullable": false,
+        "referenceName": "CloudProviderProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ClusterVMAccessProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterVMAccessProfile"
+        "nullable": false,
+        "referenceName": "ClusterVMAccessProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ControlPlane",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlPlaneProfile"
+        "nullable": false,
+        "referenceName": "ControlPlaneProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "LicenseProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterLicenseProfile"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterLicenseProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "LinuxProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxProfileProperties"
+        "nullable": false,
+        "referenceName": "LinuxProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterPropertiesStatus"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterPropertiesStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,12 +178,15 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

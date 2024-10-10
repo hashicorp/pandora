@@ -1,6 +1,7 @@
 {
   "name": "CheckDnsNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "domainNameLabel",
       "required": true,
@@ -21,7 +23,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DnsNameAvailabilityResult"
+    "nullable": false,
+    "referenceName": "DnsNameAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkDnsNameAvailability"
 }

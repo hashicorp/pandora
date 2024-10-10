@@ -7,7 +7,9 @@
       "name": "Percentage",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SamplingType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingType"
+        "nullable": false,
+        "referenceName": "SamplingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

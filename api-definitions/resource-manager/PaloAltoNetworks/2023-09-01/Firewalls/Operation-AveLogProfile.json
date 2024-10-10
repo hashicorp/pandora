@@ -1,6 +1,7 @@
 {
   "name": "AveLogProfile",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "FirewallId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "LogSettings"
+    "nullable": false,
+    "referenceName": "LogSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/saveLogProfile"
 }

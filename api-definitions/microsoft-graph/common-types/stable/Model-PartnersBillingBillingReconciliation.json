@@ -1,0 +1,24 @@
+{
+  "name": "PartnersBillingBillingReconciliation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billed",
+      "name": "Billed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnersBillingBilledReconciliation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.partners.billing.billingReconciliation",
+  "typeHintIn": "ODataType"
+}

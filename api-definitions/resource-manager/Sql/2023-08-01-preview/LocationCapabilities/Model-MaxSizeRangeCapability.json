@@ -7,7 +7,9 @@
       "name": "LogSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogSizeCapability"
+        "nullable": false,
+        "referenceName": "LogSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaxValue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MinValue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ScaleSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

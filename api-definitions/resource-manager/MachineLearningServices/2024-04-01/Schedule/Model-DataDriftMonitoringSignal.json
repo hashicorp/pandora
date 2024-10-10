@@ -7,10 +7,14 @@
       "name": "FeatureDataTypeOverride",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringFeatureDataType"
+          "nullable": false,
+          "referenceName": "MonitoringFeatureDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "FeatureImportanceSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureImportanceSettings"
+        "nullable": false,
+        "referenceName": "FeatureImportanceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Features",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringFeatureFilterBase"
+        "nullable": false,
+        "referenceName": "MonitoringFeatureFilterBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "MetricThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDriftMetricThresholdBase"
+          "nullable": false,
+          "referenceName": "DataDriftMetricThresholdBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -67,7 +79,9 @@
       "name": "ProductionData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ReferenceData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -88,6 +104,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitoringSignalBase",
   "discriminatedTypeValue": "DataDrift",
   "typeHintIn": "SignalType"

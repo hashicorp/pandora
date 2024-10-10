@@ -1,6 +1,7 @@
 {
   "name": "StartWebSiteNetworkTrace",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "durationInSeconds",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "maxFrameLength",
       "required": false,
@@ -28,10 +31,11 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "sasUrl",
       "required": false,
-      "field": "SasUrl",
+      "field": "SasURL",
       "optionsObjectDefinition": {
         "type": "String",
         "referenceName": null
@@ -41,7 +45,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "String",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/networkTrace/start"
 }

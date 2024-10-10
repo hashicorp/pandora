@@ -1,6 +1,7 @@
 {
   "name": "GetInstanceView",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineScaleSetVMInstanceView"
+    "nullable": false,
+    "referenceName": "VirtualMachineScaleSetVMInstanceView",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/instanceView"
 }

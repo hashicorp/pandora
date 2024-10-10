@@ -7,7 +7,9 @@
       "name": "CompatibilityLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompatibilityLevel"
+        "nullable": false,
+        "referenceName": "CompatibilityLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Functions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryFunction"
+          "nullable": false,
+          "referenceName": "QueryFunction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "Inputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryInput"
+          "nullable": false,
+          "referenceName": "QueryInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "JobType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobType"
+        "nullable": false,
+        "referenceName": "JobType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,12 +79,15 @@
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

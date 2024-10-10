@@ -7,7 +7,9 @@
       "name": "AssignedLicenses",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Edition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseEdition"
+        "nullable": false,
+        "referenceName": "LicenseEdition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Processors",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseState"
+        "nullable": false,
+        "referenceName": "LicenseState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Target",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseTarget"
+        "nullable": false,
+        "referenceName": "LicenseTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseCoreType"
+        "nullable": false,
+        "referenceName": "LicenseCoreType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "VolumeLicenseDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VolumeLicenseDetails"
+          "nullable": false,
+          "referenceName": "VolumeLicenseDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -109,5 +127,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

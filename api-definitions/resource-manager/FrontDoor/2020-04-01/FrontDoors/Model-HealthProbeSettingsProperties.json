@@ -7,7 +7,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthProbeEnabled"
+        "nullable": false,
+        "referenceName": "HealthProbeEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HealthProbeMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorHealthProbeMethod"
+        "nullable": false,
+        "referenceName": "FrontDoorHealthProbeMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorProtocol"
+        "nullable": false,
+        "referenceName": "FrontDoorProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

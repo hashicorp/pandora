@@ -7,10 +7,14 @@
       "name": "AvailabilitySets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ColocationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstanceViewStatus"
+        "nullable": false,
+        "referenceName": "InstanceViewStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Intent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProximityPlacementGroupPropertiesIntent"
+        "nullable": false,
+        "referenceName": "ProximityPlacementGroupPropertiesIntent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ProximityPlacementGroupType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProximityPlacementGroupType"
+        "nullable": false,
+        "referenceName": "ProximityPlacementGroupType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "VirtualMachineScaleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "VirtualMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResourceWithColocationStatus"
+          "nullable": false,
+          "referenceName": "SubResourceWithColocationStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

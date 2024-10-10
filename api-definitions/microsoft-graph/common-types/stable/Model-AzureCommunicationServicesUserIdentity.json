@@ -1,0 +1,25 @@
+{
+  "name": "AzureCommunicationServicesUserIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Azure Communication Services resource ID associated with the user.",
+      "jsonName": "azureCommunicationServicesResourceId",
+      "name": "AzureCommunicationServicesResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.azureCommunicationServicesUserIdentity",
+  "typeHintIn": "ODataType"
+}

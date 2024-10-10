@@ -1,6 +1,7 @@
 {
   "name": "SubAccountTagRulesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "AccountTagRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MonitoringTagRules"
+    "nullable": false,
+    "referenceName": "MonitoringTagRules",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitoringTagRules"
+    "nullable": false,
+    "referenceName": "MonitoringTagRules",
+    "referenceNameIsCommonType": null
   }
 }

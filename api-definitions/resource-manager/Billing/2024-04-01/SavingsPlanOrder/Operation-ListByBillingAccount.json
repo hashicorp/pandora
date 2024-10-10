@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "filter",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "orderBy",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "skiptoken",
       "required": false,
@@ -42,7 +46,9 @@
   "resourceIdName": "BillingAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SavingsPlanOrderModel"
+    "nullable": false,
+    "referenceName": "SavingsPlanOrderModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/savingsPlanOrders"
 }

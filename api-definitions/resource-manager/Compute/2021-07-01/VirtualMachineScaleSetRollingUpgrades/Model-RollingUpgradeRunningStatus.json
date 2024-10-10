@@ -7,7 +7,9 @@
       "name": "Code",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeStatusCode"
+        "nullable": false,
+        "referenceName": "RollingUpgradeStatusCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LastAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeActionType"
+        "nullable": false,
+        "referenceName": "RollingUpgradeActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "LastActionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,12 +54,15 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

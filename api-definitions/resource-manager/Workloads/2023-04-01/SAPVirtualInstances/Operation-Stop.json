@@ -1,6 +1,7 @@
 {
   "name": "Stop",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "SapVirtualInstanceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StopRequest"
+    "nullable": false,
+    "referenceName": "StopRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OperationStatusResult"
+    "nullable": false,
+    "referenceName": "OperationStatusResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/stop"
 }

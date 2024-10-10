@@ -7,7 +7,9 @@
       "name": "AgentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentProperties"
+        "nullable": false,
+        "referenceName": "AgentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AgentPoolName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +53,14 @@
       "name": "CustomRegistries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,7 +75,9 @@
       "name": "FinishTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "ImageUpdateTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageUpdateTrigger"
+        "nullable": false,
+        "referenceName": "ImageUpdateTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,7 +105,9 @@
       "name": "IsArchiveEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -105,7 +121,9 @@
       "name": "LastUpdatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -118,7 +136,9 @@
       "name": "LogArtifact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageDescriptor"
+        "nullable": false,
+        "referenceName": "ImageDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -131,10 +151,14 @@
       "name": "OutputImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ImageDescriptor"
+          "nullable": false,
+          "referenceName": "ImageDescriptor",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,7 +172,9 @@
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformProperties"
+        "nullable": false,
+        "referenceName": "PlatformProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,7 +187,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,7 +202,9 @@
       "name": "RunErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,7 +217,9 @@
       "name": "RunId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,7 +232,9 @@
       "name": "RunType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunType"
+        "nullable": false,
+        "referenceName": "RunType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,7 +247,9 @@
       "name": "SourceRegistryAuth",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,7 +262,9 @@
       "name": "SourceTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceTriggerDescriptor"
+        "nullable": false,
+        "referenceName": "SourceTriggerDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,7 +278,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,7 +293,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunStatus"
+        "nullable": false,
+        "referenceName": "RunStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,7 +308,9 @@
       "name": "Task",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,7 +323,9 @@
       "name": "TimerTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimerTriggerDescriptor"
+        "nullable": false,
+        "referenceName": "TimerTriggerDescriptor",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,12 +338,15 @@
       "name": "UpdateTriggerToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

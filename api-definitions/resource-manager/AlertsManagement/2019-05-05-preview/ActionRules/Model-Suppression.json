@@ -7,7 +7,9 @@
       "name": "SuppressionConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuppressionConfig"
+        "nullable": false,
+        "referenceName": "SuppressionConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ActionRuleProperties",
   "discriminatedTypeValue": "Suppression",
   "typeHintIn": "Type"

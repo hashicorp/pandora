@@ -7,7 +7,9 @@
       "name": "BillingCycle",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingCycle"
+        "nullable": false,
+        "referenceName": "BillingCycle",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "EffectiveDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "PlanDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,12 +53,15 @@
       "name": "UsageType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UsageType"
+        "nullable": false,
+        "referenceName": "UsageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

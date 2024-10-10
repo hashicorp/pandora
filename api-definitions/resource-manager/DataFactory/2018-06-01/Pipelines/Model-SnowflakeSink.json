@@ -7,7 +7,9 @@
       "name": "ImportSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnowflakeImportCopyCommand"
+        "nullable": false,
+        "referenceName": "SnowflakeImportCopyCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PreCopyScript",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "SnowflakeSink",
   "typeHintIn": "Type"

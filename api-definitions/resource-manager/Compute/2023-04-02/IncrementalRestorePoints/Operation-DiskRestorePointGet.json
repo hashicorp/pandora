@@ -1,6 +1,7 @@
 {
   "name": "DiskRestorePointGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "DiskRestorePointId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiskRestorePoint"
+    "nullable": false,
+    "referenceName": "DiskRestorePoint",
+    "referenceNameIsCommonType": null
   }
 }

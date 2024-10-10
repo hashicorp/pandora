@@ -7,7 +7,9 @@
       "name": "AttachNewDataDiskOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AttachNewDataDiskOptions"
+        "nullable": false,
+        "referenceName": "AttachNewDataDiskOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExistingLabDiskId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "HostCaching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostCachingOptions"
+        "nullable": false,
+        "referenceName": "HostCachingOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

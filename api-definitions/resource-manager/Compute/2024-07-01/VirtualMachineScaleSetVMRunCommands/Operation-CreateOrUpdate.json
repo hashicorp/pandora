@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VirtualMachineScaleSetVirtualMachineRunCommandId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineRunCommand"
+    "nullable": false,
+    "referenceName": "VirtualMachineRunCommand",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineRunCommand"
+    "nullable": false,
+    "referenceName": "VirtualMachineRunCommand",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Administration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapacityAdministration"
+        "nullable": false,
+        "referenceName": "CapacityAdministration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceState"
+        "nullable": false,
+        "referenceName": "ResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

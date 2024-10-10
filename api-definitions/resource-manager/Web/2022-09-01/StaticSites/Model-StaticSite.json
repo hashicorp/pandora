@@ -7,7 +7,9 @@
       "name": "AllowConfigFileUpdates",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BuildProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StaticSiteBuildProperties"
+        "nullable": false,
+        "referenceName": "StaticSiteBuildProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ContentDistributionEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "DatabaseConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatabaseConnectionOverview"
+          "nullable": false,
+          "referenceName": "DatabaseConnectionOverview",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "DefaultHostname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "EnterpriseGradeCdnStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnterpriseGradeCdnStatus"
+        "nullable": false,
+        "referenceName": "EnterpriseGradeCdnStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "KeyVaultReferenceIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,10 +154,14 @@
       "name": "LinkedBackends",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteLinkedBackend"
+          "nullable": false,
+          "referenceName": "StaticSiteLinkedBackend",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,10 +175,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResponseMessageEnvelopeRemotePrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "ResponseMessageEnvelopeRemotePrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,7 +196,9 @@
       "name": "Provider",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +211,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +226,9 @@
       "name": "RepositoryToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,10 +238,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "repositoryUrl",
-      "name": "RepositoryUrl",
+      "name": "RepositoryURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,7 +256,9 @@
       "name": "StagingEnvironmentPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StagingEnvironmentPolicy"
+        "nullable": false,
+        "referenceName": "StagingEnvironmentPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -231,7 +271,9 @@
       "name": "TemplateProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StaticSiteTemplateOptions"
+        "nullable": false,
+        "referenceName": "StaticSiteTemplateOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,10 +286,14 @@
       "name": "UserProvidedFunctionApps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StaticSiteUserProvidedFunctionApp"
+          "nullable": false,
+          "referenceName": "StaticSiteUserProvidedFunctionApp",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -255,5 +301,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

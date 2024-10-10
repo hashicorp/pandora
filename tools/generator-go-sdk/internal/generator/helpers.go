@@ -1,11 +1,34 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package generator
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
+
+func CleanAndRecreateWorkingDirectory(path string) error {
+	// rm -r 💥
+	if err := os.RemoveAll(path); err != nil {
+		return fmt.Errorf("deleting %q: %+v", path, err)
+	}
+
+	return EnsureWorkingDirectoryExists(path)
+}
+
+func EnsureWorkingDirectoryExists(path string) error {
+	if err := os.MkdirAll(path, 0777); err != nil {
+		if !os.IsExist(err) {
+			return fmt.Errorf("creating %q: %+v", path, err)
+		}
+	}
+
+	return nil
+}
 
 func alternateCasingOnEveryLetter(input string) string {
 	output := ""

@@ -7,7 +7,9 @@
       "name": "BindingRetrievalProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMachineLearningWebServiceFunctionBindingRetrievalProperties"
+        "nullable": false,
+        "referenceName": "AzureMachineLearningWebServiceFunctionBindingRetrievalProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionRetrieveDefaultDefinitionParameters",
   "discriminatedTypeValue": "Microsoft.MachineLearning/WebService",
   "typeHintIn": "BindingType"

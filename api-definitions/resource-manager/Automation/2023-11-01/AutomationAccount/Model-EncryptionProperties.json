@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionPropertiesIdentity"
+        "nullable": false,
+        "referenceName": "EncryptionPropertiesIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "KeySource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeySourceType"
+        "nullable": false,
+        "referenceName": "EncryptionKeySourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

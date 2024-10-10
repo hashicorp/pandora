@@ -7,7 +7,9 @@
       "name": "ArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderFoDatabasesAwsOfferingArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderFoDatabasesAwsOfferingArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatabasesDspm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderFoDatabasesAwsOfferingDatabasesDspm"
+        "nullable": false,
+        "referenceName": "DefenderFoDatabasesAwsOfferingDatabasesDspm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Rds",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderFoDatabasesAwsOfferingRds"
+        "nullable": false,
+        "referenceName": "DefenderFoDatabasesAwsOfferingRds",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForDatabasesAws",
   "typeHintIn": "OfferingType"

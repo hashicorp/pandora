@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "FleetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FleetUpdate"
+    "nullable": false,
+    "referenceName": "FleetUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Fleet"
+    "nullable": false,
+    "referenceName": "Fleet",
+    "referenceNameIsCommonType": null
   }
 }

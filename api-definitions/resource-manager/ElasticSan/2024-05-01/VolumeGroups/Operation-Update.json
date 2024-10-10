@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VolumeGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VolumeGroupUpdate"
+    "nullable": false,
+    "referenceName": "VolumeGroupUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VolumeGroup"
+    "nullable": false,
+    "referenceName": "VolumeGroup",
+    "referenceNameIsCommonType": null
   }
 }

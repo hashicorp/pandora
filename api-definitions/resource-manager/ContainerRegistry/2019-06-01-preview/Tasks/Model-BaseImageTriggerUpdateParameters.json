@@ -7,7 +7,9 @@
       "name": "BaseImageTriggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BaseImageTriggerType"
+        "nullable": false,
+        "referenceName": "BaseImageTriggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerStatus"
+        "nullable": false,
+        "referenceName": "TriggerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "UpdateTriggerEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "UpdateTriggerPayloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateTriggerPayloadType"
+        "nullable": false,
+        "referenceName": "UpdateTriggerPayloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

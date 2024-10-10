@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CommunicationServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CommunicationServiceResourceUpdate"
+    "nullable": false,
+    "referenceName": "CommunicationServiceResourceUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CommunicationServiceResource"
+    "nullable": false,
+    "referenceName": "CommunicationServiceResource",
+    "referenceNameIsCommonType": null
   }
 }

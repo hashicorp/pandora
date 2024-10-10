@@ -7,7 +7,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedErrorInfo"
+        "nullable": false,
+        "referenceName": "ExtendedErrorInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealthState"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

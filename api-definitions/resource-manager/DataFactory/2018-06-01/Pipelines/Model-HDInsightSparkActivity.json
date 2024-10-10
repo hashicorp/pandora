@@ -7,7 +7,9 @@
       "name": "LinkedServiceName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivityPolicy"
+        "nullable": false,
+        "referenceName": "ActivityPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HDInsightSparkActivityTypeProperties"
+        "nullable": false,
+        "referenceName": "HDInsightSparkActivityTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Activity",
   "discriminatedTypeValue": "HDInsightSpark",
   "typeHintIn": "Type"

@@ -1,6 +1,7 @@
 {
   "name": "LocationListCachedImages",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CachedImages"
+    "nullable": false,
+    "referenceName": "CachedImages",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/cachedImages"
 }

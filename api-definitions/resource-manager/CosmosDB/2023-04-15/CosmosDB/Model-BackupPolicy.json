@@ -7,7 +7,9 @@
       "name": "MigrationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupPolicyMigrationState"
+        "nullable": false,
+        "referenceName": "BackupPolicyMigrationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackupPolicyType"
+        "nullable": false,
+        "referenceName": "BackupPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Type"
 }

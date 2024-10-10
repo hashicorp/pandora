@@ -1,6 +1,7 @@
 {
   "name": "AnalyticsItemsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeContent",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "scope",
       "required": false,
@@ -28,6 +31,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "type",
       "required": false,
@@ -41,10 +45,14 @@
   "resourceIdName": "ProviderComponentId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+      "nullable": false,
+      "referenceName": "ApplicationInsightsComponentAnalyticsItem",
+      "referenceNameIsCommonType": null
     }
   }
 }

@@ -7,7 +7,9 @@
       "name": "Parent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InventoryItemDetails"
+        "nullable": false,
+        "referenceName": "InventoryItemDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InventoryItemProperties",
   "discriminatedTypeValue": "Host",
   "typeHintIn": "InventoryType"

@@ -7,7 +7,9 @@
       "name": "BlobReferenceForConsumption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobReferenceForConsumptionDto"
+        "nullable": false,
+        "referenceName": "BlobReferenceForConsumptionDto",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PendingUploadId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PendingUploadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PendingUploadType"
+        "nullable": false,
+        "referenceName": "PendingUploadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

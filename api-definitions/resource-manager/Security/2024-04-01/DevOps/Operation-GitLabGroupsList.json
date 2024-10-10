@@ -1,6 +1,7 @@
 {
   "name": "GitLabGroupsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SecurityConnectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GitLabGroup"
+    "nullable": false,
+    "referenceName": "GitLabGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/devops/default/gitLabGroups"
 }

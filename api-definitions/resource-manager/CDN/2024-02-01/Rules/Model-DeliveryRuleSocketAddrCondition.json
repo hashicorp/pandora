@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SocketAddrMatchConditionParameters"
+        "nullable": false,
+        "referenceName": "SocketAddrMatchConditionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleCondition",
   "discriminatedTypeValue": "SocketAddr",
   "typeHintIn": "Name"

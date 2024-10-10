@@ -7,7 +7,9 @@
       "name": "DeviceMapping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotMappingProperties"
+        "nullable": false,
+        "referenceName": "IotMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IngestionEndpointConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IotEventHubIngestionEndpointConfiguration"
+        "nullable": false,
+        "referenceName": "IotEventHubIngestionEndpointConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

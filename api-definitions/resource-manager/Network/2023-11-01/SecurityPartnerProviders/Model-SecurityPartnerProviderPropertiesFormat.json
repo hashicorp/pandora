@@ -7,7 +7,9 @@
       "name": "ConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityPartnerProviderConnectionStatus"
+        "nullable": false,
+        "referenceName": "SecurityPartnerProviderConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SecurityProviderName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProviderName"
+        "nullable": false,
+        "referenceName": "SecurityProviderName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

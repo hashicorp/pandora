@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PrivateLinkForAzureAdId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkPolicyUpdateParameter"
+    "nullable": false,
+    "referenceName": "PrivateLinkPolicyUpdateParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkPolicy"
+    "nullable": false,
+    "referenceName": "PrivateLinkPolicy",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,0 +1,24 @@
+{
+  "name": "IdentityUserFlow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userFlowType",
+      "name": "UserFlowType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserFlowType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.identityUserFlow",
+  "typeHintIn": "ODataType"
+}

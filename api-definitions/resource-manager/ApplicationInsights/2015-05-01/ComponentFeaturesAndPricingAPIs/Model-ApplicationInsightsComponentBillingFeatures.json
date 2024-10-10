@@ -7,10 +7,14 @@
       "name": "CurrentBillingFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "DataVolumeCap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsightsComponentDataVolumeCap"
+        "nullable": false,
+        "referenceName": "ApplicationInsightsComponentDataVolumeCap",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "LogVerbosity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogVerbosity"
+        "nullable": false,
+        "referenceName": "LogVerbosity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "TargetColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "TaskType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskType"
+        "nullable": false,
+        "referenceName": "TaskType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "TrainingData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,5 +62,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "TaskType"
 }

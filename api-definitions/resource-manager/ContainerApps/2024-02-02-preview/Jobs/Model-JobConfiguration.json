@@ -7,7 +7,9 @@
       "name": "EventTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationEventTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationEventTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "IdentitySettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IdentitySettings"
+          "nullable": false,
+          "referenceName": "IdentitySettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ManualTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationManualTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationManualTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Registries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryCredentials"
+          "nullable": false,
+          "referenceName": "RegistryCredentials",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ReplicaRetryLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ReplicaTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "ScheduleTriggerConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobConfigurationScheduleTriggerConfig"
+        "nullable": false,
+        "referenceName": "JobConfigurationScheduleTriggerConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,10 +124,14 @@
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,12 +145,15 @@
       "name": "TriggerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerType"
+        "nullable": false,
+        "referenceName": "TriggerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AdoGit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogConnectionState"
+        "nullable": false,
+        "referenceName": "CatalogConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "LastConnectionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "LastSyncStats",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SyncStats"
+        "nullable": false,
+        "referenceName": "SyncStats",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "LastSyncTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "SyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogSyncState"
+        "nullable": false,
+        "referenceName": "CatalogSyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,7 +129,9 @@
       "name": "SyncType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CatalogSyncType"
+        "nullable": false,
+        "referenceName": "CatalogSyncType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,12 +144,15 @@
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

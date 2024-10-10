@@ -7,7 +7,9 @@
       "name": "Key",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MongoIndexKeys"
+        "nullable": false,
+        "referenceName": "MongoIndexKeys",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Options",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MongoIndexOptions"
+        "nullable": false,
+        "referenceName": "MongoIndexOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "LinuxContainerSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxJavaContainerSettings"
+        "nullable": false,
+        "referenceName": "LinuxJavaContainerSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LinuxRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "WebAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "WindowsContainerSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsJavaContainerSettings"
+        "nullable": false,
+        "referenceName": "WindowsJavaContainerSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "WindowsRuntimeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebAppRuntimeSettings"
+        "nullable": false,
+        "referenceName": "WebAppRuntimeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

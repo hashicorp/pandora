@@ -1,6 +1,7 @@
 {
   "name": "CreateorUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "MonitoredSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MonitoredSubscriptionProperties"
+    "nullable": false,
+    "referenceName": "MonitoredSubscriptionProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitoredSubscriptionProperties"
+    "nullable": false,
+    "referenceName": "MonitoredSubscriptionProperties",
+    "referenceNameIsCommonType": null
   }
 }

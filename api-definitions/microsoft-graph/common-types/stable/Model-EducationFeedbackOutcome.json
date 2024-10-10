@@ -1,0 +1,41 @@
+{
+  "name": "EducationFeedbackOutcome",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Teacher's written feedback to the student.",
+      "jsonName": "feedback",
+      "name": "Feedback",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationFeedback",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A copy of the feedback property that is made when the grade is released to the student.",
+      "jsonName": "publishedFeedback",
+      "name": "PublishedFeedback",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationFeedback",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationOutcome",
+  "discriminatedTypeValue": "#microsoft.graph.educationFeedbackOutcome",
+  "typeHintIn": "ODataType"
+}

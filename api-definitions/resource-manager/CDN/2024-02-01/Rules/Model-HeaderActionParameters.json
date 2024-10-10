@@ -7,7 +7,9 @@
       "name": "HeaderAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HeaderAction"
+        "nullable": false,
+        "referenceName": "HeaderAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HeaderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleHeaderActionParameters",
   "typeHintIn": "TypeName"

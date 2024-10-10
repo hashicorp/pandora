@@ -1,0 +1,24 @@
+{
+  "name": "MigrateMySqlAzureDbForMySqlOfflineTaskOutputError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "error",
+      "name": "Error",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ReportableException",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MigrateMySqlAzureDbForMySqlOfflineTaskOutput",
+  "discriminatedTypeValue": "ErrorOutput",
+  "typeHintIn": "ResultType"
+}

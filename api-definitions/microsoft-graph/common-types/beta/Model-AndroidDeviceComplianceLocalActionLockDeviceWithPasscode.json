@@ -1,0 +1,41 @@
+{
+  "name": "AndroidDeviceComplianceLocalActionLockDeviceWithPasscode",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Passcode to reset to Android device. This property is read-only.",
+      "jsonName": "passcode",
+      "name": "Passcode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11",
+      "jsonName": "passcodeSignInFailureCountBeforeWipe",
+      "name": "PasscodeSignInFailureCountBeforeWipe",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceComplianceLocalActionBase",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceComplianceLocalActionLockDeviceWithPasscode",
+  "typeHintIn": "ODataType"
+}

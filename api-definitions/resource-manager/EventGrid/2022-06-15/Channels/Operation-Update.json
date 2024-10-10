@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ChannelId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ChannelUpdateParameters"
+    "nullable": false,
+    "referenceName": "ChannelUpdateParameters",
+    "referenceNameIsCommonType": null
   }
 }

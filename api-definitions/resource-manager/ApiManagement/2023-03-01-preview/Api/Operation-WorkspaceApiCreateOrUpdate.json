@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -10,6 +11,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -23,10 +25,14 @@
   "resourceIdName": "WorkspaceApiId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiCreateOrUpdateParameter"
+    "nullable": false,
+    "referenceName": "ApiCreateOrUpdateParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiContract"
+    "nullable": false,
+    "referenceName": "ApiContract",
+    "referenceNameIsCommonType": null
   }
 }

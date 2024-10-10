@@ -7,10 +7,14 @@
       "name": "NasEncryption",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NasEncryptionType"
+          "nullable": false,
+          "referenceName": "NasEncryptionType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "NasReroute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NASRerouteConfiguration"
+        "nullable": false,
+        "referenceName": "NASRerouteConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

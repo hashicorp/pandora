@@ -7,7 +7,9 @@
       "name": "Datasource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamInputDataSource"
+        "nullable": false,
+        "referenceName": "StreamInputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InputProperties",
   "discriminatedTypeValue": "Stream",
   "typeHintIn": "Type"

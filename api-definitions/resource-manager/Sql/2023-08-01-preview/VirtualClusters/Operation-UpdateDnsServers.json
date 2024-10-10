@@ -1,6 +1,7 @@
 {
   "name": "UpdateDnsServers",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpdateVirtualClusterDnsServersOperation"
+    "nullable": false,
+    "referenceName": "UpdateVirtualClusterDnsServersOperation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/updateManagedInstanceDnsServers"
 }

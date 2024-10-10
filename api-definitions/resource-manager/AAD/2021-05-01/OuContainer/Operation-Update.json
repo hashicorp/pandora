@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "OuContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContainerAccount"
+    "nullable": false,
+    "referenceName": "ContainerAccount",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OuContainer"
+    "nullable": false,
+    "referenceName": "OuContainer",
+    "referenceNameIsCommonType": null
   }
 }

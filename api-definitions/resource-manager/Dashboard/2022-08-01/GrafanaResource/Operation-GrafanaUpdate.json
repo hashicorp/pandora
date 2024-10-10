@@ -1,6 +1,7 @@
 {
   "name": "GrafanaUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "GrafanaId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedGrafanaUpdateParameters"
+    "nullable": false,
+    "referenceName": "ManagedGrafanaUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedGrafana"
+    "nullable": false,
+    "referenceName": "ManagedGrafana",
+    "referenceNameIsCommonType": null
   }
 }

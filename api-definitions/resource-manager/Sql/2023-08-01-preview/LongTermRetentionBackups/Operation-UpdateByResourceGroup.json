@@ -1,6 +1,7 @@
 {
   "name": "UpdateByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LongTermRetentionDatabaseLongTermRetentionBackupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UpdateLongTermRetentionBackupParameters"
+    "nullable": false,
+    "referenceName": "UpdateLongTermRetentionBackupParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LongTermRetentionBackupOperationResult"
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackupOperationResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/update"
 }

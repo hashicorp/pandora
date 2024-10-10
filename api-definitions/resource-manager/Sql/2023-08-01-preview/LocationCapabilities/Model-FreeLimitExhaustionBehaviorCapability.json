@@ -7,7 +7,9 @@
       "name": "ExhaustionBehaviorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FreeLimitExhaustionBehavior"
+        "nullable": false,
+        "referenceName": "FreeLimitExhaustionBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

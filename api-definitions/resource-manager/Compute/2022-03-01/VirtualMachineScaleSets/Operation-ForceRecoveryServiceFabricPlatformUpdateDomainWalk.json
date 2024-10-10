@@ -1,6 +1,7 @@
 {
   "name": "ForceRecoveryServiceFabricPlatformUpdateDomainWalk",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "placementGroupId",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "platformUpdateDomain",
       "required": true,
@@ -28,6 +31,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "zone",
       "required": false,
@@ -41,7 +45,9 @@
   "resourceIdName": "VirtualMachineScaleSetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecoveryWalkResponse"
+    "nullable": false,
+    "referenceName": "RecoveryWalkResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/forceRecoveryServiceFabricPlatformUpdateDomainWalk"
 }

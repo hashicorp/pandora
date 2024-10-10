@@ -7,10 +7,14 @@
       "name": "AbnormalTimePeriods",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AbnormalTimePeriod"
+          "nullable": false,
+          "referenceName": "AbnormalTimePeriod",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -25,7 +29,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -38,10 +44,14 @@
       "name": "NonCorrelatedDetectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DetectorDefinition"
+          "nullable": false,
+          "referenceName": "DetectorDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -55,10 +65,14 @@
       "name": "Payload",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AnalysisData"
+          "nullable": false,
+          "referenceName": "AnalysisData",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -73,12 +87,15 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

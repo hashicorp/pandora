@@ -1,6 +1,7 @@
 {
   "name": "CloudEndpointsPreRestore",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "CloudEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PreRestoreRequest"
+    "nullable": false,
+    "referenceName": "PreRestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/prerestore"
 }

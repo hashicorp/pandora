@@ -7,7 +7,9 @@
       "name": "OrganizationalData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GcpOrganizationalData"
+        "nullable": false,
+        "referenceName": "GcpOrganizationalData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProjectDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GcpProjectDetails"
+        "nullable": false,
+        "referenceName": "GcpProjectDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ScanInterval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EnvironmentData",
   "discriminatedTypeValue": "GcpProject",
   "typeHintIn": "EnvironmentType"

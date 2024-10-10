@@ -1,6 +1,7 @@
 {
   "name": "ListValue",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "NamedValueId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NamedValueSecretContract"
+    "nullable": false,
+    "referenceName": "NamedValueSecretContract",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listValue"
 }

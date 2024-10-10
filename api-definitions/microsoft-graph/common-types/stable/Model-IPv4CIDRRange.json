@@ -1,0 +1,25 @@
+{
+  "name": "IPv4CIDRRange",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "IPv4 address in CIDR notation. Not nullable.",
+      "jsonName": "cidrAddress",
+      "name": "CIDRAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IPRange",
+  "discriminatedTypeValue": "#microsoft.graph.iPv4CidrRange",
+  "typeHintIn": "ODataType"
+}

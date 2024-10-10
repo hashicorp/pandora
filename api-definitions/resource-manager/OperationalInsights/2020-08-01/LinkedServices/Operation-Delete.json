@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202,
@@ -11,6 +12,8 @@
   "resourceIdName": "LinkedServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "LinkedService"
+    "nullable": false,
+    "referenceName": "LinkedService",
+    "referenceNameIsCommonType": null
   }
 }

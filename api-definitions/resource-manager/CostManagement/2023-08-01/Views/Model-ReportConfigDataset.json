@@ -7,10 +7,14 @@
       "name": "Aggregation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigAggregation"
+          "nullable": false,
+          "referenceName": "ReportConfigAggregation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "ReportConfigDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigFilter"
+        "nullable": false,
+        "referenceName": "ReportConfigFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportGranularityType"
+        "nullable": false,
+        "referenceName": "ReportGranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "Grouping",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigGrouping"
+          "nullable": false,
+          "referenceName": "ReportConfigGrouping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "Sorting",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReportConfigSorting"
+          "nullable": false,
+          "referenceName": "ReportConfigSorting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

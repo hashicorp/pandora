@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlManagedInstanceDatabaseId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedInstanceLongTermRetentionPolicy"
+    "nullable": false,
+    "referenceName": "ManagedInstanceLongTermRetentionPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupLongTermRetentionPolicies/default"
 }

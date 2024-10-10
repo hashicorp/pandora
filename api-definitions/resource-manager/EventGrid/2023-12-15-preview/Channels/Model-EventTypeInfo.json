@@ -7,10 +7,14 @@
       "name": "InlineEventTypes",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InlineEventProperties"
+          "nullable": false,
+          "referenceName": "InlineEventProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventDefinitionKind"
+        "nullable": false,
+        "referenceName": "EventDefinitionKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

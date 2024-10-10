@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "expandCommentsAttachments",
       "required": false,
@@ -21,6 +23,8 @@
   "resourceIdName": "ApiIssueId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IssueContract"
+    "nullable": false,
+    "referenceName": "IssueContract",
+    "referenceNameIsCommonType": null
   }
 }

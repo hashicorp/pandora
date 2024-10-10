@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$skip",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CodeContainerResource"
+    "nullable": false,
+    "referenceName": "CodeContainerResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/codes"
 }

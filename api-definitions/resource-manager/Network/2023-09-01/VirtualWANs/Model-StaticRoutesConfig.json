@@ -7,7 +7,9 @@
       "name": "PropagateStaticRoutes",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "VnetLocalRouteOverrideCriteria",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetLocalRouteOverrideCriteria"
+        "nullable": false,
+        "referenceName": "VnetLocalRouteOverrideCriteria",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

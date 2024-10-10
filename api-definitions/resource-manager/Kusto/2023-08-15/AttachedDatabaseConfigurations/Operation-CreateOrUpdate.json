@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "AttachedDatabaseConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AttachedDatabaseConfiguration"
+    "nullable": false,
+    "referenceName": "AttachedDatabaseConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AttachedDatabaseConfiguration"
+    "nullable": false,
+    "referenceName": "AttachedDatabaseConfiguration",
+    "referenceNameIsCommonType": null
   }
 }

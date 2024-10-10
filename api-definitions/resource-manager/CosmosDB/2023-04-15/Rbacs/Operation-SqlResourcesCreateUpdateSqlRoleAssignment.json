@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesCreateUpdateSqlRoleAssignment",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "AccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlRoleAssignmentCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "SqlRoleAssignmentCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlRoleAssignmentGetResults"
+    "nullable": false,
+    "referenceName": "SqlRoleAssignmentGetResults",
+    "referenceNameIsCommonType": null
   }
 }

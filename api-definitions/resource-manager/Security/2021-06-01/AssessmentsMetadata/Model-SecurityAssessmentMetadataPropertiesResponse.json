@@ -7,7 +7,9 @@
       "name": "AssessmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssessmentType"
+        "nullable": false,
+        "referenceName": "AssessmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Categories",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Categories"
+          "nullable": false,
+          "referenceName": "Categories",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ImplementationEffort",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImplementationEffort"
+        "nullable": false,
+        "referenceName": "ImplementationEffort",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "PartnerData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityAssessmentMetadataPartnerData"
+        "nullable": false,
+        "referenceName": "SecurityAssessmentMetadataPartnerData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "PlannedDeprecationDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "PolicyDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "Preview",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "PublishDates",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityAssessmentMetadataPropertiesResponsePublishDates"
+        "nullable": false,
+        "referenceName": "SecurityAssessmentMetadataPropertiesResponsePublishDates",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "RemediationDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -167,10 +193,14 @@
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Tactics"
+          "nullable": false,
+          "referenceName": "Tactics",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,10 +214,14 @@
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Techniques"
+          "nullable": false,
+          "referenceName": "Techniques",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,10 +235,14 @@
       "name": "Threats",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Threats"
+          "nullable": false,
+          "referenceName": "Threats",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -218,12 +256,15 @@
       "name": "UserImpact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserImpact"
+        "nullable": false,
+        "referenceName": "UserImpact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

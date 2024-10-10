@@ -1,0 +1,25 @@
+{
+  "name": "AppleVppTokenTroubleshootingEvent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Apple Volume Purchase Program Token Identifier.",
+      "jsonName": "tokenId",
+      "name": "TokenId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementTroubleshootingEvent",
+  "discriminatedTypeValue": "#microsoft.graph.appleVppTokenTroubleshootingEvent",
+  "typeHintIn": "ODataType"
+}

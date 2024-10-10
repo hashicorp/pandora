@@ -1,0 +1,25 @@
+{
+  "name": "AdminReportSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.",
+      "jsonName": "displayConcealedNames",
+      "name": "DisplayConcealedNames",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.adminReportSettings",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "Location",
       "objectDefinition": {
         "type": "Location",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KnownLocationSpecProvisioningStatus"
+        "nullable": false,
+        "referenceName": "KnownLocationSpecProvisioningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

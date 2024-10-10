@@ -1,6 +1,7 @@
 {
   "name": "PreviewWorkflow",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ProviderLocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSitesWorkflowPreviewRequest"
+    "nullable": false,
+    "referenceName": "StaticSitesWorkflowPreviewRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StaticSitesWorkflowPreview"
+    "nullable": false,
+    "referenceName": "StaticSitesWorkflowPreview",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/previewStaticSiteWorkflowFile"
 }

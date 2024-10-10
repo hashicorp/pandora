@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorAlertEventSubscriptionDestinationProperties"
+        "nullable": false,
+        "referenceName": "MonitorAlertEventSubscriptionDestinationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSubscriptionDestination",
   "discriminatedTypeValue": "MonitorAlert",
   "typeHintIn": "EndpointType"

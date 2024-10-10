@@ -1,0 +1,25 @@
+{
+  "name": "PinnedChatMessageInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents details about the chat message that is pinned.",
+      "jsonName": "message",
+      "name": "Message",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChatMessage",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.pinnedChatMessageInfo",
+  "typeHintIn": "ODataType"
+}

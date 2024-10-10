@@ -7,7 +7,9 @@
       "name": "Grouping",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapLandscapeMonitorPropertiesGrouping"
+        "nullable": false,
+        "referenceName": "SapLandscapeMonitorPropertiesGrouping",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SapLandscapeMonitorProvisioningState"
+        "nullable": false,
+        "referenceName": "SapLandscapeMonitorProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "TopMetricsThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SapLandscapeMonitorMetricThresholds"
+          "nullable": false,
+          "referenceName": "SapLandscapeMonitorMetricThresholds",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -9,6 +10,7 @@
   "httpMethod": "DELETE",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$include",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "x-ms-snapshot",
       "optional": true,
       "required": false,

@@ -1,0 +1,25 @@
+{
+  "name": "UserScopeTeamsAppInstallation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The chat between the user and Teams app.",
+      "jsonName": "chat",
+      "name": "Chat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Chat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TeamsAppInstallation",
+  "discriminatedTypeValue": "#microsoft.graph.userScopeTeamsAppInstallation",
+  "typeHintIn": "ODataType"
+}

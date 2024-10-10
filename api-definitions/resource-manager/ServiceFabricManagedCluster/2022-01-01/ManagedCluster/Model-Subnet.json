@@ -7,7 +7,9 @@
       "name": "EnableIPv6",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NetworkSecurityGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PrivateEndpointNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateEndpointNetworkPolicies"
+        "nullable": false,
+        "referenceName": "PrivateEndpointNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "PrivateLinkServiceNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLinkServiceNetworkPolicies"
+        "nullable": false,
+        "referenceName": "PrivateLinkServiceNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

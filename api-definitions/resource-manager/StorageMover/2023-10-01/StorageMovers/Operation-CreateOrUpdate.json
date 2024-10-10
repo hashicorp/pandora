@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "StorageMoverId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageMover"
+    "nullable": false,
+    "referenceName": "StorageMover",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageMover"
+    "nullable": false,
+    "referenceName": "StorageMover",
+    "referenceNameIsCommonType": null
   }
 }

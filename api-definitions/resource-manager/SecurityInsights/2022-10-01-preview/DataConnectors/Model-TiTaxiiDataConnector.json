@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TiTaxiiDataConnectorProperties"
+        "nullable": false,
+        "referenceName": "TiTaxiiDataConnectorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnector",
   "discriminatedTypeValue": "ThreatIntelligenceTaxii",
   "typeHintIn": "Kind"

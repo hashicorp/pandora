@@ -1,6 +1,7 @@
 {
   "name": "ReservationsDetailsListByReservationOrder",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "$filter",
       "required": true,
@@ -22,7 +24,9 @@
   "resourceIdName": "ReservationOrderId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReservationDetail"
+    "nullable": false,
+    "referenceName": "ReservationDetail",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Consumption/reservationDetails"
 }

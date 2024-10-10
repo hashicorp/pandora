@@ -7,7 +7,9 @@
       "name": "OperationName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationName"
+        "nullable": false,
+        "referenceName": "OperationName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationStatus"
+        "nullable": false,
+        "referenceName": "OperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "OperationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,12 +53,15 @@
       "name": "OperationTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationTrigger"
+        "nullable": false,
+        "referenceName": "OperationTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

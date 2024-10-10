@@ -8,7 +8,9 @@
       "name": "RestorePointInTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "SourceServerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -29,6 +33,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ServerPropertiesForCreate",
   "discriminatedTypeValue": "PointInTimeRestore",
   "typeHintIn": "CreateMode"

@@ -1,6 +1,7 @@
 {
   "name": "UpdateVnetConnection",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "VirtualNetworkConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VnetInfoResource"
+    "nullable": false,
+    "referenceName": "VnetInfoResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VnetInfoResource"
+    "nullable": false,
+    "referenceName": "VnetInfoResource",
+    "referenceNameIsCommonType": null
   }
 }

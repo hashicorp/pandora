@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallAction"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "GroupByUserSession",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GroupByUserSession"
+          "nullable": false,
+          "referenceName": "GroupByUserSession",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "MatchConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MatchCondition"
+          "nullable": false,
+          "referenceName": "MatchCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -67,7 +79,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "RateLimitDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayFirewallRateLimitDuration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayFirewallRateLimitDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "RateLimitThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "RuleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallRuleType"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallRuleType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -132,12 +154,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebApplicationFirewallState"
+        "nullable": false,
+        "referenceName": "WebApplicationFirewallState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

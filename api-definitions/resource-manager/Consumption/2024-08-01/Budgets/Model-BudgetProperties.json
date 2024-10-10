@@ -7,7 +7,9 @@
       "name": "Amount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoryType"
+        "nullable": false,
+        "referenceName": "CategoryType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CurrentSpend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CurrentSpend"
+        "nullable": false,
+        "referenceName": "CurrentSpend",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetFilter"
+        "nullable": false,
+        "referenceName": "BudgetFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ForecastSpend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastSpend"
+        "nullable": false,
+        "referenceName": "ForecastSpend",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "Notifications",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Notification"
+          "nullable": false,
+          "referenceName": "Notification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "TimeGrain",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeGrainType"
+        "nullable": false,
+        "referenceName": "TimeGrainType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BudgetTimePeriod"
+        "nullable": false,
+        "referenceName": "BudgetTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

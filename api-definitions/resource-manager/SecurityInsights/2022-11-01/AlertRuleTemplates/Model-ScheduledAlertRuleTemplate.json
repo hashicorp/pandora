@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledAlertRuleTemplateProperties"
+        "nullable": false,
+        "referenceName": "ScheduledAlertRuleTemplateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AlertRuleTemplate",
   "discriminatedTypeValue": "Scheduled",
   "typeHintIn": "Kind"

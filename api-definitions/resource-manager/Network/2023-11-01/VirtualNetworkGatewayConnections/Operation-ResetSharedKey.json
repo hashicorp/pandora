@@ -1,6 +1,7 @@
 {
   "name": "ResetSharedKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectionResetSharedKey"
+    "nullable": false,
+    "referenceName": "ConnectionResetSharedKey",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionResetSharedKey"
+    "nullable": false,
+    "referenceName": "ConnectionResetSharedKey",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sharedkey/reset"
 }

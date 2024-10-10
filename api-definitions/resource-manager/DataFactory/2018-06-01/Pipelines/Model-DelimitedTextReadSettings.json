@@ -7,7 +7,9 @@
       "name": "CompressionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompressionReadSettings"
+        "nullable": false,
+        "referenceName": "CompressionReadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SkipLineCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FormatReadSettings",
   "discriminatedTypeValue": "DelimitedTextReadSettings",
   "typeHintIn": "Type"

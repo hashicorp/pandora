@@ -7,7 +7,9 @@
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdminUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ComputerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfileLinuxConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileLinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

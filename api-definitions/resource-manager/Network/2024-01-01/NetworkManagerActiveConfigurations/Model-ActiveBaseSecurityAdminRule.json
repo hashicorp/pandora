@@ -8,7 +8,9 @@
       "name": "CommitTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "ConfigurationDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EffectiveAdminRuleKind"
+        "nullable": false,
+        "referenceName": "EffectiveAdminRuleKind",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "Region",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,10 +83,14 @@
       "name": "RuleCollectionAppliesToGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkManagerSecurityGroupItem"
+          "nullable": false,
+          "referenceName": "NetworkManagerSecurityGroupItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -90,7 +104,9 @@
       "name": "RuleCollectionDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,10 +119,14 @@
       "name": "RuleGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationGroup"
+          "nullable": false,
+          "referenceName": "ConfigurationGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,5 +135,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Kind"
 }

@@ -18,14 +18,20 @@ var workarounds = []dataWorkaround{
 	workaroundRepeatingResourceIdSegments{},
 
 	// Model-specific workarounds
+	workaroundAccessPackageResourceRoleScope{},
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
+	workaroundUnifiedRoleAssignment{},
 }
 
 // serviceWorkarounds make post-parsing changes to individual services and are able to make any changes to resources
 // within that service and/or to resource IDs (which are shared across all services). Note that each of these are passed
 // in as maps, so changes propagate to the underlying object.
 var serviceWorkarounds = []serviceWorkaround{
+	// Broad blacklist for incompatible resources
+	workaroundBlacklist{},
+
+	// Service-specific workarounds
 	workaroundSynchronizationSecrets{},
 }
 

@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureDataExplorerOutputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "AzureDataExplorerOutputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutputDataSource",
   "discriminatedTypeValue": "Microsoft.Kusto/clusters/databases",
   "typeHintIn": "Type"

@@ -7,7 +7,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionDestination"
+        "nullable": false,
+        "referenceName": "EventSubscriptionDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionIdentity"
+        "nullable": false,
+        "referenceName": "EventSubscriptionIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

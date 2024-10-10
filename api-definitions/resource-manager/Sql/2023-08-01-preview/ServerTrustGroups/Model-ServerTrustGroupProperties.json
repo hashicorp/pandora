@@ -7,10 +7,14 @@
       "name": "GroupMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerInfo"
+          "nullable": false,
+          "referenceName": "ServerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,10 +28,14 @@
       "name": "TrustScopes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrustScopes"
+          "nullable": false,
+          "referenceName": "TrustScopes",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -35,5 +43,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

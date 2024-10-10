@@ -7,7 +7,9 @@
       "name": "DatasourceAuthCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthCredentials"
+        "nullable": false,
+        "referenceName": "AuthCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatasourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Datasource"
+        "nullable": false,
+        "referenceName": "Datasource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DatasourceSetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasourceSet"
+        "nullable": false,
+        "referenceName": "DatasourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "RestoreCriteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ItemLevelRestoreCriteria"
+          "nullable": false,
+          "referenceName": "ItemLevelRestoreCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -58,6 +68,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreTargetInfoBase",
   "discriminatedTypeValue": "ItemLevelRestoreTargetInfo",
   "typeHintIn": "ObjectType"

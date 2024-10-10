@@ -7,7 +7,9 @@
       "name": "AuthType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthType"
+        "nullable": false,
+        "referenceName": "AuthType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientType"
+        "nullable": false,
+        "referenceName": "ClientType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DaprProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprProperties"
+        "nullable": false,
+        "referenceName": "DaprProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Names",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationName"
+          "nullable": false,
+          "referenceName": "ConfigurationName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "SecretType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecretSourceType"
+        "nullable": false,
+        "referenceName": "SecretSourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "TargetService",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

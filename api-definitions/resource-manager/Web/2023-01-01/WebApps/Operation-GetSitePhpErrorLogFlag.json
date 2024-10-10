@@ -1,6 +1,7 @@
 {
   "name": "GetSitePhpErrorLogFlag",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SitePhpErrorLogFlag"
+    "nullable": false,
+    "referenceName": "SitePhpErrorLogFlag",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/phplogging"
 }

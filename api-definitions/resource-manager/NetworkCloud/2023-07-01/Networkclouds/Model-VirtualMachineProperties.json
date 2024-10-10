@@ -7,7 +7,9 @@
       "name": "AdminUsername",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Zone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BareMetalMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BootMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineBootMethod"
+        "nullable": false,
+        "referenceName": "VirtualMachineBootMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "CloudServicesNetworkAttachment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAttachment"
+        "nullable": false,
+        "referenceName": "NetworkAttachment",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "CpuCores",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineDetailedStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "IsolateEmulatorThread",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineIsolateEmulatorThread"
+        "nullable": false,
+        "referenceName": "VirtualMachineIsolateEmulatorThread",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "MemorySizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -150,10 +172,14 @@
       "name": "NetworkAttachments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkAttachment"
+          "nullable": false,
+          "referenceName": "NetworkAttachment",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -167,7 +193,9 @@
       "name": "NetworkData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "PlacementHints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachinePlacementHint"
+          "nullable": false,
+          "referenceName": "VirtualMachinePlacementHint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePowerState"
+        "nullable": false,
+        "referenceName": "VirtualMachinePowerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineProvisioningState"
+        "nullable": false,
+        "referenceName": "VirtualMachineProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,10 +259,14 @@
       "name": "SshPublicKeys",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SshPublicKey"
+          "nullable": false,
+          "referenceName": "SshPublicKey",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -240,7 +280,9 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -253,7 +295,9 @@
       "name": "UserData",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,7 +310,9 @@
       "name": "VMDeviceModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineDeviceModelType"
+        "nullable": false,
+        "referenceName": "VirtualMachineDeviceModelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -279,7 +325,9 @@
       "name": "VMImageRepositoryCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageRepositoryCredentials"
+        "nullable": false,
+        "referenceName": "ImageRepositoryCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -292,7 +340,9 @@
       "name": "VirtioInterface",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineVirtioInterfaceType"
+        "nullable": false,
+        "referenceName": "VirtualMachineVirtioInterfaceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -305,7 +355,9 @@
       "name": "VmImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -318,10 +370,14 @@
       "name": "Volumes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -329,5 +385,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

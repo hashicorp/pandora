@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileReferenceInputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "FileReferenceInputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReferenceInputDataSource",
   "discriminatedTypeValue": "File",
   "typeHintIn": "Type"

@@ -7,7 +7,9 @@
       "name": "ResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Warning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserFacingError"
+        "nullable": false,
+        "referenceName": "UserFacingError",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

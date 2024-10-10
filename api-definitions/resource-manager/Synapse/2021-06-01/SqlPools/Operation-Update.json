@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SqlPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlPoolPatchInfo"
+    "nullable": false,
+    "referenceName": "SqlPoolPatchInfo",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlPool"
+    "nullable": false,
+    "referenceName": "SqlPool",
+    "referenceNameIsCommonType": null
   }
 }

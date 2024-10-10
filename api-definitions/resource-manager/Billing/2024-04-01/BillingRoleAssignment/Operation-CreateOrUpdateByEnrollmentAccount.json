@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateByEnrollmentAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "EnrollmentAccountBillingRoleAssignmentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleAssignment"
+    "nullable": false,
+    "referenceName": "BillingRoleAssignment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleAssignment"
+    "nullable": false,
+    "referenceName": "BillingRoleAssignment",
+    "referenceNameIsCommonType": null
   }
 }

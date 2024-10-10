@@ -7,7 +7,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CategoricalDataDriftMetric"
+        "nullable": false,
+        "referenceName": "CategoricalDataDriftMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataDriftMetricThresholdBase",
   "discriminatedTypeValue": "Categorical",
   "typeHintIn": "DataType"

@@ -1,0 +1,31 @@
+{
+  "name": "PermissionGrantPreApprovalPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A list of condition sets describing the conditions under which the permission to grant consent for the app has been preapproved.",
+      "jsonName": "conditions",
+      "name": "Conditions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PreApprovalDetail",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DirectoryObject",
+  "discriminatedTypeValue": "#microsoft.graph.permissionGrantPreApprovalPolicy",
+  "typeHintIn": "ODataType"
+}

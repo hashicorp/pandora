@@ -1,6 +1,7 @@
 {
   "name": "ListByDomains",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DomainId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SenderUsernameResource"
+    "nullable": false,
+    "referenceName": "SenderUsernameResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/senderUsernames"
 }

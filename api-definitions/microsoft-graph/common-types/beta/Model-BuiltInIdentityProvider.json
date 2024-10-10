@@ -1,0 +1,40 @@
+{
+  "name": "BuiltInIdentityProvider",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.",
+      "jsonName": "identityProviderType",
+      "name": "IdentityProviderType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityProviderState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityProviderBase",
+  "discriminatedTypeValue": "#microsoft.graph.builtInIdentityProvider",
+  "typeHintIn": "ODataType"
+}

@@ -7,10 +7,14 @@
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SessionContainer"
+          "nullable": false,
+          "referenceName": "SessionContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionIngress"
+        "nullable": false,
+        "referenceName": "SessionIngress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "RegistryCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionRegistryCredentials"
+        "nullable": false,
+        "referenceName": "SessionRegistryCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

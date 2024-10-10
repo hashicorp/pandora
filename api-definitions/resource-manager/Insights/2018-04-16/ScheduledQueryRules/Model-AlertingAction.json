@@ -7,7 +7,9 @@
       "name": "AznsAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzNsActionGroup"
+        "nullable": false,
+        "referenceName": "AzNsActionGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ThrottlingInMin",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerCondition"
+        "nullable": false,
+        "referenceName": "TriggerCondition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Action",
   "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
   "typeHintIn": "OdataType"

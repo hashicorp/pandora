@@ -1,6 +1,7 @@
 {
   "name": "Failover",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DistributedAvailabilityGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DistributedAvailabilityGroupsFailoverRequest"
+    "nullable": false,
+    "referenceName": "DistributedAvailabilityGroupsFailoverRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DistributedAvailabilityGroup"
+    "nullable": false,
+    "referenceName": "DistributedAvailabilityGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/failover"
 }

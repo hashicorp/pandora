@@ -7,7 +7,9 @@
       "name": "Cancel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CancelEnum"
+        "nullable": false,
+        "referenceName": "CancelEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DbsToCancelMigrationOn",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "DbsToMigrate",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "DbsToTriggerCutoverOn",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +85,9 @@
       "name": "MigrationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationMode"
+        "nullable": false,
+        "referenceName": "MigrationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +101,9 @@
       "name": "MigrationWindowStartTimeInUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +116,9 @@
       "name": "OverwriteDbsInTarget",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OverwriteDbsInTargetEnum"
+        "nullable": false,
+        "referenceName": "OverwriteDbsInTargetEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +131,9 @@
       "name": "SecretParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationSecretParameters"
+        "nullable": false,
+        "referenceName": "MigrationSecretParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +146,9 @@
       "name": "SetupLogicalReplicationOnSourceDbIfNeeded",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogicalReplicationOnSourceDbEnum"
+        "nullable": false,
+        "referenceName": "LogicalReplicationOnSourceDbEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +161,9 @@
       "name": "SourceDbServerFullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +176,9 @@
       "name": "SourceDbServerResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +191,9 @@
       "name": "StartDataMigration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StartDataMigrationEnum"
+        "nullable": false,
+        "referenceName": "StartDataMigrationEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +206,9 @@
       "name": "TargetDbServerFullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,12 +221,15 @@
       "name": "TriggerCutover",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerCutoverEnum"
+        "nullable": false,
+        "referenceName": "TriggerCutoverEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

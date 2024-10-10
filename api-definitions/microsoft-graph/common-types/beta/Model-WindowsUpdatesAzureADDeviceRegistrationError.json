@@ -1,0 +1,24 @@
+{
+  "name": "WindowsUpdatesAzureADDeviceRegistrationError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reason",
+      "name": "Reason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesAzureADDeviceRegistrationErrorReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesUpdatableAssetError",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.azureADDeviceRegistrationError",
+  "typeHintIn": "ODataType"
+}

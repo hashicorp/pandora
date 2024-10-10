@@ -7,10 +7,14 @@
       "name": "EgressNatIP",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddress"
+          "nullable": false,
+          "referenceName": "IPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "EnableEgressNat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EgressNat"
+        "nullable": false,
+        "referenceName": "EgressNat",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "NetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkType"
+        "nullable": false,
+        "referenceName": "NetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "PublicIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddress"
+          "nullable": false,
+          "referenceName": "IPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -67,10 +79,14 @@
       "name": "TrustedRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "VnetConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetConfiguration"
+        "nullable": false,
+        "referenceName": "VnetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,12 +115,15 @@
       "name": "VwanConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VwanConfiguration"
+        "nullable": false,
+        "referenceName": "VwanConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

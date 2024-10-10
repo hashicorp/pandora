@@ -7,10 +7,14 @@
       "name": "AddonFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AddonFeatures"
+          "nullable": false,
+          "referenceName": "AddonFeatures",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "AdminUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "AllowRdpAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ApplicationTypeVersionsCleanupPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationTypeVersionsCleanupPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationTypeVersionsCleanupPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "AzureActiveDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectory"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectory",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ClientConnectionPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "Clients",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificate"
+          "nullable": false,
+          "referenceName": "ClientCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,10 +139,14 @@
       "name": "ClusterCertificateThumbprints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,7 +160,9 @@
       "name": "ClusterCodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "ClusterState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterState"
+        "nullable": false,
+        "referenceName": "ClusterState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +205,9 @@
       "name": "ClusterUpgradeCadence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeCadence"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeCadence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,7 +220,9 @@
       "name": "ClusterUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeMode"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,7 +235,9 @@
       "name": "DnsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -214,7 +250,9 @@
       "name": "EnableAutoOSUpgrade",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -227,10 +265,14 @@
       "name": "FabricSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SettingsSectionDescription"
+          "nullable": false,
+          "referenceName": "SettingsSectionDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -244,7 +286,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -257,7 +301,9 @@
       "name": "HTTPGatewayConnectionPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -270,7 +316,9 @@
       "name": "IPv4Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -283,10 +331,14 @@
       "name": "LoadBalancingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancingRule"
+          "nullable": false,
+          "referenceName": "LoadBalancingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -300,10 +352,14 @@
       "name": "NetworkSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkSecurityRule"
+          "nullable": false,
+          "referenceName": "NetworkSecurityRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -317,7 +373,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ManagedResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -330,12 +388,15 @@
       "name": "ZonalResiliency",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

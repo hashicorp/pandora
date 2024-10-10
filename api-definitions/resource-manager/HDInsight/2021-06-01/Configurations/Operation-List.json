@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "HDInsightClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterConfigurations"
+    "nullable": false,
+    "referenceName": "ClusterConfigurations",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/configurations"
 }

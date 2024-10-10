@@ -7,10 +7,14 @@
       "name": "AadDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "AdminUsers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "IsSsoEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSOStatus"
+        "nullable": false,
+        "referenceName": "SSOStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,10 +61,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "metadataUrl",
-      "name": "MetadataUrl",
+      "name": "MetadataURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,15 +76,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "singleSignOnUrl",
-      "name": "SingleSignOnUrl",
+      "name": "SingleSignOnURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

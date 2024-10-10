@@ -1,0 +1,63 @@
+{
+  "name": "LicenseDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Information about the service plans assigned with the license. Read-only. Not nullable.",
+      "jsonName": "servicePlans",
+      "name": "ServicePlans",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ServicePlanInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related subscribedSku object. Read-only.",
+      "jsonName": "skuId",
+      "name": "SkuId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique SKU display name. Equal to the skuPartNumber on the related subscribedSku object; for example, AAD_Premium. Read-only.",
+      "jsonName": "skuPartNumber",
+      "name": "SkuPartNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.licenseDetails",
+  "typeHintIn": "ODataType"
+}

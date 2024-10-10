@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceGroupUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,
@@ -21,10 +23,14 @@
   "resourceIdName": "WorkspaceGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GroupUpdateParameters"
+    "nullable": false,
+    "referenceName": "GroupUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GroupContract"
+    "nullable": false,
+    "referenceName": "GroupContract",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "AzureFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFileProperties"
+        "nullable": false,
+        "referenceName": "AzureFileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Smb",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbStorage"
+        "nullable": false,
+        "referenceName": "SmbStorage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

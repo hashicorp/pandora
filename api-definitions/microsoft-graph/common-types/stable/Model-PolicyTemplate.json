@@ -1,0 +1,41 @@
+{
+  "name": "PolicyTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines an optional cross-tenant access policy template with user synchronization settings for a multitenant organization.",
+      "jsonName": "multiTenantOrganizationIdentitySynchronization",
+      "name": "MultiTenantOrganizationIdentitySynchronization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MultiTenantOrganizationIdentitySyncPolicyTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines an optional cross-tenant access policy template with inbound and outbound partner configuration settings for a multitenant organization.",
+      "jsonName": "multiTenantOrganizationPartnerConfiguration",
+      "name": "MultiTenantOrganizationPartnerConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MultiTenantOrganizationPartnerConfigurationTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.policyTemplate",
+  "typeHintIn": "ODataType"
+}

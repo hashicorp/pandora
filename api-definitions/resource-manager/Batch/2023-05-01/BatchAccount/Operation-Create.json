@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "BatchAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BatchAccountCreateParameters"
+    "nullable": false,
+    "referenceName": "BatchAccountCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BatchAccount"
+    "nullable": false,
+    "referenceName": "BatchAccount",
+    "referenceNameIsCommonType": null
   }
 }

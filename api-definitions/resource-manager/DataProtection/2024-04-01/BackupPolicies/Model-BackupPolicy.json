@@ -7,10 +7,14 @@
       "name": "PolicyRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BasePolicyRule"
+          "nullable": false,
+          "referenceName": "BasePolicyRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BaseBackupPolicy",
   "discriminatedTypeValue": "BackupPolicy",
   "typeHintIn": "ObjectType"

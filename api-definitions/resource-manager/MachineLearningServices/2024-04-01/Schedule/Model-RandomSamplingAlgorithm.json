@@ -7,7 +7,9 @@
       "name": "Rule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RandomSamplingAlgorithmRule"
+        "nullable": false,
+        "referenceName": "RandomSamplingAlgorithmRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Seed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SamplingAlgorithm",
   "discriminatedTypeValue": "Random",
   "typeHintIn": "SamplingAlgorithmType"

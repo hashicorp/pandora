@@ -1,6 +1,7 @@
 {
   "name": "RestoreFiles",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SnapshotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SnapshotRestoreFiles"
+    "nullable": false,
+    "referenceName": "SnapshotRestoreFiles",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restoreFiles"
 }

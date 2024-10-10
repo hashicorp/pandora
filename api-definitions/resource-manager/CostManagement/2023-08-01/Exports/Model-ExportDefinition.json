@@ -7,7 +7,9 @@
       "name": "DataSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportDataset"
+        "nullable": false,
+        "referenceName": "ExportDataset",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "TimePeriod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportTimePeriod"
+        "nullable": false,
+        "referenceName": "ExportTimePeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Timeframe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TimeframeType"
+        "nullable": false,
+        "referenceName": "TimeframeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExportType"
+        "nullable": false,
+        "referenceName": "ExportType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

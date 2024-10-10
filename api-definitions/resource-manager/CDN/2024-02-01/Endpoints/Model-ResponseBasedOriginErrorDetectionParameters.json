@@ -7,10 +7,14 @@
       "name": "HTTPErrorRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HTTPErrorRangeParameters"
+          "nullable": false,
+          "referenceName": "HTTPErrorRangeParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ResponseBasedDetectedErrorTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResponseBasedDetectedErrorTypes"
+        "nullable": false,
+        "referenceName": "ResponseBasedDetectedErrorTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "ResponseBasedFailoverThresholdPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

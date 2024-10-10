@@ -7,7 +7,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IsAutoProvisioned",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Login",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectoryLogin"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectoryLogin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Registration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectoryRegistration"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectoryRegistration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "Validation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureActiveDirectoryValidation"
+        "nullable": false,
+        "referenceName": "AzureActiveDirectoryValidation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

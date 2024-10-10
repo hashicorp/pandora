@@ -1,6 +1,7 @@
 {
   "name": "Restore",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "BackupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RestoreRequest"
+    "nullable": false,
+    "referenceName": "RestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restore"
 }

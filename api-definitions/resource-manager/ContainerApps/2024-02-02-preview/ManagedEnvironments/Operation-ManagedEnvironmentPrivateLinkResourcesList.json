@@ -1,6 +1,7 @@
 {
   "name": "ManagedEnvironmentPrivateLinkResourcesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ManagedEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkResource"
+    "nullable": false,
+    "referenceName": "PrivateLinkResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateLinkResources"
 }

@@ -7,7 +7,9 @@
       "name": "AuthorizationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorAuthorizationState"
+        "nullable": false,
+        "referenceName": "DataConnectorAuthorizationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LicenseState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorLicenseState"
+        "nullable": false,
+        "referenceName": "DataConnectorLicenseState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

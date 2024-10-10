@@ -7,7 +7,9 @@
       "name": "ApplicationSharingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationSharingPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationSharingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Applications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputeInstanceApplication"
+          "nullable": false,
+          "referenceName": "ComputeInstanceApplication",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ComputeInstanceAuthorizationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceAuthorizationType"
+        "nullable": false,
+        "referenceName": "ComputeInstanceAuthorizationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ConnectivityEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceConnectivityEndpoints"
+        "nullable": false,
+        "referenceName": "ComputeInstanceConnectivityEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputeInstanceContainer"
+          "nullable": false,
+          "referenceName": "ComputeInstanceContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceCreatedBy"
+        "nullable": false,
+        "referenceName": "ComputeInstanceCreatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,10 +109,14 @@
       "name": "CustomServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomService"
+          "nullable": false,
+          "referenceName": "CustomService",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,10 +130,14 @@
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputeInstanceDataDisk"
+          "nullable": false,
+          "referenceName": "ComputeInstanceDataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,10 +151,14 @@
       "name": "DataMounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputeInstanceDataMount"
+          "nullable": false,
+          "referenceName": "ComputeInstanceDataMount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -144,7 +172,9 @@
       "name": "EnableNodePublicIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,10 +187,14 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ErrorResponse"
+          "nullable": false,
+          "referenceName": "ErrorResponse",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -174,7 +208,9 @@
       "name": "LastOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceLastOperation"
+        "nullable": false,
+        "referenceName": "ComputeInstanceLastOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,7 +223,9 @@
       "name": "OsImageMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageMetadata"
+        "nullable": false,
+        "referenceName": "ImageMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,7 +238,9 @@
       "name": "PersonalComputeInstanceSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PersonalComputeInstanceSettings"
+        "nullable": false,
+        "referenceName": "PersonalComputeInstanceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,7 +253,9 @@
       "name": "Schedules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeSchedules"
+        "nullable": false,
+        "referenceName": "ComputeSchedules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,7 +268,9 @@
       "name": "SetupScripts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SetupScripts"
+        "nullable": false,
+        "referenceName": "SetupScripts",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,7 +283,9 @@
       "name": "SshSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceSshSettings"
+        "nullable": false,
+        "referenceName": "ComputeInstanceSshSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -252,7 +298,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceState"
+        "nullable": false,
+        "referenceName": "ComputeInstanceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -265,7 +313,9 @@
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceId"
+        "nullable": false,
+        "referenceName": "ResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -278,7 +328,9 @@
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -291,12 +343,15 @@
       "name": "Versions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeInstanceVersion"
+        "nullable": false,
+        "referenceName": "ComputeInstanceVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

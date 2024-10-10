@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "AmlFilesystemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AmlFilesystemUpdate"
+    "nullable": false,
+    "referenceName": "AmlFilesystemUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AmlFilesystem"
+    "nullable": false,
+    "referenceName": "AmlFilesystem",
+    "referenceNameIsCommonType": null
   }
 }

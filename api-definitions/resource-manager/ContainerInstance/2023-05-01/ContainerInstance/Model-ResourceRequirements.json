@@ -7,7 +7,9 @@
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceLimits"
+        "nullable": false,
+        "referenceName": "ResourceLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Requests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRequests"
+        "nullable": false,
+        "referenceName": "ResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

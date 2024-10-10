@@ -7,7 +7,9 @@
       "name": "CreationScript",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptReference"
+        "nullable": false,
+        "referenceName": "ScriptReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "StartupScript",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptReference"
+        "nullable": false,
+        "referenceName": "ScriptReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

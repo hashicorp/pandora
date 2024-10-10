@@ -7,7 +7,9 @@
       "name": "PrivateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLink"
+        "nullable": false,
+        "referenceName": "PrivateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ResourceProviderConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProviderConnection"
+        "nullable": false,
+        "referenceName": "ResourceProviderConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

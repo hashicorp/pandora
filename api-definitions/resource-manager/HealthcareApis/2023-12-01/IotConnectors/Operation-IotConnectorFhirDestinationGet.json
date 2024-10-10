@@ -1,6 +1,7 @@
 {
   "name": "IotConnectorFhirDestinationGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "FhirDestinationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IotFhirDestination"
+    "nullable": false,
+    "referenceName": "IotFhirDestination",
+    "referenceNameIsCommonType": null
   }
 }

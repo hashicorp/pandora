@@ -7,10 +7,14 @@
       "name": "AddonConfigs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ApiMetadataProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayApiMetadataProperties"
+        "nullable": false,
+        "referenceName": "GatewayApiMetadataProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "ApmTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApmType"
+          "nullable": false,
+          "referenceName": "ApmType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "Apms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApmReference"
+          "nullable": false,
+          "referenceName": "ApmReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +85,9 @@
       "name": "ClientAuth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayPropertiesClientAuth"
+        "nullable": false,
+        "referenceName": "GatewayPropertiesClientAuth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,7 +100,9 @@
       "name": "CorsProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayCorsProperties"
+        "nullable": false,
+        "referenceName": "GatewayCorsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayPropertiesEnvironmentVariables"
+        "nullable": false,
+        "referenceName": "GatewayPropertiesEnvironmentVariables",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,10 +145,14 @@
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayInstance"
+          "nullable": false,
+          "referenceName": "GatewayInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,7 +166,9 @@
       "name": "OperatorProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayOperatorProperties"
+        "nullable": false,
+        "referenceName": "GatewayOperatorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,7 +181,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayProvisioningState"
+        "nullable": false,
+        "referenceName": "GatewayProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,7 +196,9 @@
       "name": "Public",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +211,9 @@
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayResourceRequests"
+        "nullable": false,
+        "referenceName": "GatewayResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +226,9 @@
       "name": "ResponseCacheProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayResponseCacheProperties"
+        "nullable": false,
+        "referenceName": "GatewayResponseCacheProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +241,9 @@
       "name": "SsoProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SsoProperties"
+        "nullable": false,
+        "referenceName": "SsoProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,12 +256,15 @@
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

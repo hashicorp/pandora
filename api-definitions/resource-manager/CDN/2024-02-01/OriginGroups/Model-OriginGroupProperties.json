@@ -7,7 +7,9 @@
       "name": "HealthProbeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthProbeParameters"
+        "nullable": false,
+        "referenceName": "HealthProbeParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Origins",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OriginGroupProvisioningState"
+        "nullable": false,
+        "referenceName": "OriginGroupProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OriginGroupResourceState"
+        "nullable": false,
+        "referenceName": "OriginGroupResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ResponseBasedOriginErrorDetectionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResponseBasedOriginErrorDetectionParameters"
+        "nullable": false,
+        "referenceName": "ResponseBasedOriginErrorDetectionParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "TrafficRestorationTimeToHealedOrNewEndpointsInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,25 @@
+{
+  "name": "SendDtmfTonesOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The results of the action. Possible values are: unknown, completedSuccessfully, mediaOperationCanceled, unknownfutureValue.",
+      "jsonName": "completionReason",
+      "name": "CompletionReason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SendDtmfCompletionReason",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CommsOperation",
+  "discriminatedTypeValue": "#microsoft.graph.sendDtmfTonesOperation",
+  "typeHintIn": "ODataType"
+}

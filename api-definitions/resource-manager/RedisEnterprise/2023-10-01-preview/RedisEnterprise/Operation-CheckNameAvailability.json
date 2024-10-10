@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityParameters"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Cache/checkNameAvailability"
 }

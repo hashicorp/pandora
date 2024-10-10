@@ -1,0 +1,25 @@
+{
+  "name": "ValueBasedAttribute",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The static value to be used an the attribute.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimAttributeBase",
+  "discriminatedTypeValue": "#microsoft.graph.valueBasedAttribute",
+  "typeHintIn": "ODataType"
+}

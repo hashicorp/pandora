@@ -1,0 +1,31 @@
+{
+  "name": "IdentityGovernanceAttributeChangeTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The trigger attribute being changed that triggers the workflowexecutiontrigger of a workflow.)",
+      "jsonName": "triggerAttributes",
+      "name": "TriggerAttributes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IdentityGovernanceTriggerAttribute",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceWorkflowExecutionTrigger",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.attributeChangeTrigger",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "AadConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AadConfiguration"
+        "nullable": false,
+        "referenceName": "AadConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdministratorConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdministratorConfiguration"
+        "nullable": false,
+        "referenceName": "AdministratorConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "AttachedNetworkIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "AvailableUpgrades",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AvailableUpgrade"
+          "nullable": false,
+          "referenceName": "AvailableUpgrade",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ConnectedClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "ControlPlaneKubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ControlPlaneNodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlPlaneNodeConfiguration"
+        "nullable": false,
+        "referenceName": "ControlPlaneNodeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesClusterDetailedStatus"
+        "nullable": false,
+        "referenceName": "KubernetesClusterDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,10 +169,14 @@
       "name": "FeatureStatuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FeatureStatus"
+          "nullable": false,
+          "referenceName": "FeatureStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,10 +190,14 @@
       "name": "InitialAgentPoolConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InitialAgentPoolConfiguration"
+          "nullable": false,
+          "referenceName": "InitialAgentPoolConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -179,7 +211,9 @@
       "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -192,7 +226,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +241,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -218,10 +256,14 @@
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KubernetesClusterNode"
+          "nullable": false,
+          "referenceName": "KubernetesClusterNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -235,12 +277,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesClusterProvisioningState"
+        "nullable": false,
+        "referenceName": "KubernetesClusterProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

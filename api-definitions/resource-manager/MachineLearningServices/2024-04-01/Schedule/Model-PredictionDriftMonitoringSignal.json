@@ -7,10 +7,14 @@
       "name": "FeatureDataTypeOverride",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringFeatureDataType"
+          "nullable": false,
+          "referenceName": "MonitoringFeatureDataType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "MetricThresholds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PredictionDriftMetricThresholdBase"
+          "nullable": false,
+          "referenceName": "PredictionDriftMetricThresholdBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -41,7 +49,9 @@
       "name": "ProductionData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "ReferenceData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataBase"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -62,6 +74,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MonitoringSignalBase",
   "discriminatedTypeValue": "PredictionDrift",
   "typeHintIn": "SignalType"

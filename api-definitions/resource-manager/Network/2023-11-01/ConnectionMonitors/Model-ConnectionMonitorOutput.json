@@ -7,7 +7,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutputType"
+        "nullable": false,
+        "referenceName": "OutputType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "WorkspaceSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorWorkspaceSettings"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorWorkspaceSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

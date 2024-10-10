@@ -1,6 +1,7 @@
 {
   "name": "ImportData",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202,
@@ -11,7 +12,9 @@
   "resourceIdName": "RediId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ImportRDBParameters"
+    "nullable": false,
+    "referenceName": "ImportRDBParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/import"
 }

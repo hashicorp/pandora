@@ -7,7 +7,9 @@
       "name": "EncryptionAtRestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionAtRestType"
+        "nullable": false,
+        "referenceName": "EncryptionAtRestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InfrastructureEncryptionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureEncryptionState"
+        "nullable": false,
+        "referenceName": "InfrastructureEncryptionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "KeyUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LastUpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastUpdateStatus"
+        "nullable": false,
+        "referenceName": "LastUpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

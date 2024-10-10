@@ -7,7 +7,9 @@
       "name": "AgentAutoUpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentAutoUpdateStatus"
+        "nullable": false,
+        "referenceName": "AgentAutoUpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutomationAccountArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AutomationAccountAuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationAccountAuthenticationType"
+        "nullable": false,
+        "referenceName": "AutomationAccountAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "JobScheduleName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ScheduleName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,6 +77,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionContainerMappingProviderSpecificDetails",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

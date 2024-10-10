@@ -1,0 +1,41 @@
+{
+  "name": "AndroidDeviceOwnerKioskModeManagedFolderReference",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier for the folder",
+      "jsonName": "folderIdentifier",
+      "name": "FolderIdentifier",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the folder",
+      "jsonName": "folderName",
+      "name": "FolderName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceOwnerKioskModeHomeScreenItem",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerKioskModeManagedFolderReference",
+  "typeHintIn": "ODataType"
+}

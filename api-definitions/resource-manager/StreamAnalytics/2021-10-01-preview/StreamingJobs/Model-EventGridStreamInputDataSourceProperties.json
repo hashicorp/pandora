@@ -7,10 +7,14 @@
       "name": "EventTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Schema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGridEventSchemaType"
+        "nullable": false,
+        "referenceName": "EventGridEventSchemaType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageAccount"
+          "nullable": false,
+          "referenceName": "StorageAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,12 +64,15 @@
       "name": "Subscriber",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubV2StreamInputDataSource"
+        "nullable": false,
+        "referenceName": "EventHubV2StreamInputDataSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

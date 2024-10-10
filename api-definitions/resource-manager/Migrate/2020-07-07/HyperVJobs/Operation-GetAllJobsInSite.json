@@ -1,6 +1,7 @@
 {
   "name": "GetAllJobsInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "HyperVSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVJob"
+    "nullable": false,
+    "referenceName": "HyperVJob",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/jobs"
 }

@@ -7,10 +7,14 @@
       "name": "HaUpgradesAvailable",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "MaximumPlatformSoftwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "MinimumPlatformSoftwareVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ObsoleteVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ObsoleteVersion"
+        "nullable": false,
+        "referenceName": "ObsoleteVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "PlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "RecommendedVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedVersion"
+        "nullable": false,
+        "referenceName": "RecommendedVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,12 +103,15 @@
       "name": "VersionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VersionState"
+        "nullable": false,
+        "referenceName": "VersionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

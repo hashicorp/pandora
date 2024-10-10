@@ -1,6 +1,7 @@
 {
   "name": "ResetStaticSiteApiKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "StaticSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StaticSiteResetPropertiesARMResource"
+    "nullable": false,
+    "referenceName": "StaticSiteResetPropertiesARMResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resetapikey"
 }

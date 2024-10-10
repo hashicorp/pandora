@@ -7,10 +7,14 @@
       "name": "BackendPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BackendPool"
+          "nullable": false,
+          "referenceName": "BackendPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "BackendPoolsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendPoolsSettings"
+        "nullable": false,
+        "referenceName": "BackendPoolsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Cname",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorEnabledState"
+        "nullable": false,
+        "referenceName": "FrontDoorEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "FrontdoorId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "FrontendEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendEndpoint"
+          "nullable": false,
+          "referenceName": "FrontendEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,10 +124,14 @@
       "name": "HealthProbeSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HealthProbeSettingsModel"
+          "nullable": false,
+          "referenceName": "HealthProbeSettingsModel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,10 +145,14 @@
       "name": "LoadBalancingSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadBalancingSettingsModel"
+          "nullable": false,
+          "referenceName": "LoadBalancingSettingsModel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,7 +166,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,7 +181,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -166,10 +196,14 @@
       "name": "RoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoutingRule"
+          "nullable": false,
+          "referenceName": "RoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -183,10 +217,14 @@
       "name": "RulesEngines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RulesEngine"
+          "nullable": false,
+          "referenceName": "RulesEngine",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -194,5 +232,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

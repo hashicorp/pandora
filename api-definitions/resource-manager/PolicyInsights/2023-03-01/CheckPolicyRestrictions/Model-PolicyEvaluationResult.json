@@ -7,7 +7,9 @@
       "name": "EffectDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyEffectDetails"
+        "nullable": false,
+        "referenceName": "PolicyEffectDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EvaluationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CheckRestrictionEvaluationDetails"
+        "nullable": false,
+        "referenceName": "CheckRestrictionEvaluationDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EvaluationResult",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "PolicyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyReference"
+        "nullable": false,
+        "referenceName": "PolicyReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

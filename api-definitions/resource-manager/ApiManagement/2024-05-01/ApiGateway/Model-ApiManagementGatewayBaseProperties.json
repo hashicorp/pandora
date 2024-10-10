@@ -7,7 +7,9 @@
       "name": "Backend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendConfiguration"
+        "nullable": false,
+        "referenceName": "BackendConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConfigurationApi",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayConfigurationApi"
+        "nullable": false,
+        "referenceName": "GatewayConfigurationApi",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CreatedAtUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Frontend",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontendConfiguration"
+        "nullable": false,
+        "referenceName": "FrontendConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "TargetProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,12 +98,15 @@
       "name": "VirtualNetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

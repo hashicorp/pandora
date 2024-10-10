@@ -7,7 +7,9 @@
       "name": "CacheDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DynamicCompression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicCompressionEnabled"
+        "nullable": false,
+        "referenceName": "DynamicCompressionEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "QueryParameterStripDirective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorQuery"
+        "nullable": false,
+        "referenceName": "FrontDoorQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "QueryParameters",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "DeleteParent",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "ScopedConfigurationAssignmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConfigurationAssignment"
+    "nullable": false,
+    "referenceName": "ConfigurationAssignment",
+    "referenceNameIsCommonType": null
   }
 }

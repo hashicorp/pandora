@@ -7,7 +7,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionType"
+        "nullable": false,
+        "referenceName": "EncryptionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncryptionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionProperties"
+        "nullable": false,
+        "referenceName": "EncryptionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleSet"
+        "nullable": false,
+        "referenceName": "NetworkRuleSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageTargetType"
+        "nullable": false,
+        "referenceName": "StorageTargetType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

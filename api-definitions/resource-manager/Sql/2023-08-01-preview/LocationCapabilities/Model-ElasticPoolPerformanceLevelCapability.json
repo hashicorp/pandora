@@ -7,7 +7,9 @@
       "name": "IncludedMaxSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaxDatabaseCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PerformanceLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PerformanceLevelCapability"
+        "nullable": false,
+        "referenceName": "PerformanceLevelCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "SupportedAutoPauseDelay",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoPauseDelayTimeRange"
+        "nullable": false,
+        "referenceName": "AutoPauseDelayTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "SupportedLicenseTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LicenseTypeCapability"
+          "nullable": false,
+          "referenceName": "LicenseTypeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,10 +133,14 @@
       "name": "SupportedMaintenanceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaintenanceConfigurationCapability"
+          "nullable": false,
+          "referenceName": "MaintenanceConfigurationCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,10 +154,14 @@
       "name": "SupportedMaxSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaxSizeRangeCapability"
+          "nullable": false,
+          "referenceName": "MaxSizeRangeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,10 +175,14 @@
       "name": "SupportedMinCapacities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MinCapacityCapability"
+          "nullable": false,
+          "referenceName": "MinCapacityCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,7 +196,9 @@
       "name": "SupportedPerDatabaseAutoPauseDelay",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PerDatabaseAutoPauseDelayTimeRange"
+        "nullable": false,
+        "referenceName": "PerDatabaseAutoPauseDelayTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,10 +211,14 @@
       "name": "SupportedPerDatabaseMaxPerformanceLevels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ElasticPoolPerDatabaseMaxPerformanceLevelCapability"
+          "nullable": false,
+          "referenceName": "ElasticPoolPerDatabaseMaxPerformanceLevelCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -196,10 +232,14 @@
       "name": "SupportedPerDatabaseMaxSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaxSizeRangeCapability"
+          "nullable": false,
+          "referenceName": "MaxSizeRangeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -213,10 +253,14 @@
       "name": "SupportedZones",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ZonePinningCapability"
+          "nullable": false,
+          "referenceName": "ZonePinningCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -230,12 +274,15 @@
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

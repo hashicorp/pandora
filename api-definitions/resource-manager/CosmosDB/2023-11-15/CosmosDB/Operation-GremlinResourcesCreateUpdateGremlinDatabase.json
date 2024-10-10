@@ -1,6 +1,7 @@
 {
   "name": "GremlinResourcesCreateUpdateGremlinDatabase",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "GremlinDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GremlinDatabaseCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "GremlinDatabaseCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GremlinDatabaseGetResults"
+    "nullable": false,
+    "referenceName": "GremlinDatabaseGetResults",
+    "referenceNameIsCommonType": null
   }
 }

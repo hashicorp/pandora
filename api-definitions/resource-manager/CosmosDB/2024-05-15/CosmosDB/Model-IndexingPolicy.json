@@ -7,7 +7,9 @@
       "name": "Automatic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,13 +22,19 @@
       "name": "CompositeIndexes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "CompositePath"
+            "nullable": false,
+            "referenceName": "CompositePath",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -41,10 +49,14 @@
       "name": "ExcludedPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ExcludedPath"
+          "nullable": false,
+          "referenceName": "ExcludedPath",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,10 +70,14 @@
       "name": "IncludedPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncludedPath"
+          "nullable": false,
+          "referenceName": "IncludedPath",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -75,7 +91,9 @@
       "name": "IndexingMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndexingMode"
+        "nullable": false,
+        "referenceName": "IndexingMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,10 +106,14 @@
       "name": "SpatialIndexes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SpatialSpec"
+          "nullable": false,
+          "referenceName": "SpatialSpec",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -99,5 +121,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

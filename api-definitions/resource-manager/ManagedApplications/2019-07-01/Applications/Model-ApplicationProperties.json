@@ -7,7 +7,9 @@
       "name": "ApplicationDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Artifacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationArtifact"
+          "nullable": false,
+          "referenceName": "ApplicationArtifact",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "Authorizations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationAuthorization"
+          "nullable": false,
+          "referenceName": "ApplicationAuthorization",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "BillingDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationBillingDetailsDefinition"
+        "nullable": false,
+        "referenceName": "ApplicationBillingDetailsDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationClientDetails"
+        "nullable": false,
+        "referenceName": "ApplicationClientDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "CustomerSupport",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationPackageContact"
+        "nullable": false,
+        "referenceName": "ApplicationPackageContact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "JitAccessPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationJitAccessPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationJitAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ManagedResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "ManagementMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationManagementMode"
+        "nullable": false,
+        "referenceName": "ApplicationManagementMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +184,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +199,9 @@
       "name": "PublisherTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,10 +211,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "supportUrls",
-      "name": "SupportUrls",
+      "name": "SupportURLs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationPackageSupportUrls"
+        "nullable": false,
+        "referenceName": "ApplicationPackageSupportURLs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,12 +229,15 @@
       "name": "UpdatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationClientDetails"
+        "nullable": false,
+        "referenceName": "ApplicationClientDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

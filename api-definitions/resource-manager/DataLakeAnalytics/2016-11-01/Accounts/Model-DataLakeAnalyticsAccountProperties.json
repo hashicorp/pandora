@@ -7,7 +7,9 @@
       "name": "AccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ComputePolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputePolicy"
+          "nullable": false,
+          "referenceName": "ComputePolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -38,7 +44,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "CurrentTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TierType"
+        "nullable": false,
+        "referenceName": "TierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,10 +74,14 @@
       "name": "DataLakeStoreAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataLakeStoreAccountInformation"
+          "nullable": false,
+          "referenceName": "DataLakeStoreAccountInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -81,7 +95,9 @@
       "name": "DebugDataAccessLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DebugDataAccessLevel"
+        "nullable": false,
+        "referenceName": "DebugDataAccessLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,7 +110,9 @@
       "name": "DefaultDataLakeStoreAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,7 +125,9 @@
       "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,7 +140,9 @@
       "name": "FirewallAllowAzureIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallAllowAzureIPsState"
+        "nullable": false,
+        "referenceName": "FirewallAllowAzureIPsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,10 +155,14 @@
       "name": "FirewallRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallRule"
+          "nullable": false,
+          "referenceName": "FirewallRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -150,7 +176,9 @@
       "name": "FirewallState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallState"
+        "nullable": false,
+        "referenceName": "FirewallState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,10 +191,14 @@
       "name": "HiveMetastores",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HiveMetastore"
+          "nullable": false,
+          "referenceName": "HiveMetastore",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -181,7 +213,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,7 +228,9 @@
       "name": "MaxActiveJobCountPerUser",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -207,7 +243,9 @@
       "name": "MaxDegreeOfParallelism",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,7 +258,9 @@
       "name": "MaxDegreeOfParallelismPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -233,7 +273,9 @@
       "name": "MaxJobCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -246,7 +288,9 @@
       "name": "MaxJobRunningTimeInMin",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -259,7 +303,9 @@
       "name": "MaxQueuedJobCountPerUser",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -272,7 +318,9 @@
       "name": "MinPriorityPerJob",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -285,7 +333,9 @@
       "name": "NewTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TierType"
+        "nullable": false,
+        "referenceName": "TierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -298,7 +348,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataLakeAnalyticsAccountStatus"
+        "nullable": false,
+        "referenceName": "DataLakeAnalyticsAccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -311,10 +363,14 @@
       "name": "PublicDataLakeStoreAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataLakeStoreAccountInformation"
+          "nullable": false,
+          "referenceName": "DataLakeStoreAccountInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -328,7 +384,9 @@
       "name": "QueryStoreRetention",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -341,7 +399,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataLakeAnalyticsAccountState"
+        "nullable": false,
+        "referenceName": "DataLakeAnalyticsAccountState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -354,10 +414,14 @@
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageAccountInformation"
+          "nullable": false,
+          "referenceName": "StorageAccountInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -371,7 +435,9 @@
       "name": "SystemMaxDegreeOfParallelism",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -384,7 +450,9 @@
       "name": "SystemMaxJobCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -397,10 +465,14 @@
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -408,5 +480,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

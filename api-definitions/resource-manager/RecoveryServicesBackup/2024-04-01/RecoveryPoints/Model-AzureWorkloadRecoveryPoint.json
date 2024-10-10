@@ -7,10 +7,14 @@
       "name": "RecoveryPointMoveReadinessInfo",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointMoveReadinessInfo"
+          "nullable": false,
+          "referenceName": "RecoveryPointMoveReadinessInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "RecoveryPointProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointProperties"
+        "nullable": false,
+        "referenceName": "RecoveryPointProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "RecoveryPointTierDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointTierInformationV2"
+          "nullable": false,
+          "referenceName": "RecoveryPointTierInformationV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -55,7 +65,9 @@
       "name": "RecoveryPointTimeInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,7 +80,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePointType"
+        "nullable": false,
+        "referenceName": "RestorePointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,6 +90,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPoint",
   "discriminatedTypeValue": "AzureWorkloadRecoveryPoint",
   "typeHintIn": "ObjectType"

@@ -1,18 +1,23 @@
 {
   "name": "CreateOrUpdateDomainOwnershipIdentifier",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
   "httpMethod": "PUT",
-  "resourceIdName": "DomainOwnershipIdentifierId",
+  "resourceIdName": "SiteDomainOwnershipIdentifierId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
+    "nullable": false,
+    "referenceName": "Identifier",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
+    "nullable": false,
+    "referenceName": "Identifier",
+    "referenceNameIsCommonType": null
   }
 }

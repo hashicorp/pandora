@@ -7,10 +7,14 @@
       "name": "FieldDefinitions",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FieldDefinition"
+          "nullable": false,
+          "referenceName": "FieldDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,12 +28,15 @@
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

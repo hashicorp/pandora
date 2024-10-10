@@ -7,7 +7,9 @@
       "name": "CreateSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeCreateOption"
+        "nullable": false,
+        "referenceName": "VolumeCreateOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

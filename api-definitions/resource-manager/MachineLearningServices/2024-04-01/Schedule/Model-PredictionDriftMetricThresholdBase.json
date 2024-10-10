@@ -7,7 +7,9 @@
       "name": "DataType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringFeatureDataType"
+        "nullable": false,
+        "referenceName": "MonitoringFeatureDataType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Threshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringThreshold"
+        "nullable": false,
+        "referenceName": "MonitoringThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DataType"
 }

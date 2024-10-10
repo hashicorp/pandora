@@ -7,7 +7,9 @@
       "name": "AuthorizationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConnectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionMode"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ConnectionProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionStatus"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ConnectionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayConnectionType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayConnectionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "EgressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "EnableBgp",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "EnablePrivateLinkFastPath",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "ExpressRouteGatewayBypass",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,10 +142,14 @@
       "name": "GatewayCustomBgpIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayCustomBgpIPAddressIPConfiguration"
+          "nullable": false,
+          "referenceName": "GatewayCustomBgpIPAddressIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,10 +163,14 @@
       "name": "IPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,7 +184,9 @@
       "name": "IngressBytesTransferred",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +199,9 @@
       "name": "LocalNetworkGateway2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +214,9 @@
       "name": "Peer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +229,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "RoutingWeight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "SharedKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,10 +289,14 @@
       "name": "TrafficSelectorPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficSelectorPolicy"
+          "nullable": false,
+          "referenceName": "TrafficSelectorPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,10 +310,14 @@
       "name": "TunnelConnectionStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TunnelConnectionHealth"
+          "nullable": false,
+          "referenceName": "TunnelConnectionHealth",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -283,7 +331,9 @@
       "name": "UsePolicyBasedTrafficSelectors",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,7 +346,9 @@
       "name": "VirtualNetworkGateway1",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -309,12 +361,15 @@
       "name": "VirtualNetworkGateway2",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConnectionGatewayReference"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConnectionGatewayReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

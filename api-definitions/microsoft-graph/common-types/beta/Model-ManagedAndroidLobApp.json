@@ -1,0 +1,89 @@
+{
+  "name": "ManagedAndroidLobApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value for the minimum applicable operating system.",
+      "jsonName": "minimumSupportedOperatingSystem",
+      "name": "MinimumSupportedOperatingSystem",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidMinimumOperatingSystem",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The package identifier.",
+      "jsonName": "packageId",
+      "name": "PackageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which platform(s) can be targeted for a given Android LOB application or Managed Android LOB application.",
+      "jsonName": "targetedPlatforms",
+      "name": "TargetedPlatforms",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AndroidTargetedPlatforms",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The version code of managed Android Line of Business (LoB) app.",
+      "jsonName": "versionCode",
+      "name": "VersionCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The version name of managed Android Line of Business (LoB) app.",
+      "jsonName": "versionName",
+      "name": "VersionName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ManagedMobileLobApp",
+  "discriminatedTypeValue": "#microsoft.graph.managedAndroidLobApp",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "ReceiveAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12OneWayAgreement"
+        "nullable": false,
+        "referenceName": "X12OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SendAgreement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "X12OneWayAgreement"
+        "nullable": false,
+        "referenceName": "X12OneWayAgreement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

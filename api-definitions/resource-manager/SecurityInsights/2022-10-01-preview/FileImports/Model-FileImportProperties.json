@@ -7,7 +7,9 @@
       "name": "ContentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileImportContentType"
+        "nullable": false,
+        "referenceName": "FileImportContentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreatedTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "ErrorFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileMetadata"
+        "nullable": false,
+        "referenceName": "FileMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +53,14 @@
       "name": "ErrorsPreview",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ValidationError"
+          "nullable": false,
+          "referenceName": "ValidationError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,7 +75,9 @@
       "name": "FilesValidUntilTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "ImportFile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileMetadata"
+        "nullable": false,
+        "referenceName": "FileMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -92,7 +106,9 @@
       "name": "ImportValidUntilTimeUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -105,7 +121,9 @@
       "name": "IngestedRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -118,7 +136,9 @@
       "name": "IngestionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngestionMode"
+        "nullable": false,
+        "referenceName": "IngestionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -131,7 +151,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -144,7 +166,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileImportState"
+        "nullable": false,
+        "referenceName": "FileImportState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,7 +181,9 @@
       "name": "TotalRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,12 +196,15 @@
       "name": "ValidRecordCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

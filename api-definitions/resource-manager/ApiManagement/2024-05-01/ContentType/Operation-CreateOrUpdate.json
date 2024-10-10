@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "ContentTypeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContentTypeContract"
+    "nullable": false,
+    "referenceName": "ContentTypeContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContentTypeContract"
+    "nullable": false,
+    "referenceName": "ContentTypeContract",
+    "referenceNameIsCommonType": null
   }
 }

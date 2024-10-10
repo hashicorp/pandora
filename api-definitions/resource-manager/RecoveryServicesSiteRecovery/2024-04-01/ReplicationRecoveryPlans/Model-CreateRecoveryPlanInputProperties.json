@@ -7,7 +7,9 @@
       "name": "FailoverDeploymentModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverDeploymentModel"
+        "nullable": false,
+        "referenceName": "FailoverDeploymentModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Groups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPlanGroup"
+          "nullable": false,
+          "referenceName": "RecoveryPlanGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,7 +43,9 @@
       "name": "PrimaryFabricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "ProviderSpecificInput",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPlanProviderSpecificInput"
+          "nullable": false,
+          "referenceName": "RecoveryPlanProviderSpecificInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,12 +79,15 @@
       "name": "RecoveryFabricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

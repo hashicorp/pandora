@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "SqlElasticPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ElasticPool"
+    "nullable": false,
+    "referenceName": "ElasticPool",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ElasticPool"
+    "nullable": false,
+    "referenceName": "ElasticPool",
+    "referenceNameIsCommonType": null
   }
 }

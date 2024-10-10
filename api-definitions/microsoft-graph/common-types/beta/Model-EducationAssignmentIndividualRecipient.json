@@ -1,0 +1,31 @@
+{
+  "name": "EducationAssignmentIndividualRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of ids of the recipients.",
+      "jsonName": "recipients",
+      "name": "Recipients",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationAssignmentRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.educationAssignmentIndividualRecipient",
+  "typeHintIn": "ODataType"
+}

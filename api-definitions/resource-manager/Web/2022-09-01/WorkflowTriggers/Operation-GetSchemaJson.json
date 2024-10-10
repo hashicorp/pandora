@@ -1,6 +1,7 @@
 {
   "name": "GetSchemaJson",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "TriggerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "JsonSchema"
+    "nullable": false,
+    "referenceName": "JsonSchema",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/schemas/json"
 }

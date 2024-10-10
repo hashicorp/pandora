@@ -7,7 +7,9 @@
       "name": "ContainerConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerConfiguration"
+        "nullable": false,
+        "referenceName": "ContainerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DataDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDisk"
+          "nullable": false,
+          "referenceName": "DataDisk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "DiskEncryptionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionConfiguration"
+        "nullable": false,
+        "referenceName": "DiskEncryptionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VmExtension"
+          "nullable": false,
+          "referenceName": "VmExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "NodeAgentSkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "NodePlacementConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodePlacementConfiguration"
+        "nullable": false,
+        "referenceName": "NodePlacementConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "OsDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDisk"
+        "nullable": false,
+        "referenceName": "OSDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "SecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfile"
+        "nullable": false,
+        "referenceName": "SecurityProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "ServiceArtifactReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceArtifactReference"
+        "nullable": false,
+        "referenceName": "ServiceArtifactReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,12 +184,15 @@
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsConfiguration"
+        "nullable": false,
+        "referenceName": "WindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

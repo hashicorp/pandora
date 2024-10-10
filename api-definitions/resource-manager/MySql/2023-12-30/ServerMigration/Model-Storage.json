@@ -7,7 +7,9 @@
       "name": "AutoGrow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableStatusEnum"
+        "nullable": false,
+        "referenceName": "EnableStatusEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoIoScaling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableStatusEnum"
+        "nullable": false,
+        "referenceName": "EnableStatusEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Iops",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LogOnDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableStatusEnum"
+        "nullable": false,
+        "referenceName": "EnableStatusEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "StorageSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "StorageSku",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

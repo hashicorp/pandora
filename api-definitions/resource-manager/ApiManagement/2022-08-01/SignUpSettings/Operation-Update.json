@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     204
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,
@@ -21,7 +23,9 @@
   "resourceIdName": "ServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PortalSignupSettings"
+    "nullable": false,
+    "referenceName": "PortalSignupSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/portalsettings/signup"
 }

@@ -7,7 +7,9 @@
       "name": "AgentCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AgentVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AksNetworkingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AksNetworkingConfiguration"
+        "nullable": false,
+        "referenceName": "AksNetworkingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ClusterFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ClusterPurpose",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterPurpose"
+        "nullable": false,
+        "referenceName": "ClusterPurpose",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "LoadBalancerSubnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "LoadBalancerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerType"
+        "nullable": false,
+        "referenceName": "LoadBalancerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "SslConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SslConfiguration"
+        "nullable": false,
+        "referenceName": "SslConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "SystemServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SystemService"
+          "nullable": false,
+          "referenceName": "SystemService",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,5 +142,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

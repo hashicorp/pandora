@@ -1,6 +1,7 @@
 {
   "name": "ContainerGroupsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ContainerGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ContainerGroup"
+    "nullable": false,
+    "referenceName": "ContainerGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerGroup"
+    "nullable": false,
+    "referenceName": "ContainerGroup",
+    "referenceNameIsCommonType": null
   }
 }

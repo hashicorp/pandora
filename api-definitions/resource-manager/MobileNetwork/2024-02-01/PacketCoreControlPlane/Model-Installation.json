@@ -7,7 +7,9 @@
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DesiredInstallationState"
+        "nullable": false,
+        "referenceName": "DesiredInstallationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AsyncOperationId"
+        "nullable": false,
+        "referenceName": "AsyncOperationId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Reasons",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstallationReason"
+          "nullable": false,
+          "referenceName": "InstallationReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ReinstallRequired",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReinstallRequired"
+        "nullable": false,
+        "referenceName": "ReinstallRequired",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InstallationState"
+        "nullable": false,
+        "referenceName": "InstallationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

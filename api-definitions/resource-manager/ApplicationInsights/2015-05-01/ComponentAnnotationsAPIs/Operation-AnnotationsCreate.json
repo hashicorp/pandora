@@ -1,6 +1,7 @@
 {
   "name": "AnnotationsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,14 +10,20 @@
   "resourceIdName": "ComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Annotation"
+    "nullable": false,
+    "referenceName": "Annotation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "Annotation"
+      "nullable": false,
+      "referenceName": "Annotation",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/annotations"

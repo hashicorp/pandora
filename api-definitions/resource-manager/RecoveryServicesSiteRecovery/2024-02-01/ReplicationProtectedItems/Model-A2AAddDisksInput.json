@@ -7,10 +7,14 @@
       "name": "VMDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AVMDiskInputDetails"
+          "nullable": false,
+          "referenceName": "A2AVMDiskInputDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "VMManagedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "A2AVMManagedDiskInputDetails"
+          "nullable": false,
+          "referenceName": "A2AVMManagedDiskInputDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -36,6 +44,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AddDisksProviderSpecificInput",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

@@ -1,0 +1,117 @@
+{
+  "name": "SectionGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The notebook that contains the section group. Read-only.",
+      "jsonName": "parentNotebook",
+      "name": "ParentNotebook",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Notebook",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The section group that contains the section group. Read-only.",
+      "jsonName": "parentSectionGroup",
+      "name": "ParentSectionGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SectionGroup",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The section groups in the section. Read-only. Nullable.",
+      "jsonName": "sectionGroups",
+      "name": "SectionGroups",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SectionGroup",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL for the sectionGroups navigation property, which returns all the section groups in the section group. Read-only.",
+      "jsonName": "sectionGroupsUrl",
+      "name": "SectionGroupsUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sections in the section group. Read-only. Nullable.",
+      "jsonName": "sections",
+      "name": "Sections",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OnenoteSection",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The URL for the sections navigation property, which returns all the sections in the section group. Read-only.",
+      "jsonName": "sectionsUrl",
+      "name": "SectionsUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnenoteEntityHierarchyModel",
+  "discriminatedTypeValue": "#microsoft.graph.sectionGroup",
+  "typeHintIn": "ODataType"
+}

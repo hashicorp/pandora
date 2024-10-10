@@ -1,0 +1,57 @@
+{
+  "name": "DeviceManagementConfigurationIntegerSettingValueTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Integer Setting Value Default Template.",
+      "jsonName": "defaultValue",
+      "name": "DefaultValue",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationIntegerSettingValueDefaultTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Recommended value definition.",
+      "jsonName": "recommendedValueDefinition",
+      "name": "RecommendedValueDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required value definition.",
+      "jsonName": "requiredValueDefinition",
+      "name": "RequiredValueDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSimpleSettingValueTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationIntegerSettingValueTemplate",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "DetectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DetectionStatus"
+        "nullable": false,
+        "referenceName": "DetectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastDetectionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "NewImageName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "NewLayer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchDetailsNewLayer"
+        "nullable": false,
+        "referenceName": "PatchDetailsNewLayer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "OldLayer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchDetailsOldLayer"
+        "nullable": false,
+        "referenceName": "PatchDetailsOldLayer",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "PatchType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchType"
+        "nullable": false,
+        "referenceName": "PatchType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "TargetContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,12 +113,15 @@
       "name": "TargetImage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "Exclusions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OwaspCrsExclusionEntry"
+          "nullable": false,
+          "referenceName": "OwaspCrsExclusionEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "ManagedRuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedRuleSet"
+          "nullable": false,
+          "referenceName": "ManagedRuleSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -35,5 +43,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

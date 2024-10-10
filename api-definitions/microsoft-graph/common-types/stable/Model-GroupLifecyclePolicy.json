@@ -1,0 +1,57 @@
+{
+  "name": "GroupLifecyclePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.",
+      "jsonName": "alternateNotificationEmails",
+      "name": "AlternateNotificationEmails",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.",
+      "jsonName": "groupLifetimeInDays",
+      "name": "GroupLifetimeInDays",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The group type for which the expiration policy applies. Possible values are All, Selected or None.",
+      "jsonName": "managedGroupTypes",
+      "name": "ManagedGroupTypes",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.groupLifecyclePolicy",
+  "typeHintIn": "ODataType"
+}

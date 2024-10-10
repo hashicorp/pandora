@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -10,6 +11,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -20,6 +22,7 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "If-None-Match",
       "optional": true,
       "required": false,
@@ -33,10 +36,14 @@
   "resourceIdName": "DnsForwardingRulesetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DnsForwardingRuleset"
+    "nullable": false,
+    "referenceName": "DnsForwardingRuleset",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DnsForwardingRuleset"
+    "nullable": false,
+    "referenceName": "DnsForwardingRuleset",
+    "referenceNameIsCommonType": null
   }
 }

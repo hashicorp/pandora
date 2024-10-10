@@ -7,7 +7,9 @@
       "name": "ConfigServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigServerSettings"
+        "nullable": false,
+        "referenceName": "ConfigServerSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigServerEnabledState"
+        "nullable": false,
+        "referenceName": "ConfigServerEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Error"
+        "nullable": false,
+        "referenceName": "Error",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigServerState"
+        "nullable": false,
+        "referenceName": "ConfigServerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

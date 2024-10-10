@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementScriptGroupAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Id of the Azure Active Directory group we are targeting the script to.",
+      "jsonName": "targetGroupId",
+      "name": "TargetGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementScriptGroupAssignment",
+  "typeHintIn": "ODataType"
+}

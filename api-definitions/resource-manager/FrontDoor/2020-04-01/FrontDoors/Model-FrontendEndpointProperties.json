@@ -7,7 +7,9 @@
       "name": "CustomHTTPSConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSConfiguration"
+        "nullable": false,
+        "referenceName": "CustomHTTPSConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomHTTPSProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningState"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CustomHTTPSProvisioningSubstate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHTTPSProvisioningSubstate"
+        "nullable": false,
+        "referenceName": "CustomHTTPSProvisioningSubstate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SessionAffinityEnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionAffinityEnabledState"
+        "nullable": false,
+        "referenceName": "SessionAffinityEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "SessionAffinityTtlSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "WebApplicationFirewallPolicyLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink"
+        "nullable": false,
+        "referenceName": "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

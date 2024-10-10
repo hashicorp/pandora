@@ -1,6 +1,7 @@
 {
   "name": "RestoreSnapshotSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "SlotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SnapshotRestoreRequest"
+    "nullable": false,
+    "referenceName": "SnapshotRestoreRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restoreSnapshot"
 }

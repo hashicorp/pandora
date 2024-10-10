@@ -7,7 +7,9 @@
       "name": "Format",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastActivationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PackageState"
+        "nullable": false,
+        "referenceName": "PackageState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -44,10 +50,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "storageUrl",
-      "name": "StorageUrl",
+      "name": "StorageURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -58,15 +66,18 @@
       "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
       "jsonName": "storageUrlExpiry",
-      "name": "StorageUrlExpiry",
+      "name": "StorageURLExpiry",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

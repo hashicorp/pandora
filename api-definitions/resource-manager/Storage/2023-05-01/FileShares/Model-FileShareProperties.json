@@ -7,7 +7,9 @@
       "name": "AccessTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareAccessTier"
+        "nullable": false,
+        "referenceName": "ShareAccessTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "AccessTierChangeTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "AccessTierStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Deleted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "DeletedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "EnabledProtocols",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnabledProtocols"
+        "nullable": false,
+        "referenceName": "EnabledProtocols",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,7 +100,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,7 +115,9 @@
       "name": "LeaseDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseDuration"
+        "nullable": false,
+        "referenceName": "LeaseDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,7 +130,9 @@
       "name": "LeaseState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseState"
+        "nullable": false,
+        "referenceName": "LeaseState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -127,7 +145,9 @@
       "name": "LeaseStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LeaseStatus"
+        "nullable": false,
+        "referenceName": "LeaseStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -140,10 +160,14 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -157,7 +181,9 @@
       "name": "RemainingRetentionDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,7 +196,9 @@
       "name": "RootSquash",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RootSquashType"
+        "nullable": false,
+        "referenceName": "RootSquashType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,7 +211,9 @@
       "name": "ShareQuota",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,7 +226,9 @@
       "name": "ShareUsageBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,10 +241,14 @@
       "name": "SignedIdentifiers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignedIdentifier"
+          "nullable": false,
+          "referenceName": "SignedIdentifier",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -227,7 +263,9 @@
       "name": "SnapshotTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -240,12 +278,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

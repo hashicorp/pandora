@@ -7,7 +7,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorEntity"
+        "nullable": false,
+        "referenceName": "ErrorEntity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowHealthState"
+        "nullable": false,
+        "referenceName": "WorkflowHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

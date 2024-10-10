@@ -1,6 +1,7 @@
 {
   "name": "CloudEndpointsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CloudEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CloudEndpointCreateParameters"
+    "nullable": false,
+    "referenceName": "CloudEndpointCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CloudEndpoint"
+    "nullable": false,
+    "referenceName": "CloudEndpoint",
+    "referenceNameIsCommonType": null
   }
 }

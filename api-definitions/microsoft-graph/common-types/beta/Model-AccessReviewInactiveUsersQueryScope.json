@@ -1,0 +1,25 @@
+{
+  "name": "AccessReviewInactiveUsersQueryScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the duration of inactivity. Inactivity is based on the last sign in date of the user compared to the access review instance's start date. If this property is not specified, it's assigned the default value PT0S.",
+      "jsonName": "inactiveDuration",
+      "name": "InactiveDuration",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewQueryScope",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewInactiveUsersQueryScope",
+  "typeHintIn": "ODataType"
+}

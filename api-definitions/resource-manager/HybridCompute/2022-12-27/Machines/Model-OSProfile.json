@@ -7,7 +7,9 @@
       "name": "ComputerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfileLinuxConfiguration"
+        "nullable": false,
+        "referenceName": "OSProfileLinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfileWindowsConfiguration"
+        "nullable": false,
+        "referenceName": "OSProfileWindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

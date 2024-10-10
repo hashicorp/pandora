@@ -7,7 +7,9 @@
       "name": "DomainNameLabel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "DomainNameLabelScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainNameLabelScopeTypes"
+        "nullable": false,
+        "referenceName": "DomainNameLabelScopeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

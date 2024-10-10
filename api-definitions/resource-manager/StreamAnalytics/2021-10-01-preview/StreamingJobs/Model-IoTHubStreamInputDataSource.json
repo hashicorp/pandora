@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTHubStreamInputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "IoTHubStreamInputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "StreamInputDataSource",
   "discriminatedTypeValue": "Microsoft.Devices/IotHubs",
   "typeHintIn": "Type"

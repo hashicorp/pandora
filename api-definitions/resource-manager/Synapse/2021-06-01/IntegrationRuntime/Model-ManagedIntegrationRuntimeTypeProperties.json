@@ -7,7 +7,9 @@
       "name": "ComputeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeComputeProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeComputeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomerVirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeCustomerVirtualNetwork"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeCustomerVirtualNetwork",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SsisProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeSsisProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeSsisProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

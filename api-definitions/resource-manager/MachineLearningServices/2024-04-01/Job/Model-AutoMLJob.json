@@ -7,7 +7,9 @@
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "QueueSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueSettings"
+        "nullable": false,
+        "referenceName": "QueueSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobResourceConfiguration"
+        "nullable": false,
+        "referenceName": "JobResourceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "TaskDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoMLVertical"
+        "nullable": false,
+        "referenceName": "AutoMLVertical",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -88,6 +104,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobBase",
   "discriminatedTypeValue": "AutoML",
   "typeHintIn": "JobType"

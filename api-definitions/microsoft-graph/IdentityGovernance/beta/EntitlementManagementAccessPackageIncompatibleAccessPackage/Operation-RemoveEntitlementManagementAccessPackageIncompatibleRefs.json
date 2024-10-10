@@ -1,0 +1,59 @@
+{
+  "name": "RemoveEntitlementManagementAccessPackageIncompatibleRefs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Remove accessPackage from incompatibleAccessPackages. Remove an access package from the list of access packages marked as incompatible on an accessPackage.",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "@id",
+      "required": false,
+      "field": "Id",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceEntitlementManagementAccessPackageId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/incompatibleAccessPackages/$ref"
+}

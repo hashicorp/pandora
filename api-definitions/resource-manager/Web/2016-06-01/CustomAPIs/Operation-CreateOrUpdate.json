@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "CustomApiId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CustomApiDefinition"
+    "nullable": false,
+    "referenceName": "CustomApiDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CustomApiDefinition"
+    "nullable": false,
+    "referenceName": "CustomApiDefinition",
+    "referenceNameIsCommonType": null
   }
 }

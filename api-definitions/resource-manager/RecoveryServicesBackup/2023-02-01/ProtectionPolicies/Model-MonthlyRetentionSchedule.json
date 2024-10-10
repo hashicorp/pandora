@@ -7,7 +7,9 @@
       "name": "RetentionDuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDuration"
+        "nullable": false,
+        "referenceName": "RetentionDuration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RetentionScheduleDaily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailyRetentionFormat"
+        "nullable": false,
+        "referenceName": "DailyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RetentionScheduleFormatType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionScheduleFormat"
+        "nullable": false,
+        "referenceName": "RetentionScheduleFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RetentionScheduleWeekly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklyRetentionFormat"
+        "nullable": false,
+        "referenceName": "WeeklyRetentionFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "RetentionTimes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "DateTime",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +82,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

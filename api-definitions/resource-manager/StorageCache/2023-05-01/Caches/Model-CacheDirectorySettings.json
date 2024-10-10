@@ -7,7 +7,9 @@
       "name": "ActiveDirectory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheActiveDirectorySettings"
+        "nullable": false,
+        "referenceName": "CacheActiveDirectorySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "UsernameDownload",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheUsernameDownloadSettings"
+        "nullable": false,
+        "referenceName": "CacheUsernameDownloadSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

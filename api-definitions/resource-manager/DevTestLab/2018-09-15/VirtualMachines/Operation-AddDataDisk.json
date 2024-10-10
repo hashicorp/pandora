@@ -1,6 +1,7 @@
 {
   "name": "AddDataDisk",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DataDiskProperties"
+    "nullable": false,
+    "referenceName": "DataDiskProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/addDataDisk"
 }

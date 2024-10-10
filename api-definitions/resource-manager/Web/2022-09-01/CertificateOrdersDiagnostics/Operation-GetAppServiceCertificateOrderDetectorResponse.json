@@ -1,6 +1,7 @@
 {
   "name": "GetAppServiceCertificateOrderDetectorResponse",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "endTime",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "startTime",
       "required": false,
@@ -28,6 +31,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "timeGrain",
       "required": false,
@@ -38,9 +42,11 @@
       }
     }
   ],
-  "resourceIdName": "DetectorId",
+  "resourceIdName": "CertificateOrderDetectorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DetectorResponse"
+    "nullable": false,
+    "referenceName": "DetectorResponse",
+    "referenceNameIsCommonType": null
   }
 }

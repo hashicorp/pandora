@@ -7,7 +7,9 @@
       "name": "EventHubConfigurations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHub"
+        "nullable": false,
+        "referenceName": "EventHub",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MonitorConfigurations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorLog"
+        "nullable": false,
+        "referenceName": "MonitorLog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "StorageConfigurations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccount"
+        "nullable": false,
+        "referenceName": "StorageAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

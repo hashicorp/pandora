@@ -7,7 +7,9 @@
       "name": "AccountAdminNotificationEmailAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BillingAccountAgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BillingAccountDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BillingAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "BillingAccountSoldToCountry",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "BillingAccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountStatus"
+        "nullable": false,
+        "referenceName": "AccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "BillingAccountStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingAccountStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingAccountStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "BillingAccountSubType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountSubType"
+        "nullable": false,
+        "referenceName": "AccountSubType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "BillingAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountType"
+        "nullable": false,
+        "referenceName": "AccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "BillingProfilePaymentMethodFamily",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentMethodFamily"
+        "nullable": false,
+        "referenceName": "PaymentMethodFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "BillingProfilePaymentMethodType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,7 +217,9 @@
       "name": "BillingProfileSpendingLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpendingLimit"
+        "nullable": false,
+        "referenceName": "SpendingLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,10 +232,14 @@
       "name": "BillingProfileSpendingLimitDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SpendingLimitDetails"
+          "nullable": false,
+          "referenceName": "SpendingLimitDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -219,7 +253,9 @@
       "name": "BillingProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatus"
+        "nullable": false,
+        "referenceName": "BillingProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,7 +268,9 @@
       "name": "BillingProfileStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingProfileStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,7 +283,9 @@
       "name": "BillingTenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,7 +298,9 @@
       "name": "CostCenter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,7 +313,9 @@
       "name": "CustomerDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,7 +328,9 @@
       "name": "CustomerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -297,7 +343,9 @@
       "name": "CustomerStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerStatus"
+        "nullable": false,
+        "referenceName": "CustomerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -310,7 +358,9 @@
       "name": "EnrollmentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionEnrollmentDetails"
+        "nullable": false,
+        "referenceName": "SubscriptionEnrollmentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -323,7 +373,9 @@
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -336,7 +388,9 @@
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -349,7 +403,9 @@
       "name": "InvoiceSectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceSectionState"
+        "nullable": false,
+        "referenceName": "InvoiceSectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -362,7 +418,9 @@
       "name": "InvoiceSectionStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceSectionStateReasonCode"
+        "nullable": false,
+        "referenceName": "InvoiceSectionStateReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -375,7 +433,9 @@
       "name": "IsAccountAdmin",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -388,7 +448,9 @@
       "name": "IsTransitionedBillingAccount",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -401,7 +463,9 @@
       "name": "ProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -414,7 +478,9 @@
       "name": "ProductName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -427,7 +493,9 @@
       "name": "SkuDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -440,7 +508,9 @@
       "name": "SkuId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -453,7 +523,9 @@
       "name": "SubscriptionBillingStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingSubscriptionStatus"
+        "nullable": false,
+        "referenceName": "BillingSubscriptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -466,10 +538,14 @@
       "name": "SubscriptionBillingStatusDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BillingSubscriptionStatusDetails"
+          "nullable": false,
+          "referenceName": "BillingSubscriptionStatusDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -483,7 +559,9 @@
       "name": "SubscriptionBillingType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionBillingType"
+        "nullable": false,
+        "referenceName": "SubscriptionBillingType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -496,7 +574,9 @@
       "name": "SubscriptionServiceUsageAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -509,12 +589,15 @@
       "name": "SubscriptionWorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionWorkloadType"
+        "nullable": false,
+        "referenceName": "SubscriptionWorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

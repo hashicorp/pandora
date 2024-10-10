@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementConfigurationSimpleSettingInstanceTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Simple Setting Value Template",
+      "jsonName": "simpleSettingValueTemplate",
+      "name": "SimpleSettingValueTemplate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationSimpleSettingValueTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstanceTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSimpleSettingInstanceTemplate",
+  "typeHintIn": "ODataType"
+}

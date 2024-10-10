@@ -1,0 +1,41 @@
+{
+  "name": "UserInsightsRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Summaries of daily user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.",
+      "jsonName": "daily",
+      "name": "Daily",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DailyUserInsightMetricsRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Summaries of monthly user activities on apps registered in your tenant that is configured for Microsoft Entra External ID for customers.",
+      "jsonName": "monthly",
+      "name": "Monthly",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MonthlyUserInsightMetricsRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userInsightsRoot",
+  "typeHintIn": "ODataType"
+}

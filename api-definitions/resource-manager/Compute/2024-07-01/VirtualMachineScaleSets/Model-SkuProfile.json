@@ -7,7 +7,9 @@
       "name": "AllocationStrategy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllocationStrategy"
+        "nullable": false,
+        "referenceName": "AllocationStrategy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "VMSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SkuProfileVMSize"
+          "nullable": false,
+          "referenceName": "SkuProfileVMSize",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +37,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

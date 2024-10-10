@@ -7,7 +7,9 @@
       "name": "WriteBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureSearchIndexWriteBehaviorType"
+        "nullable": false,
+        "referenceName": "AzureSearchIndexWriteBehaviorType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "AzureSearchIndexSink",
   "typeHintIn": "Type"

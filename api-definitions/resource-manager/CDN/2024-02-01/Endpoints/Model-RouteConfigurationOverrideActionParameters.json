@@ -7,7 +7,9 @@
       "name": "CacheConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CacheConfiguration"
+        "nullable": false,
+        "referenceName": "CacheConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OriginGroupOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OriginGroupOverride"
+        "nullable": false,
+        "referenceName": "OriginGroupOverride",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryRuleActionParameters",
   "discriminatedTypeValue": "DeliveryRuleRouteConfigurationOverrideActionParameters",
   "typeHintIn": "TypeName"

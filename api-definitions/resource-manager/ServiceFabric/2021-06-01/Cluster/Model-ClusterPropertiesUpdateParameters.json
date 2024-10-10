@@ -7,10 +7,14 @@
       "name": "AddOnFeatures",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AddOnFeatures"
+          "nullable": false,
+          "referenceName": "AddOnFeatures",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ApplicationTypeVersionsCleanupPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationTypeVersionsCleanupPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationTypeVersionsCleanupPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Certificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDescription"
+        "nullable": false,
+        "referenceName": "CertificateDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "CertificateCommonNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerCertificateCommonNames"
+        "nullable": false,
+        "referenceName": "ServerCertificateCommonNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "ClientCertificateCommonNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificateCommonName"
+          "nullable": false,
+          "referenceName": "ClientCertificateCommonName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "ClientCertificateThumbprints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientCertificateThumbprint"
+          "nullable": false,
+          "referenceName": "ClientCertificateThumbprint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,7 +115,9 @@
       "name": "ClusterCodeVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "EventStoreServiceEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,10 +145,14 @@
       "name": "FabricSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SettingsSectionDescription"
+          "nullable": false,
+          "referenceName": "SettingsSectionDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -140,7 +166,9 @@
       "name": "InfrastructureServiceManager",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,10 +181,14 @@
       "name": "NodeTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NodeTypeDescription"
+          "nullable": false,
+          "referenceName": "NodeTypeDescription",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -170,10 +202,14 @@
       "name": "Notifications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Notification"
+          "nullable": false,
+          "referenceName": "Notification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,7 +223,9 @@
       "name": "ReliabilityLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReliabilityLevel"
+        "nullable": false,
+        "referenceName": "ReliabilityLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -200,7 +238,9 @@
       "name": "ReverseProxyCertificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CertificateDescription"
+        "nullable": false,
+        "referenceName": "CertificateDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -213,7 +253,9 @@
       "name": "SfZonalUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SfZonalUpgradeMode"
+        "nullable": false,
+        "referenceName": "SfZonalUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -226,7 +268,9 @@
       "name": "UpgradeDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradePolicy"
+        "nullable": false,
+        "referenceName": "ClusterUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -239,7 +283,9 @@
       "name": "UpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeMode"
+        "nullable": false,
+        "referenceName": "UpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,7 +299,9 @@
       "name": "UpgradePauseEndTimestampUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -267,7 +315,9 @@
       "name": "UpgradePauseStartTimestampUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -280,7 +330,9 @@
       "name": "UpgradeWave",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeCadence"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeCadence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -293,7 +345,9 @@
       "name": "VMSSZonalUpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMSSZonalUpgradeMode"
+        "nullable": false,
+        "referenceName": "VMSSZonalUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -306,12 +360,15 @@
       "name": "WaveUpgradePaused",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

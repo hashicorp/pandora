@@ -7,7 +7,9 @@
       "name": "Attributes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AliasPathAttributes"
+        "nullable": false,
+        "referenceName": "AliasPathAttributes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AliasPathTokenType"
+        "nullable": false,
+        "referenceName": "AliasPathTokenType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

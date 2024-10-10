@@ -1,0 +1,40 @@
+{
+  "name": "SearchAcronym",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "What the acronym stands for.",
+      "jsonName": "standsFor",
+      "name": "StandsFor",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SearchAnswerState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchSearchAnswer",
+  "discriminatedTypeValue": "#microsoft.graph.search.acronym",
+  "typeHintIn": "ODataType"
+}

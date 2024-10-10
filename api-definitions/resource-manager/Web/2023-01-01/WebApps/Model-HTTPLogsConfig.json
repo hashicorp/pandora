@@ -7,7 +7,9 @@
       "name": "AzureBlobStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobStorageHTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureBlobStorageHTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "FileSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileSystemHTTPLogsConfig"
+        "nullable": false,
+        "referenceName": "FileSystemHTTPLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

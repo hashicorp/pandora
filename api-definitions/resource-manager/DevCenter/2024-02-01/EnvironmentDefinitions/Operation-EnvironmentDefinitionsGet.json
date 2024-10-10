@@ -1,6 +1,7 @@
 {
   "name": "EnvironmentDefinitionsGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "CatalogEnvironmentDefinitionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentDefinition"
+    "nullable": false,
+    "referenceName": "EnvironmentDefinition",
+    "referenceNameIsCommonType": null
   }
 }

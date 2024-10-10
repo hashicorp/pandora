@@ -7,7 +7,9 @@
       "name": "CandidatePublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyDetails"
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ClientPublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyDetails"
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

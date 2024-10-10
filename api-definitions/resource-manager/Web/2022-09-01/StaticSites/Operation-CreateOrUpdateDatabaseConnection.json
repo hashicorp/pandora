@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateDatabaseConnection",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DatabaseConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatabaseConnection"
+    "nullable": false,
+    "referenceName": "DatabaseConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabaseConnection"
+    "nullable": false,
+    "referenceName": "DatabaseConnection",
+    "referenceNameIsCommonType": null
   }
 }

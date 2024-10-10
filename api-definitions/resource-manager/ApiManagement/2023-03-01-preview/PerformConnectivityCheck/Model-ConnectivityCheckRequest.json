@@ -7,7 +7,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestDestination"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PreferredIPVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreferredIPVersion"
+        "nullable": false,
+        "referenceName": "PreferredIPVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckProtocol"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ProtocolConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestProtocolConfiguration"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestProtocolConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectivityCheckRequestSource"
+        "nullable": false,
+        "referenceName": "ConnectivityCheckRequestSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

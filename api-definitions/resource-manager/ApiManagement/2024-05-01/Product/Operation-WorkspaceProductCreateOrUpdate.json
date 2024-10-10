@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceProductCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "WorkspaceProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProductContract"
+    "nullable": false,
+    "referenceName": "ProductContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProductContract"
+    "nullable": false,
+    "referenceName": "ProductContract",
+    "referenceNameIsCommonType": null
   }
 }

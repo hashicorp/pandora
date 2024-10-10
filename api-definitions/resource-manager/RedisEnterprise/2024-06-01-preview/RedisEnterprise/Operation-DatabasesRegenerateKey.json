@@ -1,6 +1,7 @@
 {
   "name": "DatabasesRegenerateKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegenerateKeyParameters"
+    "nullable": false,
+    "referenceName": "RegenerateKeyParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccessKeys"
+    "nullable": false,
+    "referenceName": "AccessKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateKey"
 }

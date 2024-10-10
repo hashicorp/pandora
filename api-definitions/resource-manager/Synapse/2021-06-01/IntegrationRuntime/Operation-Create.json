@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "IntegrationRuntimeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IntegrationRuntimeResource"
+    "nullable": false,
+    "referenceName": "IntegrationRuntimeResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IntegrationRuntimeResource"
+    "nullable": false,
+    "referenceName": "IntegrationRuntimeResource",
+    "referenceNameIsCommonType": null
   }
 }

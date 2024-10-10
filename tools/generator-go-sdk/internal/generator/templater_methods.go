@@ -579,19 +579,36 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 		}
 	}
 
-	items := []string{
-		fmt.Sprintf("ContentType: %q", c.operation.ContentType),
-		fmt.Sprintf(`ExpectedStatusCodes: []int{
-			%s,
-}`, strings.Join(expectedStatusCodes, ",\n\t\t\t")),
-		fmt.Sprintf("HttpMethod: http.Method%s", method),
-		fmt.Sprintf("Path: %s", path),
+	options := map[string]string{
+		"ContentType":         fmt.Sprintf("%q", c.operation.ContentType),
+		"ExpectedStatusCodes": fmt.Sprintf("[]int{\n\t\t\t%s,\n}", strings.Join(expectedStatusCodes, ",\n\t\t\t")),
+		"HttpMethod":          fmt.Sprintf("http.Method%s", method),
+		"Path":                path,
 	}
+
 	if len(c.operation.Options) > 0 {
-		items = append(items, "OptionsObject: options")
+		options["OptionsObject"] = "options"
+
+		// Look for special options
+		for optionName, option := range c.operation.Options {
+			switch option.Type {
+			case models.SDKOperationOptionTypeContentType:
+				options["ContentType"] = fmt.Sprintf("options.%s", optionName)
+				break
+			case models.SDKOperationOptionTypeRetryFunc:
+				options["RetryFunc"] = fmt.Sprintf("options.%s", optionName)
+				break
+			}
+		}
 	}
+
 	if c.operation.FieldContainingPaginationDetails != nil {
-		items = append(items, fmt.Sprintf("Pager: &%sCustomPager{}", c.operationName))
+		options["Pager"] = fmt.Sprintf("&%sCustomPager{}", c.operationName)
+	}
+
+	items := make([]string, 0, len(options))
+	for key, value := range options {
+		items = append(items, fmt.Sprintf("%s: %s", key, value))
 	}
 	sort.Strings(items)
 
@@ -830,25 +847,40 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
+		// Handle special options
+		switch option.Type {
+		case models.SDKOperationOptionTypeContentType:
+			properties = append(properties, fmt.Sprintf("%s string", optionName))
+			continue
+		case models.SDKOperationOptionTypeRetryFunc:
+			properties = append(properties, fmt.Sprintf("%s client.RequestRetryFunc", optionName))
+			continue
+		}
+
 		optionType, err := helpers.GolangTypeForSDKOperationOptionObjectDefinition(option.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}
+
 		properties = append(properties, fmt.Sprintf("%s *%s", optionName, *optionType))
+
 		if option.ODataFieldName != nil {
 			value := fmt.Sprintf("*o.%s", *option.ODataFieldName)
 			if option.ObjectDefinition.Type == models.IntegerSDKOperationOptionObjectDefinitionType {
 				value = fmt.Sprintf("int(%s)", value)
 			}
+
 			odataAssignments = append(odataAssignments, fmt.Sprintf(`if o.%[1]s != nil {
 	out.%[2]s = %[3]s
 }`, optionName, *option.ODataFieldName, value))
 		}
+
 		if option.HeaderName != nil {
 			headerAssignments = append(headerAssignments, fmt.Sprintf(`if o.%[1]s != nil {
 	out.Append("%[2]s", fmt.Sprintf("%%v", *o.%[1]s))
 }`, optionName, *option.HeaderName))
 		}
+
 		if option.QueryStringName != nil {
 			queryStringAssignments = append(queryStringAssignments, fmt.Sprintf(`if o.%[1]s != nil {
 	out.Append("%[2]s", fmt.Sprintf("%%v", *o.%[1]s))

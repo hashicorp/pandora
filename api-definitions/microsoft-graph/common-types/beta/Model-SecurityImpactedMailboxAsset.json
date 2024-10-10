@@ -1,0 +1,24 @@
+{
+  "name": "SecurityImpactedMailboxAsset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityMailboxAssetIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityImpactedAsset",
+  "discriminatedTypeValue": "#microsoft.graph.security.impactedMailboxAsset",
+  "typeHintIn": "ODataType"
+}

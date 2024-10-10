@@ -7,7 +7,9 @@
       "name": "DnsServiceIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DockerBridgeCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "IPFamilies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPFamily"
+          "nullable": false,
+          "referenceName": "IPFamily",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "KubeProxyConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfig"
+        "nullable": false,
+        "referenceName": "ContainerServiceNetworkProfileKubeProxyConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "LoadBalancerProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterLoadBalancerProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterLoadBalancerProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "LoadBalancerSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerSku"
+        "nullable": false,
+        "referenceName": "LoadBalancerSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "NatGatewayProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterNATGatewayProfile"
+        "nullable": false,
+        "referenceName": "ManagedClusterNATGatewayProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "NetworkDataplane",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkDataplane"
+        "nullable": false,
+        "referenceName": "NetworkDataplane",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "NetworkMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkMode"
+        "nullable": false,
+        "referenceName": "NetworkMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "NetworkPlugin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPlugin"
+        "nullable": false,
+        "referenceName": "NetworkPlugin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "NetworkPluginMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPluginMode"
+        "nullable": false,
+        "referenceName": "NetworkPluginMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "NetworkPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkPolicy"
+        "nullable": false,
+        "referenceName": "NetworkPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "OutboundType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OutboundType"
+        "nullable": false,
+        "referenceName": "OutboundType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "PodCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,10 +223,14 @@
       "name": "PodCidrs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,7 +244,9 @@
       "name": "ServiceCidr",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,10 +259,14 @@
       "name": "ServiceCidrs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -234,5 +274,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

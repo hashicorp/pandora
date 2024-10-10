@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceNotificationRecipientEmailCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "NotificationRecipientEmailId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RecipientEmailContract"
+    "nullable": false,
+    "referenceName": "RecipientEmailContract",
+    "referenceNameIsCommonType": null
   }
 }

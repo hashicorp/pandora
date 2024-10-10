@@ -7,7 +7,9 @@
       "name": "CiemDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmGcpOfferingCiemDiscovery"
+        "nullable": false,
+        "referenceName": "DefenderCspmGcpOfferingCiemDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataSensitivityDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmGcpOfferingDataSensitivityDiscovery"
+        "nullable": false,
+        "referenceName": "DefenderCspmGcpOfferingDataSensitivityDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderCspmGcpOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmGcpOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderCspmGcpOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderCspmGcpOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderCspmGcpOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,6 +77,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderCspmGcp",
   "typeHintIn": "OfferingType"

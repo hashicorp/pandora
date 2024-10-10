@@ -1,0 +1,41 @@
+{
+  "name": "SkypeForBusinessUserConversationMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "ID of the tenant that the user belongs to.",
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Microsoft Entra ID of the user.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConversationMember",
+  "discriminatedTypeValue": "#microsoft.graph.skypeForBusinessUserConversationMember",
+  "typeHintIn": "ODataType"
+}

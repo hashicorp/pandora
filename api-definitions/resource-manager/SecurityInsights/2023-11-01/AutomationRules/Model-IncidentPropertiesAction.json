@@ -7,7 +7,9 @@
       "name": "Classification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassification"
+        "nullable": false,
+        "referenceName": "IncidentClassification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClassificationComment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClassificationReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassificationReason"
+        "nullable": false,
+        "referenceName": "IncidentClassificationReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncidentLabel"
+          "nullable": false,
+          "referenceName": "IncidentLabel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "Owner",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentOwnerInfo"
+        "nullable": false,
+        "referenceName": "IncidentOwnerInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentSeverity"
+        "nullable": false,
+        "referenceName": "IncidentSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,12 +103,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentStatus"
+        "nullable": false,
+        "referenceName": "IncidentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

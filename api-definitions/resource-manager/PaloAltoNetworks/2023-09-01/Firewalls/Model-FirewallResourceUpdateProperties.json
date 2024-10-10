@@ -7,7 +7,9 @@
       "name": "AssociatedRulestack",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulestackDetails"
+        "nullable": false,
+        "referenceName": "RulestackDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DNSSettings"
+        "nullable": false,
+        "referenceName": "DNSSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "FrontEndSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendSetting"
+          "nullable": false,
+          "referenceName": "FrontendSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "IsPanoramaManaged",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetails"
+        "nullable": false,
+        "referenceName": "MarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "PanEtag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "PanoramaConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PanoramaConfig"
+        "nullable": false,
+        "referenceName": "PanoramaConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +133,15 @@
       "name": "PlanData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanData"
+        "nullable": false,
+        "referenceName": "PlanData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

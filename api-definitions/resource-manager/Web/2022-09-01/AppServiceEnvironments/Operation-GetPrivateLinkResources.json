@@ -1,6 +1,7 @@
 {
   "name": "GetPrivateLinkResources",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkResourcesWrapper"
+    "nullable": false,
+    "referenceName": "PrivateLinkResourcesWrapper",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateLinkResources"
 }

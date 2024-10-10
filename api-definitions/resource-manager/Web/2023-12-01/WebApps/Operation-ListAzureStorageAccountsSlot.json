@@ -1,6 +1,7 @@
 {
   "name": "ListAzureStorageAccountsSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SlotId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureStoragePropertyDictionaryResource"
+    "nullable": false,
+    "referenceName": "AzureStoragePropertyDictionaryResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/azurestorageaccounts/list"
 }

@@ -7,7 +7,9 @@
       "name": "CopyOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyOptions"
+        "nullable": false,
+        "referenceName": "CopyOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryType"
+        "nullable": false,
+        "referenceName": "RecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "RestoreFileSpecs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RestoreFileSpecs"
+          "nullable": false,
+          "referenceName": "RestoreFileSpecs",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "RestoreRequestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoreRequestType"
+        "nullable": false,
+        "referenceName": "RestoreRequestType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "TargetDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetAFSRestoreInfo"
+        "nullable": false,
+        "referenceName": "TargetAFSRestoreInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,6 +98,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreRequest",
   "discriminatedTypeValue": "AzureFileShareRestoreRequest",
   "typeHintIn": "ObjectType"

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ServerForUpdate"
+    "nullable": false,
+    "referenceName": "ServerForUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Server"
+    "nullable": false,
+    "referenceName": "Server",
+    "referenceNameIsCommonType": null
   }
 }

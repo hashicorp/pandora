@@ -7,7 +7,9 @@
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureSqlProtectedItemExtendedInfo"
+        "nullable": false,
+        "referenceName": "AzureSqlProtectedItemExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProtectedItemDataId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectedItemState"
+        "nullable": false,
+        "referenceName": "ProtectedItemState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectedItem",
   "discriminatedTypeValue": "Microsoft.Sql/servers/databases",
   "typeHintIn": "ProtectedItemType"

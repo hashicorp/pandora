@@ -7,10 +7,14 @@
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmDiskInput"
+          "nullable": false,
+          "referenceName": "InMageRcmDiskInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AddDisksProviderSpecificInput",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

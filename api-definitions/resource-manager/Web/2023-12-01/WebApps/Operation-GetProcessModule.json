@@ -1,6 +1,7 @@
 {
   "name": "GetProcessModule",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ModuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProcessModuleInfo"
+    "nullable": false,
+    "referenceName": "ProcessModuleInfo",
+    "referenceNameIsCommonType": null
   }
 }

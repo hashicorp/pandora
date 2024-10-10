@@ -7,7 +7,9 @@
       "name": "CurrentState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerState"
+        "nullable": false,
+        "referenceName": "ContainerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Events",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Event"
+          "nullable": false,
+          "referenceName": "Event",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "PreviousState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerState"
+        "nullable": false,
+        "referenceName": "ContainerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "RestartCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

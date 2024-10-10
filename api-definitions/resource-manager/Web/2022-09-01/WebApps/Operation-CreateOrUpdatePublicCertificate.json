@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdatePublicCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PublicCertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PublicCertificate"
+    "nullable": false,
+    "referenceName": "PublicCertificate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PublicCertificate"
+    "nullable": false,
+    "referenceName": "PublicCertificate",
+    "referenceNameIsCommonType": null
   }
 }

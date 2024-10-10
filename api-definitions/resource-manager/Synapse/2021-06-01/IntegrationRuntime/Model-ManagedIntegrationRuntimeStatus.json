@@ -7,7 +7,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeStatusTypeProperties"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeStatusTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "IntegrationRuntimeStatus",
   "discriminatedTypeValue": "Managed",
   "typeHintIn": "Type"

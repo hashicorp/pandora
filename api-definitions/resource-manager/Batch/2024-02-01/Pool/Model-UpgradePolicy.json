@@ -7,7 +7,9 @@
       "name": "AutomaticOSUpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticOSUpgradePolicy"
+        "nullable": false,
+        "referenceName": "AutomaticOSUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradeMode"
+        "nullable": false,
+        "referenceName": "UpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "RollingUpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradePolicy"
+        "nullable": false,
+        "referenceName": "RollingUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

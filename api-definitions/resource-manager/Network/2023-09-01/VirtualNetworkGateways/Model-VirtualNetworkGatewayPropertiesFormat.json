@@ -7,7 +7,9 @@
       "name": "ActiveActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdminState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdminState"
+        "nullable": false,
+        "referenceName": "AdminState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AllowRemoteVnetTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "AllowVirtualWanTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "AutoScaleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayAutoScaleConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayAutoScaleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "BgpSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BgpSettings"
+        "nullable": false,
+        "referenceName": "BgpSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "CustomRoutes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "DisableIPSecReplayProtection",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "EnableBgp",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "EnableBgpRouteTranslationForNat",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "EnableDnsForwarding",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "EnablePrivateIPAddress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "GatewayDefaultSite",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "GatewayType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewayType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewayType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,10 +217,14 @@
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -206,7 +238,9 @@
       "name": "InboundDnsForwardingEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,10 +253,14 @@
       "name": "NatRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayNatRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayNatRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -236,7 +274,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,7 +304,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkGatewaySku"
+        "nullable": false,
+        "referenceName": "VirtualNetworkGatewaySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,7 +319,9 @@
       "name": "VNetExtendedLocationResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,10 +334,14 @@
       "name": "VirtualNetworkGatewayPolicyGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkGatewayPolicyGroup"
+          "nullable": false,
+          "referenceName": "VirtualNetworkGatewayPolicyGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -305,7 +355,9 @@
       "name": "VpnClientConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnClientConfiguration"
+        "nullable": false,
+        "referenceName": "VpnClientConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -318,7 +370,9 @@
       "name": "VpnGatewayGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnGatewayGeneration"
+        "nullable": false,
+        "referenceName": "VpnGatewayGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -331,12 +385,15 @@
       "name": "VpnType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VpnType"
+        "nullable": false,
+        "referenceName": "VpnType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

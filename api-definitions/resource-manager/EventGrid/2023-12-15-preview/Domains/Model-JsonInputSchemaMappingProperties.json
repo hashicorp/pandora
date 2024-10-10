@@ -7,7 +7,9 @@
       "name": "DataVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EventTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EventType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Subject",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonFieldWithDefault"
+        "nullable": false,
+        "referenceName": "JsonFieldWithDefault",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "Topic",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonField"
+        "nullable": false,
+        "referenceName": "JsonField",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

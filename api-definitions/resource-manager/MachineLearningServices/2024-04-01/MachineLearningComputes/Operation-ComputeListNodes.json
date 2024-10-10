@@ -1,6 +1,7 @@
 {
   "name": "ComputeListNodes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ComputeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AmlComputeNodesInformation"
+    "nullable": false,
+    "referenceName": "AmlComputeNodesInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listNodes"
 }

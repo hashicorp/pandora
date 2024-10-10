@@ -7,7 +7,9 @@
       "name": "JobDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobBase"
+        "nullable": false,
+        "referenceName": "JobBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ScheduleActionBase",
   "discriminatedTypeValue": "CreateJob",
   "typeHintIn": "ActionType"

@@ -1,0 +1,21 @@
+{
+  "name": "CreateLifecycleWorkflowDeletedItemWorkflowIdentityGovernanceCreateNewVersionRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workflow",
+      "name": "Workflow",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceWorkflow",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

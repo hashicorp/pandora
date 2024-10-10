@@ -7,10 +7,14 @@
       "name": "AdditionalAllowedSessionTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PduSessionType"
+          "nullable": false,
+          "referenceName": "PduSessionType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AllocationAndRetentionPriorityLevel",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "AllowedServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceResourceId"
+          "nullable": false,
+          "referenceName": "ServiceResourceId",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -54,7 +64,9 @@
       "name": "DataNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataNetworkResourceId"
+        "nullable": false,
+        "referenceName": "DataNetworkResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "DefaultSessionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PduSessionType"
+        "nullable": false,
+        "referenceName": "PduSessionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "Fiveqi",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "MaximumNumberOfBufferedPackets",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "PreemptionCapability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreemptionCapability"
+        "nullable": false,
+        "referenceName": "PreemptionCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "PreemptionVulnerability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreemptionVulnerability"
+        "nullable": false,
+        "referenceName": "PreemptionVulnerability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,12 +154,15 @@
       "name": "SessionAmbr",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ambr"
+        "nullable": false,
+        "referenceName": "Ambr",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

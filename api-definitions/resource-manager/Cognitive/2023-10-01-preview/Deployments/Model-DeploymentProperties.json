@@ -7,7 +7,9 @@
       "name": "CallRateLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CallRateLimit"
+        "nullable": false,
+        "referenceName": "CallRateLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "CapacitySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentCapacitySettings"
+        "nullable": false,
+        "referenceName": "DeploymentCapacitySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "CurrentCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "DynamicThrottlingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Model",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentModel"
+        "nullable": false,
+        "referenceName": "DeploymentModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentProvisioningState"
+        "nullable": false,
+        "referenceName": "DeploymentProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "RaiPolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,10 +133,14 @@
       "name": "RateLimits",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThrottlingRule"
+          "nullable": false,
+          "referenceName": "ThrottlingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,7 +154,9 @@
       "name": "ScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentScaleSettings"
+        "nullable": false,
+        "referenceName": "DeploymentScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,12 +169,15 @@
       "name": "VersionUpgradeOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentModelVersionUpgradeOption"
+        "nullable": false,
+        "referenceName": "DeploymentModelVersionUpgradeOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

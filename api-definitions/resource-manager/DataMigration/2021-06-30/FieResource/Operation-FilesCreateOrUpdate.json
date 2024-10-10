@@ -1,6 +1,7 @@
 {
   "name": "FilesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "FileId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProjectFile"
+    "nullable": false,
+    "referenceName": "ProjectFile",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProjectFile"
+    "nullable": false,
+    "referenceName": "ProjectFile",
+    "referenceNameIsCommonType": null
   }
 }

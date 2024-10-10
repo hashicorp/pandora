@@ -7,10 +7,14 @@
       "name": "Containers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaContainer"
+          "nullable": false,
+          "referenceName": "ReplicaContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -25,7 +29,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -38,10 +44,14 @@
       "name": "InitContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ReplicaContainer"
+          "nullable": false,
+          "referenceName": "ReplicaContainer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -55,7 +65,9 @@
       "name": "RunningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerAppReplicaRunningState"
+        "nullable": false,
+        "referenceName": "ContainerAppReplicaRunningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,12 +80,15 @@
       "name": "RunningStateDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

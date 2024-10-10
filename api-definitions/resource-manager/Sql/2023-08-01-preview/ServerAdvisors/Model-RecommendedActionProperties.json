@@ -7,10 +7,14 @@
       "name": "Details",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionErrorInfo"
+        "nullable": false,
+        "referenceName": "RecommendedActionErrorInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "EstimatedImpact",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecommendedActionImpactRecord"
+          "nullable": false,
+          "referenceName": "RecommendedActionImpactRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ExecuteActionDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "ExecuteActionInitiatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionInitiatedBy"
+        "nullable": false,
+        "referenceName": "RecommendedActionInitiatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,7 +95,9 @@
       "name": "ExecuteActionInitiatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,7 +111,9 @@
       "name": "ExecuteActionStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,7 +126,9 @@
       "name": "ImplementationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionImplementationInfo"
+        "nullable": false,
+        "referenceName": "RecommendedActionImplementationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,7 +141,9 @@
       "name": "IsArchivedAction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,7 +156,9 @@
       "name": "IsExecutableAction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,7 +171,9 @@
       "name": "IsRevertableAction",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,7 +187,9 @@
       "name": "LastRefresh",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,10 +202,14 @@
       "name": "LinkedObjects",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -191,10 +223,14 @@
       "name": "ObservedImpact",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecommendedActionImpactRecord"
+          "nullable": false,
+          "referenceName": "RecommendedActionImpactRecord",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -208,7 +244,9 @@
       "name": "RecommendationReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,7 +259,9 @@
       "name": "RevertActionDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,7 +274,9 @@
       "name": "RevertActionInitiatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionInitiatedBy"
+        "nullable": false,
+        "referenceName": "RecommendedActionInitiatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -248,7 +290,9 @@
       "name": "RevertActionInitiatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,7 +306,9 @@
       "name": "RevertActionStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,7 +321,9 @@
       "name": "Score",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,7 +336,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionStateInfo"
+        "nullable": false,
+        "referenceName": "RecommendedActionStateInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -301,10 +351,14 @@
       "name": "TimeSeries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecommendedActionMetricInfo"
+          "nullable": false,
+          "referenceName": "RecommendedActionMetricInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -319,12 +373,15 @@
       "name": "ValidSince",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

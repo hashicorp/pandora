@@ -7,7 +7,9 @@
       "name": "Address",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CoverageLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoverageLevel"
+        "nullable": false,
+        "referenceName": "CoverageLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorEndpointFilter"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LocationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorEndpointLocationDetails"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointLocationDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorEndpointScope"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointType"
+        "nullable": false,
+        "referenceName": "EndpointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

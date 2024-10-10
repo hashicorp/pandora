@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "VolumeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SnapshotsList"
+    "nullable": false,
+    "referenceName": "SnapshotsList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/snapshots"
 }

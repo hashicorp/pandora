@@ -1,0 +1,57 @@
+{
+  "name": "DayNote",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date of the day note.",
+      "jsonName": "dayNoteDate",
+      "name": "DayNoteDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The draft version of this day note that is viewable by managers. Only contentType text is supported.",
+      "jsonName": "draftDayNote",
+      "name": "DraftDayNote",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ItemBody",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The shared version of this day note that is viewable by both employees and managers. Only contentType text is supported.",
+      "jsonName": "sharedDayNote",
+      "name": "SharedDayNote",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ItemBody",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChangeTrackedEntity",
+  "discriminatedTypeValue": "#microsoft.graph.dayNote",
+  "typeHintIn": "ODataType"
+}

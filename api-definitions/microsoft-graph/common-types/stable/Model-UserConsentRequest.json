@@ -1,0 +1,41 @@
+{
+  "name": "UserConsentRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Approval decisions associated with a request.",
+      "jsonName": "approval",
+      "name": "Approval",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Approval",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.",
+      "jsonName": "reason",
+      "name": "Reason",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Request",
+  "discriminatedTypeValue": "#microsoft.graph.userConsentRequest",
+  "typeHintIn": "ODataType"
+}

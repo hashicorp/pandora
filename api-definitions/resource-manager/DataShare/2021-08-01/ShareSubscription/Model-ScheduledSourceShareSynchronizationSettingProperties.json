@@ -7,7 +7,9 @@
       "name": "RecurrenceInterval",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceInterval"
+        "nullable": false,
+        "referenceName": "RecurrenceInterval",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "SynchronizationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -8,7 +8,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobInventoryPolicySchema"
+        "nullable": false,
+        "referenceName": "BlobInventoryPolicySchema",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

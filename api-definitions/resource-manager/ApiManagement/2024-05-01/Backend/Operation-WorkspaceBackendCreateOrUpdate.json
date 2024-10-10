@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceBackendCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "WorkspaceBackendId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackendContract"
+    "nullable": false,
+    "referenceName": "BackendContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackendContract"
+    "nullable": false,
+    "referenceName": "BackendContract",
+    "referenceNameIsCommonType": null
   }
 }

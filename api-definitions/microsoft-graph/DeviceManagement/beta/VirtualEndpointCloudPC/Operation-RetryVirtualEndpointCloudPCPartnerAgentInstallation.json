@@ -1,0 +1,39 @@
+{
+  "name": "RetryVirtualEndpointCloudPCPartnerAgentInstallation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action retryPartnerAgentInstallation. Retry installation for the partner agents that failed to install on the Cloud PC. Service side checks which agent installation failed firstly and retry.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementVirtualEndpointCloudPCId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/retryPartnerAgentInstallation"
+}

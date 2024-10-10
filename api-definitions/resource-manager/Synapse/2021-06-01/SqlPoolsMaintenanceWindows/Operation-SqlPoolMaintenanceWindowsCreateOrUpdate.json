@@ -1,6 +1,7 @@
 {
   "name": "SqlPoolMaintenanceWindowsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "maintenanceWindowName",
       "required": true,
@@ -21,7 +23,9 @@
   "resourceIdName": "SqlPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MaintenanceWindows"
+    "nullable": false,
+    "referenceName": "MaintenanceWindows",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/maintenancewindows/current"
 }

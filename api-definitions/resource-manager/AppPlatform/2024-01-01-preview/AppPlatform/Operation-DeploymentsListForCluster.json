@@ -1,6 +1,7 @@
 {
   "name": "DeploymentsListForCluster",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$expand",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "version",
       "required": false,
@@ -36,7 +39,9 @@
   "resourceIdName": "SpringCloudServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentResource"
+    "nullable": false,
+    "referenceName": "DeploymentResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deployments"
 }

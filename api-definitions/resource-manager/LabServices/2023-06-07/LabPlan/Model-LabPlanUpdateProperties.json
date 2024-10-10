@@ -7,10 +7,14 @@
       "name": "AllowedRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "DefaultAutoShutdownProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoShutdownProfile"
+        "nullable": false,
+        "referenceName": "AutoShutdownProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "DefaultConnectionProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionProfile"
+        "nullable": false,
+        "referenceName": "ConnectionProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "DefaultNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LabPlanNetworkProfile"
+        "nullable": false,
+        "referenceName": "LabPlanNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "LinkedLmsInstance",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "SharedGalleryId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,12 +103,15 @@
       "name": "SupportInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportInfo"
+        "nullable": false,
+        "referenceName": "SupportInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

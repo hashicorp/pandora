@@ -1,6 +1,7 @@
 {
   "name": "TagAssignToOperation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,6 +11,8 @@
   "resourceIdName": "OperationTagId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagContract"
+    "nullable": false,
+    "referenceName": "TagContract",
+    "referenceNameIsCommonType": null
   }
 }

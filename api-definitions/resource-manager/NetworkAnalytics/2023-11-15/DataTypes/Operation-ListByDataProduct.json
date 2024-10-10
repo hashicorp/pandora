@@ -1,6 +1,7 @@
 {
   "name": "ListByDataProduct",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "DataProductId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataType"
+    "nullable": false,
+    "referenceName": "DataType",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/dataTypes"
 }

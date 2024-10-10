@@ -1,0 +1,25 @@
+{
+  "name": "GroupPolicyPresentationValueLongDecimal",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An unsigned long value for the associated presentation.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupPolicyPresentationValue",
+  "discriminatedTypeValue": "#microsoft.graph.groupPolicyPresentationValueLongDecimal",
+  "typeHintIn": "ODataType"
+}

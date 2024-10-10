@@ -1,0 +1,25 @@
+{
+  "name": "OpenTypeExtension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A unique text identifier for an open type data extension. Optional.",
+      "jsonName": "extensionName",
+      "name": "ExtensionName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Extension",
+  "discriminatedTypeValue": "#microsoft.graph.openTypeExtension",
+  "typeHintIn": "ODataType"
+}

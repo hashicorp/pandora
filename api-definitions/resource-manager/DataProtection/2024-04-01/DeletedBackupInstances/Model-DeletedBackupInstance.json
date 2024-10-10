@@ -7,7 +7,9 @@
       "name": "CurrentProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CurrentProtectionState"
+        "nullable": false,
+        "referenceName": "CurrentProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataSourceInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Datasource"
+        "nullable": false,
+        "referenceName": "Datasource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DataSourceSetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatasourceSet"
+        "nullable": false,
+        "referenceName": "DatasourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DatasourceAuthCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthCredentials"
+        "nullable": false,
+        "referenceName": "AuthCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DeletionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeletionInfo"
+        "nullable": false,
+        "referenceName": "DeletionInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "IdentityDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityDetails"
+        "nullable": false,
+        "referenceName": "IdentityDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ObjectType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "PolicyInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyInfo"
+        "nullable": false,
+        "referenceName": "PolicyInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "ProtectionErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserFacingError"
+        "nullable": false,
+        "referenceName": "UserFacingError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionStatusDetails"
+        "nullable": false,
+        "referenceName": "ProtectionStatusDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,10 +187,14 @@
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -180,12 +208,15 @@
       "name": "ValidationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationType"
+        "nullable": false,
+        "referenceName": "ValidationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

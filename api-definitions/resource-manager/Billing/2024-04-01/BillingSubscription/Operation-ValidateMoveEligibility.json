@@ -1,6 +1,7 @@
 {
   "name": "ValidateMoveEligibility",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "BillingAccountBillingSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MoveBillingSubscriptionRequest"
+    "nullable": false,
+    "referenceName": "MoveBillingSubscriptionRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MoveBillingSubscriptionEligibilityResult"
+    "nullable": false,
+    "referenceName": "MoveBillingSubscriptionEligibilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validateMoveEligibility"
 }

@@ -7,7 +7,9 @@
       "name": "ActivationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivationStatus"
+        "nullable": false,
+        "referenceName": "ActivationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ActivationStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

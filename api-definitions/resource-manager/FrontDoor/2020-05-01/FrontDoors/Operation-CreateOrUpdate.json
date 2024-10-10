@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "FrontDoorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FrontDoor"
+    "nullable": false,
+    "referenceName": "FrontDoor",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FrontDoor"
+    "nullable": false,
+    "referenceName": "FrontDoor",
+    "referenceNameIsCommonType": null
   }
 }

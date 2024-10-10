@@ -7,7 +7,9 @@
       "name": "FastProvisioningSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FastProvisioningSupportedEnum"
+        "nullable": false,
+        "referenceName": "FastProvisioningSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "GeoBackupSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GeoBackupSupportedEnum"
+        "nullable": false,
+        "referenceName": "GeoBackupSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "OnlineResizeSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnlineResizeSupportedEnum"
+        "nullable": false,
+        "referenceName": "OnlineResizeSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Restricted",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestrictedEnum"
+        "nullable": false,
+        "referenceName": "RestrictedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "StorageAutoGrowthSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAutoGrowthSupportedEnum"
+        "nullable": false,
+        "referenceName": "StorageAutoGrowthSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "SupportedFastProvisioningEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FastProvisioningEditionCapability"
+          "nullable": false,
+          "referenceName": "FastProvisioningEditionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,10 +148,14 @@
       "name": "SupportedServerEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FlexibleServerEditionCapability"
+          "nullable": false,
+          "referenceName": "FlexibleServerEditionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,10 +169,14 @@
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapability"
+          "nullable": false,
+          "referenceName": "ServerVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,7 +190,9 @@
       "name": "ZoneRedundantHaAndGeoBackupSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum"
+        "nullable": false,
+        "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,12 +205,15 @@
       "name": "ZoneRedundantHaSupported",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundantHaSupportedEnum"
+        "nullable": false,
+        "referenceName": "ZoneRedundantHaSupportedEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

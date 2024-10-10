@@ -7,7 +7,9 @@
       "name": "DeliveryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryConfiguration"
+        "nullable": false,
+        "referenceName": "DeliveryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EventDeliverySchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliverySchema"
+        "nullable": false,
+        "referenceName": "DeliverySchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FiltersConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FiltersConfiguration"
+        "nullable": false,
+        "referenceName": "FiltersConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionProvisioningState"
+        "nullable": false,
+        "referenceName": "SubscriptionProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "CustomFragment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomHost",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CustomPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "CustomQueryString",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RedirectProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorRedirectProtocol"
+        "nullable": false,
+        "referenceName": "FrontDoorRedirectProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "RedirectType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorRedirectType"
+        "nullable": false,
+        "referenceName": "FrontDoorRedirectType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +92,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RouteConfiguration",
   "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
   "typeHintIn": "OdataType"

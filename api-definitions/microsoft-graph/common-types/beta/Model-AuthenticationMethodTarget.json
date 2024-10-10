@@ -1,0 +1,40 @@
+{
+  "name": "AuthenticationMethodTarget",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines if the user is enforced to register the authentication method.",
+      "jsonName": "isRegistrationRequired",
+      "name": "IsRegistrationRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetType",
+      "name": "TargetType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationMethodTargetType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.authenticationMethodTarget",
+  "typeHintIn": "ODataType"
+}

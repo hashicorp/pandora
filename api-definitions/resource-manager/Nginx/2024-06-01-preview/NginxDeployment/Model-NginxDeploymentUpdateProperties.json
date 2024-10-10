@@ -7,7 +7,9 @@
       "name": "AutoUpgradeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpgradeProfile"
+        "nullable": false,
+        "referenceName": "AutoUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableDiagnosticsSupport",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxLogging"
+        "nullable": false,
+        "referenceName": "NginxLogging",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "NginxAppProtect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentUpdatePropertiesNginxAppProtect"
+        "nullable": false,
+        "referenceName": "NginxDeploymentUpdatePropertiesNginxAppProtect",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ScalingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentScalingProperties"
+        "nullable": false,
+        "referenceName": "NginxDeploymentScalingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "UserProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentUserProfile"
+        "nullable": false,
+        "referenceName": "NginxDeploymentUserProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

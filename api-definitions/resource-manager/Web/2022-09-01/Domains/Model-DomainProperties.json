@@ -7,7 +7,9 @@
       "name": "AuthCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoRenew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Consent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainPurchaseConsent"
+        "nullable": false,
+        "referenceName": "DomainPurchaseConsent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ContactAdmin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ContactBilling",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ContactRegistrant",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ContactTech",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Contact"
+        "nullable": false,
+        "referenceName": "Contact",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "DnsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsType"
+        "nullable": false,
+        "referenceName": "DnsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "DnsZoneId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,10 +158,14 @@
       "name": "DomainNotRenewableReasons",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceNotRenewableReason"
+          "nullable": false,
+          "referenceName": "ResourceNotRenewableReason",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -156,7 +180,9 @@
       "name": "ExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,7 +196,9 @@
       "name": "LastRenewedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,10 +211,14 @@
       "name": "ManagedHostNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostName"
+          "nullable": false,
+          "referenceName": "HostName",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -200,10 +232,14 @@
       "name": "NameServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -217,7 +253,9 @@
       "name": "Privacy",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,7 +268,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -243,7 +283,9 @@
       "name": "ReadyForDnsRecordManagement",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -256,7 +298,9 @@
       "name": "RegistrationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainStatus"
+        "nullable": false,
+        "referenceName": "DomainStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -269,12 +313,15 @@
       "name": "TargetDnsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsType"
+        "nullable": false,
+        "referenceName": "DnsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

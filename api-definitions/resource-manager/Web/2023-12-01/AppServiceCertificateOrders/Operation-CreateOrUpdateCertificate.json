@@ -1,19 +1,24 @@
 {
   "name": "CreateOrUpdateCertificate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
   ],
   "longRunning": true,
   "httpMethod": "PUT",
-  "resourceIdName": "CertificateId",
+  "resourceIdName": "CertificateOrderCertificateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateResource"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AppServiceCertificateResource"
+    "nullable": false,
+    "referenceName": "AppServiceCertificateResource",
+    "referenceNameIsCommonType": null
   }
 }

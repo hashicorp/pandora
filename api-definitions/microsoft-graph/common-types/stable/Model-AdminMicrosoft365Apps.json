@@ -1,0 +1,25 @@
+{
+  "name": "AdminMicrosoft365Apps",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A container for tenant-level settings for Microsoft 365 applications.",
+      "jsonName": "installationOptions",
+      "name": "InstallationOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "M365AppsInstallationOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.adminMicrosoft365Apps",
+  "typeHintIn": "ODataType"
+}

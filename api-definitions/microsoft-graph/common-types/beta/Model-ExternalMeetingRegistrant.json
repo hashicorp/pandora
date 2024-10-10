@@ -1,0 +1,41 @@
+{
+  "name": "ExternalMeetingRegistrant",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tenant ID of this registrant if in Microsoft Entra ID.",
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user ID of this registrant if in Microsoft Entra ID.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MeetingRegistrantBase",
+  "discriminatedTypeValue": "#microsoft.graph.externalMeetingRegistrant",
+  "typeHintIn": "ODataType"
+}

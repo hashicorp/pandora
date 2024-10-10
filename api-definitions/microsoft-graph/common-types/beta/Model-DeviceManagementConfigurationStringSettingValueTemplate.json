@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementConfigurationStringSettingValueTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "String Setting Value Default Template.",
+      "jsonName": "defaultValue",
+      "name": "DefaultValue",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationStringSettingValueDefaultTemplate",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSimpleSettingValueTemplate",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationStringSettingValueTemplate",
+  "typeHintIn": "ODataType"
+}

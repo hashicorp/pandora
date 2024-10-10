@@ -7,7 +7,9 @@
       "name": "ErrorCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PowerStateEnum"
+        "nullable": false,
+        "referenceName": "PowerStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineInstanceStatusProvisioningStatus"
+        "nullable": false,
+        "referenceName": "VirtualMachineInstanceStatusProvisioningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

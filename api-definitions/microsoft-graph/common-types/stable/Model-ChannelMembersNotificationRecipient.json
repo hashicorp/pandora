@@ -1,0 +1,41 @@
+{
+  "name": "ChannelMembersNotificationRecipient",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the channel whose members should receive the notification.",
+      "jsonName": "channelId",
+      "name": "ChannelId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the team under which the channel resides.",
+      "jsonName": "teamId",
+      "name": "TeamId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TeamworkNotificationRecipient",
+  "discriminatedTypeValue": "#microsoft.graph.channelMembersNotificationRecipient",
+  "typeHintIn": "ODataType"
+}

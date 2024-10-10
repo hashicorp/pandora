@@ -1,0 +1,24 @@
+{
+  "name": "CloudPCBulkModifyDiskEncryptionType",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskEncryptionType",
+      "name": "DiskEncryptionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCDiskEncryptionType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CloudPCBulkAction",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcBulkModifyDiskEncryptionType",
+  "typeHintIn": "ODataType"
+}

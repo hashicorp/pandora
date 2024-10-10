@@ -1,0 +1,25 @@
+{
+  "name": "AccessReviewInstanceDecisionItemAzureRoleResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Details of the scope this role is associated with.",
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessReviewInstanceDecisionItemResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewInstanceDecisionItemResource",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewInstanceDecisionItemAzureRoleResource",
+  "typeHintIn": "ODataType"
+}

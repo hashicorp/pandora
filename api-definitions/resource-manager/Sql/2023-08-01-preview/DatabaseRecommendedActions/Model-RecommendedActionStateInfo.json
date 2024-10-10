@@ -7,7 +7,9 @@
       "name": "ActionInitiatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionInitiatedBy"
+        "nullable": false,
+        "referenceName": "RecommendedActionInitiatedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CurrentValue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedActionCurrentState"
+        "nullable": false,
+        "referenceName": "RecommendedActionCurrentState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "LastModified",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

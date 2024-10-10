@@ -1,0 +1,47 @@
+{
+  "name": "DeviceManagementConfigurationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of related Setting Definitions. This property is read-only.",
+      "jsonName": "settingDefinitions",
+      "name": "SettingDefinitions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationSettingDefinition",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Setting instance within policy",
+      "jsonName": "settingInstance",
+      "name": "SettingInstance",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationSettingInstance",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationSetting",
+  "typeHintIn": "ODataType"
+}

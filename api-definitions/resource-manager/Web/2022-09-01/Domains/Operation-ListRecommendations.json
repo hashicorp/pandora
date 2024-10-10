@@ -1,6 +1,7 @@
 {
   "name": "ListRecommendations",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DomainRecommendationSearchParameters"
+    "nullable": false,
+    "referenceName": "DomainRecommendationSearchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NameIdentifier"
+    "nullable": false,
+    "referenceName": "NameIdentifier",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.DomainRegistration/listDomainRecommendations"
 }

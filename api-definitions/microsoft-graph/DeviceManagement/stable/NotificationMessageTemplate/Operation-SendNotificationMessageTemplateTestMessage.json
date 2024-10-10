@@ -1,0 +1,39 @@
+{
+  "name": "SendNotificationMessageTemplateTestMessage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action sendTestMessage. Sends test message using the specified notificationMessageTemplate in the default locale",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementNotificationMessageTemplateId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/sendTestMessage"
+}

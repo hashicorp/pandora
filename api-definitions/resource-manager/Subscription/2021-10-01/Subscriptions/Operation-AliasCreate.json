@@ -1,6 +1,7 @@
 {
   "name": "AliasCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AliasId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PutAliasRequest"
+    "nullable": false,
+    "referenceName": "PutAliasRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SubscriptionAliasResponse"
+    "nullable": false,
+    "referenceName": "SubscriptionAliasResponse",
+    "referenceNameIsCommonType": null
   }
 }

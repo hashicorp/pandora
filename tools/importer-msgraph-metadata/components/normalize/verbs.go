@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package normalize
 
 import (
@@ -34,7 +37,8 @@ var Verbs = operationVerbs{
 	"Enable",
 	"End",
 	"Erase",
-	"Export",
+	//"Export", // clashes with `/deviceManagement/reports/exportJobs`
+	"Evaluate",
 	"Extract",
 	"Forward",
 	"Find",

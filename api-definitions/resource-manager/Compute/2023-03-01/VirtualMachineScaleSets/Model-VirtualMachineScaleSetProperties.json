@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "AdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutomaticRepairsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticRepairsPolicy"
+        "nullable": false,
+        "referenceName": "AutomaticRepairsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ConstrainedMaximumCapacity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DoNotRunExtensionsOnOverprovisionedVMs",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "HostGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "OrchestrationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrchestrationMode"
+        "nullable": false,
+        "referenceName": "OrchestrationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Overprovision",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "PlatformFaultDomainCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "PriorityMixPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PriorityMixPolicy"
+        "nullable": false,
+        "referenceName": "PriorityMixPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "ScaleInPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleInPolicy"
+        "nullable": false,
+        "referenceName": "ScaleInPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "SinglePlacementGroup",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "SpotRestorePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpotRestorePolicy"
+        "nullable": false,
+        "referenceName": "SpotRestorePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,7 +218,9 @@
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,7 +233,9 @@
       "name": "UniqueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,7 +248,9 @@
       "name": "UpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradePolicy"
+        "nullable": false,
+        "referenceName": "UpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -229,7 +263,9 @@
       "name": "VirtualMachineProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetVMProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetVMProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -242,12 +278,15 @@
       "name": "ZoneBalance",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "UpdateWorkerPool",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "WorkerPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkerPoolResource"
+    "nullable": false,
+    "referenceName": "WorkerPoolResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkerPoolResource"
+    "nullable": false,
+    "referenceName": "WorkerPoolResource",
+    "referenceNameIsCommonType": null
   }
 }

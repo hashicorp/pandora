@@ -7,10 +7,14 @@
       "name": "ColumnsDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryColumnsDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryColumnsDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "QueriesDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

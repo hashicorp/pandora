@@ -7,7 +7,9 @@
       "name": "CapacityReservationLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapacityReservationLevel"
+        "nullable": false,
+        "referenceName": "CapacityReservationLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LastSkuUpdate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceSkuNameEnum"
+        "nullable": false,
+        "referenceName": "WorkspaceSkuNameEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

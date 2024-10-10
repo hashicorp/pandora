@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-client-request-id",
       "optional": true,
       "required": false,
@@ -21,10 +23,14 @@
   "resourceIdName": "PrivateEndpointConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnection"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnection"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
   }
 }

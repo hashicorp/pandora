@@ -7,7 +7,9 @@
       "name": "DeadLetterDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterDestination"
+        "nullable": false,
+        "referenceName": "DeadLetterDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeadLetterWithResourceIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterWithResourceIdentity"
+        "nullable": false,
+        "referenceName": "DeadLetterWithResourceIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DeliveryWithResourceIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryWithResourceIdentity"
+        "nullable": false,
+        "referenceName": "DeliveryWithResourceIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionDestination"
+        "nullable": false,
+        "referenceName": "EventSubscriptionDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EventDeliverySchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventDeliverySchema"
+        "nullable": false,
+        "referenceName": "EventDeliverySchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "ExpirationTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionFilter"
+        "nullable": false,
+        "referenceName": "EventSubscriptionFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,10 +113,14 @@
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -116,12 +134,15 @@
       "name": "RetryPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetryPolicy"
+        "nullable": false,
+        "referenceName": "RetryPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

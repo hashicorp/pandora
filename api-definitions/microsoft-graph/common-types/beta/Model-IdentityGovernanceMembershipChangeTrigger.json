@@ -1,0 +1,24 @@
+{
+  "name": "IdentityGovernanceMembershipChangeTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "changeType",
+      "name": "ChangeType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceMembershipChangeType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceWorkflowExecutionTrigger",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.membershipChangeTrigger",
+  "typeHintIn": "ODataType"
+}

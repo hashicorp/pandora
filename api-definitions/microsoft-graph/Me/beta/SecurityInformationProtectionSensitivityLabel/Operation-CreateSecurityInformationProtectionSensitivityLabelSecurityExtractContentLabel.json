@@ -1,0 +1,50 @@
+{
+  "name": "CreateSecurityInformationProtectionSensitivityLabelSecurityExtractContentLabel",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action extractContentLabel. Use the metadata that exists on an already-labeled piece of information to resolve the metadata to a specific sensitivity label. The contentInfo input is resolved to informationProtectionContentLabel.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateSecurityInformationProtectionSensitivityLabelSecurityExtractContentLabelRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SecurityContentLabel",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/me/security/informationProtection/sensitivityLabels/security.extractContentLabel"
+}

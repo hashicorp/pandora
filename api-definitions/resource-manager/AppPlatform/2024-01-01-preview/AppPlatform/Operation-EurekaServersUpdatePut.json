@@ -1,6 +1,7 @@
 {
   "name": "EurekaServersUpdatePut",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EurekaServerResource"
+    "nullable": false,
+    "referenceName": "EurekaServerResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EurekaServerResource"
+    "nullable": false,
+    "referenceName": "EurekaServerResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/eurekaServers/default"
 }

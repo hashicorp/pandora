@@ -7,7 +7,9 @@
       "name": "JobLimitsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobLimitsType"
+        "nullable": false,
+        "referenceName": "JobLimitsType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "JobLimitsType"
 }

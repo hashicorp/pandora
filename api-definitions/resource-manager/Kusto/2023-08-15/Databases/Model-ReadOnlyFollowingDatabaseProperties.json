@@ -7,7 +7,9 @@
       "name": "AttachedDatabaseConfigurationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatabaseShareOrigin",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseShareOrigin"
+        "nullable": false,
+        "referenceName": "DatabaseShareOrigin",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HotCachePeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LeaderClusterResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "OriginalDatabaseName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "PrincipalsModificationKind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrincipalsModificationKind"
+        "nullable": false,
+        "referenceName": "PrincipalsModificationKind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "SoftDeletePeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Statistics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseStatistics"
+        "nullable": false,
+        "referenceName": "DatabaseStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "SuspensionDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SuspensionDetails"
+        "nullable": false,
+        "referenceName": "SuspensionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,12 +157,15 @@
       "name": "TableLevelSharingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableLevelSharingProperties"
+        "nullable": false,
+        "referenceName": "TableLevelSharingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

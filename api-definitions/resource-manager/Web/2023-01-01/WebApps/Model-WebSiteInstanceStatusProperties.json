@@ -4,10 +4,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "consoleUrl",
-      "name": "ConsoleUrl",
+      "name": "ConsoleURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Containers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerInfo"
+          "nullable": false,
+          "referenceName": "ContainerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -34,10 +40,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "detectorUrl",
-      "name": "DetectorUrl",
+      "name": "DetectorURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +55,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "healthCheckUrl",
-      "name": "HealthCheckUrl",
+      "name": "HealthCheckURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SiteRuntimeState"
+        "nullable": false,
+        "referenceName": "SiteRuntimeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,15 +85,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "statusUrl",
-      "name": "StatusUrl",
+      "name": "StatusURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

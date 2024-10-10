@@ -7,7 +7,9 @@
       "name": "AggregatorOrSingleRackDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackDefinition"
+        "nullable": false,
+        "referenceName": "RackDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClusterServicePrincipal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipalInformation"
+        "nullable": false,
+        "referenceName": "ServicePrincipalInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ComputeDeploymentThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThreshold"
+        "nullable": false,
+        "referenceName": "ValidationThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "ComputeRackDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RackDefinition"
+          "nullable": false,
+          "referenceName": "RackDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +82,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

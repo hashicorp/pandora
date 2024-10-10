@@ -1,6 +1,7 @@
 {
   "name": "CreateIdentity",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "ArcSettingId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ArcIdentityResponse"
+    "nullable": false,
+    "referenceName": "ArcIdentityResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/createArcIdentity"
 }

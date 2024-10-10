@@ -4,10 +4,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "reportUrl",
-      "name": "ReportUrl",
+      "name": "ReportURL",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationReportSchema"
+        "nullable": false,
+        "referenceName": "ReservationReportSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "ValidUntil",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

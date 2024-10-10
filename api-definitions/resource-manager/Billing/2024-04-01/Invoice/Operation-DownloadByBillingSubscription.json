@@ -1,6 +1,7 @@
 {
   "name": "DownloadByBillingSubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "documentName",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "BillingSubscriptionInvoiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DocumentDownloadResult"
+    "nullable": false,
+    "referenceName": "DocumentDownloadResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/download"
 }

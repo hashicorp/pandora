@@ -7,7 +7,9 @@
       "name": "FeatureSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureSettings"
+        "nullable": false,
+        "referenceName": "FeatureSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MonitoringSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSettings"
+        "nullable": false,
+        "referenceName": "MonitoringSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,12 +58,15 @@
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecuritySettings"
+        "nullable": false,
+        "referenceName": "SecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

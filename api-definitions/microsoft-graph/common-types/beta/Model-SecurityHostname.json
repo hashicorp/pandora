@@ -1,0 +1,41 @@
+{
+  "name": "SecurityHostname",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The company or individual who registered this hostname, from WHOIS data.",
+      "jsonName": "registrant",
+      "name": "Registrant",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The registrar for this hostname, from WHOIS data.",
+      "jsonName": "registrar",
+      "name": "Registrar",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityHost",
+  "discriminatedTypeValue": "#microsoft.graph.security.hostname",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModernChargeSummaryProperties"
+        "nullable": false,
+        "referenceName": "ModernChargeSummaryProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ChargeSummary",
   "discriminatedTypeValue": "modern",
   "typeHintIn": "Kind"

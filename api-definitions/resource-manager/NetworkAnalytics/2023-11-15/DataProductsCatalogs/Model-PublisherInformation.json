@@ -7,10 +7,14 @@
       "name": "DataProducts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataProductInformation"
+          "nullable": false,
+          "referenceName": "DataProductInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,12 +28,15 @@
       "name": "PublisherName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

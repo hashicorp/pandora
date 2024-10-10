@@ -1,0 +1,45 @@
+{
+  "name": "ExactMatchLookupJob",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "matchingRows",
+      "name": "MatchingRows",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "LookupResultRow",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ExactMatchJobBase",
+  "discriminatedTypeValue": "#microsoft.graph.exactMatchLookupJob",
+  "typeHintIn": "ODataType"
+}

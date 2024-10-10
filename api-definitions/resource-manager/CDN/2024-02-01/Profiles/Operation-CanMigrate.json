@@ -1,6 +1,7 @@
 {
   "name": "CanMigrate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ResourceGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CanMigrateParameters"
+    "nullable": false,
+    "referenceName": "CanMigrateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CanMigrateResult"
+    "nullable": false,
+    "referenceName": "CanMigrateResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CDN/canMigrate"
 }

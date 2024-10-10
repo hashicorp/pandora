@@ -1,0 +1,25 @@
+{
+  "name": "WindowsDeviceAzureADAccount",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Not yet documented",
+      "jsonName": "userPrincipalName",
+      "name": "UserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsDeviceAccount",
+  "discriminatedTypeValue": "#microsoft.graph.windowsDeviceAzureADAccount",
+  "typeHintIn": "ODataType"
+}

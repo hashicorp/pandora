@@ -7,7 +7,9 @@
       "name": "Filters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlobInventoryPolicyFilter"
+        "nullable": false,
+        "referenceName": "BlobInventoryPolicyFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Format"
+        "nullable": false,
+        "referenceName": "Format",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ObjectType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ObjectType"
+        "nullable": false,
+        "referenceName": "ObjectType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schedule"
+        "nullable": false,
+        "referenceName": "Schedule",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "SchemaFields",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -70,5 +82,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

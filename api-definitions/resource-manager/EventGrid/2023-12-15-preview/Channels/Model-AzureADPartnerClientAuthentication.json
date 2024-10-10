@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureADPartnerClientAuthenticationProperties"
+        "nullable": false,
+        "referenceName": "AzureADPartnerClientAuthenticationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PartnerClientAuthentication",
   "discriminatedTypeValue": "AzureAD",
   "typeHintIn": "ClientAuthenticationType"

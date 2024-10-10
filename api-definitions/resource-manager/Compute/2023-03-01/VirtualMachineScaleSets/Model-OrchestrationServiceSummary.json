@@ -7,7 +7,9 @@
       "name": "ServiceName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrchestrationServiceNames"
+        "nullable": false,
+        "referenceName": "OrchestrationServiceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ServiceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrchestrationServiceState"
+        "nullable": false,
+        "referenceName": "OrchestrationServiceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

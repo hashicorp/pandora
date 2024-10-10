@@ -1,6 +1,7 @@
 {
   "name": "RestorableGremlinDatabasesList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "RestorableDatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RestorableGremlinDatabasesListResult"
+    "nullable": false,
+    "referenceName": "RestorableGremlinDatabasesListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restorableGremlinDatabases"
 }

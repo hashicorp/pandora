@@ -7,7 +7,9 @@
       "name": "Apn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Ebi",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PdnType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PdnType"
+        "nullable": false,
+        "referenceName": "PdnType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "UeIPAddress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeIPAddress"
+        "nullable": false,
+        "referenceName": "UeIPAddress",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

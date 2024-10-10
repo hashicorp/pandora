@@ -1,6 +1,7 @@
 {
   "name": "AlertRulesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AlertRuleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AlertRuleResourcePatch"
+    "nullable": false,
+    "referenceName": "AlertRuleResourcePatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AlertRuleResource"
+    "nullable": false,
+    "referenceName": "AlertRuleResource",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "IndicatorsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$orderby",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -42,7 +46,9 @@
   "resourceIdName": "WorkspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ThreatIntelligenceInformation"
+    "nullable": false,
+    "referenceName": "ThreatIntelligenceInformation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.SecurityInsights/threatIntelligence/main/indicators"
 }

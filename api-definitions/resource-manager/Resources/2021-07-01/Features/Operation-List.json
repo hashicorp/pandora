@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "Providers2Id",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FeatureResult"
+    "nullable": false,
+    "referenceName": "FeatureResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/features"
 }

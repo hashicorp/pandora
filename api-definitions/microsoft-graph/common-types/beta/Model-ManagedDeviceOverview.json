@@ -1,0 +1,121 @@
+{
+  "name": "ManagedDeviceOverview",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Distribution of Exchange Access State in Intune",
+      "jsonName": "deviceExchangeAccessStateSummary",
+      "name": "DeviceExchangeAccessStateSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceExchangeAccessStateSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device operating system summary.",
+      "jsonName": "deviceOperatingSystemSummary",
+      "name": "DeviceOperatingSystemSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceOperatingSystemSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of devices enrolled in both MDM and EAS",
+      "jsonName": "dualEnrolledDeviceCount",
+      "name": "DualEnrolledDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total enrolled device count. Does not include PC devices managed via Intune PC Agent",
+      "jsonName": "enrolledDeviceCount",
+      "name": "EnrolledDeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Last modified date time of device overview",
+      "jsonName": "lastModifiedDateTime",
+      "name": "LastModifiedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Models and Manufactures meatadata for managed devices in the account",
+      "jsonName": "managedDeviceModelsAndManufacturers",
+      "name": "ManagedDeviceModelsAndManufacturers",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedDeviceModelsAndManufacturers",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of devices enrolled in MDM",
+      "jsonName": "mdmEnrolledCount",
+      "name": "MdmEnrolledCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.managedDeviceOverview",
+  "typeHintIn": "ODataType"
+}

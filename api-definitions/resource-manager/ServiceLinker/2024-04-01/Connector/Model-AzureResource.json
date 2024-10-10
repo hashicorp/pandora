@@ -7,7 +7,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ResourceProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourcePropertiesBase"
+        "nullable": false,
+        "referenceName": "AzureResourcePropertiesBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TargetServiceBase",
   "discriminatedTypeValue": "AzureResource",
   "typeHintIn": "Type"

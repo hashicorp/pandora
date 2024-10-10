@@ -7,7 +7,9 @@
       "name": "ActualUsedDataStorageSizeInTbs",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AllocatedStorageSizeInTbs",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ApexDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApexDetailsType"
+        "nullable": false,
+        "referenceName": "ApexDetailsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "AutonomousDatabaseId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "AutonomousMaintenanceScheduleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutonomousMaintenanceScheduleType"
+        "nullable": false,
+        "referenceName": "AutonomousMaintenanceScheduleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "AvailableUpgradeVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "BackupRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "CharacterSet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ComputeCount",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "ComputeModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeModel"
+        "nullable": false,
+        "referenceName": "ComputeModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "ConnectionStrings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionStringType"
+        "nullable": false,
+        "referenceName": "ConnectionStringType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,10 +190,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "connectionUrls",
-      "name": "ConnectionUrls",
+      "name": "ConnectionURLs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionUrlType"
+        "nullable": false,
+        "referenceName": "ConnectionURLType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "CpuCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,10 +223,14 @@
       "name": "CustomerContacts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomerContact"
+          "nullable": false,
+          "referenceName": "CustomerContact",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,7 +244,9 @@
       "name": "DataBaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataBaseType"
+        "nullable": false,
+        "referenceName": "DataBaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "DataSafeStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataSafeStatusType"
+        "nullable": false,
+        "referenceName": "DataSafeStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "DataStorageSizeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "DataStorageSizeInTbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,7 +304,9 @@
       "name": "DatabaseEdition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseEditionType"
+        "nullable": false,
+        "referenceName": "DatabaseEditionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,7 +319,9 @@
       "name": "DbVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,7 +334,9 @@
       "name": "DbWorkload",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadType"
+        "nullable": false,
+        "referenceName": "WorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,7 +349,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -314,7 +364,9 @@
       "name": "FailedDataRecoveryInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -327,7 +379,9 @@
       "name": "InMemoryAreaInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -340,7 +394,9 @@
       "name": "IsAutoScalingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -353,7 +409,9 @@
       "name": "IsAutoScalingForStorageEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -366,7 +424,9 @@
       "name": "IsLocalDataGuardEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -379,7 +439,9 @@
       "name": "IsMtlsConnectionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -392,7 +454,9 @@
       "name": "IsPreview",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -405,7 +469,9 @@
       "name": "IsPreviewVersionWithServiceTermsAccepted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -418,7 +484,9 @@
       "name": "IsRemoteDataGuardEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -431,7 +499,9 @@
       "name": "LicenseModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseModel"
+        "nullable": false,
+        "referenceName": "LicenseModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -444,7 +514,9 @@
       "name": "LifecycleDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -457,7 +529,9 @@
       "name": "LifecycleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutonomousDatabaseLifecycleState"
+        "nullable": false,
+        "referenceName": "AutonomousDatabaseLifecycleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -470,7 +544,9 @@
       "name": "LocalAdgAutoFailoverMaxDataLossLimit",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -483,7 +559,9 @@
       "name": "LocalDisasterRecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisasterRecoveryType"
+        "nullable": false,
+        "referenceName": "DisasterRecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -496,7 +574,9 @@
       "name": "LocalStandbyDb",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutonomousDatabaseStandbySummary"
+        "nullable": false,
+        "referenceName": "AutonomousDatabaseStandbySummary",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -509,7 +589,9 @@
       "name": "LongTermBackupSchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LongTermBackUpScheduleDetails"
+        "nullable": false,
+        "referenceName": "LongTermBackUpScheduleDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -522,7 +604,9 @@
       "name": "MemoryPerOracleComputeUnitInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -535,7 +619,9 @@
       "name": "NcharacterSet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -549,7 +635,9 @@
       "name": "NextLongTermBackupTimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -559,10 +647,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "ociUrl",
-      "name": "OciUrl",
+      "name": "OciURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -575,7 +665,9 @@
       "name": "Ocid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -588,7 +680,9 @@
       "name": "OpenMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenModeType"
+        "nullable": false,
+        "referenceName": "OpenModeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -601,7 +695,9 @@
       "name": "OperationsInsightsStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationsInsightsStatusType"
+        "nullable": false,
+        "referenceName": "OperationsInsightsStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -614,7 +710,9 @@
       "name": "PeerDbId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -627,10 +725,14 @@
       "name": "PeerDbIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -644,7 +746,9 @@
       "name": "PermissionLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PermissionLevelType"
+        "nullable": false,
+        "referenceName": "PermissionLevelType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -657,7 +761,9 @@
       "name": "PrivateEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -670,7 +776,9 @@
       "name": "PrivateEndpointIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -683,7 +791,9 @@
       "name": "PrivateEndpointLabel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -696,10 +806,14 @@
       "name": "ProvisionableCPUs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -713,7 +827,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "AzureResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -726,7 +842,9 @@
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleType"
+        "nullable": false,
+        "referenceName": "RoleType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -739,7 +857,9 @@
       "name": "ScheduledOperations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledOperationsType"
+        "nullable": false,
+        "referenceName": "ScheduledOperationsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -749,10 +869,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "serviceConsoleUrl",
-      "name": "ServiceConsoleUrl",
+      "name": "ServiceConsoleURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -762,10 +884,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "sqlWebDeveloperUrl",
-      "name": "SqlWebDeveloperUrl",
+      "name": "SqlWebDeveloperURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -778,7 +902,9 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -791,10 +917,14 @@
       "name": "SupportedRegionsToCloneTo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -809,7 +939,9 @@
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -822,7 +954,9 @@
       "name": "TimeDataGuardRoleChanged",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -835,7 +969,9 @@
       "name": "TimeDeletionOfFreeAutonomousDatabase",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -848,7 +984,9 @@
       "name": "TimeLocalDataGuardEnabled",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -862,7 +1000,9 @@
       "name": "TimeMaintenanceBegin",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -876,7 +1016,9 @@
       "name": "TimeMaintenanceEnd",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -889,7 +1031,9 @@
       "name": "TimeOfLastFailover",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -902,7 +1046,9 @@
       "name": "TimeOfLastRefresh",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -915,7 +1061,9 @@
       "name": "TimeOfLastRefreshPoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -928,7 +1076,9 @@
       "name": "TimeOfLastSwitchover",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -941,7 +1091,9 @@
       "name": "TimeReclamationOfFreeAutonomousDatabase",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -954,7 +1106,9 @@
       "name": "UsedDataStorageSizeInGbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -967,7 +1121,9 @@
       "name": "UsedDataStorageSizeInTbs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -980,7 +1136,9 @@
       "name": "VnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -993,10 +1151,14 @@
       "name": "WhitelistedIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -1005,5 +1167,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DataBaseType"
 }

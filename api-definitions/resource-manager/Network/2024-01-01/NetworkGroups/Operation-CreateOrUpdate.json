@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "NetworkGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkGroup"
+    "nullable": false,
+    "referenceName": "NetworkGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkGroup"
+    "nullable": false,
+    "referenceName": "NetworkGroup",
+    "referenceNameIsCommonType": null
   }
 }

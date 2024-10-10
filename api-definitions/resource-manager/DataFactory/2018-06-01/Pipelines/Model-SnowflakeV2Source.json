@@ -7,7 +7,9 @@
       "name": "ExportSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnowflakeExportCopyCommand"
+        "nullable": false,
+        "referenceName": "SnowflakeExportCopyCommand",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySource",
   "discriminatedTypeValue": "SnowflakeV2Source",
   "typeHintIn": "Type"

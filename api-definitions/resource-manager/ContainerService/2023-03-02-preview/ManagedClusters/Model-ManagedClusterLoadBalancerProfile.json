@@ -7,7 +7,9 @@
       "name": "AllocatedOutboundPorts",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BackendPoolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BackendPoolType"
+        "nullable": false,
+        "referenceName": "BackendPoolType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "EffectiveOutboundIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "EnableMultipleStandardLoadBalancers",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "IdleTimeoutInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "ManagedOutboundIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterLoadBalancerProfileManagedOutboundIPs"
+        "nullable": false,
+        "referenceName": "ManagedClusterLoadBalancerProfileManagedOutboundIPs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "OutboundIPPrefixes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes"
+        "nullable": false,
+        "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "OutboundIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPs"
+        "nullable": false,
+        "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

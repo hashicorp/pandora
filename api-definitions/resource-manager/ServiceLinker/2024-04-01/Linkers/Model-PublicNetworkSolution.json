@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionType"
+        "nullable": false,
+        "referenceName": "ActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOrUpdateBehavior"
+        "nullable": false,
+        "referenceName": "DeleteOrUpdateBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "FirewallRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallRules"
+        "nullable": false,
+        "referenceName": "FirewallRules",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

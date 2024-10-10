@@ -7,7 +7,9 @@
       "name": "AutoUpgradeProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpgradeProfile"
+        "nullable": false,
+        "referenceName": "AutoUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableDiagnosticsSupport",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxLogging"
+        "nullable": false,
+        "referenceName": "NginxLogging",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ManagedResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxNetworkProfile"
+        "nullable": false,
+        "referenceName": "NginxNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "NginxAppProtect",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentPropertiesNginxAppProtect"
+        "nullable": false,
+        "referenceName": "NginxDeploymentPropertiesNginxAppProtect",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "NginxVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "ScalingProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentScalingProperties"
+        "nullable": false,
+        "referenceName": "NginxDeploymentScalingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,12 +157,15 @@
       "name": "UserProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NginxDeploymentUserProfile"
+        "nullable": false,
+        "referenceName": "NginxDeploymentUserProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

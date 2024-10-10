@@ -1,6 +1,7 @@
 {
   "name": "ConfigurationsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SingleSignOnConfigurationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatadogSingleSignOnResource"
+    "nullable": false,
+    "referenceName": "DatadogSingleSignOnResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatadogSingleSignOnResource"
+    "nullable": false,
+    "referenceName": "DatadogSingleSignOnResource",
+    "referenceNameIsCommonType": null
   }
 }

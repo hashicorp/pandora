@@ -1,0 +1,43 @@
+{
+  "name": "UpdateDeviceCompliancePolicySettingStateSummarySettingState",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update deviceComplianceSettingState. Update the properties of a deviceComplianceSettingState object.",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementDeviceCompliancePolicySettingStateSummaryIdDeviceComplianceSettingStateId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceComplianceSettingState",
+    "referenceNameIsCommonType": true
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "NetworkaccessUrl",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URL Address",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRuleDestination",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.url",
+  "typeHintIn": "ODataType"
+}

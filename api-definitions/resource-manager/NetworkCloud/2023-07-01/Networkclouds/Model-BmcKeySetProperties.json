@@ -7,7 +7,9 @@
       "name": "AzureGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BmcKeySetDetailedStatus"
+        "nullable": false,
+        "referenceName": "BmcKeySetDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "LastValidation",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "PrivilegeLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BmcKeySetPrivilegeLevel"
+        "nullable": false,
+        "referenceName": "BmcKeySetPrivilegeLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BmcKeySetProvisioningState"
+        "nullable": false,
+        "referenceName": "BmcKeySetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,10 +114,14 @@
       "name": "UserList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUser"
+          "nullable": false,
+          "referenceName": "KeySetUser",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -117,10 +135,14 @@
       "name": "UserListStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KeySetUserStatus"
+          "nullable": false,
+          "referenceName": "KeySetUserStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,5 +150,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }
