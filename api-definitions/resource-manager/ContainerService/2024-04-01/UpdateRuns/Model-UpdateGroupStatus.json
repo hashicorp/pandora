@@ -7,10 +7,14 @@
       "name": "Members",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MemberUpdateStatus"
+          "nullable": false,
+          "referenceName": "MemberUpdateStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateStatus"
+        "nullable": false,
+        "referenceName": "UpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

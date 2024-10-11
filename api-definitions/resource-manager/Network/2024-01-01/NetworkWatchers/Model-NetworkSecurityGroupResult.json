@@ -7,10 +7,14 @@
       "name": "EvaluatedNetworkSecurityGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EvaluatedNetworkSecurityGroup"
+          "nullable": false,
+          "referenceName": "EvaluatedNetworkSecurityGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "SecurityRuleAccessResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityRuleAccess"
+        "nullable": false,
+        "referenceName": "SecurityRuleAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

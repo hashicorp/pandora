@@ -7,7 +7,9 @@
       "name": "JobScheduleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "RunOn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Runbook",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunbookAssociationProperty"
+        "nullable": false,
+        "referenceName": "RunbookAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleAssociationProperty"
+        "nullable": false,
+        "referenceName": "ScheduleAssociationProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

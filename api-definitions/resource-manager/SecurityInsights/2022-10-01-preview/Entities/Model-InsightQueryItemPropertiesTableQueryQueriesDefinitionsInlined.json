@@ -7,7 +7,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "LinkColumnsDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlinedLinkColumnsDefinitionsInlined"
+          "nullable": false,
+          "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlinedLinkColumnsDefinitionsInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Project",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "Summarize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

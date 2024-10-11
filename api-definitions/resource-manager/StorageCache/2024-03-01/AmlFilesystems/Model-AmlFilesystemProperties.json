@@ -7,7 +7,9 @@
       "name": "ClientInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemClientInfo"
+        "nullable": false,
+        "referenceName": "AmlFilesystemClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemEncryptionSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemEncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FilesystemSubnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Health",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemHealth"
+        "nullable": false,
+        "referenceName": "AmlFilesystemHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Hsm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemPropertiesHsm"
+        "nullable": false,
+        "referenceName": "AmlFilesystemPropertiesHsm",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemPropertiesMaintenanceWindow"
+        "nullable": false,
+        "referenceName": "AmlFilesystemPropertiesMaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemProvisioningStateType"
+        "nullable": false,
+        "referenceName": "AmlFilesystemProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RootSquashSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemRootSquashSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemRootSquashSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "StorageCapacityTiB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,12 +142,15 @@
       "name": "ThroughputProvisionedMBps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

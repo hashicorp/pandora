@@ -7,7 +7,9 @@
       "name": "AcquireStorageAccountLock",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AcquireStorageAccountLock"
+        "nullable": false,
+        "referenceName": "AcquireStorageAccountLock",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ErrorCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ErrorMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "FabricName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FabricName"
+        "nullable": false,
+        "referenceName": "FabricName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "PolicyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProtectedItemName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ProtectedItemsCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionStatus"
+        "nullable": false,
+        "referenceName": "ProtectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "RegistrationStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,12 +157,15 @@
       "name": "VaultId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

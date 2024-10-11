@@ -7,7 +7,9 @@
       "name": "ManagedVirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeState"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeTypeProperties"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "IntegrationRuntime",
   "discriminatedTypeValue": "Managed",
   "typeHintIn": "Type"

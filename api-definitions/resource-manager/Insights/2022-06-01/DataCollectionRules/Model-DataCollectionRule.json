@@ -7,7 +7,9 @@
       "name": "DataCollectionEndpointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DataFlows",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataFlow"
+          "nullable": false,
+          "referenceName": "DataFlow",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "DataSources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataSourcesSpec"
+        "nullable": false,
+        "referenceName": "DataSourcesSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Destinations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DestinationsSpec"
+        "nullable": false,
+        "referenceName": "DestinationsSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "ImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Metadata"
+        "nullable": false,
+        "referenceName": "Metadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KnownDataCollectionRuleProvisioningState"
+        "nullable": false,
+        "referenceName": "KnownDataCollectionRuleProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,10 +133,14 @@
       "name": "StreamDeclarations",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StreamDeclaration"
+          "nullable": false,
+          "referenceName": "StreamDeclaration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -126,5 +148,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

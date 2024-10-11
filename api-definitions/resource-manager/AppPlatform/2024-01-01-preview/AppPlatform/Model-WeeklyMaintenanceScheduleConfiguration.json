@@ -7,7 +7,9 @@
       "name": "Day",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeekDay"
+        "nullable": false,
+        "referenceName": "WeekDay",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Hour",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MaintenanceScheduleConfiguration",
   "discriminatedTypeValue": "Weekly",
   "typeHintIn": "Frequency"

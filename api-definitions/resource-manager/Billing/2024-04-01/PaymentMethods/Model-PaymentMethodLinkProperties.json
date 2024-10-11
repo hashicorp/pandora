@@ -7,7 +7,9 @@
       "name": "AccountHolderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Family",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentMethodFamily"
+        "nullable": false,
+        "referenceName": "PaymentMethodFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LastFourDigits",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "Logos",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PaymentMethodLogo"
+          "nullable": false,
+          "referenceName": "PaymentMethodLogo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "PaymentMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentMethodProperties"
+        "nullable": false,
+        "referenceName": "PaymentMethodProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "PaymentMethodId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "PaymentMethodType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,12 +148,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PaymentMethodStatus"
+        "nullable": false,
+        "referenceName": "PaymentMethodStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

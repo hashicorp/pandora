@@ -7,7 +7,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyAssignmentPropertiesPolicy"
+        "nullable": false,
+        "referenceName": "PolicyAssignmentPropertiesPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RoleDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyAssignmentPropertiesRoleDefinition"
+        "nullable": false,
+        "referenceName": "PolicyAssignmentPropertiesRoleDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyAssignmentPropertiesScope"
+        "nullable": false,
+        "referenceName": "PolicyAssignmentPropertiesScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

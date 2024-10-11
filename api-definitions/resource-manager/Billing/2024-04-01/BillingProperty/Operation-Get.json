@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeBillingCountry",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeTransitionStatus",
       "required": false,
@@ -31,7 +34,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingProperty"
+    "nullable": false,
+    "referenceName": "BillingProperty",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Billing/billingProperty/default"
 }

@@ -1,0 +1,55 @@
+{
+  "name": "IndustryDataApiDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "apiFormat",
+      "name": "ApiFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataApiFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The base URL, including the scheme, host, and path for the API, with or without a trailing '/'. For example, 'https://example.com/ims/oneRoster/v1p1'",
+      "jsonName": "baseUrl",
+      "name": "BaseUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credential",
+      "name": "Credential",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataCredential",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "IndustryDataIndustryDataConnector",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.apiDataConnector",
+  "typeHintIn": "ODataType"
+}

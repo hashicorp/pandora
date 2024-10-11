@@ -1,0 +1,25 @@
+{
+  "name": "ExternalConnectorsIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of identity. Possible values are: user or group for Microsoft Entra identities and externalgroup for groups in an external system.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExternalConnectorsIdentityType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.externalConnectors.identity",
+  "typeHintIn": "ODataType"
+}

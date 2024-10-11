@@ -1,0 +1,24 @@
+{
+  "name": "VirtualEventPresenterInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "presenterDetails",
+      "name": "PresenterDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventPresenterDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MeetingParticipantInfo",
+  "discriminatedTypeValue": "#microsoft.graph.virtualEventPresenterInfo",
+  "typeHintIn": "ODataType"
+}

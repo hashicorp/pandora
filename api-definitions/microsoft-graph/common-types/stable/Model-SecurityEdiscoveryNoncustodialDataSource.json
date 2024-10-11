@@ -1,0 +1,41 @@
+{
+  "name": "SecurityEdiscoveryNoncustodialDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User source or SharePoint site data source as noncustodial data source.",
+      "jsonName": "dataSource",
+      "name": "DataSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDataSource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Operation entity that represents the latest indexing for the noncustodial data source.",
+      "jsonName": "lastIndexOperation",
+      "name": "LastIndexOperation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityEdiscoveryIndexOperation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDataSourceContainer",
+  "discriminatedTypeValue": "#microsoft.graph.security.ediscoveryNoncustodialDataSource",
+  "typeHintIn": "ODataType"
+}

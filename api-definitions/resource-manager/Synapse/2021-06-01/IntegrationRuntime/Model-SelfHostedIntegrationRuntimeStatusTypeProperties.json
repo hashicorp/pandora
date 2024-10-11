@@ -7,7 +7,9 @@
       "name": "AutoUpdate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeAutoUpdate"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeAutoUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "AutoUpdateETA",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -52,7 +60,9 @@
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -65,7 +75,9 @@
       "name": "InternalChannelEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeInternalChannelEncryptionMode"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeInternalChannelEncryptionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "LatestVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,10 +105,14 @@
       "name": "Links",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedIntegrationRuntime"
+          "nullable": false,
+          "referenceName": "LinkedIntegrationRuntime",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -108,7 +126,9 @@
       "name": "LocalTimeZoneOffset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,7 +141,9 @@
       "name": "NodeCommunicationChannelEncryptionMode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,10 +156,14 @@
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SelfHostedIntegrationRuntimeNode"
+          "nullable": false,
+          "referenceName": "SelfHostedIntegrationRuntimeNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -151,7 +177,9 @@
       "name": "PushedVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,7 +193,9 @@
       "name": "ScheduledUpdateDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,13 +205,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "serviceUrls",
-      "name": "ServiceUrls",
+      "name": "ServiceURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -195,7 +229,9 @@
       "name": "TaskQueueId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,7 +244,9 @@
       "name": "UpdateDelayOffset",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,7 +259,9 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,12 +274,15 @@
       "name": "VersionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

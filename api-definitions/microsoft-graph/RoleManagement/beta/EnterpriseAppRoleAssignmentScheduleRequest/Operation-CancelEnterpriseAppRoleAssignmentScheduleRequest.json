@@ -1,0 +1,39 @@
+{
+  "name": "CancelEnterpriseAppRoleAssignmentScheduleRequest",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action cancel. Immediately cancel a unifiedRoleAssignmentScheduleRequest object that is in a Granted status, and have the system automatically delete the canceled request after 30 days. After calling this action, the status of the canceled unifiedRoleAssignmentScheduleRequest changes to Canceled.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RoleManagementEnterpriseAppIdRoleAssignmentScheduleRequestId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/cancel"
+}

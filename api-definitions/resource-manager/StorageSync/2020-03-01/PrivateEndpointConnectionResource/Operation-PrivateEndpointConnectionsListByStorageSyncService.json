@@ -1,6 +1,7 @@
 {
   "name": "PrivateEndpointConnectionsListByStorageSyncService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "StorageSyncServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionListResult"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateEndpointConnections"
 }

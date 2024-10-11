@@ -7,7 +7,9 @@
       "name": "ClusterBootstrapAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterOperatorAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClusterSubnetType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterSubnetType"
+        "nullable": false,
+        "referenceName": "ClusterSubnetType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DomainFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "FileShareWitnessPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "IsSqlServiceAccountGmsa",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "OuPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "SqlServiceAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "StorageAccountPrimaryKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,15 +139,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "storageAccountUrl",
-      "name": "StorageAccountUrl",
+      "name": "StorageAccountURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

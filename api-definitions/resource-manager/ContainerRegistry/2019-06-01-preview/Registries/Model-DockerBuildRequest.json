@@ -7,7 +7,9 @@
       "name": "AgentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgentProperties"
+        "nullable": false,
+        "referenceName": "AgentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Arguments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Argument"
+          "nullable": false,
+          "referenceName": "Argument",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Credentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Credentials"
+        "nullable": false,
+        "referenceName": "Credentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "DockerFilePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "ImageNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "IsPushEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "NoCache",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformProperties"
+        "nullable": false,
+        "referenceName": "PlatformProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "SourceLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Target",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -153,6 +179,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RunRequest",
   "discriminatedTypeValue": "DockerBuildRequest",
   "typeHintIn": "Type"

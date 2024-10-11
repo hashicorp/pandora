@@ -7,7 +7,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsoleDetailedStatus"
+        "nullable": false,
+        "referenceName": "ConsoleDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsoleEnabled"
+        "nullable": false,
+        "referenceName": "ConsoleEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "PrivateLinkServiceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsoleProvisioningState"
+        "nullable": false,
+        "referenceName": "ConsoleProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "SshPublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshPublicKey"
+        "nullable": false,
+        "referenceName": "SshPublicKey",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,12 +113,15 @@
       "name": "VirtualMachineAccessId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

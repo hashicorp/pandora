@@ -7,10 +7,14 @@
       "name": "AbsoluteCriteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AbsoluteMarker"
+          "nullable": false,
+          "referenceName": "AbsoluteMarker",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "DaysOfMonth",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Day"
+          "nullable": false,
+          "referenceName": "Day",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "DaysOfTheWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DayOfWeek"
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,10 +70,14 @@
       "name": "MonthsOfYear",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Month"
+          "nullable": false,
+          "referenceName": "Month",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -75,10 +91,14 @@
       "name": "ScheduleTimes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "DateTime",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -92,10 +112,14 @@
       "name": "WeeksOfTheMonth",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WeekNumber"
+          "nullable": false,
+          "referenceName": "WeekNumber",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -104,6 +128,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BackupCriteria",
   "discriminatedTypeValue": "ScheduleBasedBackupCriteria",
   "typeHintIn": "ObjectType"

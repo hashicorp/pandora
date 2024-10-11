@@ -1,0 +1,57 @@
+{
+  "name": "UserExperienceAnalyticsBatteryHealthDeviceRuntimeHistory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier of the device, Intune DeviceID or SCCM device id.",
+      "jsonName": "deviceId",
+      "name": "DeviceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The estimated runtime of the device when the battery is fully charged. Unit in minutes. Valid values 0 to 2147483647",
+      "jsonName": "estimatedRuntimeInMinutes",
+      "name": "EstimatedRuntimeInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The datetime for the instance of runtime history.",
+      "jsonName": "runtimeDateTime",
+      "name": "RuntimeDateTime",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsBatteryHealthDeviceRuntimeHistory",
+  "typeHintIn": "ODataType"
+}

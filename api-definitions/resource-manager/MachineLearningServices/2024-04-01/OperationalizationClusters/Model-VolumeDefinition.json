@@ -7,7 +7,9 @@
       "name": "Bind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BindOptions"
+        "nullable": false,
+        "referenceName": "BindOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Consistency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ReadOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Target",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Tmpfs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TmpfsOptions"
+        "nullable": false,
+        "referenceName": "TmpfsOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeDefinitionType"
+        "nullable": false,
+        "referenceName": "VolumeDefinitionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "Volume",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeOptions"
+        "nullable": false,
+        "referenceName": "VolumeOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

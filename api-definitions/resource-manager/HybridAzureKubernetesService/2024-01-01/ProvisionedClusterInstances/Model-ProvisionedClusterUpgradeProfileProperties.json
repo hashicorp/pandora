@@ -7,7 +7,9 @@
       "name": "ControlPlaneProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisionedClusterPoolUpgradeProfile"
+        "nullable": false,
+        "referenceName": "ProvisionedClusterPoolUpgradeProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

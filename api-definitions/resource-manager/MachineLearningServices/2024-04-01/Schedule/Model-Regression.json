@@ -7,10 +7,14 @@
       "name": "CvSplitColumnNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "FeaturizationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableVerticalFeaturizationSettings"
+        "nullable": false,
+        "referenceName": "TableVerticalFeaturizationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "LimitSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TableVerticalLimitSettings"
+        "nullable": false,
+        "referenceName": "TableVerticalLimitSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "NCrossValidations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NCrossValidations"
+        "nullable": false,
+        "referenceName": "NCrossValidations",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "PrimaryMetric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegressionPrimaryMetrics"
+        "nullable": false,
+        "referenceName": "RegressionPrimaryMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "TestData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "TestDataSize",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "TrainingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RegressionTrainingSettings"
+        "nullable": false,
+        "referenceName": "RegressionTrainingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ValidationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ValidationDataSize",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "WeightColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,6 +173,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutoMLVertical",
   "discriminatedTypeValue": "Regression",
   "typeHintIn": "TaskType"

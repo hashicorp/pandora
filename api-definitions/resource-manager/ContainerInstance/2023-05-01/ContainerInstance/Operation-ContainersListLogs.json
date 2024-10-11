@@ -1,6 +1,7 @@
 {
   "name": "ContainersListLogs",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "tail",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "timestamps",
       "required": false,
@@ -31,7 +34,9 @@
   "resourceIdName": "ContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Logs"
+    "nullable": false,
+    "referenceName": "Logs",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/logs"
 }

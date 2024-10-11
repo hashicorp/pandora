@@ -7,7 +7,9 @@
       "name": "Key",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OperatorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdvancedFilterOperatorType"
+        "nullable": false,
+        "referenceName": "AdvancedFilterOperatorType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "OperatorType"
 }

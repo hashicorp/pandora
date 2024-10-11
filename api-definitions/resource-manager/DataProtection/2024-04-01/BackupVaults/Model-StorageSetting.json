@@ -7,7 +7,9 @@
       "name": "DatastoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSettingStoreTypes"
+        "nullable": false,
+        "referenceName": "StorageSettingStoreTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSettingTypes"
+        "nullable": false,
+        "referenceName": "StorageSettingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

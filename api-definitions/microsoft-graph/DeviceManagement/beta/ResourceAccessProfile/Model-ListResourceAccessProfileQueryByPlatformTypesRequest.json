@@ -1,0 +1,22 @@
+{
+  "name": "ListResourceAccessProfileQueryByPlatformTypesRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Supported platform types for policies.",
+      "jsonName": "platformType",
+      "name": "PlatformType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PolicyPlatformType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

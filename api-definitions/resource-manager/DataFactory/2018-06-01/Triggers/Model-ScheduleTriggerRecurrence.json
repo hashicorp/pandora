@@ -8,7 +8,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceFrequency"
+        "nullable": false,
+        "referenceName": "RecurrenceFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Interval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceSchedule"
+        "nullable": false,
+        "referenceName": "RecurrenceSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,12 +84,15 @@
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

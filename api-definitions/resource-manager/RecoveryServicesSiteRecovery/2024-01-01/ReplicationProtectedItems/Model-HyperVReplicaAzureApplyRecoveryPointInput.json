@@ -7,7 +7,9 @@
       "name": "PrimaryKekCertificatePfx",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SecondaryKekCertificatePfx",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ApplyRecoveryPointProviderSpecificInput",
   "discriminatedTypeValue": "HyperVReplicaAzure",
   "typeHintIn": "InstanceType"

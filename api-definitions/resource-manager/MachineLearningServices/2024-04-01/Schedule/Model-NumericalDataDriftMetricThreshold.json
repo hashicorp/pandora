@@ -7,7 +7,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NumericalDataDriftMetric"
+        "nullable": false,
+        "referenceName": "NumericalDataDriftMetric",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataDriftMetricThresholdBase",
   "discriminatedTypeValue": "Numerical",
   "typeHintIn": "DataType"

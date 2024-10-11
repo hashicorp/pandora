@@ -7,7 +7,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FilterActivityTypeProperties"
+        "nullable": false,
+        "referenceName": "FilterActivityTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Activity",
   "discriminatedTypeValue": "Filter",
   "typeHintIn": "Type"

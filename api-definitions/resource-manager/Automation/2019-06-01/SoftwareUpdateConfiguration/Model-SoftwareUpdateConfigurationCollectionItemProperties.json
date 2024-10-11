@@ -8,7 +8,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleFrequency"
+        "nullable": false,
+        "referenceName": "ScheduleFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -35,7 +39,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -49,7 +55,9 @@
       "name": "NextRun",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -62,7 +70,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +86,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +101,9 @@
       "name": "Tasks",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareUpdateConfigurationTasks"
+        "nullable": false,
+        "referenceName": "SoftwareUpdateConfigurationTasks",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +116,15 @@
       "name": "UpdateConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateConfiguration"
+        "nullable": false,
+        "referenceName": "UpdateConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

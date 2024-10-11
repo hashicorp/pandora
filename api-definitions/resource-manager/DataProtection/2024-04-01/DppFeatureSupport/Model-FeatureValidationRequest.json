@@ -7,7 +7,9 @@
       "name": "FeatureName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FeatureType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureType"
+        "nullable": false,
+        "referenceName": "FeatureType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FeatureValidationRequestBase",
   "discriminatedTypeValue": "FeatureValidationRequest",
   "typeHintIn": "ObjectType"

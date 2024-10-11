@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulesEngineAction"
+        "nullable": false,
+        "referenceName": "RulesEngineAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "MatchConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RulesEngineMatchCondition"
+          "nullable": false,
+          "referenceName": "RulesEngineMatchCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "MatchProcessingBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MatchProcessingBehavior"
+        "nullable": false,
+        "referenceName": "MatchProcessingBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

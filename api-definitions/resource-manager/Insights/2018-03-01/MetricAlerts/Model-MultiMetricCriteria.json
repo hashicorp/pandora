@@ -7,7 +7,9 @@
       "name": "CriterionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CriterionType"
+        "nullable": false,
+        "referenceName": "CriterionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Dimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricDimension"
+          "nullable": false,
+          "referenceName": "MetricDimension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "MetricName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "MetricNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "SkipMetricValidation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "TimeAggregation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AggregationTypeEnum"
+        "nullable": false,
+        "referenceName": "AggregationTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -97,5 +113,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "CriterionType"
 }

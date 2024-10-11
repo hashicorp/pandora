@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "Python3PackageId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PythonPackageUpdateParameters"
+    "nullable": false,
+    "referenceName": "PythonPackageUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Module"
+    "nullable": false,
+    "referenceName": "Module",
+    "referenceNameIsCommonType": null
   }
 }

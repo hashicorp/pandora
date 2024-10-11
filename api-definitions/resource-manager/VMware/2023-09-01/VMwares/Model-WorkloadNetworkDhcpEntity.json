@@ -7,7 +7,9 @@
       "name": "DhcpType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DhcpTypeEnum"
+        "nullable": false,
+        "referenceName": "DhcpTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadNetworkDhcpProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkloadNetworkDhcpProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Revision",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Segments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,5 +83,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "DhcpType"
 }

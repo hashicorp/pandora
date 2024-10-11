@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineAdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "VirtualMachineAdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdminUser",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Credentials"
+        "nullable": false,
+        "referenceName": "Credentials",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CreateOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateOption"
+        "nullable": false,
+        "referenceName": "CreateOption",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ImageReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImageReference"
+        "nullable": false,
+        "referenceName": "ImageReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "NonAdminUser",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Credentials"
+        "nullable": false,
+        "referenceName": "Credentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsType"
+        "nullable": false,
+        "referenceName": "OsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "UsageQuota",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "UseSharedPassword",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnableState"
+        "nullable": false,
+        "referenceName": "EnableState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

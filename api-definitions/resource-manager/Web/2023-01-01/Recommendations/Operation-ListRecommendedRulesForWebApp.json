@@ -1,6 +1,7 @@
 {
   "name": "ListRecommendedRulesForWebApp",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "featured",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -32,7 +35,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Recommendation"
+    "nullable": false,
+    "referenceName": "Recommendation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/recommendations"
 }

@@ -1,0 +1,50 @@
+{
+  "name": "CreateEntitlementManagementConnectedOrganization",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create connectedOrganization. Create a new connectedOrganization object.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectedOrganization",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectedOrganization",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identityGovernance/entitlementManagement/connectedOrganizations"
+}

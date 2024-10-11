@@ -7,7 +7,9 @@
       "name": "AdministratorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdministratorType"
+        "nullable": false,
+        "referenceName": "AdministratorType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Login",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Sid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

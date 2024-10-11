@@ -7,10 +7,14 @@
       "name": "AcceptedAudiences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AcceptedAudiences"
+          "nullable": false,
+          "referenceName": "AcceptedAudiences",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "AllowedFqdnList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "AllowedIPRangeList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,7 +70,9 @@
       "name": "DataIngestionUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,7 +85,9 @@
       "name": "EnableAutoStop",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,7 +100,9 @@
       "name": "EnableDiskEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "EnableDoubleEncryption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "EnablePurge",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "EnableStreamingIngest",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "EngineType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EngineType"
+        "nullable": false,
+        "referenceName": "EngineType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "LanguageExtensions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LanguageExtensionsList"
+        "nullable": false,
+        "referenceName": "LanguageExtensionsList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +205,9 @@
       "name": "MigrationCluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationClusterProperties"
+        "nullable": false,
+        "referenceName": "MigrationClusterProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,7 +220,9 @@
       "name": "OptimizedAutoscale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptimizedAutoscale"
+        "nullable": false,
+        "referenceName": "OptimizedAutoscale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,10 +235,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -218,7 +256,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -231,7 +271,9 @@
       "name": "PublicIPType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPType"
+        "nullable": false,
+        "referenceName": "PublicIPType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -244,7 +286,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -257,7 +301,9 @@
       "name": "RestrictOutboundNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "ClusterNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -270,7 +316,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "State"
+        "nullable": false,
+        "referenceName": "State",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -283,7 +331,9 @@
       "name": "StateReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,10 +346,14 @@
       "name": "TrustedExternalTenants",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrustedExternalTenant"
+          "nullable": false,
+          "referenceName": "TrustedExternalTenant",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -313,7 +367,9 @@
       "name": "Uri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -326,7 +382,9 @@
       "name": "VirtualClusterGraduationProperties",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -339,12 +397,15 @@
       "name": "VirtualNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

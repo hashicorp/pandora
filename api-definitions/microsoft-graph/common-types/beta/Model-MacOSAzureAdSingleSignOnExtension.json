@@ -1,0 +1,69 @@
+{
+  "name": "MacOSAzureAdSingleSignOnExtension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "An optional list of additional bundle IDs allowed to use the AAD extension for single sign-on.",
+      "jsonName": "bundleIdAccessControlList",
+      "name": "BundleIdAccessControlList",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets a list of typed key-value pairs used to configure Credential-type profiles. This collection can contain a maximum of 500 elements.",
+      "jsonName": "configurations",
+      "name": "Configurations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyTypedValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Enables or disables shared device mode.",
+      "jsonName": "enableSharedDeviceMode",
+      "name": "EnableSharedDeviceMode",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MacOSSingleSignOnExtension",
+  "discriminatedTypeValue": "#microsoft.graph.macOSAzureAdSingleSignOnExtension",
+  "typeHintIn": "ODataType"
+}

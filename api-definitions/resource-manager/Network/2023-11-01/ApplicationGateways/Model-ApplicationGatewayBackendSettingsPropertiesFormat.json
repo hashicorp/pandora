@@ -7,7 +7,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PickHostNameFromBackendAddress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Port",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Probe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayProtocol"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "TrustedRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -109,5 +127,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

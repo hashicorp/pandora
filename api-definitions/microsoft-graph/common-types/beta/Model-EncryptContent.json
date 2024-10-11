@@ -1,0 +1,24 @@
+{
+  "name": "EncryptContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptWith",
+      "name": "EncryptWith",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EncryptWith",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "LabelActionBase",
+  "discriminatedTypeValue": "#microsoft.graph.encryptContent",
+  "typeHintIn": "ODataType"
+}

@@ -8,7 +8,9 @@
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -22,7 +24,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -36,7 +40,9 @@
       "name": "LastExecutionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +56,9 @@
       "name": "NextExecutionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +71,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowTriggerProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkflowTriggerProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +86,9 @@
       "name": "Recurrence",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowTriggerRecurrence"
+        "nullable": false,
+        "referenceName": "WorkflowTriggerRecurrence",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +101,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowState"
+        "nullable": false,
+        "referenceName": "WorkflowState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +116,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowStatus"
+        "nullable": false,
+        "referenceName": "WorkflowStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +131,15 @@
       "name": "Workflow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

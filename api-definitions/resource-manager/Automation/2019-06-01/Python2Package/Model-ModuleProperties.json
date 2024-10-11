@@ -7,7 +7,9 @@
       "name": "ActivityCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContentLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentLink"
+        "nullable": false,
+        "referenceName": "ContentLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModuleErrorInfo"
+        "nullable": false,
+        "referenceName": "ModuleErrorInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "IsComposite",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,7 +129,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ModuleProvisioningState"
+        "nullable": false,
+        "referenceName": "ModuleProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,7 +144,9 @@
       "name": "SizeInBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,12 +159,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

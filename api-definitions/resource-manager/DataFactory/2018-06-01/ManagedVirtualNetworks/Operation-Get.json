@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-None-Match",
       "optional": true,
       "required": false,
@@ -21,6 +23,8 @@
   "resourceIdName": "ManagedVirtualNetworkId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedVirtualNetworkResource"
+    "nullable": false,
+    "referenceName": "ManagedVirtualNetworkResource",
+    "referenceNameIsCommonType": null
   }
 }

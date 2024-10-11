@@ -1,0 +1,37 @@
+{
+  "name": "CreateUserExperienceAnalyticsDeviceScopeTriggerActionRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Trigger on the service to either START or STOP computing metrics data based on a device scope configuration.",
+      "jsonName": "actionName",
+      "name": "ActionName",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceScopeAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deviceScopeId",
+      "name": "DeviceScopeId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

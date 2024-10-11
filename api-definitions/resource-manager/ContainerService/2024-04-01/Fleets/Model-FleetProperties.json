@@ -7,7 +7,9 @@
       "name": "HubProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FleetHubProfile"
+        "nullable": false,
+        "referenceName": "FleetHubProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FleetProvisioningState"
+        "nullable": false,
+        "referenceName": "FleetProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

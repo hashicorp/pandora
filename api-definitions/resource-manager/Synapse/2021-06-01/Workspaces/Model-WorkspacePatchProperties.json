@@ -7,7 +7,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionDetails"
+        "nullable": false,
+        "referenceName": "EncryptionDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ManagedVirtualNetworkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedVirtualNetworkSettings"
+        "nullable": false,
+        "referenceName": "ManagedVirtualNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspacePublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "WorkspacePublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "PurviewConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurviewConfiguration"
+        "nullable": false,
+        "referenceName": "PurviewConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SqlAdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "WorkspaceRepositoryConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceRepositoryConfiguration"
+        "nullable": false,
+        "referenceName": "WorkspaceRepositoryConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

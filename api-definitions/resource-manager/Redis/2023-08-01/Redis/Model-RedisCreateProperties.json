@@ -7,7 +7,9 @@
       "name": "EnableNonSslPort",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsVersion"
+        "nullable": false,
+        "referenceName": "TlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RedisConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RedisCommonPropertiesRedisConfiguration"
+        "nullable": false,
+        "referenceName": "RedisCommonPropertiesRedisConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RedisVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ReplicasPerMaster",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ReplicasPerPrimary",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ShardCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "StaticIP",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,10 +172,14 @@
       "name": "TenantSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -167,12 +193,15 @@
       "name": "UpdateChannel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateChannel"
+        "nullable": false,
+        "referenceName": "UpdateChannel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

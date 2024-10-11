@@ -7,7 +7,9 @@
       "name": "ApprovalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Condition",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ConditionVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "CreatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "ExpandedProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpandedProperties"
+        "nullable": false,
+        "referenceName": "ExpandedProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "Justification",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "PrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "PrincipalType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrincipalType"
+        "nullable": false,
+        "referenceName": "PrincipalType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "RequestType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RequestType"
+        "nullable": false,
+        "referenceName": "RequestType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "RequestorId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +158,9 @@
       "name": "RoleDefinitionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -151,7 +173,9 @@
       "name": "ScheduleInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfo"
+        "nullable": false,
+        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,7 +188,9 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,7 +203,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Status"
+        "nullable": false,
+        "referenceName": "Status",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,7 +218,9 @@
       "name": "TargetRoleEligibilityScheduleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,7 +233,9 @@
       "name": "TargetRoleEligibilityScheduleInstanceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,12 +248,15 @@
       "name": "TicketInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleEligibilityScheduleRequestPropertiesTicketInfo"
+        "nullable": false,
+        "referenceName": "RoleEligibilityScheduleRequestPropertiesTicketInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

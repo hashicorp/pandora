@@ -7,7 +7,9 @@
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DiskRestorePoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiEntityReference"
+        "nullable": false,
+        "referenceName": "ApiEntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Lun",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "ManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

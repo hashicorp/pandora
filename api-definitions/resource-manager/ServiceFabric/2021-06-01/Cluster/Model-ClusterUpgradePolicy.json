@@ -7,7 +7,9 @@
       "name": "DeltaHealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterUpgradeDeltaHealthPolicy"
+        "nullable": false,
+        "referenceName": "ClusterUpgradeDeltaHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ForceRestart",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HealthCheckRetryTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HealthCheckStableDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "HealthCheckWaitDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "HealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterHealthPolicy"
+        "nullable": false,
+        "referenceName": "ClusterHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "UpgradeDomainTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "UpgradeReplicaSetCheckTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "UpgradeTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

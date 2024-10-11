@@ -1,6 +1,7 @@
 {
   "name": "DeleteBastionShareableLink",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "BastionHostId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BastionShareableLinkListRequest"
+    "nullable": false,
+    "referenceName": "BastionShareableLinkListRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deleteShareableLinks"
 }

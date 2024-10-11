@@ -1,0 +1,25 @@
+{
+  "name": "WindowsUpdatesResourceConnection",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The state of the connection. The possible values are: connected, notAuthorized, notFound, unknownFutureValue.",
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesResourceConnectionState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.resourceConnection",
+  "typeHintIn": "ODataType"
+}

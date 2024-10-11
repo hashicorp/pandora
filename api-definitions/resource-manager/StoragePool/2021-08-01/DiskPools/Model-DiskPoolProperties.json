@@ -7,10 +7,14 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AvailabilityZones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Disk"
+          "nullable": false,
+          "referenceName": "Disk",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStates"
+        "nullable": false,
+        "referenceName": "ProvisioningStates",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationalStatus"
+        "nullable": false,
+        "referenceName": "OperationalStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,12 +94,15 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

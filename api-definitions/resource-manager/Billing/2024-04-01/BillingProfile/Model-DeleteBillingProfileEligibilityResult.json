@@ -7,10 +7,14 @@
       "name": "EligibilityDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeleteBillingProfileEligibilityDetail"
+          "nullable": false,
+          "referenceName": "DeleteBillingProfileEligibilityDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "EligibilityStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteBillingProfileEligibilityStatus"
+        "nullable": false,
+        "referenceName": "DeleteBillingProfileEligibilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

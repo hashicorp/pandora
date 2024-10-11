@@ -7,7 +7,9 @@
       "name": "AvgLatencyInMs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionState"
+        "nullable": false,
+        "referenceName": "ConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "EvaluationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EvaluationState"
+        "nullable": false,
+        "referenceName": "EvaluationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,10 +68,14 @@
       "name": "Hops",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectivityHop"
+          "nullable": false,
+          "referenceName": "ConnectivityHop",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -77,7 +89,9 @@
       "name": "MaxLatencyInMs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "MinLatencyInMs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "ProbesFailed",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "ProbesSent",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,12 +150,15 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

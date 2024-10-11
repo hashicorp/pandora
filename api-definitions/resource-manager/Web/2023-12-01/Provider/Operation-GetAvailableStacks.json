@@ -1,6 +1,7 @@
 {
   "name": "GetAvailableStacks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "osTypeSelected",
       "required": false,
@@ -21,7 +23,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationStackResource"
+    "nullable": false,
+    "referenceName": "ApplicationStackResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Web/availableStacks"
 }

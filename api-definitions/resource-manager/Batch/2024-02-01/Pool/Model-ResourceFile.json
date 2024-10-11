@@ -7,7 +7,9 @@
       "name": "AutoStorageContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BlobPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FileMode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "FilePath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -56,10 +64,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "httpUrl",
-      "name": "HTTPUrl",
+      "name": "HTTPURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "IdentityReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeNodeIdentityReference"
+        "nullable": false,
+        "referenceName": "ComputeNodeIdentityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -82,15 +94,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "storageContainerUrl",
-      "name": "StorageContainerUrl",
+      "name": "StorageContainerURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

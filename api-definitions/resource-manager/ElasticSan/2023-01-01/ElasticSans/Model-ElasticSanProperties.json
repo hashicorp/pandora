@@ -7,7 +7,9 @@
       "name": "AvailabilityZones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BaseSizeTiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ExtendedCapacitySizeTiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStates"
+        "nullable": false,
+        "referenceName": "ProvisioningStates",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "TotalIops",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "TotalMBps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "TotalSizeTiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "TotalVolumeSizeGiB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,12 +178,15 @@
       "name": "VolumeGroupCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

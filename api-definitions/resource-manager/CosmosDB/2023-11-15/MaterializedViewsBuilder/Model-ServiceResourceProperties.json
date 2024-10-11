@@ -8,7 +8,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "InstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "InstanceSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceSize"
+        "nullable": false,
+        "referenceName": "ServiceSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "ServiceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceType"
+        "nullable": false,
+        "referenceName": "ServiceType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceStatus"
+        "nullable": false,
+        "referenceName": "ServiceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,5 +78,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ServiceType"
 }

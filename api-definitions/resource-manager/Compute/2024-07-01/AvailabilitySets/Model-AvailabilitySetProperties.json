@@ -7,7 +7,9 @@
       "name": "PlatformFaultDomainCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PlatformUpdateDomainCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ScheduledEventsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledEventsPolicy"
+        "nullable": false,
+        "referenceName": "ScheduledEventsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InstanceViewStatus"
+          "nullable": false,
+          "referenceName": "InstanceViewStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "VirtualMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -87,5 +103,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CostAllocationPolicyType"
+        "nullable": false,
+        "referenceName": "CostAllocationPolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CostAllocationResourceType"
+        "nullable": false,
+        "referenceName": "CostAllocationResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CostAllocationProportion"
+          "nullable": false,
+          "referenceName": "CostAllocationProportion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -57,5 +67,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

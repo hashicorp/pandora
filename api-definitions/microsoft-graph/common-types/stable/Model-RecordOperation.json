@@ -1,0 +1,41 @@
+{
+  "name": "RecordOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The access token required to retrieve the recording.",
+      "jsonName": "recordingAccessToken",
+      "name": "RecordingAccessToken",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The location where the recording is located.",
+      "jsonName": "recordingLocation",
+      "name": "RecordingLocation",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CommsOperation",
+  "discriminatedTypeValue": "#microsoft.graph.recordOperation",
+  "typeHintIn": "ODataType"
+}

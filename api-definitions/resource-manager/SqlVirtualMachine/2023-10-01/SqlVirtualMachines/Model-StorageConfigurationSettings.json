@@ -7,7 +7,9 @@
       "name": "DiskConfigurationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskConfigurationType"
+        "nullable": false,
+        "referenceName": "DiskConfigurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableStorageConfigBlade",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SqlDataSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SQLStorageSettings"
+        "nullable": false,
+        "referenceName": "SQLStorageSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SqlLogSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SQLStorageSettings"
+        "nullable": false,
+        "referenceName": "SQLStorageSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "SqlSystemDbOnDataDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SqlTempDbSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SQLTempDbSettings"
+        "nullable": false,
+        "referenceName": "SQLTempDbSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "StorageWorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageWorkloadType"
+        "nullable": false,
+        "referenceName": "StorageWorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

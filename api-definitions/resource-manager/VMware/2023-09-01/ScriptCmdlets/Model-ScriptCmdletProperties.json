@@ -7,7 +7,9 @@
       "name": "Audience",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptCmdletAudience"
+        "nullable": false,
+        "referenceName": "ScriptCmdletAudience",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScriptParameter"
+          "nullable": false,
+          "referenceName": "ScriptParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScriptCmdletProvisioningState"
+        "nullable": false,
+        "referenceName": "ScriptCmdletProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

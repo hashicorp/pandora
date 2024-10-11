@@ -7,7 +7,9 @@
       "name": "Architecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Architecture"
+        "nullable": false,
+        "referenceName": "Architecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Os",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OS"
+        "nullable": false,
+        "referenceName": "OS",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Variant",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Variant"
+        "nullable": false,
+        "referenceName": "Variant",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

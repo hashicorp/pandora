@@ -7,10 +7,14 @@
       "name": "Aggregation",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryAggregation"
+          "nullable": false,
+          "referenceName": "QueryAggregation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryDatasetConfiguration"
+        "nullable": false,
+        "referenceName": "QueryDatasetConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Filter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueryFilter"
+        "nullable": false,
+        "referenceName": "QueryFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Granularity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GranularityType"
+        "nullable": false,
+        "referenceName": "GranularityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "Grouping",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QueryGrouping"
+          "nullable": false,
+          "referenceName": "QueryGrouping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -74,5 +88,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

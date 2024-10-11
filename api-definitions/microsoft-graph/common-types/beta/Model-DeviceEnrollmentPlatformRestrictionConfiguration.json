@@ -1,0 +1,41 @@
+{
+  "name": "DeviceEnrollmentPlatformRestrictionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Restrictions based on platform, platform operating system version, and device ownership",
+      "jsonName": "platformRestriction",
+      "name": "PlatformRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This enum indicates the platform type for which the enrollment restriction applies.",
+      "jsonName": "platformType",
+      "name": "PlatformType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EnrollmentRestrictionPlatformType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.deviceEnrollmentPlatformRestrictionConfiguration",
+  "typeHintIn": "ODataType"
+}

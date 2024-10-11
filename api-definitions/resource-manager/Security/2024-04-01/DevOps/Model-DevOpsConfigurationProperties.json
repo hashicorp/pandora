@@ -7,7 +7,9 @@
       "name": "Authorization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Authorization"
+        "nullable": false,
+        "referenceName": "Authorization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoDiscovery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoDiscovery"
+        "nullable": false,
+        "referenceName": "AutoDiscovery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DevOpsCapability"
+          "nullable": false,
+          "referenceName": "DevOpsCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevOpsProvisioningState"
+        "nullable": false,
+        "referenceName": "DevOpsProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ProvisioningStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "ProvisioningStatusUpdateTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,10 +104,14 @@
       "name": "TopLevelInventoryList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,5 +119,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

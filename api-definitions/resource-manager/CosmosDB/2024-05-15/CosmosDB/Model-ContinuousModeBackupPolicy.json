@@ -7,7 +7,9 @@
       "name": "ContinuousModeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContinuousModeProperties"
+        "nullable": false,
+        "referenceName": "ContinuousModeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "BackupPolicy",
   "discriminatedTypeValue": "Continuous",
   "typeHintIn": "Type"

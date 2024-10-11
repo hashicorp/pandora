@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -21,6 +23,8 @@
   "resourceIdName": "NotificationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NotificationContract"
+    "nullable": false,
+    "referenceName": "NotificationContract",
+    "referenceNameIsCommonType": null
   }
 }

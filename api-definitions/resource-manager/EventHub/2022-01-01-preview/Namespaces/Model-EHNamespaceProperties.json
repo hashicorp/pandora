@@ -7,7 +7,9 @@
       "name": "AlternateName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "DisableLocalAuth",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "IsAutoInflateEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "KafkaEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "MaximumThroughputUnits",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "MetricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsVersion"
+        "nullable": false,
+        "referenceName": "TlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,10 +158,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -155,7 +179,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,7 +194,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,7 +209,9 @@
       "name": "ServiceBusEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,7 +224,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -208,7 +240,9 @@
       "name": "UpdatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -221,12 +255,15 @@
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

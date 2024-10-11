@@ -7,10 +7,14 @@
       "name": "ScheduleEntries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ScheduleEntry"
+          "nullable": false,
+          "referenceName": "ScheduleEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +22,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

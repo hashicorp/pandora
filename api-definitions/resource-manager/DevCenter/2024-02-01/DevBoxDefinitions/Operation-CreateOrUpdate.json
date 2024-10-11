@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "DevCenterDevBoxDefinitionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DevBoxDefinition"
+    "nullable": false,
+    "referenceName": "DevBoxDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DevBoxDefinition"
+    "nullable": false,
+    "referenceName": "DevBoxDefinition",
+    "referenceNameIsCommonType": null
   }
 }

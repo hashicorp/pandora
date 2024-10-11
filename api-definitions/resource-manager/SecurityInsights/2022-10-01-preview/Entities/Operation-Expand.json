@@ -1,6 +1,7 @@
 {
   "name": "Expand",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "EntityId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EntityExpandParameters"
+    "nullable": false,
+    "referenceName": "EntityExpandParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityExpandResponse"
+    "nullable": false,
+    "referenceName": "EntityExpandResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/expand"
 }

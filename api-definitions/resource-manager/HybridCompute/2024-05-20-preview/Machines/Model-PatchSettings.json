@@ -7,7 +7,9 @@
       "name": "AssessmentMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssessmentModeTypes"
+        "nullable": false,
+        "referenceName": "AssessmentModeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableHotpatching",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PatchMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchModeTypes"
+        "nullable": false,
+        "referenceName": "PatchModeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchSettingsStatus"
+        "nullable": false,
+        "referenceName": "PatchSettingsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

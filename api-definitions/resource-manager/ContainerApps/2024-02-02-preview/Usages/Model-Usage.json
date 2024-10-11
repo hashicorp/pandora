@@ -7,7 +7,9 @@
       "name": "CurrentValue",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Limit",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UsageName"
+        "nullable": false,
+        "referenceName": "UsageName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Unit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UsageUnit"
+        "nullable": false,
+        "referenceName": "UsageUnit",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

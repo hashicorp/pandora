@@ -7,7 +7,9 @@
       "name": "BlueprintName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ChangeNotes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ParameterDefinition"
+          "nullable": false,
+          "referenceName": "ParameterDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "ResourceGroups",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceGroupDefinition"
+          "nullable": false,
+          "referenceName": "ResourceGroupDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlueprintResourceStatusBase"
+        "nullable": false,
+        "referenceName": "BlueprintResourceStatusBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,12 +124,15 @@
       "name": "TargetScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BlueprintTargetScope"
+        "nullable": false,
+        "referenceName": "BlueprintTargetScope",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "httpMethod": "GET",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SecurityAssessmentMetadataResponse"
+    "nullable": false,
+    "referenceName": "SecurityAssessmentMetadataResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Security/assessmentMetadata"
 }

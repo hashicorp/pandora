@@ -1,6 +1,7 @@
 {
   "name": "DetachFollowerDatabases",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "KustoClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FollowerDatabaseDefinition"
+    "nullable": false,
+    "referenceName": "FollowerDatabaseDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/detachFollowerDatabases"
 }

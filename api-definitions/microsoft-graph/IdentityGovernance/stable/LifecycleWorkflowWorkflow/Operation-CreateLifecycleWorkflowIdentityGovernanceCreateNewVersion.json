@@ -1,0 +1,51 @@
+{
+  "name": "CreateLifecycleWorkflowIdentityGovernanceCreateNewVersion",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action createNewVersion. Create a new version of the workflow object.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceLifecycleWorkflowWorkflowId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateLifecycleWorkflowIdentityGovernanceCreateNewVersionRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IdentityGovernanceWorkflow",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/identityGovernance.createNewVersion"
+}

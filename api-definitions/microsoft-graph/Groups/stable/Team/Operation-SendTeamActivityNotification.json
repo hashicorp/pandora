@@ -1,0 +1,45 @@
+{
+  "name": "SendTeamActivityNotification",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action sendActivityNotification. Send an activity feed notification in the scope of a team. For more information about sending notifications and the requirements for doing so, see\nsending Teams activity notifications.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SendTeamActivityNotificationRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/team/sendActivityNotification"
+}

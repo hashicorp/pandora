@@ -1,6 +1,7 @@
 {
   "name": "SubAccountListVMHostUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,11 +11,15 @@
   "resourceIdName": "AccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VMHostUpdateRequest"
+    "nullable": false,
+    "referenceName": "VMHostUpdateRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMResources"
+    "nullable": false,
+    "referenceName": "VMResources",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/vmHostUpdate"
 }

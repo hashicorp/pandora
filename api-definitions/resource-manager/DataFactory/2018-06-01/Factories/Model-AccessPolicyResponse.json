@@ -7,7 +7,9 @@
       "name": "AccessToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,10 +19,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "dataPlaneUrl",
-      "name": "DataPlaneUrl",
+      "name": "DataPlaneURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserAccessPolicy"
+        "nullable": false,
+        "referenceName": "UserAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

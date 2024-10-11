@@ -1,6 +1,7 @@
 {
   "name": "ListByBatchAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "maxresults",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "BatchAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnection"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateEndpointConnections"
 }

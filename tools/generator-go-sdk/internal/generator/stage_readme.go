@@ -8,7 +8,7 @@ import (
 	"sort"
 )
 
-func (s *ServiceGenerator) readmeFile(data ServiceGeneratorData) error {
+func (s *Generator) readmeFile(data GeneratorData) error {
 	if len(data.models) == 0 {
 		return nil
 	}

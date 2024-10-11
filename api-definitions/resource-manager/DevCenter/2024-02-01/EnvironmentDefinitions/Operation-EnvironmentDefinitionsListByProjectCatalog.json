@@ -1,6 +1,7 @@
 {
   "name": "EnvironmentDefinitionsListByProjectCatalog",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "CatalogId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EnvironmentDefinition"
+    "nullable": false,
+    "referenceName": "EnvironmentDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/environmentDefinitions"
 }

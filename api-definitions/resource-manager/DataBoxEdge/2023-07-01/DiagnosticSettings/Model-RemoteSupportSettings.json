@@ -7,7 +7,9 @@
       "name": "AccessLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessLevel"
+        "nullable": false,
+        "referenceName": "AccessLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "ExpirationTimeStampInUTC",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "RemoteApplicationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemoteApplicationType"
+        "nullable": false,
+        "referenceName": "RemoteApplicationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

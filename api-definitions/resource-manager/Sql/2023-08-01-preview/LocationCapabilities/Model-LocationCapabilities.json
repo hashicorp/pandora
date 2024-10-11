@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "SupportedJobAgentVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobAgentVersionCapability"
+          "nullable": false,
+          "referenceName": "JobAgentVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,10 +73,14 @@
       "name": "SupportedManagedInstanceVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedInstanceVersionCapability"
+          "nullable": false,
+          "referenceName": "ManagedInstanceVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapability"
+          "nullable": false,
+          "referenceName": "ServerVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -91,5 +109,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

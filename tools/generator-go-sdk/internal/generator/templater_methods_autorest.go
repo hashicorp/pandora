@@ -21,7 +21,7 @@ type methodsAutoRestTemplater struct {
 	constants     map[string]models.SDKConstant
 }
 
-func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) template(data GeneratorData) (*string, error) {
 	methods, err := c.methods(data)
 	if err != nil {
 		return nil, fmt.Errorf("building methods: %+v", err)
@@ -56,7 +56,7 @@ import (
 	return &template, nil
 }
 
-func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) methods(data GeneratorData) (*string, error) {
 	// NOTE: most of this logic is sanity checking, but should be within the API and it's validators too
 	// that could be a separate validation tool, but this would be most useful as unit tests
 
@@ -137,7 +137,7 @@ func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, e
 	return nil, fmt.Errorf("unsupported HTTP Method %q", c.operation.Method)
 }
 
-func (c methodsAutoRestTemplater) immediateOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) immediateOperationTemplate(data GeneratorData) (*string, error) {
 	responseStructName, err := c.responseStructName(data)
 	if err != nil {
 		return nil, err
@@ -198,7 +198,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[10]s, err error) {
 	return &templated, nil
 }
 
-func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) listOperationTemplate(data GeneratorData) (*string, error) {
 	responseStructName, err := c.responseStructName(data)
 	if err != nil {
 		return nil, err
@@ -225,7 +225,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	if err != nil {
 		return nil, fmt.Errorf("building responder template: %+v", err)
 	}
-	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -351,7 +351,7 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 	return &templated, nil
 }
 
-func (c methodsAutoRestTemplater) longRunningOperationTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) longRunningOperationTemplate(data GeneratorData) (*string, error) {
 	responseStructName, err := c.responseStructName(data)
 	if err != nil {
 		return nil, err
@@ -435,7 +435,7 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	return fmt.Sprintf(", %s", strings.Join(args, ", "))
 }
 
-func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data GeneratorData) (*string, error) {
 	arguments := make([]string, 0)
 	if c.operation.ResourceIDName != nil {
 		idName := *c.operation.ResourceIDName
@@ -450,7 +450,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -467,7 +467,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 	return &out, nil
 }
 
-func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) preparerTemplate(data GeneratorData) (*string, error) {
 	arguments, err := c.argumentsTemplateForMethod(data)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for preparer template: %+v", err)
@@ -574,7 +574,7 @@ func (c %[1]s) preparerFor%[2]sWithNextLink(ctx context.Context, nextLink string
 	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, data GeneratorData) (*string, error) {
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
 		statusCode := golangConstantForStatusCode(statusCodeInt)
@@ -600,7 +600,7 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil && discriminatedType == "" {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -652,7 +652,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 	}
 
 	if discriminatedType != "" && c.operation.FieldContainingPaginationDetails != nil {
-		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -751,7 +751,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[5]s, err error) 
 	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) responseStructName(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) responseStructName(data GeneratorData) (*string, error) {
 	responseStructName := fmt.Sprintf("%[1]sOperationResponse", c.operationName)
 	if _, hasExistingModel := data.models[responseStructName]; hasExistingModel {
 		responseStructName = fmt.Sprintf("%[1]sOperationApiResponse", c.operationName)
@@ -767,7 +767,7 @@ func (c methodsAutoRestTemplater) responseStructTemplate(responseStructName stri
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -835,7 +835,7 @@ type %[1]s struct {
 	return &output, nil
 }
 
-func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data ServiceGeneratorData) string {
+func (c methodsAutoRestTemplater) senderLongRunningOperationTemplate(data GeneratorData) string {
 	return fmt.Sprintf(`
 // senderFor%[2]s sends the %[2]s request. The method will close the
 // http.Response Body if it receives an error.
@@ -852,7 +852,7 @@ func (c %[1]s) senderFor%[2]s(ctx context.Context, req *http.Request) (future %[
 `, data.serviceClientName, c.operationName)
 }
 
-func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*string, error) {
+func (c methodsAutoRestTemplater) optionsStruct(data GeneratorData) (*string, error) {
 	if len(c.operation.Options) == 0 {
 		out := ""
 		return &out, nil

@@ -1,0 +1,25 @@
+{
+  "name": "Windows10NetworkBoundaryConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Windows Network Isolation Policy",
+      "jsonName": "windowsNetworkIsolationPolicy",
+      "name": "WindowsNetworkIsolationPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsNetworkIsolationPolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windows10NetworkBoundaryConfiguration",
+  "typeHintIn": "ODataType"
+}

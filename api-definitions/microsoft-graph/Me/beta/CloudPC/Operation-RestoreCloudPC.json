@@ -1,0 +1,45 @@
+{
+  "name": "RestoreCloudPC",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action restore. Restore a specific Cloud PC. Use this API to trigger a remote action that restores a Cloud PC device to a previous state.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeCloudPCId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RestoreCloudPCRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/restore"
+}

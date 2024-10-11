@@ -7,7 +7,9 @@
       "name": "AssociatedRouteTable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InboundRouteMap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "OutboundRouteMap",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PropagatedRouteTables",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PropagatedRouteTable"
+        "nullable": false,
+        "referenceName": "PropagatedRouteTable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "VnetRoutes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetRoute"
+        "nullable": false,
+        "referenceName": "VnetRoute",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

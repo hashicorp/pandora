@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ConnectedRegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ConnectedRegistry"
+    "nullable": false,
+    "referenceName": "ConnectedRegistry",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectedRegistry"
+    "nullable": false,
+    "referenceName": "ConnectedRegistry",
+    "referenceNameIsCommonType": null
   }
 }

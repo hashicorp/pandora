@@ -7,7 +7,9 @@
       "name": "NfsCsiDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfileNfsCSIDriver"
+        "nullable": false,
+        "referenceName": "StorageProfileNfsCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SmbCsiDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfileSmbCSIDriver"
+        "nullable": false,
+        "referenceName": "StorageProfileSmbCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

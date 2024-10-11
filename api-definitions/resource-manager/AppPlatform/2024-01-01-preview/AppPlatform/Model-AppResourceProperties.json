@@ -7,10 +7,14 @@
       "name": "AddonConfigs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "CustomPersistentDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomPersistentDiskResource"
+          "nullable": false,
+          "referenceName": "CustomPersistentDiskResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "EnableEndToEndTLS",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "IngressSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressSettings"
+        "nullable": false,
+        "referenceName": "IngressSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,10 +109,14 @@
       "name": "LoadedCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LoadedCertificate"
+          "nullable": false,
+          "referenceName": "LoadedCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,7 +130,9 @@
       "name": "PersistentDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PersistentDisk"
+        "nullable": false,
+        "referenceName": "PersistentDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "AppResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "Public",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,10 +175,14 @@
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -166,7 +196,9 @@
       "name": "TemporaryDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemporaryDisk"
+        "nullable": false,
+        "referenceName": "TemporaryDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +211,9 @@
       "name": "TestEndpointAuthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TestEndpointAuthState"
+        "nullable": false,
+        "referenceName": "TestEndpointAuthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +226,9 @@
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +241,9 @@
       "name": "VnetAddons",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AppVNetAddons"
+        "nullable": false,
+        "referenceName": "AppVNetAddons",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,12 +256,15 @@
       "name": "WorkloadProfileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

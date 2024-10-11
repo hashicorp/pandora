@@ -1,6 +1,7 @@
 {
   "name": "VideoAnalyzersCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "VideoAnalyzerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VideoAnalyzer"
+    "nullable": false,
+    "referenceName": "VideoAnalyzer",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VideoAnalyzer"
+    "nullable": false,
+    "referenceName": "VideoAnalyzer",
+    "referenceNameIsCommonType": null
   }
 }

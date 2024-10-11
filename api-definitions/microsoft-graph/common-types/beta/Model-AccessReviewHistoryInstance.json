@@ -1,0 +1,121 @@
+{
+  "name": "AccessReviewHistoryInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Uri that can be used to retrieve review history data. This URI will be active for 24 hours after being generated. Required.",
+      "jsonName": "downloadUri",
+      "name": "DownloadUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp when this instance and associated data expires and the history is deleted. Required.",
+      "jsonName": "expirationDateTime",
+      "name": "ExpirationDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Timestamp when all of the available data for this instance was collected. This will be set after this instance's status is set to done. Required.",
+      "jsonName": "fulfilledDateTime",
+      "name": "FulfilledDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time for which reviews ended before this date are included in the fetched history data.",
+      "jsonName": "reviewHistoryPeriodEndDateTime",
+      "name": "ReviewHistoryPeriodEndDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time for which reviews started on or after this date are included in the fetched history data.",
+      "jsonName": "reviewHistoryPeriodStartDateTime",
+      "name": "ReviewHistoryPeriodStartDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time when the instance's history data is scheduled to be generated.",
+      "jsonName": "runDateTime",
+      "name": "RunDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. Once the status is marked as done, you can generate a link retrieve the instance's data by calling generateDownloadUri method.",
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessReviewHistoryStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewHistoryInstance",
+  "typeHintIn": "ODataType"
+}

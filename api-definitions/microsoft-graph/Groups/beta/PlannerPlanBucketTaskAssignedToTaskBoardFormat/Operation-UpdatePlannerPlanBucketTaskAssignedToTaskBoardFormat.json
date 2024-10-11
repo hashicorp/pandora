@@ -1,0 +1,55 @@
+{
+  "name": "UpdatePlannerPlanBucketTaskAssignedToTaskBoardFormat",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update the navigation property assignedToTaskBoardFormat in groups",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdPlannerPlanIdBucketIdTaskId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PlannerAssignedToTaskBoardTaskFormat",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/assignedToTaskBoardFormat"
+}

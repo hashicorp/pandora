@@ -7,7 +7,9 @@
       "name": "AppInsightsAgentVersions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsightsAgentVersions"
+        "nullable": false,
+        "referenceName": "ApplicationInsightsAgentVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AppInsightsInstrumentationKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AppInsightsSamplingRate",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Error"
+        "nullable": false,
+        "referenceName": "Error",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSettingState"
+        "nullable": false,
+        "referenceName": "MonitoringSettingState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "TraceEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

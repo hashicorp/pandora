@@ -7,7 +7,9 @@
       "name": "AffinityStrength",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AffinityStrength"
+        "nullable": false,
+        "referenceName": "AffinityStrength",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureHybridBenefitType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureHybridBenefitType"
+        "nullable": false,
+        "referenceName": "AzureHybridBenefitType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "HostMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlacementPolicyState"
+        "nullable": false,
+        "referenceName": "PlacementPolicyState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "VMMembers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -74,5 +88,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

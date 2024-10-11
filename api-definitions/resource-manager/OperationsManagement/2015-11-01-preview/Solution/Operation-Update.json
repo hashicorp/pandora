@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SolutionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SolutionPatch"
+    "nullable": false,
+    "referenceName": "SolutionPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Solution"
+    "nullable": false,
+    "referenceName": "Solution",
+    "referenceNameIsCommonType": null
   }
 }

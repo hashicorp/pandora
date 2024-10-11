@@ -7,7 +7,9 @@
       "name": "FailoverDirection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverDirection"
+        "nullable": false,
+        "referenceName": "FailoverDirection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NetworkType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ProviderSpecificDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterTestFailoverProviderSpecificInput"
+        "nullable": false,
+        "referenceName": "ClusterTestFailoverProviderSpecificInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

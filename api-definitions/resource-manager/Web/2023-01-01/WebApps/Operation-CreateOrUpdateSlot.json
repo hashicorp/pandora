@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SlotId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Site"
+    "nullable": false,
+    "referenceName": "Site",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Site"
+    "nullable": false,
+    "referenceName": "Site",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationBase"
+        "nullable": false,
+        "referenceName": "AuthenticationBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccessPolicyRole"
+        "nullable": false,
+        "referenceName": "AccessPolicyRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

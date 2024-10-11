@@ -7,10 +7,14 @@
       "name": "Allow",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignalRRequestType"
+          "nullable": false,
+          "referenceName": "SignalRRequestType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Deny",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SignalRRequestType"
+          "nullable": false,
+          "referenceName": "SignalRRequestType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,12 +49,15 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

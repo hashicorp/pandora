@@ -1,0 +1,41 @@
+{
+  "name": "MacOSVpnConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the deployment channel type used to deploy the configuration profile. Possible values are deviceChannel, userChannel. Possible values are: deviceChannel, userChannel, unknownFutureValue.",
+      "jsonName": "deploymentChannel",
+      "name": "DeploymentChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AppleDeploymentChannel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identity certificate for client authentication when authentication method is certificate.",
+      "jsonName": "identityCertificate",
+      "name": "IdentityCertificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MacOSCertificateProfileBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AppleVpnConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.macOSVpnConfiguration",
+  "typeHintIn": "ODataType"
+}

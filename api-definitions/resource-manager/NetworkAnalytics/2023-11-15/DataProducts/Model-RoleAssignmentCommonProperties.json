@@ -7,10 +7,14 @@
       "name": "DataTypeScope",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "PrincipalId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "PrincipalType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Role",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataProductUserRole"
+        "nullable": false,
+        "referenceName": "DataProductUserRole",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "RoleId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "UserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

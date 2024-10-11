@@ -7,7 +7,9 @@
       "name": "Contacts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisContacts"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisContacts",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "NameServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Registrar",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrichmentDomainWhoisRegistrarDetails"
+        "nullable": false,
+        "referenceName": "EnrichmentDomainWhoisRegistrarDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Statuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,5 +73,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

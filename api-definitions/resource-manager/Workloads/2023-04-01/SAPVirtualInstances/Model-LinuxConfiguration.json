@@ -7,7 +7,9 @@
       "name": "DisablePasswordAuthentication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Ssh",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshConfiguration"
+        "nullable": false,
+        "referenceName": "SshConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SshKeyPair",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshKeyPair"
+        "nullable": false,
+        "referenceName": "SshKeyPair",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OSConfiguration",
   "discriminatedTypeValue": "Linux",
   "typeHintIn": "OsType"

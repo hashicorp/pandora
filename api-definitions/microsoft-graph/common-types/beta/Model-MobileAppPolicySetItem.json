@@ -1,0 +1,41 @@
+{
+  "name": "MobileAppPolicySetItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for the install intent chosen by the admin.",
+      "jsonName": "intent",
+      "name": "Intent",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InstallIntent",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Settings of the MobileAppPolicySetItem.",
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MobileAppAssignmentSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicySetItem",
+  "discriminatedTypeValue": "#microsoft.graph.mobileAppPolicySetItem",
+  "typeHintIn": "ODataType"
+}

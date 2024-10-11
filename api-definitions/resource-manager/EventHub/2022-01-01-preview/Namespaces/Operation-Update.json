@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "NamespaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EHNamespace"
+    "nullable": false,
+    "referenceName": "EHNamespace",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EHNamespace"
+    "nullable": false,
+    "referenceName": "EHNamespace",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "DaylightTimeZoneOffset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.",
+      "jsonName": "daylightBias",
+      "name": "DaylightBias",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StandardTimeZoneOffset",
+  "discriminatedTypeValue": "#microsoft.graph.daylightTimeZoneOffset",
+  "typeHintIn": "ODataType"
+}

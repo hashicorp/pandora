@@ -7,10 +7,14 @@
       "name": "AdditionalDimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricDimension"
+          "nullable": false,
+          "referenceName": "MetricDimension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "DimensionFilter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricDimension"
+          "nullable": false,
+          "referenceName": "MetricDimension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "Instance",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,12 +64,15 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

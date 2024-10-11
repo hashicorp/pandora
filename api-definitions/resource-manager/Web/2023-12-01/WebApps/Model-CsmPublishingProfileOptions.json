@@ -7,7 +7,9 @@
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublishingProfileFormat"
+        "nullable": false,
+        "referenceName": "PublishingProfileFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "IncludeDisasterRecoveryEndpoints",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

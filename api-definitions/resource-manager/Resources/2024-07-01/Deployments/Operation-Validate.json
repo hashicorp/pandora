@@ -1,6 +1,7 @@
 {
   "name": "Validate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ResourceGroupProviderDeploymentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Deployment"
+    "nullable": false,
+    "referenceName": "Deployment",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentExtended"
+    "nullable": false,
+    "referenceName": "DeploymentExtended",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/validate"
 }

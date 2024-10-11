@@ -7,7 +7,9 @@
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Error"
+        "nullable": false,
+        "referenceName": "Error",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "LogAnalyticsWorkspaceArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRGConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedRGConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MonitorSubnet",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "MsiArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadMonitorProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkloadMonitorProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RoutingPreference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingPreference"
+        "nullable": false,
+        "referenceName": "RoutingPreference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "StorageAccountArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,12 +142,15 @@
       "name": "ZoneRedundancyPreference",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

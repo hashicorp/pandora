@@ -1,0 +1,24 @@
+{
+  "name": "OrganizerMeetingInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "organizer",
+      "name": "Organizer",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MeetingInfo",
+  "discriminatedTypeValue": "#microsoft.graph.organizerMeetingInfo",
+  "typeHintIn": "ODataType"
+}

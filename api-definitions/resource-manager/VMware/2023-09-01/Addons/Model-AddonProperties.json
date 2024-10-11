@@ -7,7 +7,9 @@
       "name": "AddonType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddonType"
+        "nullable": false,
+        "referenceName": "AddonType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddonProvisioningState"
+        "nullable": false,
+        "referenceName": "AddonProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,5 +32,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "AddonType"
 }

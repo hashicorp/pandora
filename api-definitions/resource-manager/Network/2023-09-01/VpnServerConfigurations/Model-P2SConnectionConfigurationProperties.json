@@ -7,10 +7,14 @@
       "name": "ConfigurationPolicyGroupAssociations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "EnableInternetSecurity",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "PreviousConfigurationPolicyGroupAssociations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnServerConfigurationPolicyGroup"
+          "nullable": false,
+          "referenceName": "VpnServerConfigurationPolicyGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "RoutingConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingConfiguration"
+        "nullable": false,
+        "referenceName": "RoutingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,12 +94,15 @@
       "name": "VpnClientAddressPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

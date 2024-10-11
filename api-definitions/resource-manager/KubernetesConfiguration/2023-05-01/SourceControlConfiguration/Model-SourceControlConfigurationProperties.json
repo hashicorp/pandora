@@ -7,7 +7,9 @@
       "name": "ComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ConfigurationProtectedSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "EnableHelmOperator",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "HelmOperatorProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HelmOperatorProperties"
+        "nullable": false,
+        "referenceName": "HelmOperatorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "OperatorInstanceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "OperatorNamespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "OperatorParams",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "OperatorScope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatorScopeType"
+        "nullable": false,
+        "referenceName": "OperatorScopeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "OperatorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatorType"
+        "nullable": false,
+        "referenceName": "OperatorType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateType"
+        "nullable": false,
+        "referenceName": "ProvisioningStateType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "RepositoryPublicKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,10 +175,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "repositoryUrl",
-      "name": "RepositoryUrl",
+      "name": "RepositoryURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,12 +193,15 @@
       "name": "SshKnownHostsContents",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

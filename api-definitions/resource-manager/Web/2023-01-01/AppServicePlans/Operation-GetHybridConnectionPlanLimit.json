@@ -1,6 +1,7 @@
 {
   "name": "GetHybridConnectionPlanLimit",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServicePlanId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HybridConnectionLimits"
+    "nullable": false,
+    "referenceName": "HybridConnectionLimits",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/hybridConnectionPlanLimits/limit"
 }

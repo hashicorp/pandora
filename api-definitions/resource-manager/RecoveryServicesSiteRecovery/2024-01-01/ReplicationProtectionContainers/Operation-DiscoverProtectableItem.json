@@ -1,6 +1,7 @@
 {
   "name": "DiscoverProtectableItem",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationProtectionContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiscoverProtectableItemRequest"
+    "nullable": false,
+    "referenceName": "DiscoverProtectableItemRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProtectionContainer"
+    "nullable": false,
+    "referenceName": "ProtectionContainer",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/discoverProtectableItem"
 }

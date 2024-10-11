@@ -1,6 +1,7 @@
 {
   "name": "ListByRole",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "RoleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Addon"
+    "nullable": false,
+    "referenceName": "Addon",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/addons"
 }

@@ -7,7 +7,9 @@
       "name": "Alias",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutoApproval",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceSet"
+        "nullable": false,
+        "referenceName": "ResourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EnableProxyProtocol",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Fqdns",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,10 +73,14 @@
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkServiceIPConfiguration"
+          "nullable": false,
+          "referenceName": "PrivateLinkServiceIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "LoadBalancerFrontendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendIPConfiguration"
+          "nullable": false,
+          "referenceName": "FrontendIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,10 +115,14 @@
       "name": "NetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterface"
+          "nullable": false,
+          "referenceName": "NetworkInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -114,10 +136,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,7 +157,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,12 +172,15 @@
       "name": "Visibility",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceSet"
+        "nullable": false,
+        "referenceName": "ResourceSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

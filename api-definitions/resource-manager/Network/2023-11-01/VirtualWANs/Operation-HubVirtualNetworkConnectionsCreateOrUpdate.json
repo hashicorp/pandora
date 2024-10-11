@@ -1,6 +1,7 @@
 {
   "name": "HubVirtualNetworkConnectionsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "HubVirtualNetworkConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HubVirtualNetworkConnection"
+    "nullable": false,
+    "referenceName": "HubVirtualNetworkConnection",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HubVirtualNetworkConnection"
+    "nullable": false,
+    "referenceName": "HubVirtualNetworkConnection",
+    "referenceNameIsCommonType": null
   }
 }

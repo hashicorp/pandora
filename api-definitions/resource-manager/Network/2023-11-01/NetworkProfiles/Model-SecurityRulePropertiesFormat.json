@@ -7,7 +7,9 @@
       "name": "Access",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityRuleAccess"
+        "nullable": false,
+        "referenceName": "SecurityRuleAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DestinationAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "DestinationAddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,10 +73,14 @@
       "name": "DestinationApplicationSecurityGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationSecurityGroup"
+          "nullable": false,
+          "referenceName": "ApplicationSecurityGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "DestinationPortRange",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,10 +109,14 @@
       "name": "DestinationPortRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,7 +130,9 @@
       "name": "Direction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityRuleDirection"
+        "nullable": false,
+        "referenceName": "SecurityRuleDirection",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityRuleProtocol"
+        "nullable": false,
+        "referenceName": "SecurityRuleProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "SourceAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,10 +205,14 @@
       "name": "SourceAddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -192,10 +226,14 @@
       "name": "SourceApplicationSecurityGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationSecurityGroup"
+          "nullable": false,
+          "referenceName": "ApplicationSecurityGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -209,7 +247,9 @@
       "name": "SourcePortRange",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,10 +262,14 @@
       "name": "SourcePortRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -233,5 +277,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

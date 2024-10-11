@@ -7,7 +7,9 @@
       "name": "CountryOrRegionForHolidays",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CvStepSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FeatureLags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureLags"
+        "nullable": false,
+        "referenceName": "FeatureLags",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ForecastHorizon",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastHorizon"
+        "nullable": false,
+        "referenceName": "ForecastHorizon",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Seasonality",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Seasonality"
+        "nullable": false,
+        "referenceName": "Seasonality",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ShortSeriesHandlingConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShortSeriesHandlingConfiguration"
+        "nullable": false,
+        "referenceName": "ShortSeriesHandlingConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "TargetAggregateFunction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetAggregationFunction"
+        "nullable": false,
+        "referenceName": "TargetAggregationFunction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "TargetLags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetLags"
+        "nullable": false,
+        "referenceName": "TargetLags",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "TargetRollingWindowSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetRollingWindowSize"
+        "nullable": false,
+        "referenceName": "TargetRollingWindowSize",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "TimeColumnName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,10 +172,14 @@
       "name": "TimeSeriesIdColumnNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -167,12 +193,15 @@
       "name": "UseStl",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UseStl"
+        "nullable": false,
+        "referenceName": "UseStl",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

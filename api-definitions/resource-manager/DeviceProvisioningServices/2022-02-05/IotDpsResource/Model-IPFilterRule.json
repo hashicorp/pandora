@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPFilterActionType"
+        "nullable": false,
+        "referenceName": "IPFilterActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FilterName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IPMask",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Target",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPFilterTargetType"
+        "nullable": false,
+        "referenceName": "IPFilterTargetType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

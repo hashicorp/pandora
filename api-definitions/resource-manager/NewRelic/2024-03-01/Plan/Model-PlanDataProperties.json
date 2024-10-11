@@ -7,7 +7,9 @@
       "name": "AccountCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountCreationSource"
+        "nullable": false,
+        "referenceName": "AccountCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "OrgCreationSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrgCreationSource"
+        "nullable": false,
+        "referenceName": "OrgCreationSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PlanData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlanData"
+        "nullable": false,
+        "referenceName": "PlanData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

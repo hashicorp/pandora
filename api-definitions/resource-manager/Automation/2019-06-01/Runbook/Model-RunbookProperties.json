@@ -8,7 +8,9 @@
       "name": "CreationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Draft",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunbookDraft"
+        "nullable": false,
+        "referenceName": "RunbookDraft",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "JobCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "LastModifiedBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "LastModifiedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "LogActivityTrace",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "LogProgress",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,7 +129,9 @@
       "name": "LogVerbose",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,10 +144,14 @@
       "name": "OutputTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -143,10 +165,14 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunbookParameter"
+          "nullable": false,
+          "referenceName": "RunbookParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -160,7 +186,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunbookProvisioningState"
+        "nullable": false,
+        "referenceName": "RunbookProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,7 +201,9 @@
       "name": "PublishContentLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentLink"
+        "nullable": false,
+        "referenceName": "ContentLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -186,7 +216,9 @@
       "name": "RunbookType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunbookTypeEnum"
+        "nullable": false,
+        "referenceName": "RunbookTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,12 +231,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RunbookState"
+        "nullable": false,
+        "referenceName": "RunbookState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

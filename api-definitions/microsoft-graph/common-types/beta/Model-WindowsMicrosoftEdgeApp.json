@@ -1,0 +1,41 @@
+{
+  "name": "WindowsMicrosoftEdgeApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The enum to specify the channels for Microsoft Edge apps.",
+      "jsonName": "channel",
+      "name": "Channel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftEdgeChannel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The language locale to use when the Edge app displays text to the user.",
+      "jsonName": "displayLanguageLocale",
+      "name": "DisplayLanguageLocale",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsMicrosoftEdgeApp",
+  "typeHintIn": "ODataType"
+}

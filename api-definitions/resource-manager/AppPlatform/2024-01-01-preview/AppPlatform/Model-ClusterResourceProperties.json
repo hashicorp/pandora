@@ -7,7 +7,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InfraResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MaintenanceScheduleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceScheduleConfiguration"
+        "nullable": false,
+        "referenceName": "MaintenanceScheduleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ManagedEnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MarketplaceResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceResource"
+        "nullable": false,
+        "referenceName": "MarketplaceResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "PowerState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PowerState"
+        "nullable": false,
+        "referenceName": "PowerState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "ServiceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "Version",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "VnetAddons",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceVNetAddons"
+        "nullable": false,
+        "referenceName": "ServiceVNetAddons",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,12 +172,15 @@
       "name": "ZoneRedundant",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

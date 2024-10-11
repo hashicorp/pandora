@@ -7,7 +7,9 @@
       "name": "RetentionDurationInDays",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteState"
+        "nullable": false,
+        "referenceName": "SoftDeleteState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AzureResourceName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureResourceType"
+        "nullable": false,
+        "referenceName": "AzureResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CustomHostNameDnsRecordType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomHostNameDnsRecordType"
+        "nullable": false,
+        "referenceName": "CustomHostNameDnsRecordType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostNameType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostNameType"
+        "nullable": false,
+        "referenceName": "HostNameType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "SiteNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -83,5 +97,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

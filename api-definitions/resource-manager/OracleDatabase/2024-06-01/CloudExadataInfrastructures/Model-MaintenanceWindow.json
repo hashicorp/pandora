@@ -7,7 +7,9 @@
       "name": "CustomActionTimeoutInMins",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DaysOfWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DayOfWeek"
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "HoursOfDay",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "IsCustomActionTimeoutEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "IsMonthlyPatchingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "LeadTimeInWeeks",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,10 +109,14 @@
       "name": "Months",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Month"
+          "nullable": false,
+          "referenceName": "Month",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -110,7 +130,9 @@
       "name": "PatchingMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchingMode"
+        "nullable": false,
+        "referenceName": "PatchingMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "Preference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Preference"
+        "nullable": false,
+        "referenceName": "Preference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,10 +160,14 @@
       "name": "WeeksOfMonth",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -147,5 +175,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

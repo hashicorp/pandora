@@ -7,7 +7,9 @@
       "name": "AzureKeyVaultKms",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureKeyVaultKms"
+        "nullable": false,
+        "referenceName": "AzureKeyVaultKms",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Defender",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileDefender"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileDefender",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ImageCleaner",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileImageCleaner"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileImageCleaner",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "WorkloadIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity"
+        "nullable": false,
+        "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

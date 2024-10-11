@@ -7,7 +7,9 @@
       "name": "Options",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateUpdateOptions"
+        "nullable": false,
+        "referenceName": "CreateUpdateOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CassandraKeyspaceResource"
+        "nullable": false,
+        "referenceName": "CassandraKeyspaceResource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

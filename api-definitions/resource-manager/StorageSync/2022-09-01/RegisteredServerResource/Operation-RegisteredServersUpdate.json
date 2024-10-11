@@ -1,6 +1,7 @@
 {
   "name": "RegisteredServersUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "RegisteredServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegisteredServerUpdateParameters"
+    "nullable": false,
+    "referenceName": "RegisteredServerUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RegisteredServer"
+    "nullable": false,
+    "referenceName": "RegisteredServer",
+    "referenceNameIsCommonType": null
   }
 }

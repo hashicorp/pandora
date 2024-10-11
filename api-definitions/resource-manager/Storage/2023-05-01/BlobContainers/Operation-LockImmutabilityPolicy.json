@@ -1,6 +1,7 @@
 {
   "name": "LockImmutabilityPolicy",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,
@@ -21,7 +23,9 @@
   "resourceIdName": "StorageContainerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ImmutabilityPolicy"
+    "nullable": false,
+    "referenceName": "ImmutabilityPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/immutabilityPolicies/default/lock"
 }

@@ -1,0 +1,25 @@
+{
+  "name": "ExternalConnectorsExternalActivityResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Error information that explains the failure to process an external activity.",
+      "jsonName": "error",
+      "name": "Error",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicError",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ExternalConnectorsExternalActivity",
+  "discriminatedTypeValue": "#microsoft.graph.externalConnectors.externalActivityResult",
+  "typeHintIn": "ODataType"
+}

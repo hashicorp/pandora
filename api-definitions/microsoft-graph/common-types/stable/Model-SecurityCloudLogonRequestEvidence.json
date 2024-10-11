@@ -1,0 +1,25 @@
+{
+  "name": "SecurityCloudLogonRequestEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the sign-in request.",
+      "jsonName": "requestId",
+      "name": "RequestId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.cloudLogonRequestEvidence",
+  "typeHintIn": "ODataType"
+}

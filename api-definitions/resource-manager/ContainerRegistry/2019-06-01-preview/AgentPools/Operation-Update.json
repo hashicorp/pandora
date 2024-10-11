@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AgentPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AgentPoolUpdateParameters"
+    "nullable": false,
+    "referenceName": "AgentPoolUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AgentPool"
+    "nullable": false,
+    "referenceName": "AgentPool",
+    "referenceNameIsCommonType": null
   }
 }

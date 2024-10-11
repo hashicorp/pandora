@@ -7,7 +7,9 @@
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClosedBalance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClosedBalanceInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "CreditCurrency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ETag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "ExpirationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "IsEstimatedBalance",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "OriginalAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "OriginalAmountInBillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmountWithExchangeRate"
+        "nullable": false,
+        "referenceName": "AmountWithExchangeRate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "PoNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,7 +159,9 @@
       "name": "PurchasedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -152,7 +174,9 @@
       "name": "Reseller",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Reseller"
+        "nullable": false,
+        "referenceName": "Reseller",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,7 +189,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LotSource"
+        "nullable": false,
+        "referenceName": "LotSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -179,7 +205,9 @@
       "name": "StartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,12 +220,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Status"
+        "nullable": false,
+        "referenceName": "Status",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

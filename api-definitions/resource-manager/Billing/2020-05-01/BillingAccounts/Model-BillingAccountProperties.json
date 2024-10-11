@@ -7,7 +7,9 @@
       "name": "AccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountStatus"
+        "nullable": false,
+        "referenceName": "AccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountType"
+        "nullable": false,
+        "referenceName": "AccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BillingProfiles",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfilesOnExpand"
+        "nullable": false,
+        "referenceName": "BillingProfilesOnExpand",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Departments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Department"
+          "nullable": false,
+          "referenceName": "Department",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,7 +88,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "EnrollmentAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EnrollmentAccount"
+          "nullable": false,
+          "referenceName": "EnrollmentAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,7 +124,9 @@
       "name": "EnrollmentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Enrollment"
+        "nullable": false,
+        "referenceName": "Enrollment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "HasReadAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "NotificationEmailAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,12 +169,15 @@
       "name": "SoldTo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressDetails"
+        "nullable": false,
+        "referenceName": "AddressDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AllowPublicAccessWhenBehindVnet",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApplicationInsights",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "AssociatedWorkspaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ContainerRegistry",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,10 +85,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "discoveryUrl",
-      "name": "DiscoveryUrl",
+      "name": "DiscoveryURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "EnableDataIsolation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionProperty"
+        "nullable": false,
+        "referenceName": "EncryptionProperty",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "FeatureStoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureStoreSettings"
+        "nullable": false,
+        "referenceName": "FeatureStoreSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "HbiWorkspace",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "HubResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "ImageBuildCompute",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "KeyVault",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +223,9 @@
       "name": "ManagedNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedNetworkSettings"
+        "nullable": false,
+        "referenceName": "ManagedNetworkSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,7 +238,9 @@
       "name": "MlFlowTrackingUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,7 +253,9 @@
       "name": "NotebookInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotebookResourceInfo"
+        "nullable": false,
+        "referenceName": "NotebookResourceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,7 +268,9 @@
       "name": "PrimaryUserAssignedIdentity",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,10 +283,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -262,7 +304,9 @@
       "name": "PrivateLinkCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -275,7 +319,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,7 +334,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,7 +349,9 @@
       "name": "ServerlessComputeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessComputeSettings"
+        "nullable": false,
+        "referenceName": "ServerlessComputeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -314,7 +364,9 @@
       "name": "ServiceManagedResourcesSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceManagedResourcesSettings"
+        "nullable": false,
+        "referenceName": "ServiceManagedResourcesSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -327,7 +379,9 @@
       "name": "ServiceProvisionedResourceGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -340,10 +394,14 @@
       "name": "SharedPrivateLinkResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SharedPrivateLinkResource"
+          "nullable": false,
+          "referenceName": "SharedPrivateLinkResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -357,7 +415,9 @@
       "name": "StorageAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -370,7 +430,9 @@
       "name": "StorageHnsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -383,7 +445,9 @@
       "name": "TenantId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -396,7 +460,9 @@
       "name": "V1LegacyMode",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -409,7 +475,9 @@
       "name": "WorkspaceHubConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkspaceHubConfig"
+        "nullable": false,
+        "referenceName": "WorkspaceHubConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -422,12 +490,15 @@
       "name": "WorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

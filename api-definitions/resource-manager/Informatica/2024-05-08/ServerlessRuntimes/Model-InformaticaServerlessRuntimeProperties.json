@@ -7,10 +7,14 @@
       "name": "AdvancedCustomProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdvancedCustomProperties"
+          "nullable": false,
+          "referenceName": "AdvancedCustomProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ApplicationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationType"
+        "nullable": false,
+        "referenceName": "ApplicationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "ComputeUnits",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ExecutionTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ServerlessAccountLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ServerlessRuntimeConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeConfigProperties"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeConfigProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ServerlessRuntimeNetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeNetworkProfile"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,10 +163,14 @@
       "name": "ServerlessRuntimeTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerlessRuntimeTag"
+          "nullable": false,
+          "referenceName": "ServerlessRuntimeTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,7 +184,9 @@
       "name": "ServerlessRuntimeUserContextProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerlessRuntimeUserContextProperties"
+        "nullable": false,
+        "referenceName": "ServerlessRuntimeUserContextProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,12 +199,15 @@
       "name": "SupplementaryFileLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

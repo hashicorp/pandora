@@ -7,7 +7,9 @@
       "name": "ClusterComputeCapacityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterCapacityViewData"
+        "nullable": false,
+        "referenceName": "ClusterCapacityViewData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterStorageCapacityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterStorageViewData"
+        "nullable": false,
+        "referenceName": "ClusterStorageViewData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "NodeCapacityInfos",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostCapacity"
+          "nullable": false,
+          "referenceName": "HostCapacity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,12 +59,15 @@
       "name": "TimeStamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

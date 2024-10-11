@@ -7,7 +7,9 @@
       "name": "AppInsightsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodeConfiguration"
+        "nullable": false,
+        "referenceName": "CodeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DataCollector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataCollector"
+        "nullable": false,
+        "referenceName": "DataCollector",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EgressPublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EgressPublicNetworkAccessType"
+        "nullable": false,
+        "referenceName": "EgressPublicNetworkAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "EndpointComputeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointComputeType"
+        "nullable": false,
+        "referenceName": "EndpointComputeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,7 +133,9 @@
       "name": "InstanceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "LivenessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProbeSettings"
+        "nullable": false,
+        "referenceName": "ProbeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "Model",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "ModelMountPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,10 +193,14 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -184,7 +214,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentProvisioningState"
+        "nullable": false,
+        "referenceName": "DeploymentProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +229,9 @@
       "name": "ReadinessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProbeSettings"
+        "nullable": false,
+        "referenceName": "ProbeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "RequestSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnlineRequestSettings"
+        "nullable": false,
+        "referenceName": "OnlineRequestSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "ScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnlineScaleSettings"
+        "nullable": false,
+        "referenceName": "OnlineScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -231,5 +269,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "EndpointComputeType"
 }

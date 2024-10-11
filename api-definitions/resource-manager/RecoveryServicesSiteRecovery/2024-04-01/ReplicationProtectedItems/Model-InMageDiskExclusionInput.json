@@ -7,10 +7,14 @@
       "name": "DiskSignatureOptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageDiskSignatureExclusionOptions"
+          "nullable": false,
+          "referenceName": "InMageDiskSignatureExclusionOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "VolumeOptions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageVolumeExclusionOptions"
+          "nullable": false,
+          "referenceName": "InMageVolumeExclusionOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

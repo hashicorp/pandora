@@ -7,7 +7,9 @@
       "name": "DataLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DomainManagement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainManagement"
+        "nullable": false,
+        "referenceName": "DomainManagement",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FromSenderDomain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MailFromSenderDomain",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainsProvisioningState"
+        "nullable": false,
+        "referenceName": "DomainsProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "UserEngagementTracking",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserEngagementTracking"
+        "nullable": false,
+        "referenceName": "UserEngagementTracking",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "VerificationRecords",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainPropertiesVerificationRecords"
+        "nullable": false,
+        "referenceName": "DomainPropertiesVerificationRecords",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "VerificationStates",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DomainPropertiesVerificationStates"
+        "nullable": false,
+        "referenceName": "DomainPropertiesVerificationStates",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

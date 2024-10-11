@@ -7,7 +7,9 @@
       "name": "Author",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreationDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CustomImagePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomImagePropertiesFromPlan"
+        "nullable": false,
+        "referenceName": "CustomImagePropertiesFromPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +53,14 @@
       "name": "DataDiskStorageInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDiskStorageTypeInfo"
+          "nullable": false,
+          "referenceName": "DataDiskStorageTypeInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -64,7 +74,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "IsPlanAuthorized",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "ManagedImageId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "ManagedSnapshotId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,7 +149,9 @@
       "name": "UniqueIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,7 +164,9 @@
       "name": "VM",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomImagePropertiesFromVM"
+        "nullable": false,
+        "referenceName": "CustomImagePropertiesFromVM",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,12 +179,15 @@
       "name": "Vhd",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomImagePropertiesCustom"
+        "nullable": false,
+        "referenceName": "CustomImagePropertiesCustom",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

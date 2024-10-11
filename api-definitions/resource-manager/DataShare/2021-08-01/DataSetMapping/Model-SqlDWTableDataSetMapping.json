@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SqlDWTableDataSetMappingProperties"
+        "nullable": false,
+        "referenceName": "SqlDWTableDataSetMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSetMapping",
   "discriminatedTypeValue": "SqlDWTable",
   "typeHintIn": "Kind"

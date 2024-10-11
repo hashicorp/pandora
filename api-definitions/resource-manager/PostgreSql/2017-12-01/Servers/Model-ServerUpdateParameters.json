@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "SystemAssignedIdentity",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerUpdateParametersProperties"
+        "nullable": false,
+        "referenceName": "ServerUpdateParametersProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Sku"
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Tags",
       "objectDefinition": {
         "type": "Tags",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

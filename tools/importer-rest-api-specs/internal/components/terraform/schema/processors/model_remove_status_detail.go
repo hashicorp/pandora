@@ -14,7 +14,7 @@ var _ ModelProcessor = modelRemoveStatusAndDetail{}
 
 type modelRemoveStatusAndDetail struct{}
 
-func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model sdkModels.TerraformSchemaModel, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	fields := make(map[string]sdkModels.TerraformSchemaField)
 
 	status := regexp.MustCompile("\\w?(Status)$")
@@ -32,5 +32,5 @@ func (modelRemoveStatusAndDetail) ProcessModel(modelName string, model sdkModels
 	}
 	model.Fields = fields
 	schemaModels[modelName] = model
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }

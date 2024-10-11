@@ -7,7 +7,9 @@
       "name": "DailySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailyRetentionSchedule"
+        "nullable": false,
+        "referenceName": "DailyRetentionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MonthlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonthlyRetentionSchedule"
+        "nullable": false,
+        "referenceName": "MonthlyRetentionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "WeeklySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklyRetentionSchedule"
+        "nullable": false,
+        "referenceName": "WeeklyRetentionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "YearlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "YearlyRetentionSchedule"
+        "nullable": false,
+        "referenceName": "YearlyRetentionSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RetentionPolicy",
   "discriminatedTypeValue": "LongTermRetentionPolicy",
   "typeHintIn": "RetentionPolicyType"

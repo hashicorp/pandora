@@ -7,7 +7,9 @@
       "name": "AdditionalQuery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesAdditionalQuery"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesAdditionalQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BaseQuery",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ChartQuery",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "DataTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityQueryItemPropertiesDataTypesInlined"
+          "nullable": false,
+          "referenceName": "EntityQueryItemPropertiesDataTypesInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "DefaultTimeRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesDefaultTimeRange"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesDefaultTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "EntitiesFilter",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "InputEntityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EntityType"
+        "nullable": false,
+        "referenceName": "EntityType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ReferenceTimeRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesReferenceTimeRange"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesReferenceTimeRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,13 +163,19 @@
       "name": "RequiredInputFieldsSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -162,12 +190,15 @@
       "name": "TableQuery",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InsightQueryItemPropertiesTableQuery"
+        "nullable": false,
+        "referenceName": "InsightQueryItemPropertiesTableQuery",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

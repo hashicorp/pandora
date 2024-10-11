@@ -7,7 +7,9 @@
       "name": "BasePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ChildPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DnsSettings"
+        "nullable": false,
+        "referenceName": "DnsSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ExplicitProxy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExplicitProxy"
+        "nullable": false,
+        "referenceName": "ExplicitProxy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "Firewalls",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "Insights",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyInsights"
+        "nullable": false,
+        "referenceName": "FirewallPolicyInsights",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "IntrusionDetection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyIntrusionDetection"
+        "nullable": false,
+        "referenceName": "FirewallPolicyIntrusionDetection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,10 +139,14 @@
       "name": "RuleCollectionGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,7 +160,9 @@
       "name": "Size",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicySku"
+        "nullable": false,
+        "referenceName": "FirewallPolicySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "Snat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicySNAT"
+        "nullable": false,
+        "referenceName": "FirewallPolicySNAT",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,7 +205,9 @@
       "name": "Sql",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicySQL"
+        "nullable": false,
+        "referenceName": "FirewallPolicySQL",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -188,7 +220,9 @@
       "name": "ThreatIntelMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFirewallThreatIntelMode"
+        "nullable": false,
+        "referenceName": "AzureFirewallThreatIntelMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -201,7 +235,9 @@
       "name": "ThreatIntelWhitelist",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyThreatIntelWhitelist"
+        "nullable": false,
+        "referenceName": "FirewallPolicyThreatIntelWhitelist",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -214,12 +250,15 @@
       "name": "TransportSecurity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyTransportSecurity"
+        "nullable": false,
+        "referenceName": "FirewallPolicyTransportSecurity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

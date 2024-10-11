@@ -1,0 +1,63 @@
+{
+  "name": "AndroidDeviceOwnerGlobalProxyDirect",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The excluded hosts",
+      "jsonName": "excludedHosts",
+      "name": "ExcludedHosts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The host name",
+      "jsonName": "host",
+      "name": "Host",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The port",
+      "jsonName": "port",
+      "name": "Port",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AndroidDeviceOwnerGlobalProxy",
+  "discriminatedTypeValue": "#microsoft.graph.androidDeviceOwnerGlobalProxyDirect",
+  "typeHintIn": "ODataType"
+}

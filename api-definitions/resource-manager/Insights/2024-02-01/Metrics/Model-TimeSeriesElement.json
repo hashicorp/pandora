@@ -7,10 +7,14 @@
       "name": "Data",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricValue"
+          "nullable": false,
+          "referenceName": "MetricValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Metadatavalues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetadataValue"
+          "nullable": false,
+          "referenceName": "MetadataValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

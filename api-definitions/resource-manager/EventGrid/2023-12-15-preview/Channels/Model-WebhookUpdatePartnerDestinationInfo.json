@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebhookPartnerDestinationProperties"
+        "nullable": false,
+        "referenceName": "WebhookPartnerDestinationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PartnerUpdateDestinationInfo",
   "discriminatedTypeValue": "WebHook",
   "typeHintIn": "EndpointType"

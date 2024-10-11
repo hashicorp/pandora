@@ -7,10 +7,14 @@
       "name": "AdvancedSettings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "CustomActions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryApplicationCustomAction"
+          "nullable": false,
+          "referenceName": "GalleryApplicationCustomAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "EnableHealthCheck",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,7 +65,9 @@
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,7 +80,9 @@
       "name": "ExcludeFromLatest",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,7 +95,9 @@
       "name": "ManageActions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactManage"
+        "nullable": false,
+        "referenceName": "UserArtifactManage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -95,7 +111,9 @@
       "name": "PublishedDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -108,7 +126,9 @@
       "name": "ReplicaCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,7 +141,9 @@
       "name": "ReplicationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationMode"
+        "nullable": false,
+        "referenceName": "ReplicationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,7 +156,9 @@
       "name": "Settings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactSettings"
+        "nullable": false,
+        "referenceName": "UserArtifactSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -147,7 +171,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserArtifactSource"
+        "nullable": false,
+        "referenceName": "UserArtifactSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -160,7 +186,9 @@
       "name": "StorageAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccountType"
+        "nullable": false,
+        "referenceName": "StorageAccountType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -173,10 +201,14 @@
       "name": "TargetExtendedLocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryTargetExtendedLocation"
+          "nullable": false,
+          "referenceName": "GalleryTargetExtendedLocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -190,10 +222,14 @@
       "name": "TargetRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetRegion"
+          "nullable": false,
+          "referenceName": "TargetRegion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -201,5 +237,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

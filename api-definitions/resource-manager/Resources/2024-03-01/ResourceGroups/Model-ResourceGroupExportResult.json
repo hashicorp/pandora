@@ -7,7 +7,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorResponse"
+        "nullable": false,
+        "referenceName": "ErrorResponse",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Output",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Template",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,25 @@
+{
+  "name": "MeetingRegistrantBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A unique web URL for the registrant to join the meeting. Read-only.",
+      "jsonName": "joinWebUrl",
+      "name": "JoinWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.meetingRegistrantBase",
+  "typeHintIn": "ODataType"
+}

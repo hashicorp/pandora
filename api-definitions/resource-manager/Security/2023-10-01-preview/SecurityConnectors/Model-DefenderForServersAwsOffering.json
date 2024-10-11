@@ -7,7 +7,9 @@
       "name": "ArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DefenderForServers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingDefenderForServers"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingDefenderForServers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MdeAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingMdeAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingMdeAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SubPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingSubPlan"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingSubPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "VaAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersAwsOfferingVaAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersAwsOfferingVaAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +92,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForServersAws",
   "typeHintIn": "OfferingType"

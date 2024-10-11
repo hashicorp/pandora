@@ -7,7 +7,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleProvisioningState"
+        "nullable": false,
+        "referenceName": "ScheduleProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleStatus"
+        "nullable": false,
+        "referenceName": "ScheduleStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

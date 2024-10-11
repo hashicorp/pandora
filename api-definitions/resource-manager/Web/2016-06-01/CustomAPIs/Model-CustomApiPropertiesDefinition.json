@@ -7,7 +7,9 @@
       "name": "ApiDefinitions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceDefinitions"
+        "nullable": false,
+        "referenceName": "ApiResourceDefinitions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApiType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiType"
+        "nullable": false,
+        "referenceName": "ApiType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BackendService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceBackendService"
+        "nullable": false,
+        "referenceName": "ApiResourceBackendService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BrandColor",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "ConnectionParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionParameter"
+          "nullable": false,
+          "referenceName": "ConnectionParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "IconUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,13 +151,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "runtimeUrls",
-      "name": "RuntimeUrls",
+      "name": "RuntimeURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -149,7 +175,9 @@
       "name": "Swagger",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,12 +190,15 @@
       "name": "WsdlDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WsdlDefinition"
+        "nullable": false,
+        "referenceName": "WsdlDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

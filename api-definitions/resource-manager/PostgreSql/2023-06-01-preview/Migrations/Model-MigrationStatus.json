@@ -7,7 +7,9 @@
       "name": "CurrentSubStateDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationSubStateDetails"
+        "nullable": false,
+        "referenceName": "MigrationSubStateDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationState"
+        "nullable": false,
+        "referenceName": "MigrationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "AzureQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureQueryProperties"
+          "nullable": false,
+          "referenceName": "AzureQueryProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "NonAzureQueries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NonAzureQueryProperties"
+          "nullable": false,
+          "referenceName": "NonAzureQueryProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

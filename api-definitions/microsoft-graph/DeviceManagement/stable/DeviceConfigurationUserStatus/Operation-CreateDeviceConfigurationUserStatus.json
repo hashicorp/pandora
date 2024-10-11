@@ -1,0 +1,51 @@
+{
+  "name": "CreateDeviceConfigurationUserStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create deviceConfigurationUserStatus. Create a new deviceConfigurationUserStatus object.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementDeviceConfigurationId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceConfigurationUserStatus",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceConfigurationUserStatus",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/userStatuses"
+}

@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OfficeIRMDataConnectorProperties"
+        "nullable": false,
+        "referenceName": "OfficeIRMDataConnectorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnector",
   "discriminatedTypeValue": "OfficeIRM",
   "typeHintIn": "Kind"

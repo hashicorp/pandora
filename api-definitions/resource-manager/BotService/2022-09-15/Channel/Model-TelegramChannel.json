@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TelegramChannelProperties"
+        "nullable": false,
+        "referenceName": "TelegramChannelProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Channel",
   "discriminatedTypeValue": "TelegramChannel",
   "typeHintIn": "ChannelName"

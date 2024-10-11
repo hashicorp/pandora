@@ -1,0 +1,41 @@
+{
+  "name": "DeviceHealthScriptTimeSchedule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.",
+      "jsonName": "time",
+      "name": "Time",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicate if the time is Utc or client local time.",
+      "jsonName": "useUtc",
+      "name": "UseUtc",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceHealthScriptRunSchedule",
+  "discriminatedTypeValue": "#microsoft.graph.deviceHealthScriptTimeSchedule",
+  "typeHintIn": "ODataType"
+}

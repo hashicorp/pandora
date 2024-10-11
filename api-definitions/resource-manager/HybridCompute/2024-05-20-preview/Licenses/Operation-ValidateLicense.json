@@ -1,6 +1,7 @@
 {
   "name": "ValidateLicense",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "License"
+    "nullable": false,
+    "referenceName": "License",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "License"
+    "nullable": false,
+    "referenceName": "License",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridCompute/validateLicense"
 }

@@ -7,7 +7,9 @@
       "name": "LinuxConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfileUpdateLinuxConfiguration"
+        "nullable": false,
+        "referenceName": "OsProfileUpdateLinuxConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "WindowsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfileUpdateWindowsConfiguration"
+        "nullable": false,
+        "referenceName": "OsProfileUpdateWindowsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

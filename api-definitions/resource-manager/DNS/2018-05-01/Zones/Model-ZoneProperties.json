@@ -7,7 +7,9 @@
       "name": "MaxNumberOfRecordSets",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaxNumberOfRecordsPerRecordSet",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "NameServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "NumberOfRecordSets",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "RegistrationVirtualNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,10 +94,14 @@
       "name": "ResolutionVirtualNetworks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -97,12 +115,15 @@
       "name": "ZoneType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneType"
+        "nullable": false,
+        "referenceName": "ZoneType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

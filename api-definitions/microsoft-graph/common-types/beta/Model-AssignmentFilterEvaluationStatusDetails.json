@@ -1,0 +1,25 @@
+{
+  "name": "AssignmentFilterEvaluationStatusDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "PayloadId on which filter has been applied.",
+      "jsonName": "payloadId",
+      "name": "PayloadId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.assignmentFilterEvaluationStatusDetails",
+  "typeHintIn": "ODataType"
+}

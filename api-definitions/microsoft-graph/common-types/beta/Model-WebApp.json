@@ -1,0 +1,41 @@
+{
+  "name": "WebApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The web app URL. This property cannot be PATCHed.",
+      "jsonName": "appUrl",
+      "name": "AppUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether or not to use managed browser. This property is only applicable for Android and IOS.",
+      "jsonName": "useManagedBrowser",
+      "name": "UseManagedBrowser",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.webApp",
+  "typeHintIn": "ODataType"
+}

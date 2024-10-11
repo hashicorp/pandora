@@ -7,7 +7,9 @@
       "name": "EnvironmentData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentData"
+        "nullable": false,
+        "referenceName": "EnvironmentData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnvironmentName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudName"
+        "nullable": false,
+        "referenceName": "CloudName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HierarchyIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "HierarchyIdentifierTrialEndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,10 +68,14 @@
       "name": "Offerings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CloudOffering"
+          "nullable": false,
+          "referenceName": "CloudOffering",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,5 +83,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "UserGetSharedAccessToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "UserId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UserTokenParameters"
+    "nullable": false,
+    "referenceName": "UserTokenParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UserTokenResult"
+    "nullable": false,
+    "referenceName": "UserTokenResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/token"
 }

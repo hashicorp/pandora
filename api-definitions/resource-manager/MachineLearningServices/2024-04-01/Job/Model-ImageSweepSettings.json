@@ -7,7 +7,9 @@
       "name": "EarlyTermination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicy"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SamplingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingAlgorithmType"
+        "nullable": false,
+        "referenceName": "SamplingAlgorithmType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

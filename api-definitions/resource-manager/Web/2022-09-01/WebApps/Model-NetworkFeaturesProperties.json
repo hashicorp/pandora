@@ -7,10 +7,14 @@
       "name": "HybridConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RelayServiceConnectionEntity"
+          "nullable": false,
+          "referenceName": "RelayServiceConnectionEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "HybridConnectionsV2",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HybridConnection"
+          "nullable": false,
+          "referenceName": "HybridConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "VirtualNetworkConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VnetInfo"
+        "nullable": false,
+        "referenceName": "VnetInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,12 +64,15 @@
       "name": "VirtualNetworkName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

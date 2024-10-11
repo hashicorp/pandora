@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "TableColumnId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SensitivityLabel"
+    "nullable": false,
+    "referenceName": "SensitivityLabel",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SensitivityLabel"
+    "nullable": false,
+    "referenceName": "SensitivityLabel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sensitivityLabels/current"
 }

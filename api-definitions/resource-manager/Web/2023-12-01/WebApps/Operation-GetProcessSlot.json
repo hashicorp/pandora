@@ -1,6 +1,7 @@
 {
   "name": "GetProcessSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "SlotProcessId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ProcessInfo"
+    "nullable": false,
+    "referenceName": "ProcessInfo",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,0 +1,25 @@
+{
+  "name": "SingleValueLegacyExtendedProperty",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A property value.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.singleValueLegacyExtendedProperty",
+  "typeHintIn": "ODataType"
+}

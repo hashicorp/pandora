@@ -7,10 +7,14 @@
       "name": "Extensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetExtension"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetExtension",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "ExtensionsTimeBudget",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

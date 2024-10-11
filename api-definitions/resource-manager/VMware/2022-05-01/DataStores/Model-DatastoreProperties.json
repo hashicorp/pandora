@@ -7,7 +7,9 @@
       "name": "DiskPoolVolume",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskPoolVolume"
+        "nullable": false,
+        "referenceName": "DiskPoolVolume",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetAppVolume",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetAppVolume"
+        "nullable": false,
+        "referenceName": "NetAppVolume",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreProvisioningState"
+        "nullable": false,
+        "referenceName": "DatastoreProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatastoreStatus"
+        "nullable": false,
+        "referenceName": "DatastoreStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

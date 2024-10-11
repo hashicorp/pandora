@@ -7,7 +7,9 @@
       "name": "Compute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecuteDataFlowActivityTypePropertiesCompute"
+        "nullable": false,
+        "referenceName": "ExecuteDataFlowActivityTypePropertiesCompute",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContinuationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContinuationSettingsReference"
+        "nullable": false,
+        "referenceName": "ContinuationSettingsReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ContinueOnError",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DataFlow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowReference"
+        "nullable": false,
+        "referenceName": "DataFlowReference",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "IntegrationRuntime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "Queries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PowerQuerySinkMapping"
+          "nullable": false,
+          "referenceName": "PowerQuerySinkMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "RunConcurrently",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "Sinks",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PowerQuerySink"
+          "nullable": false,
+          "referenceName": "PowerQuerySink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,7 +139,9 @@
       "name": "SourceStagingConcurrency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Staging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowStagingInfo"
+        "nullable": false,
+        "referenceName": "DataFlowStagingInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,12 +169,15 @@
       "name": "TraceLevel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

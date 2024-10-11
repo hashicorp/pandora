@@ -1,6 +1,7 @@
 {
   "name": "RestoreBlobRanges",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "StorageAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BlobRestoreParameters"
+    "nullable": false,
+    "referenceName": "BlobRestoreParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BlobRestoreStatus"
+    "nullable": false,
+    "referenceName": "BlobRestoreStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restoreBlobRanges"
 }

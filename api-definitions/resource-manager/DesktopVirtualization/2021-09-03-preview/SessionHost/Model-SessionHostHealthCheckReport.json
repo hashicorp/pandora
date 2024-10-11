@@ -7,7 +7,9 @@
       "name": "AdditionalFailureDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SessionHostHealthCheckFailureDetails"
+        "nullable": false,
+        "referenceName": "SessionHostHealthCheckFailureDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HealthCheckName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthCheckName"
+        "nullable": false,
+        "referenceName": "HealthCheckName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "HealthCheckResult",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthCheckResult"
+        "nullable": false,
+        "referenceName": "HealthCheckResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

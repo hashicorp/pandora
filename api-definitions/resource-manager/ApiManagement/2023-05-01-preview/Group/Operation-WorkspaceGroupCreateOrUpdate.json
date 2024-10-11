@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceGroupCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -9,6 +10,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "WorkspaceGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GroupCreateParameters"
+    "nullable": false,
+    "referenceName": "GroupCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GroupContract"
+    "nullable": false,
+    "referenceName": "GroupContract",
+    "referenceNameIsCommonType": null
   }
 }

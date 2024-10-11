@@ -1,0 +1,41 @@
+{
+  "name": "SecurityRegistryKeyEvidence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Registry hive of the key that the recorded action was applied to.",
+      "jsonName": "registryHive",
+      "name": "RegistryHive",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Registry key that the recorded action was applied to.",
+      "jsonName": "registryKey",
+      "name": "RegistryKey",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityAlertEvidence",
+  "discriminatedTypeValue": "#microsoft.graph.security.registryKeyEvidence",
+  "typeHintIn": "ODataType"
+}

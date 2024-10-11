@@ -1,6 +1,7 @@
 {
   "name": "AccountsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "NetAppAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetAppAccount"
+    "nullable": false,
+    "referenceName": "NetAppAccount",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetAppAccount"
+    "nullable": false,
+    "referenceName": "NetAppAccount",
+    "referenceNameIsCommonType": null
   }
 }

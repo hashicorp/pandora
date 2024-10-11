@@ -7,7 +7,9 @@
       "name": "AlertSensitivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdSensitivity"
+        "nullable": false,
+        "referenceName": "DynamicThresholdSensitivity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FailingPeriods",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdFailingPeriods"
+        "nullable": false,
+        "referenceName": "DynamicThresholdFailingPeriods",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "IgnoreDataBefore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicThresholdOperator"
+        "nullable": false,
+        "referenceName": "DynamicThresholdOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -55,6 +63,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MultiMetricCriteria",
   "discriminatedTypeValue": "DynamicThresholdCriterion",
   "typeHintIn": "CriterionType"

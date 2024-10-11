@@ -7,13 +7,19 @@
       "name": "DataDiskNames",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -28,7 +34,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,10 +49,14 @@
       "name": "NetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterfaceResourceNames"
+          "nullable": false,
+          "referenceName": "NetworkInterfaceResourceNames",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,7 +70,9 @@
       "name": "OsDiskName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,12 +85,15 @@
       "name": "VirtualMachineName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

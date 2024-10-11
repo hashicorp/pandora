@@ -1,6 +1,7 @@
 {
   "name": "VolumesListGetGroupIdListForLdapUser",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VolumeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GetGroupIdListForLDAPUserRequest"
+    "nullable": false,
+    "referenceName": "GetGroupIdListForLDAPUserRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GetGroupIdListForLDAPUserResponse"
+    "nullable": false,
+    "referenceName": "GetGroupIdListForLDAPUserResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getGroupIdListForLdapUser"
 }

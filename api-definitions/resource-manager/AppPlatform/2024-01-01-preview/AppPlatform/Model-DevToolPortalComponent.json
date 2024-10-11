@@ -7,10 +7,14 @@
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DevToolPortalInstance"
+          "nullable": false,
+          "referenceName": "DevToolPortalInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DevToolPortalResourceRequests"
+        "nullable": false,
+        "referenceName": "DevToolPortalResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

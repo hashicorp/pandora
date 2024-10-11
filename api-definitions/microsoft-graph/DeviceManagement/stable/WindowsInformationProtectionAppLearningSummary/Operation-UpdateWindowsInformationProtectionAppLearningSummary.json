@@ -1,0 +1,43 @@
+{
+  "name": "UpdateWindowsInformationProtectionAppLearningSummary",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update windowsInformationProtectionAppLearningSummary. Update the properties of a windowsInformationProtectionAppLearningSummary object.",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementWindowsInformationProtectionAppLearningSummaryId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WindowsInformationProtectionAppLearningSummary",
+    "referenceNameIsCommonType": true
+  }
+}

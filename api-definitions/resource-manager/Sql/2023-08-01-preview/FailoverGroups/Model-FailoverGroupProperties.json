@@ -7,10 +7,14 @@
       "name": "Databases",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "PartnerServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PartnerInfo"
+          "nullable": false,
+          "referenceName": "PartnerInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -41,7 +49,9 @@
       "name": "ReadOnlyEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReadOnlyEndpoint"
+        "nullable": false,
+        "referenceName": "FailoverGroupReadOnlyEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "ReadWriteEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReadWriteEndpoint"
+        "nullable": false,
+        "referenceName": "FailoverGroupReadWriteEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "ReplicationRole",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupReplicationRole"
+        "nullable": false,
+        "referenceName": "FailoverGroupReplicationRole",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ReplicationState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,12 +109,15 @@
       "name": "SecondaryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverGroupDatabasesSecondaryType"
+        "nullable": false,
+        "referenceName": "FailoverGroupDatabasesSecondaryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

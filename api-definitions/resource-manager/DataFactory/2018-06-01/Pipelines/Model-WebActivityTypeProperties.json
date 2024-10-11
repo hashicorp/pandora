@@ -7,7 +7,9 @@
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebActivityAuthentication"
+        "nullable": false,
+        "referenceName": "WebActivityAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Body",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ConnectVia",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeReference"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Datasets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DatasetReference"
+          "nullable": false,
+          "referenceName": "DatasetReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "DisableCertValidation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "HTTPRequestTimeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "Headers",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,10 +124,14 @@
       "name": "LinkedServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LinkedServiceReference"
+          "nullable": false,
+          "referenceName": "LinkedServiceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,7 +145,9 @@
       "name": "Method",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WebActivityMethod"
+        "nullable": false,
+        "referenceName": "WebActivityMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -136,7 +160,9 @@
       "name": "TurnOffAsync",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,12 +175,15 @@
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

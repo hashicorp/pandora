@@ -7,7 +7,9 @@
       "name": "AutoDetectedKeyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "KeyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "KeyState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeyStatus"
+        "nullable": false,
+        "referenceName": "EncryptionKeyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,10 +49,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "keyVaultUrl",
-      "name": "KeyVaultUrl",
+      "name": "KeyVaultURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "KeyVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "VersionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionVersionType"
+        "nullable": false,
+        "referenceName": "EncryptionVersionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

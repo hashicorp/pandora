@@ -1,6 +1,7 @@
 {
   "name": "ListStaticSiteBuildFunctionAppSettings",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BuildId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StringDictionary"
+    "nullable": false,
+    "referenceName": "StringDictionary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/listFunctionAppSettings"
 }

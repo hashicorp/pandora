@@ -11,18 +11,17 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/normalize"
-	"golang.org/x/text/cases"
-	"golang.org/x/text/language"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/internal/logging"
 )
 
-/* ===================
-   openapi3 cheatsheet
-   ===================
+/* =======================
+   kin-openapi3 cheatsheet
+   =======================
    Schemas is a map[string]*SchemaRef
    SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
    The Ref string (after trimming) indicates a Schemas map key to follow/inherit
    Schema has Properties which is a nested Schemas
-   Schema has AllOf and/or AnyOf which are SchemaRefs
+   Schema has AllOf, AnyOf or OneOf which are SchemaRefs
    SchemaRefs is a []*SchemaRef
    Schemas is a model
    SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
@@ -31,207 +30,272 @@ import (
 
 const RefPrefix = "#/components/schemas/"
 
+func TrimRefPrefix(ref string) string {
+	if strings.HasPrefix(ref, RefPrefix) {
+		return ref[len(RefPrefix):]
+	}
+	return ref
+}
+
 type Constants map[string]*Constant
 type Models map[string]*Model
 
-// Found returns true when the provided modelName was found in the Models map
-func (m Models) Found(modelName string) bool {
-	// Safety check, don't allow an empty model name
-	if modelName == "" {
+// Found returns true when the provided schemaName was found in the Constants map
+func (c Constants) Found(schemaName string) bool {
+	// Safety check, don't allow an empty constant name
+	if schemaName == "" {
 		return false
 	}
 
-	if model, ok := m[modelName]; ok && model != nil {
+	if constant, ok := c[schemaName]; ok && constant != nil {
 		return true
 	}
 
 	return false
 }
 
-// MergeDependants inspects the named model in m, then traverses allModels and appends any dependant models to m, recursively
-func (m Models) MergeDependants(allModels Models, modelName string) error {
-	if !allModels.Found(modelName) {
-		return fmt.Errorf("model not found: %q", modelName)
+// Found returns true when the provided schemaName was found in the Models map
+func (m Models) Found(schemaName string) bool {
+	// Safety check, don't allow an empty model name
+	if schemaName == "" {
+		return false
 	}
 
-	if _, ok := m[modelName]; !ok {
-		m[modelName] = allModels[modelName]
+	if model, ok := m[schemaName]; ok && model != nil {
+		return true
 	}
 
-	for _, field := range allModels[modelName].Fields {
-		if field.ModelName == nil {
-			continue
-		}
-
-		if _, ok := m[*field.ModelName]; ok {
-			continue
-		}
-
-		if !allModels.Found(*field.ModelName) {
-			return fmt.Errorf("dependant model not found: %q", modelName)
-		}
-
-		if err := m.MergeDependants(allModels, *field.ModelName); err != nil {
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m Models) Merge(m2 Models) {
-	if m2 == nil {
-		return
-	}
-	for modelName, model := range m2 {
-		m[modelName] = model
-	}
+	return false
 }
 
 type Constant struct {
+	// The name of this constant from the spec (not normalized)
+	Name string
+
+	// Whether this constant is a common type
+	Common bool
+
+	// The accepted values for this constant
 	Enum []string
+
+	// The data type for this constant (currently only supports strings)
 	Type *DataType
 }
 
 type Model struct {
+	// The type name of this model from the spec (not normalized)
+	Name string
+
+	// Fields that comprise this model
 	Fields map[string]*ModelField
+
+	// Whether this model is a common type
 	Common bool
-	Prefix string
+
+	// Whether this model has known child models
+	Parent bool
+
+	// For parent models, the field name containing the discriminated type value
+	TypeField *string
+
+	// For child models, the type value that specifies this model
+	TypeValue *string
+
+	// For child models, the name of the parent model
+	ParentModel *string
 }
 
-func (m *Model) IsValid() bool {
-	// Several constants are presented as models, these have no fields and are of no use
-	if m == nil || len(m.Fields) == 0 {
-		return false
+func (m *Model) AppendDefaultFields() {
+	for jsonName, fieldDetails := range defaultModelFields() {
+		if _, ok := m.Fields[jsonName]; !ok {
+			m.Fields[jsonName] = fieldDetails
+		}
 	}
-	return true
 }
 
-func (m *Model) DataApiSdkModel(models Models) (*sdkModels.SDKModel, error) {
+// DataApiSdkModel converts the internal ModelField representation to a Data API SDKModel, so it can be persisted to the Data
+// API Definitions. It's necessary to provide Models and Constants so that references (both fields and model ancestry) can be resolved.
+func (m *Model) DataApiSdkModel(models Models, constants Constants) (*sdkModels.SDKModel, error) {
 	sdkFields := make(map[string]sdkModels.SDKField)
-	for fieldName, field := range m.Fields {
-		objectDefinition, err := field.DataApiSdkObjectDefinition(models)
+	for jsonName, field := range m.Fields {
+		objectDefinition, err := field.DataApiSdkObjectDefinition(models, constants)
 		if err != nil {
 			return nil, err
 		}
 
 		if objectDefinition == nil {
-			return nil, fmt.Errorf("could not determine SDKObjectDefinition for field: %s", fieldName)
+			logging.Warnf("Could not determine SDKObjectDefinition for field %q, skipping", jsonName)
+			continue
 		}
 
-		sdkFields[fieldName] = sdkModels.SDKField{
-			ContainsDiscriminatedValue: false,
-			DateFormat:                 nil,
-			Description:                field.Description,
-			JsonName:                   field.JsonField,
-			ObjectDefinition:           *objectDefinition,
+		optional := true
+		required := false
+		if field.Required {
+			optional = false
+			required = true
+		}
 
-			// TODO work these out
-			Optional:  true,
-			ReadOnly:  false,
-			Required:  false,
+		sdkFields[field.Name] = sdkModels.SDKField{
+			DateFormat:       nil,
+			Description:      field.Description,
+			JsonName:         jsonName,
+			ObjectDefinition: *objectDefinition,
+
+			ContainsDiscriminatedValue: field.DiscriminatedValue,
+
+			Optional:  optional,
+			ReadOnly:  field.ReadOnly,
+			Required:  required,
 			Sensitive: false,
 		}
 	}
 
-	// TODO support discriminated types (good example: conditional access named locations)
+	if len(sdkFields) == 0 {
+		return nil, nil
+	}
+
+	var parentTypeName *string
+	if m.ParentModel != nil {
+		parentTypeName = pointer.To(normalize.CleanName(*m.ParentModel))
+	}
+
 	return &sdkModels.SDKModel{
-		DiscriminatedValue:                    nil,
-		FieldNameContainingDiscriminatedValue: nil,
-		Fields:                                sdkFields,
-		ParentTypeName:                        nil,
+		Fields: sdkFields,
+
+		IsParent:                              m.Parent,
+		DiscriminatedValue:                    m.TypeValue,
+		FieldNameContainingDiscriminatedValue: m.TypeField,
+		ParentTypeName:                        parentTypeName,
 	}, nil
 }
 
 type ModelField struct {
-	Title        string
-	Type         *DataType
-	Description  string
-	Default      interface{}
-	ItemType     *DataType
-	ConstantName *string
-	ModelName    *string
-	JsonField    string
+	// The name of this field
+	Name string
+
+	// The internal type for this field
+	Type *DataType
+
+	// The internal type for items, when this field type is DataTypeArray
+	ItemType *DataType
+
+	// Optional description which can be added to the generated SDK model as a comment
+	Description string
+
+	// The default value for this field
+	Default any
+
+	// Whether the field is required
+	Required bool
+
+	// Read-only fields should be omitted during marshalling in the generated SDK
+	ReadOnly bool
+
+	// Whether the field value can be a JSON null
+	Nullable bool
+
+	// Whether this field contains the discriminated type for a child model
+	DiscriminatedValue bool
+
+	// The name of a referenced model or constant, noting that this should be the full type name from the spec prior to normalizing
+	ReferenceName *string
+
+	// This is parsed from the spec but otherwise currently unused
+	WriteOnly       bool
+	AllowEmptyValue bool
 }
 
-func (f ModelField) DataApiSdkObjectDefinition(models Models) (*sdkModels.SDKObjectDefinition, error) {
-	if f.ConstantName != nil {
-		return &sdkModels.SDKObjectDefinition{
-			NestedItem:    nil,
-			ReferenceName: f.ConstantName,
-			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-		}, nil
-	}
-
+// DataApiSdkObjectDefinition converts the internal ModelField representation to a Data API SDKObjectDefinition, so it can be
+// persisted to the Data API Definitions. It's necessary to provide Models and Constants so that references can be resolved.
+func (f ModelField) DataApiSdkObjectDefinition(models Models, constants Constants) (*sdkModels.SDKObjectDefinition, error) {
 	if f.Type == nil {
-		return nil, fmt.Errorf("field %q has no Type", f.Title)
+		return nil, fmt.Errorf("field %q has no Type", f.Name)
 	}
 
 	switch *f.Type {
-	case DataTypeModel:
-		if f.ModelName == nil {
-			return nil, fmt.Errorf("field type Model encountered without model name")
+	case DataTypeReference:
+		if f.ReferenceName == nil {
+			return nil, fmt.Errorf("field type Reference encountered without ReferenceName")
 		}
 
-		if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
-			return nil, fmt.Errorf("field type Model encountered with invalid referenced model")
+		if models.Found(*f.ReferenceName) {
+			return &sdkModels.SDKObjectDefinition{
+				Nullable:                  f.Nullable,
+				ReferenceName:             pointer.To(normalize.CleanName(*f.ReferenceName)),
+				ReferenceNameIsCommonType: pointer.To(models[*f.ReferenceName].Common),
+				Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
+			}, nil
 		}
 
-		return &sdkModels.SDKObjectDefinition{
-			NestedItem:    nil,
-			ReferenceName: f.ModelName,
-			Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-		}, nil
+		if constants.Found(*f.ReferenceName) {
+			return &sdkModels.SDKObjectDefinition{
+				Nullable:                  f.Nullable,
+				ReferenceName:             pointer.To(normalize.CleanName(*f.ReferenceName)),
+				ReferenceNameIsCommonType: pointer.To(constants[*f.ReferenceName].Common),
+				Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
+			}, nil
+		}
+
+		return nil, fmt.Errorf("field type Reference encountered with unknown referenced model/constant")
 
 	case DataTypeArray:
-		if f.ModelName != nil {
-			if !models.Found(*f.ModelName) || !models[*f.ModelName].IsValid() {
-				return nil, fmt.Errorf("field type Array[Model] encountered with invalid referenced model")
+		if f.ReferenceName != nil {
+			if models.Found(*f.ReferenceName) {
+				return &sdkModels.SDKObjectDefinition{
+					NestedItem: &sdkModels.SDKObjectDefinition{
+						ReferenceName:             pointer.To(normalize.CleanName(*f.ReferenceName)),
+						ReferenceNameIsCommonType: pointer.To(models[*f.ReferenceName].Common),
+						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
+					},
+					Nullable:      f.Nullable,
+					ReferenceName: nil,
+					Type:          sdkModels.ListSDKObjectDefinitionType,
+				}, nil
 			}
 
-			return &sdkModels.SDKObjectDefinition{
-				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: f.ModelName,
-					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-				},
-				ReferenceName: nil,
-				Type:          sdkModels.ListSDKObjectDefinitionType,
-			}, nil
-		}
+			if constants.Found(*f.ReferenceName) {
+				return &sdkModels.SDKObjectDefinition{
+					NestedItem: &sdkModels.SDKObjectDefinition{
+						ReferenceName:             pointer.To(normalize.CleanName(*f.ReferenceName)),
+						ReferenceNameIsCommonType: pointer.To(constants[*f.ReferenceName].Common),
+						Type:                      sdkModels.ReferenceSDKObjectDefinitionType,
+					},
+					Nullable:      f.Nullable,
+					ReferenceName: nil,
+					Type:          sdkModels.ListSDKObjectDefinitionType,
+				}, nil
+			}
 
-		if f.ConstantName != nil {
-			// TODO validate constant exists
-			return &sdkModels.SDKObjectDefinition{
-				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: f.ConstantName,
-					Type:          sdkModels.ReferenceSDKObjectDefinitionType,
-				},
-				ReferenceName: nil,
-				Type:          sdkModels.ListSDKObjectDefinitionType,
-			}, nil
+			return nil, fmt.Errorf("field type Array[Reference] encountered with unknown referenced model/constant")
 		}
 
 		if f.ItemType != nil {
 			return &sdkModels.SDKObjectDefinition{
 				NestedItem: &sdkModels.SDKObjectDefinition{
-					NestedItem:    nil,
-					ReferenceName: nil,
-					Type:          f.ItemType.DataApiSdkObjectDefinitionType(),
+					Type: f.ItemType.DataApiSdkObjectDefinitionType(),
 				},
-				ReferenceName: nil,
-				Type:          sdkModels.ListSDKObjectDefinitionType,
+				Nullable: f.Nullable,
+				Type:     sdkModels.ListSDKObjectDefinitionType,
 			}, nil
 		}
 
-		return nil, nil
+		// Unknown types should be []interface{}
+		return &sdkModels.SDKObjectDefinition{
+			NestedItem: &sdkModels.SDKObjectDefinition{
+				Type: sdkModels.RawObjectSDKObjectDefinitionType,
+			},
+			Nullable: f.Nullable,
+			Type:     sdkModels.ListSDKObjectDefinitionType,
+		}, nil
+	}
+
+	if f.ReferenceName != nil {
+		return nil, fmt.Errorf("field that is not a Reference or Array[Reference] encountered with ReferenceName")
 	}
 
 	return &sdkModels.SDKObjectDefinition{
-		NestedItem:    nil,
-		ReferenceName: nil,
-		Type:          f.Type.DataApiSdkObjectDefinitionType(),
+		Nullable: f.Nullable,
+		Type:     f.Type.DataApiSdkObjectDefinitionType(),
 	}, nil
 }
 
@@ -243,6 +307,7 @@ const (
 	DataTypeBase64
 	DataTypeBinary
 	DataTypeBool
+	DataTypeCsv
 	DataTypeDate
 	DataTypeDateTime
 	DataTypeDuration
@@ -256,7 +321,7 @@ const (
 	DataTypeIntegerUnsigned32
 	DataTypeIntegerUnsigned64
 	DataTypeIntegerUnsigned8
-	DataTypeModel
+	DataTypeReference
 	DataTypeString
 	DataTypeTime
 	DataTypeUuid
@@ -273,19 +338,49 @@ func (ft DataType) DataApiSdkObjectDefinitionType() sdkModels.SDKObjectDefinitio
 		return sdkModels.FloatSDKObjectDefinitionType
 	case DataTypeBool:
 		return sdkModels.BooleanSDKObjectDefinitionType
+	case DataTypeCsv:
+		return sdkModels.CSVSDKObjectDefinitionType
 	case DataTypeDate, DataTypeDateTime, DataTypeTime:
 		return sdkModels.DateTimeSDKObjectDefinitionType
 	case DataTypeBinary:
 		return sdkModels.RawFileSDKObjectDefinitionType
 	}
 
+	// Fall back to `interface{}` where the type is not known
+	return sdkModels.RawObjectSDKObjectDefinitionType
+}
+
+func (ft DataType) DataApiSdkOperationOptionObjectDefinitionType() sdkModels.SDKOperationOptionObjectDefinitionType {
+	switch ft {
+	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8, DataTypeIntegerUnsigned64,
+		DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
+		return sdkModels.IntegerSDKOperationOptionObjectDefinitionType
+	case DataTypeFloat64, DataTypeFloat32:
+		return sdkModels.FloatSDKOperationOptionObjectDefinitionType
+	case DataTypeBool:
+		return sdkModels.BooleanSDKOperationOptionObjectDefinitionType
+	case DataTypeCsv:
+		return sdkModels.CSVSDKOperationOptionObjectDefinitionType
+	case DataTypeDate, DataTypeDateTime, DataTypeTime:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	case DataTypeBinary:
+		return sdkModels.StringSDKOperationOptionObjectDefinitionType
+	}
+
 	// Fall back to string where the type is not known
-	return sdkModels.StringSDKObjectDefinitionType
+	return sdkModels.StringSDKOperationOptionObjectDefinitionType
 }
 
 // FieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
-func FieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
+func FieldType(schemaType, schemaFormat string, hasReference bool) *DataType {
 	var ret DataType
+
+	if hasReference {
+		ret = DataTypeReference
+		return &ret
+	}
 
 	switch strings.ToLower(schemaFormat) {
 	case "int64":
@@ -343,359 +438,237 @@ func FieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 		return &ret
 	}
 
-	if hasModel {
-		ret = DataTypeModel
-		return &ret
-	}
-
 	return nil
 }
 
-func Common(schemas openapi3.Schemas) (models Models, constants Constants, err error) {
-	models = make(Models)
-	constants = make(Constants)
-	for modelName, schemaRef := range schemas {
-		name := normalize.CleanName(modelName)
-		if schemaRef.Value != nil {
-			var f *flattenedSchema
-			if f, _ = FlattenSchemaRef(schemaRef, nil); f != nil {
-				models, constants = Schemas(*f, name, models, constants, true)
-			}
+func ModelsAndConstants(schemas openapi3.Schemas) (Models, Constants, error) {
+	models := make(Models)
+	constants := make(Constants)
+
+	for schemaName, schemaRef := range schemas {
+		if models.Found(schemaName) {
+			return nil, nil, fmt.Errorf("model %q already encountered", schemaName)
+		}
+		if constants.Found(schemaName) {
+			return nil, nil, fmt.Errorf("constant %q already encountered", schemaName)
+		}
+
+		model, constant, err := ModelOrConstant(schemaName, schemaRef, true)
+		if err != nil {
+			return nil, nil, err
+		}
+
+		if model != nil {
+			models[schemaName] = model
+			models[schemaName].AppendDefaultFields()
+		}
+
+		if constant != nil {
+			constants[schemaName] = constant
 		}
 	}
 
-	return
-}
-
-type flattenedSchema struct {
-	Schemas openapi3.Schemas
-	Prefix  string
-	Title   string
-	Type    string
-	Format  string
-	Enum    []interface{}
-}
-
-// FlattenSchemaRef attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
-// which is much more convenient to inspect for types. The returned map[string]bool is used when recursing to track
-// Refs which have been observed in order to avoid infinite recursion, and is usually not interesting to the caller.
-func FlattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (*flattenedSchema, map[string]bool) {
-	if seenRefs == nil {
-		seenRefs = make(map[string]bool)
-	}
-
-	if schemaRef.Value == nil {
-		return nil, seenRefs
-	}
-
-	prefix := ""
-	title := ""
-	titleFromRef := false
-	if strings.HasPrefix(schemaRef.Ref, RefPrefix) {
-		ref := schemaRef.Ref[len(RefPrefix):]
-		if i := strings.LastIndex(ref, "."); i > 0 {
-			prefix = normalize.CleanName(ref[0:i])
+	// Now iterate models, mark parent models as such and populate discriminated children
+	for schemaName, model := range models {
+		if model.ParentModel == nil {
+			continue
 		}
-		title = normalize.CleanName(ref)
-		titleFromRef = true
+
+		parentModel, ok := models[*model.ParentModel]
+		if !ok {
+			return nil, nil, fmt.Errorf("parent model %q was not found for model %q", *model.ParentModel, schemaName)
+		}
+
+		parentModel.Fields["@odata.type"].DiscriminatedValue = true
+		parentModel.Parent = true
+		parentModel.TypeField = pointer.To("ODataType")
+		model.TypeField = pointer.To("ODataType")
+		model.TypeValue = pointer.To("#" + schemaName)
 	}
+
+	return models, constants, nil
+}
+
+func ModelOrConstant(schemaName string, schemaRef *openapi3.SchemaRef, common bool) (*Model, *Constant, error) {
 	schema := schemaRef.Value
-	schemas := make(openapi3.Schemas, 0)
-	typ := ""
-	format := ""
-	enum := make([]interface{}, 0)
-
-	if r := schema.Items; r != nil {
-		if r.Ref != "" {
-			for s := range seenRefs {
-				if s == r.Ref {
-					continue
-				}
-			}
-			seenRefs[r.Ref] = true
-			if title == "" && strings.HasPrefix(r.Ref, RefPrefix) {
-				ref := r.Ref[len(RefPrefix):]
-				if i := strings.LastIndex(ref, "."); i > 0 {
-					prefix = normalize.CleanName(ref[0:i])
-				}
-				title = normalize.CleanName(ref)
-			}
-		}
-
-		if r.Value != nil {
-			var result *flattenedSchema
-			result, seenRefs = FlattenSchemaRef(r, seenRefs)
-			if title == "" && result.Title != "" {
-				title = normalize.CleanName(result.Title)
-			}
-			if result.Type != "" {
-				typ = result.Type
-			}
-			if result.Format != "" {
-				format = result.Format
-			}
-			if len(result.Enum) > 0 {
-				enum = result.Enum
-			}
-			for k, v := range result.Schemas {
-				schemas[k] = v
-			}
-		}
-	} else {
-		if schema.AllOf != nil {
-			for _, r := range schema.AllOf {
-				if r.Ref != "" {
-					for s := range seenRefs {
-						if s == r.Ref {
-							continue
-						}
-					}
-					seenRefs[r.Ref] = true
-					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
-						ref := r.Ref[len(RefPrefix):]
-						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = normalize.CleanName(ref[0:i])
-						}
-						title = normalize.CleanName(ref)
-						titleFromRef = true
-					}
-				}
-
-				if r.Value != nil {
-					var result *flattenedSchema
-					result, seenRefs = FlattenSchemaRef(r, seenRefs)
-					if !titleFromRef && result.Title != "" {
-						title = normalize.CleanName(result.Title)
-					}
-					if typ == "" && result.Type != "" {
-						typ = result.Type
-					}
-					if format == "" && result.Format != "" {
-						format = result.Format
-					}
-					if len(result.Enum) > 0 {
-						enum = result.Enum
-					}
-					for k, v := range result.Schemas {
-						schemas[k] = v
-					}
-				}
-			}
-		}
-
-		if schema.AnyOf != nil {
-			for _, r := range schema.AnyOf {
-				if r.Ref != "" {
-					for s := range seenRefs {
-						if s == r.Ref {
-							continue
-						}
-					}
-					seenRefs[r.Ref] = true
-					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
-						ref := r.Ref[len(RefPrefix):]
-						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = normalize.CleanName(ref[0:i])
-						}
-						title = normalize.CleanName(ref)
-						titleFromRef = true
-					}
-				}
-
-				if r.Value != nil {
-					var result *flattenedSchema
-					result, seenRefs = FlattenSchemaRef(r, seenRefs)
-					if !titleFromRef && result.Title != "" {
-						title = normalize.CleanName(result.Title)
-					}
-					if typ == "" && result.Type != "" {
-						typ = result.Type
-					}
-					if format == "" && result.Format != "" {
-						format = result.Format
-					}
-					if len(result.Enum) > 0 {
-						enum = result.Enum
-					}
-					for k, v := range result.Schemas {
-						schemas[k] = v
-					}
-				}
-			}
-		}
-
-		if schema.OneOf != nil {
-			for _, r := range schema.OneOf {
-				if r.Ref != "" {
-					for s := range seenRefs {
-						if s == r.Ref {
-							continue
-						}
-					}
-					seenRefs[r.Ref] = true
-					if !titleFromRef && strings.HasPrefix(r.Ref, RefPrefix) {
-						ref := r.Ref[len(RefPrefix):]
-						if i := strings.LastIndex(ref, "."); i > 0 {
-							prefix = normalize.CleanName(ref[0:i])
-						}
-						title = normalize.CleanName(ref)
-						titleFromRef = true
-					}
-				}
-
-				if r.Value != nil {
-					var result *flattenedSchema
-					result, seenRefs = FlattenSchemaRef(r, seenRefs)
-					if !titleFromRef && result.Title != "" {
-						title = normalize.CleanName(result.Title)
-					}
-					if typ == "" && result.Type != "" {
-						typ = result.Type
-					}
-					if format == "" && result.Format != "" {
-						format = result.Format
-					}
-					if len(result.Enum) > 0 {
-						enum = result.Enum
-					}
-					for k, v := range result.Schemas {
-						schemas[k] = v
-					}
-				}
-			}
-		}
+	if schema == nil {
+		logging.Tracef("OpenAPI model %q has no schema, skipping", schemaName)
+		return nil, nil, nil
 	}
 
-	// TODO: may need to prefer innermost title
-	if schema.Title != "" {
-		title = normalize.CleanName(schema.Title)
+	// First check if this is a constant
+	if schema.Enum != nil {
+		constant := Constant{
+			Name:   normalize.CleanName(schemaName),
+			Common: common,
+			Enum:   parseEnum(schema.Enum),
+			Type:   FieldType(schema.Type, schema.Format, false),
+		}
+
+		return nil, &constant, nil
 	}
 
-	// prefer the innermost type
-	if typ == "" && schema.Type != "" {
-		typ = schema.Type
-	}
-
-	// prefer the innermost format
-	if format == "" && schema.Format != "" {
-		format = schema.Format
-	}
-
-	if len(schema.Enum) > 0 {
-		enum = schema.Enum
+	// Proceed to build a model
+	model := Model{
+		Name:   normalize.CleanName(schemaName),
+		Fields: make(map[string]*ModelField),
+		Common: common,
 	}
 
 	if schema.Properties != nil {
-		for k, v := range schema.Properties {
-			schemas[k] = v
-		}
-	}
-
-	if len(schemas) == 0 {
-		schemas = nil
-	}
-
-	return &flattenedSchema{
-		Schemas: schemas,
-		Prefix:  prefix,
-		Title:   title,
-		Type:    typ,
-		Format:  format,
-		Enum:    enum,
-	}, seenRefs
-}
-
-// Schemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
-// marking it as a common model. The provided Models (map[string]Model) is mutated to append the new model and its fields.
-// Fields having the type of another model are parsed recursively to extract all known models that may not be directly
-// referenced in the root schema.
-func Schemas(input flattenedSchema, name string, models Models, constants Constants, common bool) (Models, Constants) {
-	if _, ok := models[name]; ok {
-		return models, constants
-	}
-
-	// Check if this is a constant
-	if input.Schemas == nil && len(input.Enum) > 0 {
-		constant := Constant{
-			Enum: parseEnum(input.Enum),
-			Type: FieldType(input.Type, input.Format, false),
-		}
-
-		constants[name] = &constant
-		return models, constants
-	}
-
-	// If there are no schemas, this is not a valid model and is likely a custom type which we don't currently use, e.g. ODataCountResponse
-	if input.Schemas == nil {
-		return models, constants
-	}
-
-	model := Model{
-		Fields: make(map[string]*ModelField),
-		Common: common,
-		Prefix: input.Prefix,
-	}
-
-	// Add to models map before descending, to prevent recursion
-	models[name] = &model
-
-	for jsonField, schemaRef := range input.Schemas {
-		if schema := schemaRef.Value; schema != nil {
-			field := ModelField{
-				Title:       cases.Title(language.AmericanEnglish, cases.NoLower).String(jsonField),
-				Description: schema.Description,
-				Default:     schema.Default,
-				JsonField:   jsonField,
+		// Simple model with no base type
+		for jsonField, fieldDetails := range schema.Properties {
+			field, err := modelFieldFromSchemaRef(jsonField, fieldDetails)
+			if err != nil {
+				return nil, nil, fmt.Errorf("building field %q for model %q: %v", jsonField, schemaName, err)
 			}
 
-			if field.Title == "" {
+			if field == nil {
+				logging.Warnf("Skipping field %q in model %q", schemaName, jsonField)
 				continue
 			}
 
-			result, _ := FlattenSchemaRef(schemaRef, nil)
+			model.Fields[jsonField] = field
+		}
 
-			enum := parseEnum(schema.Enum)
-			if result != nil && len(result.Enum) > 0 && len(enum) == 0 {
-				enum = parseEnum(result.Enum)
-			}
-
-			if result != nil && result.Title != "" && result.Schemas != nil {
-				if _, ok := models[result.Title]; !ok {
-					models, constants = Schemas(*result, result.Title, models, constants, common)
+	} else if schema.AllOf != nil {
+		// Model with inheritance
+		for _, allOf := range schema.AllOf {
+			if referencedSchemaName := TrimRefPrefix(allOf.Ref); referencedSchemaName != "" {
+				if model.ParentModel != nil {
+					return nil, nil, fmt.Errorf("model %q already has a parent model %q, cannot set additional parent %q", schemaName, *model.ParentModel, referencedSchemaName)
 				}
-				field.ModelName = &result.Title
+
+				model.ParentModel = &referencedSchemaName
+				continue
 			}
 
-			if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
-				field.ItemType = FieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
-			}
+			if allOf.Value != nil && allOf.Value.Properties != nil {
+				for jsonField, fieldDetails := range allOf.Value.Properties {
+					field, err := modelFieldFromSchemaRef(jsonField, fieldDetails)
+					if err != nil {
+						return nil, nil, fmt.Errorf("building field %q for model %q: %v", jsonField, schemaName, err)
+					}
 
-			if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
-				field.Type = FieldType(result.Type, result.Format, field.ModelName != nil)
-			} else {
-				field.Type = FieldType(schema.Type, schema.Format, field.ModelName != nil)
-			}
+					if field == nil {
+						logging.Warnf("Skipping field %q in model %q", schemaName, jsonField)
+						continue
+					}
 
-			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(enum) > 0 && (result.Type != "" || result.Format != "") {
-				field.ItemType = FieldType(result.Type, result.Format, field.ModelName != nil)
-			}
-
-			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(enum) > 0 {
-				// Despite being "fully qualified", type names are not unique in MS Graph, so we prefix them with the field name to provide some namespacing.
-				// This leads to some excessively long constant names, it is what it is.
-				field.ConstantName = pointer.To(name + field.Title)
-
-				constants[*field.ConstantName] = &Constant{
-					Enum: enum,
-					Type: field.Type,
+					model.Fields[jsonField] = field
 				}
 			}
-
-			model.Fields[normalize.CleanName(jsonField)] = &field
 		}
 	}
 
-	return models, constants
+	return &model, nil, nil
+}
+
+func modelFieldFromSchemaRef(jsonField string, fieldSchema *openapi3.SchemaRef) (*ModelField, error) {
+	if fieldSchema.Value == nil {
+		return nil, fmt.Errorf("field has no definition")
+	}
+
+	field := ModelField{
+		Name:            normalize.CleanName(jsonField),
+		Description:     fieldSchema.Value.Description,
+		Default:         fieldSchema.Value.Default,
+		ReadOnly:        fieldSchema.Value.ReadOnly,
+		WriteOnly:       fieldSchema.Value.WriteOnly,
+		Nullable:        fieldSchema.Value.Nullable,
+		AllowEmptyValue: fieldSchema.Value.AllowEmptyValue,
+	}
+
+	if fieldSchema.Value.AnyOf != nil {
+		for _, fieldReference := range fieldSchema.Value.AnyOf {
+			if referencedSchemaName := TrimRefPrefix(fieldReference.Ref); referencedSchemaName != "" {
+				if field.ReferenceName != nil {
+					return nil, fmt.Errorf("reference %q already set, cannot set new reference %q", *field.ReferenceName, referencedSchemaName)
+				}
+
+				field.ReferenceName = &referencedSchemaName
+			}
+		}
+	}
+
+	if referencedSchemaName := TrimRefPrefix(fieldSchema.Ref); referencedSchemaName != "" {
+		if field.ReferenceName != nil {
+			return nil, fmt.Errorf("reference %q already set, cannot set new reference %q", *field.ReferenceName, referencedSchemaName)
+		}
+
+		field.ReferenceName = &referencedSchemaName
+	}
+
+	field.Type = FieldType(fieldSchema.Value.Type, fieldSchema.Value.Format, field.ReferenceName != nil)
+
+	if items := fieldSchema.Value.Items; items != nil {
+		if items.Value != nil && items.Value.AnyOf != nil {
+			for _, itemsReference := range items.Value.AnyOf {
+				if referencedSchemaName := TrimRefPrefix(itemsReference.Ref); referencedSchemaName != "" {
+					if field.ReferenceName != nil {
+						return nil, fmt.Errorf("item reference %q already set, cannot set new reference %q", *field.ReferenceName, referencedSchemaName)
+					}
+
+					field.ReferenceName = &referencedSchemaName
+				}
+			}
+		}
+
+		if referencedSchemaName := TrimRefPrefix(items.Ref); referencedSchemaName != "" {
+			if field.ReferenceName != nil {
+				return nil, fmt.Errorf("item reference %q already set, cannot set new reference %q", *field.ReferenceName, referencedSchemaName)
+			}
+
+			field.ReferenceName = &referencedSchemaName
+		}
+
+		if field.ReferenceName == nil && items.Value == nil {
+			return nil, fmt.Errorf("item reference not found and items have no definition")
+		}
+
+		field.ItemType = FieldType(items.Value.Type, items.Value.Format, field.ReferenceName != nil)
+	}
+
+	// Detect nullable, read-only and required fields from the description, which appears to be reliably auto-generated.
+	if (strings.HasPrefix(fieldSchema.Value.Description, "Nullable.") || strings.Contains(fieldSchema.Value.Description, " Nullable.")) && !strings.Contains(strings.ToLower(fieldSchema.Value.Description), "not nullable.") {
+		field.Nullable = true
+	}
+	if strings.HasPrefix(fieldSchema.Value.Description, "Read-only.") || strings.Contains(fieldSchema.Value.Description, " Read-only.") {
+		field.ReadOnly = true
+	}
+	if strings.HasPrefix(fieldSchema.Value.Description, "Required.") || strings.Contains(fieldSchema.Value.Description, " Required.") {
+		field.Required = true
+	}
+
+	if field.Type == nil {
+		return nil, nil
+	}
+
+	return &field, nil
+}
+
+// defaultModelFields adds an explicit ODataId and ODataType field to each model, since it is inconsistently defined in
+// the API specs. This won't be valid for every model, but it's impossible to tell which models support them, and it's
+// effectively harmless to leave these in so long as they have the `omitempty` struct tag in the generated SDK.
+func defaultModelFields() map[string]*ModelField {
+	return map[string]*ModelField{
+		"@odata.id": {
+			Name:        "ODataId",
+			Description: "The OData ID of this entity",
+			Type:        pointer.To(DataTypeString),
+			Default:     "",
+			Required:    false,
+			Nullable:    false,
+		},
+		"@odata.type": {
+			Name:        "ODataType",
+			Description: "The OData Type of this entity",
+			Type:        pointer.To(DataTypeString),
+			Default:     "",
+			Required:    false,
+			Nullable:    false,
+		},
+	}
 }
 
 // parseEnum returns a slice of sanitized enum values (which are always strings)

@@ -12,30 +12,49 @@ import (
 )
 
 func mapSDKOperationOptionFromRepository(input repositoryModels.Option, knownData helpers.KnownData) (*sdkModels.SDKOperationOption, error) {
-	objectDefinition, err := mapSDKOperationOptionObjectDefinitionFromRepository(input.ObjectDefinition, knownData)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the ObjectDefinition: %+v", err)
+	var objectDefinition sdkModels.SDKOperationOptionObjectDefinition
+
+	if input.Type == "Data" {
+		mapping, err := mapSDKOperationOptionObjectDefinitionFromRepository(input.ObjectDefinition, knownData)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the ObjectDefinition: %+v", err)
+		}
+		objectDefinition = *mapping
 	}
 
 	return &sdkModels.SDKOperationOption{
+		Type:             input.Type,
 		HeaderName:       input.HeaderName,
+		ODataFieldName:   input.ODataFieldName,
 		QueryStringName:  input.QueryString,
-		ObjectDefinition: *objectDefinition,
+		ObjectDefinition: objectDefinition,
 		Required:         input.Required,
 	}, nil
 }
 
 func mapSDKOperationOptionToRepository(fieldName string, input sdkModels.SDKOperationOption, knownData helpers.KnownData) (*repositoryModels.Option, error) {
-	objectDefinition, err := mapSDKOperationOptionObjectDefinitionToRepository(input.ObjectDefinition, knownData)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
+	optionType := sdkModels.SDKOperationOptionTypeData
+	if input.Type != "" {
+		optionType = input.Type
+	}
+
+	var objectDefinition repositoryModels.OptionObjectDefinition
+
+	if optionType == sdkModels.SDKOperationOptionTypeData {
+		mapping, err := mapSDKOperationOptionObjectDefinitionToRepository(input.ObjectDefinition, knownData)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the object definition: %+v", err)
+		}
+		objectDefinition = *mapping
 	}
 
 	option := repositoryModels.Option{
+		Type:             optionType,
 		HeaderName:       input.HeaderName,
+		ODataFieldName:   input.ODataFieldName,
 		QueryString:      input.QueryStringName,
 		Field:            fieldName,
-		ObjectDefinition: *objectDefinition,
+		ObjectDefinition: objectDefinition,
 	}
 
 	if !input.Required {

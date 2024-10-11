@@ -7,7 +7,9 @@
       "name": "CertificateAuthority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IstioCertificateAuthority"
+        "nullable": false,
+        "referenceName": "IstioCertificateAuthority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Components",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IstioComponents"
+        "nullable": false,
+        "referenceName": "IstioComponents",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Revisions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

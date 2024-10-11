@@ -7,10 +7,14 @@
       "name": "AdditionalInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ErrorAdditionalInfo"
+          "nullable": false,
+          "referenceName": "ErrorAdditionalInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Code",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Level",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Level"
+        "nullable": false,
+        "referenceName": "Level",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "Target",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

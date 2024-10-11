@@ -7,7 +7,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SimpleFilterParameters"
+        "nullable": false,
+        "referenceName": "SimpleFilterParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Filter",
   "discriminatedTypeValue": "Simple",
   "typeHintIn": "Type"

@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ReplicationMigrationItemId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigrationItem"
+    "nullable": false,
+    "referenceName": "MigrationItem",
+    "referenceNameIsCommonType": null
   }
 }

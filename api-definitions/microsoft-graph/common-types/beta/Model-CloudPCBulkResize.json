@@ -1,0 +1,25 @@
+{
+  "name": "CloudPCBulkResize",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The target service plan ID of the resize configuration with new vCPU and storage size.",
+      "jsonName": "targetServicePlanId",
+      "name": "TargetServicePlanId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CloudPCBulkAction",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcBulkResize",
+  "typeHintIn": "ODataType"
+}

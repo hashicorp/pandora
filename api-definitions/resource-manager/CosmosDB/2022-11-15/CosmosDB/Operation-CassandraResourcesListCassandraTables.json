@@ -1,6 +1,7 @@
 {
   "name": "CassandraResourcesListCassandraTables",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "CassandraKeyspaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CassandraTableListResult"
+    "nullable": false,
+    "referenceName": "CassandraTableListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/tables"
 }

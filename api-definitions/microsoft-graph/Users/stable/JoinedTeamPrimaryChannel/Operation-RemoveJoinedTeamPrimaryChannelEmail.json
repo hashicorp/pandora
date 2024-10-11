@@ -1,0 +1,39 @@
+{
+  "name": "RemoveJoinedTeamPrimaryChannelEmail",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action removeEmail. Remove the email address of a channel. You can remove an email address only if it was provisioned using the provisionEmail method or through the Microsoft Teams client.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdJoinedTeamId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/primaryChannel/removeEmail"
+}

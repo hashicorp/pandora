@@ -7,7 +7,9 @@
       "name": "Input",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BenefitUtilizationSummariesRequest"
+        "nullable": false,
+        "referenceName": "BenefitUtilizationSummariesRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AsyncOperationStatusProperties"
+        "nullable": false,
+        "referenceName": "AsyncOperationStatusProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationStatusType"
+        "nullable": false,
+        "referenceName": "OperationStatusType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -8,7 +8,9 @@
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Content",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "ContentLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContentLink"
+        "nullable": false,
+        "referenceName": "ContentLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "ContentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "MapType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapType"
+        "nullable": false,
+        "referenceName": "MapType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,12 +114,15 @@
       "name": "ParametersSchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationAccountMapPropertiesParametersSchema"
+        "nullable": false,
+        "referenceName": "IntegrationAccountMapPropertiesParametersSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

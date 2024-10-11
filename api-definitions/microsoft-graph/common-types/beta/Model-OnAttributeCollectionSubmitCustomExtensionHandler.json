@@ -1,0 +1,40 @@
+{
+  "name": "OnAttributeCollectionSubmitCustomExtensionHandler",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configuration regarding properties of the custom extension that can be overwritten per event listener.",
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomExtensionOverwriteConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customExtension",
+      "name": "CustomExtension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAttributeCollectionSubmitCustomExtension",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnAttributeCollectionSubmitHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onAttributeCollectionSubmitCustomExtensionHandler",
+  "typeHintIn": "ODataType"
+}

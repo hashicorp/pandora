@@ -7,7 +7,9 @@
       "name": "IncludedMaxSize",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxSizeCapability"
+        "nullable": false,
+        "referenceName": "MaxSizeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IncludedStorageIOps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IncludedStorageThroughputMBps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "InstancePoolSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "IopsIncludedValueOverrideFactorPerSelectedStorageGB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "IopsMinValueOverrideFactorPerSelectedStorageGB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "Reason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "StandaloneSupported",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CapabilityStatus"
+        "nullable": false,
+        "referenceName": "CapabilityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,10 +157,14 @@
       "name": "SupportedMaintenanceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedInstanceMaintenanceConfigurationCapability"
+          "nullable": false,
+          "referenceName": "ManagedInstanceMaintenanceConfigurationCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,7 +178,9 @@
       "name": "SupportedMemoryLimitsMB",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxLimitRangeCapability"
+        "nullable": false,
+        "referenceName": "MaxLimitRangeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "SupportedStorageIOps",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxLimitRangeCapability"
+        "nullable": false,
+        "referenceName": "MaxLimitRangeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "SupportedStorageSizes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MaxSizeRangeCapability"
+          "nullable": false,
+          "referenceName": "MaxSizeRangeCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "SupportedStorageThroughputMBps",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaxLimitRangeCapability"
+        "nullable": false,
+        "referenceName": "MaxLimitRangeCapability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "ThroughputMBpsIncludedValueOverrideFactorPerSelectedStorageGB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "ThroughputMBpsMinValueOverrideFactorPerSelectedStorageGB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,12 +274,15 @@
       "name": "Value",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

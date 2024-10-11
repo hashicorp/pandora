@@ -7,7 +7,9 @@
       "name": "IntegrationServiceEnvironment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowState"
+        "nullable": false,
+        "referenceName": "WorkflowState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

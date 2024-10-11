@@ -7,7 +7,9 @@
       "name": "InfrastructureEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureEncryptionState"
+        "nullable": false,
+        "referenceName": "InfrastructureEncryptionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "KekIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmkKekIdentity"
+        "nullable": false,
+        "referenceName": "CmkKekIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CmkKeyVaultProperties"
+        "nullable": false,
+        "referenceName": "CmkKeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionState"
+        "nullable": false,
+        "referenceName": "EncryptionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

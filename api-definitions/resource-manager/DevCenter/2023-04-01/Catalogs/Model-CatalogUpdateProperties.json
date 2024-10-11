@@ -7,7 +7,9 @@
       "name": "AdoGit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "GitHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GitCatalog"
+        "nullable": false,
+        "referenceName": "GitCatalog",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

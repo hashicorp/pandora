@@ -7,10 +7,14 @@
       "name": "Addresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallPublicIPAddress"
+          "nullable": false,
+          "referenceName": "AzureFirewallPublicIPAddress",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "Count",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

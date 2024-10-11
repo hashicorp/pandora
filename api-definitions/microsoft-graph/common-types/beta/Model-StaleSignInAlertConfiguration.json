@@ -1,0 +1,25 @@
+{
+  "name": "StaleSignInAlertConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of days to look back from current timestamp within which the account hasn't signed in.",
+      "jsonName": "duration",
+      "name": "Duration",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.staleSignInAlertConfiguration",
+  "typeHintIn": "ODataType"
+}

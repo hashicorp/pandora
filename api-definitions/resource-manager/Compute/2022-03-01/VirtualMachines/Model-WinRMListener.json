@@ -4,10 +4,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "certificateUrl",
-      "name": "CertificateUrl",
+      "name": "CertificateURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolTypes"
+        "nullable": false,
+        "referenceName": "ProtocolTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

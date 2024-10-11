@@ -1,6 +1,7 @@
 {
   "name": "GetBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ProviderPacketCoreControlPlaneVersionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PacketCoreControlPlaneVersion"
+    "nullable": false,
+    "referenceName": "PacketCoreControlPlaneVersion",
+    "referenceNameIsCommonType": null
   }
 }

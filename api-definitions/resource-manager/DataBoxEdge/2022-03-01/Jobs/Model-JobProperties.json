@@ -7,7 +7,9 @@
       "name": "CurrentStage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateOperationStage"
+        "nullable": false,
+        "referenceName": "UpdateOperationStage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DownloadProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateDownloadProgress"
+        "nullable": false,
+        "referenceName": "UpdateDownloadProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ErrorManifestFile",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Folder",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "InstallProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateInstallProgress"
+        "nullable": false,
+        "referenceName": "UpdateInstallProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "JobType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobType"
+        "nullable": false,
+        "referenceName": "JobType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "RefreshedEntityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "TotalRefreshErrors",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,41 @@
+{
+  "name": "SequentialActivationRenewalsAlertConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The minimum number of activations within the timeIntervalBetweenActivations period to trigger an alert.",
+      "jsonName": "sequentialActivationCounterThreshold",
+      "name": "SequentialActivationCounterThreshold",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Time interval between activations to trigger an alert.",
+      "jsonName": "timeIntervalBetweenActivations",
+      "name": "TimeIntervalBetweenActivations",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.sequentialActivationRenewalsAlertConfiguration",
+  "typeHintIn": "ODataType"
+}

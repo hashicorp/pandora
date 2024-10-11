@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NamespaceTopicEventSubscriptionDestinationProperties"
+        "nullable": false,
+        "referenceName": "NamespaceTopicEventSubscriptionDestinationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSubscriptionDestination",
   "discriminatedTypeValue": "NamespaceTopic",
   "typeHintIn": "EndpointType"

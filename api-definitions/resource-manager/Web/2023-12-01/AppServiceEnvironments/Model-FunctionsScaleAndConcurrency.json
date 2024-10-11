@@ -7,10 +7,14 @@
       "name": "AlwaysReady",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FunctionsAlwaysReadyConfig"
+          "nullable": false,
+          "referenceName": "FunctionsAlwaysReadyConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "InstanceMemoryMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "MaximumInstanceCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "Triggers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsScaleAndConcurrencyTriggers"
+        "nullable": false,
+        "referenceName": "FunctionsScaleAndConcurrencyTriggers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

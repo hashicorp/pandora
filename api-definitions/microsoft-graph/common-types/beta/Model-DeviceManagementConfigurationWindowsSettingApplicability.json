@@ -1,0 +1,111 @@
+{
+  "name": "DeviceManagementConfigurationWindowsSettingApplicability",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Version of CSP setting is a part of",
+      "jsonName": "configurationServiceProviderVersion",
+      "name": "ConfigurationServiceProviderVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum supported version of Windows",
+      "jsonName": "maximumSupportedVersion",
+      "name": "MaximumSupportedVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Minimum supported version of Windows",
+      "jsonName": "minimumSupportedVersion",
+      "name": "MinimumSupportedVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required AAD Trust Type",
+      "jsonName": "requiredAzureAdTrustType",
+      "name": "RequiredAzureAdTrustType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationAzureAdTrustType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "AzureAD setting requirement",
+      "jsonName": "requiresAzureAd",
+      "name": "RequiresAzureAd",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of Windows SKUs that the setting is applicable for",
+      "jsonName": "windowsSkus",
+      "name": "WindowsSkus",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationWindowsSkus",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingApplicability",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationWindowsSettingApplicability",
+  "typeHintIn": "ODataType"
+}

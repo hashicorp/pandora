@@ -7,10 +7,14 @@
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "RecoveryPointSyncType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointSyncType"
+        "nullable": false,
+        "referenceName": "RecoveryPointSyncType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -32,6 +38,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProviderSpecificRecoveryPointDetails",
   "discriminatedTypeValue": "A2A",
   "typeHintIn": "InstanceType"

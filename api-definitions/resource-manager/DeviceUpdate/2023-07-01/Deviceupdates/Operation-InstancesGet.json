@@ -1,6 +1,7 @@
 {
   "name": "InstancesGet",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "InstanceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Instance"
+    "nullable": false,
+    "referenceName": "Instance",
+    "referenceNameIsCommonType": null
   }
 }

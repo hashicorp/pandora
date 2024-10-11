@@ -1,0 +1,41 @@
+{
+  "name": "AttributeRuleMembers",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A description of the membership rule.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines the allowed target users for this policy. For more information about the syntax of the membership rule, see Membership Rules syntax.",
+      "jsonName": "membershipRule",
+      "name": "MembershipRule",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectSet",
+  "discriminatedTypeValue": "#microsoft.graph.attributeRuleMembers",
+  "typeHintIn": "ODataType"
+}

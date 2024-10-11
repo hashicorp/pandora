@@ -1,6 +1,7 @@
 {
   "name": "ListByProject",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ProjectId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DevBoxDefinition"
+    "nullable": false,
+    "referenceName": "DevBoxDefinition",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/devBoxDefinitions"
 }

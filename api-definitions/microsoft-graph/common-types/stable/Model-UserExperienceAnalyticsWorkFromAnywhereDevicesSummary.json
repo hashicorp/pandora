@@ -1,0 +1,262 @@
+{
+  "name": "UserExperienceAnalyticsWorkFromAnywhereDevicesSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user experience analytics work from anywhere Autopilot devices summary. Read-only.",
+      "jsonName": "autopilotDevicesSummary",
+      "name": "AutopilotDevicesSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserExperienceAnalyticsAutopilotDevicesSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user experience analytics work from anywhere Cloud Identity devices summary. Read-only.",
+      "jsonName": "cloudIdentityDevicesSummary",
+      "name": "CloudIdentityDevicesSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserExperienceAnalyticsCloudIdentityDevicesSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user experience analytics work from anywhere Cloud management devices summary. Read-only.",
+      "jsonName": "cloudManagementDevicesSummary",
+      "name": "CloudManagementDevicesSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserExperienceAnalyticsCloudManagementDevicesSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total number of co-managed devices. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "coManagedDevices",
+      "name": "CoManagedDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "devicesNotAutopilotRegistered",
+      "name": "DevicesNotAutopilotRegistered",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of intune devices not autopilot profile assigned. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "devicesWithoutAutopilotProfileAssigned",
+      "name": "DevicesWithoutAutopilotProfileAssigned",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of devices that are not cloud identity. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "devicesWithoutCloudIdentity",
+      "name": "DevicesWithoutCloudIdentity",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of intune devices that are not autopilot registerd. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "intuneDevices",
+      "name": "IntuneDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Total count of tenant attach devices. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "tenantAttachDevices",
+      "name": "TenantAttachDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total count of devices. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "totalDevices",
+      "name": "TotalDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of Windows 10 devices that have unsupported OS versions. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "unsupportedOSversionDevices",
+      "name": "UnsupportedOSversionDevices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of windows 10 devices. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "windows10Devices",
+      "name": "Windows10Devices",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The user experience analytics work from anywhere Windows 10 devices summary. Read-only.",
+      "jsonName": "windows10DevicesSummary",
+      "name": "Windows10DevicesSummary",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserExperienceAnalyticsWindows10DevicesSummary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The count of windows 10 devices that are Intune and co-managed. Read-only. Valid values -2147483648 to 2147483647",
+      "jsonName": "windows10DevicesWithoutTenantAttach",
+      "name": "Windows10DevicesWithoutTenantAttach",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

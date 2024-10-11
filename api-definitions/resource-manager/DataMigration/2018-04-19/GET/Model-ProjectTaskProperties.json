@@ -7,10 +7,14 @@
       "name": "Commands",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CommandProperties"
+          "nullable": false,
+          "referenceName": "CommandProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ODataError"
+          "nullable": false,
+          "referenceName": "ODataError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TaskState"
+        "nullable": false,
+        "referenceName": "TaskState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -49,17 +59,21 @@
       "sensitive": false
     },
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "jsonName": "taskType",
       "name": "TaskType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false,
+  "typeHintIn": "TaskType"
 }

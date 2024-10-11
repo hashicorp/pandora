@@ -1,6 +1,7 @@
 {
   "name": "ExportSpecification",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DefinitionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiSpecExportResult"
+    "nullable": false,
+    "referenceName": "ApiSpecExportResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/exportSpecification"
 }

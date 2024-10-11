@@ -1,0 +1,41 @@
+{
+  "name": "WindowsUpdateScheduledInstall",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Possible values for a weekly schedule.",
+      "jsonName": "scheduledInstallDay",
+      "name": "ScheduledInstallDay",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Scheduled Install Time during day",
+      "jsonName": "scheduledInstallTime",
+      "name": "ScheduledInstallTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdateInstallScheduleType",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdateScheduledInstall",
+  "typeHintIn": "ODataType"
+}

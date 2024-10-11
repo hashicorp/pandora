@@ -1,0 +1,41 @@
+{
+  "name": "ManagedApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A managed (MAM) application's availability.",
+      "jsonName": "appAvailability",
+      "name": "AppAvailability",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedAppAvailability",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Application's version.",
+      "jsonName": "version",
+      "name": "Version",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "MobileApp",
+  "discriminatedTypeValue": "#microsoft.graph.managedApp",
+  "typeHintIn": "ODataType"
+}

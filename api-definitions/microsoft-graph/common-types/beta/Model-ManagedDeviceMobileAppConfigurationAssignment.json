@@ -1,0 +1,25 @@
+{
+  "name": "ManagedDeviceMobileAppConfigurationAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Assignment target that the T\u0026C policy is assigned to.",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceAndAppManagementAssignmentTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.managedDeviceMobileAppConfigurationAssignment",
+  "typeHintIn": "ODataType"
+}

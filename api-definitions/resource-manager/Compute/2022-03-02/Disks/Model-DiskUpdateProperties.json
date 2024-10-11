@@ -7,7 +7,9 @@
       "name": "BurstingEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataAccessAuthMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataAccessAuthMode"
+        "nullable": false,
+        "referenceName": "DataAccessAuthMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DiskAccessId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DiskIOPSReadOnly",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DiskIOPSReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "DiskMBpsReadOnly",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "DiskMBpsReadWrite",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "EncryptionSettingsCollection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionSettingsCollection"
+        "nullable": false,
+        "referenceName": "EncryptionSettingsCollection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "MaxShares",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "NetworkAccessPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkAccessPolicy"
+        "nullable": false,
+        "referenceName": "NetworkAccessPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "PropertyUpdatesInProgress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PropertyUpdatesInProgress"
+        "nullable": false,
+        "referenceName": "PropertyUpdatesInProgress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -189,7 +217,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -202,7 +232,9 @@
       "name": "PurchasePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurchasePlan"
+        "nullable": false,
+        "referenceName": "PurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -215,7 +247,9 @@
       "name": "SupportedCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SupportedCapabilities"
+        "nullable": false,
+        "referenceName": "SupportedCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -228,7 +262,9 @@
       "name": "SupportsHibernation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -241,12 +277,15 @@
       "name": "Tier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

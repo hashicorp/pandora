@@ -1,6 +1,7 @@
 {
   "name": "Usage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -22,11 +24,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ForecastDefinition"
+    "nullable": false,
+    "referenceName": "ForecastDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ForecastResult"
+    "nullable": false,
+    "referenceName": "ForecastResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/forecast"
 }

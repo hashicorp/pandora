@@ -7,7 +7,9 @@
       "name": "ArchiveRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LastPlanModifiedDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TablePlanEnum"
+        "nullable": false,
+        "referenceName": "TablePlanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningStateEnum"
+        "nullable": false,
+        "referenceName": "ProvisioningStateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RestoredLogs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoredLogs"
+        "nullable": false,
+        "referenceName": "RestoredLogs",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ResultStatistics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResultStatistics"
+        "nullable": false,
+        "referenceName": "ResultStatistics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "RetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RetentionInDaysAsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Schema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schema"
+        "nullable": false,
+        "referenceName": "Schema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "SearchResults",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchResults"
+        "nullable": false,
+        "referenceName": "SearchResults",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "TotalRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,12 +172,15 @@
       "name": "TotalRetentionInDaysAsDefault",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Active",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "HealthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RevisionHealthState"
+        "nullable": false,
+        "referenceName": "RevisionHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "LastActiveTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "ProvisioningError",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RevisionProvisioningState"
+        "nullable": false,
+        "referenceName": "RevisionProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "Replicas",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -113,7 +129,9 @@
       "name": "RunningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RevisionRunningState"
+        "nullable": false,
+        "referenceName": "RevisionRunningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,7 +144,9 @@
       "name": "Template",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Template"
+        "nullable": false,
+        "referenceName": "Template",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -139,12 +159,15 @@
       "name": "TrafficWeight",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,54 @@
+{
+  "name": "GetTdeCertificatesSqlTaskOutput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "base64EncodedCertificates",
+      "name": "Base64EncodedCertificates",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "List",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null,
+          "nestedItem": {
+            "type": "String",
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
+          }
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationErrors",
+      "name": "ValidationErrors",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ReportableException",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

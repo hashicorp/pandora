@@ -1,6 +1,7 @@
 {
   "name": "SystemTopicEventSubscriptionsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SystemTopicEventSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "EventSubscription"
+    "nullable": false,
+    "referenceName": "EventSubscription",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EventSubscription"
+    "nullable": false,
+    "referenceName": "EventSubscription",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Command",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowDebugCommandType"
+        "nullable": false,
+        "referenceName": "DataFlowDebugCommandType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CommandPayload",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataFlowDebugCommandPayload"
+        "nullable": false,
+        "referenceName": "DataFlowDebugCommandPayload",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SessionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

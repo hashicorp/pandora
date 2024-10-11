@@ -1,0 +1,36 @@
+{
+  "name": "ManagedDisk",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityProfile",
+      "name": "SecurityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VMDiskSecurityProfile",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageAccountType",
+      "name": "StorageAccountType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StorageAccountType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

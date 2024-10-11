@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "MonitorId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitoredSubscriptionPropertiesList"
+    "nullable": false,
+    "referenceName": "MonitoredSubscriptionPropertiesList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/monitoredSubscriptions"
 }

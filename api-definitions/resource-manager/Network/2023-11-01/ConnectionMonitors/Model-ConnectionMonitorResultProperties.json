@@ -7,7 +7,9 @@
       "name": "AutoStart",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ConnectionMonitorType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorType"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorDestination"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorEndpoint"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "MonitoringIntervalInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "MonitoringStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Notes",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorOutput"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,7 +139,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorSource"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,7 +170,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,10 +185,14 @@
       "name": "TestConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorTestConfiguration"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorTestConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -176,10 +206,14 @@
       "name": "TestGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConnectionMonitorTestGroup"
+          "nullable": false,
+          "referenceName": "ConnectionMonitorTestGroup",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,5 +221,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

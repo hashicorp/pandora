@@ -7,7 +7,9 @@
       "name": "ProvisioningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerProvisioningStatus"
+        "nullable": false,
+        "referenceName": "ServerProvisioningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ProvisioningStepStatuses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerEndpointProvisioningStepStatus"
+          "nullable": false,
+          "referenceName": "ServerEndpointProvisioningStepStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +43,15 @@
       "name": "ProvisioningType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

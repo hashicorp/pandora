@@ -1,6 +1,7 @@
 {
   "name": "NamespacesCheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityParameter"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityParameter",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckNameAvailabilityResult"
+    "nullable": false,
+    "referenceName": "CheckNameAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.EventHub/checkNameAvailability"
 }

@@ -7,7 +7,9 @@
       "name": "PolicySigningCertificates",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonWebKeySet"
+        "nullable": false,
+        "referenceName": "JsonWebKeySet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessType"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "TpmAttestationAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TpmAttestationAuthenticationType"
+        "nullable": false,
+        "referenceName": "TpmAttestationAuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

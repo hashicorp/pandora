@@ -7,7 +7,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountEncryption"
+        "nullable": false,
+        "referenceName": "AccountEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Endpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Endpoint"
+          "nullable": false,
+          "referenceName": "Endpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageAccount"
+          "nullable": false,
+          "referenceName": "StorageAccount",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +58,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

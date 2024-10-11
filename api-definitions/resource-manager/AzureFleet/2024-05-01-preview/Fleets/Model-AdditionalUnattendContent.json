@@ -7,7 +7,9 @@
       "name": "ComponentName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComponentName"
+        "nullable": false,
+        "referenceName": "ComponentName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Content",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PassName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PassName"
+        "nullable": false,
+        "referenceName": "PassName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SettingName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SettingNames"
+        "nullable": false,
+        "referenceName": "SettingNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

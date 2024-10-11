@@ -7,7 +7,9 @@
       "name": "Container",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ContainerNetworkInterfaceConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerNetworkInterfaceConfiguration"
+        "nullable": false,
+        "referenceName": "ContainerNetworkInterfaceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ContainerNetworkInterfaceIPConfiguration"
+          "nullable": false,
+          "referenceName": "ContainerNetworkInterfaceIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,12 +58,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

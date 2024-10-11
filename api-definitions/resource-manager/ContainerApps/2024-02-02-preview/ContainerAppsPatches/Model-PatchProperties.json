@@ -8,7 +8,9 @@
       "name": "CreatedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -22,7 +24,9 @@
       "name": "LastModifiedAt",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -35,7 +39,9 @@
       "name": "PatchApplyStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchApplyStatus"
+        "nullable": false,
+        "referenceName": "PatchApplyStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,10 +54,14 @@
       "name": "PatchDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PatchDetails"
+          "nullable": false,
+          "referenceName": "PatchDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,7 +75,9 @@
       "name": "TargetContainerAppId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "TargetEnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,12 +105,15 @@
       "name": "TargetRevisionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

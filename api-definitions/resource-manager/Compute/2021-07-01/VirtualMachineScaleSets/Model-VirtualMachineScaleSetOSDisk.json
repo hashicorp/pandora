@@ -7,7 +7,9 @@
       "name": "Caching",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CachingTypes"
+        "nullable": false,
+        "referenceName": "CachingTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CreateOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskCreateOptionTypes"
+        "nullable": false,
+        "referenceName": "DiskCreateOptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DiffDiskSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiffDiskSettings"
+        "nullable": false,
+        "referenceName": "DiffDiskSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DiskSizeGB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Image",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualHardDisk"
+        "nullable": false,
+        "referenceName": "VirtualHardDisk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ManagedDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetManagedDiskParameters"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetManagedDiskParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "VhdContainers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,12 +148,15 @@
       "name": "WriteAcceleratorEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedBudgetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Budget"
+    "nullable": false,
+    "referenceName": "Budget",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Budget"
+    "nullable": false,
+    "referenceName": "Budget",
+    "referenceNameIsCommonType": null
   }
 }

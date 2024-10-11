@@ -7,13 +7,19 @@
       "name": "Data",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "NameValuePair"
+            "nullable": false,
+            "referenceName": "NameValuePair",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -28,7 +34,9 @@
       "name": "DetectorDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DetectorDefinition"
+        "nullable": false,
+        "referenceName": "DetectorDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,7 +49,9 @@
       "name": "DetectorMetaData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResponseMetaData"
+        "nullable": false,
+        "referenceName": "ResponseMetaData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,10 +64,14 @@
       "name": "Metrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiagnosticMetricSet"
+          "nullable": false,
+          "referenceName": "DiagnosticMetricSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,12 +85,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

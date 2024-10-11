@@ -7,10 +7,14 @@
       "name": "AvailabilitySets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AvailabilitySetListItem"
+          "nullable": false,
+          "referenceName": "AvailabilitySetListItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HardwareProfile"
+        "nullable": false,
+        "referenceName": "HardwareProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "InfrastructureProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureProfile"
+        "nullable": false,
+        "referenceName": "InfrastructureProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsProfileForVMInstance"
+        "nullable": false,
+        "referenceName": "OsProfileForVMInstance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "PowerState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfile"
+        "nullable": false,
+        "referenceName": "StorageProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

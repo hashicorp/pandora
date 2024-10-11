@@ -7,7 +7,9 @@
       "name": "DiskUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PrimaryStagingStorageAccountCustomInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccountCustomDetails"
+        "nullable": false,
+        "referenceName": "StorageAccountCustomDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "RecoveryAzureStorageAccountCustomInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccountCustomDetails"
+        "nullable": false,
+        "referenceName": "StorageAccountCustomDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DailySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailySchedule"
+        "nullable": false,
+        "referenceName": "DailySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HourlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HourlySchedule"
+        "nullable": false,
+        "referenceName": "HourlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ScheduleRunFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleRunType"
+        "nullable": false,
+        "referenceName": "ScheduleRunType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "WeeklySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklySchedule"
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SchedulePolicy",
   "discriminatedTypeValue": "SimpleSchedulePolicyV2",
   "typeHintIn": "SchedulePolicyType"

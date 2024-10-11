@@ -7,7 +7,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Dimensions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LocalizableString"
+          "nullable": false,
+          "referenceName": "LocalizableString",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "DisplayDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "IsDimensionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,10 +88,14 @@
       "name": "MetricAvailabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricAvailability"
+          "nullable": false,
+          "referenceName": "MetricAvailability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "MetricClass",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricClass"
+        "nullable": false,
+        "referenceName": "MetricClass",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalizableString"
+        "nullable": false,
+        "referenceName": "LocalizableString",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "Namespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "PrimaryAggregationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricAggregationType"
+        "nullable": false,
+        "referenceName": "MetricAggregationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,10 +184,14 @@
       "name": "SupportedAggregationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MetricAggregationType"
+          "nullable": false,
+          "referenceName": "MetricAggregationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -175,12 +205,15 @@
       "name": "Unit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricUnit"
+        "nullable": false,
+        "referenceName": "MetricUnit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

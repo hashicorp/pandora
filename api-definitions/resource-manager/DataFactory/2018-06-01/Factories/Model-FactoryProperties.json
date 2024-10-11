@@ -8,7 +8,9 @@
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Encryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionConfiguration"
+        "nullable": false,
+        "referenceName": "EncryptionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "GlobalParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GlobalParameterSpecification"
+          "nullable": false,
+          "referenceName": "GlobalParameterSpecification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,7 +59,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "PurviewConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurviewConfiguration"
+        "nullable": false,
+        "referenceName": "PurviewConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "RepoConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FactoryRepoConfiguration"
+        "nullable": false,
+        "referenceName": "FactoryRepoConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,12 +119,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

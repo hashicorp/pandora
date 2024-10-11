@@ -7,7 +7,9 @@
       "name": "Compute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesRoleCompute"
+        "nullable": false,
+        "referenceName": "KubernetesRoleCompute",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Network",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesRoleNetwork"
+        "nullable": false,
+        "referenceName": "KubernetesRoleNetwork",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KubernetesRoleStorage"
+        "nullable": false,
+        "referenceName": "KubernetesRoleStorage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

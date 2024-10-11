@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreatIntelligenceAlertRuleTemplateProperties"
+        "nullable": false,
+        "referenceName": "ThreatIntelligenceAlertRuleTemplateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AlertRuleTemplate",
   "discriminatedTypeValue": "ThreatIntelligence",
   "typeHintIn": "Kind"

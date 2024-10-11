@@ -7,7 +7,9 @@
       "name": "DataTypes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AwsS3DataConnectorDataTypes"
+        "nullable": false,
+        "referenceName": "AwsS3DataConnectorDataTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DestinationTable",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RoleArn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -43,13 +49,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "sqsUrls",
-      "name": "SqsUrls",
+      "name": "SqsURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -57,5 +67,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

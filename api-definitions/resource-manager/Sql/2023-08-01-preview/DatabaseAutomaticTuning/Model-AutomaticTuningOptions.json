@@ -7,7 +7,9 @@
       "name": "ActualState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningOptionModeActual"
+        "nullable": false,
+        "referenceName": "AutomaticTuningOptionModeActual",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningOptionModeDesired"
+        "nullable": false,
+        "referenceName": "AutomaticTuningOptionModeDesired",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "ReasonDesc",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningDisabledReason"
+        "nullable": false,
+        "referenceName": "AutomaticTuningDisabledReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

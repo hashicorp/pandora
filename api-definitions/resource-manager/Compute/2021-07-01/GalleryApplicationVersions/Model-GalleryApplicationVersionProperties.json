@@ -7,7 +7,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PublishingProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryApplicationVersionPublishingProfile"
+        "nullable": false,
+        "referenceName": "GalleryApplicationVersionPublishingProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ReplicationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationStatus"
+        "nullable": false,
+        "referenceName": "ReplicationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

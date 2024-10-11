@@ -7,7 +7,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TagsPatchOperation"
+        "nullable": false,
+        "referenceName": "TagsPatchOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Tags"
+        "nullable": false,
+        "referenceName": "Tags",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

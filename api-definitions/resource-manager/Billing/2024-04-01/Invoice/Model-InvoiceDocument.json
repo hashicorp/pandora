@@ -7,10 +7,14 @@
       "name": "DocumentNumbers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -21,10 +25,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "externalUrl",
-      "name": "ExternalUrl",
+      "name": "ExternalURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceDocumentType"
+        "nullable": false,
+        "referenceName": "InvoiceDocumentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DocumentSource"
+        "nullable": false,
+        "referenceName": "DocumentSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

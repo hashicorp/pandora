@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateVnetConnectionGateway",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "GatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VnetGateway"
+    "nullable": false,
+    "referenceName": "VnetGateway",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VnetGateway"
+    "nullable": false,
+    "referenceName": "VnetGateway",
+    "referenceNameIsCommonType": null
   }
 }

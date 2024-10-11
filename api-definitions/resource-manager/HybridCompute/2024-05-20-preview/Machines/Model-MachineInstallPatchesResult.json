@@ -7,7 +7,9 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorDetail"
+        "nullable": false,
+        "referenceName": "ErrorDetail",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExcludedPatchCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FailedPatchCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "InstallationActivityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "InstalledPatchCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "LastModifiedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "MaintenanceWindowExceeded",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "NotSelectedPatchCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsType"
+        "nullable": false,
+        "referenceName": "OsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "PatchServiceUsed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchServiceUsed"
+        "nullable": false,
+        "referenceName": "PatchServiceUsed",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +158,9 @@
       "name": "PendingPatchCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,7 +173,9 @@
       "name": "RebootStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMGuestPatchRebootStatus"
+        "nullable": false,
+        "referenceName": "VMGuestPatchRebootStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -165,7 +189,9 @@
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -178,7 +204,9 @@
       "name": "StartedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchOperationStartedBy"
+        "nullable": false,
+        "referenceName": "PatchOperationStartedBy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,12 +219,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PatchOperationStatus"
+        "nullable": false,
+        "referenceName": "PatchOperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSKUName"
+        "nullable": false,
+        "referenceName": "ManagedClusterSKUName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterSKUTier"
+        "nullable": false,
+        "referenceName": "ManagedClusterSKUTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

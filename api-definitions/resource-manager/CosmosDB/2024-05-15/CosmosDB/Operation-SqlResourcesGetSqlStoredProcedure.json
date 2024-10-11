@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesGetSqlStoredProcedure",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "StoredProcedureId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlStoredProcedureGetResults"
+    "nullable": false,
+    "referenceName": "SqlStoredProcedureGetResults",
+    "referenceNameIsCommonType": null
   }
 }

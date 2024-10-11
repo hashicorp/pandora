@@ -6,8 +6,16 @@
       "jsonName": "additionalExtensionProperties",
       "name": "AdditionalExtensionProperties",
       "objectDefinition": {
-        "type": "RawObject",
-        "referenceName": null
+        "type": "Dictionary",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +28,9 @@
       "name": "IsEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsEnabled"
+        "nullable": false,
+        "referenceName": "IsEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +43,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +58,15 @@
       "name": "OperationStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationStatus"
+        "nullable": false,
+        "referenceName": "OperationStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

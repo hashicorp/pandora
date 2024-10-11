@@ -1,6 +1,7 @@
 {
   "name": "GetSourceControl",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,7 +12,9 @@
   "resourceIdName": "AppServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteSourceControl"
+    "nullable": false,
+    "referenceName": "SiteSourceControl",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sourceControls/web"
 }

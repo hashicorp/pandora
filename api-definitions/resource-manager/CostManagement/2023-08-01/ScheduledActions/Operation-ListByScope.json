@@ -1,6 +1,7 @@
 {
   "name": "ListByScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ScheduledAction"
+    "nullable": false,
+    "referenceName": "ScheduledAction",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/scheduledActions"
 }

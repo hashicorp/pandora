@@ -1,6 +1,7 @@
 {
   "name": "MonitorsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "MonitorId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ElasticMonitorResourceUpdateParameters"
+    "nullable": false,
+    "referenceName": "ElasticMonitorResourceUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ElasticMonitorResource"
+    "nullable": false,
+    "referenceName": "ElasticMonitorResource",
+    "referenceNameIsCommonType": null
   }
 }

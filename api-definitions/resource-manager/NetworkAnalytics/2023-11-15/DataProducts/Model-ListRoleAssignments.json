@@ -7,7 +7,9 @@
       "name": "Count",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "RoleAssignmentResponse",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoleAssignmentDetail"
+          "nullable": false,
+          "referenceName": "RoleAssignmentDetail",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -31,5 +37,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

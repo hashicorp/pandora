@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreatIntelligenceIndicatorProperties"
+        "nullable": false,
+        "referenceName": "ThreatIntelligenceIndicatorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ThreatIntelligenceInformation",
   "discriminatedTypeValue": "indicator",
   "typeHintIn": "Kind"

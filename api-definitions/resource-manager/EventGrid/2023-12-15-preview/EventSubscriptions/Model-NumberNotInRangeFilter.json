@@ -7,13 +7,19 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Float",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -23,6 +29,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Filter",
   "discriminatedTypeValue": "NumberNotInRange",
   "typeHintIn": "OperatorType"

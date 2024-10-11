@@ -7,7 +7,9 @@
       "name": "Architecture",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Architecture"
+        "nullable": false,
+        "referenceName": "Architecture",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ArtifactTags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Disallowed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Disallowed"
+        "nullable": false,
+        "referenceName": "Disallowed",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "EndOfLifeDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "Eula",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,10 +89,14 @@
       "name": "Features",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryImageFeature"
+          "nullable": false,
+          "referenceName": "GalleryImageFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -94,7 +110,9 @@
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGeneration"
+        "nullable": false,
+        "referenceName": "HyperVGeneration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,7 +125,9 @@
       "name": "Identifier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryImageIdentifier"
+        "nullable": false,
+        "referenceName": "GalleryImageIdentifier",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -120,7 +140,9 @@
       "name": "OsState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemStateTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemStateTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,7 +155,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemTypes"
+        "nullable": false,
+        "referenceName": "OperatingSystemTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -146,7 +170,9 @@
       "name": "PrivacyStatementUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,7 +185,9 @@
       "name": "PurchasePlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImagePurchasePlan"
+        "nullable": false,
+        "referenceName": "ImagePurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,12 +200,15 @@
       "name": "Recommended",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecommendedMachineConfiguration"
+        "nullable": false,
+        "referenceName": "RecommendedMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

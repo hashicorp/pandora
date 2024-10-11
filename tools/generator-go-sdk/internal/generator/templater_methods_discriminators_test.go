@@ -19,7 +19,8 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_Get(t *tes
 	// In this instance the Discriminated Implementation Type should be used in the Response and the
 	// Discriminated Parent's `unmarshal` function shouldn't be called.
 
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -62,15 +63,16 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_Get(t *tes
 	expected := `
 package chubbypandas
 import (
-"context"
-"fmt"
-"net/http"
-"net/url"
-"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-"github.com/hashicorp/go-azure-sdk/sdk/client"
-"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
-"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
-"github.com/hashicorp/go-azure-sdk/sdk/odata"
+	"context"
+	"fmt"
+	"net/http"
+	"net/url"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 )
 // acctests licence placeholder
 type GetOperationResponse struct {
@@ -121,7 +123,8 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_Get(t *testing.T) 
 	// This test covers the Response Object being a Discriminated Parent Type for a GET operation
 	// In this instance the `unmarshal` function for the Parent Type should be called as a part
 	// of the Response.
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -164,22 +167,23 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_Get(t *testing.T) 
 package chubbypandas
 
 import (
-"context"
-"fmt"
-"net/http"
-"net/url"
-"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
-"github.com/hashicorp/go-azure-sdk/sdk/client"
-"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
-"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
-"github.com/hashicorp/go-azure-sdk/sdk/odata"
+	"context"
+	"fmt"
+	"net/http"
+	"net/url"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 )
 
 // acctests licence placeholder
 type GetOperationResponse struct {
 	HttpResponse *http.Response
 	OData *odata.OData
-	Model *FizzyDrink
+	Model FizzyDrink
 }
 
 // Get ...
@@ -216,7 +220,7 @@ func (c pandaClient) Get(ctx context.Context ) (result GetOperationResponse, err
 	if err != nil {
 		return
 	}
-	result.Model = &model
+	result.Model = model
 	return
 }`
 
@@ -228,7 +232,8 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_List(t *te
 	// for a GET Operation. In this instance a slice of the Discriminated Implementation Type
 	// should be output - and the Discriminated Parent's `unmarshal` function shouldn't be called.
 
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -280,6 +285,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 )
@@ -384,7 +390,8 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_List(t *testing.T)
 	// for a GET Operation. In this instance a slice of the Discriminated Parent Type
 	// should be output - and the (Discriminated Parent's) `unmarshal` function should be called.
 
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -435,6 +442,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
 )

@@ -1,0 +1,47 @@
+{
+  "name": "MembersLeftEventMessageDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Initiator of the event.",
+      "jsonName": "initiator",
+      "name": "Initiator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of members who left the chat.",
+      "jsonName": "members",
+      "name": "Members",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "TeamworkUserIdentity",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EventMessageDetail",
+  "discriminatedTypeValue": "#microsoft.graph.membersLeftEventMessageDetail",
+  "typeHintIn": "ODataType"
+}

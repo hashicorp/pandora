@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LegacyReservationRecommendationProperties"
+        "nullable": false,
+        "referenceName": "LegacyReservationRecommendationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReservationRecommendation",
   "discriminatedTypeValue": "legacy",
   "typeHintIn": "Kind"

@@ -1,6 +1,7 @@
 {
   "name": "DownloadMultipleBillingProfileInvoices",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,15 +11,21 @@
   "resourceIdName": "BillingProfileId",
   "requestObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "String",
-      "referenceName": null
+      "nullable": false,
+      "referenceName": null,
+      "referenceNameIsCommonType": null
     }
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DownloadUrl"
+    "nullable": false,
+    "referenceName": "DownloadURL",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/downloadDocuments"
 }

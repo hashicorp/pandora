@@ -7,7 +7,9 @@
       "name": "AllowForwardedTraffic",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AllowGatewayTransit",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AllowVirtualNetworkAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DoNotVerifyRemoteGateways",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EnableOnlyIPv6Peering",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "LocalAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "LocalSubnetNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "LocalVirtualNetworkAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "PeerCompleteVnets",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "PeeringState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPeeringState"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPeeringState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "PeeringSyncLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPeeringLevel"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPeeringLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "RemoteAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "RemoteBgpCommunities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkBgpCommunities"
+        "nullable": false,
+        "referenceName": "VirtualNetworkBgpCommunities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,10 +223,14 @@
       "name": "RemoteSubnetNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,7 +244,9 @@
       "name": "RemoteVirtualNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "RemoteVirtualNetworkAddressSpace",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "RemoteVirtualNetworkEncryption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkEncryption"
+        "nullable": false,
+        "referenceName": "VirtualNetworkEncryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,12 +304,15 @@
       "name": "UseRemoteGateways",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

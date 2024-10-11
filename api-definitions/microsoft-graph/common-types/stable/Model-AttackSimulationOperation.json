@@ -1,0 +1,57 @@
+{
+  "name": "AttackSimulationOperation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Percentage of completion of the respective operation.",
+      "jsonName": "percentageCompleted",
+      "name": "PercentageCompleted",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Tenant identifier.",
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The attack simulation operation type. Possible values are: createSimulation, updateSimulation, unknownFutureValue.",
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AttackSimulationOperationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LongRunningOperation",
+  "discriminatedTypeValue": "#microsoft.graph.attackSimulationOperation",
+  "typeHintIn": "ODataType"
+}

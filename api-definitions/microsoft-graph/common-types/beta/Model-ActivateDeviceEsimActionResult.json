@@ -1,0 +1,25 @@
+{
+  "name": "ActivateDeviceEsimActionResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Carrier Url to activate the device eSIM",
+      "jsonName": "carrierUrl",
+      "name": "CarrierUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceActionResult",
+  "discriminatedTypeValue": "#microsoft.graph.activateDeviceEsimActionResult",
+  "typeHintIn": "ODataType"
+}

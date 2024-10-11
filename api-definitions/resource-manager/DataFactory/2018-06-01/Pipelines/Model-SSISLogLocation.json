@@ -7,7 +7,9 @@
       "name": "LogPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SsisLogLocationType"
+        "nullable": false,
+        "referenceName": "SsisLogLocationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SSISLogLocationTypeProperties"
+        "nullable": false,
+        "referenceName": "SSISLogLocationTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

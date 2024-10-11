@@ -1,0 +1,73 @@
+{
+  "name": "EmailPayloadDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Email address of the user.",
+      "jsonName": "fromEmail",
+      "name": "FromEmail",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the user.",
+      "jsonName": "fromName",
+      "name": "FromName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the sender isn't from the user's organization.",
+      "jsonName": "isExternalSender",
+      "name": "IsExternalSender",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The subject of the email address sent to the user.",
+      "jsonName": "subject",
+      "name": "Subject",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PayloadDetail",
+  "discriminatedTypeValue": "#microsoft.graph.emailPayloadDetail",
+  "typeHintIn": "ODataType"
+}

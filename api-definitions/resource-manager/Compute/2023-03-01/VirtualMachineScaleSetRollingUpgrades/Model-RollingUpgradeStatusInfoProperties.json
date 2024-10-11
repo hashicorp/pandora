@@ -7,7 +7,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiError"
+        "nullable": false,
+        "referenceName": "ApiError",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradePolicy"
+        "nullable": false,
+        "referenceName": "RollingUpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Progress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeProgressInfo"
+        "nullable": false,
+        "referenceName": "RollingUpgradeProgressInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "RunningStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeRunningStatus"
+        "nullable": false,
+        "referenceName": "RollingUpgradeRunningStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

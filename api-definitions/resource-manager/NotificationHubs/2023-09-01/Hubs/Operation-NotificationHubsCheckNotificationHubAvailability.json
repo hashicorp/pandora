@@ -1,6 +1,7 @@
 {
   "name": "NotificationHubsCheckNotificationHubAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "NamespaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckAvailabilityParameters"
+    "nullable": false,
+    "referenceName": "CheckAvailabilityParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckAvailabilityResult"
+    "nullable": false,
+    "referenceName": "CheckAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkNotificationHubAvailability"
 }

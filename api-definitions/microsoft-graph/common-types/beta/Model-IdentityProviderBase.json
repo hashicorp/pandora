@@ -1,0 +1,25 @@
+{
+  "name": "IdentityProviderBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name of the identity provider.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.identityProviderBase",
+  "typeHintIn": "ODataType"
+}

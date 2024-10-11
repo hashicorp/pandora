@@ -7,7 +7,9 @@
       "name": "AggregatorOrSingleRackDefinition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RackDefinition"
+        "nullable": false,
+        "referenceName": "RackDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AnalyticsWorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "AvailableUpgradeVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClusterAvailableUpgradeVersion"
+          "nullable": false,
+          "referenceName": "ClusterAvailableUpgradeVersion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ClusterCapacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterCapacity"
+        "nullable": false,
+        "referenceName": "ClusterCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ClusterConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterConnectionStatus"
+        "nullable": false,
+        "referenceName": "ClusterConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "ClusterExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedLocation"
+        "nullable": false,
+        "referenceName": "ExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ClusterLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ClusterManagerConnectionStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterManagerConnectionStatus"
+        "nullable": false,
+        "referenceName": "ClusterManagerConnectionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ClusterManagerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "ClusterServicePrincipal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServicePrincipalInformation"
+        "nullable": false,
+        "referenceName": "ServicePrincipalInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "ClusterType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterType"
+        "nullable": false,
+        "referenceName": "ClusterType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "ClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "ComputeDeploymentThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ValidationThreshold"
+        "nullable": false,
+        "referenceName": "ValidationThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "ComputeRackDefinitions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RackDefinition"
+          "nullable": false,
+          "referenceName": "RackDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterDetailedStatus"
+        "nullable": false,
+        "referenceName": "ClusterDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "HybridAksExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedLocation"
+        "nullable": false,
+        "referenceName": "ExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "ManualActionCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,7 +304,9 @@
       "name": "NetworkFabricId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -275,7 +319,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterProvisioningState"
+        "nullable": false,
+        "referenceName": "ClusterProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -288,7 +334,9 @@
       "name": "SupportExpiryDate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -301,10 +349,14 @@
       "name": "WorkloadResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -312,5 +364,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

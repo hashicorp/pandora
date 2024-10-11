@@ -1,0 +1,24 @@
+{
+  "name": "IndustryDataSecurityGroupProvisioningFlow",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "creationOptions",
+      "name": "CreationOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndustryDataSecurityGroupCreationOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IndustryDataProvisioningFlow",
+  "discriminatedTypeValue": "#microsoft.graph.industryData.securityGroupProvisioningFlow",
+  "typeHintIn": "ODataType"
+}

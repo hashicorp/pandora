@@ -7,7 +7,9 @@
       "name": "ApplicationServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationServerConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationServerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CentralServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CentralServerConfiguration"
+        "nullable": false,
+        "referenceName": "CentralServerConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CustomResourceNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ThreeTierCustomResourceNames"
+        "nullable": false,
+        "referenceName": "ThreeTierCustomResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DatabaseServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DatabaseConfiguration"
+        "nullable": false,
+        "referenceName": "DatabaseConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "HighAvailabilityConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HighAvailabilityConfiguration"
+        "nullable": false,
+        "referenceName": "HighAvailabilityConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "StorageConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageConfiguration"
+        "nullable": false,
+        "referenceName": "StorageConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,6 +107,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InfrastructureConfiguration",
   "discriminatedTypeValue": "ThreeTier",
   "typeHintIn": "DeploymentType"

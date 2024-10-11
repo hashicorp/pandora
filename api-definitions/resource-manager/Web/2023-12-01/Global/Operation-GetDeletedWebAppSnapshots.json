@@ -1,6 +1,7 @@
 {
   "name": "GetDeletedWebAppSnapshots",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DeletedSiteId",
   "responseObject": {
     "type": "List",
+    "nullable": false,
     "referenceName": null,
+    "referenceNameIsCommonType": null,
     "nestedItem": {
       "type": "Reference",
-      "referenceName": "Snapshot"
+      "nullable": false,
+      "referenceName": "Snapshot",
+      "referenceNameIsCommonType": null
     }
   },
   "uriSuffix": "/snapshots"

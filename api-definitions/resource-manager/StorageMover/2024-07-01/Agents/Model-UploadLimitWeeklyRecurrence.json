@@ -7,10 +7,14 @@
       "name": "Days",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DayOfWeek"
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "EndTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "LimitInMbps",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Time"
+        "nullable": false,
+        "referenceName": "Time",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

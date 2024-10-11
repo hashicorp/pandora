@@ -1,0 +1,57 @@
+{
+  "name": "AccessReviewQueryScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The query representing what will be reviewed in an access review.",
+      "jsonName": "query",
+      "name": "Query",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "In the scenario where reviewers need to be specified dynamically, this property is used to indicate the relative source of the query. This property is only required if a relative query is specified. For example, ./manager.",
+      "jsonName": "queryRoot",
+      "name": "QueryRoot",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the type of query. Types include MicrosoftGraph and ARM.",
+      "jsonName": "queryType",
+      "name": "QueryType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "AccessReviewScope",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewQueryScope",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "Branch",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "GitHubActionConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GithubActionConfiguration"
+        "nullable": false,
+        "referenceName": "GithubActionConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "OperationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceControlOperationState"
+        "nullable": false,
+        "referenceName": "SourceControlOperationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -43,15 +49,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "repoUrl",
-      "name": "RepoUrl",
+      "name": "RepoURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

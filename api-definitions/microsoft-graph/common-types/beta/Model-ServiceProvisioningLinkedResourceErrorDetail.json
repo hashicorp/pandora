@@ -1,0 +1,39 @@
+{
+  "name": "ServiceProvisioningLinkedResourceErrorDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "propertyName",
+      "name": "PropertyName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ServiceProvisioningResourceErrorDetail",
+  "discriminatedTypeValue": "#microsoft.graph.serviceProvisioningLinkedResourceErrorDetail",
+  "typeHintIn": "ODataType"
+}

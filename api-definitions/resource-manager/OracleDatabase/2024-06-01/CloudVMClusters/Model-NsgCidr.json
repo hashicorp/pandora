@@ -7,7 +7,9 @@
       "name": "DestinationPortRange",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PortRange"
+        "nullable": false,
+        "referenceName": "PortRange",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

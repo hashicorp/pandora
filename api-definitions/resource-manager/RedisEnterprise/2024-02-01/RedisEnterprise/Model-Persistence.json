@@ -7,7 +7,9 @@
       "name": "AofEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AofFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AofFrequency"
+        "nullable": false,
+        "referenceName": "AofFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RdbEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "RdbFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RdbFrequency"
+        "nullable": false,
+        "referenceName": "RdbFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

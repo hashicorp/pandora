@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package generator
 
 import (
@@ -12,20 +15,22 @@ import (
 // TODO: add unit tests covering this
 
 type predicateTemplater struct {
+	modelNames       map[string]string
 	sortedModelNames []string
 	models           map[string]models.SDKModel
 }
 
-func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (p predicateTemplater) template(data GeneratorData) (*string, error) {
 	output := make([]string, 0)
 	for _, modelName := range p.sortedModelNames {
+		modelNameWithPackage := p.modelNames[modelName]
 		model := data.models[modelName]
 		predicateStructName := fmt.Sprintf("%sOperationPredicate", modelName)
 		if _, hasExisting := data.models[predicateStructName]; hasExisting {
 			return nil, fmt.Errorf("existing model %q conflicts with predicate model for %q", predicateStructName, modelName)
 		}
 
-		templated, err := p.templateForModel(predicateStructName, modelName, model)
+		templated, err := p.templateForModel(predicateStructName, modelName, modelNameWithPackage, model)
 		if err != nil {
 			return nil, err
 		}
@@ -37,15 +42,21 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
 	}
 
+	commonTypesInclude := ""
+	if data.commonTypesIncludePath != nil {
+		commonTypesInclude = fmt.Sprintf(`import "github.com/hashicorp/go-azure-sdk/%s/%s"`, data.sourceType, *data.commonTypesIncludePath)
+	}
+
 	template := fmt.Sprintf(`package %[1]s
 
 %[2]s
 %[3]s
-`, data.packageName, *copyrightLines, strings.Join(output, "\n"))
+%[4]s
+`, data.packageName, *copyrightLines, commonTypesInclude, strings.Join(output, "\n"))
 	return &template, nil
 }
 
-func (p predicateTemplater) templateForModel(predicateStructName string, name string, model models.SDKModel) (*string, error) {
+func (p predicateTemplater) templateForModel(predicateStructName string, name, nameWithPackage string, model models.SDKModel) (*string, error) {
 	fieldNames := make([]string, 0)
 
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
@@ -95,7 +106,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		for _, fieldName := range fieldNames {
 			fieldVal := model.Fields[fieldName]
 
-			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil)
+			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 			}
@@ -128,6 +139,6 @@ func (p %[1]s) Matches(input %[2]s) bool {
 
 	return true
 }
-`, predicateStructName, name, strings.Join(structLines, "\n"), strings.Join(matchLines, "\n"))
+`, predicateStructName, nameWithPackage, strings.Join(structLines, "\n"), strings.Join(matchLines, "\n"))
 	return &template, nil
 }

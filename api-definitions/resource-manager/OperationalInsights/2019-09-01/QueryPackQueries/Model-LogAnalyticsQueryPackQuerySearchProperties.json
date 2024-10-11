@@ -7,7 +7,9 @@
       "name": "Related",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogAnalyticsQueryPackQuerySearchPropertiesRelated"
+        "nullable": false,
+        "referenceName": "LogAnalyticsQueryPackQuerySearchPropertiesRelated",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,13 +22,19 @@
       "name": "Tags",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "String",
-            "referenceName": null
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

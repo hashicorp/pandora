@@ -1,0 +1,41 @@
+{
+  "name": "SecurityIntelligenceProfileIndicator",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Designate when an artifact was first used actively in an attack, when a particular sample was compiled, or if neither of those could be ascertained when the file was first seen in public repositories (for example, VirusTotal, ANY.RUN, Hybrid Analysis) or reported publicly.",
+      "jsonName": "firstSeenDateTime",
+      "name": "FirstSeenDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Designate when an artifact was most recently used actively in an attack, when a particular sample was compiled, or if neither of those could be ascertained when the file was first seen in public repositories (for example, VirusTotal, ANY.RUN, Hybrid Analysis) or reported publicly.",
+      "jsonName": "lastSeenDateTime",
+      "name": "LastSeenDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityIndicator",
+  "discriminatedTypeValue": "#microsoft.graph.security.intelligenceProfileIndicator",
+  "typeHintIn": "ODataType"
+}

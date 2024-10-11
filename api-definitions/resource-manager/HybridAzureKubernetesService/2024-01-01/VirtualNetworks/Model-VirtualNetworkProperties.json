@@ -7,10 +7,14 @@
       "name": "DnsServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Gateway",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "IPAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "InfraVnetProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPropertiesInfraVnetProfile"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPropertiesInfraVnetProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPropertiesStatus"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPropertiesStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "VMipPool",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkPropertiesVMipPoolInlined"
+          "nullable": false,
+          "referenceName": "VirtualNetworkPropertiesVMipPoolInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,10 +124,14 @@
       "name": "VipPool",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkPropertiesVipPoolInlined"
+          "nullable": false,
+          "referenceName": "VirtualNetworkPropertiesVipPoolInlined",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,12 +145,15 @@
       "name": "VlanID",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

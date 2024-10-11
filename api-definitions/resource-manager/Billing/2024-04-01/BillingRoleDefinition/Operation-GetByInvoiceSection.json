@@ -1,6 +1,7 @@
 {
   "name": "GetByInvoiceSection",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "InvoiceSectionBillingRoleDefinitionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingRoleDefinition"
+    "nullable": false,
+    "referenceName": "BillingRoleDefinition",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "ListBySqlVMGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlVirtualMachineGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlVirtualMachine"
+    "nullable": false,
+    "referenceName": "SqlVirtualMachine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sqlVirtualMachines"
 }

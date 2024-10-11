@@ -1,6 +1,7 @@
 {
   "name": "VirtualHubsListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualHub"
+    "nullable": false,
+    "referenceName": "VirtualHub",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Network/virtualHubs"
 }

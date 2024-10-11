@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,11 +12,15 @@
   "resourceIdName": "FlexibleServerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AzureADAdministrator"
+    "nullable": false,
+    "referenceName": "AzureADAdministrator",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AzureADAdministrator"
+    "nullable": false,
+    "referenceName": "AzureADAdministrator",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/administrators/ActiveDirectory"
 }

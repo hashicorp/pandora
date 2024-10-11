@@ -1,6 +1,7 @@
 {
   "name": "GetAuthSettingsSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "SlotId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteAuthSettings"
+    "nullable": false,
+    "referenceName": "SiteAuthSettings",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/config/authsettings/list"
 }

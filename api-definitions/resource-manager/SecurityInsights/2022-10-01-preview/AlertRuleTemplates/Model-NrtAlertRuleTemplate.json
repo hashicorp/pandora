@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NrtAlertRuleTemplateProperties"
+        "nullable": false,
+        "referenceName": "NrtAlertRuleTemplateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AlertRuleTemplate",
   "discriminatedTypeValue": "NRT",
   "typeHintIn": "Kind"

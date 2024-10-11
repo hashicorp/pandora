@@ -1,6 +1,7 @@
 {
   "name": "GenerateStorageAccountSasToken",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "DataProductId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AccountSas"
+    "nullable": false,
+    "referenceName": "AccountSas",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AccountSasToken"
+    "nullable": false,
+    "referenceName": "AccountSasToken",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/generateStorageAccountSasToken"
 }

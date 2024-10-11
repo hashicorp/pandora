@@ -7,7 +7,9 @@
       "name": "AccountOwnerViewCharges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrollmentAccountOwnerViewCharges"
+        "nullable": false,
+        "referenceName": "EnrollmentAccountOwnerViewCharges",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrollmentAuthLevelState"
+        "nullable": false,
+        "referenceName": "EnrollmentAuthLevelState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "DepartmentAdminViewCharges",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnrollmentDepartmentAdminViewCharges"
+        "nullable": false,
+        "referenceName": "EnrollmentDepartmentAdminViewCharges",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "EsuProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EsuProfileUpdateProperties"
+        "nullable": false,
+        "referenceName": "EsuProfileUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProductProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductProfileUpdateProperties"
+        "nullable": false,
+        "referenceName": "ProductProfileUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SoftwareAssurance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileUpdatePropertiesSoftwareAssurance"
+        "nullable": false,
+        "referenceName": "LicenseProfileUpdatePropertiesSoftwareAssurance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

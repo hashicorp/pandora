@@ -1,6 +1,7 @@
 {
   "name": "GetSupportInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "email",
       "required": false,
@@ -21,7 +23,9 @@
   "resourceIdName": "FirewallId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SupportInfo"
+    "nullable": false,
+    "referenceName": "SupportInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getSupportInfo"
 }

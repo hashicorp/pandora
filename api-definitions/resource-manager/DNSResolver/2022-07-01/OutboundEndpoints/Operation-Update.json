@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": true,
       "required": false,
@@ -22,10 +24,14 @@
   "resourceIdName": "OutboundEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "OutboundEndpointPatch"
+    "nullable": false,
+    "referenceName": "OutboundEndpointPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "OutboundEndpoint"
+    "nullable": false,
+    "referenceName": "OutboundEndpoint",
+    "referenceNameIsCommonType": null
   }
 }

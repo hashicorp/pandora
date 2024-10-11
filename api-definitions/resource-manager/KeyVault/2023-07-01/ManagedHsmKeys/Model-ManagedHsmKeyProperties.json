@@ -7,7 +7,9 @@
       "name": "Attributes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmKeyAttributes"
+        "nullable": false,
+        "referenceName": "ManagedHsmKeyAttributes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CurveName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonWebKeyCurveName"
+        "nullable": false,
+        "referenceName": "JsonWebKeyCurveName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "KeyOps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JsonWebKeyOperation"
+          "nullable": false,
+          "referenceName": "JsonWebKeyOperation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "KeySize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "KeyUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "KeyUriWithVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Kty",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonWebKeyType"
+        "nullable": false,
+        "referenceName": "JsonWebKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ReleasePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmKeyReleasePolicy"
+        "nullable": false,
+        "referenceName": "ManagedHsmKeyReleasePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +133,15 @@
       "name": "RotationPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmRotationPolicy"
+        "nullable": false,
+        "referenceName": "ManagedHsmRotationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

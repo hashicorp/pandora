@@ -7,7 +7,9 @@
       "name": "HostPlatform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformType"
+        "nullable": false,
+        "referenceName": "PlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HostPlatformType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostPlatformType"
+        "nullable": false,
+        "referenceName": "HostPlatformType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IoTDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "IoTEdgeDeviceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IoTDeviceInfo"
+        "nullable": false,
+        "referenceName": "IoTDeviceInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddonState"
+        "nullable": false,
+        "referenceName": "AddonState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,31 @@
+{
+  "name": "OneDriveForBusinessRestoreSession",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of restore points and destination details that can be used to restore a OneDrive for Business drive.",
+      "jsonName": "driveRestoreArtifacts",
+      "name": "DriveRestoreArtifacts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DriveRestoreArtifact",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RestoreSessionBase",
+  "discriminatedTypeValue": "#microsoft.graph.oneDriveForBusinessRestoreSession",
+  "typeHintIn": "ODataType"
+}

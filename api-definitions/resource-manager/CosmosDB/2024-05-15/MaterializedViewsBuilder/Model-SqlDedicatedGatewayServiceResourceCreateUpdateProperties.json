@@ -7,7 +7,9 @@
       "name": "DedicatedGatewayType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DedicatedGatewayType"
+        "nullable": false,
+        "referenceName": "DedicatedGatewayType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ServiceResourceCreateUpdateProperties",
   "discriminatedTypeValue": "SqlDedicatedGateway",
   "typeHintIn": "ServiceType"

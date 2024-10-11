@@ -7,7 +7,9 @@
       "name": "AutomaticOSUpgradeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticOSUpgradeProperties"
+        "nullable": false,
+        "referenceName": "AutomaticOSUpgradeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DataDiskImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DataDiskImage"
+          "nullable": false,
+          "referenceName": "DataDiskImage",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Disallowed",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisallowedConfiguration"
+        "nullable": false,
+        "referenceName": "DisallowedConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Features",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineImageFeature"
+          "nullable": false,
+          "referenceName": "VirtualMachineImageFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "HyperVGeneration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HyperVGenerationTypes"
+        "nullable": false,
+        "referenceName": "HyperVGenerationTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "OsDiskImage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDiskImage"
+        "nullable": false,
+        "referenceName": "OSDiskImage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,12 +109,15 @@
       "name": "Plan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PurchasePlan"
+        "nullable": false,
+        "referenceName": "PurchasePlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

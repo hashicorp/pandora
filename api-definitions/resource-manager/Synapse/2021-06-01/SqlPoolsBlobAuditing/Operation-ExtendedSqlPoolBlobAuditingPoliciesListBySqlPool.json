@@ -1,6 +1,7 @@
 {
   "name": "ExtendedSqlPoolBlobAuditingPoliciesListBySqlPool",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SqlPoolId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExtendedSqlPoolBlobAuditingPolicy"
+    "nullable": false,
+    "referenceName": "ExtendedSqlPoolBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extendedAuditingSettings"
 }

@@ -7,7 +7,9 @@
       "name": "ClusterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClusterName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClusterType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterNodeType"
+        "nullable": false,
+        "referenceName": "ClusterNodeType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ClusterVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DiagnosticLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticLevel"
+        "nullable": false,
+        "referenceName": "DiagnosticLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ImdsAttestation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImdsAttestation"
+        "nullable": false,
+        "referenceName": "ImdsAttestation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "Manufacturer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,10 +128,14 @@
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClusterNode"
+          "nullable": false,
+          "referenceName": "ClusterNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -129,7 +149,9 @@
       "name": "OemActivation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OemActivation"
+        "nullable": false,
+        "referenceName": "OemActivation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,10 +164,14 @@
       "name": "SupportedCapabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -153,5 +179,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

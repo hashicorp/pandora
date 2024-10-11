@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivityEntityQueriesProperties"
+        "nullable": false,
+        "referenceName": "ActivityEntityQueriesProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EntityQuery",
   "discriminatedTypeValue": "Activity",
   "typeHintIn": "Kind"

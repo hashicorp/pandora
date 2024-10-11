@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "PrivateEndpointConnectionProxyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionProxy"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionProxy",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionProxy"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionProxy",
+    "referenceNameIsCommonType": null
   }
 }

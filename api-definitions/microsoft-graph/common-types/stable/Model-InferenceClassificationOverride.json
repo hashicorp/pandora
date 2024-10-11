@@ -1,0 +1,41 @@
+{
+  "name": "InferenceClassificationOverride",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.",
+      "jsonName": "classifyAs",
+      "name": "ClassifyAs",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InferenceClassificationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The email address information of the sender for whom the override is created.",
+      "jsonName": "senderEmailAddress",
+      "name": "SenderEmailAddress",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EmailAddress",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.inferenceClassificationOverride",
+  "typeHintIn": "ODataType"
+}

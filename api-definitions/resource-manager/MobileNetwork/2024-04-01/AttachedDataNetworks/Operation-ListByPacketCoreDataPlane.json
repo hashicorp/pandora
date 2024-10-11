@@ -1,6 +1,7 @@
 {
   "name": "ListByPacketCoreDataPlane",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "PacketCoreDataPlaneId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AttachedDataNetwork"
+    "nullable": false,
+    "referenceName": "AttachedDataNetwork",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/attachedDataNetworks"
 }

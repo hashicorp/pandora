@@ -7,7 +7,9 @@
       "name": "AllowVNetOverride",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Folder",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChangeDataCaptureFolder"
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureFolder",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MapperPolicy"
+        "nullable": false,
+        "referenceName": "MapperPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "SourceConnectionsInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MapperSourceConnectionsInfo"
+          "nullable": false,
+          "referenceName": "MapperSourceConnectionsInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -76,7 +88,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "TargetConnectionsInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MapperTargetConnectionsInfo"
+          "nullable": false,
+          "referenceName": "MapperTargetConnectionsInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -100,5 +118,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

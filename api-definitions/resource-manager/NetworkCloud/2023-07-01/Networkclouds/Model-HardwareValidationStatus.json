@@ -8,7 +8,9 @@
       "name": "LastValidationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "Result",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BareMetalMachineHardwareValidationResult"
+        "nullable": false,
+        "referenceName": "BareMetalMachineHardwareValidationResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AutoRenew",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CommitmentPlanGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Current",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostingModel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostingModel"
+        "nullable": false,
+        "referenceName": "HostingModel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Last",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Next",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPeriod"
+        "nullable": false,
+        "referenceName": "CommitmentPeriod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "PlanType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "ProvisioningIssues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,12 +133,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommitmentPlanProvisioningState"
+        "nullable": false,
+        "referenceName": "CommitmentPlanProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

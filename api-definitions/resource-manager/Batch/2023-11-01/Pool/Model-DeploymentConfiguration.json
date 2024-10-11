@@ -7,7 +7,9 @@
       "name": "CloudServiceConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServiceConfiguration"
+        "nullable": false,
+        "referenceName": "CloudServiceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "VirtualMachineConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

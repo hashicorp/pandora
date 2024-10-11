@@ -4,11 +4,12 @@
 package cmd
 
 import (
-	legacyPipeline "github.com/hashicorp/pandora/tools/importer-rest-api-specs/pipeline"
+	"flag"
 	"log"
-	"os"
+	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/pipeline"
 	"github.com/mitchellh/cli"
 )
 
@@ -35,34 +36,28 @@ func (ValidateCommand) Help() string {
 }
 
 func (c ValidateCommand) Run(args []string) int {
-	// TODO: can't enable this until the Parser is refactored
-	//opts := pipeline.Options{
-	//	APIDefinitionsDirectory:       "", // not used for this
-	//	ConfigFilePath:                c.resourceManagerConfigPath,
-	//	ProviderPrefix:                "azurerm",
-	//	RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
-	//	ServiceNamesToLimitTo:         nil, // not used for this
-	//	SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
-	//	SourceDataType:                sdkModels.ResourceManagerSourceDataType,
-	//	TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
-	//}
-	//if err := pipeline.RunValidate(opts); err != nil {
-	//	log.Printf("Error: %+v", err)
-	//	return 1
-	//}
-	//
-	//return 0
+	var serviceNamesRaw string
 
-	input := legacyPipeline.RunInput{
-		ConfigFilePath:           c.resourceManagerConfigPath,
-		JustParseData:            true,
-		Logger:                   logging.Log,
-		OutputDirectory:          os.DevNull,
-		ProviderPrefix:           "azurerm",
-		SwaggerDirectory:         c.restAPISpecsRepositoryDirectoryPath,
-		TerraformDefinitionsPath: c.terraformDefinitionsPath,
+	f := flag.NewFlagSet("importer-rest-api-specs", flag.ExitOnError)
+	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to validate")
+	f.Parse(args)
+
+	var serviceNames []string
+	if serviceNamesRaw != "" {
+		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
-	if err := legacyPipeline.Run(input); err != nil {
+
+	opts := pipeline.Options{
+		APIDefinitionsDirectory:       "", // not used for this
+		ConfigFilePath:                c.resourceManagerConfigPath,
+		ProviderPrefix:                "azurerm",
+		RestAPISpecsDirectory:         c.restAPISpecsRepositoryDirectoryPath,
+		ServiceNamesToLimitTo:         serviceNames,
+		SourceDataOrigin:              sdkModels.AzureRestAPISpecsSourceDataOrigin,
+		SourceDataType:                sdkModels.ResourceManagerSourceDataType,
+		TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
+	}
+	if err := pipeline.RunValidate(opts); err != nil {
 		log.Printf("Error: %+v", err)
 		return 1
 	}

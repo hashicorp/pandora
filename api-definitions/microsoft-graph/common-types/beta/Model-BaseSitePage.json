@@ -1,0 +1,57 @@
+{
+  "name": "BaseSitePage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the page layout of the page. The possible values are: microsoftReserved, article, home, unknownFutureValue.",
+      "jsonName": "pageLayout",
+      "name": "PageLayout",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PageLayoutType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The publishing status and the MM.mm version of the page.",
+      "jsonName": "publishingState",
+      "name": "PublishingState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicationFacet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Title of the sitePage.",
+      "jsonName": "title",
+      "name": "Title",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "BaseItem",
+  "discriminatedTypeValue": "#microsoft.graph.baseSitePage",
+  "typeHintIn": "ODataType"
+}

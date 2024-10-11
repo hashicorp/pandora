@@ -1,6 +1,7 @@
 {
   "name": "WebTestLocationsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ComponentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsWebTestLocationsListResult"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsWebTestLocationsListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/syntheticmonitorlocations"
 }

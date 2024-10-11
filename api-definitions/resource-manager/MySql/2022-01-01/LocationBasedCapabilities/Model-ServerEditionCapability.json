@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "SupportedServerVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerVersionCapability"
+          "nullable": false,
+          "referenceName": "ServerVersionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "SupportedStorageEditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageEditionCapability"
+          "nullable": false,
+          "referenceName": "StorageEditionCapability",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +58,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

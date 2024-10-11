@@ -7,10 +7,14 @@
       "name": "Activities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Activity"
+          "nullable": false,
+          "referenceName": "Activity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "Expression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Expression"
+        "nullable": false,
+        "referenceName": "Expression",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "Timeout",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

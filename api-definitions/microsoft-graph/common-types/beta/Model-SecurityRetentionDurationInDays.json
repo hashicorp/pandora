@@ -1,0 +1,25 @@
+{
+  "name": "SecurityRetentionDurationInDays",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the time period in days for which an item with the applied retention label will be retained for.",
+      "jsonName": "days",
+      "name": "Days",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityRetentionDuration",
+  "discriminatedTypeValue": "#microsoft.graph.security.retentionDurationInDays",
+  "typeHintIn": "ODataType"
+}

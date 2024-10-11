@@ -1,6 +1,7 @@
 {
   "name": "GetFunctionAppStacks",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "stackOsType",
       "required": false,
@@ -21,7 +23,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FunctionAppStack"
+    "nullable": false,
+    "referenceName": "FunctionAppStack",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Web/functionAppStacks"
 }

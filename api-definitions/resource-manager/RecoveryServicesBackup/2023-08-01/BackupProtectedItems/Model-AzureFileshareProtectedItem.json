@@ -7,7 +7,9 @@
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFileshareProtectedItemExtendedInfo"
+        "nullable": false,
+        "referenceName": "AzureFileshareProtectedItemExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "KpisHealths",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KPIResourceHealthDetails"
+          "nullable": false,
+          "referenceName": "KPIResourceHealthDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "LastBackupStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "LastBackupTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "ProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionState"
+        "nullable": false,
+        "referenceName": "ProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,6 +114,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectedItem",
   "discriminatedTypeValue": "AzureFileShareProtectedItem",
   "typeHintIn": "ProtectedItemType"

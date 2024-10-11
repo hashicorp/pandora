@@ -1,6 +1,7 @@
 {
   "name": "RemovePrincipals",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "KustoDatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DatabasePrincipalListRequest"
+    "nullable": false,
+    "referenceName": "DatabasePrincipalListRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DatabasePrincipalListResult"
+    "nullable": false,
+    "referenceName": "DatabasePrincipalListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/removePrincipals"
 }

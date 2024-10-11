@@ -7,7 +7,9 @@
       "name": "AutoUpdateSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoUpdateSetting"
+        "nullable": false,
+        "referenceName": "AutoUpdateSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AvailabilityState"
+        "nullable": false,
+        "referenceName": "AvailabilityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HostGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LogModule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogModule"
+        "nullable": false,
+        "referenceName": "LogModule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "MonitoringType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringType"
+        "nullable": false,
+        "referenceName": "MonitoringType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "UpdateStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateStatus"
+        "nullable": false,
+        "referenceName": "UpdateStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

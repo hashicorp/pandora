@@ -7,7 +7,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Category"
+        "nullable": false,
+        "referenceName": "Category",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExtendedProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Impact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Impact"
+        "nullable": false,
+        "referenceName": "Impact",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ImpactedField",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "PredictionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PredictionType"
+        "nullable": false,
+        "referenceName": "PredictionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,12 +98,15 @@
       "name": "ShortDescription",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShortDescription"
+        "nullable": false,
+        "referenceName": "ShortDescription",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

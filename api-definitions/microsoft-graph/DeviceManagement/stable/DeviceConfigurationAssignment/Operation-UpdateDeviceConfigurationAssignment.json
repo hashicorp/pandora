@@ -1,0 +1,43 @@
+{
+  "name": "UpdateDeviceConfigurationAssignment",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update deviceConfigurationAssignment. Update the properties of a deviceConfigurationAssignment object.",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceManagementDeviceConfigurationIdAssignmentId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceConfigurationAssignment",
+    "referenceNameIsCommonType": true
+  }
+}

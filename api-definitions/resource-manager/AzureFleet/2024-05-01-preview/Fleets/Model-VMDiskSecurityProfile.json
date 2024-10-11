@@ -7,7 +7,9 @@
       "name": "DiskEncryptionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskEncryptionSetParameters"
+        "nullable": false,
+        "referenceName": "DiskEncryptionSetParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "SecurityEncryptionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityEncryptionTypes"
+        "nullable": false,
+        "referenceName": "SecurityEncryptionTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

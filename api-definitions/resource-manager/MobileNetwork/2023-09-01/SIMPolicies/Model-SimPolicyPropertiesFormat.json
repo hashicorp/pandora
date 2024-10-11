@@ -7,7 +7,9 @@
       "name": "DefaultSlice",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SliceResourceId"
+        "nullable": false,
+        "referenceName": "SliceResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RegistrationTimer",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RfspIndex",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "SiteProvisioningState",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SiteProvisioningState"
+          "nullable": false,
+          "referenceName": "SiteProvisioningState",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,10 +88,14 @@
       "name": "SliceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SliceConfiguration"
+          "nullable": false,
+          "referenceName": "SliceConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -93,12 +109,15 @@
       "name": "UeAmbr",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ambr"
+        "nullable": false,
+        "referenceName": "Ambr",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

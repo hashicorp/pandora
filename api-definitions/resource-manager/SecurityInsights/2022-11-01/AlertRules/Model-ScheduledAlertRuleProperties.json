@@ -7,7 +7,9 @@
       "name": "AlertDetailsOverride",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertDetailsOverride"
+        "nullable": false,
+        "referenceName": "AlertDetailsOverride",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AlertRuleTemplateName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "CustomDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "EntityMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EntityMapping"
+          "nullable": false,
+          "referenceName": "EntityMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,7 +124,9 @@
       "name": "EventGroupingSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventGroupingSettings"
+        "nullable": false,
+        "referenceName": "EventGroupingSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "IncidentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentConfiguration"
+        "nullable": false,
+        "referenceName": "IncidentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,7 +155,9 @@
       "name": "LastModifiedUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,7 +170,9 @@
       "name": "Query",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -159,7 +185,9 @@
       "name": "QueryFrequency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -172,7 +200,9 @@
       "name": "QueryPeriod",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,7 +215,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AlertSeverity"
+        "nullable": false,
+        "referenceName": "AlertSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,7 +230,9 @@
       "name": "SuppressionDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -211,7 +245,9 @@
       "name": "SuppressionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -224,10 +260,14 @@
       "name": "Tactics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AttackTactic"
+          "nullable": false,
+          "referenceName": "AttackTactic",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -241,10 +281,14 @@
       "name": "Techniques",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -258,7 +302,9 @@
       "name": "TemplateVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -271,7 +317,9 @@
       "name": "TriggerOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TriggerOperator"
+        "nullable": false,
+        "referenceName": "TriggerOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,12 +332,15 @@
       "name": "TriggerThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

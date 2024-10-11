@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PrivateLinkServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkService"
+    "nullable": false,
+    "referenceName": "PrivateLinkService",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkService"
+    "nullable": false,
+    "referenceName": "PrivateLinkService",
+    "referenceNameIsCommonType": null
   }
 }

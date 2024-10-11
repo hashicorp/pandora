@@ -1,6 +1,7 @@
 {
   "name": "PrivateEndpointConnectionsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DigitalTwinsInstanceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateEndpointConnectionsResponse"
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnectionsResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/privateEndpointConnections"
 }

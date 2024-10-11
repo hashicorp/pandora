@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "WebHookId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WebhookUpdateParameters"
+    "nullable": false,
+    "referenceName": "WebhookUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Webhook"
+    "nullable": false,
+    "referenceName": "Webhook",
+    "referenceNameIsCommonType": null
   }
 }

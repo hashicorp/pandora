@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "TokenId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TokenUpdateParameters"
+    "nullable": false,
+    "referenceName": "TokenUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Token"
+    "nullable": false,
+    "referenceName": "Token",
+    "referenceNameIsCommonType": null
   }
 }

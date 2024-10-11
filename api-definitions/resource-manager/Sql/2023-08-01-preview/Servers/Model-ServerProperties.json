@@ -7,7 +7,9 @@
       "name": "AdministratorLogin",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AdministratorLoginPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Administrators",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerExternalAdministrator"
+        "nullable": false,
+        "referenceName": "ServerExternalAdministrator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ExternalGovernanceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExternalGovernanceStatus"
+        "nullable": false,
+        "referenceName": "ExternalGovernanceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "FederatedClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "FullyQualifiedDomainName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "IsIPv6Enabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "ServerNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "KeyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "MinimalTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimalTlsVersion"
+        "nullable": false,
+        "referenceName": "MinimalTlsVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "PrimaryUserAssignedIdentityId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,10 +157,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServerPrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "ServerPrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -154,7 +178,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerPublicNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "ServerPublicNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "RestrictOutboundNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "ServerNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +223,9 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,12 +238,15 @@
       "name": "WorkspaceFeature",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerWorkspaceFeature"
+        "nullable": false,
+        "referenceName": "ServerWorkspaceFeature",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Capacity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SkuCapacity"
+        "nullable": false,
+        "referenceName": "SkuCapacity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ResourceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceType"
+        "nullable": false,
+        "referenceName": "ResourceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GetStreamingJobSkuResultSku"
+        "nullable": false,
+        "referenceName": "GetStreamingJobSkuResultSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

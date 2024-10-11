@@ -1,0 +1,89 @@
+{
+  "name": "Office365GroupsActivityFileCounts",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of files that were viewed, edited, shared, or synced in the group's SharePoint document library.",
+      "jsonName": "active",
+      "name": "Active",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date on which a number of files were active in the group's SharePoint site.",
+      "jsonName": "reportDate",
+      "name": "ReportDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of days the report covers.",
+      "jsonName": "reportPeriod",
+      "name": "ReportPeriod",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The latest date of the content.",
+      "jsonName": "reportRefreshDate",
+      "name": "ReportRefreshDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of files in the group's SharePoint document library.",
+      "jsonName": "total",
+      "name": "Total",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.office365GroupsActivityFileCounts",
+  "typeHintIn": "ODataType"
+}

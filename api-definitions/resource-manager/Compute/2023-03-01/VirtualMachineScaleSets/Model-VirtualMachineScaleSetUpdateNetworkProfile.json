@@ -7,7 +7,9 @@
       "name": "HealthProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiEntityReference"
+        "nullable": false,
+        "referenceName": "ApiEntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NetworkApiVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkApiVersion"
+        "nullable": false,
+        "referenceName": "NetworkApiVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "NetworkInterfaceConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineScaleSetUpdateNetworkConfiguration"
+          "nullable": false,
+          "referenceName": "VirtualMachineScaleSetUpdateNetworkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,63 @@
+{
+  "name": "MicrosoftCustomTrainingSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The completion date and time of the training. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "completionDateTime",
+      "name": "CompletionDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The mapping details of the associated training.",
+      "jsonName": "trainingAssignmentMappings",
+      "name": "TrainingAssignmentMappings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MicrosoftTrainingAssignmentMapping",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The training completion duration that needs to be provided before scheduling the training. Possible values are: week, fortnite, month, unknownFutureValue.",
+      "jsonName": "trainingCompletionDuration",
+      "name": "TrainingCompletionDuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TrainingCompletionDuration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TrainingSetting",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftCustomTrainingSetting",
+  "typeHintIn": "ODataType"
+}

@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -9,6 +10,7 @@
   "httpMethod": "DELETE",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.created",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.hasPrivateKey",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.isVerified",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.lastUpdated",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.name",
       "required": false,
@@ -59,6 +65,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.nonce",
       "required": false,
@@ -69,6 +76,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.purpose",
       "required": false,
@@ -79,6 +87,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "certificate.rawBytes",
       "required": false,
@@ -89,6 +98,7 @@
       }
     },
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,

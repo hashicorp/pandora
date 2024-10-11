@@ -1,6 +1,7 @@
 {
   "name": "UpdateById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ApplicationIdId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationPatchable"
+    "nullable": false,
+    "referenceName": "ApplicationPatchable",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationPatchable"
+    "nullable": false,
+    "referenceName": "ApplicationPatchable",
+    "referenceNameIsCommonType": null
   }
 }

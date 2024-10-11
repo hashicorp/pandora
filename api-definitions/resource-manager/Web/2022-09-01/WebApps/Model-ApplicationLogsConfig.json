@@ -7,7 +7,9 @@
       "name": "AzureBlobStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureBlobStorageApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureBlobStorageApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureTableStorage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureTableStorageApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "AzureTableStorageApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "FileSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FileSystemApplicationLogsConfig"
+        "nullable": false,
+        "referenceName": "FileSystemApplicationLogsConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,24 @@
+{
+  "name": "SecurityImpactedDeviceAsset",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identifier",
+      "name": "Identifier",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDeviceAssetIdentifier",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityImpactedAsset",
+  "discriminatedTypeValue": "#microsoft.graph.security.impactedDeviceAsset",
+  "typeHintIn": "ODataType"
+}

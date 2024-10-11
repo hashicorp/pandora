@@ -7,7 +7,9 @@
       "name": "EncryptionComplianceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchEncryptionComplianceStatus"
+        "nullable": false,
+        "referenceName": "SearchEncryptionComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Enforcement",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SearchEncryptionWithCmk"
+        "nullable": false,
+        "referenceName": "SearchEncryptionWithCmk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

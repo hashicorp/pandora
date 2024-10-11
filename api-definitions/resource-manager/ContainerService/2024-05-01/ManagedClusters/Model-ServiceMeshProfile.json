@@ -7,7 +7,9 @@
       "name": "Istio",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IstioServiceMesh"
+        "nullable": false,
+        "referenceName": "IstioServiceMesh",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceMeshMode"
+        "nullable": false,
+        "referenceName": "ServiceMeshMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

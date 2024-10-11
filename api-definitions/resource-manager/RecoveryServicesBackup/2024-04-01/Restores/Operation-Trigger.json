@@ -1,6 +1,7 @@
 {
   "name": "Trigger",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-authorization-auxiliary",
       "optional": true,
       "required": false,
@@ -21,7 +23,9 @@
   "resourceIdName": "RecoveryPointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RestoreRequestResource"
+    "nullable": false,
+    "referenceName": "RestoreRequestResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restore"
 }

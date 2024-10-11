@@ -7,10 +7,14 @@
       "name": "EmissionDestinations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EmissionPolicyDestination"
+          "nullable": false,
+          "referenceName": "EmissionPolicyDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "EmissionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EmissionType"
+        "nullable": false,
+        "referenceName": "EmissionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

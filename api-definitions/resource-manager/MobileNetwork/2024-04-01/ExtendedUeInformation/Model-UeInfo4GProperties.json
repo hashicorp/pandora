@@ -7,7 +7,9 @@
       "name": "ConnectionInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UeConnectionInfo4G"
+        "nullable": false,
+        "referenceName": "UeConnectionInfo4G",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Guti",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Guti4G"
+        "nullable": false,
+        "referenceName": "Guti4G",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Imei",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Imeisv",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Imsi",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "SessionInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UeSessionInfo4G"
+          "nullable": false,
+          "referenceName": "UeSessionInfo4G",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -83,5 +97,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

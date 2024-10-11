@@ -7,7 +7,9 @@
       "name": "Email",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EmailNotification"
+        "nullable": false,
+        "referenceName": "EmailNotification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Operation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationType"
+        "nullable": false,
+        "referenceName": "OperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "WebHooks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WebhookNotification"
+          "nullable": false,
+          "referenceName": "WebhookNotification",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

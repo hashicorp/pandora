@@ -7,7 +7,9 @@
       "name": "ActualState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningMode"
+        "nullable": false,
+        "referenceName": "AutomaticTuningMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DesiredState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticTuningMode"
+        "nullable": false,
+        "referenceName": "AutomaticTuningMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Options",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomaticTuningOptions"
+          "nullable": false,
+          "referenceName": "AutomaticTuningOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

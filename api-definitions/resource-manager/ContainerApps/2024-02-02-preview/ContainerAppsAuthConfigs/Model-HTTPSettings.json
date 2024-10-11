@@ -7,7 +7,9 @@
       "name": "ForwardProxy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardProxy"
+        "nullable": false,
+        "referenceName": "ForwardProxy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RequireHTTPS",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Routes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSettingsRoutes"
+        "nullable": false,
+        "referenceName": "HTTPSettingsRoutes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

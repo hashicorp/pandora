@@ -7,7 +7,9 @@
       "name": "LinuxParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxParameters"
+        "nullable": false,
+        "referenceName": "LinuxParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaximumDuration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RebootSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMGuestPatchRebootSetting"
+        "nullable": false,
+        "referenceName": "VMGuestPatchRebootSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "WindowsParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsParameters"
+        "nullable": false,
+        "referenceName": "WindowsParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

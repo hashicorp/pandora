@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceBusQueueEventSubscriptionDestinationProperties"
+        "nullable": false,
+        "referenceName": "ServiceBusQueueEventSubscriptionDestinationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "EventSubscriptionDestination",
   "discriminatedTypeValue": "ServiceBusQueue",
   "typeHintIn": "EndpointType"

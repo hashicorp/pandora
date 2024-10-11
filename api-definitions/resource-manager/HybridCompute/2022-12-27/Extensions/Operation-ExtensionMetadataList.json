@@ -1,6 +1,7 @@
 {
   "name": "ExtensionMetadataList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ExtensionTypeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ExtensionValueListResult"
+    "nullable": false,
+    "referenceName": "ExtensionValueListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

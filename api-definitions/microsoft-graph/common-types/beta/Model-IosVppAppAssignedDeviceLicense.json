@@ -1,0 +1,41 @@
+{
+  "name": "IosVppAppAssignedDeviceLicense",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The device name.",
+      "jsonName": "deviceName",
+      "name": "DeviceName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The managed device ID.",
+      "jsonName": "managedDeviceId",
+      "name": "ManagedDeviceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IosVppAppAssignedLicense",
+  "discriminatedTypeValue": "#microsoft.graph.iosVppAppAssignedDeviceLicense",
+  "typeHintIn": "ODataType"
+}

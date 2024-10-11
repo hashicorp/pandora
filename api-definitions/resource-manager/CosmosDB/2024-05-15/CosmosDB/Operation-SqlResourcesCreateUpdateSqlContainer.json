@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesCreateUpdateSqlContainer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ContainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlContainerCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "SqlContainerCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlContainerGetResults"
+    "nullable": false,
+    "referenceName": "SqlContainerGetResults",
+    "referenceNameIsCommonType": null
   }
 }

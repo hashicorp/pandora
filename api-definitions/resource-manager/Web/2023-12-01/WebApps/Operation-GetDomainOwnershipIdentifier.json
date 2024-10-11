@@ -1,14 +1,17 @@
 {
   "name": "GetDomainOwnershipIdentifier",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "DomainOwnershipIdentifierId",
+  "resourceIdName": "SiteDomainOwnershipIdentifierId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Identifier"
+    "nullable": false,
+    "referenceName": "Identifier",
+    "referenceNameIsCommonType": null
   }
 }

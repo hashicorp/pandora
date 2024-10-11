@@ -7,7 +7,9 @@
       "name": "DataFactoryName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeState"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeType"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +47,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Type"
 }

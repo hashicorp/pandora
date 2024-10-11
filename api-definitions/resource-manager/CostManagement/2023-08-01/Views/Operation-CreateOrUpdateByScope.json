@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateByScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScopedViewId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "View"
+    "nullable": false,
+    "referenceName": "View",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "View"
+    "nullable": false,
+    "referenceName": "View",
+    "referenceNameIsCommonType": null
   }
 }

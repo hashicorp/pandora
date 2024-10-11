@@ -1,6 +1,7 @@
 {
   "name": "DeleteData",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202,
     204
@@ -10,7 +11,9 @@
   "resourceIdName": "DataTypeId",
   "requestObject": {
     "type": "RawObject",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deleteData"
 }

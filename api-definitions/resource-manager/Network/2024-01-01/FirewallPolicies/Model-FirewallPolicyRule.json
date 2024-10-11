@@ -7,7 +7,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RuleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallPolicyRuleType"
+        "nullable": false,
+        "referenceName": "FirewallPolicyRuleType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -41,5 +47,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "RuleType"
 }

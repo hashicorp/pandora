@@ -1,6 +1,7 @@
 {
   "name": "SAPSupportedSku",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SAPSupportedSkusRequest"
+    "nullable": false,
+    "referenceName": "SAPSupportedSkusRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SAPSupportedResourceSkusResult"
+    "nullable": false,
+    "referenceName": "SAPSupportedResourceSkusResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/sapVirtualInstanceMetadata/default/getSapSupportedSku"
 }

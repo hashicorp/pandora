@@ -1,6 +1,7 @@
 {
   "name": "GetSiteHealthSummary",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VMwareSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteHealthSummary"
+    "nullable": false,
+    "referenceName": "SiteHealthSummary",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/healthSummary"
 }

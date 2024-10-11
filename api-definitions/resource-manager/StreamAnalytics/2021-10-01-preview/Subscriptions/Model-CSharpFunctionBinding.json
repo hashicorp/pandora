@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CSharpFunctionBindingProperties"
+        "nullable": false,
+        "referenceName": "CSharpFunctionBindingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionBinding",
   "discriminatedTypeValue": "Microsoft.StreamAnalytics/CLRUdf",
   "typeHintIn": "Type"

@@ -1,6 +1,7 @@
 {
   "name": "ListBillingMeters",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "billingLocation",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "osType",
       "required": false,
@@ -32,7 +35,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingMeter"
+    "nullable": false,
+    "referenceName": "BillingMeter",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Web/billingMeters"
 }

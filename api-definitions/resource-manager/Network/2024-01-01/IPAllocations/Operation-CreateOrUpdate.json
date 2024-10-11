@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "IPAllocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IPAllocation"
+    "nullable": false,
+    "referenceName": "IPAllocation",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IPAllocation"
+    "nullable": false,
+    "referenceName": "IPAllocation",
+    "referenceNameIsCommonType": null
   }
 }

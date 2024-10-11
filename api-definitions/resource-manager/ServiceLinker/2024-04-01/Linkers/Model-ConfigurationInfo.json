@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionType"
+        "nullable": false,
+        "referenceName": "ActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "AdditionalConfigurations",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "AdditionalConnectionStringProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ConfigurationStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationStore"
+        "nullable": false,
+        "referenceName": "ConfigurationStore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "CustomizedKeys",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "DaprProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DaprProperties"
+        "nullable": false,
+        "referenceName": "DaprProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,12 +115,15 @@
       "name": "DeleteOrUpdateBehavior",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOrUpdateBehavior"
+        "nullable": false,
+        "referenceName": "DeleteOrUpdateBehavior",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

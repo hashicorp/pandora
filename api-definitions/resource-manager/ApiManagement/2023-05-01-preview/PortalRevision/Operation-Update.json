@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,
@@ -22,10 +24,14 @@
   "resourceIdName": "PortalRevisionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PortalRevisionContract"
+    "nullable": false,
+    "referenceName": "PortalRevisionContract",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PortalRevisionContract"
+    "nullable": false,
+    "referenceName": "PortalRevisionContract",
+    "referenceNameIsCommonType": null
   }
 }

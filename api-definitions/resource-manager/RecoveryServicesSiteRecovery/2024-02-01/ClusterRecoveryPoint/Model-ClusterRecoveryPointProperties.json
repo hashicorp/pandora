@@ -7,7 +7,9 @@
       "name": "ProviderSpecificDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterProviderSpecificRecoveryPointDetails"
+        "nullable": false,
+        "referenceName": "ClusterProviderSpecificRecoveryPointDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "RecoveryPointTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterRecoveryPointType"
+        "nullable": false,
+        "referenceName": "ClusterRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

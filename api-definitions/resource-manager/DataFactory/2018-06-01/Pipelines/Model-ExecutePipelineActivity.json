@@ -7,7 +7,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutePipelineActivityPolicy"
+        "nullable": false,
+        "referenceName": "ExecutePipelineActivityPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutePipelineActivityTypeProperties"
+        "nullable": false,
+        "referenceName": "ExecutePipelineActivityTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Activity",
   "discriminatedTypeValue": "ExecutePipeline",
   "typeHintIn": "Type"

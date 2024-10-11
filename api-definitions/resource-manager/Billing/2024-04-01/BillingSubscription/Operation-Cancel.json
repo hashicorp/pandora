@@ -1,6 +1,7 @@
 {
   "name": "Cancel",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BillingAccountBillingSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CancelSubscriptionRequest"
+    "nullable": false,
+    "referenceName": "CancelSubscriptionRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/cancel"
 }

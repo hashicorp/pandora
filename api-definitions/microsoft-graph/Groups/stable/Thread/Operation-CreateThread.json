@@ -1,0 +1,51 @@
+{
+  "name": "CreateThread",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create conversation thread. Start a new group conversation by first creating a thread. A new conversation, conversation thread, and post are created in the group.\nUse reply thread or reply post to further post to that thread. Note: You can also start a new thread in an existing conversation.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConversationThread",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConversationThread",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/threads"
+}

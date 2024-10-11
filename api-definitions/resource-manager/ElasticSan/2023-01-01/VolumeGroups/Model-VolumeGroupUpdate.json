@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "SystemOrUserAssignedIdentityMap",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumeGroupUpdateProperties"
+        "nullable": false,
+        "referenceName": "VolumeGroupUpdateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

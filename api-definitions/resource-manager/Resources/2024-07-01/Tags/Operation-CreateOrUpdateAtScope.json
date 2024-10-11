@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateAtScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TagsResource"
+    "nullable": false,
+    "referenceName": "TagsResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TagsResource"
+    "nullable": false,
+    "referenceName": "TagsResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Resources/tags/default"
 }

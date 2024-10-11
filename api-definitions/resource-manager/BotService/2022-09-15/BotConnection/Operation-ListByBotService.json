@@ -1,6 +1,7 @@
 {
   "name": "ListByBotService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "BotServiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ConnectionSetting"
+    "nullable": false,
+    "referenceName": "ConnectionSetting",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/connections"
 }

@@ -7,7 +7,9 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmFailbackRecoveryPointType"
+        "nullable": false,
+        "referenceName": "InMageRcmFailbackRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
   "discriminatedTypeValue": "InMageRcmFailback",
   "typeHintIn": "InstanceType"

@@ -8,7 +8,9 @@
       "name": "EnrollmentAccountStartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "SubscriptionEnrollmentAccountStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionEnrollmentAccountStatus"
+        "nullable": false,
+        "referenceName": "SubscriptionEnrollmentAccountStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

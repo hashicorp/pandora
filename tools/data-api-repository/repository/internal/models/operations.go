@@ -11,6 +11,9 @@ type Operation struct {
 	// ContentType specifies the format of the information being sent with the Operation (e.g. `application/json; charset=utf-8`)
 	ContentType string `json:"contentType"`
 
+	// Description is used to write a comment for the operation method
+	Description string `json:"description"`
+
 	// ExpectedStatusCodes specifies is a list of Status Codes which are expected to be returned (e.g. 200, 201)
 	ExpectedStatusCodes []int `json:"expectedStatusCodes"`
 
@@ -32,6 +35,9 @@ type Operation struct {
 	// ResourceIdName specifies the name of the optional Resource ID used for this operation
 	ResourceIdName *string `json:"resourceIdName,omitempty"`
 
+	// ResourceIdNameIsCommonType specifies whether the referenced ResourceIdName is a common type
+	ResourceIdNameIsCommonType *bool `json:"resourceIdNameIsCommonType,omitempty"`
+
 	// RequestObject specifies the optional ObjectDefinition to be specified in the Request
 	RequestObject *ObjectDefinition `json:"requestObject,omitempty"`
 
@@ -45,9 +51,18 @@ type Operation struct {
 }
 
 type Option struct {
+	// Type signals a special behavior for this Option.
+	//   Data: this option specifies Request data, as described in ObjectDefinition, HeaderName, ODataFieldName and/or QueryStringName.
+	//   ContentType: this option specifies a custom Content Type for the Request to be specified by the caller.
+	//   RetryFunc: this option specifies a client.RequestRetryFunc that can be passed in.
+	Type string `json:"type"`
+
 	// HeaderName is the name of the Http Header which this Option should be set into
 	// (e.g. `If-Match`, `x-ms-client-request-id`)
 	HeaderName *string `json:"headerName,omitempty"`
+
+	// ODataFieldName specifies the name for the OData query string parameter associated with this Option.
+	ODataFieldName *string `json:"odataFieldName,omitempty"`
 
 	// Optional specifies whether this Option could be specified in the Request
 	// NOTE: this is intentionally not inferred from Required to allow retrieving HTTP Header

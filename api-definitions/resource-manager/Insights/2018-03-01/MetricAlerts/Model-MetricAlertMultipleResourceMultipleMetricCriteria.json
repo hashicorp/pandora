@@ -7,10 +7,14 @@
       "name": "AllOf",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MultiMetricCriteria"
+          "nullable": false,
+          "referenceName": "MultiMetricCriteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "MetricAlertCriteria",
   "discriminatedTypeValue": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
   "typeHintIn": "OdataType"

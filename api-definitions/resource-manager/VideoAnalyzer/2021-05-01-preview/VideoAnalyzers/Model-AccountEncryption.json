@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceIdentity"
+        "nullable": false,
+        "referenceName": "ResourceIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountEncryptionKeyType"
+        "nullable": false,
+        "referenceName": "AccountEncryptionKeyType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

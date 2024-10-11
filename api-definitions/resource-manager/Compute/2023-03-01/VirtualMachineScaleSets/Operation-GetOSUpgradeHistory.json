@@ -1,6 +1,7 @@
 {
   "name": "GetOSUpgradeHistory",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualMachineScaleSetId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UpgradeOperationHistoricalStatusInfo"
+    "nullable": false,
+    "referenceName": "UpgradeOperationHistoricalStatusInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/osUpgradeHistory"
 }

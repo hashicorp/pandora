@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "hash",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "hashVersion",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$orderBy",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$skip",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -62,7 +68,9 @@
   "resourceIdName": "CodeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CodeVersionResource"
+    "nullable": false,
+    "referenceName": "CodeVersionResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/versions"
 }

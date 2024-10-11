@@ -7,7 +7,9 @@
       "name": "DeleteOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeleteOptions"
+        "nullable": false,
+        "referenceName": "DeleteOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DnsSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePublicIPAddressDnsSettingsConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachinePublicIPAddressDnsSettingsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "IPTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualMachineIPTag"
+          "nullable": false,
+          "referenceName": "VirtualMachineIPTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "IdleTimeoutInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "PublicIPAddressVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPVersions"
+        "nullable": false,
+        "referenceName": "IPVersions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "PublicIPAllocationMethod",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPAllocationMethod"
+        "nullable": false,
+        "referenceName": "PublicIPAllocationMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,12 +103,15 @@
       "name": "PublicIPPrefix",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

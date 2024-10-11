@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SynapseWorkspaceSqlPoolTableDataSetProperties"
+        "nullable": false,
+        "referenceName": "SynapseWorkspaceSqlPoolTableDataSetProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataSet",
   "discriminatedTypeValue": "SynapseWorkspaceSqlPoolTable",
   "typeHintIn": "Kind"

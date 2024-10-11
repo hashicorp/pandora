@@ -1,6 +1,7 @@
 {
   "name": "DeleteById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "RoleIdId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignment"
+    "nullable": false,
+    "referenceName": "RoleAssignment",
+    "referenceNameIsCommonType": null
   }
 }

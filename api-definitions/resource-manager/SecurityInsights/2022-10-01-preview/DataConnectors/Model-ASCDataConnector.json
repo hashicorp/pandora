@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ASCDataConnectorProperties"
+        "nullable": false,
+        "referenceName": "ASCDataConnectorProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnector",
   "discriminatedTypeValue": "AzureSecurityCenter",
   "typeHintIn": "Kind"

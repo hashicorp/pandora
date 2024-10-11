@@ -7,7 +7,9 @@
       "name": "CodeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CodeConfiguration"
+        "nullable": false,
+        "referenceName": "CodeConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Compute",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DeploymentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BatchDeploymentConfiguration"
+        "nullable": false,
+        "referenceName": "BatchDeploymentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "EnvironmentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,7 +103,9 @@
       "name": "ErrorThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "LoggingLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BatchLoggingLevel"
+        "nullable": false,
+        "referenceName": "BatchLoggingLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "MaxConcurrencyPerInstance",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "MiniBatchSize",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "Model",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssetReferenceBase"
+        "nullable": false,
+        "referenceName": "AssetReferenceBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "OutputAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BatchOutputAction"
+        "nullable": false,
+        "referenceName": "BatchOutputAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "OutputFileName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentProvisioningState"
+        "nullable": false,
+        "referenceName": "DeploymentProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceConfiguration"
+        "nullable": false,
+        "referenceName": "ResourceConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,12 +259,15 @@
       "name": "RetrySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BatchRetrySettings"
+        "nullable": false,
+        "referenceName": "BatchRetrySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

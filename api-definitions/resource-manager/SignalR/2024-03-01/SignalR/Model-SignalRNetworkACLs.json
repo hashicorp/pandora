@@ -7,7 +7,9 @@
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ACLAction"
+        "nullable": false,
+        "referenceName": "ACLAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRule"
+          "nullable": false,
+          "referenceName": "IPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "PrivateEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointACL"
+          "nullable": false,
+          "referenceName": "PrivateEndpointACL",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,12 +64,15 @@
       "name": "PublicNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkACL"
+        "nullable": false,
+        "referenceName": "NetworkACL",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

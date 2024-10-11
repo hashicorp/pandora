@@ -7,10 +7,14 @@
       "name": "ArcNodeResourceIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "DeploymentConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentConfiguration"
+        "nullable": false,
+        "referenceName": "DeploymentConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "DeploymentMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentMode"
+        "nullable": false,
+        "referenceName": "DeploymentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "ReportedProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportedProperties"
+        "nullable": false,
+        "referenceName": "ReportedProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

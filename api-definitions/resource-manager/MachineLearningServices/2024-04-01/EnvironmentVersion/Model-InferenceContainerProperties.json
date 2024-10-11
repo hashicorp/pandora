@@ -7,7 +7,9 @@
       "name": "LivenessRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ReadinessRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "ScoringRoute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Route"
+        "nullable": false,
+        "referenceName": "Route",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

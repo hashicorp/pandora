@@ -7,7 +7,9 @@
       "name": "IsActiveCMK",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,15 +19,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "keyVaultUrl",
-      "name": "KeyVaultUrl",
+      "name": "KeyVaultURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

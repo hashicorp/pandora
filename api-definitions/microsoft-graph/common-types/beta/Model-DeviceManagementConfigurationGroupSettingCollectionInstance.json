@@ -1,0 +1,31 @@
+{
+  "name": "DeviceManagementConfigurationGroupSettingCollectionInstance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of GroupSetting values",
+      "jsonName": "groupSettingCollectionValue",
+      "name": "GroupSettingCollectionValue",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceManagementConfigurationGroupSettingValue",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConfigurationSettingInstance",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance",
+  "typeHintIn": "ODataType"
+}

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SyncSetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SyncSet"
+    "nullable": false,
+    "referenceName": "SyncSet",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncSet"
+    "nullable": false,
+    "referenceName": "SyncSet",
+    "referenceNameIsCommonType": null
   }
 }

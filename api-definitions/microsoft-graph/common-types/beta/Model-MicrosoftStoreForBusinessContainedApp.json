@@ -1,0 +1,25 @@
+{
+  "name": "MicrosoftStoreForBusinessContainedApp",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The app user model ID of the contained app of a MicrosoftStoreForBusinessApp.",
+      "jsonName": "appUserModelId",
+      "name": "AppUserModelId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileContainedApp",
+  "discriminatedTypeValue": "#microsoft.graph.microsoftStoreForBusinessContainedApp",
+  "typeHintIn": "ODataType"
+}

@@ -26,7 +26,7 @@ type SupportedServicesInput struct {
 
 func OutputSupportedServices(input SupportedServicesInput) error {
 	for _, apiVersion := range versions.Supported {
-		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
+		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, versions.Upstream(apiVersion))
 
 		spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 		if err != nil {

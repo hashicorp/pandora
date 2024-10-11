@@ -7,7 +7,9 @@
       "name": "AllocationState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllocationState"
+        "nullable": false,
+        "referenceName": "AllocationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "AllocationStateTransitionTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CurrentNodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "EnableNodePublicIP",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,10 +68,14 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ErrorResponse"
+          "nullable": false,
+          "referenceName": "ErrorResponse",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -77,7 +89,9 @@
       "name": "IsolatedNetwork",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "NodeStateCounts",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeStateCounts"
+        "nullable": false,
+        "referenceName": "NodeStateCounts",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OsType"
+        "nullable": false,
+        "referenceName": "OsType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "PropertyBag",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,7 +149,9 @@
       "name": "RemoteLoginPortPublicAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemoteLoginPortPublicAccess"
+        "nullable": false,
+        "referenceName": "RemoteLoginPortPublicAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,7 +164,9 @@
       "name": "ScaleSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleSettings"
+        "nullable": false,
+        "referenceName": "ScaleSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,7 +179,9 @@
       "name": "Subnet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceId"
+        "nullable": false,
+        "referenceName": "ResourceId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,7 +194,9 @@
       "name": "TargetNodeCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,7 +209,9 @@
       "name": "UserAccountCredentials",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserAccountCredentials"
+        "nullable": false,
+        "referenceName": "UserAccountCredentials",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -194,7 +224,9 @@
       "name": "VMPriority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMPriority"
+        "nullable": false,
+        "referenceName": "VMPriority",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -207,7 +239,9 @@
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -220,12 +254,15 @@
       "name": "VirtualMachineImage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineImage"
+        "nullable": false,
+        "referenceName": "VirtualMachineImage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

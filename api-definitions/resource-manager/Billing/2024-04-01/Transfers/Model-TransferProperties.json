@@ -7,7 +7,9 @@
       "name": "CanceledBy",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DetailedTransferStatus",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DetailedTransferStatus"
+          "nullable": false,
+          "referenceName": "DetailedTransferStatus",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -38,7 +44,9 @@
       "name": "ExpirationTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "InitiatorEmailId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "RecipientEmailId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,12 +89,15 @@
       "name": "TransferStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TransferStatus"
+        "nullable": false,
+        "referenceName": "TransferStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

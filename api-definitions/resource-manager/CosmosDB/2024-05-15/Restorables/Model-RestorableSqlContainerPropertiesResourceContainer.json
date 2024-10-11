@@ -7,7 +7,9 @@
       "name": "AnalyticalStorageTtl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientEncryptionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientEncryptionPolicy"
+        "nullable": false,
+        "referenceName": "ClientEncryptionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ComputedProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ComputedProperty"
+          "nullable": false,
+          "referenceName": "ComputedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "ConflictResolutionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConflictResolutionPolicy"
+        "nullable": false,
+        "referenceName": "ConflictResolutionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "CreateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreateMode"
+        "nullable": false,
+        "referenceName": "CreateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "DefaultTtl",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "IndexingPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IndexingPolicy"
+        "nullable": false,
+        "referenceName": "IndexingPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "PartitionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerPartitionKey"
+        "nullable": false,
+        "referenceName": "ContainerPartitionKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "RestoreParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestoreParametersBase"
+        "nullable": false,
+        "referenceName": "RestoreParametersBase",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "Rid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "Self",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "Ts",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,12 +223,15 @@
       "name": "UniqueKeyPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UniqueKeyPolicy"
+        "nullable": false,
+        "referenceName": "UniqueKeyPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

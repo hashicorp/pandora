@@ -7,10 +7,14 @@
       "name": "Addresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "AutoAssign",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BfdEnabled"
+        "nullable": false,
+        "referenceName": "BfdEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "OnlyUseHostIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BfdEnabled"
+        "nullable": false,
+        "referenceName": "BfdEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

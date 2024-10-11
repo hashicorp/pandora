@@ -7,7 +7,9 @@
       "name": "BackgroundDataDownloadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointBackgroundDataDownloadActivity"
+        "nullable": false,
+        "referenceName": "ServerEndpointBackgroundDataDownloadActivity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CombinedHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DownloadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DownloadHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DownloadStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncSessionStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncSessionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "LastUpdatedTimestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "OfflineDataTransferStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointOfflineDataTransferState"
+        "nullable": false,
+        "referenceName": "ServerEndpointOfflineDataTransferState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -99,7 +113,9 @@
       "name": "SyncActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityState"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "TotalPersistentFilesNotSyncingCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "UploadActivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncActivityStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncActivityStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +158,9 @@
       "name": "UploadHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointHealthState"
+        "nullable": false,
+        "referenceName": "ServerEndpointHealthState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,12 +173,15 @@
       "name": "UploadStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerEndpointSyncSessionStatus"
+        "nullable": false,
+        "referenceName": "ServerEndpointSyncSessionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

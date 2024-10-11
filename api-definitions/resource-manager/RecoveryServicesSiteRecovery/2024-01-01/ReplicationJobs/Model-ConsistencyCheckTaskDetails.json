@@ -7,10 +7,14 @@
       "name": "VMDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InconsistentVMDetails"
+          "nullable": false,
+          "referenceName": "InconsistentVMDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TaskTypeDetails",
   "discriminatedTypeValue": "ConsistencyCheckTaskDetails",
   "typeHintIn": "InstanceType"

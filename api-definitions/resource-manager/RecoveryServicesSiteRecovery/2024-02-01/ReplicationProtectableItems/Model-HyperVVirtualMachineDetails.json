@@ -7,10 +7,14 @@
       "name": "DiskDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskDetails"
+          "nullable": false,
+          "referenceName": "DiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Generation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "HasFibreChannelAdapter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "HasPhysicalDisk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "HasSharedVhd",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PresenceStatus"
+        "nullable": false,
+        "referenceName": "PresenceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "HyperVHostId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "OsDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSDetails"
+        "nullable": false,
+        "referenceName": "OSDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "SourceItemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,6 +128,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ConfigurationSettings",
   "discriminatedTypeValue": "HyperVVirtualMachine",
   "typeHintIn": "InstanceType"

@@ -1,0 +1,45 @@
+{
+  "name": "SendChatActivityNotification",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action sendActivityNotification. Send an activity feed notification in the scope of a chat. For more information, see sending Teams activity notifications.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdChatId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SendChatActivityNotificationRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/sendActivityNotification"
+}

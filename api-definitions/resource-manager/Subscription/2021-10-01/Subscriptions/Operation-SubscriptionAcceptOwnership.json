@@ -1,6 +1,7 @@
 {
   "name": "SubscriptionAcceptOwnership",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "ProviderSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AcceptOwnershipRequest"
+    "nullable": false,
+    "referenceName": "AcceptOwnershipRequest",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/acceptOwnership"
 }

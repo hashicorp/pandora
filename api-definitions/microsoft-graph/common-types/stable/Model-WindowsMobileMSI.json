@@ -1,0 +1,73 @@
+{
+  "name": "WindowsMobileMSI",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The command line.",
+      "jsonName": "commandLine",
+      "name": "CommandLine",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A boolean to control whether the app's version will be used to detect the app after it is installed on a device. Set this to true for Windows Mobile MSI Line of Business (LoB) apps that use a self update feature.",
+      "jsonName": "ignoreVersionDetection",
+      "name": "IgnoreVersionDetection",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product code.",
+      "jsonName": "productCode",
+      "name": "ProductCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product version of Windows Mobile MSI Line of Business (LoB) app.",
+      "jsonName": "productVersion",
+      "name": "ProductVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileLobApp",
+  "discriminatedTypeValue": "#microsoft.graph.windowsMobileMSI",
+  "typeHintIn": "ODataType"
+}

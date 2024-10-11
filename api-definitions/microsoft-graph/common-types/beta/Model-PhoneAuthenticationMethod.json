@@ -1,0 +1,57 @@
+{
+  "name": "PhoneAuthenticationMethod",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The phone number to text or call for authentication. Phone numbers use the format '+\u003ccountry code\u003e \u003cnumber\u003ex\u003cextension\u003e', with extension optional. For example, +1 5555551234 or +1 5555551234x123 are valid. Numbers are rejected when creating/updating if they don't match the required format.",
+      "jsonName": "phoneNumber",
+      "name": "PhoneNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of this phone. Possible values are: mobile, alternateMobile, or office.",
+      "jsonName": "phoneType",
+      "name": "PhoneType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationPhoneType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Whether a phone is ready to be used for SMS sign-in or not. Possible values are: notSupported, notAllowedByPolicy, notEnabled, phoneNumberNotUnique, ready, or notConfigured, unknownFutureValue.",
+      "jsonName": "smsSignInState",
+      "name": "SmsSignInState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationMethodSignInState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethod",
+  "discriminatedTypeValue": "#microsoft.graph.phoneAuthenticationMethod",
+  "typeHintIn": "ODataType"
+}

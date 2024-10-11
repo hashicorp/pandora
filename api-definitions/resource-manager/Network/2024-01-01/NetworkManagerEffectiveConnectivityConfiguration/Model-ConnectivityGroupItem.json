@@ -7,7 +7,9 @@
       "name": "GroupConnectivity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GroupConnectivity"
+        "nullable": false,
+        "referenceName": "GroupConnectivity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IsGlobal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IsGlobal"
+        "nullable": false,
+        "referenceName": "IsGlobal",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NetworkGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "UseHubGateway",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UseHubGateway"
+        "nullable": false,
+        "referenceName": "UseHubGateway",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

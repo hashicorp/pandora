@@ -7,7 +7,9 @@
       "name": "EnhancedSecurityState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityState"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SoftDeleteRetentionPeriodInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SoftDeleteState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftDeleteState"
+        "nullable": false,
+        "referenceName": "SoftDeleteState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

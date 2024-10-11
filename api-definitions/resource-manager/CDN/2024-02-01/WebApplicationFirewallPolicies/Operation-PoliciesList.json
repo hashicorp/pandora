@@ -1,0 +1,19 @@
+{
+  "name": "PoliciesList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CdnWebApplicationFirewallPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.CDN/cdnWebApplicationFirewallPolicies"
+}

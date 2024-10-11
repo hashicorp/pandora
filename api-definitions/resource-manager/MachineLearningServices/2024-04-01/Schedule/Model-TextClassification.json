@@ -7,7 +7,9 @@
       "name": "FeaturizationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeaturizationSettings"
+        "nullable": false,
+        "referenceName": "FeaturizationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LimitSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NlpVerticalLimitSettings"
+        "nullable": false,
+        "referenceName": "NlpVerticalLimitSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PrimaryMetric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassificationPrimaryMetrics"
+        "nullable": false,
+        "referenceName": "ClassificationPrimaryMetrics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ValidationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MLTableJobInput"
+        "nullable": false,
+        "referenceName": "MLTableJobInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AutoMLVertical",
   "discriminatedTypeValue": "TextClassification",
   "typeHintIn": "TaskType"

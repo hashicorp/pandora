@@ -1,6 +1,7 @@
 {
   "name": "NotebookWorkspacesListConnectionInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DatabaseAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NotebookWorkspaceConnectionInfoResult"
+    "nullable": false,
+    "referenceName": "NotebookWorkspaceConnectionInfoResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/notebookWorkspaces/default/listConnectionInfo"
 }

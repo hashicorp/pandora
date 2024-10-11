@@ -1,0 +1,30 @@
+{
+  "name": "OAuth2PermissionGrantCollectionResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OAuth2PermissionGrant",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseCollectionPaginationCountResponse",
+  "discriminatedTypeValue": "#microsoft.graph.oAuth2PermissionGrantCollectionResponse",
+  "typeHintIn": "ODataType"
+}

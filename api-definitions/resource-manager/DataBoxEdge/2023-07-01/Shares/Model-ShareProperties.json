@@ -7,7 +7,9 @@
       "name": "AccessProtocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareAccessProtocol"
+        "nullable": false,
+        "referenceName": "ShareAccessProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzureContainerInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureContainerInfo"
+        "nullable": false,
+        "referenceName": "AzureContainerInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ClientAccessRights",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientAccessRight"
+          "nullable": false,
+          "referenceName": "ClientAccessRight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "DataPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataPolicy"
+        "nullable": false,
+        "referenceName": "DataPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "MonitoringStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringStatus"
+        "nullable": false,
+        "referenceName": "MonitoringStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "RefreshDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshDetails"
+        "nullable": false,
+        "referenceName": "RefreshDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "ShareMappings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MountPointMap"
+          "nullable": false,
+          "referenceName": "MountPointMap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,7 +139,9 @@
       "name": "ShareStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ShareStatus"
+        "nullable": false,
+        "referenceName": "ShareStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -132,10 +154,14 @@
       "name": "UserAccessRights",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserAccessRight"
+          "nullable": false,
+          "referenceName": "UserAccessRight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -143,5 +169,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

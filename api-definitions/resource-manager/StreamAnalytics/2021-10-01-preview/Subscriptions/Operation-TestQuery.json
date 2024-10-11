@@ -1,6 +1,7 @@
 {
   "name": "TestQuery",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TestQuery"
+    "nullable": false,
+    "referenceName": "TestQuery",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryTestingResult"
+    "nullable": false,
+    "referenceName": "QueryTestingResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/testQuery"
 }

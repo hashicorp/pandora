@@ -7,7 +7,9 @@
       "name": "CreationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CreationData"
+        "nullable": false,
+        "referenceName": "CreationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ManagedClusterPropertiesReadOnly",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterPropertiesForSnapshot"
+        "nullable": false,
+        "referenceName": "ManagedClusterPropertiesForSnapshot",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SnapshotType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnapshotType"
+        "nullable": false,
+        "referenceName": "SnapshotType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

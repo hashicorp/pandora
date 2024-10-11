@@ -7,7 +7,9 @@
       "name": "EncryptionAtHost",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncryptionIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionIdentity"
+        "nullable": false,
+        "referenceName": "EncryptionIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProxyAgentSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProxyAgentSettings"
+        "nullable": false,
+        "referenceName": "ProxyAgentSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SecurityType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityTypes"
+        "nullable": false,
+        "referenceName": "SecurityTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "UefiSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UefiSettings"
+        "nullable": false,
+        "referenceName": "UefiSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

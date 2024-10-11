@@ -7,7 +7,9 @@
       "name": "CorrelationId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DebugSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DebugSetting"
+        "nullable": false,
+        "referenceName": "DebugSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Dependencies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Dependency"
+          "nullable": false,
+          "referenceName": "Dependency",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DeploymentDiagnosticsDefinition"
+          "nullable": false,
+          "referenceName": "DeploymentDiagnosticsDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "Error",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorResponse"
+        "nullable": false,
+        "referenceName": "ErrorResponse",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentMode"
+        "nullable": false,
+        "referenceName": "DeploymentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "OnErrorDeployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OnErrorDeploymentExtended"
+        "nullable": false,
+        "referenceName": "OnErrorDeploymentExtended",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,10 +139,14 @@
       "name": "OutputResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -136,7 +160,9 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -149,7 +175,9 @@
       "name": "Parameters",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -162,7 +190,9 @@
       "name": "ParametersLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParametersLink"
+        "nullable": false,
+        "referenceName": "ParametersLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -175,10 +205,14 @@
       "name": "Providers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Provider"
+          "nullable": false,
+          "referenceName": "Provider",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -192,7 +226,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -205,7 +241,9 @@
       "name": "TemplateHash",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -218,7 +256,9 @@
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TemplateLink"
+        "nullable": false,
+        "referenceName": "TemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,7 +272,9 @@
       "name": "Timestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,10 +287,14 @@
       "name": "ValidatedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceReference"
+          "nullable": false,
+          "referenceName": "ResourceReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -256,5 +302,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

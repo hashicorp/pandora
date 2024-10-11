@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FusionAlertRuleTemplateProperties"
+        "nullable": false,
+        "referenceName": "FusionAlertRuleTemplateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "AlertRuleTemplate",
   "discriminatedTypeValue": "Fusion",
   "typeHintIn": "Kind"

@@ -5,11 +5,14 @@ package transforms
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/helpers"
 	repositoryModels "github.com/hashicorp/pandora/tools/data-api-repository/repository/internal/models"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
+
+var specialPackageNames = []string{"odata"}
 
 func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.OptionObjectDefinition, knownData helpers.KnownData) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsFromRepository[input.Type]
@@ -24,13 +27,21 @@ func mapSDKOperationOptionObjectDefinitionFromRepository(input repositoryModels.
 	}
 
 	if input.ReferenceName != nil {
-		isConstant := knownData.ConstantExists(*input.ReferenceName)
-		isModel := knownData.ModelExists(*input.ReferenceName)
-		if !isConstant && !isModel {
-			return nil, fmt.Errorf("the Reference %q was not found as either a Constant or a Model", *input.ReferenceName)
+		referencedObjectInSpecialPackage := false
+		for _, packageName := range specialPackageNames {
+			if strings.HasPrefix(*input.ReferenceName, fmt.Sprintf("%s.", packageName)) {
+				referencedObjectInSpecialPackage = true
+			}
 		}
-		if isConstant && isModel {
-			return nil, fmt.Errorf("the Reference %q was found as both a Constant or a Model", *input.ReferenceName)
+		if !referencedObjectInSpecialPackage {
+			isConstant := knownData.ConstantExists(*input.ReferenceName)
+			isModel := knownData.ModelExists(*input.ReferenceName)
+			if !isConstant && !isModel {
+				return nil, fmt.Errorf("the Reference %q was not found as either a Constant or a Model", *input.ReferenceName)
+			}
+			if isConstant && isModel {
+				return nil, fmt.Errorf("the Reference %q was found as both a Constant or a Model", *input.ReferenceName)
+			}
 		}
 
 		output.ReferenceName = input.ReferenceName
@@ -91,6 +102,12 @@ func validateSDKOperationOptionObjectDefinition(input repositoryModels.OptionObj
 	if requiresReference {
 		if input.ReferenceName == nil {
 			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
+		}
+
+		for _, packageName := range specialPackageNames {
+			if strings.HasPrefix(*input.ReferenceName, fmt.Sprintf("%s.", packageName)) {
+				return nil
+			}
 		}
 
 		isConstant := knownData.ConstantExists(*input.ReferenceName)

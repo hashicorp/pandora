@@ -7,7 +7,9 @@
       "name": "Activation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivationProperties"
+        "nullable": false,
+        "referenceName": "ActivationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ClientTokenIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionState"
+        "nullable": false,
+        "referenceName": "ConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "LastActivityTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "Logging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoggingProperties"
+        "nullable": false,
+        "referenceName": "LoggingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "LoginServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoginServerProperties"
+        "nullable": false,
+        "referenceName": "LoginServerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "Mode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectedRegistryMode"
+        "nullable": false,
+        "referenceName": "ConnectedRegistryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -103,10 +119,14 @@
       "name": "NotificationsList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -120,7 +140,9 @@
       "name": "Parent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ParentProperties"
+        "nullable": false,
+        "referenceName": "ParentProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -133,7 +155,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -146,10 +170,14 @@
       "name": "StatusDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StatusDetailProperties"
+          "nullable": false,
+          "referenceName": "StatusDetailProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -163,12 +191,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

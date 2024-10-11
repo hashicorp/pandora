@@ -7,7 +7,9 @@
       "name": "LabVMsShutdown",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schedule"
+        "nullable": false,
+        "referenceName": "Schedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LabVMsStartup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Schedule"
+        "nullable": false,
+        "referenceName": "Schedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

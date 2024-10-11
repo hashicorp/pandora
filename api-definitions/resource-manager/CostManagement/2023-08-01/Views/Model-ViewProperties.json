@@ -7,7 +7,9 @@
       "name": "Accumulated",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccumulatedType"
+        "nullable": false,
+        "referenceName": "AccumulatedType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Chart",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ChartType"
+        "nullable": false,
+        "referenceName": "ChartType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "CreatedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "Currency",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "DateRange",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,10 +98,14 @@
       "name": "Kpis",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KpiProperties"
+          "nullable": false,
+          "referenceName": "KpiProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -103,7 +119,9 @@
       "name": "Metric",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricType"
+        "nullable": false,
+        "referenceName": "MetricType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -117,7 +135,9 @@
       "name": "ModifiedOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -130,10 +150,14 @@
       "name": "Pivots",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PivotProperties"
+          "nullable": false,
+          "referenceName": "PivotProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -147,7 +171,9 @@
       "name": "Query",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReportConfigDefinition"
+        "nullable": false,
+        "referenceName": "ReportConfigDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,12 +186,15 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

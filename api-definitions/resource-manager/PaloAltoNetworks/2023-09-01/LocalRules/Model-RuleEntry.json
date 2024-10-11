@@ -7,7 +7,9 @@
       "name": "ActionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionEnum"
+        "nullable": false,
+        "referenceName": "ActionEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Applications",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "AuditComment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Category"
+        "nullable": false,
+        "referenceName": "Category",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "DecryptionRuleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DecryptionRuleTypeEnum"
+        "nullable": false,
+        "referenceName": "DecryptionRuleTypeEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Destination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DestinationAddr"
+        "nullable": false,
+        "referenceName": "DestinationAddr",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "EnableLogging",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StateEnum"
+        "nullable": false,
+        "referenceName": "StateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "InboundInspectionCertificate",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "NegateDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "NegateSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,10 +223,14 @@
       "name": "ProtocolPortList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -210,7 +244,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "RuleName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "RuleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StateEnum"
+        "nullable": false,
+        "referenceName": "StateEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SourceAddr"
+        "nullable": false,
+        "referenceName": "SourceAddr",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,10 +304,14 @@
       "name": "Tags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TagInfo"
+          "nullable": false,
+          "referenceName": "TagInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -273,5 +319,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

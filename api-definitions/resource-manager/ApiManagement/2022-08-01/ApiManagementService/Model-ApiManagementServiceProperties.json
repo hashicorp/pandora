@@ -7,10 +7,14 @@
       "name": "AdditionalLocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AdditionalLocation"
+          "nullable": false,
+          "referenceName": "AdditionalLocation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ApiVersionConstraint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiVersionConstraint"
+        "nullable": false,
+        "referenceName": "ApiVersionConstraint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "Certificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CertificateConfiguration"
+          "nullable": false,
+          "referenceName": "CertificateConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -55,7 +65,9 @@
       "name": "CreatedAtUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,10 +80,14 @@
       "name": "CustomProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -82,10 +98,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "developerPortalUrl",
-      "name": "DeveloperPortalUrl",
+      "name": "DeveloperPortalURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +116,9 @@
       "name": "DisableGateway",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +131,9 @@
       "name": "EnableClientCertificate",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -121,10 +143,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "gatewayRegionalUrl",
-      "name": "GatewayRegionalUrl",
+      "name": "GatewayRegionalURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -134,10 +158,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "gatewayUrl",
-      "name": "GatewayUrl",
+      "name": "GatewayURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,10 +176,14 @@
       "name": "HostnameConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HostnameConfiguration"
+          "nullable": false,
+          "referenceName": "HostnameConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -164,10 +194,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "managementApiUrl",
-      "name": "ManagementApiUrl",
+      "name": "ManagementApiURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +212,9 @@
       "name": "NatGatewayState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NatGatewayState"
+        "nullable": false,
+        "referenceName": "NatGatewayState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +227,9 @@
       "name": "NotificationSenderEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,10 +242,14 @@
       "name": "OutboundPublicIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -223,7 +263,9 @@
       "name": "PlatformVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformVersion"
+        "nullable": false,
+        "referenceName": "PlatformVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -233,10 +275,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "portalUrl",
-      "name": "PortalUrl",
+      "name": "PortalURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,10 +293,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RemotePrivateEndpointConnectionWrapper"
+          "nullable": false,
+          "referenceName": "RemotePrivateEndpointConnectionWrapper",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -266,10 +314,14 @@
       "name": "PrivateIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -283,7 +335,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,7 +350,9 @@
       "name": "PublicIPAddressId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,10 +365,14 @@
       "name": "PublicIPAddresses",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -326,7 +386,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -339,7 +401,9 @@
       "name": "PublisherEmail",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -352,7 +416,9 @@
       "name": "PublisherName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -365,7 +431,9 @@
       "name": "Restore",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -375,10 +443,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "scmUrl",
-      "name": "ScmUrl",
+      "name": "ScmURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -391,7 +461,9 @@
       "name": "TargetProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -404,7 +476,9 @@
       "name": "VirtualNetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualNetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -417,12 +491,15 @@
       "name": "VirtualNetworkType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkType"
+        "nullable": false,
+        "referenceName": "VirtualNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

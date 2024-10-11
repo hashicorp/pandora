@@ -1,0 +1,41 @@
+{
+  "name": "CloudPCSubscription",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the subscription.",
+      "jsonName": "subscriptionId",
+      "name": "SubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the subscription.",
+      "jsonName": "subscriptionName",
+      "name": "SubscriptionName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcSubscription",
+  "typeHintIn": "ODataType"
+}

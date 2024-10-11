@@ -1,6 +1,7 @@
 {
   "name": "ListAll",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$expand",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "statusOnly",
       "required": false,
@@ -42,7 +46,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachine"
+    "nullable": false,
+    "referenceName": "VirtualMachine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Compute/virtualMachines"
 }

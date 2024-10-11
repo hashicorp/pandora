@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ProjectId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ProjectUpdate"
+    "nullable": false,
+    "referenceName": "ProjectUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Project"
+    "nullable": false,
+    "referenceName": "Project",
+    "referenceNameIsCommonType": null
   }
 }

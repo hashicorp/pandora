@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-authorization-auxiliary",
       "optional": true,
       "required": false,
@@ -21,11 +23,15 @@
   "resourceIdName": "VaultId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupResourceVaultConfigResource"
+    "nullable": false,
+    "referenceName": "BackupResourceVaultConfigResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BackupResourceVaultConfigResource"
+    "nullable": false,
+    "referenceName": "BackupResourceVaultConfigResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/backupconfig/vaultconfig"
 }

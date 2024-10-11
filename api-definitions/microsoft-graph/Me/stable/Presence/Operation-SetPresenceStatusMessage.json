@@ -1,0 +1,44 @@
+{
+  "name": "SetPresenceStatusMessage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action setStatusMessage. Set a presence status message for a user. An optional expiration date and time can be supplied.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SetPresenceStatusMessageRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/me/presence/setStatusMessage"
+}

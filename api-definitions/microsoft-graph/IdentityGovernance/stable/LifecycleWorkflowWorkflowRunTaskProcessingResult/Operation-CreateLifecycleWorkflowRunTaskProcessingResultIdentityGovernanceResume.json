@@ -1,0 +1,45 @@
+{
+  "name": "CreateLifecycleWorkflowRunTaskProcessingResultIdentityGovernanceResume",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action resume. Resume a task processing result that's inProgress. In the default case an Azure Logic Apps system-assigned managed identity calls this API. For more information, see: Lifecycle Workflows extensibility approach.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IdentityGovernanceLifecycleWorkflowWorkflowIdRunIdTaskProcessingResultId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateLifecycleWorkflowRunTaskProcessingResultIdentityGovernanceResumeRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/identityGovernance.resume"
+}

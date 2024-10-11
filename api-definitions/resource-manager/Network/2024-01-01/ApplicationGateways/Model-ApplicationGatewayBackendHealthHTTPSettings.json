@@ -7,7 +7,9 @@
       "name": "BackendHTTPSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayBackendHTTPSettings"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayBackendHTTPSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Servers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendHealthServer"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendHealthServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +37,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

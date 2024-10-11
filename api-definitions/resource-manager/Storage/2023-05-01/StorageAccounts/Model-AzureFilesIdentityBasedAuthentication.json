@@ -7,7 +7,9 @@
       "name": "ActiveDirectoryProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActiveDirectoryProperties"
+        "nullable": false,
+        "referenceName": "ActiveDirectoryProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DefaultSharePermission",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultSharePermission"
+        "nullable": false,
+        "referenceName": "DefaultSharePermission",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "DirectoryServiceOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DirectoryServiceOptions"
+        "nullable": false,
+        "referenceName": "DirectoryServiceOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

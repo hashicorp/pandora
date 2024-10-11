@@ -1,6 +1,7 @@
 {
   "name": "RegistriesRemoveRegions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "RegistryId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegistryTrackedResource"
+    "nullable": false,
+    "referenceName": "RegistryTrackedResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RegistryTrackedResource"
+    "nullable": false,
+    "referenceName": "RegistryTrackedResource",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/removeRegions"
 }

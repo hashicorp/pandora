@@ -1,6 +1,7 @@
 {
   "name": "WorkloadNetworksUpdateVMGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "VMGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkVMGroup"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkVMGroup",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkVMGroup"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkVMGroup",
+    "referenceNameIsCommonType": null
   }
 }

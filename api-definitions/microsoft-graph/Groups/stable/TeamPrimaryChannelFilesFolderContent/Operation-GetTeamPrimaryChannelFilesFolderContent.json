@@ -1,0 +1,53 @@
+{
+  "name": "GetTeamPrimaryChannelFilesFolderContent",
+  "contentType": "application/octet-stream",
+  "description": "Get content for the navigation property filesFolder from groups. The content stream, if the item represents a file.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Format",
+      "optional": true,
+      "required": false,
+      "field": "Format",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Format"
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/team/primaryChannel/filesFolder/content"
+}

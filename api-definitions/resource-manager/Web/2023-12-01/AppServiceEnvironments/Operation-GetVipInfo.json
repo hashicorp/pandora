@@ -1,6 +1,7 @@
 {
   "name": "GetVipInfo",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "AppServiceEnvironmentId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AddressResponse"
+    "nullable": false,
+    "referenceName": "AddressResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/capacities/virtualip"
 }

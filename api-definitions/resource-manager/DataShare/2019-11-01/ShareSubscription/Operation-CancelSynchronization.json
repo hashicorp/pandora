@@ -1,6 +1,7 @@
 {
   "name": "CancelSynchronization",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ShareSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ShareSubscriptionSynchronization"
+    "nullable": false,
+    "referenceName": "ShareSubscriptionSynchronization",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ShareSubscriptionSynchronization"
+    "nullable": false,
+    "referenceName": "ShareSubscriptionSynchronization",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/cancelSynchronization"
 }

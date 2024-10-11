@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "AssemblyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AssemblyDefinition"
+    "nullable": false,
+    "referenceName": "AssemblyDefinition",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "AssemblyDefinition"
+    "nullable": false,
+    "referenceName": "AssemblyDefinition",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "Bypass",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleBypassOptions"
+        "nullable": false,
+        "referenceName": "NetworkRuleBypassOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleAction"
+        "nullable": false,
+        "referenceName": "NetworkRuleAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRule"
+          "nullable": false,
+          "referenceName": "IPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,5 +73,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

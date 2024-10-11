@@ -7,7 +7,9 @@
       "name": "LicenseDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseUpdatePropertiesLicenseDetails"
+        "nullable": false,
+        "referenceName": "LicenseUpdatePropertiesLicenseDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseType"
+        "nullable": false,
+        "referenceName": "LicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

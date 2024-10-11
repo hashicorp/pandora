@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "BatchAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BatchAccountUpdateParameters"
+    "nullable": false,
+    "referenceName": "BatchAccountUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BatchAccount"
+    "nullable": false,
+    "referenceName": "BatchAccount",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,7 +7,9 @@
       "name": "ControlPlaneAccessInterface",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InterfaceProperties"
+        "nullable": false,
+        "referenceName": "InterfaceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CoreNetworkTechnology",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoreNetworkType"
+        "nullable": false,
+        "referenceName": "CoreNetworkType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Installation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Installation"
+        "nullable": false,
+        "referenceName": "Installation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "InteropSettings",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LocalDiagnosticsAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocalDiagnosticsAccessConfiguration"
+        "nullable": false,
+        "referenceName": "LocalDiagnosticsAccessConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Platform",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlatformConfiguration"
+        "nullable": false,
+        "referenceName": "PlatformConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RollbackVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "Sites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SiteResourceId"
+          "nullable": false,
+          "referenceName": "SiteResourceId",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -128,7 +148,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingSku"
+        "nullable": false,
+        "referenceName": "BillingSku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "UeMtu",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,12 +178,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

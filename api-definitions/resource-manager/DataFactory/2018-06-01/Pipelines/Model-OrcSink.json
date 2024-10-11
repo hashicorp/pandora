@@ -7,7 +7,9 @@
       "name": "FormatSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OrcWriteSettings"
+        "nullable": false,
+        "referenceName": "OrcWriteSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "StoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreWriteSettings"
+        "nullable": false,
+        "referenceName": "StoreWriteSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "OrcSink",
   "typeHintIn": "Type"

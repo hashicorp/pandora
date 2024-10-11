@@ -7,7 +7,9 @@
       "name": "AdditionalData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentAdditionalData"
+        "nullable": false,
+        "referenceName": "IncidentAdditionalData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Classification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassification"
+        "nullable": false,
+        "referenceName": "IncidentClassification",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ClassificationComment",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ClassificationReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentClassificationReason"
+        "nullable": false,
+        "referenceName": "IncidentClassificationReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "FirstActivityTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "IncidentNumber",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,10 +126,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "incidentUrl",
-      "name": "IncidentUrl",
+      "name": "IncidentURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -126,10 +144,14 @@
       "name": "Labels",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IncidentLabel"
+          "nullable": false,
+          "referenceName": "IncidentLabel",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -144,7 +166,9 @@
       "name": "LastActivityTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +182,9 @@
       "name": "LastModifiedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +197,9 @@
       "name": "Owner",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentOwnerInfo"
+        "nullable": false,
+        "referenceName": "IncidentOwnerInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -184,7 +212,9 @@
       "name": "ProviderIncidentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +227,9 @@
       "name": "ProviderName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,10 +242,14 @@
       "name": "RelatedAnalyticRuleIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -227,7 +263,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentSeverity"
+        "nullable": false,
+        "referenceName": "IncidentSeverity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -240,7 +278,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IncidentStatus"
+        "nullable": false,
+        "referenceName": "IncidentStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -253,7 +293,9 @@
       "name": "TeamInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TeamInformation"
+        "nullable": false,
+        "referenceName": "TeamInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,12 +308,15 @@
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

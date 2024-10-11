@@ -7,7 +7,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration"
+        "nullable": false,
+        "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfoExpiration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

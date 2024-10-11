@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "NamespaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MigrationConfigProperties"
+    "nullable": false,
+    "referenceName": "MigrationConfigProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/migrationConfigurations/$default"
 }

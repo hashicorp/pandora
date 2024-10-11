@@ -7,7 +7,9 @@
       "name": "MakePolicyConsistent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Settings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Settings"
+        "nullable": false,
+        "referenceName": "Settings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "SubProtectionPolicy",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubProtectionPolicy"
+          "nullable": false,
+          "referenceName": "SubProtectionPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "WorkLoadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadType"
+        "nullable": false,
+        "referenceName": "WorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -58,6 +68,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionPolicy",
   "discriminatedTypeValue": "AzureWorkload",
   "typeHintIn": "BackupManagementType"

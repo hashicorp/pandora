@@ -7,7 +7,9 @@
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationType"
+        "nullable": false,
+        "referenceName": "AuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "HTTPSServerCertificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPSServerCertificate"
+        "nullable": false,
+        "referenceName": "HTTPSServerCertificate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

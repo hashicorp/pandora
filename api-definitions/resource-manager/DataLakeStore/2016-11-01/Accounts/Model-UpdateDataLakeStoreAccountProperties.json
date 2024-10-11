@@ -7,7 +7,9 @@
       "name": "DefaultGroup",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncryptionConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpdateEncryptionConfig"
+        "nullable": false,
+        "referenceName": "UpdateEncryptionConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FirewallAllowAzureIPs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallAllowAzureIPsState"
+        "nullable": false,
+        "referenceName": "FirewallAllowAzureIPsState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "FirewallRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateFirewallRuleWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateFirewallRuleWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "FirewallState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FirewallState"
+        "nullable": false,
+        "referenceName": "FirewallState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "NewTier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TierType"
+        "nullable": false,
+        "referenceName": "TierType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "TrustedIdProviderState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrustedIdProviderState"
+        "nullable": false,
+        "referenceName": "TrustedIdProviderState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "TrustedIdProviders",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateTrustedIdProviderWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateTrustedIdProviderWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,10 +139,14 @@
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UpdateVirtualNetworkRuleWithAccountParameters"
+          "nullable": false,
+          "referenceName": "UpdateVirtualNetworkRuleWithAccountParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -130,5 +154,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

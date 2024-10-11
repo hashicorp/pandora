@@ -7,7 +7,9 @@
       "name": "DailySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DailySchedule"
+        "nullable": false,
+        "referenceName": "DailySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HourlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HourlySchedule"
+        "nullable": false,
+        "referenceName": "HourlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MonthlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonthlySchedule"
+        "nullable": false,
+        "referenceName": "MonthlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,12 +82,15 @@
       "name": "WeeklySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WeeklySchedule"
+        "nullable": false,
+        "referenceName": "WeeklySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

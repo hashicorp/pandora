@@ -1,6 +1,7 @@
 {
   "name": "DedicatedHsmUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "DedicatedHSMId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHsmPatchParameters"
+    "nullable": false,
+    "referenceName": "DedicatedHsmPatchParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHsm"
+    "nullable": false,
+    "referenceName": "DedicatedHsm",
+    "referenceNameIsCommonType": null
   }
 }

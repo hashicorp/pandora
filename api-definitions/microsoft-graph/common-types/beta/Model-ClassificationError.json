@@ -1,0 +1,30 @@
+{
+  "name": "ClassificationError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "details",
+      "name": "Details",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ClassifcationErrorBase",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ClassifcationErrorBase",
+  "discriminatedTypeValue": "#microsoft.graph.classificationError",
+  "typeHintIn": "ODataType"
+}

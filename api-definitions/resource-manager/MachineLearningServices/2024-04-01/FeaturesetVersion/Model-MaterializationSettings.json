@@ -7,7 +7,9 @@
       "name": "Notification",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationSetting"
+        "nullable": false,
+        "referenceName": "NotificationSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Resource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaterializationComputeResource"
+        "nullable": false,
+        "referenceName": "MaterializationComputeResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceTrigger"
+        "nullable": false,
+        "referenceName": "RecurrenceTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "SparkConfiguration",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,12 +73,15 @@
       "name": "StoreType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaterializationStoreType"
+        "nullable": false,
+        "referenceName": "MaterializationStoreType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

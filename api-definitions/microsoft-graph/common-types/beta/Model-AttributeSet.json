@@ -1,0 +1,41 @@
+{
+  "name": "AttributeSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Description of the attribute set. Can be up to 128 characters long and include Unicode characters. Can be changed later.",
+      "jsonName": "description",
+      "name": "Description",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Maximum number of custom security attributes that can be defined in this attribute set. Default value is null. If not specified, the administrator can add up to the maximum of 500 active attributes per tenant. Can be changed later.",
+      "jsonName": "maxAttributesPerSet",
+      "name": "MaxAttributesPerSet",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.attributeSet",
+  "typeHintIn": "ODataType"
+}

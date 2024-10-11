@@ -1,0 +1,25 @@
+{
+  "name": "DeviceManagementSettingBooleanConstraint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The boolean value to compare against",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceManagementConstraint",
+  "discriminatedTypeValue": "#microsoft.graph.deviceManagementSettingBooleanConstraint",
+  "typeHintIn": "ODataType"
+}

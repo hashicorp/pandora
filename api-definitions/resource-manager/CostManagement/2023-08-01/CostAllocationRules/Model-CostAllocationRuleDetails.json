@@ -7,10 +7,14 @@
       "name": "SourceResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SourceCostAllocationResource"
+          "nullable": false,
+          "referenceName": "SourceCostAllocationResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "TargetResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetCostAllocationResource"
+          "nullable": false,
+          "referenceName": "TargetCostAllocationResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -35,5 +43,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

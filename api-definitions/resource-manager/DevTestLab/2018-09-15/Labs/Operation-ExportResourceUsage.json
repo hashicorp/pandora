@@ -1,6 +1,7 @@
 {
   "name": "ExportResourceUsage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "LabId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ExportResourceUsageParameters"
+    "nullable": false,
+    "referenceName": "ExportResourceUsageParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/exportResourceUsage"
 }

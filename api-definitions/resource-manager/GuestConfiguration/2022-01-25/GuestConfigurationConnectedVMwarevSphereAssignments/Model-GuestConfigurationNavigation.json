@@ -7,7 +7,9 @@
       "name": "AssignmentSource",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AssignmentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AssignmentType"
+        "nullable": false,
+        "referenceName": "AssignmentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ConfigurationParameter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationParameter"
+          "nullable": false,
+          "referenceName": "ConfigurationParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "ConfigurationProtectedParameter",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ConfigurationParameter"
+          "nullable": false,
+          "referenceName": "ConfigurationParameter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ConfigurationSetting",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationSetting"
+        "nullable": false,
+        "referenceName": "ConfigurationSetting",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "ContentHash",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "ContentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "ContentUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Kind"
+        "nullable": false,
+        "referenceName": "Kind",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,12 +169,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

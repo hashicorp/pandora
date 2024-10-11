@@ -1,0 +1,62 @@
+{
+  "name": "WindowsUpdatesContentApproval",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesDeployableContent",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Settings for governing how to deploy content.",
+      "jsonName": "deploymentSettings",
+      "name": "DeploymentSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesDeploymentSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Deployments created as a result of applying the approval.",
+      "jsonName": "deployments",
+      "name": "Deployments",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsUpdatesDeployment",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesComplianceChange",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.contentApproval",
+  "typeHintIn": "ODataType"
+}

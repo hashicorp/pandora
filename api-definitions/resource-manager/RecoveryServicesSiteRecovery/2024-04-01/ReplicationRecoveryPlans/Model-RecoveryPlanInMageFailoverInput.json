@@ -7,7 +7,9 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RpInMageRecoveryPointType"
+        "nullable": false,
+        "referenceName": "RpInMageRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
   "discriminatedTypeValue": "InMage",
   "typeHintIn": "InstanceType"

@@ -7,7 +7,9 @@
       "name": "AzureServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowType"
+        "nullable": false,
+        "referenceName": "AllowType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CallerClientIP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AllowType"
+        "nullable": false,
+        "referenceName": "AllowType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "IPRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

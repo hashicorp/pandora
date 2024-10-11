@@ -4,10 +4,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "apiDefinitionUrl",
-      "name": "ApiDefinitionUrl",
+      "name": "ApiDefinitionURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApiDefinitions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceDefinitions"
+        "nullable": false,
+        "referenceName": "ApiResourceDefinitions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BackendService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceBackendService"
+        "nullable": false,
+        "referenceName": "ApiResourceBackendService",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Capabilities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "Category",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiTier"
+        "nullable": false,
+        "referenceName": "ApiTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,10 +88,14 @@
       "name": "ConnectionParameters",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -93,7 +109,9 @@
       "name": "DeploymentParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentManagedApiDeploymentParameters"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentManagedApiDeploymentParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "GeneralInformation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceGeneralInformation"
+        "nullable": false,
+        "referenceName": "ApiResourceGeneralInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "IntegrationServiceEnvironment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceReference"
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourceMetadata"
+        "nullable": false,
+        "referenceName": "ApiResourceMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,7 +184,9 @@
       "name": "Policies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiResourcePolicies"
+        "nullable": false,
+        "referenceName": "ApiResourcePolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +199,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkflowProvisioningState"
+        "nullable": false,
+        "referenceName": "WorkflowProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -181,13 +211,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "runtimeUrls",
-      "name": "RuntimeUrls",
+      "name": "RuntimeURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -195,5 +229,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

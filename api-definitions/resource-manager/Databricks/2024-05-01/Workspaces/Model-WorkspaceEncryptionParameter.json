@@ -7,7 +7,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomParameterType"
+        "nullable": false,
+        "referenceName": "CustomParameterType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Value",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Encryption"
+        "nullable": false,
+        "referenceName": "Encryption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

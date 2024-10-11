@@ -7,7 +7,9 @@
       "name": "IsEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NotificationCategory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationCategory"
+        "nullable": false,
+        "referenceName": "NotificationCategory",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "NotificationLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NotificationLevel"
+        "nullable": false,
+        "referenceName": "NotificationLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "NotificationTargets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NotificationTarget"
+          "nullable": false,
+          "referenceName": "NotificationTarget",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -57,5 +67,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

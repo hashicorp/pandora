@@ -7,7 +7,9 @@
       "name": "AddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "AddressPrefixes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "ApplicationGatewayIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "DefaultOutboundAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "Delegations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Delegation"
+          "nullable": false,
+          "referenceName": "Delegation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,10 +100,14 @@
       "name": "IPAllocations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,10 +121,14 @@
       "name": "IPConfigurationProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPConfigurationProfile"
+          "nullable": false,
+          "referenceName": "IPConfigurationProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -118,10 +142,14 @@
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPConfiguration"
+          "nullable": false,
+          "referenceName": "IPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,7 +163,9 @@
       "name": "NatGateway",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,7 +178,9 @@
       "name": "NetworkSecurityGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkSecurityGroup"
+        "nullable": false,
+        "referenceName": "NetworkSecurityGroup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,7 +193,9 @@
       "name": "PrivateEndpointNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPrivateEndpointNetworkPolicies"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPrivateEndpointNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,10 +208,14 @@
       "name": "PrivateEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpoint"
+          "nullable": false,
+          "referenceName": "PrivateEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -191,7 +229,9 @@
       "name": "PrivateLinkServiceNetworkPolicies",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualNetworkPrivateLinkServiceNetworkPolicies"
+        "nullable": false,
+        "referenceName": "VirtualNetworkPrivateLinkServiceNetworkPolicies",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -204,7 +244,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -217,7 +259,9 @@
       "name": "Purpose",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -230,10 +274,14 @@
       "name": "ResourceNavigationLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ResourceNavigationLink"
+          "nullable": false,
+          "referenceName": "ResourceNavigationLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -247,7 +295,9 @@
       "name": "RouteTable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RouteTable"
+        "nullable": false,
+        "referenceName": "RouteTable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -260,10 +310,14 @@
       "name": "ServiceAssociationLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceAssociationLink"
+          "nullable": false,
+          "referenceName": "ServiceAssociationLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -277,10 +331,14 @@
       "name": "ServiceEndpointPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpointPolicy"
+          "nullable": false,
+          "referenceName": "ServiceEndpointPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -294,10 +352,14 @@
       "name": "ServiceEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceEndpointPropertiesFormat"
+          "nullable": false,
+          "referenceName": "ServiceEndpointPropertiesFormat",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -305,5 +367,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

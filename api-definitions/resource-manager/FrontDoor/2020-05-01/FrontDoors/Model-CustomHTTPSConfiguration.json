@@ -7,7 +7,9 @@
       "name": "CertificateSource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorCertificateSource"
+        "nullable": false,
+        "referenceName": "FrontDoorCertificateSource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FrontDoorCertificateSourceParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorCertificateSourceParameters"
+        "nullable": false,
+        "referenceName": "FrontDoorCertificateSourceParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "KeyVaultCertificateSourceParameters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyVaultCertificateSourceParameters"
+        "nullable": false,
+        "referenceName": "KeyVaultCertificateSourceParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MinimumTlsVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MinimumTLSVersion"
+        "nullable": false,
+        "referenceName": "MinimumTLSVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "ProtocolType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorTlsProtocolType"
+        "nullable": false,
+        "referenceName": "FrontDoorTlsProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

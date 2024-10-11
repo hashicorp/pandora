@@ -7,7 +7,9 @@
       "name": "AnalyticsWorkspaceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilityZones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "ClusterVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClusterAvailableVersion"
+          "nullable": false,
+          "referenceName": "ClusterAvailableVersion",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "DetailedStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterManagerDetailedStatus"
+        "nullable": false,
+        "referenceName": "ClusterManagerDetailedStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "DetailedStatusMessage",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "FabricControllerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "ManagerExtendedLocation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExtendedLocation"
+        "nullable": false,
+        "referenceName": "ExtendedLocation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClusterManagerProvisioningState"
+        "nullable": false,
+        "referenceName": "ClusterManagerProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,12 +148,15 @@
       "name": "VMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

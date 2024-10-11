@@ -7,7 +7,9 @@
       "name": "Header",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Match",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HeaderMatchMatch"
+        "nullable": false,
+        "referenceName": "HeaderMatchMatch",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

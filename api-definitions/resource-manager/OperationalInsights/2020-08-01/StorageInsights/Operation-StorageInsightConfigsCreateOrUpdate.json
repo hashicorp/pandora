@@ -1,6 +1,7 @@
 {
   "name": "StorageInsightConfigsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "StorageInsightConfigId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageInsight"
+    "nullable": false,
+    "referenceName": "StorageInsight",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageInsight"
+    "nullable": false,
+    "referenceName": "StorageInsight",
+    "referenceNameIsCommonType": null
   }
 }

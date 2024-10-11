@@ -7,7 +7,9 @@
       "name": "Connector",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowEndpoints"
+        "nullable": false,
+        "referenceName": "FlowEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Workflow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FlowEndpoints"
+        "nullable": false,
+        "referenceName": "FlowEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

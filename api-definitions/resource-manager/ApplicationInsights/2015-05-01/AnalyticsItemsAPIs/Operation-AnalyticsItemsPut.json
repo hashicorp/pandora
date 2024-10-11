@@ -1,6 +1,7 @@
 {
   "name": "AnalyticsItemsPut",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PUT",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "overrideItem",
       "required": false,
@@ -21,11 +23,15 @@
   "resourceIdName": "ProviderComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAnalyticsItem",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAnalyticsItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/item"
 }

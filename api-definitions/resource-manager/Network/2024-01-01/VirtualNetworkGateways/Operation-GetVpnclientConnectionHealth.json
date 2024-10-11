@@ -1,6 +1,7 @@
 {
   "name": "GetVpnclientConnectionHealth",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "VirtualNetworkGatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VpnClientConnectionHealthDetailListResult"
+    "nullable": false,
+    "referenceName": "VpnClientConnectionHealthDetailListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getVpnClientConnectionHealth"
 }

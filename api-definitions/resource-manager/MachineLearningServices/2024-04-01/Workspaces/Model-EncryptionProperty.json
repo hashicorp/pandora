@@ -7,7 +7,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IdentityForCmk"
+        "nullable": false,
+        "referenceName": "IdentityForCmk",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeyVaultProperties"
+        "nullable": false,
+        "referenceName": "EncryptionKeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionStatus"
+        "nullable": false,
+        "referenceName": "EncryptionStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

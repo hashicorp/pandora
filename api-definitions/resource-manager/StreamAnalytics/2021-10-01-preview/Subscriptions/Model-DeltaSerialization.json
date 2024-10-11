@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeltaSerializationProperties"
+        "nullable": false,
+        "referenceName": "DeltaSerializationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Serialization",
   "discriminatedTypeValue": "Delta",
   "typeHintIn": "Type"

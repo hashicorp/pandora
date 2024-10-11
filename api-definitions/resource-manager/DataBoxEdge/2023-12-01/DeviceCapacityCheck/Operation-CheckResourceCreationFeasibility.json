@@ -1,6 +1,7 @@
 {
   "name": "CheckResourceCreationFeasibility",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "capacityName",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DeviceCapacityRequestInfo"
+    "nullable": false,
+    "referenceName": "DeviceCapacityRequestInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/deviceCapacityCheck"
 }

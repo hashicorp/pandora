@@ -7,7 +7,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeRecurrenceFrequency"
+        "nullable": false,
+        "referenceName": "ComputeRecurrenceFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Interval",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeRecurrenceSchedule"
+        "nullable": false,
+        "referenceName": "ComputeRecurrenceSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "StartTime",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "TimeZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

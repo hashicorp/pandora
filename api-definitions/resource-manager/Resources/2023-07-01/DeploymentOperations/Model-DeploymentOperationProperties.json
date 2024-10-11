@@ -7,7 +7,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProvisioningOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningOperation"
+        "nullable": false,
+        "referenceName": "ProvisioningOperation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Request",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessage"
+        "nullable": false,
+        "referenceName": "HTTPMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Response",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HTTPMessage"
+        "nullable": false,
+        "referenceName": "HTTPMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ServiceRequestId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "StatusCode",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "StatusMessage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StatusMessage"
+        "nullable": false,
+        "referenceName": "StatusMessage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "TargetResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetResource"
+        "nullable": false,
+        "referenceName": "TargetResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,12 +143,15 @@
       "name": "Timestamp",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

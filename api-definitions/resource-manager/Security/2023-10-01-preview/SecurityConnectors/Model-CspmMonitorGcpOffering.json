@@ -7,7 +7,9 @@
       "name": "NativeCloudConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CspmMonitorGcpOfferingNativeCloudConnection"
+        "nullable": false,
+        "referenceName": "CspmMonitorGcpOfferingNativeCloudConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "CspmMonitorGcp",
   "typeHintIn": "OfferingType"

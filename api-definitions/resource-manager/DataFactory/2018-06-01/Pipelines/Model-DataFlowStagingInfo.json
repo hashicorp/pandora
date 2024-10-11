@@ -7,7 +7,9 @@
       "name": "FolderPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LinkedService",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinkedServiceReference"
+        "nullable": false,
+        "referenceName": "LinkedServiceReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "GetExtendedInformation",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "DataBoxEdgeDeviceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DataBoxEdgeDeviceExtendedInfo"
+    "nullable": false,
+    "referenceName": "DataBoxEdgeDeviceExtendedInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getExtendedInformation"
 }

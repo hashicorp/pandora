@@ -1,0 +1,25 @@
+{
+  "name": "ServiceLevelAgreementRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collects the Microsoft Entra SLA attainment for each month for a Microsoft Entra tenant.",
+      "jsonName": "azureADAuthentication",
+      "name": "AzureADAuthentication",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureADAuthentication",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.serviceLevelAgreementRoot",
+  "typeHintIn": "ODataType"
+}

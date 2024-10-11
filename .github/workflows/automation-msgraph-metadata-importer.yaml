@@ -5,7 +5,6 @@ on:
     branches:
       - fake_name_to_disable_trigger
     paths:
-      - '.github/workflows/**'
       - 'config/microsoft-graph.hcl'
       - 'submodules/msgraph-metadata'
       - 'tools/importer-msgraph/**'
@@ -37,7 +36,7 @@ jobs:
           cd ./tools/importer-msgraph-metadata
           make tools
           make build
-          make import-all-clean
+          make import
         env:
           PANDORA_LOG: WARN
 

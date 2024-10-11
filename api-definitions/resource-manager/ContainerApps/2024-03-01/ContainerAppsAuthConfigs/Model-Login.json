@@ -4,13 +4,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "allowedExternalRedirectUrls",
-      "name": "AllowedExternalRedirectUrls",
+      "name": "AllowedExternalRedirectURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "CookieExpiration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CookieExpiration"
+        "nullable": false,
+        "referenceName": "CookieExpiration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Nonce",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Nonce"
+        "nullable": false,
+        "referenceName": "Nonce",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,10 +55,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "preserveUrlFragmentsForLogins",
-      "name": "PreserveUrlFragmentsForLogins",
+      "name": "PreserveURLFragmentsForLogins",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Routes",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoginRoutes"
+        "nullable": false,
+        "referenceName": "LoginRoutes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,12 +88,15 @@
       "name": "TokenStore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TokenStore"
+        "nullable": false,
+        "referenceName": "TokenStore",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

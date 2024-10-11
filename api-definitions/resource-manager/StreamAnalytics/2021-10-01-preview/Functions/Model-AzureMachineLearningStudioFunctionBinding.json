@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMachineLearningStudioFunctionBindingProperties"
+        "nullable": false,
+        "referenceName": "AzureMachineLearningStudioFunctionBindingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FunctionBinding",
   "discriminatedTypeValue": "Microsoft.MachineLearning/WebService",
   "typeHintIn": "Type"

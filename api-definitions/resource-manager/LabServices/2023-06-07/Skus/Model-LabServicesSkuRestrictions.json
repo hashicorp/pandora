@@ -7,7 +7,9 @@
       "name": "ReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestrictionReasonCode"
+        "nullable": false,
+        "referenceName": "RestrictionReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestrictionType"
+        "nullable": false,
+        "referenceName": "RestrictionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -44,5 +52,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

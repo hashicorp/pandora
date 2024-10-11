@@ -17,7 +17,7 @@ type ResourceId struct {
 	// during `terraform import` examples.
 	Id string `json:"id"` // TODO: does this want renaming to `ExampleValue` to be clearer?
 
-	// Segments specifies the ordered list of ResourceIdSegments which comprise this Resource Id.
+	// Segments specifies the ordered list of ResourceIdSegments which comprise this ResourceId.
 	// Typically, these comprise Static and UserSpecified Segment Types.
 	Segments []ResourceIdSegment `json:"segments"`
 }
@@ -26,6 +26,13 @@ type ResourceIdSegment struct {
 	// ConstantName specifies the name of the Constant used for this ResourceIdSegment when
 	// Type is set to ConstantResourceIdSegmentType.
 	ConstantName *string `json:"constantName,omitempty"`
+
+	// ExampleValue provides an example of a valid value for this ResourceIDSegment.
+	// When this is absent in the API definition, an example value is automatically populated in
+	// the SDK model when the API definitions are loaded, so this isn't mandatory, but does
+	// override the generated value. This is only used for UserSpecified segment types, and is
+	// ignored for Constant segment types.
+	ExampleValue string `json:"exampleValue"`
 
 	// Name specifies the name for this ResourceId segment, which should be both unique and
 	// type safe and unique - as this is used as both the name of a Field.

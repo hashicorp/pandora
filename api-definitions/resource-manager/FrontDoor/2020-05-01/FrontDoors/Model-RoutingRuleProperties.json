@@ -7,10 +7,14 @@
       "name": "AcceptedProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontDoorProtocol"
+          "nullable": false,
+          "referenceName": "FrontDoorProtocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingRuleEnabledState"
+        "nullable": false,
+        "referenceName": "RoutingRuleEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "FrontendEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "PatternsToMatch",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +85,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FrontDoorResourceState"
+        "nullable": false,
+        "referenceName": "FrontDoorResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,7 +100,9 @@
       "name": "RouteConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RouteConfiguration"
+        "nullable": false,
+        "referenceName": "RouteConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "RulesEngine",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,12 +130,15 @@
       "name": "WebApplicationFirewallPolicyLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink"
+        "nullable": false,
+        "referenceName": "RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

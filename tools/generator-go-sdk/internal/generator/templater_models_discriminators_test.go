@@ -26,7 +26,7 @@ func TestTemplaterModelsParent(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
@@ -70,23 +70,41 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
 
 type ModeOfTransit interface {
+	ModeOfTransit() BaseModeOfTransitImpl
 }
 
-// RawModeOfTransitImpl is returned when the Discriminated Value
-// doesn't match any of the defined types
+var _ ModeOfTransit = BaseModeOfTransitImpl{}
+
+type BaseModeOfTransitImpl struct {
+	Type string ''json:"type"''
+}
+
+func (s BaseModeOfTransitImpl) ModeOfTransit() BaseModeOfTransitImpl {
+	return s
+}
+
+var _ ModeOfTransit = RawModeOfTransitImpl{}
+
+// RawModeOfTransitImpl is returned when the Discriminated Value doesn't match any of the defined types
 // NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
 // and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
 type RawModeOfTransitImpl struct {
+	modeOfTransit BaseModeOfTransitImpl
 	Type string
 	Values map[string]interface{}
 }
 
-func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
+func (s RawModeOfTransitImpl) ModeOfTransit() BaseModeOfTransitImpl {
+	return s.modeOfTransit
+}
+
+func UnmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -96,9 +114,9 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 		return nil, fmt.Errorf("unmarshaling ModeOfTransit into map[string]interface: %+v", err)
 	}
 
-	value, ok := temp["type"].(string)
-	if !ok {
-		return nil, nil
+	var value string
+	if v, ok := temp["type"]; ok {
+		value = fmt.Sprintf("%v", v)
 	}
 
 	if strings.EqualFold(value, "car") {
@@ -117,11 +135,16 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 		return out, nil
 	}
 
-	out := RawModeOfTransitImpl{
-		Type:   value,
-		Values: temp,
+	var parent BaseModeOfTransitImpl
+	if err := json.Unmarshal(input, &parent); err != nil {
+		return nil, fmt.Errorf("unmarshaling into BaseModeOfTransitImpl: %+v", err)
 	}
-	return out, nil
+
+	return RawModeOfTransitImpl{
+		modeOfTransit: parent,
+		Type: value,
+		Values: temp,
+	}, nil
 }
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
@@ -151,12 +174,19 @@ func TestTemplaterModelsImplementation(t *testing.T) {
 			ParentTypeName:                        stringPointer("ModeOfTransit"),
 			DiscriminatedValue:                    stringPointer("train"),
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
 				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
 					"Type": {
 						ContainsDiscriminatedValue: true,
 						JsonName:                   "type",
@@ -206,6 +236,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -217,6 +248,15 @@ type Train struct {
 	Operator string ''json:"operator"''
 
 	// Fields inherited from ModeOfTransit
+	Name string ''json:"name"''
+	Type string ''json:"type"''
+}
+
+func (s Train) ModeOfTransit() BaseModeOfTransitImpl {
+	return BaseModeOfTransitImpl{
+		Name: s.Name,
+		Type: s.Type,
+	}
 }
 
 var _ json.Marshaler = Train{}
@@ -230,10 +270,153 @@ func (s Train) MarshalJSON() ([]byte, error) {
 	}
 
 	var decoded map[string]interface{}
-	if err := json.Unmarshal(encoded, &decoded); err != nil {
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling Train: %+v", err)
 	}
 	decoded["type"] = "train"
+
+	encoded, err = json.Marshal(decoded)
+	if err != nil {
+		return nil, fmt.Errorf("re-marshaling Train: %+v", err)
+	}
+
+	return encoded, nil
+}
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplaterModelsImplementationWithModelBehaviors(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "Train",
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
+				"Number": {
+					Required: true,
+					JsonName: "number",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+				},
+				"Operator": {
+					Required: true,
+					JsonName: "operator",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+				},
+			},
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			ParentTypeName:                        stringPointer("ModeOfTransit"),
+			DiscriminatedValue:                    stringPointer("train"),
+		},
+	}.template(GeneratorData{
+		allowOmittingDiscriminatedValue: true,
+		packageName:                     "somepackage",
+		models: map[string]models.SDKModel{
+			"ModeOfTransit": {
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+					"Type": {
+						ContainsDiscriminatedValue: true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+						Required: true,
+					},
+				},
+			},
+			"Train": {
+				Fields: map[string]models.SDKField{
+					"Number": {
+						Required: true,
+						JsonName: "number",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+					"Operator": {
+						Required: true,
+						JsonName: "operator",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+				},
+				DiscriminatedValue:                    stringPointer("train"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
+)
+
+// acctests licence placeholder
+
+var _ ModeOfTransit = Train{}
+
+type Train struct {
+	Number string ''json:"number"''
+	Operator string ''json:"operator"''
+
+	// Fields inherited from ModeOfTransit
+	Name string ''json:"name"''
+	Type string ''json:"type"''
+
+	// Model behaviors
+	OmitDiscriminatedValue bool ''json:"-"''
+}
+
+func (s Train) ModeOfTransit() BaseModeOfTransitImpl {
+	return BaseModeOfTransitImpl{
+		Name: s.Name,
+		Type: s.Type,
+	}
+}
+
+var _ json.Marshaler = Train{}
+
+func (s Train) MarshalJSON() ([]byte, error) {
+	type wrapper Train
+	wrapped := wrapper(s)
+	encoded, err := json.Marshal(wrapped)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling Train: %+v", err)
+	}
+
+	var decoded map[string]interface{}
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
+		return nil, fmt.Errorf("unmarshaling Train: %+v", err)
+	}
+
+	if !s.OmitDiscriminatedValue {
+		decoded["type"] = "train"
+	}
 
 	encoded, err = json.Marshal(decoded)
 	if err != nil {
@@ -261,12 +444,19 @@ func TestTemplaterModelsFieldImplementation(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
 				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 				Fields: map[string]models.SDKField{
+					"Name": {
+						Required: true,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
 					"Type": {
 						ContainsDiscriminatedValue: true,
 						JsonName:                   "type",
@@ -328,6 +518,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -356,7 +547,7 @@ func TestTemplaterModelsImplementationInheritedFromParentType(t *testing.T) {
 			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 			ParentTypeName:                        stringPointer("First"),
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"First": {
@@ -429,6 +620,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -439,6 +631,13 @@ type FirstImplementation struct {
 	Serialization Serialization ''json:"serialization"''
 
 	// Fields inherited from First
+	Type string ''json:"type"''
+}
+
+func (s FirstImplementation) First() BaseFirstImpl {
+	return BaseFirstImpl{
+		Type: s.Type,
+	}
 }
 
 var _ json.Marshaler = FirstImplementation{}
@@ -452,7 +651,7 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 	}
 
 	var decoded map[string]interface{}
-	if err := json.Unmarshal(encoded, &decoded); err != nil {
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
 		return nil, fmt.Errorf("unmarshaling FirstImplementation: %+v", err)
 	}
 	decoded["type"] = "first"
@@ -468,6 +667,15 @@ func (s FirstImplementation) MarshalJSON() ([]byte, error) {
 var _ json.Unmarshaler = &FirstImplementation{}
 
 func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
+	var decoded struct {
+		Type string ''json:"type"''
+	}
+	if err := json.Unmarshal(bytes, &decoded); err != nil {
+		return fmt.Errorf("unmarshaling: %+v", err)
+	}
+
+	s.Type = decoded.Type
+
 	var temp map[string]json.RawMessage
 	if err := json.Unmarshal(bytes, &temp); err != nil {
 		return fmt.Errorf("unmarshaling FirstImplementation into map[string]json.RawMessage: %+v", err)

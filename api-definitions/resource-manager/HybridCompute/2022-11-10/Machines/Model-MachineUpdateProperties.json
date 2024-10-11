@@ -7,7 +7,9 @@
       "name": "CloudMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudMetadata"
+        "nullable": false,
+        "referenceName": "CloudMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LocationData",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LocationData"
+        "nullable": false,
+        "referenceName": "LocationData",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "OsProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OSProfile"
+        "nullable": false,
+        "referenceName": "OSProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ParentClusterResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "PrivateLinkScopeResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

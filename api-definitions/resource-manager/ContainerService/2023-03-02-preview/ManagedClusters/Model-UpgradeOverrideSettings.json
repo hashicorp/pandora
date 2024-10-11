@@ -7,10 +7,14 @@
       "name": "ControlPlaneOverrides",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ControlPlaneUpgradeOverride"
+          "nullable": false,
+          "referenceName": "ControlPlaneUpgradeOverride",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -25,12 +29,15 @@
       "name": "Until",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

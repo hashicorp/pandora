@@ -7,7 +7,9 @@
       "name": "EncryptionSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemEncryptionSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemEncryptionSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow"
+        "nullable": false,
+        "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "RootSquashSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AmlFilesystemRootSquashSettings"
+        "nullable": false,
+        "referenceName": "AmlFilesystemRootSquashSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

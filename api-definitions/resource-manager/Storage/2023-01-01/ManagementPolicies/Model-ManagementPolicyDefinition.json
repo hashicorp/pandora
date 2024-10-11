@@ -7,7 +7,9 @@
       "name": "Actions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyAction"
+        "nullable": false,
+        "referenceName": "ManagementPolicyAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Filters",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagementPolicyFilter"
+        "nullable": false,
+        "referenceName": "ManagementPolicyFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

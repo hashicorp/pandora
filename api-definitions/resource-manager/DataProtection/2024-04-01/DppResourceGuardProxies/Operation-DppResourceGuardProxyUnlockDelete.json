@@ -1,6 +1,7 @@
 {
   "name": "DppResourceGuardProxyUnlockDelete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-authorization-auxiliary",
       "optional": true,
       "required": false,
@@ -21,11 +23,15 @@
   "resourceIdName": "BackupResourceGuardProxyId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "UnlockDeleteRequest"
+    "nullable": false,
+    "referenceName": "UnlockDeleteRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "UnlockDeleteResponse"
+    "nullable": false,
+    "referenceName": "UnlockDeleteResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/unlockDelete"
 }

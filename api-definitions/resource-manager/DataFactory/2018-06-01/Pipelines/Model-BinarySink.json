@@ -7,7 +7,9 @@
       "name": "StoreSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StoreWriteSettings"
+        "nullable": false,
+        "referenceName": "StoreWriteSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CopySink",
   "discriminatedTypeValue": "BinarySink",
   "typeHintIn": "Type"

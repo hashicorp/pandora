@@ -7,7 +7,9 @@
       "name": "Level",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogLevel"
+        "nullable": false,
+        "referenceName": "LogLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -17,15 +19,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "sasUrl",
-      "name": "SasUrl",
+      "name": "SasURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

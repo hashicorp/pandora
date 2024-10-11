@@ -1,6 +1,7 @@
 {
   "name": "ClusterManagersListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterManager"
+    "nullable": false,
+    "referenceName": "ClusterManager",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.NetworkCloud/clusterManagers"
 }

@@ -7,7 +7,9 @@
       "name": "ConsistencyMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsistencyModeTypes"
+        "nullable": false,
+        "referenceName": "ConsistencyModeTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ExcludeDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiEntityReference"
+          "nullable": false,
+          "referenceName": "ApiEntityReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "InstanceView",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePointInstanceView"
+        "nullable": false,
+        "referenceName": "RestorePointInstanceView",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "SourceMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RestorePointSourceMetadata"
+        "nullable": false,
+        "referenceName": "RestorePointSourceMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "SourceRestorePoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiEntityReference"
+        "nullable": false,
+        "referenceName": "ApiEntityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,12 +104,15 @@
       "name": "TimeCreated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "Value",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FirewallRule"
+          "nullable": false,
+          "referenceName": "FirewallRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +22,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

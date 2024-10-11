@@ -1,0 +1,111 @@
+{
+  "name": "DeviceEnrollmentNotificationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Branding Options for the Message Template. Branding is defined in the Intune Admin Console.",
+      "jsonName": "brandingOptions",
+      "name": "BrandingOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EnrollmentNotificationBrandingOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "DefaultLocale for the Enrollment Notification",
+      "jsonName": "defaultLocale",
+      "name": "DefaultLocale",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Notification Message Template Id",
+      "jsonName": "notificationMessageTemplateId",
+      "name": "NotificationMessageTemplateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of notification data -",
+      "jsonName": "notificationTemplates",
+      "name": "NotificationTemplates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This enum indicates the platform type for which the enrollment restriction applies.",
+      "jsonName": "platformType",
+      "name": "PlatformType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EnrollmentRestrictionPlatformType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "This enum indicates the Template type for which the enrollment notification applies.",
+      "jsonName": "templateType",
+      "name": "TemplateType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EnrollmentNotificationTemplateType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceEnrollmentConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.deviceEnrollmentNotificationConfiguration",
+  "typeHintIn": "ODataType"
+}

@@ -1,6 +1,7 @@
 {
   "name": "PolicyRestrictionsCheckAtManagementGroupScope",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ManagementGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckManagementGroupRestrictionsRequest"
+    "nullable": false,
+    "referenceName": "CheckManagementGroupRestrictionsRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckRestrictionsResult"
+    "nullable": false,
+    "referenceName": "CheckRestrictionsResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.PolicyInsights/checkPolicyRestrictions"
 }

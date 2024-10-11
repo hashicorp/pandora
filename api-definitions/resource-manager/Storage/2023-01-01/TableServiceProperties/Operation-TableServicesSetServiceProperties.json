@@ -1,6 +1,7 @@
 {
   "name": "TableServicesSetServiceProperties",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "StorageAccountId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TableServiceProperties"
+    "nullable": false,
+    "referenceName": "TableServiceProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TableServiceProperties"
+    "nullable": false,
+    "referenceName": "TableServiceProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/tableServices/default"
 }

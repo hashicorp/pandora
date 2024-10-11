@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "WebHookId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Webhook"
+    "nullable": false,
+    "referenceName": "Webhook",
+    "referenceNameIsCommonType": null
   }
 }

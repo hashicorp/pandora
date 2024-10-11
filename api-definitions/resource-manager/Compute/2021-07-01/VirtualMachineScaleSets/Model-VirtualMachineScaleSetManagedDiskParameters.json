@@ -7,7 +7,9 @@
       "name": "DiskEncryptionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "StorageAccountType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAccountTypes"
+        "nullable": false,
+        "referenceName": "StorageAccountTypes",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

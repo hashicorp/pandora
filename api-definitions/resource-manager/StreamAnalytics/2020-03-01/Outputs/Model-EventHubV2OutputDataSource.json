@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventHubOutputDataSourceProperties"
+        "nullable": false,
+        "referenceName": "EventHubOutputDataSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "OutputDataSource",
   "discriminatedTypeValue": "Microsoft.EventHub/EventHub",
   "typeHintIn": "Type"

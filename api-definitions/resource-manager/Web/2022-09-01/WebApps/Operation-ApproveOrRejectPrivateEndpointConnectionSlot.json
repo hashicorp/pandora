@@ -1,6 +1,7 @@
 {
   "name": "ApproveOrRejectPrivateEndpointConnectionSlot",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "SlotPrivateEndpointConnectionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RemotePrivateEndpointConnectionARMResource"
+    "nullable": false,
+    "referenceName": "RemotePrivateEndpointConnectionARMResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RemotePrivateEndpointConnectionARMResource"
+    "nullable": false,
+    "referenceName": "RemotePrivateEndpointConnectionARMResource",
+    "referenceNameIsCommonType": null
   }
 }

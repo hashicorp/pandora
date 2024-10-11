@@ -2,12 +2,14 @@
   "name": "CommandProperties",
   "fields": [
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "jsonName": "commandType",
       "name": "CommandType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Errors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ODataError"
+          "nullable": false,
+          "referenceName": "ODataError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +43,16 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CommandState"
+        "nullable": false,
+        "referenceName": "CommandState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false,
+  "typeHintIn": "CommandType"
 }

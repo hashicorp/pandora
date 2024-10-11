@@ -1,6 +1,7 @@
 {
   "name": "ReplaceAll",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ReplaceAllIPFirewallRulesRequest"
+    "nullable": false,
+    "referenceName": "ReplaceAllIPFirewallRulesRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplaceAllFirewallRulesOperationResponse"
+    "nullable": false,
+    "referenceName": "ReplaceAllFirewallRulesOperationResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/replaceAllIpFirewallRules"
 }

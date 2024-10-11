@@ -7,10 +7,14 @@
       "name": "GroupIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "PrivateEndpoint",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateEndpoint"
+        "nullable": false,
+        "referenceName": "PrivateEndpoint",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "PrivateLinkServiceConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionState"
+        "nullable": false,
+        "referenceName": "ConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceProvisioningState"
+        "nullable": false,
+        "referenceName": "ResourceProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

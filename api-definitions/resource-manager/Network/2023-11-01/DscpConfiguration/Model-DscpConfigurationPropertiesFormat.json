@@ -7,10 +7,14 @@
       "name": "AssociatedNetworkInterfaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NetworkInterface"
+          "nullable": false,
+          "referenceName": "NetworkInterface",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "DestinationIPRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QosIPRange"
+          "nullable": false,
+          "referenceName": "QosIPRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,10 +49,14 @@
       "name": "DestinationPortRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QosPortRange"
+          "nullable": false,
+          "referenceName": "QosPortRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -58,10 +70,14 @@
       "name": "Markings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Integer",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -75,7 +91,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtocolType"
+        "nullable": false,
+        "referenceName": "ProtocolType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -88,7 +106,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,7 +121,9 @@
       "name": "QosCollectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,10 +136,14 @@
       "name": "QosDefinitionCollection",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QosDefinition"
+          "nullable": false,
+          "referenceName": "QosDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,7 +157,9 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,10 +172,14 @@
       "name": "SourceIPRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QosIPRange"
+          "nullable": false,
+          "referenceName": "QosIPRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -161,10 +193,14 @@
       "name": "SourcePortRanges",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "QosPortRange"
+          "nullable": false,
+          "referenceName": "QosPortRange",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -172,5 +208,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AgreementType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementType"
+        "nullable": false,
+        "referenceName": "AgreementType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "Content",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AgreementContent"
+        "nullable": false,
+        "referenceName": "AgreementContent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -48,7 +54,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,7 +69,9 @@
       "name": "GuestIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -74,7 +84,9 @@
       "name": "GuestPartner",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -87,7 +99,9 @@
       "name": "HostIdentity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BusinessIdentity"
+        "nullable": false,
+        "referenceName": "BusinessIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -100,7 +114,9 @@
       "name": "HostPartner",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -113,12 +129,15 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

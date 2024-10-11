@@ -8,7 +8,9 @@
       "name": "ExpiresOn",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -18,15 +20,18 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "invitationUrl",
-      "name": "InvitationUrl",
+      "name": "InvitationURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

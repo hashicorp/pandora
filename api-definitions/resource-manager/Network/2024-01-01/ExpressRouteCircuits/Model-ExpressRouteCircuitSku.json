@@ -7,7 +7,9 @@
       "name": "Family",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitSkuFamily"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitSkuFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitSkuTier"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitSkuTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

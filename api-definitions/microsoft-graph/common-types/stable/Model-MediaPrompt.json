@@ -1,0 +1,24 @@
+{
+  "name": "MediaPrompt",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mediaInfo",
+      "name": "MediaInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MediaInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Prompt",
+  "discriminatedTypeValue": "#microsoft.graph.mediaPrompt",
+  "typeHintIn": "ODataType"
+}

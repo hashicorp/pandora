@@ -7,7 +7,9 @@
       "name": "AzureMonitorAlertSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMonitorAlertSettings"
+        "nullable": false,
+        "referenceName": "AzureMonitorAlertSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ClassicAlertSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClassicAlertSettings"
+        "nullable": false,
+        "referenceName": "ClassicAlertSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

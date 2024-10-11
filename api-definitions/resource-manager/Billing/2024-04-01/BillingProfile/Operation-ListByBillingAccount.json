@@ -1,6 +1,7 @@
 {
   "name": "ListByBillingAccount",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "count",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeDeleted",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "orderBy",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "search",
       "required": false,
@@ -59,6 +65,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "skip",
       "required": false,
@@ -69,6 +76,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "top",
       "required": false,
@@ -82,7 +90,9 @@
   "resourceIdName": "BillingAccountId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingProfile"
+    "nullable": false,
+    "referenceName": "BillingProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/billingProfiles"
 }

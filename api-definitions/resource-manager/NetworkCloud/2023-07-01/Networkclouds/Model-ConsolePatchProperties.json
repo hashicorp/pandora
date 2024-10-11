@@ -7,7 +7,9 @@
       "name": "Enabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsoleEnabled"
+        "nullable": false,
+        "referenceName": "ConsoleEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Expiration",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "SshPublicKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SshPublicKey"
+        "nullable": false,
+        "referenceName": "SshPublicKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

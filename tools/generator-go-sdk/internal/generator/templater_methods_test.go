@@ -14,7 +14,8 @@ import (
 // TODO: split the tests out into sub-groupings & add more coverage
 
 func TestTemplateMethodsGet(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -87,7 +88,8 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 }
 
 func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -165,7 +167,8 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 // As such these tests (whilst similar) cover the two different code paths.
 
 func TestTemplateMethodsListWithDiscriminatedType(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -333,7 +336,8 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 }
 
 func TestTemplateMethodsListWithSimpleType(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -454,7 +458,8 @@ func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result List
 }
 
 func TestTemplateMethodsListWithObject(t *testing.T) {
-	input := ServiceGeneratorData{
+	input := GeneratorData{
+		baseClientPackage: "testclient",
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
@@ -579,5 +584,202 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 }
 `, "`json:\"value\"`", "`json:\"nextLink\"`")
 
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplateGetMethodWithRetryFuncOption(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{200},
+			Method:              "GET",
+			Options: map[string]models.SDKOperationOption{
+				"TheRetryFunc": {
+					Type: models.SDKOperationOptionTypeRetryFunc,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
+			},
+		},
+		operationName: "Get",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+type GetOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+	Model *string
+}
+
+type GetOperationOptions struct {
+	TheRetryFunc client.RequestRetryFunc
+}
+
+func DefaultGetOperationOptions() GetOperationOptions {
+	return GetOperationOptions{}
+}
+
+func (o GetOperationOptions) ToHeaders() *client.Headers {
+	out := client.Headers{}
+	return &out
+}
+
+func (o GetOperationOptions) ToOData() *odata.Query {
+	out := odata.Query{}
+	return &out
+}
+
+func (o GetOperationOptions) ToQuery() *client.QueryParams {
+	out := client.QueryParams{}
+	return &out
+}
+
+// Get ...
+func (c pandaClient) Get(ctx context.Context , id PandaPop, options GetOperationOptions) (result GetOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		OptionsObject: options,
+		Path: id.ID(),
+		RetryFunc: options.TheRetryFunc,
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
+		return
+	}
+
+	var model string
+	result.Model = &model
+	if err = resp.Unmarshal(result.Model); err != nil {
+		return
+	}
+
+	return
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplatePutMethodWithContentTypeOption(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{204},
+			Method:              "PUT",
+			Options: map[string]models.SDKOperationOption{
+				"UploadContentType": {
+					Type: models.SDKOperationOptionTypeContentType,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+		},
+		operationName: "Put",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+type PutOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+}
+
+type PutOperationOptions struct {
+	UploadContentType string
+}
+
+func DefaultPutOperationOptions() PutOperationOptions {
+	return PutOperationOptions{}
+}
+
+func (o PutOperationOptions) ToHeaders() *client.Headers {
+	out := client.Headers{}
+	return &out
+}
+
+func (o PutOperationOptions) ToOData() *odata.Query {
+	out := odata.Query{}
+	return &out
+}
+
+func (o PutOperationOptions) ToQuery() *client.QueryParams {
+	out := client.QueryParams{}
+	return &out
+}
+
+// Put ...
+func (c pandaClient) Put(ctx context.Context , id PandaPop, options PutOperationOptions) (result PutOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: options.UploadContentType,
+		ExpectedStatusCodes: []int{
+			http.StatusNoContent,
+		},
+		HttpMethod: http.MethodPut,
+		OptionsObject: options,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
+		return
+	}
+
+	return
+}
+`
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

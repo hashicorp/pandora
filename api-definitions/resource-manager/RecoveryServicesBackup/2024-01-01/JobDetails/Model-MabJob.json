@@ -7,10 +7,14 @@
       "name": "ActionsInfo",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobSupportedAction"
+          "nullable": false,
+          "referenceName": "JobSupportedAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MabErrorInfo"
+          "nullable": false,
+          "referenceName": "MabErrorInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MabJobExtendedInfo"
+        "nullable": false,
+        "referenceName": "MabJobExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +79,9 @@
       "name": "MabServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "MabServerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MabServerType"
+        "nullable": false,
+        "referenceName": "MabServerType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "WorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadType"
+        "nullable": false,
+        "referenceName": "WorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -101,6 +119,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Job",
   "discriminatedTypeValue": "MabJob",
   "typeHintIn": "JobType"

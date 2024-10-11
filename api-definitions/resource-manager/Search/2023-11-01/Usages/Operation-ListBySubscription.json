@@ -1,6 +1,7 @@
 {
   "name": "ListBySubscription",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "headerName": "x-ms-client-request-id",
       "optional": true,
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QuotaUsageResult"
+    "nullable": false,
+    "referenceName": "QuotaUsageResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/usages"
 }

@@ -1,0 +1,73 @@
+{
+  "name": "UsedInsight",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Information about when the item was last viewed or modified by the user. Read only.",
+      "jsonName": "lastUsed",
+      "name": "LastUsed",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UsageDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.",
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Entity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Reference properties of the used document, such as the url and type of the document. Read-only",
+      "jsonName": "resourceReference",
+      "name": "ResourceReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Properties that you can use to visualize the document in your experience. Read-only",
+      "jsonName": "resourceVisualization",
+      "name": "ResourceVisualization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResourceVisualization",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.usedInsight",
+  "typeHintIn": "ODataType"
+}

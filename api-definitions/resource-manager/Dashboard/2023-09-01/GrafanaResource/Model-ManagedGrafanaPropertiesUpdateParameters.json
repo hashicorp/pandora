@@ -7,7 +7,9 @@
       "name": "ApiKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiKey"
+        "nullable": false,
+        "referenceName": "ApiKey",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeterministicOutboundIP",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeterministicOutboundIP"
+        "nullable": false,
+        "referenceName": "DeterministicOutboundIP",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "EnterpriseConfigurations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnterpriseConfigurations"
+        "nullable": false,
+        "referenceName": "EnterpriseConfigurations",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "GrafanaConfigurations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GrafanaConfigurations"
+        "nullable": false,
+        "referenceName": "GrafanaConfigurations",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "GrafanaIntegrations",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GrafanaIntegrations"
+        "nullable": false,
+        "referenceName": "GrafanaIntegrations",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "GrafanaMajorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "GrafanaPlugins",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GrafanaPlugin"
+          "nullable": false,
+          "referenceName": "GrafanaPlugin",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,12 +133,15 @@
       "name": "ZoneRedundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ZoneRedundancy"
+        "nullable": false,
+        "referenceName": "ZoneRedundancy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

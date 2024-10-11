@@ -7,10 +7,14 @@
       "name": "IncludedPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ClientEncryptionIncludedPath"
+          "nullable": false,
+          "referenceName": "ClientEncryptionIncludedPath",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,12 +28,15 @@
       "name": "PolicyFormatVersion",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

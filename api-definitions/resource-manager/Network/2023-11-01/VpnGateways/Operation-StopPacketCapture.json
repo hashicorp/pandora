@@ -1,6 +1,7 @@
 {
   "name": "StopPacketCapture",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VpnGatewayId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VpnGatewayPacketCaptureStopParameters"
+    "nullable": false,
+    "referenceName": "VpnGatewayPacketCaptureStopParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "String",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/stoppacketcapture"
 }

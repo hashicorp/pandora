@@ -1,0 +1,57 @@
+{
+  "name": "SharePointIdentitySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The group associated with this action. Optional.",
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Identity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The SharePoint group associated with this action. Optional.",
+      "jsonName": "siteGroup",
+      "name": "SiteGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SharePointIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The SharePoint user associated with this action. Optional.",
+      "jsonName": "siteUser",
+      "name": "SiteUser",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SharePointIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentitySet",
+  "discriminatedTypeValue": "#microsoft.graph.sharePointIdentitySet",
+  "typeHintIn": "ODataType"
+}

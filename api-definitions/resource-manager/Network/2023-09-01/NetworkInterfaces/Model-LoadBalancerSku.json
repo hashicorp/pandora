@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerSkuName"
+        "nullable": false,
+        "referenceName": "LoadBalancerSkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LoadBalancerSkuTier"
+        "nullable": false,
+        "referenceName": "LoadBalancerSkuTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

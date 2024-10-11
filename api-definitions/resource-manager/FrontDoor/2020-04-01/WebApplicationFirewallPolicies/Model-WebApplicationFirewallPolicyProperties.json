@@ -7,7 +7,9 @@
       "name": "CustomRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomRuleList"
+        "nullable": false,
+        "referenceName": "CustomRuleList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "FrontendEndpointLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "FrontendEndpointLink"
+          "nullable": false,
+          "referenceName": "FrontendEndpointLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ManagedRules",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedRuleSetList"
+        "nullable": false,
+        "referenceName": "ManagedRuleSetList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "PolicySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicySettings"
+        "nullable": false,
+        "referenceName": "PolicySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "ResourceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyResourceState"
+        "nullable": false,
+        "referenceName": "PolicyResourceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,10 +103,14 @@
       "name": "RoutingRuleLinks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RoutingRuleLink"
+          "nullable": false,
+          "referenceName": "RoutingRuleLink",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -100,5 +118,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

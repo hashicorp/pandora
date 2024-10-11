@@ -7,10 +7,14 @@
       "name": "AuthenticationCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayAuthenticationCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayAuthenticationCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AutoscaleConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayAutoscaleConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayAutoscaleConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "BackendAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendAddressPool"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "BackendHTTPSettingsCollection",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendHTTPSettings"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendHTTPSettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,10 +85,14 @@
       "name": "BackendSettingsCollection",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayBackendSettings"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayBackendSettings",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,10 +106,14 @@
       "name": "CustomErrorConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayCustomError"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayCustomError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -105,7 +127,9 @@
       "name": "DefaultPredefinedSslPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslPolicyName"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslPolicyName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -118,7 +142,9 @@
       "name": "EnableFips",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -131,7 +157,9 @@
       "name": "EnableHTTP2",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -144,7 +172,9 @@
       "name": "FirewallPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,7 +187,9 @@
       "name": "ForceFirewallPolicyAssociation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,10 +202,14 @@
       "name": "FrontendIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayFrontendIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayFrontendIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,10 +223,14 @@
       "name": "FrontendPorts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayFrontendPort"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayFrontendPort",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -204,10 +244,14 @@
       "name": "GatewayIPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayIPConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -221,7 +265,9 @@
       "name": "GlobalConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayGlobalConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayGlobalConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -234,10 +280,14 @@
       "name": "HTTPListeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayHTTPListener"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayHTTPListener",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -251,10 +301,14 @@
       "name": "Listeners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayListener"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayListener",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -268,10 +322,14 @@
       "name": "LoadDistributionPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayLoadDistributionPolicy"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayLoadDistributionPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -285,7 +343,9 @@
       "name": "OperationalState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayOperationalState"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayOperationalState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -298,10 +358,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayPrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayPrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -315,10 +379,14 @@
       "name": "PrivateLinkConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayPrivateLinkConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayPrivateLinkConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -332,10 +400,14 @@
       "name": "Probes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayProbe"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayProbe",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -349,7 +421,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -362,10 +436,14 @@
       "name": "RedirectConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRedirectConfiguration"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRedirectConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -379,10 +457,14 @@
       "name": "RequestRoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRequestRoutingRule"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRequestRoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -396,7 +478,9 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -409,10 +493,14 @@
       "name": "RewriteRuleSets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRewriteRuleSet"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRewriteRuleSet",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -426,10 +514,14 @@
       "name": "RoutingRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayRoutingRule"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayRoutingRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -443,7 +535,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySku"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -456,10 +550,14 @@
       "name": "SslCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewaySslCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewaySslCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -473,7 +571,9 @@
       "name": "SslPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewaySslPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationGatewaySslPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -486,10 +586,14 @@
       "name": "SslProfiles",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewaySslProfile"
+          "nullable": false,
+          "referenceName": "ApplicationGatewaySslProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -503,10 +607,14 @@
       "name": "TrustedClientCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayTrustedClientCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayTrustedClientCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -520,10 +628,14 @@
       "name": "TrustedRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayTrustedRootCertificate"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayTrustedRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -537,10 +649,14 @@
       "name": "UrlPathMaps",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationGatewayUrlPathMap"
+          "nullable": false,
+          "referenceName": "ApplicationGatewayURLPathMap",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -554,12 +670,15 @@
       "name": "WebApplicationFirewallConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationGatewayWebApplicationFirewallConfiguration"
+        "nullable": false,
+        "referenceName": "ApplicationGatewayWebApplicationFirewallConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

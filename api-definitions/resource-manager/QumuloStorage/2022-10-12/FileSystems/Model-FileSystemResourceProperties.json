@@ -7,7 +7,9 @@
       "name": "AdminPassword",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AvailabilityZone",
       "objectDefinition": {
         "type": "Zone",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -30,10 +34,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "clusterLoginUrl",
-      "name": "ClusterLoginUrl",
+      "name": "ClusterLoginURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DelegatedSubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "InitialCapacity",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetails"
+        "nullable": false,
+        "referenceName": "MarketplaceDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "PrivateIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "StorageSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageSku"
+        "nullable": false,
+        "referenceName": "StorageSku",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -128,12 +148,15 @@
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserDetails"
+        "nullable": false,
+        "referenceName": "UserDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

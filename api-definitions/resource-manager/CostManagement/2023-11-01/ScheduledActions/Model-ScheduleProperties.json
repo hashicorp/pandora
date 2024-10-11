@@ -7,7 +7,9 @@
       "name": "DayOfMonth",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "DaysOfWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DaysOfWeek"
+          "nullable": false,
+          "referenceName": "DaysOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -38,7 +44,9 @@
       "name": "EndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleFrequency"
+        "nullable": false,
+        "referenceName": "ScheduleFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "HourOfDay",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "StartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -91,10 +105,14 @@
       "name": "WeeksOfMonth",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WeeksOfMonth"
+          "nullable": false,
+          "referenceName": "WeeksOfMonth",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,5 +120,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "MaintenanceWindow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MaintenanceWindow"
+        "nullable": false,
+        "referenceName": "MaintenanceWindow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "NotAllowedTime",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeSpan"
+          "nullable": false,
+          "referenceName": "TimeSpan",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "TimeInWeek",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimeInWeek"
+          "nullable": false,
+          "referenceName": "TimeInWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +58,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

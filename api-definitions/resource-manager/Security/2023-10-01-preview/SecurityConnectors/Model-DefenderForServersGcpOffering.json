@@ -7,7 +7,9 @@
       "name": "ArcAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingArcAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingArcAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DefenderForServers",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingDefenderForServers"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingDefenderForServers",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MdeAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingMdeAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingMdeAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SubPlan",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingSubPlan"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingSubPlan",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "VMScanners",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingVMScanners"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingVMScanners",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "VaAutoProvisioning",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForServersGcpOfferingVaAutoProvisioning"
+        "nullable": false,
+        "referenceName": "DefenderForServersGcpOfferingVaAutoProvisioning",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,6 +92,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForServersGcp",
   "typeHintIn": "OfferingType"

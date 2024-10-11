@@ -7,7 +7,9 @@
       "name": "ApiRevision",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ApiRevisionDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ApiVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ApiVersionDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ApiVersionSet",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiVersionSetContractDetails"
+        "nullable": false,
+        "referenceName": "ApiVersionSetContractDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ApiVersionSetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "AuthenticationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationSettingsContract"
+        "nullable": false,
+        "referenceName": "AuthenticationSettingsContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "Contact",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiContactInformation"
+        "nullable": false,
+        "referenceName": "ApiContactInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,7 +157,9 @@
       "name": "IsCurrent",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -150,7 +172,9 @@
       "name": "IsOnline",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -163,7 +187,9 @@
       "name": "License",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiLicenseInformation"
+        "nullable": false,
+        "referenceName": "ApiLicenseInformation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,7 +202,9 @@
       "name": "Path",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -189,10 +217,14 @@
       "name": "Protocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Protocol"
+          "nullable": false,
+          "referenceName": "Protocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -206,7 +238,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,10 +250,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "serviceUrl",
-      "name": "ServiceUrl",
+      "name": "ServiceURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,7 +268,9 @@
       "name": "SourceApiId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,7 +283,9 @@
       "name": "SubscriptionKeyParameterNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubscriptionKeyParameterNamesContract"
+        "nullable": false,
+        "referenceName": "SubscriptionKeyParameterNamesContract",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -258,7 +298,9 @@
       "name": "SubscriptionRequired",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -268,10 +310,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "termsOfServiceUrl",
-      "name": "TermsOfServiceUrl",
+      "name": "TermsOfServiceURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -284,12 +328,15 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiType"
+        "nullable": false,
+        "referenceName": "ApiType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

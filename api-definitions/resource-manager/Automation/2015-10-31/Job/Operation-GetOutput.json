@@ -1,6 +1,7 @@
 {
   "name": "GetOutput",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "JobId",
   "responseObject": {
     "type": "RawFile",
-    "referenceName": null
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/output"
 }

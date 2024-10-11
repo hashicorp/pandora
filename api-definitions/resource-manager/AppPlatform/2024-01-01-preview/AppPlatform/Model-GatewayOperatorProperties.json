@@ -7,10 +7,14 @@
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GatewayInstance"
+          "nullable": false,
+          "referenceName": "GatewayInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayOperatorResourceRequests"
+        "nullable": false,
+        "referenceName": "GatewayOperatorResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

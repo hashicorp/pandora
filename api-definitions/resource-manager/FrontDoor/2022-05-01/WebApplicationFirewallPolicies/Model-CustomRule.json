@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActionType"
+        "nullable": false,
+        "referenceName": "ActionType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomRuleEnabledState"
+        "nullable": false,
+        "referenceName": "CustomRuleEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "MatchConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MatchCondition"
+          "nullable": false,
+          "referenceName": "MatchCondition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -50,7 +58,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "RateLimitDurationInMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "RateLimitThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,12 +118,15 @@
       "name": "RuleType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RuleType"
+        "nullable": false,
+        "referenceName": "RuleType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

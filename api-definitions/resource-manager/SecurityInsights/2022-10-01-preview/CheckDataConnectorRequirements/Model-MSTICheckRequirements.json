@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataConnectorTenantId"
+        "nullable": false,
+        "referenceName": "DataConnectorTenantId",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DataConnectorsCheckRequirements",
   "discriminatedTypeValue": "MicrosoftThreatIntelligence",
   "typeHintIn": "Kind"

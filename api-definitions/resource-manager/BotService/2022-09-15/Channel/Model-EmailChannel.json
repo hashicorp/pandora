@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EmailChannelProperties"
+        "nullable": false,
+        "referenceName": "EmailChannelProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Channel",
   "discriminatedTypeValue": "EmailChannel",
   "typeHintIn": "ChannelName"

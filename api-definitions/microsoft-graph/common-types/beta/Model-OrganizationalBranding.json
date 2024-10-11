@@ -1,0 +1,31 @@
+{
+  "name": "OrganizationalBranding",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Add different branding based on a locale.",
+      "jsonName": "localizations",
+      "name": "Localizations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "OrganizationalBrandingLocalization",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OrganizationalBrandingProperties",
+  "discriminatedTypeValue": "#microsoft.graph.organizationalBranding",
+  "typeHintIn": "ODataType"
+}

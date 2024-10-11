@@ -1,0 +1,25 @@
+{
+  "name": "IdentityGovernanceRuleBasedSubjectSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The rule for the subject set. Lifecycle Workflows supports a rich set of user properties for configuring the rules using $filter query expressions. For more information, see supported user and query parameters.",
+      "jsonName": "rule",
+      "name": "Rule",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SubjectSet",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.ruleBasedSubjectSet",
+  "typeHintIn": "ODataType"
+}

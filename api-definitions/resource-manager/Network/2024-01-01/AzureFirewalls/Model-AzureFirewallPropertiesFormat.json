@@ -7,10 +7,14 @@
       "name": "AdditionalProperties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "ApplicationRuleCollections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallApplicationRuleCollection"
+          "nullable": false,
+          "referenceName": "AzureFirewallApplicationRuleCollection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "FirewallPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,7 +64,9 @@
       "name": "HubIPAddresses",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HubIPAddresses"
+        "nullable": false,
+        "referenceName": "HubIPAddresses",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "IPConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallIPConfiguration"
+          "nullable": false,
+          "referenceName": "AzureFirewallIPConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,10 +100,14 @@
       "name": "IPGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallIPGroups"
+          "nullable": false,
+          "referenceName": "AzureFirewallIPGroups",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,7 +121,9 @@
       "name": "ManagementIPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFirewallIPConfiguration"
+        "nullable": false,
+        "referenceName": "AzureFirewallIPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -114,10 +136,14 @@
       "name": "NatRuleCollections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallNatRuleCollection"
+          "nullable": false,
+          "referenceName": "AzureFirewallNatRuleCollection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -131,10 +157,14 @@
       "name": "NetworkRuleCollections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzureFirewallNetworkRuleCollection"
+          "nullable": false,
+          "referenceName": "AzureFirewallNetworkRuleCollection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,7 +178,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,7 +193,9 @@
       "name": "Sku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFirewallSku"
+        "nullable": false,
+        "referenceName": "AzureFirewallSku",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -174,7 +208,9 @@
       "name": "ThreatIntelMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureFirewallThreatIntelMode"
+        "nullable": false,
+        "referenceName": "AzureFirewallThreatIntelMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -187,12 +223,15 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

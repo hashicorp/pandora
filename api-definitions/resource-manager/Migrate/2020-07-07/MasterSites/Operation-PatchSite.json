@@ -1,6 +1,7 @@
 {
   "name": "PatchSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "MasterSiteId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "MasterSite"
+    "nullable": false,
+    "referenceName": "MasterSite",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "MasterSite"
+    "nullable": false,
+    "referenceName": "MasterSite",
+    "referenceNameIsCommonType": null
   }
 }

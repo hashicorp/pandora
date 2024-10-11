@@ -1,0 +1,25 @@
+{
+  "name": "ListItemVersion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of the fields and values for this version of the list item.",
+      "jsonName": "fields",
+      "name": "Fields",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FieldValueSet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "BaseItemVersion",
+  "discriminatedTypeValue": "#microsoft.graph.listItemVersion",
+  "typeHintIn": "ODataType"
+}

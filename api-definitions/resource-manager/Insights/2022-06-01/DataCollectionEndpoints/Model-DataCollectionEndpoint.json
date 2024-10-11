@@ -7,7 +7,9 @@
       "name": "ConfigurationAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConfigurationAccessEndpointSpec"
+        "nullable": false,
+        "referenceName": "ConfigurationAccessEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FailoverConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FailoverConfigurationSpec"
+        "nullable": false,
+        "referenceName": "FailoverConfigurationSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ImmutableId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LogsIngestion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogsIngestionEndpointSpec"
+        "nullable": false,
+        "referenceName": "LogsIngestionEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Metadata"
+        "nullable": false,
+        "referenceName": "Metadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "MetricsIngestion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MetricsIngestionEndpointSpec"
+        "nullable": false,
+        "referenceName": "MetricsIngestionEndpointSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "NetworkAcls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkRuleSet"
+        "nullable": false,
+        "referenceName": "NetworkRuleSet",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "PrivateLinkScopedResources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateLinkScopedResource"
+          "nullable": false,
+          "referenceName": "PrivateLinkScopedResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,12 +148,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KnownDataCollectionEndpointProvisioningState"
+        "nullable": false,
+        "referenceName": "KnownDataCollectionEndpointProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

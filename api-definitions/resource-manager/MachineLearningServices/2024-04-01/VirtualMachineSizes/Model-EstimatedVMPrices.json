@@ -7,7 +7,9 @@
       "name": "BillingCurrency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingCurrency"
+        "nullable": false,
+        "referenceName": "BillingCurrency",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "UnitOfMeasure",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UnitOfMeasure"
+        "nullable": false,
+        "referenceName": "UnitOfMeasure",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EstimatedVMPrice"
+          "nullable": false,
+          "referenceName": "EstimatedVMPrice",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -44,5 +52,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

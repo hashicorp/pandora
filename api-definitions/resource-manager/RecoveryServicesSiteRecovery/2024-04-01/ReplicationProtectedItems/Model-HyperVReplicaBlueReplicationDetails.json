@@ -7,7 +7,9 @@
       "name": "InitialReplicationDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InitialReplicationDetails"
+        "nullable": false,
+        "referenceName": "InitialReplicationDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastReplicatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "VMDiskDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiskDetails"
+          "nullable": false,
+          "referenceName": "DiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,7 +59,9 @@
       "name": "VMId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -64,10 +74,14 @@
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VMNicDetails"
+          "nullable": false,
+          "referenceName": "VMNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -81,7 +95,9 @@
       "name": "VMProtectionState",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,7 +110,9 @@
       "name": "VMProtectionStateDescription",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,6 +120,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "HyperVReplica2012R2",
   "typeHintIn": "InstanceType"

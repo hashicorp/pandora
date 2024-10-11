@@ -1,6 +1,7 @@
 {
   "name": "SqlResourcesCreateUpdateSqlTrigger",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "TriggerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SqlTriggerCreateUpdateParameters"
+    "nullable": false,
+    "referenceName": "SqlTriggerCreateUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SqlTriggerGetResults"
+    "nullable": false,
+    "referenceName": "SqlTriggerGetResults",
+    "referenceNameIsCommonType": null
   }
 }

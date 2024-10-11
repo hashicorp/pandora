@@ -7,7 +7,9 @@
       "name": "Hour",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Minute",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Minute"
+        "nullable": false,
+        "referenceName": "Minute",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

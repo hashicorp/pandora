@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PrivateCloudId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateCloudUpdate"
+    "nullable": false,
+    "referenceName": "PrivateCloudUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateCloud"
+    "nullable": false,
+    "referenceName": "PrivateCloud",
+    "referenceNameIsCommonType": null
   }
 }

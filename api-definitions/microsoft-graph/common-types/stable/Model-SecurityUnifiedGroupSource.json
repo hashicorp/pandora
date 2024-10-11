@@ -1,0 +1,40 @@
+{
+  "name": "SecurityUnifiedGroupSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Group",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies which sources are included in this group. Possible values are: mailbox, site.",
+      "jsonName": "includedSources",
+      "name": "IncludedSources",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecuritySourceType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDataSource",
+  "discriminatedTypeValue": "#microsoft.graph.security.unifiedGroupSource",
+  "typeHintIn": "ODataType"
+}

@@ -1,6 +1,7 @@
 {
   "name": "StorageSyncServicesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "StorageSyncServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "StorageSyncServiceUpdateParameters"
+    "nullable": false,
+    "referenceName": "StorageSyncServiceUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "StorageSyncService"
+    "nullable": false,
+    "referenceName": "StorageSyncService",
+    "referenceNameIsCommonType": null
   }
 }

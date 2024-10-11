@@ -7,7 +7,9 @@
       "name": "AppLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InfrastructureConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureConfiguration"
+        "nullable": false,
+        "referenceName": "InfrastructureConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SoftwareConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareConfiguration"
+        "nullable": false,
+        "referenceName": "SoftwareConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -41,6 +47,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SAPConfiguration",
   "discriminatedTypeValue": "Deployment",
   "typeHintIn": "ConfigurationType"

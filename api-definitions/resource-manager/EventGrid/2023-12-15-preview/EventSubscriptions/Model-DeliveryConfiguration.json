@@ -7,7 +7,9 @@
       "name": "DeliveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeliveryMode"
+        "nullable": false,
+        "referenceName": "DeliveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Push",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PushInfo"
+        "nullable": false,
+        "referenceName": "PushInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Queue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueInfo"
+        "nullable": false,
+        "referenceName": "QueueInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

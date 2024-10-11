@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "TrustedIdProviderId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CreateOrUpdateTrustedIdProviderParameters"
+    "nullable": false,
+    "referenceName": "CreateOrUpdateTrustedIdProviderParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TrustedIdProvider"
+    "nullable": false,
+    "referenceName": "TrustedIdProvider",
+    "referenceNameIsCommonType": null
   }
 }

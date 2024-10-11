@@ -7,7 +7,9 @@
       "name": "ElasticProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElasticProperties"
+        "nullable": false,
+        "referenceName": "ElasticProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "GenerateApiKey",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "LiftrResourceCategory",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LiftrResourceCategories"
+        "nullable": false,
+        "referenceName": "LiftrResourceCategories",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LiftrResourcePreference",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MonitoringStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringStatus"
+        "nullable": false,
+        "referenceName": "MonitoringStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "UserInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserInfo"
+        "nullable": false,
+        "referenceName": "UserInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "Version",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

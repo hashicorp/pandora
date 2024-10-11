@@ -1,6 +1,7 @@
 {
   "name": "DedicatedHsmListByResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -22,7 +24,9 @@
   "resourceIdName": "ResourceGroupId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedHsm"
+    "nullable": false,
+    "referenceName": "DedicatedHsm",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs"
 }

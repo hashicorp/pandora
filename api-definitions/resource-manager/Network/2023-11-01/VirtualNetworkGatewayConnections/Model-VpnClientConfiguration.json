@@ -7,7 +7,9 @@
       "name": "AadAudience",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AadIssuer",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "AadTenant",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RadiusServerAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RadiusServerSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "RadiusServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RadiusServer"
+          "nullable": false,
+          "referenceName": "RadiusServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,10 +103,14 @@
       "name": "VngClientConnectionConfigurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VngClientConnectionConfiguration"
+          "nullable": false,
+          "referenceName": "VngClientConnectionConfiguration",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,10 +124,14 @@
       "name": "VpnAuthenticationTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnAuthenticationType"
+          "nullable": false,
+          "referenceName": "VpnAuthenticationType",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,7 +145,9 @@
       "name": "VpnClientAddressPool",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AddressSpace"
+        "nullable": false,
+        "referenceName": "AddressSpace",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,10 +160,14 @@
       "name": "VpnClientIPsecPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPsecPolicy"
+          "nullable": false,
+          "referenceName": "IPsecPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -153,10 +181,14 @@
       "name": "VpnClientProtocols",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientProtocol"
+          "nullable": false,
+          "referenceName": "VpnClientProtocol",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -170,10 +202,14 @@
       "name": "VpnClientRevokedCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientRevokedCertificate"
+          "nullable": false,
+          "referenceName": "VpnClientRevokedCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -187,10 +223,14 @@
       "name": "VpnClientRootCertificates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VpnClientRootCertificate"
+          "nullable": false,
+          "referenceName": "VpnClientRootCertificate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -198,5 +238,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

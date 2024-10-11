@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoleAssignmentArtifactProperties"
+        "nullable": false,
+        "referenceName": "RoleAssignmentArtifactProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Artifact",
   "discriminatedTypeValue": "roleAssignment",
   "typeHintIn": "Kind"

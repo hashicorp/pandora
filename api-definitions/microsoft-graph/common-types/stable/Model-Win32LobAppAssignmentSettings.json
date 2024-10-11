@@ -1,0 +1,73 @@
+{
+  "name": "Win32LobAppAssignmentSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains value for delivery optimization priority.",
+      "jsonName": "deliveryOptimizationPriority",
+      "name": "DeliveryOptimizationPriority",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppDeliveryOptimizationPriority",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The install time settings to apply for this app assignment.",
+      "jsonName": "installTimeSettings",
+      "name": "InstallTimeSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MobileAppInstallTimeSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains value for notification status.",
+      "jsonName": "notifications",
+      "name": "Notifications",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppNotification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The reboot settings to apply for this app assignment.",
+      "jsonName": "restartSettings",
+      "name": "RestartSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppRestartSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MobileAppAssignmentSettings",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobAppAssignmentSettings",
+  "typeHintIn": "ODataType"
+}

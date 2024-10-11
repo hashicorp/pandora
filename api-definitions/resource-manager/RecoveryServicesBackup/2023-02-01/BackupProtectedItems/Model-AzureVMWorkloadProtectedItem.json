@@ -7,7 +7,9 @@
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureVMWorkloadProtectedItemExtendedInfo"
+        "nullable": false,
+        "referenceName": "AzureVMWorkloadProtectedItemExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "KpisHealths",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "KPIResourceHealthDetails"
+          "nullable": false,
+          "referenceName": "KPIResourceHealthDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,7 +58,9 @@
       "name": "LastBackupErrorDetail",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ErrorDetail"
+        "nullable": false,
+        "referenceName": "ErrorDetail",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "LastBackupStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LastBackupStatus"
+        "nullable": false,
+        "referenceName": "LastBackupStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -77,7 +89,9 @@
       "name": "LastBackupTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -90,7 +104,9 @@
       "name": "ParentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,7 +119,9 @@
       "name": "ParentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -116,7 +134,9 @@
       "name": "ProtectedItemDataSourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -129,7 +149,9 @@
       "name": "ProtectedItemHealthStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectedItemHealthStatus"
+        "nullable": false,
+        "referenceName": "ProtectedItemHealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -142,7 +164,9 @@
       "name": "ProtectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProtectionState"
+        "nullable": false,
+        "referenceName": "ProtectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,7 +179,9 @@
       "name": "ProtectionStatus",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -168,7 +194,9 @@
       "name": "ServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -176,6 +204,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectedItem",
   "discriminatedTypeValue": "AzureVmWorkloadProtectedItem",
   "typeHintIn": "ProtectedItemType"

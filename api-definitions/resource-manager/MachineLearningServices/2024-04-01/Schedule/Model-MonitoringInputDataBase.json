@@ -7,10 +7,14 @@
       "name": "Columns",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "DataContext",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "InputDataType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringInputDataType"
+        "nullable": false,
+        "referenceName": "MonitoringInputDataType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "JobInputType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobInputType"
+        "nullable": false,
+        "referenceName": "JobInputType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Uri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -71,5 +83,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "InputDataType"
 }

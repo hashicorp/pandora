@@ -1,6 +1,7 @@
 {
   "name": "SyncGroupsCreate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "SyncGroupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SyncGroupCreateParameters"
+    "nullable": false,
+    "referenceName": "SyncGroupCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SyncGroup"
+    "nullable": false,
+    "referenceName": "SyncGroup",
+    "referenceNameIsCommonType": null
   }
 }

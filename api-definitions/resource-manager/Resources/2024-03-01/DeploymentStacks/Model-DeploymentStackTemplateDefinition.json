@@ -7,7 +7,9 @@
       "name": "Template",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "TemplateLink",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentStacksTemplateLink"
+        "nullable": false,
+        "referenceName": "DeploymentStacksTemplateLink",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

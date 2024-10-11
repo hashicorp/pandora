@@ -7,7 +7,9 @@
       "name": "PrimaryMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PrimaryReadonlyMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SecondaryMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SecondaryReadonlyMasterKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AccountKeyMetadata"
+        "nullable": false,
+        "referenceName": "AccountKeyMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadOnlyFollowingDatabaseProperties"
+        "nullable": false,
+        "referenceName": "ReadOnlyFollowingDatabaseProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Database",
   "discriminatedTypeValue": "ReadOnlyFollowing",
   "typeHintIn": "Kind"

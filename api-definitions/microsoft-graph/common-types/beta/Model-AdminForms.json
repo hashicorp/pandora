@@ -1,0 +1,24 @@
+{
+  "name": "AdminForms",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FormsSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.adminForms",
+  "typeHintIn": "ODataType"
+}

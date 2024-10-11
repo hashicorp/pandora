@@ -7,7 +7,9 @@
       "name": "AuditLogsAutoProvisioningFlag",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataPipelineNativeCloudConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersGcpOfferingDataPipelineNativeCloudConnection"
+        "nullable": false,
+        "referenceName": "DefenderForContainersGcpOfferingDataPipelineNativeCloudConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DefenderAgentAutoProvisioningFlag",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MdcContainersAgentlessDiscoveryK8s",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8s"
+        "nullable": false,
+        "referenceName": "DefenderForContainersGcpOfferingMdcContainersAgentlessDiscoveryK8s",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "MdcContainersImageAssessment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersGcpOfferingMdcContainersImageAssessment"
+        "nullable": false,
+        "referenceName": "DefenderForContainersGcpOfferingMdcContainersImageAssessment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "NativeCloudConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefenderForContainersGcpOfferingNativeCloudConnection"
+        "nullable": false,
+        "referenceName": "DefenderForContainersGcpOfferingNativeCloudConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "PolicyAgentAutoProvisioningFlag",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,6 +107,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "CloudOffering",
   "discriminatedTypeValue": "DefenderForContainersGcp",
   "typeHintIn": "OfferingType"

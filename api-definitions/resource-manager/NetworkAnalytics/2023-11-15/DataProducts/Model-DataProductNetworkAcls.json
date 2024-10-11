@@ -7,10 +7,14 @@
       "name": "AllowedQueryIPRangeList",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRules"
+          "nullable": false,
+          "referenceName": "IPRules",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -54,10 +64,14 @@
       "name": "VirtualNetworkRule",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualNetworkRule"
+          "nullable": false,
+          "referenceName": "VirtualNetworkRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -65,5 +79,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

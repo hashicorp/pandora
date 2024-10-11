@@ -7,7 +7,9 @@
       "name": "ForwardingRuleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForwardingRuleState"
+        "nullable": false,
+        "referenceName": "ForwardingRuleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "TargetDnsServers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetDnsServer"
+          "nullable": false,
+          "referenceName": "TargetDnsServer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +58,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

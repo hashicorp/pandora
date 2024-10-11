@@ -1,6 +1,7 @@
 {
   "name": "WebTestsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "WebTestId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WebTest"
+    "nullable": false,
+    "referenceName": "WebTest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WebTest"
+    "nullable": false,
+    "referenceName": "WebTest",
+    "referenceNameIsCommonType": null
   }
 }

@@ -7,10 +7,14 @@
       "name": "Disks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualDiskUpdate"
+          "nullable": false,
+          "referenceName": "VirtualDiskUpdate",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +22,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

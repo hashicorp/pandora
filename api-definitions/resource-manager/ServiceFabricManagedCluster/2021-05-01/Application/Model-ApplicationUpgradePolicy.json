@@ -7,7 +7,9 @@
       "name": "ApplicationHealthPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationHealthPolicy"
+        "nullable": false,
+        "referenceName": "ApplicationHealthPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ForceRestart",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "InstanceCloseDelayDuration",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RecreateApplication",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RollingUpgradeMonitoringPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeMonitoringPolicy"
+        "nullable": false,
+        "referenceName": "RollingUpgradeMonitoringPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "UpgradeMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RollingUpgradeMode"
+        "nullable": false,
+        "referenceName": "RollingUpgradeMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "UpgradeReplicaSetCheckTimeout",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

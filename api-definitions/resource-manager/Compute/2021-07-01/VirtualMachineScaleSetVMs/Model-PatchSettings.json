@@ -7,7 +7,9 @@
       "name": "AssessmentMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsPatchAssessmentMode"
+        "nullable": false,
+        "referenceName": "WindowsPatchAssessmentMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableHotpatching",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PatchMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsVMGuestPatchMode"
+        "nullable": false,
+        "referenceName": "WindowsVMGuestPatchMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

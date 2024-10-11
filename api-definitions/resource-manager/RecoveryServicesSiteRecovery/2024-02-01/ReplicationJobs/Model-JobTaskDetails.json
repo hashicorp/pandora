@@ -7,7 +7,9 @@
       "name": "JobTask",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JobEntity"
+        "nullable": false,
+        "referenceName": "JobEntity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TaskTypeDetails",
   "discriminatedTypeValue": "JobTaskDetails",
   "typeHintIn": "InstanceType"

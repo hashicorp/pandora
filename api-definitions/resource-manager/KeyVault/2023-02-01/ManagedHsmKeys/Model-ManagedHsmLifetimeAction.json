@@ -7,7 +7,9 @@
       "name": "Action",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmAction"
+        "nullable": false,
+        "referenceName": "ManagedHsmAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmTrigger"
+        "nullable": false,
+        "referenceName": "ManagedHsmTrigger",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,85 @@
+{
+  "name": "X509CertificateAuthenticationMethodConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines strong authentication configurations. This configuration includes the default authentication mode and the different rules for strong authentication bindings.",
+      "jsonName": "authenticationModeConfiguration",
+      "name": "AuthenticationModeConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "X509CertificateAuthenticationModeConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines fields in the X.509 certificate that map to attributes of the Microsoft Entra user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.",
+      "jsonName": "certificateUserBindings",
+      "name": "CertificateUserBindings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "X509CertificateUserBinding",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of groups that are enabled to use the authentication method.",
+      "jsonName": "includeTargets",
+      "name": "IncludeTargets",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AuthenticationMethodTarget",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines whether issuer(CA) hints are sent back to the client side to filter the certificates shown in certificate picker.",
+      "jsonName": "issuerHintsConfiguration",
+      "name": "IssuerHintsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "X509CertificateIssuerHintsConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethodConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",
+  "typeHintIn": "ODataType"
+}

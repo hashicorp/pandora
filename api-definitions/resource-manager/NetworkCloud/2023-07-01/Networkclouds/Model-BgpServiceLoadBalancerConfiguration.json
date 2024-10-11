@@ -7,10 +7,14 @@
       "name": "BgpAdvertisements",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "BgpAdvertisement"
+          "nullable": false,
+          "referenceName": "BgpAdvertisement",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "BgpPeers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceLoadBalancerBgpPeer"
+          "nullable": false,
+          "referenceName": "ServiceLoadBalancerBgpPeer",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "FabricPeeringEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FabricPeeringEnabled"
+        "nullable": false,
+        "referenceName": "FabricPeeringEnabled",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,10 +64,14 @@
       "name": "IPAddressPools",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPAddressPool"
+          "nullable": false,
+          "referenceName": "IPAddressPool",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,5 +79,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

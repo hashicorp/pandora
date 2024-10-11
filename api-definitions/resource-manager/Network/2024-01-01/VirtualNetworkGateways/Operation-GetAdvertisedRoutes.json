@@ -1,6 +1,7 @@
 {
   "name": "GetAdvertisedRoutes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "peer",
       "required": true,
@@ -22,7 +24,9 @@
   "resourceIdName": "VirtualNetworkGatewayId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewayRouteListResult"
+    "nullable": false,
+    "referenceName": "GatewayRouteListResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getAdvertisedRoutes"
 }

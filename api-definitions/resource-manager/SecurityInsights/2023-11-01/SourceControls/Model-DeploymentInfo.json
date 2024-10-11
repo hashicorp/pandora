@@ -7,7 +7,9 @@
       "name": "Deployment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Deployment"
+        "nullable": false,
+        "referenceName": "Deployment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeploymentFetchStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentFetchStatus"
+        "nullable": false,
+        "referenceName": "DeploymentFetchStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Message",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

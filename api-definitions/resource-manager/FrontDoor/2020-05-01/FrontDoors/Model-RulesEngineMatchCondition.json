@@ -7,7 +7,9 @@
       "name": "NegateCondition",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "RulesEngineMatchValue",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,7 +43,9 @@
       "name": "RulesEngineMatchVariable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulesEngineMatchVariable"
+        "nullable": false,
+        "referenceName": "RulesEngineMatchVariable",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "RulesEngineOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RulesEngineOperator"
+        "nullable": false,
+        "referenceName": "RulesEngineOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "Selector",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,10 +88,14 @@
       "name": "Transforms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Transform"
+          "nullable": false,
+          "referenceName": "Transform",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -87,5 +103,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

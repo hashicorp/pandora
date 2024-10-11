@@ -7,10 +7,14 @@
       "name": "AddonConfigs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "RawObject",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "Apms",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApmReference"
+          "nullable": false,
+          "referenceName": "ApmReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "ContainerProbeSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerProbeSettings"
+        "nullable": false,
+        "referenceName": "ContainerProbeSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -54,10 +64,14 @@
       "name": "EnvironmentVariables",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,7 +85,9 @@
       "name": "LivenessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -84,7 +100,9 @@
       "name": "ReadinessProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceRequests"
+        "nullable": false,
+        "referenceName": "ResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,7 +130,9 @@
       "name": "Scale",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Scale"
+        "nullable": false,
+        "referenceName": "Scale",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -123,7 +145,9 @@
       "name": "StartupProbe",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Probe"
+        "nullable": false,
+        "referenceName": "Probe",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,12 +160,15 @@
       "name": "TerminationGracePeriodSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

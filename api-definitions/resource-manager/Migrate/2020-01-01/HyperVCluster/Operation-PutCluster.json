@@ -1,6 +1,7 @@
 {
   "name": "PutCluster",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "ClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "HyperVCluster"
+    "nullable": false,
+    "referenceName": "HyperVCluster",
+    "referenceNameIsCommonType": null
   }
 }

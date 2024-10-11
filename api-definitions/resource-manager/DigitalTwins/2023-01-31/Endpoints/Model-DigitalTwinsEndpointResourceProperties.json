@@ -7,7 +7,9 @@
       "name": "AuthenticationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AuthenticationType"
+        "nullable": false,
+        "referenceName": "AuthenticationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "DeadLetterSecret",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "DeadLetterUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "EndpointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointType"
+        "nullable": false,
+        "referenceName": "EndpointType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -73,7 +83,9 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIdentityReference"
+        "nullable": false,
+        "referenceName": "ManagedIdentityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,7 +98,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointProvisioningState"
+        "nullable": false,
+        "referenceName": "EndpointProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,5 +108,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "EndpointType"
 }

@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ScheduleId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ScheduleCreateOrUpdateParameters"
+    "nullable": false,
+    "referenceName": "ScheduleCreateOrUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Schedule"
+    "nullable": false,
+    "referenceName": "Schedule",
+    "referenceNameIsCommonType": null
   }
 }

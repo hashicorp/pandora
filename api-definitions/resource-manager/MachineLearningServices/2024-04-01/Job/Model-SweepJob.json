@@ -7,7 +7,9 @@
       "name": "EarlyTermination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EarlyTerminationPolicy"
+        "nullable": false,
+        "referenceName": "EarlyTerminationPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Inputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobInput"
+          "nullable": false,
+          "referenceName": "JobInput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Limits",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SweepJobLimits"
+        "nullable": false,
+        "referenceName": "SweepJobLimits",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "Objective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Objective"
+        "nullable": false,
+        "referenceName": "Objective",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "Outputs",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JobOutput"
+          "nullable": false,
+          "referenceName": "JobOutput",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -80,7 +94,9 @@
       "name": "QueueSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "QueueSettings"
+        "nullable": false,
+        "referenceName": "QueueSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "SamplingAlgorithm",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SamplingAlgorithm"
+        "nullable": false,
+        "referenceName": "SamplingAlgorithm",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -106,7 +124,9 @@
       "name": "SearchSpace",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "Trial",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrialComponent"
+        "nullable": false,
+        "referenceName": "TrialComponent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -127,6 +149,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "JobBase",
   "discriminatedTypeValue": "Sweep",
   "typeHintIn": "JobType"

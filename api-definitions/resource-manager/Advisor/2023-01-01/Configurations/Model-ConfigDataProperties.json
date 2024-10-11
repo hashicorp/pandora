@@ -7,10 +7,14 @@
       "name": "Digests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DigestConfig"
+          "nullable": false,
+          "referenceName": "DigestConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Duration"
+        "nullable": false,
+        "referenceName": "Duration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Exclude",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "LowCPUThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CPUThreshold"
+        "nullable": false,
+        "referenceName": "CPUThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,25 @@
+{
+  "name": "SecurityFilePlanAppliedCategory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the file plan descriptor for a subcategory under a specific category, which has been assigned to a particular retention label.",
+      "jsonName": "subcategory",
+      "name": "Subcategory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityFilePlanSubcategory",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityFilePlanDescriptorBase",
+  "discriminatedTypeValue": "#microsoft.graph.security.filePlanAppliedCategory",
+  "typeHintIn": "ODataType"
+}

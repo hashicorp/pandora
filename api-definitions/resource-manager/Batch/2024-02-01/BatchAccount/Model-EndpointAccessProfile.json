@@ -7,7 +7,9 @@
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EndpointAccessDefaultAction"
+        "nullable": false,
+        "referenceName": "EndpointAccessDefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRule"
+          "nullable": false,
+          "referenceName": "IPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -31,5 +37,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

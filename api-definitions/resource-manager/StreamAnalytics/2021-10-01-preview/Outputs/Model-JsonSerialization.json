@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JsonSerializationProperties"
+        "nullable": false,
+        "referenceName": "JsonSerializationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Serialization",
   "discriminatedTypeValue": "Json",
   "typeHintIn": "Type"

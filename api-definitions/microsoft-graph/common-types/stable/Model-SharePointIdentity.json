@@ -1,0 +1,25 @@
+{
+  "name": "SharePointIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The sign in name of the SharePoint identity.",
+      "jsonName": "loginName",
+      "name": "LoginName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Identity",
+  "discriminatedTypeValue": "#microsoft.graph.sharePointIdentity",
+  "typeHintIn": "ODataType"
+}

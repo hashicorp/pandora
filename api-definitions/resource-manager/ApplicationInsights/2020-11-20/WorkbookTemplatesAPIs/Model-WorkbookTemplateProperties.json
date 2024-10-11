@@ -7,7 +7,9 @@
       "name": "Author",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Galleries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "WorkbookTemplateGallery"
+          "nullable": false,
+          "referenceName": "WorkbookTemplateGallery",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -37,13 +43,19 @@
       "name": "Localized",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "List",
+          "nullable": false,
           "referenceName": null,
+          "referenceNameIsCommonType": null,
           "nestedItem": {
             "type": "Reference",
-            "referenceName": "WorkbookTemplateLocalizedGallery"
+            "nullable": false,
+            "referenceName": "WorkbookTemplateLocalizedGallery",
+            "referenceNameIsCommonType": null
           }
         }
       },
@@ -58,7 +70,9 @@
       "name": "Priority",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -71,12 +85,15 @@
       "name": "TemplateData",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

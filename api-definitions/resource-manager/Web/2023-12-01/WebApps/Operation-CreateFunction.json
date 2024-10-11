@@ -1,6 +1,7 @@
 {
   "name": "CreateFunction",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "FunctionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "FunctionEnvelope"
+    "nullable": false,
+    "referenceName": "FunctionEnvelope",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "FunctionEnvelope"
+    "nullable": false,
+    "referenceName": "FunctionEnvelope",
+    "referenceNameIsCommonType": null
   }
 }

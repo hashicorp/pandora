@@ -7,7 +7,9 @@
       "name": "BackupRetentionDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "GeoRedundantBackup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GeoRedundantBackup"
+        "nullable": false,
+        "referenceName": "GeoRedundantBackup",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "StorageAutogrow",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageAutogrow"
+        "nullable": false,
+        "referenceName": "StorageAutogrow",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "StorageMB",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

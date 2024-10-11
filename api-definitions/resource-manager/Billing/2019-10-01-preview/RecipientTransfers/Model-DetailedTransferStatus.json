@@ -7,7 +7,9 @@
       "name": "ErrorDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Error"
+        "nullable": false,
+        "referenceName": "Error",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProductId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProductType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductType"
+        "nullable": false,
+        "referenceName": "ProductType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "TransferStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProductTransferStatus"
+        "nullable": false,
+        "referenceName": "ProductTransferStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

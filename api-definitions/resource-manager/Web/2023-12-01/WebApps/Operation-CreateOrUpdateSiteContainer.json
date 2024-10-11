@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateSiteContainer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "SitecontainerId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SiteContainer"
+    "nullable": false,
+    "referenceName": "SiteContainer",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SiteContainer"
+    "nullable": false,
+    "referenceName": "SiteContainer",
+    "referenceNameIsCommonType": null
   }
 }

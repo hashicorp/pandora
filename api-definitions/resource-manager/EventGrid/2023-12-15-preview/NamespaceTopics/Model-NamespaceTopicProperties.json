@@ -7,7 +7,9 @@
       "name": "EventRetentionInDays",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "InputSchema",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventInputSchema"
+        "nullable": false,
+        "referenceName": "EventInputSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NamespaceTopicProvisioningState"
+        "nullable": false,
+        "referenceName": "NamespaceTopicProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "PublisherType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublisherType"
+        "nullable": false,
+        "referenceName": "PublisherType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

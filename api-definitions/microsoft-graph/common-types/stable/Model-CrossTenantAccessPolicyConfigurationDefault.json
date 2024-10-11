@@ -1,0 +1,153 @@
+{
+  "name": "CrossTenantAccessPolicyConfigurationDefault",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines the default configuration for automatic user consent settings. The inboundAllowed and outboundAllowed properties are always false and can't be updated in the default configuration. Read-only.",
+      "jsonName": "automaticUserConsentSettings",
+      "name": "AutomaticUserConsentSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InboundOutboundPolicyConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your default configuration for users from other organizations accessing your resources via Microsoft Entra B2B collaboration.",
+      "jsonName": "b2bCollaborationInbound",
+      "name": "B2bCollaborationInbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your default configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B collaboration.",
+      "jsonName": "b2bCollaborationOutbound",
+      "name": "B2bCollaborationOutbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your default configuration for users from other organizations accessing your resources via Microsoft Entra B2B direct connect.",
+      "jsonName": "b2bDirectConnectInbound",
+      "name": "B2bDirectConnectInbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines your default configuration for users in your organization going outbound to access resources in another organization via Microsoft Entra B2B direct connect.",
+      "jsonName": "b2bDirectConnectOutbound",
+      "name": "B2bDirectConnectOutbound",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyB2BSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Determines the default configuration for trusting other Conditional Access claims from external Microsoft Entra organizations.",
+      "jsonName": "inboundTrust",
+      "name": "InboundTrust",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyInboundTrust",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the priority order based on which an identity provider is selected during invitation redemption for a guest user.",
+      "jsonName": "invitationRedemptionIdentityProviderConfiguration",
+      "name": "InvitationRedemptionIdentityProviderConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DefaultInvitationRedemptionIdentityProviderConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If true, the default configuration is set to the system default configuration. If false, the default settings are customized.",
+      "jsonName": "isServiceDefault",
+      "name": "IsServiceDefault",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the default tenant restrictions configuration for users in your organization who access an external organization on your network or devices.",
+      "jsonName": "tenantRestrictions",
+      "name": "TenantRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CrossTenantAccessPolicyTenantRestrictions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.crossTenantAccessPolicyConfigurationDefault",
+  "typeHintIn": "ODataType"
+}

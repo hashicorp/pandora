@@ -7,7 +7,9 @@
       "name": "ContainerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProtectedItemName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RehydrationPriority",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RehydrationPriority"
+        "nullable": false,
+        "referenceName": "RehydrationPriority",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -54,6 +62,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FetchTieringCostInfoRequest",
   "discriminatedTypeValue": "FetchTieringCostInfoForRehydrationRequest",
   "typeHintIn": "ObjectType"

@@ -37,6 +37,11 @@ func (r *repositoryImpl) SaveCommonTypes(opts SaveCommonTypesOptions) error {
 			CommonTypeConstants: commonTypes.Constants,
 			CommonTypeModels:    commonTypes.Models,
 		})
+
+		items = append(items, stages.CommonTypesResourceIDsStage{
+			APIVersion:             apiVersion,
+			CommonTypesResourceIDs: commonTypes.ResourceIDs,
+		})
 	}
 
 	fs := helpers.NewFileSystem()

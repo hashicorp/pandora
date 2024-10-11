@@ -1,0 +1,25 @@
+{
+  "name": "InviteNewBotResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "URI to receive new incoming call notification.",
+      "jsonName": "inviteUri",
+      "name": "InviteUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ParticipantJoiningResponse",
+  "discriminatedTypeValue": "#microsoft.graph.inviteNewBotResponse",
+  "typeHintIn": "ODataType"
+}

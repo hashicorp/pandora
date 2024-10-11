@@ -1,6 +1,7 @@
 {
   "name": "UnderBackupVaultRestoreFiles",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     202
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "BackupId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BackupRestoreFiles"
+    "nullable": false,
+    "referenceName": "BackupRestoreFiles",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/restoreFiles"
 }

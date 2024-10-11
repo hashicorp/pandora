@@ -1,0 +1,25 @@
+{
+  "name": "AzureServerlessFunction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the resources in an authorization system.",
+      "jsonName": "resource",
+      "name": "Resource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureAuthorizationSystemResource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AzureIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.azureServerlessFunction",
+  "typeHintIn": "ODataType"
+}

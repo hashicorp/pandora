@@ -1,0 +1,25 @@
+{
+  "name": "AppleEnrollmentProfileAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The assignment target for the Apple user initiated deployment profile.",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceAndAppManagementAssignmentTarget",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.appleEnrollmentProfileAssignment",
+  "typeHintIn": "ODataType"
+}

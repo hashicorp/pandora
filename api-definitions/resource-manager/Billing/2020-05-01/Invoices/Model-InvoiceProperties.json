@@ -7,7 +7,9 @@
       "name": "AmountDue",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AzurePrepaymentApplied",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BilledAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BilledDocumentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "CreditAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "CreditForDocumentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "DocumentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceDocumentType"
+        "nullable": false,
+        "referenceName": "InvoiceDocumentType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,10 +142,14 @@
       "name": "Documents",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Document"
+          "nullable": false,
+          "referenceName": "Document",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -142,7 +164,9 @@
       "name": "DueDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -155,7 +179,9 @@
       "name": "FreeAzureCreditApplied",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -169,7 +195,9 @@
       "name": "InvoiceDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,7 +211,9 @@
       "name": "InvoicePeriodEndDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +227,9 @@
       "name": "InvoicePeriodStartDate",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +242,9 @@
       "name": "InvoiceType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceType"
+        "nullable": false,
+        "referenceName": "InvoiceType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,7 +257,9 @@
       "name": "IsMonthlyInvoice",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,10 +272,14 @@
       "name": "Payments",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PaymentProperties"
+          "nullable": false,
+          "referenceName": "PaymentProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -253,7 +293,9 @@
       "name": "PurchaseOrderNumber",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,10 +308,14 @@
       "name": "RebillDetails",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RebillDetails"
+          "nullable": false,
+          "referenceName": "RebillDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -283,7 +329,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InvoiceStatus"
+        "nullable": false,
+        "referenceName": "InvoiceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -296,7 +344,9 @@
       "name": "SubTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -309,7 +359,9 @@
       "name": "SubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -322,7 +374,9 @@
       "name": "TaxAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -335,12 +389,15 @@
       "name": "TotalAmount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Amount"
+        "nullable": false,
+        "referenceName": "Amount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

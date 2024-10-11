@@ -1,0 +1,24 @@
+{
+  "name": "GroupMembershipGovernanceCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupId",
+      "name": "GroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GovernanceCriteria",
+  "discriminatedTypeValue": "#microsoft.graph.groupMembershipGovernanceCriteria",
+  "typeHintIn": "ODataType"
+}

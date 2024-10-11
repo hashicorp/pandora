@@ -7,10 +7,14 @@
       "name": "AlternateDirectoryPaths",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SQLDataDirectoryMapping"
+          "nullable": false,
+          "referenceName": "SQLDataDirectoryMapping",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "IsNonRecoverable",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -38,7 +44,9 @@
       "name": "PointInTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,10 +59,14 @@
       "name": "PropertyBag",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -68,7 +80,9 @@
       "name": "RecoveryMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryMode"
+        "nullable": false,
+        "referenceName": "RecoveryMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,7 +95,9 @@
       "name": "RecoveryType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryType"
+        "nullable": false,
+        "referenceName": "RecoveryType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -94,7 +110,9 @@
       "name": "ShouldUseAlternateTargetLocation",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -107,7 +125,9 @@
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -120,7 +140,9 @@
       "name": "TargetInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetRestoreInfo"
+        "nullable": false,
+        "referenceName": "TargetRestoreInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -133,7 +155,9 @@
       "name": "TargetVirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,6 +165,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RestoreRequest",
   "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreRequest",
   "typeHintIn": "ObjectType"

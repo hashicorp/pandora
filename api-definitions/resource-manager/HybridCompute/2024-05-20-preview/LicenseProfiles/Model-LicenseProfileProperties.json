@@ -7,7 +7,9 @@
       "name": "EsuProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmEsuProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmEsuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ProductProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmProductProfileProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmProductProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SoftwareAssurance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfilePropertiesSoftwareAssurance"
+        "nullable": false,
+        "referenceName": "LicenseProfilePropertiesSoftwareAssurance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

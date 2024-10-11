@@ -1,6 +1,7 @@
 {
   "name": "ListByNamespace",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "NamespaceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationGroup"
+    "nullable": false,
+    "referenceName": "ApplicationGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/applicationGroups"
 }

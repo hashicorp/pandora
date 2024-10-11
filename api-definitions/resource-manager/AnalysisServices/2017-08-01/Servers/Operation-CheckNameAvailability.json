@@ -1,6 +1,7 @@
 {
   "name": "CheckNameAvailability",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CheckServerNameAvailabilityParameters"
+    "nullable": false,
+    "referenceName": "CheckServerNameAvailabilityParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CheckServerNameAvailabilityResult"
+    "nullable": false,
+    "referenceName": "CheckServerNameAvailabilityResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/checkNameAvailability"
 }

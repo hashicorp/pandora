@@ -7,10 +7,14 @@
       "name": "Events",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrackingEvent"
+          "nullable": false,
+          "referenceName": "TrackingEvent",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "SourceType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "TrackEventsOptions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TrackEventsOperationOptions"
+        "nullable": false,
+        "referenceName": "TrackEventsOperationOptions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DiskExclusionProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskExclusionProperties"
+        "nullable": false,
+        "referenceName": "DiskExclusionProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "LinuxVMApplicationName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

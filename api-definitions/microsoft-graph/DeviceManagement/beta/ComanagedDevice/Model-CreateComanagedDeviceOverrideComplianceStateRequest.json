@@ -1,0 +1,37 @@
+{
+  "name": "CreateComanagedDeviceOverrideComplianceStateRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Administrator configured device compliance state Enum",
+      "jsonName": "complianceState",
+      "name": "ComplianceState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AdministratorConfiguredDeviceComplianceState",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remediationUrl",
+      "name": "RemediationUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

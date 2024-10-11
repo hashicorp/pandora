@@ -7,10 +7,14 @@
       "name": "Result",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApplicationInsightsComponentFeature"
+          "nullable": false,
+          "referenceName": "ApplicationInsightsComponentFeature",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -18,5 +22,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

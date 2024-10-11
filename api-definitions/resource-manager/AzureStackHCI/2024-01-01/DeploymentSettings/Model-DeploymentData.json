@@ -7,7 +7,9 @@
       "name": "AdouPath",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Cluster",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentCluster"
+        "nullable": false,
+        "referenceName": "DeploymentCluster",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DomainFqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "HostNetwork",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HostNetwork"
+        "nullable": false,
+        "referenceName": "HostNetwork",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "InfrastructureNetwork",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InfrastructureNetwork"
+          "nullable": false,
+          "referenceName": "InfrastructureNetwork",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,7 +88,9 @@
       "name": "NamingPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Observability",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Observability"
+        "nullable": false,
+        "referenceName": "Observability",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "OptionalServices",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OptionalServices"
+        "nullable": false,
+        "referenceName": "OptionalServices",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,10 +133,14 @@
       "name": "PhysicalNodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PhysicalNodes"
+          "nullable": false,
+          "referenceName": "PhysicalNodes",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -132,7 +154,9 @@
       "name": "SecretsLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeploymentSecuritySettings"
+        "nullable": false,
+        "referenceName": "DeploymentSecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,12 +184,15 @@
       "name": "Storage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Storage"
+        "nullable": false,
+        "referenceName": "Storage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

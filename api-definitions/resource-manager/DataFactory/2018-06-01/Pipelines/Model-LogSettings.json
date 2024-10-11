@@ -7,7 +7,9 @@
       "name": "CopyActivityLogSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CopyActivityLogSettings"
+        "nullable": false,
+        "referenceName": "CopyActivityLogSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EnableCopyActivityLog",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "LogLocationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogLocationSettings"
+        "nullable": false,
+        "referenceName": "LogLocationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPRule"
+          "nullable": false,
+          "referenceName": "IPRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "PublicNetworkRule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicInternetAuthorizationRule"
+        "nullable": false,
+        "referenceName": "PublicInternetAuthorizationRule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

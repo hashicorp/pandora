@@ -7,7 +7,9 @@
       "name": "KeySource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeySource"
+        "nullable": false,
+        "referenceName": "EncryptionKeySource",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "KeyVaultProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionV2KeyVaultProperties"
+        "nullable": false,
+        "referenceName": "EncryptionV2KeyVaultProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

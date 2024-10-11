@@ -7,7 +7,9 @@
       "name": "AgentUpgradeAttemptToVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "AgentUpgradeBlockingErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmAgentUpgradeBlockingErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmAgentUpgradeBlockingErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "AgentUpgradeJobId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "AgentUpgradeState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MobilityAgentUpgradeState"
+        "nullable": false,
+        "referenceName": "MobilityAgentUpgradeState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "AllocatedMemoryInMB",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "DiscoveredVMDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmDiscoveredProtectedVMDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmDiscoveredProtectedVMDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "DiscoveryType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "FabricDiscoveryMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "FailoverRecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "FirmwareType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "InitialReplicationProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "InitialReplicationProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "InitialReplicationProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "InitialReplicationTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +223,9 @@
       "name": "InternalIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,7 +238,9 @@
       "name": "IsAgentRegistrationSuccessfulAfterFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -219,7 +253,9 @@
       "name": "IsLastUpgradeSuccessful",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -232,10 +268,14 @@
       "name": "LastAgentUpgradeErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmLastAgentUpgradeErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmLastAgentUpgradeErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -249,7 +289,9 @@
       "name": "LastAgentUpgradeType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,7 +304,9 @@
       "name": "LastRecoveryPointId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -276,7 +320,9 @@
       "name": "LastRecoveryPointReceived",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -290,7 +336,9 @@
       "name": "LastRpoCalculatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -303,7 +351,9 @@
       "name": "LastRpoInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -316,7 +366,9 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -329,7 +381,9 @@
       "name": "MobilityAgentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmMobilityAgentDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmMobilityAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -342,7 +396,9 @@
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -355,7 +411,9 @@
       "name": "OsName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -368,7 +426,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -381,7 +441,9 @@
       "name": "PrimaryNicIPAddress",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -394,7 +456,9 @@
       "name": "ProcessServerId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -407,7 +471,9 @@
       "name": "ProcessServerName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -420,7 +486,9 @@
       "name": "ProcessorCoreCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -433,10 +501,14 @@
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -450,7 +522,9 @@
       "name": "ResyncProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -463,7 +537,9 @@
       "name": "ResyncProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -476,7 +552,9 @@
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -489,7 +567,9 @@
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -502,7 +582,9 @@
       "name": "ResyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResyncState"
+        "nullable": false,
+        "referenceName": "ResyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -515,7 +597,9 @@
       "name": "ResyncTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -528,7 +612,9 @@
       "name": "RunAsAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -541,10 +627,14 @@
       "name": "SeedManagedDiskTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserCreatedResourceTag"
+          "nullable": false,
+          "referenceName": "UserCreatedResourceTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -558,7 +648,9 @@
       "name": "SqlServerLicenseType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -571,7 +663,9 @@
       "name": "StorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -584,10 +678,14 @@
       "name": "SupportedOSVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -601,7 +699,9 @@
       "name": "TargetAvailabilitySetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -614,7 +714,9 @@
       "name": "TargetAvailabilityZone",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -627,7 +729,9 @@
       "name": "TargetBootDiagnosticsStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -640,7 +744,9 @@
       "name": "TargetGeneration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -653,7 +759,9 @@
       "name": "TargetLocation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -666,10 +774,14 @@
       "name": "TargetManagedDiskTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserCreatedResourceTag"
+          "nullable": false,
+          "referenceName": "UserCreatedResourceTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -683,7 +795,9 @@
       "name": "TargetNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -696,10 +810,14 @@
       "name": "TargetNicTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserCreatedResourceTag"
+          "nullable": false,
+          "referenceName": "UserCreatedResourceTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -713,7 +831,9 @@
       "name": "TargetProximityPlacementGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -726,7 +846,9 @@
       "name": "TargetResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -739,7 +861,9 @@
       "name": "TargetVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -752,7 +876,9 @@
       "name": "TargetVMSecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecurityProfileProperties"
+        "nullable": false,
+        "referenceName": "SecurityProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -765,7 +891,9 @@
       "name": "TargetVMSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -778,10 +906,14 @@
       "name": "TargetVMTags",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserCreatedResourceTag"
+          "nullable": false,
+          "referenceName": "UserCreatedResourceTag",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -795,7 +927,9 @@
       "name": "TestNetworkId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -808,10 +942,14 @@
       "name": "UnprotectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmUnProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmUnProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -825,10 +963,14 @@
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmNicDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -837,6 +979,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "InMageRcm",
   "typeHintIn": "InstanceType"

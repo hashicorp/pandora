@@ -7,7 +7,9 @@
       "name": "CatalogInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeSsisCatalogInfo"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeSsisCatalogInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CustomSetupScriptProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeCustomSetupScriptProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeCustomSetupScriptProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DataProxyProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeDataProxyProperties"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeDataProxyProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Edition",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeEdition"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeEdition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "ExpressCustomSetupProperties",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomSetupBase"
+          "nullable": false,
+          "referenceName": "CustomSetupBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,12 +88,15 @@
       "name": "LicenseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationRuntimeLicenseType"
+        "nullable": false,
+        "referenceName": "IntegrationRuntimeLicenseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "CustomResourceNames",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SingleServerCustomResourceNames"
+        "nullable": false,
+        "referenceName": "SingleServerCustomResourceNames",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DatabaseType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SAPDatabaseType"
+        "nullable": false,
+        "referenceName": "SAPDatabaseType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DbDiskConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiskConfiguration"
+        "nullable": false,
+        "referenceName": "DiskConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "NetworkConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkConfiguration"
+        "nullable": false,
+        "referenceName": "NetworkConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "VirtualMachineConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineConfiguration"
+        "nullable": false,
+        "referenceName": "VirtualMachineConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,6 +92,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "InfrastructureConfiguration",
   "discriminatedTypeValue": "SingleServer",
   "typeHintIn": "DeploymentType"

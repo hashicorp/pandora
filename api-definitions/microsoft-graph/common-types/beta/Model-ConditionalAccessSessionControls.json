@@ -1,0 +1,150 @@
+{
+  "name": "ConditionalAccessSessionControls",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.",
+      "jsonName": "applicationEnforcedRestrictions",
+      "name": "ApplicationEnforcedRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationEnforcedRestrictionsSessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to apply cloud app security.",
+      "jsonName": "cloudAppSecurity",
+      "name": "CloudAppSecurity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": true,
+        "referenceName": "CloudAppSecuritySessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control for continuous access evaluation settings.",
+      "jsonName": "continuousAccessEvaluation",
+      "name": "ContinuousAccessEvaluation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ContinuousAccessEvaluationSessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control that determines whether it's acceptable for Microsoft Entra ID to extend existing sessions based on information collected prior to an outage or not.",
+      "jsonName": "disableResilienceDefaults",
+      "name": "DisableResilienceDefaults",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData ID of this entity",
+      "jsonName": "@odata.id",
+      "name": "ODataId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The OData Type of this entity",
+      "jsonName": "@odata.type",
+      "name": "ODataType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.",
+      "jsonName": "persistentBrowser",
+      "name": "PersistentBrowser",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PersistentBrowserSessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to require sign in sessions to be bound to a device.",
+      "jsonName": "secureSignInSession",
+      "name": "SecureSignInSession",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecureSignInSessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to enforce signin frequency.",
+      "jsonName": "signInFrequency",
+      "name": "SignInFrequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignInFrequencySessionControl",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

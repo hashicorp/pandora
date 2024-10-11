@@ -1,0 +1,24 @@
+{
+  "name": "WhatIfAuthenticationContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authenticationContext",
+      "name": "AuthenticationContext",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConditionalAccessContext",
+  "discriminatedTypeValue": "#microsoft.graph.whatIfAuthenticationContext",
+  "typeHintIn": "ODataType"
+}

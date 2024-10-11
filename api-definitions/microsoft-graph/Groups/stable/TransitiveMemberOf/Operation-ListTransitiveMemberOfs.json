@@ -1,0 +1,146 @@
+{
+  "name": "ListTransitiveMemberOfs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "List group transitive memberOf. Get groups that the group is a member of. This operation is transitive and will also include all groups that this group is a nested member of. Unlike getting a user's Microsoft 365 groups, this returns all types of groups, not just Microsoft 365 groups.",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "@odata.nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "ConsistencyLevel",
+      "optional": true,
+      "required": false,
+      "field": "ConsistencyLevel",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.ConsistencyLevel"
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Count",
+      "optional": true,
+      "required": false,
+      "field": "Count",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Expand",
+      "optional": true,
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Expand"
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Filter",
+      "optional": true,
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "OrderBy",
+      "optional": true,
+      "required": false,
+      "field": "OrderBy",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.OrderBy"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Search",
+      "optional": true,
+      "required": false,
+      "field": "Search",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Select",
+      "optional": true,
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Skip",
+      "optional": true,
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Top",
+      "optional": true,
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupId",
+  "resourceIdNameIsCommonType": true,
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DirectoryObject",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/transitiveMemberOf"
+}

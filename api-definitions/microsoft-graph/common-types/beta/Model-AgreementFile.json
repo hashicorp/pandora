@@ -1,0 +1,31 @@
+{
+  "name": "AgreementFile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The localized version of the terms of use agreement files attached to the agreement.",
+      "jsonName": "localizations",
+      "name": "Localizations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AgreementFileLocalization",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AgreementFileProperties",
+  "discriminatedTypeValue": "#microsoft.graph.agreementFile",
+  "typeHintIn": "ODataType"
+}

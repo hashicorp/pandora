@@ -7,10 +7,14 @@
       "name": "AdditionalNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplianceAdditionalNicProperties"
+          "nullable": false,
+          "referenceName": "VirtualApplianceAdditionalNicProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "BootStrapConfigurationBlobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "CloudInitConfiguration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "CloudInitConfigurationBlobs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,7 +100,9 @@
       "name": "Delegation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DelegationProperties"
+        "nullable": false,
+        "referenceName": "DelegationProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -97,7 +115,9 @@
       "name": "DeploymentType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -110,10 +130,14 @@
       "name": "InboundSecurityRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -127,10 +151,14 @@
       "name": "InternetIngressPublicIPs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InternetIngressPublicIPsProperties"
+          "nullable": false,
+          "referenceName": "InternetIngressPublicIPsProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -144,7 +172,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkVirtualAppliancePropertiesFormatNetworkProfile"
+        "nullable": false,
+        "referenceName": "NetworkVirtualAppliancePropertiesFormatNetworkProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -157,7 +187,9 @@
       "name": "NvaSku",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualApplianceSkuProperties"
+        "nullable": false,
+        "referenceName": "VirtualApplianceSkuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -170,7 +202,9 @@
       "name": "PartnerManagedResource",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerManagedResourceProperties"
+        "nullable": false,
+        "referenceName": "PartnerManagedResourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -183,7 +217,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -196,7 +232,9 @@
       "name": "SshPublicKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -209,7 +247,9 @@
       "name": "VirtualApplianceAsn",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -222,10 +262,14 @@
       "name": "VirtualApplianceConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -239,10 +283,14 @@
       "name": "VirtualApplianceNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "VirtualApplianceNicProperties"
+          "nullable": false,
+          "referenceName": "VirtualApplianceNicProperties",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -256,10 +304,14 @@
       "name": "VirtualApplianceSites",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SubResource"
+          "nullable": false,
+          "referenceName": "SubResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -273,12 +325,15 @@
       "name": "VirtualHub",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

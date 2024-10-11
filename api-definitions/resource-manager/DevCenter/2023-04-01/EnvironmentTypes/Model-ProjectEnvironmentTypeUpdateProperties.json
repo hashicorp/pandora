@@ -7,7 +7,9 @@
       "name": "CreatorRoleAssignment",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment"
+        "nullable": false,
+        "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DeploymentTargetId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnvironmentTypeEnableStatus"
+        "nullable": false,
+        "referenceName": "EnvironmentTypeEnableStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "UserRoleAssignments",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "UserRoleAssignment"
+          "nullable": false,
+          "referenceName": "UserRoleAssignment",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

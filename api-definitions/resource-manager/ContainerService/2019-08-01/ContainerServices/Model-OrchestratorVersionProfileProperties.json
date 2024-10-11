@@ -7,10 +7,14 @@
       "name": "Orchestrators",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "OrchestratorVersionProfile"
+          "nullable": false,
+          "referenceName": "OrchestratorVersionProfile",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -18,5 +22,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

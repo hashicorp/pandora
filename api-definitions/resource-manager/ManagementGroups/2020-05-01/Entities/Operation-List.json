@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "headerName": "Cache-Control",
       "optional": true,
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "groupName",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$search",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$select",
       "required": false,
@@ -59,6 +65,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$skip",
       "required": false,
@@ -69,6 +76,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -79,6 +87,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$view",
       "required": false,
@@ -91,7 +100,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "EntityInfo"
+    "nullable": false,
+    "referenceName": "EntityInfo",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Management/getEntities"
 }

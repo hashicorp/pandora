@@ -7,7 +7,9 @@
       "name": "LastUpdatedTimeUtc",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "PatternTypeMetrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceMetricEntity"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceMetricEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "SourceMetrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceMetricEntity"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceMetricEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "ThreatTypeMetrics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ThreatIntelligenceMetricEntity"
+          "nullable": false,
+          "referenceName": "ThreatIntelligenceMetricEntity",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -65,5 +79,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

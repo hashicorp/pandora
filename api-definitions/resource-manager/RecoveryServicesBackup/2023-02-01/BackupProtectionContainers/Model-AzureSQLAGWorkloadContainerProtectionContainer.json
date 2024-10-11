@@ -7,7 +7,9 @@
       "name": "ExtendedInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureWorkloadContainerExtendedInfo"
+        "nullable": false,
+        "referenceName": "AzureWorkloadContainerExtendedInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastUpdatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "OperationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperationType"
+        "nullable": false,
+        "referenceName": "OperationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "SourceResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,7 +68,9 @@
       "name": "WorkloadType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WorkloadType"
+        "nullable": false,
+        "referenceName": "WorkloadType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,6 +78,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ProtectionContainer",
   "discriminatedTypeValue": "SQLAGWorkLoadContainer",
   "typeHintIn": "ContainerType"

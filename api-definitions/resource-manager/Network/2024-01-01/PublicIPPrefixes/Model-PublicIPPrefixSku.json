@@ -7,7 +7,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPPrefixSkuName"
+        "nullable": false,
+        "referenceName": "PublicIPPrefixSkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Tier",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicIPPrefixSkuTier"
+        "nullable": false,
+        "referenceName": "PublicIPPrefixSkuTier",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

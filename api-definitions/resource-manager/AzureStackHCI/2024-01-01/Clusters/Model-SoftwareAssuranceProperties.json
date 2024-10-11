@@ -8,7 +8,9 @@
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "SoftwareAssuranceIntent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareAssuranceIntent"
+        "nullable": false,
+        "referenceName": "SoftwareAssuranceIntent",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,12 +38,15 @@
       "name": "SoftwareAssuranceStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SoftwareAssuranceStatus"
+        "nullable": false,
+        "referenceName": "SoftwareAssuranceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "PutKubernetesVersions",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,11 +11,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "KubernetesVersionProfile"
+    "nullable": false,
+    "referenceName": "KubernetesVersionProfile",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "KubernetesVersionProfile"
+    "nullable": false,
+    "referenceName": "KubernetesVersionProfile",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridContainerService/kubernetesVersions/default"
 }

@@ -1,0 +1,53 @@
+{
+  "name": "UserExperienceAnalyticsCategory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The insights for the category. Read-only.",
+      "jsonName": "insights",
+      "name": "Insights",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UserExperienceAnalyticsInsight",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The metric values for the user experience analytics category. Read-only.",
+      "jsonName": "metricValues",
+      "name": "MetricValues",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UserExperienceAnalyticsMetric",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userExperienceAnalyticsCategory",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "ElevationLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ElevationLevel"
+        "nullable": false,
+        "referenceName": "ElevationLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LinuxUserConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxUserConfiguration"
+        "nullable": false,
+        "referenceName": "LinuxUserConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Password",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "WindowsUserConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsUserConfiguration"
+        "nullable": false,
+        "referenceName": "WindowsUserConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

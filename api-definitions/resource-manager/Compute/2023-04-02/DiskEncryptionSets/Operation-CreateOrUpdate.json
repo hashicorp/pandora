@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DiskEncryptionSetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DiskEncryptionSet"
+    "nullable": false,
+    "referenceName": "DiskEncryptionSet",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DiskEncryptionSet"
+    "nullable": false,
+    "referenceName": "DiskEncryptionSet",
+    "referenceNameIsCommonType": null
   }
 }

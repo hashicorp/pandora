@@ -1,0 +1,41 @@
+{
+  "name": "TermsAndConditionsGroupAssignment",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of a group that the T\u0026C policy is assigned to.",
+      "jsonName": "targetGroupId",
+      "name": "TargetGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Navigation link to the terms and conditions that are assigned.",
+      "jsonName": "termsAndConditions",
+      "name": "TermsAndConditions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TermsAndConditions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.termsAndConditionsGroupAssignment",
+  "typeHintIn": "ODataType"
+}

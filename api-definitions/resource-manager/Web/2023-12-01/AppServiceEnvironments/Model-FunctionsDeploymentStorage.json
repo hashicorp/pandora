@@ -7,7 +7,9 @@
       "name": "Authentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsDeploymentStorageAuthentication"
+        "nullable": false,
+        "referenceName": "FunctionsDeploymentStorageAuthentication",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FunctionsDeploymentStorageType"
+        "nullable": false,
+        "referenceName": "FunctionsDeploymentStorageType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "Value",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

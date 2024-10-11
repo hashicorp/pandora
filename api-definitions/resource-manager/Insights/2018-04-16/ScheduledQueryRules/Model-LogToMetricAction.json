@@ -7,10 +7,14 @@
       "name": "Criteria",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Criteria"
+          "nullable": false,
+          "referenceName": "Criteria",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Action",
   "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
   "typeHintIn": "OdataType"

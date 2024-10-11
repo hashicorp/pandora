@@ -1,6 +1,7 @@
 {
   "name": "WorkspaceApiVersionSetUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "PATCH",
   "options": [
     {
+      "type": "Data",
       "headerName": "If-Match",
       "optional": false,
       "required": true,
@@ -21,10 +23,14 @@
   "resourceIdName": "WorkspaceApiVersionSetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApiVersionSetUpdateParameters"
+    "nullable": false,
+    "referenceName": "ApiVersionSetUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApiVersionSetContract"
+    "nullable": false,
+    "referenceName": "ApiVersionSetContract",
+    "referenceNameIsCommonType": null
   }
 }

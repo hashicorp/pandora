@@ -1,0 +1,41 @@
+{
+  "name": "BasicAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The password. It isn't returned in the responses.",
+      "jsonName": "password",
+      "name": "Password",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The username.",
+      "jsonName": "username",
+      "name": "Username",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ApiAuthenticationConfigurationBase",
+  "discriminatedTypeValue": "#microsoft.graph.basicAuthentication",
+  "typeHintIn": "ODataType"
+}

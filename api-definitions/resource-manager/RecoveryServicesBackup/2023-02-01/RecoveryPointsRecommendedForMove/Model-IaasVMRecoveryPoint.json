@@ -7,7 +7,9 @@
       "name": "IsInstantIlrSessionActive",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IsManagedVirtualMachine",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IsPrivateAccessEnabledOnAnyDisk",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "IsSourceVMEncrypted",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "KeyAndSecret",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "KeyAndSecretDetails"
+        "nullable": false,
+        "referenceName": "KeyAndSecretDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "OriginalStorageAccountOption",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RecoveryPointAdditionalInfo",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "RecoveryPointDiskConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointDiskConfiguration"
+        "nullable": false,
+        "referenceName": "RecoveryPointDiskConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,10 +142,14 @@
       "name": "RecoveryPointMoveReadinessInfo",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointMoveReadinessInfo"
+          "nullable": false,
+          "referenceName": "RecoveryPointMoveReadinessInfo",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -141,7 +163,9 @@
       "name": "RecoveryPointProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecoveryPointProperties"
+        "nullable": false,
+        "referenceName": "RecoveryPointProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,10 +178,14 @@
       "name": "RecoveryPointTierDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RecoveryPointTierInformationV2"
+          "nullable": false,
+          "referenceName": "RecoveryPointTierInformationV2",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -172,7 +200,9 @@
       "name": "RecoveryPointTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -185,7 +215,9 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -198,7 +230,9 @@
       "name": "SecurityType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -211,7 +245,9 @@
       "name": "SourceVMStorageType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -224,7 +260,9 @@
       "name": "VirtualMachineSize",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -237,7 +275,9 @@
       "name": "Zones",
       "objectDefinition": {
         "type": "Zones",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -245,6 +285,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "RecoveryPoint",
   "discriminatedTypeValue": "IaasVMRecoveryPoint",
   "typeHintIn": "ObjectType"

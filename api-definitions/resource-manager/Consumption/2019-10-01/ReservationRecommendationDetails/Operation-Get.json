@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": false,
       "queryString": "lookBackPeriod",
       "required": true,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "product",
       "required": true,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "region",
       "required": true,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "scope",
       "required": true,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": false,
       "queryString": "term",
       "required": true,
@@ -62,7 +68,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReservationRecommendationDetailsModel"
+    "nullable": false,
+    "referenceName": "ReservationRecommendationDetailsModel",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Consumption/reservationRecommendationDetails"
 }

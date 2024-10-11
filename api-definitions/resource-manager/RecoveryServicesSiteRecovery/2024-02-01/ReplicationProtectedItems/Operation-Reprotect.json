@@ -1,6 +1,7 @@
 {
   "name": "Reprotect",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReplicationProtectedItemId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ReverseReplicationInput"
+    "nullable": false,
+    "referenceName": "ReverseReplicationInput",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReplicationProtectedItem"
+    "nullable": false,
+    "referenceName": "ReplicationProtectedItem",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/reProtect"
 }

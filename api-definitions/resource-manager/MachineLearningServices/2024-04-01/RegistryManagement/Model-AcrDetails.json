@@ -7,7 +7,9 @@
       "name": "SystemCreatedAcrAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SystemCreatedAcrAccount"
+        "nullable": false,
+        "referenceName": "SystemCreatedAcrAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "UserCreatedAcrAccount",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserCreatedAcrAccount"
+        "nullable": false,
+        "referenceName": "UserCreatedAcrAccount",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

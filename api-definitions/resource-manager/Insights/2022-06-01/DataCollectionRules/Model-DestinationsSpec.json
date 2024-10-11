@@ -7,7 +7,9 @@
       "name": "AzureMonitorMetrics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureMonitorMetricsDestination"
+        "nullable": false,
+        "referenceName": "AzureMonitorMetricsDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "EventHubs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubDestination"
+          "nullable": false,
+          "referenceName": "EventHubDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "EventHubsDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EventHubDirectDestination"
+          "nullable": false,
+          "referenceName": "EventHubDirectDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,10 +64,14 @@
       "name": "LogAnalytics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "LogAnalyticsDestination"
+          "nullable": false,
+          "referenceName": "LogAnalyticsDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -71,10 +85,14 @@
       "name": "MonitoringAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringAccountDestination"
+          "nullable": false,
+          "referenceName": "MonitoringAccountDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -88,10 +106,14 @@
       "name": "StorageAccounts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageBlobDestination"
+          "nullable": false,
+          "referenceName": "StorageBlobDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -105,10 +127,14 @@
       "name": "StorageBlobsDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageBlobDestination"
+          "nullable": false,
+          "referenceName": "StorageBlobDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -122,10 +148,14 @@
       "name": "StorageTablesDirect",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageTableDestination"
+          "nullable": false,
+          "referenceName": "StorageTableDestination",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -133,5 +163,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

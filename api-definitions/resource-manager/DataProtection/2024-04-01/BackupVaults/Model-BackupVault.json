@@ -7,7 +7,9 @@
       "name": "BcdrSecurityLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BCDRSecurityLevel"
+        "nullable": false,
+        "referenceName": "BCDRSecurityLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FeatureSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FeatureSettings"
+        "nullable": false,
+        "referenceName": "FeatureSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IsVaultProtectedByResourceGuard",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MonitoringSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringSettings"
+        "nullable": false,
+        "referenceName": "MonitoringSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,10 +82,14 @@
       "name": "ReplicatedRegions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -89,10 +103,14 @@
       "name": "ResourceGuardOperationRequests",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -106,7 +124,9 @@
       "name": "ResourceMoveDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceMoveDetails"
+        "nullable": false,
+        "referenceName": "ResourceMoveDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -119,7 +139,9 @@
       "name": "ResourceMoveState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceMoveState"
+        "nullable": false,
+        "referenceName": "ResourceMoveState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "SecureScore",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecureScoreLevel"
+        "nullable": false,
+        "referenceName": "SecureScoreLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,7 +169,9 @@
       "name": "SecuritySettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SecuritySettings"
+        "nullable": false,
+        "referenceName": "SecuritySettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -158,10 +184,14 @@
       "name": "StorageSettings",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "StorageSetting"
+          "nullable": false,
+          "referenceName": "StorageSetting",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -169,5 +199,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

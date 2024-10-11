@@ -1,6 +1,7 @@
 {
   "name": "Create",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "ManagedPrivateEndpointId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ManagedPrivateEndpointModel"
+    "nullable": false,
+    "referenceName": "ManagedPrivateEndpointModel",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedPrivateEndpointModel"
+    "nullable": false,
+    "referenceName": "ManagedPrivateEndpointModel",
+    "referenceNameIsCommonType": null
   }
 }

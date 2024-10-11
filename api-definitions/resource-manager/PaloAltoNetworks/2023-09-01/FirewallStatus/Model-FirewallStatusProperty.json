@@ -7,7 +7,9 @@
       "name": "HealthReason",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "HealthStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HealthStatus"
+        "nullable": false,
+        "referenceName": "HealthStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "IsPanoramaManaged",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BooleanEnum"
+        "nullable": false,
+        "referenceName": "BooleanEnum",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PanoramaStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PanoramaStatus"
+        "nullable": false,
+        "referenceName": "PanoramaStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadOnlyProvisioningState"
+        "nullable": false,
+        "referenceName": "ReadOnlyProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

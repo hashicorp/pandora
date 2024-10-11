@@ -1,0 +1,37 @@
+---
+name: Verify All Microsoft Graph Services can be Imported and Generated
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/unit-test-end-to-end-microsoft-graph.yaml'
+      - 'config/microsoft-graph.hcl'
+      - 'tools/generator-go-sdk/**'
+      - 'tools/importer-msgraph-metadata/**'
+
+jobs:
+  test:
+    runs-on: custom-linux-xl
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-go@0a12ed9d6a96ab950c8f026ed9f722fe0da7ef32 # v5.0.2
+        with:
+          go-version-file: ./.go-version
+
+      - name: "Build and Run importer-msgraph-metadata"
+        id: import-data
+        run: |
+          cd ./tools/importer-msgraph-metadata
+          make tools
+          make build
+          make import
+
+      - name: "Run the Go SDK Generator"
+        run: |
+          # go go gadget generator
+          ./scripts/automation-generate-go-sdk.sh microsoft-graph

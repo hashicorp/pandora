@@ -7,7 +7,9 @@
       "name": "CompanyDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CompanyDetailsUpdate"
+        "nullable": false,
+        "referenceName": "CompanyDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ExistingResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "InformaticaOrganizationProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InformaticaOrganizationResourceUpdate"
+        "nullable": false,
+        "referenceName": "InformaticaOrganizationResourceUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MarketplaceDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarketplaceDetailsUpdate"
+        "nullable": false,
+        "referenceName": "MarketplaceDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "UserDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UserDetailsUpdate"
+        "nullable": false,
+        "referenceName": "UserDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

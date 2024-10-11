@@ -7,10 +7,14 @@
       "name": "And",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ForecastFilter"
+          "nullable": false,
+          "referenceName": "ForecastFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Dimensions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastComparisonExpression"
+        "nullable": false,
+        "referenceName": "ForecastComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,10 +43,14 @@
       "name": "Or",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ForecastFilter"
+          "nullable": false,
+          "referenceName": "ForecastFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,12 +64,15 @@
       "name": "Tags",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ForecastComparisonExpression"
+        "nullable": false,
+        "referenceName": "ForecastComparisonExpression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

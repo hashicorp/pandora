@@ -1,6 +1,7 @@
 {
   "name": "Put",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "UpdateId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "Update"
+    "nullable": false,
+    "referenceName": "Update",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Update"
+    "nullable": false,
+    "referenceName": "Update",
+    "referenceNameIsCommonType": null
   }
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "ClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ClusterUpdateParameters"
+    "nullable": false,
+    "referenceName": "ClusterUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Cluster"
+    "nullable": false,
+    "referenceName": "Cluster",
+    "referenceNameIsCommonType": null
   }
 }

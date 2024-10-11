@@ -1,6 +1,7 @@
 {
   "name": "ResetCounters",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "firewallName",
       "required": false,
@@ -21,7 +23,9 @@
   "resourceIdName": "LocalRuleId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RuleCounterReset"
+    "nullable": false,
+    "referenceName": "RuleCounterReset",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/resetCounters"
 }

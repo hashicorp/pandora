@@ -7,7 +7,9 @@
       "name": "ContinuationToken",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Filters",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunQueryFilter"
+          "nullable": false,
+          "referenceName": "RunQueryFilter",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -38,7 +44,9 @@
       "name": "LastUpdatedAfter",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -52,7 +60,9 @@
       "name": "LastUpdatedBefore",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -65,10 +75,14 @@
       "name": "OrderBy",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RunQueryOrderBy"
+          "nullable": false,
+          "referenceName": "RunQueryOrderBy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -76,5 +90,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

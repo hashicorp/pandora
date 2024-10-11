@@ -7,10 +7,14 @@
       "name": "AdditionalEgressEndpoints",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "EgressEndpoint"
+          "nullable": false,
+          "referenceName": "EgressEndpoint",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,12 +28,15 @@
       "name": "EnableDefaultEgressEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints"
+        "nullable": false,
+        "referenceName": "CloudServicesNetworkEnableDefaultEgressEndpoints",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

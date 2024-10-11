@@ -7,7 +7,9 @@
       "name": "CooldownPeriodInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ExecutionType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutionType"
+        "nullable": false,
+        "referenceName": "ExecutionType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

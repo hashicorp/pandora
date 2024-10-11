@@ -7,7 +7,9 @@
       "name": "ConflictPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExistingResourcePolicy"
+        "nullable": false,
+        "referenceName": "ExistingResourcePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ExcludedNamespaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "ExcludedResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -54,7 +64,9 @@
       "name": "IncludeClusterScopeResources",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -67,10 +79,14 @@
       "name": "IncludedNamespaces",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -84,10 +100,14 @@
       "name": "IncludedResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -101,10 +121,14 @@
       "name": "LabelSelectors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -118,10 +142,14 @@
       "name": "NamespaceMappings",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -135,7 +163,9 @@
       "name": "PersistentVolumeRestoreMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PersistentVolumeRestoreMode"
+        "nullable": false,
+        "referenceName": "PersistentVolumeRestoreMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -148,7 +178,9 @@
       "name": "ResourceModifierReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NamespacedNameResource"
+        "nullable": false,
+        "referenceName": "NamespacedNameResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -161,10 +193,14 @@
       "name": "RestoreHookReferences",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NamespacedNameResource"
+          "nullable": false,
+          "referenceName": "NamespacedNameResource",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -178,7 +214,9 @@
       "name": "StagingResourceGroupId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -191,7 +229,9 @@
       "name": "StagingStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -199,6 +239,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ItemLevelRestoreCriteria",
   "discriminatedTypeValue": "KubernetesClusterVaultTierRestoreCriteria",
   "typeHintIn": "ObjectType"

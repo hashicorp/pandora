@@ -1,0 +1,25 @@
+{
+  "name": "AccessReviewInstanceDecisionItemServicePrincipalResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The globally unique identifier of the application to which access is granted.",
+      "jsonName": "appId",
+      "name": "AppId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AccessReviewInstanceDecisionItemResource",
+  "discriminatedTypeValue": "#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalResource",
+  "typeHintIn": "ODataType"
+}

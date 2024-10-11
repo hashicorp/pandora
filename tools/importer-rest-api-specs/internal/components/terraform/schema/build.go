@@ -22,8 +22,8 @@ func Build(input models.WorkInProgressData) (*models.WorkInProgressData, error) 
 			return nil, fmt.Errorf("building the Terraform Schema: %+v", err)
 		}
 
-		logging.Tracef("The Resource %q has %d models", resourceLabel, len(*schemaModels))
-		resource.Resource.SchemaModels = *schemaModels
+		logging.Tracef("The Resource %q has %d models", resourceLabel, len(schemaModels))
+		resource.Resource.SchemaModels = schemaModels
 		resource.Resource.Mappings = *mappings
 
 		input.Resources[resourceLabel] = resource

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "WorkspaceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkspacePatchInfo"
+    "nullable": false,
+    "referenceName": "WorkspacePatchInfo",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Workspace"
+    "nullable": false,
+    "referenceName": "Workspace",
+    "referenceNameIsCommonType": null
   }
 }

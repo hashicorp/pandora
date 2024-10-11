@@ -1,6 +1,7 @@
 {
   "name": "Resources",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,11 +9,15 @@
   "httpMethod": "POST",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "QueryRequest"
+    "nullable": false,
+    "referenceName": "QueryRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "QueryResponse"
+    "nullable": false,
+    "referenceName": "QueryResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ResourceGraph/resources"
 }

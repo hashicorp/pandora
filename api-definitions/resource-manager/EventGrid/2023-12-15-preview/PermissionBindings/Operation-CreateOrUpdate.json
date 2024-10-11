@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PermissionBindingId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PermissionBinding"
+    "nullable": false,
+    "referenceName": "PermissionBinding",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PermissionBinding"
+    "nullable": false,
+    "referenceName": "PermissionBinding",
+    "referenceNameIsCommonType": null
   }
 }

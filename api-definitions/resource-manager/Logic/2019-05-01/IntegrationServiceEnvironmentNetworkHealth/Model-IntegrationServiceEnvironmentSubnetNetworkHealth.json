@@ -7,7 +7,9 @@
       "name": "NetworkDependencyHealthState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkEndPointAccessibilityState"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkEndPointAccessibilityState",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "OutboundNetworkDependencies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IntegrationServiceEnvironmentNetworkDependency"
+          "nullable": false,
+          "referenceName": "IntegrationServiceEnvironmentNetworkDependency",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,12 +43,15 @@
       "name": "OutboundNetworkHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealth"
+        "nullable": false,
+        "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

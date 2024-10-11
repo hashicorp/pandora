@@ -1,6 +1,7 @@
 {
   "name": "ListByTopic",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$skip",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -32,7 +35,9 @@
   "resourceIdName": "TopicId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "SBSubscription"
+    "nullable": false,
+    "referenceName": "SBSubscription",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/subscriptions"
 }

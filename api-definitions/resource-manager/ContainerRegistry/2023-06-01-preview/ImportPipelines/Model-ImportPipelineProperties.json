@@ -7,10 +7,14 @@
       "name": "Options",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PipelineOptions"
+          "nullable": false,
+          "referenceName": "PipelineOptions",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImportPipelineSourceProperties"
+        "nullable": false,
+        "referenceName": "ImportPipelineSourceProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "Trigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PipelineTriggerProperties"
+        "nullable": false,
+        "referenceName": "PipelineTriggerProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

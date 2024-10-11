@@ -7,7 +7,9 @@
       "name": "AsAdministrators",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerAdministrators"
+        "nullable": false,
+        "referenceName": "ServerAdministrators",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BackupBlobContainerUri",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "GatewayDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GatewayDetails"
+        "nullable": false,
+        "referenceName": "GatewayDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "IPV4FirewallSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IPv4FirewallSettings"
+        "nullable": false,
+        "referenceName": "IPv4FirewallSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ManagedMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedMode"
+        "nullable": false,
+        "referenceName": "ManagedMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "QuerypoolConnectionMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMode"
+        "nullable": false,
+        "referenceName": "ConnectionMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "ServerMonitorMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServerMonitorMode"
+        "nullable": false,
+        "referenceName": "ServerMonitorMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

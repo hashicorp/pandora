@@ -1,0 +1,57 @@
+{
+  "name": "Win32LobAppProductCodeRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product code of the app.",
+      "jsonName": "productCode",
+      "name": "ProductCode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The product version comparison value.",
+      "jsonName": "productVersion",
+      "name": "ProductVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains properties for detection operator.",
+      "jsonName": "productVersionOperator",
+      "name": "ProductVersionOperator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppRuleOperator",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Win32LobAppRule",
+  "discriminatedTypeValue": "#microsoft.graph.win32LobAppProductCodeRule",
+  "typeHintIn": "ODataType"
+}

@@ -7,10 +7,14 @@
       "name": "AccessPolicies",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ServiceAccessPolicyEntry"
+          "nullable": false,
+          "referenceName": "ServiceAccessPolicyEntry",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "AcrConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceAcrConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceAcrConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "AuthenticationConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceAuthenticationConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceAuthenticationConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "CorsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceCorsConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceCorsConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "CosmosDbConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceCosmosDbConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceCosmosDbConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "ExportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceExportConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceExportConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "ImportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceImportConfigurationInfo"
+        "nullable": false,
+        "referenceName": "ServiceImportConfigurationInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,7 +139,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,12 +154,15 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

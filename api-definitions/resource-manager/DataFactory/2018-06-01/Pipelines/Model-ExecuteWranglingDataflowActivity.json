@@ -7,7 +7,9 @@
       "name": "Policy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActivityPolicy"
+        "nullable": false,
+        "referenceName": "ActivityPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "TypeProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExecutePowerQueryActivityTypeProperties"
+        "nullable": false,
+        "referenceName": "ExecutePowerQueryActivityTypeProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -28,6 +32,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Activity",
   "discriminatedTypeValue": "ExecuteWranglingDataflow",
   "typeHintIn": "Type"

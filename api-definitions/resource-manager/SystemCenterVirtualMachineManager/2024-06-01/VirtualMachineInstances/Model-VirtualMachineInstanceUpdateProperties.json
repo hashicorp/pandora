@@ -7,10 +7,14 @@
       "name": "AvailabilitySets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AvailabilitySetListItem"
+          "nullable": false,
+          "referenceName": "AvailabilitySetListItem",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "HardwareProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HardwareProfileUpdate"
+        "nullable": false,
+        "referenceName": "HardwareProfileUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "InfrastructureProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InfrastructureProfileUpdate"
+        "nullable": false,
+        "referenceName": "InfrastructureProfileUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "NetworkProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NetworkProfileUpdate"
+        "nullable": false,
+        "referenceName": "NetworkProfileUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,12 +73,15 @@
       "name": "StorageProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StorageProfileUpdate"
+        "nullable": false,
+        "referenceName": "StorageProfileUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

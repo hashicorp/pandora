@@ -4,8 +4,11 @@ on:
   pull_request:
     types: ['opened', 'synchronize']
     paths:
-      - '.github/workflows/**'
-      - 'config/**'
+      - '.github/workflows/unit-test-end-to-end-resource-manager.yaml'
+      - 'config/resource-manager.hcl'
+      - 'config/resources/**'
+      - 'tools/generator-go-sdk/**'
+      - 'tools/importer-rest-api-specs/**'
 
 jobs:
   test:
@@ -32,4 +35,4 @@ jobs:
       - name: "Run the Go SDK Generator"
         run: |
           # go go gadget generator
-          ./scripts/automation-generate-go-sdk.sh
+          ./scripts/automation-generate-go-sdk.sh resource-manager

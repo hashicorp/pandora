@@ -7,10 +7,14 @@
       "name": "Actions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AutomationRuleAction"
+          "nullable": false,
+          "referenceName": "AutomationRuleAction",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -24,7 +28,9 @@
       "name": "CreatedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientInfo"
+        "nullable": false,
+        "referenceName": "ClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -38,7 +44,9 @@
       "name": "CreatedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -51,7 +59,9 @@
       "name": "DisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -64,7 +74,9 @@
       "name": "LastModifiedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientInfo"
+        "nullable": false,
+        "referenceName": "ClientInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -78,7 +90,9 @@
       "name": "LastModifiedTimeUtc",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -91,7 +105,9 @@
       "name": "Order",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -104,12 +120,15 @@
       "name": "TriggeringLogic",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRuleTriggeringLogic"
+        "nullable": false,
+        "referenceName": "AutomationRuleTriggeringLogic",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

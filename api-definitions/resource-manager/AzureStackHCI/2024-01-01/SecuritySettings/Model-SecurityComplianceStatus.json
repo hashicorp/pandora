@@ -7,7 +7,9 @@
       "name": "DataAtRestEncrypted",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DataInTransitProtected",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "LastUpdated",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -47,7 +53,9 @@
       "name": "SecuredCoreCompliance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -60,12 +68,15 @@
       "name": "WdacCompliance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceStatus"
+        "nullable": false,
+        "referenceName": "ComplianceStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

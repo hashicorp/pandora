@@ -7,7 +7,9 @@
       "name": "ActiveRevisionsMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ActiveRevisionsMode"
+        "nullable": false,
+        "referenceName": "ActiveRevisionsMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Ingress",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Ingress"
+        "nullable": false,
+        "referenceName": "Ingress",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Registries",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "RegistryCredentials"
+          "nullable": false,
+          "referenceName": "RegistryCredentials",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -50,10 +58,14 @@
       "name": "Secrets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "Secret"
+          "nullable": false,
+          "referenceName": "Secret",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -61,5 +73,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

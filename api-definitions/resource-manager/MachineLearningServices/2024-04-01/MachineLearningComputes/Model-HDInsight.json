@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HDInsightProperties"
+        "nullable": false,
+        "referenceName": "HDInsightProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Compute",
   "discriminatedTypeValue": "HDInsight",
   "typeHintIn": "ComputeType"

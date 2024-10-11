@@ -7,7 +7,9 @@
       "name": "SeverityFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FusionTemplateSubTypeSeverityFilter"
+        "nullable": false,
+        "referenceName": "FusionTemplateSubTypeSeverityFilter",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "SourceSubTypeDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "SourceSubTypeName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

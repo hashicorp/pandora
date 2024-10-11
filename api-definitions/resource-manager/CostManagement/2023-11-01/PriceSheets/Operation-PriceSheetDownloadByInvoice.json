@@ -1,6 +1,7 @@
 {
   "name": "PriceSheetDownloadByInvoice",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "InvoiceId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DownloadUrl"
+    "nullable": false,
+    "referenceName": "DownloadURL",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/pricesheets/default/download"
 }

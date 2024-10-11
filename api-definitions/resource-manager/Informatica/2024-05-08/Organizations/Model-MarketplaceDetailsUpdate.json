@@ -7,7 +7,9 @@
       "name": "MarketplaceSubscriptionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "OfferDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OfferDetailsUpdate"
+        "nullable": false,
+        "referenceName": "OfferDetailsUpdate",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

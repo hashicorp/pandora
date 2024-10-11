@@ -1,6 +1,7 @@
 {
   "name": "GetHost",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,8 @@
   "resourceIdName": "HostId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "HyperVHost"
+    "nullable": false,
+    "referenceName": "HyperVHost",
+    "referenceNameIsCommonType": null
   }
 }

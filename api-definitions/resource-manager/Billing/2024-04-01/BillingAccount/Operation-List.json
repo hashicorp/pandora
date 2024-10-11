@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "expand",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeAll",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeAllWithoutBillingProfiles",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeDeleted",
       "required": false,
@@ -59,6 +65,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includePendingAgreement",
       "required": false,
@@ -69,6 +76,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeResellee",
       "required": false,
@@ -79,6 +87,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "legalOwnerOID",
       "required": false,
@@ -89,6 +98,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "legalOwnerTID",
       "required": false,
@@ -99,6 +109,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "search",
       "required": false,
@@ -109,6 +120,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "skip",
       "required": false,
@@ -119,6 +131,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "top",
       "required": false,
@@ -131,7 +144,9 @@
   ],
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingAccount"
+    "nullable": false,
+    "referenceName": "BillingAccount",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Billing/billingAccounts"
 }

@@ -8,7 +8,9 @@
       "name": "CreateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "LastOperation",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedIntegrationRuntimeOperationResult"
+        "nullable": false,
+        "referenceName": "ManagedIntegrationRuntimeOperationResult",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,10 +38,14 @@
       "name": "Nodes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedIntegrationRuntimeNode"
+          "nullable": false,
+          "referenceName": "ManagedIntegrationRuntimeNode",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -51,10 +59,14 @@
       "name": "OtherErrors",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ManagedIntegrationRuntimeError"
+          "nullable": false,
+          "referenceName": "ManagedIntegrationRuntimeError",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -62,5 +74,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

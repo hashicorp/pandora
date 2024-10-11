@@ -7,7 +7,9 @@
       "name": "MatchVariable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScrubbingRuleEntryMatchVariable"
+        "nullable": false,
+        "referenceName": "ScrubbingRuleEntryMatchVariable",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Selector",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SelectorMatchOperator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScrubbingRuleEntryMatchOperator"
+        "nullable": false,
+        "referenceName": "ScrubbingRuleEntryMatchOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScrubbingRuleEntryState"
+        "nullable": false,
+        "referenceName": "ScrubbingRuleEntryState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,10 +7,14 @@
       "name": "AlertSeverities",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,10 +28,14 @@
       "name": "AlertStates",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -41,7 +49,9 @@
       "name": "AlertsCount",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -55,7 +65,9 @@
       "name": "LastModifiedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -68,7 +80,9 @@
       "name": "LastModifiedUserName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -81,10 +95,14 @@
       "name": "MonitorConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -98,10 +116,14 @@
       "name": "MonitorServices",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,7 +137,9 @@
       "name": "NextLink",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,10 +152,14 @@
       "name": "ResourceGroups",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -145,10 +173,14 @@
       "name": "ResourceTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,10 +194,14 @@
       "name": "Resources",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SmartGroupAggregatedProperty"
+          "nullable": false,
+          "referenceName": "SmartGroupAggregatedProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -179,7 +215,9 @@
       "name": "Severity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Severity"
+        "nullable": false,
+        "referenceName": "Severity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -192,7 +230,9 @@
       "name": "SmartGroupState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "State"
+        "nullable": false,
+        "referenceName": "State",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,12 +246,15 @@
       "name": "StartDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

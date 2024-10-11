@@ -1,0 +1,41 @@
+{
+  "name": "DriveItemVersion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The content stream for this version of the item.",
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the size of the content stream for this version of the item.",
+      "jsonName": "size",
+      "name": "Size",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseItemVersion",
+  "discriminatedTypeValue": "#microsoft.graph.driveItemVersion",
+  "typeHintIn": "ODataType"
+}

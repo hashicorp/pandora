@@ -1,6 +1,7 @@
 {
   "name": "LabPlansSaveImage",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "LabPlanId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "SaveImageBody"
+    "nullable": false,
+    "referenceName": "SaveImageBody",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/saveImage"
 }

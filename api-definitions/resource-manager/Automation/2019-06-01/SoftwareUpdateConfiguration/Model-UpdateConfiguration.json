@@ -7,10 +7,14 @@
       "name": "AzureVirtualMachines",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "Linux",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LinuxProperties"
+        "nullable": false,
+        "referenceName": "LinuxProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "NonAzureComputerNames",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "OperatingSystem",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OperatingSystemType"
+        "nullable": false,
+        "referenceName": "OperatingSystemType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "Targets",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TargetProperties"
+        "nullable": false,
+        "referenceName": "TargetProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,12 +109,15 @@
       "name": "Windows",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "WindowsProperties"
+        "nullable": false,
+        "referenceName": "WindowsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

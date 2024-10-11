@@ -1,6 +1,7 @@
 {
   "name": "GetAllMachinesInSite",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "continuationToken",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$top",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "totalRecordCount",
       "required": false,
@@ -52,7 +57,9 @@
   "resourceIdName": "VMwareSiteId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VMwareMachine"
+    "nullable": false,
+    "referenceName": "VMwareMachine",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/machines"
 }

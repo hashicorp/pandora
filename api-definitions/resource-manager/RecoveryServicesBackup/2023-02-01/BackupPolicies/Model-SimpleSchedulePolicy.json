@@ -7,7 +7,9 @@
       "name": "HourlySchedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HourlySchedule"
+        "nullable": false,
+        "referenceName": "HourlySchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "ScheduleRunDays",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DayOfWeek"
+          "nullable": false,
+          "referenceName": "DayOfWeek",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ScheduleRunFrequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduleRunType"
+        "nullable": false,
+        "referenceName": "ScheduleRunType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "ScheduleRunTimes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "DateTime",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ScheduleWeeklyFrequency",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -75,6 +89,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SchedulePolicy",
   "discriminatedTypeValue": "SimpleSchedulePolicy",
   "typeHintIn": "SchedulePolicyType"

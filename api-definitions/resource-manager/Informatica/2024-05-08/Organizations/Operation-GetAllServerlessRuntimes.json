@@ -1,6 +1,7 @@
 {
   "name": "GetAllServerlessRuntimes",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "OrganizationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "InformaticaServerlessRuntimeResourceList"
+    "nullable": false,
+    "referenceName": "InformaticaServerlessRuntimeResourceList",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/getAllServerlessRuntimes"
 }

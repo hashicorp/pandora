@@ -8,7 +8,9 @@
       "name": "ChangedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "Content",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerContent"
+        "nullable": false,
+        "referenceName": "PartnerContent",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -35,7 +39,9 @@
       "name": "CreatedTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -48,7 +54,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -61,12 +69,15 @@
       "name": "PartnerType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PartnerType"
+        "nullable": false,
+        "referenceName": "PartnerType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

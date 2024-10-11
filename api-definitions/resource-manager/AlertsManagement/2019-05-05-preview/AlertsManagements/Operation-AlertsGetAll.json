@@ -1,6 +1,7 @@
 {
   "name": "AlertsGetAll",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,6 +10,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "alertRule",
       "required": false,
@@ -19,6 +21,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "alertState",
       "required": false,
@@ -29,6 +32,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "customTimeRange",
       "required": false,
@@ -39,6 +43,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeContext",
       "required": false,
@@ -49,6 +54,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "includeEgressConfig",
       "required": false,
@@ -59,6 +65,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "monitorCondition",
       "required": false,
@@ -69,6 +76,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "monitorService",
       "required": false,
@@ -79,6 +87,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "pageCount",
       "required": false,
@@ -89,6 +98,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "select",
       "required": false,
@@ -99,6 +109,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "severity",
       "required": false,
@@ -109,6 +120,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "smartGroupId",
       "required": false,
@@ -119,6 +131,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "sortBy",
       "required": false,
@@ -129,6 +142,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "sortOrder",
       "required": false,
@@ -139,6 +153,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "targetResource",
       "required": false,
@@ -149,6 +164,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "targetResourceGroup",
       "required": false,
@@ -159,6 +175,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "targetResourceType",
       "required": false,
@@ -169,6 +186,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "timeRange",
       "required": false,
@@ -182,7 +200,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Alert"
+    "nullable": false,
+    "referenceName": "Alert",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AlertsManagement/alerts"
 }

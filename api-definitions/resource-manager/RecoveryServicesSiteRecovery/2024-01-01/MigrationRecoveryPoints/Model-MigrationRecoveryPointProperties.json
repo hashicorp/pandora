@@ -8,7 +8,9 @@
       "name": "RecoveryPointTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,12 +23,15 @@
       "name": "RecoveryPointType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MigrationRecoveryPointType"
+        "nullable": false,
+        "referenceName": "MigrationRecoveryPointType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

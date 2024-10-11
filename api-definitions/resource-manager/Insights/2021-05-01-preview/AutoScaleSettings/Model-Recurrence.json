@@ -7,7 +7,9 @@
       "name": "Frequency",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrenceFrequency"
+        "nullable": false,
+        "referenceName": "RecurrenceFrequency",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Schedule",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RecurrentSchedule"
+        "nullable": false,
+        "referenceName": "RecurrentSchedule",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

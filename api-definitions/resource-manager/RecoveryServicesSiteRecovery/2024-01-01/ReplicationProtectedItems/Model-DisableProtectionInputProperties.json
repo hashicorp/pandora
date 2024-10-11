@@ -7,7 +7,9 @@
       "name": "DisableProtectionReason",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisableProtectionReason"
+        "nullable": false,
+        "referenceName": "DisableProtectionReason",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "ReplicationProviderInput",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DisableProtectionProviderSpecificInput"
+        "nullable": false,
+        "referenceName": "DisableProtectionProviderSpecificInput",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

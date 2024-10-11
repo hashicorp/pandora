@@ -7,7 +7,9 @@
       "name": "BlobCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileBlobCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileBlobCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DiskCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileDiskCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileDiskCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "FileCSIDriver",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileFileCSIDriver"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileFileCSIDriver",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SnapshotController",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterStorageProfileSnapshotController"
+        "nullable": false,
+        "referenceName": "ManagedClusterStorageProfileSnapshotController",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,41 @@
+{
+  "name": "SubstringTransformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The start index of the substring operation, where 0 is the first character in the string.",
+      "jsonName": "index",
+      "name": "Index",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum length of the string, starting from the provided index.",
+      "jsonName": "length",
+      "name": "Length",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomClaimTransformation",
+  "discriminatedTypeValue": "#microsoft.graph.substringTransformation",
+  "typeHintIn": "ODataType"
+}

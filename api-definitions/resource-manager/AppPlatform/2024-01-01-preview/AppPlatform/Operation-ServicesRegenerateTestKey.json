@@ -1,6 +1,7 @@
 {
   "name": "ServicesRegenerateTestKey",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "SpringCloudServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RegenerateTestKeyRequestPayload"
+    "nullable": false,
+    "referenceName": "RegenerateTestKeyRequestPayload",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TestKeys"
+    "nullable": false,
+    "referenceName": "TestKeys",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/regenerateTestKey"
 }

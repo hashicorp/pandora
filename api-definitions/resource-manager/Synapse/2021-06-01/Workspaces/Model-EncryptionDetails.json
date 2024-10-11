@@ -7,7 +7,9 @@
       "name": "Cmk",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CustomerManagedKeyDetails"
+        "nullable": false,
+        "referenceName": "CustomerManagedKeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "DoubleEncryptionEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

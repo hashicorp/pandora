@@ -1,0 +1,41 @@
+{
+  "name": "EnrollmentRestrictionsConfigurationPolicySetItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.",
+      "jsonName": "limit",
+      "name": "Limit",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.",
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicySetItem",
+  "discriminatedTypeValue": "#microsoft.graph.enrollmentRestrictionsConfigurationPolicySetItem",
+  "typeHintIn": "ODataType"
+}

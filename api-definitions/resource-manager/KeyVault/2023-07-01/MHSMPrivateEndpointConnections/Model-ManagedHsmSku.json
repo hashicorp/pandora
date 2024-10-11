@@ -7,7 +7,9 @@
       "name": "Family",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmSkuFamily"
+        "nullable": false,
+        "referenceName": "ManagedHsmSkuFamily",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Name",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedHsmSkuName"
+        "nullable": false,
+        "referenceName": "ManagedHsmSkuName",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

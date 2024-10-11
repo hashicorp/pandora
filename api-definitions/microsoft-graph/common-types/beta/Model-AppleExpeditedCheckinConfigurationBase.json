@@ -1,0 +1,25 @@
+{
+  "name": "AppleExpeditedCheckinConfigurationBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Gets or sets whether to enable expedited device check-ins.",
+      "jsonName": "enableExpeditedCheckin",
+      "name": "EnableExpeditedCheckin",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "DeviceConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.appleExpeditedCheckinConfigurationBase",
+  "typeHintIn": "ODataType"
+}

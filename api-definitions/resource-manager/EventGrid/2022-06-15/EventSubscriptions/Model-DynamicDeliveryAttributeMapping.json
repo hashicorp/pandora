@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DynamicDeliveryAttributeMappingProperties"
+        "nullable": false,
+        "referenceName": "DynamicDeliveryAttributeMappingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "DeliveryAttributeMapping",
   "discriminatedTypeValue": "Dynamic",
   "typeHintIn": "Type"

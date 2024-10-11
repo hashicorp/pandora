@@ -1,6 +1,7 @@
 {
   "name": "ContainerGroupsList",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ContainerGroup"
+    "nullable": false,
+    "referenceName": "ContainerGroup",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.ContainerInstance/containerGroups"
 }

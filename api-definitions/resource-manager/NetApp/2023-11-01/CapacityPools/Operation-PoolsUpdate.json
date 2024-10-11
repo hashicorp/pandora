@@ -1,6 +1,7 @@
 {
   "name": "PoolsUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CapacityPoolId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "CapacityPoolPatch"
+    "nullable": false,
+    "referenceName": "CapacityPoolPatch",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CapacityPool"
+    "nullable": false,
+    "referenceName": "CapacityPool",
+    "referenceNameIsCommonType": null
   }
 }

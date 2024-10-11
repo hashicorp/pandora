@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "CapacityId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DedicatedCapacityUpdateParameters"
+    "nullable": false,
+    "referenceName": "DedicatedCapacityUpdateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DedicatedCapacity"
+    "nullable": false,
+    "referenceName": "DedicatedCapacity",
+    "referenceNameIsCommonType": null
   }
 }

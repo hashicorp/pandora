@@ -7,7 +7,9 @@
       "name": "AuthenticationMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutoStorageAuthenticationMode"
+        "nullable": false,
+        "referenceName": "AutoStorageAuthenticationMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "NodeIdentityReference",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComputeNodeIdentityReference"
+        "nullable": false,
+        "referenceName": "ComputeNodeIdentityReference",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "StorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

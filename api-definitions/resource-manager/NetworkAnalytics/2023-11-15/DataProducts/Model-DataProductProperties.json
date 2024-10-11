@@ -7,10 +7,14 @@
       "name": "AvailableMinorVersions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "ConsumptionEndpoints",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConsumptionEndpointsProperties"
+        "nullable": false,
+        "referenceName": "ConsumptionEndpointsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "CurrentMinorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "CustomerEncryptionKey",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EncryptionKeyDetails"
+        "nullable": false,
+        "referenceName": "EncryptionKeyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "CustomerManagedKeyEncryptionEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "Documentation",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -86,10 +100,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "keyVaultUrl",
-      "name": "KeyVaultUrl",
+      "name": "KeyVaultURL",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "MajorVersion",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ManagedResourceGroupConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedResourceGroupConfiguration"
+        "nullable": false,
+        "referenceName": "ManagedResourceGroupConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "Networkacls",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DataProductNetworkAcls"
+        "nullable": false,
+        "referenceName": "DataProductNetworkAcls",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,10 +163,14 @@
       "name": "Owners",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -158,7 +184,9 @@
       "name": "PrivateLinksEnabled",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -171,7 +199,9 @@
       "name": "Product",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -184,7 +214,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -197,7 +229,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "Publisher",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -223,7 +259,9 @@
       "name": "PurviewAccount",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -236,7 +274,9 @@
       "name": "PurviewCollection",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -249,7 +289,9 @@
       "name": "Redundancy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ControlState"
+        "nullable": false,
+        "referenceName": "ControlState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -262,12 +304,15 @@
       "name": "ResourceGuid",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

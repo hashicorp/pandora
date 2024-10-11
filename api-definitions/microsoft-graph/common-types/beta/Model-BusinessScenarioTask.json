@@ -1,0 +1,41 @@
+{
+  "name": "BusinessScenarioTask",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Scenario-specific properties of the task. externalObjectId and externalBucketId properties must be specified when creating a task.",
+      "jsonName": "businessScenarioProperties",
+      "name": "BusinessScenarioProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BusinessScenarioProperties",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Target of the task that specifies where the task should be placed. Must be specified when creating a task.",
+      "jsonName": "target",
+      "name": "Target",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BusinessScenarioTaskTargetBase",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PlannerTask",
+  "discriminatedTypeValue": "#microsoft.graph.businessScenarioTask",
+  "typeHintIn": "ODataType"
+}

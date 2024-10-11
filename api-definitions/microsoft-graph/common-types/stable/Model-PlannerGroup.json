@@ -1,0 +1,31 @@
+{
+  "name": "PlannerGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Read-only. Nullable. Returns the plannerPlans owned by the group.",
+      "jsonName": "plans",
+      "name": "Plans",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PlannerPlan",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.plannerGroup",
+  "typeHintIn": "ODataType"
+}

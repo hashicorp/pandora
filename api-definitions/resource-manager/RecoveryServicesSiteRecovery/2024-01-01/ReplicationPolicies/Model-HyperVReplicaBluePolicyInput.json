@@ -7,7 +7,9 @@
       "name": "ReplicationFrequencyInSeconds",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "HyperVReplicaPolicyInput",
   "discriminatedTypeValue": "HyperVReplica2012R2",
   "typeHintIn": "InstanceType"

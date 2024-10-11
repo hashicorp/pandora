@@ -7,10 +7,14 @@
       "name": "DbPlans",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DbIormConfig"
+          "nullable": false,
+          "referenceName": "DbIormConfig",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "LifecycleDetails",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "LifecycleState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IormLifecycleState"
+        "nullable": false,
+        "referenceName": "IormLifecycleState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "Objective",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Objective"
+        "nullable": false,
+        "referenceName": "Objective",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

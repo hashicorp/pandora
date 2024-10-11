@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AnomaliesSettingsProperties"
+        "nullable": false,
+        "referenceName": "AnomaliesSettingsProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Settings",
   "discriminatedTypeValue": "Anomalies",
   "typeHintIn": "Kind"

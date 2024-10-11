@@ -7,7 +7,9 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScheduledSourceShareSynchronizationSettingProperties"
+        "nullable": false,
+        "referenceName": "ScheduledSourceShareSynchronizationSettingProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -15,6 +17,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "SourceShareSynchronizationSetting",
   "discriminatedTypeValue": "ScheduleBased",
   "typeHintIn": "Kind"

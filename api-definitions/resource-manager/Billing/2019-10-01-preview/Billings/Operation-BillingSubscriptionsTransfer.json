@@ -1,6 +1,7 @@
 {
   "name": "BillingSubscriptionsTransfer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "InvoiceSectionBillingSubscriptionId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "TransferBillingSubscriptionRequestProperties"
+    "nullable": false,
+    "referenceName": "TransferBillingSubscriptionRequestProperties",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "TransferBillingSubscriptionResult"
+    "nullable": false,
+    "referenceName": "TransferBillingSubscriptionResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/transfer"
 }

@@ -7,7 +7,9 @@
       "name": "AutomaticClusterUpdate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticClusterUpdateDefinition"
+        "nullable": false,
+        "referenceName": "AutomaticClusterUpdateDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ComplianceSecurityProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ComplianceSecurityProfileDefinition"
+        "nullable": false,
+        "referenceName": "ComplianceSecurityProfileDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "EnhancedSecurityMonitoring",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EnhancedSecurityMonitoringDefinition"
+        "nullable": false,
+        "referenceName": "EnhancedSecurityMonitoringDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

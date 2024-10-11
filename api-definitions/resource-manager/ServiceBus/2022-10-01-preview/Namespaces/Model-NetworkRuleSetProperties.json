@@ -7,7 +7,9 @@
       "name": "DefaultAction",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DefaultAction"
+        "nullable": false,
+        "referenceName": "DefaultAction",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "IPRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NWRuleSetIPRules"
+          "nullable": false,
+          "referenceName": "NWRuleSetIPRules",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccessFlag"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccessFlag",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "TrustedServiceAccessEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,10 +73,14 @@
       "name": "VirtualNetworkRules",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "NWRuleSetVirtualNetworkRules"
+          "nullable": false,
+          "referenceName": "NWRuleSetVirtualNetworkRules",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -74,5 +88,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,0 +1,25 @@
+{
+  "name": "PlannerTaskConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Policy configuration for tasks created for the businessScenario when they're being changed outside of the scenario.",
+      "jsonName": "editPolicy",
+      "name": "EditPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlannerTaskPolicy",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.plannerTaskConfiguration",
+  "typeHintIn": "ODataType"
+}

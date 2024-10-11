@@ -7,7 +7,9 @@
       "name": "HintType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePlacementHintType"
+        "nullable": false,
+        "referenceName": "VirtualMachinePlacementHintType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SchedulingExecution",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineSchedulingExecution"
+        "nullable": false,
+        "referenceName": "VirtualMachineSchedulingExecution",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "Scope",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachinePlacementHintPodAffinityScope"
+        "nullable": false,
+        "referenceName": "VirtualMachinePlacementHintPodAffinityScope",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

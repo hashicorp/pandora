@@ -1,0 +1,25 @@
+{
+  "name": "OmaSettingInteger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OmaSetting",
+  "discriminatedTypeValue": "#microsoft.graph.omaSettingInteger",
+  "typeHintIn": "ODataType"
+}

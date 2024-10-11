@@ -1,6 +1,7 @@
 {
   "name": "WorkloadNetworksUpdateDnsService",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "DnsServiceId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkDnsService"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkDnsService",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "WorkloadNetworkDnsService"
+    "nullable": false,
+    "referenceName": "WorkloadNetworkDnsService",
+    "referenceNameIsCommonType": null
   }
 }

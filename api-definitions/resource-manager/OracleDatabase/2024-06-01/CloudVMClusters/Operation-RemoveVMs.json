@@ -1,6 +1,7 @@
 {
   "name": "RemoveVMs",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "CloudVMClusterId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "AddRemoveDbNode"
+    "nullable": false,
+    "referenceName": "AddRemoveDbNode",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "CloudVMCluster"
+    "nullable": false,
+    "referenceName": "CloudVMCluster",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/removeVms"
 }

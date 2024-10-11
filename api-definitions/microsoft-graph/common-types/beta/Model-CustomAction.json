@@ -1,0 +1,47 @@
+{
+  "name": "CustomAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Name of the custom action.",
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Properties, in key value pair format, of the action.",
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KeyValuePair",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "InformationProtectionAction",
+  "discriminatedTypeValue": "#microsoft.graph.customAction",
+  "typeHintIn": "ODataType"
+}

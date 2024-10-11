@@ -1,0 +1,25 @@
+{
+  "name": "PayloadCompatibleAssignmentFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the payload type AssignmentFilter is being assigned to.",
+      "jsonName": "payloadType",
+      "name": "PayloadType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AssignmentFilterPayloadType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeviceAndAppManagementAssignmentFilter",
+  "discriminatedTypeValue": "#microsoft.graph.payloadCompatibleAssignmentFilter",
+  "typeHintIn": "ODataType"
+}

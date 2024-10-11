@@ -1,6 +1,7 @@
 {
   "name": "CreateById",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     201
   ],
@@ -9,10 +10,14 @@
   "resourceIdName": "RoleIdId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignmentCreateParameters"
+    "nullable": false,
+    "referenceName": "RoleAssignmentCreateParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "RoleAssignment"
+    "nullable": false,
+    "referenceName": "RoleAssignment",
+    "referenceNameIsCommonType": null
   }
 }

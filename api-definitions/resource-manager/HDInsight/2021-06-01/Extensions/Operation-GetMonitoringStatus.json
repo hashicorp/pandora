@@ -1,6 +1,7 @@
 {
   "name": "GetMonitoringStatus",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,7 +10,9 @@
   "resourceIdName": "HDInsightClusterId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ClusterMonitoringResponse"
+    "nullable": false,
+    "referenceName": "ClusterMonitoringResponse",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/extensions/clustermonitoring"
 }

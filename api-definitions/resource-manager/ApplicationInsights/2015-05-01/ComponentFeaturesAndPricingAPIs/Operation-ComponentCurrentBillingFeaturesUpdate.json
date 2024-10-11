@@ -1,6 +1,7 @@
 {
   "name": "ComponentCurrentBillingFeaturesUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ComponentId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentBillingFeatures"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentBillingFeatures",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ApplicationInsightsComponentBillingFeatures"
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentBillingFeatures",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/currentbillingfeatures"
 }

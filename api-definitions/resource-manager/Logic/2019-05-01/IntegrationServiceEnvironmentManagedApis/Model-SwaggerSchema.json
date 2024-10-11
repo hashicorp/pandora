@@ -7,7 +7,9 @@
       "name": "AdditionalProperties",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "AllOf",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SwaggerSchema"
+          "nullable": false,
+          "referenceName": "SwaggerSchema",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Discriminator",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,7 +58,9 @@
       "name": "DynamicListNew",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicList"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicList",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -63,7 +73,9 @@
       "name": "DynamicSchemaNew",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicProperties"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "DynamicSchemaOld",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicSchema"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "DynamicTree",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerCustomDynamicTree"
+        "nullable": false,
+        "referenceName": "SwaggerCustomDynamicTree",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,7 +118,9 @@
       "name": "Example",
       "objectDefinition": {
         "type": "RawObject",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "ExternalDocs",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerExternalDocumentation"
+        "nullable": false,
+        "referenceName": "SwaggerExternalDocumentation",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "Items",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerSchema"
+        "nullable": false,
+        "referenceName": "SwaggerSchema",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "MaxProperties",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "MinProperties",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,10 +190,12 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "notificationUrlExtension",
-      "name": "NotificationUrlExtension",
+      "name": "NotificationURLExtension",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,10 +208,14 @@
       "name": "Properties",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SwaggerSchema"
+          "nullable": false,
+          "referenceName": "SwaggerSchema",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -197,7 +229,9 @@
       "name": "ReadOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -210,7 +244,9 @@
       "name": "Ref",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -223,10 +259,14 @@
       "name": "Required",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -240,7 +280,9 @@
       "name": "Title",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -253,7 +295,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerSchemaType"
+        "nullable": false,
+        "referenceName": "SwaggerSchemaType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -266,12 +310,15 @@
       "name": "Xml",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SwaggerXml"
+        "nullable": false,
+        "referenceName": "SwaggerXml",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

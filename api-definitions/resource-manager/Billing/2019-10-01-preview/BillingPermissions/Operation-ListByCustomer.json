@@ -1,6 +1,7 @@
 {
   "name": "ListByCustomer",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -10,7 +11,9 @@
   "resourceIdName": "CustomerId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingPermissionsProperties"
+    "nullable": false,
+    "referenceName": "BillingPermissionsProperties",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/billingPermissions"
 }

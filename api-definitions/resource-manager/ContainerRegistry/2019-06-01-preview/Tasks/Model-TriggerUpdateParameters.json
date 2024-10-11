@@ -7,7 +7,9 @@
       "name": "BaseImageTrigger",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BaseImageTriggerUpdateParameters"
+        "nullable": false,
+        "referenceName": "BaseImageTriggerUpdateParameters",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "SourceTriggers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SourceTriggerUpdateParameters"
+          "nullable": false,
+          "referenceName": "SourceTriggerUpdateParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,10 +43,14 @@
       "name": "TimerTriggers",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TimerTriggerUpdateParameters"
+          "nullable": false,
+          "referenceName": "TimerTriggerUpdateParameters",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -48,5 +58,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

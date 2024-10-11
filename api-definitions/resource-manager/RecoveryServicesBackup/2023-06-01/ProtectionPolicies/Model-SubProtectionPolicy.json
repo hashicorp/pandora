@@ -7,7 +7,9 @@
       "name": "PolicyType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PolicyType"
+        "nullable": false,
+        "referenceName": "PolicyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "RetentionPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionPolicy"
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "SchedulePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SchedulePolicy"
+        "nullable": false,
+        "referenceName": "SchedulePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SnapshotBackupAdditionalDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SnapshotBackupAdditionalDetails"
+        "nullable": false,
+        "referenceName": "SnapshotBackupAdditionalDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,10 +67,14 @@
       "name": "TieringPolicy",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TieringPolicy"
+          "nullable": false,
+          "referenceName": "TieringPolicy",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -70,5 +82,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

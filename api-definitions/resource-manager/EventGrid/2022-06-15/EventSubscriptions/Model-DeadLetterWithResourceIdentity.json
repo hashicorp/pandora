@@ -7,7 +7,9 @@
       "name": "DeadLetterDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DeadLetterDestination"
+        "nullable": false,
+        "referenceName": "DeadLetterDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Identity",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "EventSubscriptionIdentity"
+        "nullable": false,
+        "referenceName": "EventSubscriptionIdentity",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ContainerStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ContainerStatus"
+        "nullable": false,
+        "referenceName": "ContainerStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -21,7 +23,9 @@
       "name": "CreatedDateTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -34,7 +38,9 @@
       "name": "DataFormat",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AzureContainerDataFormat"
+        "nullable": false,
+        "referenceName": "AzureContainerDataFormat",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -47,12 +53,15 @@
       "name": "RefreshDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RefreshDetails"
+        "nullable": false,
+        "referenceName": "RefreshDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

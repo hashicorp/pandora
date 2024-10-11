@@ -1,6 +1,7 @@
 {
   "name": "DeleteAtResourceGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "ProviderRemediationId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "Remediation"
+    "nullable": false,
+    "referenceName": "Remediation",
+    "referenceNameIsCommonType": null
   }
 }

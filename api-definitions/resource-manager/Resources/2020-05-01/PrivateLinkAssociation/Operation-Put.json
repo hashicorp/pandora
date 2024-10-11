@@ -1,6 +1,7 @@
 {
   "name": "Put",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "PrivateLinkAssociationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkAssociationObject"
+    "nullable": false,
+    "referenceName": "PrivateLinkAssociationObject",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "PrivateLinkAssociation"
+    "nullable": false,
+    "referenceName": "PrivateLinkAssociation",
+    "referenceNameIsCommonType": null
   }
 }

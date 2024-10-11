@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,10 +11,14 @@
   "resourceIdName": "IscsiTargetId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "IscsiTargetUpdate"
+    "nullable": false,
+    "referenceName": "IscsiTargetUpdate",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "IscsiTarget"
+    "nullable": false,
+    "referenceName": "IscsiTarget",
+    "referenceNameIsCommonType": null
   }
 }

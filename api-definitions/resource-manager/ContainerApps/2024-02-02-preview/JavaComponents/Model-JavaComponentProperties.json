@@ -7,7 +7,9 @@
       "name": "ComponentType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JavaComponentType"
+        "nullable": false,
+        "referenceName": "JavaComponentType",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Configurations",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JavaComponentConfigurationProperty"
+          "nullable": false,
+          "referenceName": "JavaComponentConfigurationProperty",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "JavaComponentProvisioningState"
+        "nullable": false,
+        "referenceName": "JavaComponentProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "ServiceBinds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "JavaComponentServiceBind"
+          "nullable": false,
+          "referenceName": "JavaComponentServiceBind",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -62,5 +74,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "ComponentType"
 }

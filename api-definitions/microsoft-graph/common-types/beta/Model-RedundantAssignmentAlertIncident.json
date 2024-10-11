@@ -1,0 +1,121 @@
+{
+  "name": "RedundantAssignmentAlertIncident",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Display name of the subject that the incident applies to.",
+      "jsonName": "assigneeDisplayName",
+      "name": "AssigneeDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the subject that the incident applies to.",
+      "jsonName": "assigneeId",
+      "name": "AssigneeId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User principal name of the subject that the incident applies to. Applies to user principals only.",
+      "jsonName": "assigneeUserPrincipalName",
+      "name": "AssigneeUserPrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time of the last activation of the eligible assignment.",
+      "jsonName": "lastActivationDateTime",
+      "name": "LastActivationDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identifier for the directory role definition that's in scope of this incident.",
+      "jsonName": "roleDefinitionId",
+      "name": "RoleDefinitionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The display name for the directory role.",
+      "jsonName": "roleDisplayName",
+      "name": "RoleDisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The globally unique identifier for the directory role.",
+      "jsonName": "roleTemplateId",
+      "name": "RoleTemplateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UnifiedRoleManagementAlertIncident",
+  "discriminatedTypeValue": "#microsoft.graph.redundantAssignmentAlertIncident",
+  "typeHintIn": "ODataType"
+}

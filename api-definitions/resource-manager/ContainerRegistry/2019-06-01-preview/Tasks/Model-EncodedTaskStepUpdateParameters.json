@@ -7,7 +7,9 @@
       "name": "EncodedTaskContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "EncodedValuesContent",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,10 +37,14 @@
       "name": "Values",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "SetValue"
+          "nullable": false,
+          "referenceName": "SetValue",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -45,6 +53,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "TaskStepUpdateParameters",
   "discriminatedTypeValue": "EncodedTask",
   "typeHintIn": "Type"

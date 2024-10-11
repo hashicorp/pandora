@@ -1,0 +1,24 @@
+{
+  "name": "MonthlyInactiveUsersMetric",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inactiveCalendarMonthCount",
+      "name": "InactiveCalendarMonthCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "InactiveUsersMetricBase",
+  "discriminatedTypeValue": "#microsoft.graph.monthlyInactiveUsersMetric",
+  "typeHintIn": "ODataType"
+}

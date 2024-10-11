@@ -7,7 +7,9 @@
       "name": "EsuProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileMachineInstanceViewEsuProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileMachineInstanceViewEsuProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "LicenseChannel",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "LicenseStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseStatus"
+        "nullable": false,
+        "referenceName": "LicenseStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "ProductProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileArmProductProfileProperties"
+        "nullable": false,
+        "referenceName": "LicenseProfileArmProductProfileProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "SoftwareAssurance",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LicenseProfileMachineInstanceViewSoftwareAssurance"
+        "nullable": false,
+        "referenceName": "LicenseProfileMachineInstanceViewSoftwareAssurance",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

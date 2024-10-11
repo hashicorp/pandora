@@ -7,7 +7,9 @@
       "name": "ApiTryOutEnabledState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalApiTryOutEnabledState"
+        "nullable": false,
+        "referenceName": "ApiPortalApiTryOutEnabledState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "GatewayIds",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "HTTPSOnly",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,10 +58,14 @@
       "name": "Instances",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ApiPortalInstance"
+          "nullable": false,
+          "referenceName": "ApiPortalInstance",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -67,7 +79,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalProvisioningState"
+        "nullable": false,
+        "referenceName": "ApiPortalProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -80,7 +94,9 @@
       "name": "Public",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,7 +109,9 @@
       "name": "ResourceRequests",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApiPortalResourceRequests"
+        "nullable": false,
+        "referenceName": "ApiPortalResourceRequests",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -103,13 +121,17 @@
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "sourceUrls",
-      "name": "SourceUrls",
+      "name": "SourceURLs",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -123,7 +145,9 @@
       "name": "SsoProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SsoProperties"
+        "nullable": false,
+        "referenceName": "SsoProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -136,12 +160,15 @@
       "name": "Url",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -1,6 +1,7 @@
 {
   "name": "Update",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -9,11 +10,15 @@
   "resourceIdName": "ScopeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "NetworkConfiguration"
+    "nullable": false,
+    "referenceName": "NetworkConfiguration",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "NetworkConfiguration"
+    "nullable": false,
+    "referenceName": "NetworkConfiguration",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.HybridCompute/networkConfigurations/current"
 }

@@ -1,6 +1,7 @@
 {
   "name": "DatabasesImport",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,7 +11,9 @@
   "resourceIdName": "DatabaseId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "ImportClusterParameters"
+    "nullable": false,
+    "referenceName": "ImportClusterParameters",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/import"
 }

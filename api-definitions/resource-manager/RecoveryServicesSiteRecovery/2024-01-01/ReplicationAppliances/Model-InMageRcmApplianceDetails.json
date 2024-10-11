@@ -7,7 +7,9 @@
       "name": "Dra",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DraDetails"
+        "nullable": false,
+        "referenceName": "DraDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "FabricArmId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "MarsAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MarsAgentDetails"
+        "nullable": false,
+        "referenceName": "MarsAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ProcessServer",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProcessServerDetails"
+        "nullable": false,
+        "referenceName": "ProcessServerDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "PushInstaller",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PushInstallerDetails"
+        "nullable": false,
+        "referenceName": "PushInstallerDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "RcmProxy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RcmProxyDetails"
+        "nullable": false,
+        "referenceName": "RcmProxyDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,7 +127,9 @@
       "name": "ReplicationAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReplicationAgentDetails"
+        "nullable": false,
+        "referenceName": "ReplicationAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -124,7 +142,9 @@
       "name": "ReprotectAgent",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReprotectAgentDetails"
+        "nullable": false,
+        "referenceName": "ReprotectAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -137,10 +157,14 @@
       "name": "SwitchProviderBlockingErrorDetails",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmFabricSwitchProviderBlockingErrorDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmFabricSwitchProviderBlockingErrorDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -148,5 +172,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "ClientAuthentication",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ClientAuthenticationSettings"
+        "nullable": false,
+        "referenceName": "ClientAuthenticationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "MaximumClientSessionsPerAuthenticationName",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MaximumSessionExpiryInHours",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "RouteTopicResourceId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "RoutingEnrichments",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingEnrichments"
+        "nullable": false,
+        "referenceName": "RoutingEnrichments",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "RoutingIdentityInfo",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RoutingIdentityInfo"
+        "nullable": false,
+        "referenceName": "RoutingIdentityInfo",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TopicSpacesConfigurationState"
+        "nullable": false,
+        "referenceName": "TopicSpacesConfigurationState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

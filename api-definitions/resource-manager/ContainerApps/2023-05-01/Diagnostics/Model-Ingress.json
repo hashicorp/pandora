@@ -7,7 +7,9 @@
       "name": "AllowInsecure",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientCertificateMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressClientCertificateMode"
+        "nullable": false,
+        "referenceName": "IngressClientCertificateMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CorsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CorsPolicy"
+        "nullable": false,
+        "referenceName": "CorsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "CustomDomains",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "CustomDomain"
+          "nullable": false,
+          "referenceName": "CustomDomain",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -63,7 +73,9 @@
       "name": "ExposedPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -76,7 +88,9 @@
       "name": "External",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -89,7 +103,9 @@
       "name": "Fqdn",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -102,10 +118,14 @@
       "name": "IPSecurityRestrictions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "IPSecurityRestrictionRule"
+          "nullable": false,
+          "referenceName": "IPSecurityRestrictionRule",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -119,7 +139,9 @@
       "name": "StickySessions",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressStickySessions"
+        "nullable": false,
+        "referenceName": "IngressStickySessions",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -132,7 +154,9 @@
       "name": "TargetPort",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -145,10 +169,14 @@
       "name": "Traffic",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TrafficWeight"
+          "nullable": false,
+          "referenceName": "TrafficWeight",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -162,12 +190,15 @@
       "name": "Transport",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "IngressTransportMethod"
+        "nullable": false,
+        "referenceName": "IngressTransportMethod",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

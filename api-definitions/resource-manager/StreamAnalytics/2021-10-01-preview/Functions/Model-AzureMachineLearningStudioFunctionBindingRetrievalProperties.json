@@ -7,7 +7,9 @@
       "name": "ExecuteEndpoint",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "UdfType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UdfType"
+        "nullable": false,
+        "referenceName": "UdfType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

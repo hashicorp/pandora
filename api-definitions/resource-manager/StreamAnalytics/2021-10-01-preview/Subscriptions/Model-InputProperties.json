@@ -7,7 +7,9 @@
       "name": "Compression",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Compression"
+        "nullable": false,
+        "referenceName": "Compression",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Diagnostics"
+        "nullable": false,
+        "referenceName": "Diagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Etag",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PartitionKey",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Serialization",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Serialization"
+        "nullable": false,
+        "referenceName": "Serialization",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "WatermarkSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InputWatermarkProperties"
+        "nullable": false,
+        "referenceName": "InputWatermarkProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -93,5 +107,6 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "typeHintIn": "Type"
 }

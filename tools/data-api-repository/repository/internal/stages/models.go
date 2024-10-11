@@ -22,6 +22,9 @@ type ModelsStage struct {
 	// APIResource specifies the APIResource within the APIVersion where the Models exist.
 	APIResource string
 
+	// CommonTypesForThisAPIVersion specifies the known CommonTypes for this APIVersion.
+	CommonTypesForThisAPIVersion sdkModels.CommonTypes
+
 	// Constants specifies the map of Constant Name (key) to SDKConstant (value) which should be
 	// persisted.
 	Constants map[string]sdkModels.SDKConstant
@@ -50,8 +53,8 @@ func (g ModelsStage) Generate(input *helpers.FileSystem, logger hclog.Logger) er
 			Constants:           g.Constants,
 			Models:              g.Models,
 			ResourceIds:         map[string]sdkModels.ResourceID{},
-			CommonTypeConstants: make(map[string]sdkModels.SDKConstant),
-			CommonTypeModels:    make(map[string]sdkModels.SDKModel),
+			CommonTypeConstants: g.CommonTypesForThisAPIVersion.Constants,
+			CommonTypeModels:    g.CommonTypesForThisAPIVersion.Models,
 		}
 
 		mapped, err := transforms.MapSDKModelToRepository(modelName, modelValue, parent, knownData)

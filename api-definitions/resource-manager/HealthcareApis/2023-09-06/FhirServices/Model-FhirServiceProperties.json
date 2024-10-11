@@ -7,7 +7,9 @@
       "name": "AcrConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceAcrConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceAcrConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AuthenticationConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceAuthenticationConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceAuthenticationConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CorsConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceCorsConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceCorsConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "EventState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceEventState"
+        "nullable": false,
+        "referenceName": "ServiceEventState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ExportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceExportConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceExportConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ImplementationGuidesConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ImplementationGuidesConfiguration"
+        "nullable": false,
+        "referenceName": "ImplementationGuidesConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ImportConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FhirServiceImportConfiguration"
+        "nullable": false,
+        "referenceName": "FhirServiceImportConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,10 +112,14 @@
       "name": "PrivateEndpointConnections",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "PrivateEndpointConnection"
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -115,7 +133,9 @@
       "name": "ProvisioningState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ProvisioningState"
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,7 +148,9 @@
       "name": "PublicNetworkAccess",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PublicNetworkAccess"
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,12 +163,15 @@
       "name": "ResourceVersionPolicyConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResourceVersionPolicyConfiguration"
+        "nullable": false,
+        "referenceName": "ResourceVersionPolicyConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

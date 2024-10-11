@@ -7,7 +7,9 @@
       "name": "AlertNotificationSettings",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorNotificationSettings"
+        "nullable": false,
+        "referenceName": "MonitorNotificationSettings",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ComputeConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitorComputeConfigurationBase"
+        "nullable": false,
+        "referenceName": "MonitorComputeConfigurationBase",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "MonitoringTarget",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "MonitoringTarget"
+        "nullable": false,
+        "referenceName": "MonitoringTarget",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "Signals",
       "objectDefinition": {
         "type": "Dictionary",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "MonitoringSignalBase"
+          "nullable": false,
+          "referenceName": "MonitoringSignalBase",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -57,5 +67,6 @@
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

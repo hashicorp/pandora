@@ -7,10 +7,14 @@
       "name": "DataDiskImages",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GalleryDataDiskImage"
+          "nullable": false,
+          "referenceName": "GalleryDataDiskImage",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "OsDiskImage",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryDiskImage"
+        "nullable": false,
+        "referenceName": "GalleryDiskImage",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,12 +43,15 @@
       "name": "Source",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "GalleryArtifactVersionSource"
+        "nullable": false,
+        "referenceName": "GalleryArtifactVersionSource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

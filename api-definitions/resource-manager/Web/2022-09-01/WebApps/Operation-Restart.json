@@ -1,6 +1,7 @@
 {
   "name": "Restart",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200
   ],
@@ -8,6 +9,7 @@
   "httpMethod": "POST",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "softRestart",
       "required": false,
@@ -18,6 +20,7 @@
       }
     },
     {
+      "type": "Data",
       "optional": true,
       "queryString": "synchronous",
       "required": false,

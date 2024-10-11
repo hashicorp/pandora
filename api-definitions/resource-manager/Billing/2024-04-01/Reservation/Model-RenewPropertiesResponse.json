@@ -7,7 +7,9 @@
       "name": "BillingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PricingCurrencyTotal",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "Price"
+        "nullable": false,
+        "referenceName": "Price",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "PurchaseProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReservationPurchaseRequest"
+        "nullable": false,
+        "referenceName": "ReservationPurchaseRequest",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

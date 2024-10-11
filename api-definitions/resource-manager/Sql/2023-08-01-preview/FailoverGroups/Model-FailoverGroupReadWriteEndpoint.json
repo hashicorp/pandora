@@ -7,7 +7,9 @@
       "name": "FailoverPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ReadWriteEndpointFailoverPolicy"
+        "nullable": false,
+        "referenceName": "ReadWriteEndpointFailoverPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "FailoverWithDataLossGracePeriodMinutes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

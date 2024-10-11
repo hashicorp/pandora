@@ -1,6 +1,7 @@
 {
   "name": "GenerateBenefitUtilizationSummariesReportGenerateByReservationId",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "ReservationId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BenefitUtilizationSummariesRequest"
+    "nullable": false,
+    "referenceName": "BenefitUtilizationSummariesRequest",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BenefitUtilizationSummariesOperationStatus"
+    "nullable": false,
+    "referenceName": "BenefitUtilizationSummariesOperationStatus",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
 }

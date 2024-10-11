@@ -1,0 +1,55 @@
+{
+  "name": "SetTodoListTaskAttachmentSessionContent",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update content for the navigation property attachmentSessions in me. The content streams that are uploaded.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "ContentType",
+      "optional": true,
+      "required": false,
+      "field": "ContentType",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MeTodoListIdTaskIdAttachmentSessionId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/content"
+}

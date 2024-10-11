@@ -1,0 +1,30 @@
+{
+  "name": "MessageSecurityStateCollectionResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MessageSecurityState",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseCollectionPaginationCountResponse",
+  "discriminatedTypeValue": "#microsoft.graph.messageSecurityStateCollectionResponse",
+  "typeHintIn": "ODataType"
+}

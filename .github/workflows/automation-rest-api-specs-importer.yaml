@@ -4,8 +4,8 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/**'
-      - 'config/**'
+      - 'config/resource-manager.hcl'
+      - 'config/resources/**'
       - 'submodules/rest-api-specs'
       - 'tools/importer-rest-api-specs/**'
   workflow_dispatch: # for manual invocations

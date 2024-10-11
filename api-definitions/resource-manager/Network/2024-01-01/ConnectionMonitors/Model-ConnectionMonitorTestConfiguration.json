@@ -7,7 +7,9 @@
       "name": "HTTPConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorHTTPConfiguration"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorHTTPConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "IcmpConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorIcmpConfiguration"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorIcmpConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "PreferredIPVersion",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PreferredIPVersion"
+        "nullable": false,
+        "referenceName": "PreferredIPVersion",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Protocol",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorTestConfigurationProtocol"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorTestConfigurationProtocol",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "SuccessThreshold",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorSuccessThreshold"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorSuccessThreshold",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "TcpConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ConnectionMonitorTcpConfiguration"
+        "nullable": false,
+        "referenceName": "ConnectionMonitorTcpConfiguration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,12 +112,15 @@
       "name": "TestFrequencySec",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

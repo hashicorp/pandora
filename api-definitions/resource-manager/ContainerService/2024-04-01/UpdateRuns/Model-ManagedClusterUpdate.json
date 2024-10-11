@@ -7,7 +7,9 @@
       "name": "NodeImageSelection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "NodeImageSelection"
+        "nullable": false,
+        "referenceName": "NodeImageSelection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Upgrade",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ManagedClusterUpgradeSpec"
+        "nullable": false,
+        "referenceName": "ManagedClusterUpgradeSpec",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

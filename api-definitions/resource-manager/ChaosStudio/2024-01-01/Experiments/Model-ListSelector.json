@@ -7,10 +7,14 @@
       "name": "Targets",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "TargetReference"
+          "nullable": false,
+          "referenceName": "TargetReference",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": false,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "Selector",
   "discriminatedTypeValue": "List",
   "typeHintIn": "Type"

@@ -1,0 +1,53 @@
+{
+  "name": "Windows81CertificateProfileBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom Subject Alternative Name Settings. This collection can contain a maximum of 500 elements.",
+      "jsonName": "customSubjectAlternativeNames",
+      "name": "CustomSubjectAlternativeNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CustomSubjectAlternativeName",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Extended Key Usage (EKU) settings. This collection can contain a maximum of 500 elements.",
+      "jsonName": "extendedKeyUsages",
+      "name": "ExtendedKeyUsages",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ExtendedKeyUsage",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "WindowsCertificateProfileBase",
+  "discriminatedTypeValue": "#microsoft.graph.windows81CertificateProfileBase",
+  "typeHintIn": "ODataType"
+}

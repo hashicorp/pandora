@@ -7,7 +7,9 @@
       "name": "Diagnostics",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TestQueryDiagnostics"
+        "nullable": false,
+        "referenceName": "TestQueryDiagnostics",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "StreamingJob",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "StreamingJob"
+        "nullable": false,
+        "referenceName": "StreamingJob",
+        "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

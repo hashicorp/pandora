@@ -7,7 +7,9 @@
       "name": "MicrosoftPeeringConfig",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitPeeringConfig"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitPeeringConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "PrimaryPeerAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "RouteFilter",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "SecondaryPeerAddressPrefix",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,12 +67,15 @@
       "name": "State",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteCircuitPeeringState"
+        "nullable": false,
+        "referenceName": "ExpressRouteCircuitPeeringState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

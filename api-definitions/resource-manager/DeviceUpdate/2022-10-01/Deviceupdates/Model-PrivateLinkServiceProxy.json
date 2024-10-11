@@ -7,10 +7,14 @@
       "name": "GroupConnectivityInformation",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "GroupConnectivityInformation"
+          "nullable": false,
+          "referenceName": "GroupConnectivityInformation",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -24,7 +28,9 @@
       "name": "Id",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -37,7 +43,9 @@
       "name": "RemotePrivateEndpointConnection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RemotePrivateEndpointConnection"
+        "nullable": false,
+        "referenceName": "RemotePrivateEndpointConnection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "RemotePrivateLinkServiceConnectionState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PrivateLinkServiceConnectionState"
+        "nullable": false,
+        "referenceName": "PrivateLinkServiceConnectionState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

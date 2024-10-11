@@ -1,0 +1,31 @@
+{
+  "name": "SharePointRestoreSession",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of restore points and destination details that can be used to restore SharePoint sites.",
+      "jsonName": "siteRestoreArtifacts",
+      "name": "SiteRestoreArtifacts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SiteRestoreArtifact",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RestoreSessionBase",
+  "discriminatedTypeValue": "#microsoft.graph.sharePointRestoreSession",
+  "typeHintIn": "ODataType"
+}

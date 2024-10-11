@@ -1,6 +1,7 @@
 {
   "name": "GatewayCustomDomainsCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "GatewayDomainId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "GatewayCustomDomainResource"
+    "nullable": false,
+    "referenceName": "GatewayCustomDomainResource",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "GatewayCustomDomainResource"
+    "nullable": false,
+    "referenceName": "GatewayCustomDomainResource",
+    "referenceNameIsCommonType": null
   }
 }

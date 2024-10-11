@@ -1,0 +1,55 @@
+{
+  "name": "SetOnlineMeetingAttendeeReport",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update attendeeReport for the navigation property onlineMeetings in users. The content stream of the attendee report of a Microsoft Teams live event. Read-only.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "ContentType",
+      "optional": true,
+      "required": false,
+      "field": "ContentType",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdOnlineMeetingId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "RawFile",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/attendeeReport"
+}

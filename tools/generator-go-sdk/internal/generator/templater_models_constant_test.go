@@ -26,7 +26,7 @@ func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -67,6 +67,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -93,7 +94,7 @@ func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -134,7 +135,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
-
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -161,7 +162,7 @@ func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -203,6 +204,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -229,7 +231,7 @@ func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -270,6 +272,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -296,7 +299,7 @@ func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -337,6 +340,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -363,7 +367,7 @@ func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -405,6 +409,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -437,7 +442,7 @@ func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -484,6 +489,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -513,7 +519,7 @@ func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -557,6 +563,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -586,7 +593,7 @@ func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -631,6 +638,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -660,7 +668,7 @@ func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -704,6 +712,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -733,7 +742,7 @@ func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -777,6 +786,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -809,7 +819,7 @@ func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -854,6 +864,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -883,7 +894,7 @@ func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -927,6 +938,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -959,7 +971,7 @@ func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1003,6 +1015,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -1032,7 +1045,7 @@ func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1077,6 +1090,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -1106,7 +1120,7 @@ func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1150,6 +1164,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -1182,7 +1197,7 @@ func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1226,6 +1241,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder
@@ -1255,7 +1271,7 @@ func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-	}.template(ServiceGeneratorData{
+	}.template(GeneratorData{
 		packageName: "somepackage",
 		models: map[string]models.SDKModel{
 			"Basic": {
@@ -1300,6 +1316,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
 )
 
 // acctests licence placeholder

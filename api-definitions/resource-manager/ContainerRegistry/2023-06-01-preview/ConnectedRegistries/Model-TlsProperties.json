@@ -7,7 +7,9 @@
       "name": "Certificate",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsCertificateProperties"
+        "nullable": false,
+        "referenceName": "TlsCertificateProperties",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,12 +22,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TlsStatus"
+        "nullable": false,
+        "referenceName": "TlsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

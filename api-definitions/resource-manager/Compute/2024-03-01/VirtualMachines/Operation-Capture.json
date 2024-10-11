@@ -1,6 +1,7 @@
 {
   "name": "Capture",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "VirtualMachineId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineCaptureParameters"
+    "nullable": false,
+    "referenceName": "VirtualMachineCaptureParameters",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "VirtualMachineCaptureResult"
+    "nullable": false,
+    "referenceName": "VirtualMachineCaptureResult",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/capture"
 }

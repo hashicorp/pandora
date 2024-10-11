@@ -1,6 +1,7 @@
 {
   "name": "Action",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202
@@ -10,11 +11,15 @@
   "resourceIdName": "DbNodeId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DbNodeAction"
+    "nullable": false,
+    "referenceName": "DbNodeAction",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DbNode"
+    "nullable": false,
+    "referenceName": "DbNode",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/action"
 }

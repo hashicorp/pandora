@@ -1,0 +1,45 @@
+{
+  "name": "CopySiteListContentTypeToDefaultContentLocation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action copyToDefaultContentLocation. Copy a file to a default content location in a content type. The file can then be added as a default file or template via a POST operation.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GroupIdSiteIdListIdContentTypeId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CopySiteListContentTypeToDefaultContentLocationRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/copyToDefaultContentLocation"
+}

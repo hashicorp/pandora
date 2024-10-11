@@ -7,7 +7,9 @@
       "name": "BillingProfileDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "BillingProfileId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "BillingProfileSpendingLimit",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SpendingLimit"
+        "nullable": false,
+        "referenceName": "SpendingLimit",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "BillingProfileStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatus"
+        "nullable": false,
+        "referenceName": "BillingProfileStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "BillingProfileStatusReasonCode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "BillingProfileStatusReasonCode"
+        "nullable": false,
+        "referenceName": "BillingProfileStatusReasonCode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "BillingProfileSystemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "EnabledAzurePlans",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "AzurePlan"
+          "nullable": false,
+          "referenceName": "AzurePlan",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -102,7 +118,9 @@
       "name": "InvoiceSectionDisplayName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -115,7 +133,9 @@
       "name": "InvoiceSectionId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -128,12 +148,15 @@
       "name": "InvoiceSectionSystemId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

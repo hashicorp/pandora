@@ -7,7 +7,9 @@
       "name": "CoolAccess",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CoolAccessRetrievalPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "CoolAccessRetrievalPolicy"
+        "nullable": false,
+        "referenceName": "CoolAccessRetrievalPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CoolnessPeriod",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "DataProtection",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePatchPropertiesDataProtection"
+        "nullable": false,
+        "referenceName": "VolumePatchPropertiesDataProtection",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "DefaultGroupQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "DefaultUserQuotaInKiBs",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "ExportPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VolumePatchPropertiesExportPolicy"
+        "nullable": false,
+        "referenceName": "VolumePatchPropertiesExportPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "IsDefaultQuotaEnabled",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,10 +127,14 @@
       "name": "ProtocolTypes",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -128,7 +148,9 @@
       "name": "ServiceLevel",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ServiceLevel"
+        "nullable": false,
+        "referenceName": "ServiceLevel",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -141,7 +163,9 @@
       "name": "SmbAccessBasedEnumeration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbAccessBasedEnumeration"
+        "nullable": false,
+        "referenceName": "SmbAccessBasedEnumeration",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -154,7 +178,9 @@
       "name": "SmbNonBrowsable",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SmbNonBrowsable"
+        "nullable": false,
+        "referenceName": "SmbNonBrowsable",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -167,7 +193,9 @@
       "name": "SnapshotDirectoryVisible",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -180,7 +208,9 @@
       "name": "ThroughputMibps",
       "objectDefinition": {
         "type": "Float",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -193,7 +223,9 @@
       "name": "UnixPermissions",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -206,12 +238,15 @@
       "name": "UsageThreshold",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

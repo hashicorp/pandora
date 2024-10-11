@@ -1,6 +1,7 @@
 {
   "name": "List",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,7 @@
   "httpMethod": "GET",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "$filter",
       "required": false,
@@ -23,7 +25,9 @@
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ReservationRecommendation"
+    "nullable": false,
+    "referenceName": "ReservationRecommendation",
+    "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Consumption/reservationRecommendations"
 }

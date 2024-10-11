@@ -1,6 +1,7 @@
 {
   "name": "Get",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     204
@@ -10,6 +11,8 @@
   "resourceIdName": "ManagedHSMId",
   "responseObject": {
     "type": "Reference",
-    "referenceName": "ManagedHsm"
+    "nullable": false,
+    "referenceName": "ManagedHsm",
+    "referenceNameIsCommonType": null
   }
 }

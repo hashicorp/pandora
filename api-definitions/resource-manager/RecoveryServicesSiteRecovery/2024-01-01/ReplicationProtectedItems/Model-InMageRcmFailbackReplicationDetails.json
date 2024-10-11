@@ -7,7 +7,9 @@
       "name": "AzureVirtualMachineId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DiscoveredVMDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmFailbackDiscoveredProtectedVMDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmFailbackDiscoveredProtectedVMDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "InitialReplicationProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "InitialReplicationProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "InitialReplicationProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "InitialReplicationTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "InternalIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "IsAgentRegistrationSuccessfulAfterFailover",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -112,7 +128,9 @@
       "name": "LastPlannedFailoverStartTime",
       "objectDefinition": {
         "type": "DateTime",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -125,7 +143,9 @@
       "name": "LastPlannedFailoverStatus",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "PlannedFailoverStatus"
+        "nullable": false,
+        "referenceName": "PlannedFailoverStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -138,7 +158,9 @@
       "name": "LastUsedPolicyFriendlyName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -151,7 +173,9 @@
       "name": "LastUsedPolicyId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -164,7 +188,9 @@
       "name": "LogStorageAccountId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -177,7 +203,9 @@
       "name": "MobilityAgentDetails",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "InMageRcmFailbackMobilityAgentDetails"
+        "nullable": false,
+        "referenceName": "InMageRcmFailbackMobilityAgentDetails",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -190,7 +218,9 @@
       "name": "MultiVMGroupName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -203,7 +233,9 @@
       "name": "OsType",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -216,10 +248,14 @@
       "name": "ProtectedDisks",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmFailbackProtectedDiskDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmFailbackProtectedDiskDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -233,7 +269,9 @@
       "name": "ReprotectAgentId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -246,7 +284,9 @@
       "name": "ReprotectAgentName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -259,7 +299,9 @@
       "name": "ResyncProcessedBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -272,7 +314,9 @@
       "name": "ResyncProgressHealth",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VMReplicationProgressHealth"
+        "nullable": false,
+        "referenceName": "VMReplicationProgressHealth",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -285,7 +329,9 @@
       "name": "ResyncProgressPercentage",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -298,7 +344,9 @@
       "name": "ResyncRequired",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -311,7 +359,9 @@
       "name": "ResyncState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ResyncState"
+        "nullable": false,
+        "referenceName": "ResyncState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -324,7 +374,9 @@
       "name": "ResyncTransferredBytes",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -337,7 +389,9 @@
       "name": "TargetDataStoreName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -350,7 +404,9 @@
       "name": "TargetVMName",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -363,7 +419,9 @@
       "name": "TargetvCenterId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -376,10 +434,14 @@
       "name": "VMNics",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "InMageRcmFailbackNicDetails"
+          "nullable": false,
+          "referenceName": "InMageRcmFailbackNicDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -388,6 +450,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
   "discriminatedTypeValue": "InMageRcmFailback",
   "typeHintIn": "InstanceType"

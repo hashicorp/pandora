@@ -1,6 +1,7 @@
 {
   "name": "Delete",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     202,
@@ -10,6 +11,7 @@
   "httpMethod": "DELETE",
   "options": [
     {
+      "type": "Data",
       "optional": true,
       "queryString": "forceDelete",
       "required": false,

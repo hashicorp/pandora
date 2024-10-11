@@ -7,10 +7,14 @@
       "name": "HyperVHosts",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "HyperVHostDetails"
+          "nullable": false,
+          "referenceName": "HyperVHostDetails",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -19,6 +23,7 @@
       "sensitive": false
     }
   ],
+  "IsParent": false,
   "discriminatedParentModelName": "FabricSpecificDetails",
   "discriminatedTypeValue": "HyperVSite",
   "typeHintIn": "InstanceType"

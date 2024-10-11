@@ -7,7 +7,9 @@
       "name": "AppliedBy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ObjectReferenceDefinition"
+        "nullable": false,
+        "referenceName": "ObjectReferenceDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ComplianceState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "FluxComplianceState"
+        "nullable": false,
+        "referenceName": "FluxComplianceState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "HelmReleaseProperties",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "HelmReleasePropertiesDefinition"
+        "nullable": false,
+        "referenceName": "HelmReleasePropertiesDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Kind",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "Name",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "Namespace",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,10 +97,14 @@
       "name": "StatusConditions",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "ObjectStatusConditionDefinition"
+          "nullable": false,
+          "referenceName": "ObjectStatusConditionDefinition",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -96,5 +112,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "AdditionalCapabilities",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AdditionalCapabilities"
+        "nullable": false,
+        "referenceName": "AdditionalCapabilities",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "AutomaticRepairsPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomaticRepairsPolicy"
+        "nullable": false,
+        "referenceName": "AutomaticRepairsPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DoNotRunExtensionsOnOverprovisionedVMs",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "Overprovision",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "ProximityPlacementGroup",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "SubResource"
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ScaleInPolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ScaleInPolicy"
+        "nullable": false,
+        "referenceName": "ScaleInPolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,7 +97,9 @@
       "name": "SinglePlacementGroup",
       "objectDefinition": {
         "type": "Boolean",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -98,7 +112,9 @@
       "name": "UpgradePolicy",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "UpgradePolicy"
+        "nullable": false,
+        "referenceName": "UpgradePolicy",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -111,12 +127,15 @@
       "name": "VirtualMachineProfile",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "VirtualMachineScaleSetUpdateVMProfile"
+        "nullable": false,
+        "referenceName": "VirtualMachineScaleSetUpdateVMProfile",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

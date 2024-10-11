@@ -7,7 +7,9 @@
       "name": "CakSecretIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Cipher",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteLinkMacSecCipher"
+        "nullable": false,
+        "referenceName": "ExpressRouteLinkMacSecCipher",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "CknSecretIdentifier",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,12 +52,15 @@
       "name": "SciState",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ExpressRouteLinkMacSecSciState"
+        "nullable": false,
+        "referenceName": "ExpressRouteLinkMacSecSciState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

@@ -7,7 +7,9 @@
       "name": "DataProviderMetadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticDataProviderMetadata"
+        "nullable": false,
+        "referenceName": "DiagnosticDataProviderMetadata",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,10 +22,14 @@
       "name": "Dataset",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "Reference",
-          "referenceName": "DiagnosticsDataApiResponse"
+          "nullable": false,
+          "referenceName": "DiagnosticsDataApiResponse",
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -37,7 +43,9 @@
       "name": "Metadata",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsDefinition"
+        "nullable": false,
+        "referenceName": "DiagnosticsDefinition",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -50,12 +58,15 @@
       "name": "Status",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "DiagnosticsStatus"
+        "nullable": false,
+        "referenceName": "DiagnosticsStatus",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

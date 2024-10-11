@@ -7,7 +7,9 @@
       "name": "ClientCredential",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenIdConnectClientCredential"
+        "nullable": false,
+        "referenceName": "OpenIdConnectClientCredential",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "ClientId",
       "objectDefinition": {
         "type": "String",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "OpenIdConnectConfiguration",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "OpenIdConnectConfig"
+        "nullable": false,
+        "referenceName": "OpenIdConnectConfig",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

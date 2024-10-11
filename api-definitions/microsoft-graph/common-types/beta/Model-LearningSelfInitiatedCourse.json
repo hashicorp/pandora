@@ -1,0 +1,25 @@
+{
+  "name": "LearningSelfInitiatedCourse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date and time on which the self-initiated course was started by the learner. Optional.",
+      "jsonName": "startedDateTime",
+      "name": "StartedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LearningCourseActivity",
+  "discriminatedTypeValue": "#microsoft.graph.learningSelfInitiatedCourse",
+  "typeHintIn": "ODataType"
+}

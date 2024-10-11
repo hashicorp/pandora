@@ -7,7 +7,9 @@
       "name": "ChangeType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRulePropertyChangedConditionSupportedChangedType"
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyChangedConditionSupportedChangedType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRulePropertyConditionSupportedOperator"
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyConditionSupportedOperator",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "PropertyName",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "AutomationRulePropertyChangedConditionSupportedPropertyType"
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyChangedConditionSupportedPropertyType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,10 +52,14 @@
       "name": "PropertyValues",
       "objectDefinition": {
         "type": "List",
+        "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
         "nestedItem": {
           "type": "String",
-          "referenceName": null
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -57,5 +67,6 @@
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

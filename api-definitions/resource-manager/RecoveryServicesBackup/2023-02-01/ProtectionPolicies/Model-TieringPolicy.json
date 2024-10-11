@@ -7,7 +7,9 @@
       "name": "Duration",
       "objectDefinition": {
         "type": "Integer",
-        "referenceName": null
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "DurationType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "RetentionDurationType"
+        "nullable": false,
+        "referenceName": "RetentionDurationType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,12 +37,15 @@
       "name": "TieringMode",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "TieringMode"
+        "nullable": false,
+        "referenceName": "TieringMode",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }

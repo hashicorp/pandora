@@ -1,6 +1,7 @@
 {
   "name": "CreateOrUpdateAtManagementGroup",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201
@@ -10,10 +11,14 @@
   "resourceIdName": "Providers2DeploymentStackId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "DeploymentStack"
+    "nullable": false,
+    "referenceName": "DeploymentStack",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "DeploymentStack"
+    "nullable": false,
+    "referenceName": "DeploymentStack",
+    "referenceNameIsCommonType": null
   }
 }

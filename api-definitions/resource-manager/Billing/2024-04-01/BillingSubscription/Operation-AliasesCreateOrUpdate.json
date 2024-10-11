@@ -1,6 +1,7 @@
 {
   "name": "AliasesCreateOrUpdate",
   "contentType": "application/json; charset=utf-8",
+  "description": "",
   "expectedStatusCodes": [
     200,
     201,
@@ -11,10 +12,14 @@
   "resourceIdName": "BillingSubscriptionAliasId",
   "requestObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscriptionAlias"
+    "nullable": false,
+    "referenceName": "BillingSubscriptionAlias",
+    "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
-    "referenceName": "BillingSubscriptionAlias"
+    "nullable": false,
+    "referenceName": "BillingSubscriptionAlias",
+    "referenceNameIsCommonType": null
   }
 }

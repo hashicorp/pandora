@@ -1,0 +1,24 @@
+{
+  "name": "WindowsKioskSingleWin32App",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "win32App",
+      "name": "Win32App",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsKioskWin32App",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsKioskAppConfiguration",
+  "discriminatedTypeValue": "#microsoft.graph.windowsKioskSingleWin32App",
+  "typeHintIn": "ODataType"
+}

@@ -7,7 +7,9 @@
       "name": "ApplicationInsights",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "ApplicationInsights"
+        "nullable": false,
+        "referenceName": "ApplicationInsights",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -20,7 +22,9 @@
       "name": "CommonDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -33,7 +37,9 @@
       "name": "DecryptLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -46,7 +52,9 @@
       "name": "LogOption",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogOption"
+        "nullable": false,
+        "referenceName": "LogOption",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -59,7 +67,9 @@
       "name": "LogType",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogType"
+        "nullable": false,
+        "referenceName": "LogType",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -72,7 +82,9 @@
       "name": "ThreatLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -85,12 +97,15 @@
       "name": "TrafficLogDestination",
       "objectDefinition": {
         "type": "Reference",
-        "referenceName": "LogDestination"
+        "nullable": false,
+        "referenceName": "LogDestination",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
       "required": false,
       "sensitive": false
     }
-  ]
+  ],
+  "IsParent": false
 }
