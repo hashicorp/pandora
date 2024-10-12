@@ -51,7 +51,7 @@ func DiscoverForService(service services.Service, workingDirectory string) (*mod
 		if err != nil {
 			return nil, fmt.Errorf("discovering the Data Set for the API Version %q for Service %q: %+v", apiVersion, service.Name, err)
 		}
-		logging.Tracef("Identified %d API Definitions and %d sets of supplementary data for API Version %q..", len(dataSet.FilePathsContainingAPIDefinitions), len(dataSet.FilePathsContainingSupplementaryData), apiVersion)
+		logging.Tracef("Identified %d API Definitions for API Version %q..", len(dataSet.FilePathsContainingAPIDefinitions), apiVersion)
 
 		dataSetsForAPIVersions[apiVersion] = *dataSet
 	}

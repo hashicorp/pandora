@@ -6,17 +6,21 @@
 set -e
 
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
-
 sdkToGenerate="${1}"
-if [[ "${sdkToGenerate}" == "" ]]; then
-  echo "must specify SDK to generate!" >&2
+
+usage() {
+  echo "Usage: automation-generate-go-sdk.sh sdkToGenerate" >&2
   echo "" >&2
-  echo "supported values are:" >&2
+  echo "sdkToGenerate is required and should be one of:" >&2
   echo "  microsoft-graph" >&2
   echo "  resource-manager" >&2
   echo "" >&2
-  echo "example usage:" >&2
-  echo "${0} resource-manager" >&2
+}
+
+if [[ "${sdkToGenerate}" == "" ]]; then
+  echo "sdkToGenerate not specified" >&2
+  echo "" >&2
+  usage
   exit 1
 fi
 

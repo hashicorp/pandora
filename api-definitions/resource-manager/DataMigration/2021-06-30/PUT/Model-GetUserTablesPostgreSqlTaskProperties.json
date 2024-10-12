@@ -1,0 +1,45 @@
+{
+  "name": "GetUserTablesPostgreSqlTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GetUserTablesPostgreSqlTaskInput",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "GetUserTablesPostgreSqlTaskOutput",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "GetUserTablesPostgreSql",
+  "typeHintIn": "TaskType"
+}

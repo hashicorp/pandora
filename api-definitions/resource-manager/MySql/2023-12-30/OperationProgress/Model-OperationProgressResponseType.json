@@ -2,7 +2,7 @@
   "name": "OperationProgressResponseType",
   "fields": [
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "jsonName": "objectType",
       "name": "ObjectType",
       "objectDefinition": {
@@ -17,5 +17,6 @@
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "typeHintIn": "ObjectType"
 }

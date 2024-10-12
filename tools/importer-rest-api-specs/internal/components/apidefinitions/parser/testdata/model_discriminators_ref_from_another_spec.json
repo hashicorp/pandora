@@ -1,0 +1,42 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "DataFactory",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_Test",
+        "description": "An example returning a parent discriminated type",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "./model_discriminators_ref_in_another_spec.json#/definitions/Animal"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}

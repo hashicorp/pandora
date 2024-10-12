@@ -2,7 +2,7 @@
   "name": "CommandProperties",
   "fields": [
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "jsonName": "commandType",
       "name": "CommandType",
       "objectDefinition": {
@@ -53,5 +53,6 @@
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "typeHintIn": "CommandType"
 }

@@ -6,7 +6,7 @@ package schema
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	terraformHelpers "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform/schema/processors"
@@ -35,7 +35,7 @@ func NewBuilder(apiResource sdkModels.APIResource) Builder {
 }
 
 // Build produces a map of TerraformSchemaModelDefinitions which comprise the Schema for this Resource
-func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefinition definitions.ResourceDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefinition definitions.ResourceDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	mappings := sdkModels.TerraformMappingDefinition{
 		Fields:     []sdkModels.TerraformFieldMappingDefinition{},
 		ResourceID: []sdkModels.TerraformResourceIDMappingDefinition{},
@@ -90,7 +90,7 @@ func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefi
 			if err != nil {
 				return nil, nil, fmt.Errorf("processing models: %+v", err)
 			}
-			schemaModels = *updatedSchemaModels
+			schemaModels = updatedSchemaModels
 			mappings = *updatedMappings
 		}
 
@@ -98,7 +98,7 @@ func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefi
 		for fieldName, field := range schemaModels[modelName].Fields {
 			field.HCLName = terraformHelpers.ConvertToSnakeCase(fieldName)
 			fieldsWithHclNames[fieldName] = field
-			objectDefinition := helpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
+			objectDefinition := sdkHelpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == sdkModels.ReferenceTerraformSchemaObjectDefinitionType {
 				if objectDefinition.ReferenceName == nil {
 					return nil, nil, fmt.Errorf("the Field %q within Model %q was a Reference with no ReferenceName", fieldName, modelName)
@@ -125,7 +125,7 @@ func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefi
 	return outputSchemaModels, outputMappings, nil
 }
 
-func (b Builder) removeUnusedModelsAndMappings(input sdkModels.TerraformResourceDefinition, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) removeUnusedModelsAndMappings(input sdkModels.TerraformResourceDefinition, schemaModels map[string]sdkModels.TerraformSchemaModel, mappings sdkModels.TerraformMappingDefinition) (map[string]sdkModels.TerraformSchemaModel, *sdkModels.TerraformMappingDefinition, error) {
 	unusedModels := make(map[string]struct{}, 0)
 	// first assume everything is unused
 	for modelName := range schemaModels {
@@ -134,7 +134,7 @@ func (b Builder) removeUnusedModelsAndMappings(input sdkModels.TerraformResource
 
 	for _, model := range schemaModels {
 		for _, field := range model.Fields {
-			objectDefinition := helpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
+			objectDefinition := sdkHelpers.InnerMostTerraformSchemaObjectDefinition(field.ObjectDefinition)
 			if objectDefinition.Type == sdkModels.ReferenceTerraformSchemaObjectDefinitionType {
 				// TODO: we should check if this is a const too
 				delete(unusedModels, *objectDefinition.ReferenceName)
@@ -163,7 +163,7 @@ func (b Builder) removeUnusedModelsAndMappings(input sdkModels.TerraformResource
 	}
 	mappings = *outputMappings
 
-	return &schemaModels, &mappings, nil
+	return schemaModels, &mappings, nil
 }
 
 func (b Builder) removeUnusedModelToModelMappings(input sdkModels.TerraformMappingDefinition) (*sdkModels.TerraformMappingDefinition, error) {
@@ -185,7 +185,7 @@ func (b Builder) removeUnusedModelToModelMappings(input sdkModels.TerraformMappi
 		if !ok {
 			return nil, fmt.Errorf("field %q was not found in SDK Model %q", v.ModelToModel.SDKFieldName, v.ModelToModel.SDKModelName)
 		}
-		objectDefinition := helpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
+		objectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(sdkField.ObjectDefinition)
 		if objectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType {
 			// nothing to do here, move along now.
 			output.Fields = append(output.Fields, mapping)
@@ -257,27 +257,25 @@ func (b Builder) schemaFromTopLevelModel(input sdkModels.TerraformResourceDefini
 		return nil, fmt.Errorf("parsing top-level fields from create/read/update: %+v", err)
 	}
 
-	schemaFields := *fields
-
 	resourceId, ok := b.apiResource.ResourceIDs[input.ResourceIDName]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIDName)
 	}
 	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, resourceDefinition)
 	if err != nil {
-		displayValueForResourceId := helpers.DisplayValueForResourceID(resourceId)
+		displayValueForResourceId := sdkHelpers.DisplayValueForResourceID(resourceId)
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", displayValueForResourceId, err)
 	}
-	for k, v := range *fieldsWithinResourceId {
-		schemaFields[k] = v
+	for k, v := range fieldsWithinResourceId {
+		fields[k] = v
 	}
 
 	fieldsWithinProperties, mappings, err := b.identifyFieldsWithinPropertiesBlock(input.SchemaModelName, *createReadUpdateMethods, &input, mappings, resourceDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("parsing fields within the `properties` block for the create/read/update methods: %+v", err)
 	}
-	for k, v := range *fieldsWithinProperties {
-		schemaFields[k] = v
+	for k, v := range fieldsWithinProperties {
+		fields[k] = v
 	}
 
 	modelsUsedWithinProperties, mappings, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, mappings)
@@ -292,13 +290,13 @@ func (b Builder) schemaFromTopLevelModel(input sdkModels.TerraformResourceDefini
 	return &modelParseResult{
 		mappings: *mappings,
 		model: sdkModels.TerraformSchemaModel{
-			Fields: schemaFields,
+			Fields: fields,
 		},
-		nestedModels: *modelsUsedWithinProperties,
+		nestedModels: modelsUsedWithinProperties,
 	}, nil
 }
 
-func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *sdkModels.TerraformMappingDefinition) (*map[string]sdkModels.SDKModel, *sdkModels.TerraformMappingDefinition, error) {
+func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads, mappings *sdkModels.TerraformMappingDefinition) (map[string]sdkModels.SDKModel, *sdkModels.TerraformMappingDefinition, error) {
 	allFields := make(map[string]sdkModels.SDKField)
 	for fieldName, field := range payloads.readPayload.Fields {
 		if _, ok := allFields[fieldName]; ok {
@@ -324,7 +322,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 			return nil, nil, nil
 		}
 
-		for k, v := range *modelsWithinField {
+		for k, v := range modelsWithinField {
 			if other, ok := allModels[k]; ok {
 				if !modelsMatch(v, other) {
 					return nil, nil, fmt.Errorf("duplicate models named %q were parsed with different fields: %+v / %+v", k, v.Fields, other.Fields)
@@ -335,7 +333,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		}
 	}
 
-	return &allModels, mappings, nil
+	return allModels, mappings, nil
 }
 
 func modelsMatch(first sdkModels.SDKModel, second sdkModels.SDKModel) bool {
@@ -465,10 +463,10 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 	}, &mappings, nil
 }
 
-func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels map[string]sdkModels.SDKModel) (*map[string]sdkModels.SDKModel, error) {
+func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels map[string]sdkModels.SDKModel) (map[string]sdkModels.SDKModel, error) {
 	out := make(map[string]sdkModels.SDKModel, 0)
 
-	objectDefinition := helpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
+	objectDefinition := sdkHelpers.InnerMostSDKObjectDefinition(field.ObjectDefinition)
 	if objectDefinition.ReferenceName != nil {
 		// we need to identify both this model and any models nested within it
 		allModels := make(map[string]sdkModels.SDKModel)
@@ -507,7 +505,7 @@ func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels
 					// something within it was marked as ignore
 					return nil, nil
 				}
-				for k, v := range *nestedModels {
+				for k, v := range nestedModels {
 					out[k] = v
 					allModels[k] = v
 				}
@@ -515,7 +513,7 @@ func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels
 		}
 	}
 
-	return &out, nil
+	return out, nil
 }
 
 func objectDefinitionShouldBeSkipped(input sdkModels.SDKObjectDefinitionType) bool {

@@ -19,9 +19,4 @@ type AvailableDataSetForAPIVersion struct {
 	// FilePathsContainingAPIDefinitions is a slice of the absolute file paths which contain the APIDefinitions
 	// for the Service/API Version combination.
 	FilePathsContainingAPIDefinitions []string
-
-	// FilePathsContainingSupplementaryData is a slice of the absolute file paths which contain supplementary data
-	// related to the APIDefinitions for the Service/API Version combination. These should be parsed prior to
-	// parsing the files within FilePathsContainingAPIDefinitions - and typically contain Discriminated Models.
-	FilePathsContainingSupplementaryData []string
 }
