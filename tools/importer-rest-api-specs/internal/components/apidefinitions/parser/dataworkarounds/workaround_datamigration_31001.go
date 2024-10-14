@@ -31,8 +31,13 @@ func (workaroundDataMigration31001) Process(input sdkModels.APIVersion) (*sdkMod
 	resources := []string{
 		"CustomOperation",
 		"GET",
+		"PATCH",
+		"POST",
+		"ProjectResource",
 		"PUT",
+		"ServiceResource",
 		"ServiceTaskResource",
+		"StandardOperation",
 		"TaskResource",
 	}
 
