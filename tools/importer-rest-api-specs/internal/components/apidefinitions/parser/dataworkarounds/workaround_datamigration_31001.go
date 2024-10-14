@@ -44,7 +44,7 @@ func (workaroundDataMigration31001) Process(input sdkModels.APIVersion) (*sdkMod
 	for _, resource := range resources {
 		r, ok := input.Resources[resource]
 		if !ok {
-			return nil, fmt.Errorf("expected a Resource named `%s` but didn't get one", r)
+			return nil, fmt.Errorf("expected a Resource named `%s` but didn't get one", resource)
 		}
 
 		model, ok := r.Models["MongoDbConnectionInfo"]
