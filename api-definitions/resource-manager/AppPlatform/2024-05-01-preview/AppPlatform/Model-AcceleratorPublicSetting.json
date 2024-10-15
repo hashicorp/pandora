@@ -1,0 +1,24 @@
+{
+  "name": "AcceleratorPublicSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "caCertResourceId",
+      "name": "CaCertResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AcceleratorAuthSetting",
+  "discriminatedTypeValue": "Public",
+  "typeHintIn": "AuthType"
+}

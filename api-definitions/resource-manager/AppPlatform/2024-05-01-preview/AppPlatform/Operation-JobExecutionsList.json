@@ -1,0 +1,19 @@
+{
+  "name": "JobExecutionsList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "JobId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "JobExecution",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/executions"
+}
