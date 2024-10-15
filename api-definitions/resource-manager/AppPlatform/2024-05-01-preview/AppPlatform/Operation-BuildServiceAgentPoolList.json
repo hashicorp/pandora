@@ -1,0 +1,19 @@
+{
+  "name": "BuildServiceAgentPoolList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "BuildServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BuildServiceAgentPoolResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/agentPools"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "JobTriggerConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "triggerType",
+      "name": "TriggerType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TriggerType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "TriggerType"
+}
