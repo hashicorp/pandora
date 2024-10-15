@@ -198,7 +198,7 @@ service "deviceprovisioningservices" {
 }
 service "deviceregistry" {
   name      = "DeviceRegistry"
-  available = ["2023-11-01-preview", "2024-09-01-preview"]
+  available = ["2024-09-01-preview"]
 }
 service "deviceupdate" {
   name      = "DeviceUpdate"
