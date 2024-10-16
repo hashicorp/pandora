@@ -196,6 +196,10 @@ service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
   available = ["2022-02-05", "2022-12-12"]
 }
+service "deviceregistry" {
+  name      = "DeviceRegistry"
+  available = ["2024-09-01-preview"]
+}
 service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01", "2023-07-01"]
