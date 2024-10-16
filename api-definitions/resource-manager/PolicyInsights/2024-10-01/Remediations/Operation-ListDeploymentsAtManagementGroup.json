@@ -1,0 +1,32 @@
+{
+  "name": "ListDeploymentsAtManagementGroup",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "Providers2RemediationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RemediationDeployment",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/listDeployments"
+}

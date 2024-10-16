@@ -1,0 +1,23 @@
+{
+  "name": "ClusterManagersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ClusterManagerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ClusterManagerPatchParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ClusterManager",
+    "referenceNameIsCommonType": null
+  }
+}

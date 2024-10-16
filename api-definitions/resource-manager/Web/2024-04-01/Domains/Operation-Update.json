@@ -1,0 +1,24 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DomainId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DomainPatchResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Domain",
+    "referenceNameIsCommonType": null
+  }
+}

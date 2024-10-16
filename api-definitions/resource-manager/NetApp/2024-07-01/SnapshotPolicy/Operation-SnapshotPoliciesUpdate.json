@@ -1,0 +1,24 @@
+{
+  "name": "SnapshotPoliciesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SnapshotPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SnapshotPolicyPatch",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SnapshotPolicy",
+    "referenceNameIsCommonType": null
+  }
+}

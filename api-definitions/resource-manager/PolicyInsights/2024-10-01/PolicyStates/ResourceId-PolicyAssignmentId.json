@@ -1,0 +1,40 @@
+{
+  "name": "PolicyAssignmentId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "exampleValue": "",
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "authorizationNamespace",
+      "type": "Static",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticPolicyAssignments",
+      "type": "Static",
+      "value": "policyAssignments"
+    },
+    {
+      "exampleValue": "policyAssignmentName",
+      "name": "policyAssignmentName",
+      "type": "UserSpecified"
+    }
+  ]
+}
