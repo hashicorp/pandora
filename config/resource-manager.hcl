@@ -531,7 +531,7 @@ service "scvmm" {
 }
 service "search" {
   name      = "Search"
-  available = ["2022-09-01", "2023-11-01"]
+  available = ["2022-09-01", "2023-11-01", "2024-06-01-preview"]
 }
 service "security" {
   name      = "Security"
