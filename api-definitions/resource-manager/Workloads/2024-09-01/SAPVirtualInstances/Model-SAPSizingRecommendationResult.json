@@ -1,0 +1,22 @@
+{
+  "name": "SAPSizingRecommendationResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "deploymentType",
+      "name": "DeploymentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SAPDeploymentType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "DeploymentType"
+}
