@@ -1,0 +1,24 @@
+{
+  "name": "BmcKeySetsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "BmcKeySetId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BmcKeySetPatchParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BmcKeySet",
+    "referenceNameIsCommonType": null
+  }
+}

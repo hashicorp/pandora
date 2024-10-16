@@ -1,0 +1,24 @@
+{
+  "name": "BareMetalMachinesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "BareMetalMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BareMetalMachinePatchParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BareMetalMachine",
+    "referenceNameIsCommonType": null
+  }
+}

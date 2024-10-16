@@ -1,0 +1,24 @@
+{
+  "name": "AutomaticResourcePredictionsProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "predictionPreference",
+      "name": "PredictionPreference",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PredictionPreference",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ResourcePredictionsProfile",
+  "discriminatedTypeValue": "Automatic",
+  "typeHintIn": "Kind"
+}
