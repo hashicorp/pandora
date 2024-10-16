@@ -1,0 +1,22 @@
+{
+  "name": "OSConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "osType",
+      "name": "OsType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OSType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "OsType"
+}
