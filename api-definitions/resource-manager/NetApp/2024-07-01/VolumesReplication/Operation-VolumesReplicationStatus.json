@@ -1,0 +1,18 @@
+{
+  "name": "VolumesReplicationStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VolumeId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ReplicationStatus",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/replicationStatus"
+}

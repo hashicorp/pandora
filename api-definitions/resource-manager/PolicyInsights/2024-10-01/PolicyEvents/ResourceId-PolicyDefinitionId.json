@@ -1,0 +1,40 @@
+{
+  "name": "PolicyDefinitionId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "exampleValue": "",
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "authorizationNamespace",
+      "type": "Static",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticPolicyDefinitions",
+      "type": "Static",
+      "value": "policyDefinitions"
+    },
+    {
+      "exampleValue": "policyDefinitionName",
+      "name": "policyDefinitionName",
+      "type": "UserSpecified"
+    }
+  ]
+}
