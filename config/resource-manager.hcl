@@ -64,7 +64,7 @@ service "azureactivedirectory" {
 }
 service "azurefleet" {
   name      = "AzureFleet"
-  available = ["2024-05-01-preview"]
+  available = ["2024-05-01-preview", "2024-11-01"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
@@ -88,7 +88,7 @@ service "botservice" {
 }
 service "cdn" {
   name      = "CDN"
-  available = ["2024-02-01"]
+  available = ["2024-02-01", "2024-09-01"]
 }
 service "chaos" {
   name      = "ChaosStudio"
@@ -200,13 +200,17 @@ service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
   available = ["2022-02-05", "2022-12-12"]
 }
+service "deviceregistry" {
+  name      = "DeviceRegistry"
+  available = ["2024-09-01-preview", "2024-11-01"]
+}
 service "deviceupdate" {
   name      = "DeviceUpdate"
   available = ["2022-10-01", "2023-07-01"]
 }
 service "devopsinfrastructure" {
   name      = "DevOpsInfrastructure"
-  available = ["2024-04-04-preview"]
+  available = ["2024-04-04-preview", "2024-10-19"]
 }
 service "devtestlabs" {
   name      = "DevTestLab"
@@ -401,7 +405,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01"]
+  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01", "2024-07-01"]
 }
 service "network" {
   name      = "Network"
@@ -413,7 +417,7 @@ service "networkanalytics" {
 }
 service "networkcloud" {
   name      = "NetworkCloud"
-  available = ["2023-07-01"]
+  available = ["2023-07-01", "2024-07-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -454,7 +458,7 @@ service "paloaltonetworks" {
 }
 service "policyinsights" {
   name      = "PolicyInsights"
-  available = ["2021-10-01", "2022-09-01", "2023-03-01"]
+  available = ["2021-10-01", "2022-09-01", "2023-03-01", "2024-10-01"]
 }
 service "portal" {
   name      = "Portal"
@@ -462,7 +466,7 @@ service "portal" {
 }
 service "postgresql" {
   name      = "PostgreSql"
-  available = ["2017-12-01", "2020-01-01", "2021-06-01", "2022-12-01", "2023-06-01-preview"]
+  available = ["2017-12-01", "2020-01-01", "2021-06-01", "2022-12-01", "2023-06-01-preview", "2024-08-01"]
 }
 service "postgresqlhsc" {
   name      = "PostgreSqlHSC"
@@ -531,7 +535,7 @@ service "scvmm" {
 }
 service "search" {
   name      = "Search"
-  available = ["2022-09-01", "2023-11-01"]
+  available = ["2022-09-01", "2023-11-01", "2024-06-01-preview"]
 }
 service "security" {
   name      = "Security"
@@ -632,7 +636,7 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01", "2022-09-01", "2023-01-01", "2023-12-01"]
+  available = ["2016-06-01", "2022-09-01", "2023-01-01", "2023-12-01", "2024-04-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
@@ -640,5 +644,5 @@ service "webpubsub" {
 }
 service "workloads" {
   name      = "Workloads"
-  available = ["2023-04-01"]
+  available = ["2023-04-01", "2024-09-01"]
 }

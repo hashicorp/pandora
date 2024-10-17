@@ -1,0 +1,18 @@
+{
+  "name": "GetControlCenterSsoRequest",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DomainControlCenterSsoRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.DomainRegistration/generateSsoRequest"
+}

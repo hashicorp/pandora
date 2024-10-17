@@ -1,0 +1,36 @@
+{
+  "name": "PolicyGroupSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policyGroupName",
+      "name": "PolicyGroupName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "results",
+      "name": "Results",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SummaryResults",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

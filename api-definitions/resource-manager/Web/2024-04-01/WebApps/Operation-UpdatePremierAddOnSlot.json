@@ -1,0 +1,23 @@
+{
+  "name": "UpdatePremierAddOnSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SlotPremierAddonId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PremierAddOnPatchResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PremierAddOn",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "resourceIdName": "LinkedServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LinkedService",
+    "referenceNameIsCommonType": null
+  }
+}
