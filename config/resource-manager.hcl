@@ -94,7 +94,7 @@ service "chaos" {
   name      = "ChaosStudio"
   available = ["2023-11-01", "2024-01-01"]
 }
-service "codesign" {
+service "codesigning" {
   name      = "CodeSigning"
   available = ["2024-09-30-preview"]
 }
