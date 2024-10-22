@@ -1,0 +1,36 @@
+{
+  "name": "RequestContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requestBody",
+      "name": "RequestBody",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GenerateCostDetailsReportRequestDefinition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requestScope",
+      "name": "RequestScope",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

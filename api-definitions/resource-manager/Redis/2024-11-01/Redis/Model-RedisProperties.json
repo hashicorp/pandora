@@ -1,10 +1,55 @@
 {
-  "name": "EAPriceSheetProperties",
+  "name": "RedisProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "basePrice",
-      "name": "BasePrice",
+      "jsonName": "accessKeys",
+      "name": "AccessKeys",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RedisAccessKeys",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disableAccessKeyAuthentication",
+      "name": "DisableAccessKeyAuthentication",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableNonSslPort",
+      "name": "EnableNonSslPort",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hostName",
+      "name": "HostName",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +63,146 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "currencyCode",
-      "name": "CurrencyCode",
+      "jsonName": "instances",
+      "name": "Instances",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RedisInstanceDetails",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linkedServers",
+      "name": "LinkedServers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RedisLinkedServer",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minimumTlsVersion",
+      "name": "MinimumTlsVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TlsVersion",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "port",
+      "name": "Port",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpointConnections",
+      "name": "PrivateEndpointConnections",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PrivateEndpointConnection",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkAccess",
+      "name": "PublicNetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicNetworkAccess",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "redisConfiguration",
+      "name": "RedisConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RedisCommonPropertiesRedisConfiguration",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "redisVersion",
+      "name": "RedisVersion",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,11 +216,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "effectiveEndDate",
-      "name": "EffectiveEndDate",
+      "jsonName": "replicasPerMaster",
+      "name": "ReplicasPerMaster",
       "objectDefinition": {
-        "type": "DateTime",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -49,11 +231,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "effectiveStartDate",
-      "name": "EffectiveStartDate",
+      "jsonName": "replicasPerPrimary",
+      "name": "ReplicasPerPrimary",
       "objectDefinition": {
-        "type": "DateTime",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -65,8 +246,53 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "enrollmentNumber",
-      "name": "EnrollmentNumber",
+      "jsonName": "shardCount",
+      "name": "ShardCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sku",
+      "name": "Sku",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Sku",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sslPort",
+      "name": "SslPort",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "staticIP",
+      "name": "StaticIP",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -80,8 +306,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "includedQuantity",
-      "name": "IncludedQuantity",
+      "jsonName": "subnetId",
+      "name": "SubnetId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -95,12 +321,33 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "marketPrice",
-      "name": "MarketPrice",
+      "jsonName": "tenantSettings",
+      "name": "TenantSettings",
       "objectDefinition": {
-        "type": "String",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "updateChannel",
+      "name": "UpdateChannel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UpdateChannel",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -110,237 +357,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterCategory",
-      "name": "MeterCategory",
+      "jsonName": "zonalAllocationPolicy",
+      "name": "ZonalAllocationPolicy",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterId",
-      "name": "MeterId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterName",
-      "name": "MeterName",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterRegion",
-      "name": "MeterRegion",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterSubCategory",
-      "name": "MeterSubCategory",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterType",
-      "name": "MeterType",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "offerId",
-      "name": "OfferId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "partNumber",
-      "name": "PartNumber",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "priceType",
-      "name": "PriceType",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "product",
-      "name": "Product",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "productId",
-      "name": "ProductId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "serviceFamily",
-      "name": "ServiceFamily",
-      "objectDefinition": {
-        "type": "Float",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "skuId",
-      "name": "SkuId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "term",
-      "name": "Term",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "unitOfMeasure",
-      "name": "UnitOfMeasure",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "unitPrice",
-      "name": "UnitPrice",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "ZonalAllocationPolicy",
         "referenceNameIsCommonType": null
       },
       "optional": true,

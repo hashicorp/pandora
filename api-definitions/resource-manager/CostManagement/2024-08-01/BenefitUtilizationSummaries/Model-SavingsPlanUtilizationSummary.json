@@ -1,0 +1,24 @@
+{
+  "name": "SavingsPlanUtilizationSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SavingsPlanUtilizationSummaryProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BenefitUtilizationSummary",
+  "discriminatedTypeValue": "SavingsPlan",
+  "typeHintIn": "Kind"
+}
