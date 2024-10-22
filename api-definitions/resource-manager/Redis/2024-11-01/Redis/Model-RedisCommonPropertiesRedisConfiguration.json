@@ -1,10 +1,10 @@
 {
-  "name": "EAPriceSheetProperties",
+  "name": "RedisCommonPropertiesRedisConfiguration",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "basePrice",
-      "name": "BasePrice",
+      "jsonName": "aad-enabled",
+      "name": "AadEnabled",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "currencyCode",
-      "name": "CurrencyCode",
+      "jsonName": "aof-backup-enabled",
+      "name": "AofBackupEnabled",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,40 +33,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "effectiveEndDate",
-      "name": "EffectiveEndDate",
-      "objectDefinition": {
-        "type": "DateTime",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "effectiveStartDate",
-      "name": "EffectiveStartDate",
-      "objectDefinition": {
-        "type": "DateTime",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "enrollmentNumber",
-      "name": "EnrollmentNumber",
+      "jsonName": "aof-storage-connection-string-0",
+      "name": "AofStorageConnectionString0",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -80,8 +48,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "includedQuantity",
-      "name": "IncludedQuantity",
+      "jsonName": "aof-storage-connection-string-1",
+      "name": "AofStorageConnectionString1",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -95,8 +63,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "marketPrice",
-      "name": "MarketPrice",
+      "jsonName": "authnotrequired",
+      "name": "Authnotrequired",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -110,8 +78,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterCategory",
-      "name": "MeterCategory",
+      "jsonName": "maxclients",
+      "name": "Maxclients",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -125,8 +93,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterId",
-      "name": "MeterId",
+      "jsonName": "maxfragmentationmemory-reserved",
+      "name": "MaxfragmentationmemoryReserved",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -140,8 +108,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterName",
-      "name": "MeterName",
+      "jsonName": "maxmemory-delta",
+      "name": "MaxmemoryDelta",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -155,8 +123,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterRegion",
-      "name": "MeterRegion",
+      "jsonName": "maxmemory-policy",
+      "name": "MaxmemoryPolicy",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -170,8 +138,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterSubCategory",
-      "name": "MeterSubCategory",
+      "jsonName": "maxmemory-reserved",
+      "name": "MaxmemoryReserved",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -185,8 +153,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterType",
-      "name": "MeterType",
+      "jsonName": "notify-keyspace-events",
+      "name": "NotifyKeyspaceEvents",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -200,8 +168,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "offerId",
-      "name": "OfferId",
+      "jsonName": "preferred-data-archive-auth-method",
+      "name": "PreferredDataArchiveAuthMethod",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -215,8 +183,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "partNumber",
-      "name": "PartNumber",
+      "jsonName": "preferred-data-persistence-auth-method",
+      "name": "PreferredDataPersistenceAuthMethod",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -230,8 +198,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "priceType",
-      "name": "PriceType",
+      "jsonName": "rdb-backup-enabled",
+      "name": "RdbBackupEnabled",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -245,8 +213,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "product",
-      "name": "Product",
+      "jsonName": "rdb-backup-frequency",
+      "name": "RdbBackupFrequency",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -260,8 +228,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "productId",
-      "name": "ProductId",
+      "jsonName": "rdb-backup-max-snapshot-count",
+      "name": "RdbBackupMaxSnapshotCount",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -275,23 +243,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "serviceFamily",
-      "name": "ServiceFamily",
-      "objectDefinition": {
-        "type": "Float",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "skuId",
-      "name": "SkuId",
+      "jsonName": "rdb-storage-connection-string",
+      "name": "RdbStorageConnectionString",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -305,8 +258,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "term",
-      "name": "Term",
+      "jsonName": "storage-subscription-id",
+      "name": "StorageSubscriptionId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -320,23 +273,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "unitOfMeasure",
-      "name": "UnitOfMeasure",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "unitPrice",
-      "name": "UnitPrice",
+      "jsonName": "zonal-configuration",
+      "name": "ZonalConfiguration",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

@@ -1,0 +1,31 @@
+{
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ExportListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/exports"
+}

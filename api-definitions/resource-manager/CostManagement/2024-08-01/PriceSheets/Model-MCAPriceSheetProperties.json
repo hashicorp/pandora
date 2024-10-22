@@ -1,5 +1,5 @@
 {
-  "name": "EAPriceSheetProperties",
+  "name": "MCAPriceSheetProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -18,8 +18,83 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "currencyCode",
-      "name": "CurrencyCode",
+      "jsonName": "billingAccountID",
+      "name": "BillingAccountID",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingAccountName",
+      "name": "BillingAccountName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingCurrency",
+      "name": "BillingCurrency",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileId",
+      "name": "BillingProfileId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingProfileName",
+      "name": "BillingProfileName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "currency",
+      "name": "Currency",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -65,36 +140,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "enrollmentNumber",
-      "name": "EnrollmentNumber",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "includedQuantity",
-      "name": "IncludedQuantity",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "marketPrice",
       "name": "MarketPrice",
       "objectDefinition": {
@@ -112,21 +157,6 @@
       "containsDiscriminatedTypeValue": false,
       "jsonName": "meterCategory",
       "name": "MeterCategory",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "meterId",
-      "name": "MeterId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -200,36 +230,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "offerId",
-      "name": "OfferId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "partNumber",
-      "name": "PartNumber",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "priceType",
       "name": "PriceType",
       "objectDefinition": {
@@ -275,6 +275,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "productOrderName",
+      "name": "ProductOrderName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "serviceFamily",
       "name": "ServiceFamily",
       "objectDefinition": {
@@ -307,6 +322,21 @@
       "containsDiscriminatedTypeValue": false,
       "jsonName": "term",
       "name": "Term",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tierMinimumUnits",
+      "name": "TierMinimumUnits",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
