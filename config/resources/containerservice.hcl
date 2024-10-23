@@ -36,7 +36,7 @@ HERE
     }
   }
 
-  api "2023-10-15" {
+  api "2024-04-01" {
     package "FleetMembers" {
       definition "kubernetes_fleet_member" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}"
