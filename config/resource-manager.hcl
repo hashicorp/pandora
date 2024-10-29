@@ -581,6 +581,10 @@ service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
   available = ["2023-10-01"]
 }
+service "standbypool" {
+  name      = "StandbyPool"
+  available = ["2024-03-01"]
+}
 service "storage" {
   name      = "Storage"
   available = ["2023-01-01", "2023-05-01"]
