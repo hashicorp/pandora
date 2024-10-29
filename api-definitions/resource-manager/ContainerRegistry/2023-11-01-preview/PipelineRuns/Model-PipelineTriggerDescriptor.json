@@ -1,0 +1,21 @@
+{
+  "name": "PipelineTriggerDescriptor",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceTrigger",
+      "name": "SourceTrigger",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PipelineSourceTriggerDescriptor",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

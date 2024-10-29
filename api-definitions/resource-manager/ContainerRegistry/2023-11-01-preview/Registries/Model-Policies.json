@@ -1,0 +1,96 @@
+{
+  "name": "Policies",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureADAuthenticationAsArmPolicy",
+      "name": "AzureADAuthenticationAsArmPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureADAuthenticationAsArmPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exportPolicy",
+      "name": "ExportPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExportPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "quarantinePolicy",
+      "name": "QuarantinePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "QuarantinePolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionPolicy",
+      "name": "RetentionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RetentionPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softDeletePolicy",
+      "name": "SoftDeletePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SoftDeletePolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trustPolicy",
+      "name": "TrustPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TrustPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

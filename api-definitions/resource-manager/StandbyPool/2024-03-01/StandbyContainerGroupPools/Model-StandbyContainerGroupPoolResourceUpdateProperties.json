@@ -1,0 +1,36 @@
+{
+  "name": "StandbyContainerGroupPoolResourceUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerGroupProperties",
+      "name": "ContainerGroupProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ContainerGroupProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "elasticityProfile",
+      "name": "ElasticityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StandbyContainerGroupPoolElasticityProfile",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
