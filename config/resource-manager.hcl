@@ -129,7 +129,7 @@ service "containerinstance" {
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
-  available = ["2019-06-01-preview", "2023-06-01-preview", "2023-07-01"]
+  available = ["2019-06-01-preview", "2023-06-01-preview", "2023-07-01", "2023-11-01-preview"]
 }
 service "containerservice" {
   name      = "ContainerService"
