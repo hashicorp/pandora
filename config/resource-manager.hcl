@@ -490,11 +490,11 @@ service "quota" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2024-01-01", "2024-02-01", "2024-04-01"]
+  available = ["2024-01-01", "2024-02-01", "2024-04-01", "2024-10-01"]
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01"]
+  available = ["2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01", "2024-01-01", "2024-02-01", "2024-04-01", "2024-10-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
