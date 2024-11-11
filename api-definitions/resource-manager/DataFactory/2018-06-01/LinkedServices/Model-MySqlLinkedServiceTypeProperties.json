@@ -3,10 +3,55 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "allowZeroDateTime",
+      "name": "AllowZeroDateTime",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
         "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connectionTimeout",
+      "name": "ConnectionTimeout",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "convertZeroDateTime",
+      "name": "ConvertZeroDateTime",
+      "objectDefinition": {
+        "type": "Boolean",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -50,6 +95,21 @@
       "containsDiscriminatedTypeValue": false,
       "jsonName": "encryptedCredential",
       "name": "EncryptedCredential",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "guidFormat",
+      "name": "GuidFormat",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -108,10 +168,55 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "sslCert",
+      "name": "SslCert",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sslKey",
+      "name": "SslKey",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "sslMode",
       "name": "SslMode",
       "objectDefinition": {
         "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "treatTinyAsBoolean",
+      "name": "TreatTinyAsBoolean",
+      "objectDefinition": {
+        "type": "Boolean",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
