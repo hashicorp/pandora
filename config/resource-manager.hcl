@@ -56,7 +56,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2023-08-15"]
+  available = ["2023-08-15", "2024-04-13"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
@@ -137,7 +137,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15", "2024-05-15", "2024-08-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15", "2023-11-15", "2024-05-15", "2024-08-15", "2024-11-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -498,7 +498,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2024-01-01", "2024-02-01", "2024-04-01"]
+  available = ["2024-01-01", "2024-02-01", "2024-04-01", "2024-10-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
