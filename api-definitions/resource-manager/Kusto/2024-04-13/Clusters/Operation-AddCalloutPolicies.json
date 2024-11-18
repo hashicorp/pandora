@@ -1,0 +1,19 @@
+{
+  "name": "AddCalloutPolicies",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "KustoClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CalloutPoliciesList",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/addCalloutPolicies"
+}

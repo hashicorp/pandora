@@ -1,0 +1,18 @@
+{
+  "name": "ListByDatabase",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "KustoDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataConnectionListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/dataConnections"
+}
