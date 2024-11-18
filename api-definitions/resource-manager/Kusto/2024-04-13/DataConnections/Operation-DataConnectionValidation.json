@@ -1,0 +1,25 @@
+{
+  "name": "DataConnectionValidation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "KustoDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataConnectionValidation",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataConnectionValidationListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/dataConnectionValidation"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "SwitchClusterProtection",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationProtectionContainerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SwitchClusterProtectionInput",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProtectionContainer",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/switchClusterProtection"
+}

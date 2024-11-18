@@ -1,0 +1,31 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "instanceType",
+      "required": false,
+      "field": "InstanceType",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "VaultId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SupportedOperatingSystems",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/replicationSupportedOperatingSystems"
+}
