@@ -1,0 +1,23 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "ProviderPolicyDefinitionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyDefinition",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyDefinition",
+    "referenceNameIsCommonType": null
+  }
+}
