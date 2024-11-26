@@ -1,0 +1,19 @@
+{
+  "name": "ListByReplicationProtectionContainers",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ReplicationProtectionContainerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ReplicationProtectedItem",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/replicationProtectedItems"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "RemoveCalloutPolicy",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "KustoClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CalloutPolicyToRemove",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/removeCalloutPolicy"
+}

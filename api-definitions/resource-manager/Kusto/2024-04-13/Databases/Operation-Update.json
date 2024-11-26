@@ -1,0 +1,38 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "callerRole",
+      "required": false,
+      "field": "CallerRole",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "CallerRole"
+      }
+    }
+  ],
+  "resourceIdName": "KustoDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Database",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Database",
+    "referenceNameIsCommonType": null
+  }
+}

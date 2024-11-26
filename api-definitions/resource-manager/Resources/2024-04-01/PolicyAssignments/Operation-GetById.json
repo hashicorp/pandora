@@ -7,6 +7,19 @@
   ],
   "longRunning": false,
   "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
   "resourceIdName": "PolicyAssignmentIdId",
   "responseObject": {
     "type": "Reference",
