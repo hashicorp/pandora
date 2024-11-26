@@ -12,6 +12,17 @@
     {
       "type": "Data",
       "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
       "queryString": "$filter",
       "required": false,
       "field": "Filter",
