@@ -1,0 +1,24 @@
+{
+  "name": "ConfigurationsAnalysis",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ConfigurationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AnalysisCreate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AnalysisResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/analyze"
+}
