@@ -543,7 +543,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2024-03-01", "2024-09-01"]
+  available = ["2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2023-12-01-preview", "2024-03-01", "2024-09-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
