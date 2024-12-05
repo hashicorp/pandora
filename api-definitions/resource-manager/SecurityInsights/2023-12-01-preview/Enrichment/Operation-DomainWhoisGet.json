@@ -1,0 +1,31 @@
+{
+  "name": "DomainWhoisGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "domain",
+      "required": true,
+      "field": "Domain",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "EnrichmentDomainWhois",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.SecurityInsights/enrichment/domain/whois"
+}

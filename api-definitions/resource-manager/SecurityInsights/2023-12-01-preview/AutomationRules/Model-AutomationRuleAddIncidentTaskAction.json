@@ -1,0 +1,24 @@
+{
+  "name": "AutomationRuleAddIncidentTaskAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionConfiguration",
+      "name": "ActionConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AddIncidentTaskActionProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AutomationRuleAction",
+  "discriminatedTypeValue": "AddIncidentTask",
+  "typeHintIn": "ActionType"
+}
