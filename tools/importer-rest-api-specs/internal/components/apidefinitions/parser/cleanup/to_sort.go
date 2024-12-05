@@ -128,7 +128,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.azurestackhci":                  "Microsoft.AzureStackHCI",
 		"microsoft.baremetalinfrastructure":        "Microsoft.BareMetalInfrastructure",
 		"microsoft.botservice":                     "Microsoft.BotService",
-		"microsoft.cdn":                            "Microsoft.CDN",
+		"microsoft.cdn":                            "Microsoft.Cdn",
 		"microsoft.cognitiveservices":              "Microsoft.CognitiveServices",
 		"microsoft.confidentialledger":             "Microsoft.ConfidentialLedger",
 		"microsoft.connectedvmwarevsphere":         "Microsoft.ConnectedVMwarevSphere",
