@@ -1,0 +1,18 @@
+{
+  "name": "DataConnectorsConnect",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "DataConnectorId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataConnectorConnectBody",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/connect"
+}

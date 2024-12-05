@@ -1,0 +1,18 @@
+{
+  "name": "WorkspacesListKeys",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ListWorkspaceKeysResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/listKeys"
+}

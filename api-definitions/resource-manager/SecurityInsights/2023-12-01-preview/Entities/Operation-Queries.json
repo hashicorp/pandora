@@ -1,0 +1,31 @@
+{
+  "name": "Queries",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "kind",
+      "required": true,
+      "field": "Kind",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "EntityItemQueryKind"
+      }
+    }
+  ],
+  "resourceIdName": "EntityId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetQueriesResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/queries"
+}

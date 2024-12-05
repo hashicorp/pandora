@@ -1,0 +1,23 @@
+{
+  "name": "RegistryDataReferencesGetBlobReferenceSAS",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "DataReferenceVersionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetBlobReferenceSASRequestDto",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetBlobReferenceSASResponseDto",
+    "referenceNameIsCommonType": null
+  }
+}

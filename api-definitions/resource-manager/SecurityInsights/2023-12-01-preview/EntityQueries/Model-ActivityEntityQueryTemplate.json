@@ -1,0 +1,24 @@
+{
+  "name": "ActivityEntityQueryTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ActivityEntityQueryTemplateProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EntityQueryTemplate",
+  "discriminatedTypeValue": "Activity",
+  "typeHintIn": "Kind"
+}

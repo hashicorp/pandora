@@ -1,0 +1,24 @@
+{
+  "name": "AzureOpenAiFineTuning",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hyperParameters",
+      "name": "HyperParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureOpenAiHyperParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "FineTuningVertical",
+  "discriminatedTypeValue": "AzureOpenAI",
+  "typeHintIn": "ModelProvider"
+}
