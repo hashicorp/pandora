@@ -1,27 +1,12 @@
 {
-  "name": "ManagementEventAggregationCondition",
+  "name": "UserIdentity",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "operator",
-      "name": "Operator",
+      "jsonName": "clientId",
+      "name": "ClientId",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "ConditionOperator",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "threshold",
-      "name": "Threshold",
-      "objectDefinition": {
-        "type": "Float",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -33,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "windowSize",
-      "name": "WindowSize",
+      "jsonName": "principalId",
+      "name": "PrincipalId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
