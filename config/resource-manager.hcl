@@ -305,6 +305,10 @@ service "hybridkubernetes" {
   name      = "HybridKubernetes"
   available = ["2021-10-01", "2024-01-01"]
 }
+service "impact" {
+  name      = "Impact"
+  available = ["2024-05-01-preview"]
+}
 service "informatica" {
   name      = "Informatica"
   available = ["2024-05-08"]
