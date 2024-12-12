@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "PooledScheduleId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScalingPlanPooledSchedulePatch",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScalingPlanPooledSchedule",
+    "referenceNameIsCommonType": null
+  }
+}
