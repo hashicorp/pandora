@@ -1,0 +1,19 @@
+{
+  "name": "PrivateEndpointConnectionsListByWorkspace",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "WorkspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/privateEndpointConnections"
+}

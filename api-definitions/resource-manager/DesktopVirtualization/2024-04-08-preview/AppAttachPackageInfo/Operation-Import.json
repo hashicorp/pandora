@@ -1,0 +1,25 @@
+{
+  "name": "Import",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "HostPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImportPackageInfoRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AppAttachPackage",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/importAppAttachPackageInfo"
+}
