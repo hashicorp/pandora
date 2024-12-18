@@ -21,6 +21,7 @@ var workarounds = []dataWorkaround{
 	workaroundAccessPackageResourceRoleScope{},
 	workaroundApplication{},
 	workaroundConditionalAccessPolicy{},
+	workaroundOAuth2PermissionGrant{},
 	workaroundUnifiedRoleAssignment{},
 }
 
