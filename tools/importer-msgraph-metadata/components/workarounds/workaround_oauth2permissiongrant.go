@@ -24,7 +24,7 @@ func (workaroundOAuth2PermissionGrant) Process(apiVersion string, models parser.
 		return fmt.Errorf("`oAuth2PermissionGrant` model not found")
 	}
 
-	// `clientId` is not read-only
+	// `clientId` is not required
 	if _, ok = model.Fields["clientId"]; !ok {
 		return fmt.Errorf("`clientId` field not found")
 	}
