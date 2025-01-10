@@ -1,5 +1,5 @@
 {
-  "name": "CreationSupportedList",
+  "name": "PTUQuotaListAvailable",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
@@ -11,22 +11,22 @@
   "options": [
     {
       "type": "Data",
-      "optional": false,
-      "queryString": "datadogOrganizationId",
-      "required": true,
-      "field": "DatadogOrganizationId",
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
       "optionsObjectDefinition": {
         "type": "String",
         "referenceName": null
       }
     }
   ],
-  "resourceIdName": "SubscriptionId",
+  "resourceIdName": "LocationId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "CreateResourceSupportedResponse",
+    "referenceName": "AvailableQuota",
     "referenceNameIsCommonType": null
   },
-  "uriSuffix": "/providers/Microsoft.Datadog/subscriptionStatuses"
+  "uriSuffix": "/availableQuota"
 }

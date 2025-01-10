@@ -1,70 +1,64 @@
 {
-  "name": "ScriptActivityTypeProperties",
+  "name": "CheckNameAvailabilityResult",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "logSettings",
-      "name": "LogSettings",
+      "jsonName": "available",
+      "name": "Available",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ScriptActivityTypePropertiesLogSettings",
+        "referenceName": "AvailabilityStatus",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "returnMultistatementResult",
-      "name": "ReturnMultistatementResult",
-      "objectDefinition": {
-        "type": "Boolean",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "scriptBlockExecutionTimeout",
-      "name": "ScriptBlockExecutionTimeout",
+      "jsonName": "message",
+      "name": "Message",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "scripts",
-      "name": "Scripts",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
-        "type": "List",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ScriptActivityScriptBlock",
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reason",
+      "name": "Reason",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CheckNameAvailabilityReason",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
       "sensitive": false
     }
   ],

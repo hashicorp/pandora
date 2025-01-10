@@ -1,40 +1,10 @@
 {
-  "name": "ScriptActivityTypeProperties",
+  "name": "UsageAndQuotaDetails",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "logSettings",
-      "name": "LogSettings",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "ScriptActivityTypePropertiesLogSettings",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "returnMultistatementResult",
-      "name": "ReturnMultistatementResult",
-      "objectDefinition": {
-        "type": "Boolean",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "scriptBlockExecutionTimeout",
-      "name": "ScriptBlockExecutionTimeout",
+      "jsonName": "modelCollection",
+      "name": "ModelCollection",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -48,8 +18,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "scripts",
-      "name": "Scripts",
+      "jsonName": "quota",
+      "name": "Quota",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usageDetails",
+      "name": "UsageDetails",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
@@ -58,7 +43,7 @@
         "nestedItem": {
           "type": "Reference",
           "nullable": false,
-          "referenceName": "ScriptActivityScriptBlock",
+          "referenceName": "PTUDeploymentUsage",
           "referenceNameIsCommonType": null
         }
       },

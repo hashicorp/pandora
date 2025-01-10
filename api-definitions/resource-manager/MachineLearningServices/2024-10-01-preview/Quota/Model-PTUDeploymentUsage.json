@@ -1,27 +1,12 @@
 {
-  "name": "ScriptActivityTypeProperties",
+  "name": "PTUDeploymentUsage",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "logSettings",
-      "name": "LogSettings",
+      "jsonName": "collectionQuotaUsage",
+      "name": "CollectionQuotaUsage",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "ScriptActivityTypePropertiesLogSettings",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "returnMultistatementResult",
-      "name": "ReturnMultistatementResult",
-      "objectDefinition": {
-        "type": "Boolean",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -33,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "scriptBlockExecutionTimeout",
-      "name": "ScriptBlockExecutionTimeout",
+      "jsonName": "deploymentName",
+      "name": "DeploymentName",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -48,19 +33,43 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "scripts",
-      "name": "Scripts",
+      "jsonName": "resourceGroup",
+      "name": "ResourceGroup",
       "objectDefinition": {
-        "type": "List",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ScriptActivityScriptBlock",
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usage",
+      "name": "Usage",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workspaceName",
+      "name": "WorkspaceName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
