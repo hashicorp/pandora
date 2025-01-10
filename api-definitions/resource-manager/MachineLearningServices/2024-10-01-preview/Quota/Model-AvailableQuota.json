@@ -1,19 +1,19 @@
 {
-  "name": "ForceLinkParameters",
+  "name": "AvailableQuota",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "geoReplication",
-      "name": "GeoReplication",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ForceLinkParametersGeoReplication",
+        "referenceName": "AvailableQuotaProperties",
         "referenceNameIsCommonType": null
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     }
   ],
