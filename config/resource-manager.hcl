@@ -52,7 +52,8 @@ service "automanage" {
 }
 service "automation" {
   name      = "Automation"
-  available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08", "2023-11-01", "2024-10-23"]
+  available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08", "2023-11-01"]
+  ignore    = ["2024-10-23"] # this version introduces a resource called package which is a reserved keyword in go and breaks the SDK generation - this will require a workaround before it can go in
 }
 service "azure-kusto" {
   name      = "Kusto"
