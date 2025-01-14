@@ -359,11 +359,13 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 		// nullable types should have the omitempty tag option and not be pointers
 		jsonDetails += ",omitempty"
 	} else {
-		if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly {
+		if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly || fieldDetails.ObjectDefinition.Nullable {
 			fieldType = fmt.Sprintf("*%s", fieldType)
+		}
+
+		// all optional/read-only fields should have the omitempty tag option, including discriminator types
+		if !fieldDetails.ObjectDefinition.Nullable && fieldDetails.Optional || fieldDetails.ReadOnly {
 			jsonDetails += ",omitempty"
-		} else if fieldDetails.ObjectDefinition.Nullable {
-			fieldType = fmt.Sprintf("*%s", fieldType)
 		}
 	}
 
