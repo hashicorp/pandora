@@ -100,7 +100,7 @@ After we've obtained the model, we need to grab the field and update it. The fie
     ...
     cpvField, ok := model.Fields["CustomParameterValues"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find the field CustomParameterValues within model ApiConnectionDefinitionProperties")
+		return nil, fmt.Errorf("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
 	}
 	
 	// Once we've grabbed the field, we can navigate to the incorrect piece and fix it
