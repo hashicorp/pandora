@@ -83,7 +83,7 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 	...
 ```
 
-Once we've grabbed the Connections resource, we have to work our way to the specific model we want to change. For this issue, the file we want to override is [Model-ApiConnectionDefinitionProperties.json](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json) which has the json Name of [ApiConnectionDefinitionProperties](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json#L2). 
+Once we've grabbed the Connections resource, we have to work our way to the specific model we want to change. For this issue, the file we want to override is [Model-ApiConnectionDefinitionProperties.json](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json) which has the JSON name [ApiConnectionDefinitionProperties](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json#L2). 
 
 ```
     ...
