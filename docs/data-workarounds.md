@@ -14,7 +14,7 @@ The file should be called `workaround_servicepackage_{issue#}.go`. For this exam
 
 We'll start by creating a file called `workaround_web_31682.go`
 
-The following is boilerplate that uses the package and api issue number that this workaround applies to
+The following is boilerplate code where we reference the issue number that this workaround applies to for added context. We also specify the service name and API version that the workaround is valid for.
 ```
 var _ workaround = workaroundWeb31682{}
 
