@@ -27,32 +27,23 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Model AutoStorageBaseProperties")
 	}
-	cpvField, ok := model.Fields["CustomParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field CustomParameterValues within model AutoStorageProperties")
+	fields := []string{
+		"CustomParameterValues",
+		"NonSecretParameterValues",
+		"ParameterValues",
 	}
-	if cpvField.ObjectDefinition.NestedItem != nil {
-		cpvField.ObjectDefinition.NestedItem.Type = "RawObject"
+	
+	for _, field := range fields {
+		f, ok := model.Fields[field]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find the field `%s` in model `ApiConnectionDefinitionProperties`", field)
+		}
+		f.ObjectDefinition.NestedItem != nil {
+			f.ObjectDefinition.NestedItem.Type = "RawObject"
+		}
+		
+		model.Fields[field] = f
 	}
-
-	nspvField, ok := model.Fields["NonSecretParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field CustomParameterValues within model AutoStorageProperties")
-	}
-	if nspvField.ObjectDefinition.NestedItem != nil {
-		nspvField.ObjectDefinition.NestedItem.Type = "RawObject"
-	}
-
-	pvField, ok := model.Fields["ParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field CustomParameterValues within model AutoStorageProperties")
-	}
-	if pvField.ObjectDefinition.NestedItem != nil {
-		pvField.ObjectDefinition.NestedItem.Type = "RawObject"
-	}
-	model.Fields["CustomParameterValues"] = cpvField
-	model.Fields["NonSecretParameterValues"] = nspvField
-	model.Fields["ParameterValues"] = pvField
 	resource.Models["ApiConnectionDefinitionProperties"] = model
 	input.Resources["Connections"] = resource
 
