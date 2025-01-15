@@ -89,7 +89,7 @@ Once we've grabbed the Connections resource, we have to work our way to the spec
     ...
     model, ok := resource.Models["ApiConnectionDefinitionProperties"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model ApiConnectionDefinitionProperties")
+		return nil, fmt.Errorf("couldn't find Model `ApiConnectionDefinitionProperties`")
 	}
     ...
 ```
