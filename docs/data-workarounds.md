@@ -34,7 +34,8 @@ func (workaroundWeb31682) Name() string {
 Now we can get into the meat and potatoes of how to override this specific issue. 
 
 
-First, we need to find where this information is incorrect in our `api-definitions` folder. For this issue, I've daisy chained my down to this [file](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json) that holds the ParameterValue Models that we're looking for.
+First, we need to find where this information is incorrect in our `api-definitions` folder. 
+Begin by navigating to the folder that contains the API definition files for the `Web` service and API version `2016-06-01`. In there we can search for the `ParameterValue` model which should pinpoint the file that needs to be modified. In this case https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json holds the `ParameterValue` Models that we're looking for.
 
 We're seeing this issue in the following models, `CustomParameterValues`, `NonSecretParameterValues`, and `ParameterValues`. The Azure API accepts any type but the way it's been defined in our `api-definition`, it only accepts strings. We can see that by looking at the [CustomParameterValues model](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json#L54)
 
