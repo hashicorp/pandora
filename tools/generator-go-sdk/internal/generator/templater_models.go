@@ -561,15 +561,31 @@ func (c modelsTemplater) codeForMarshalFunctions(data GeneratorData) (*string, e
 	output := ""
 
 	readOnlyFields := make([]string, 0)
+	nullableFields := make([]string, 0)
 	for _, field := range c.model.Fields {
 		if field.ReadOnly {
 			readOnlyFields = append(readOnlyFields, field.JsonName)
+		}
+		if field.ObjectDefinition.Nullable {
+			nullableFields = append(nullableFields, field.JsonName)
 		}
 	}
 	sort.Strings(readOnlyFields)
 
 	// Only output a Marshal function when there are discriminated value or read-only fields to customize
-	if c.model.DiscriminatedValue == nil && len(readOnlyFields) == 0 {
+	if c.model.DiscriminatedValue == nil && len(readOnlyFields) == 0 && len(nullableFields) == 0 {
+		return &output, nil
+	}
+
+	// add nullable support for resource manager sdk without touching the field type
+	if data.sourceType == models.ResourceManagerSourceDataType && len(nullableFields) > 0 && c.model.DiscriminatedValue == nil {
+		output += fmt.Sprintf(`
+var _ json.Marshaler = %[1]s{}
+
+func (s %[1]s) MarshalJSON() ([]byte, error) {
+	return nullable.MarshalNullableStruct(s)
+}
+`, c.name)
 		return &output, nil
 	}
 
