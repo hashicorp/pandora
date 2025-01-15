@@ -65,7 +65,7 @@ We're seeing this issue in the following models, `CustomParameterValues`, `NonSe
 
 There is a lot in that model but we're only focused on the piece that is wrong which is in the `nestedItem` block where the `type` is `String` and it should be `RawObject`.
 
-Now that we know where our issue is, we can build out the `Process` method that will overwrite what is in that file with the correct information. Unfortunately, the way these models are presented in Pandora is a convoluted mess of objects and references to objects so we'll have to dig to get to the information we need. 
+Now that we know where our issue is, we can build out the `Process` method in the workaround file that we created earlier that will overwrite that property with the correct information.
 
 The normal route that most overrides go is finding the resource, then the model, then the field.
 
