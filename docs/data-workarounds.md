@@ -69,7 +69,7 @@ Now that we know where our issue is, we can build out the `Process` method in th
 
 The normal route that most overrides go is finding the resource, then the model, then the field.
 
-We'll start with the finding the resource:
+We'll start with finding the resource:
 
 ```
 // At the time this function is called, we know we have the information about the specific service and api version that we want to override.
