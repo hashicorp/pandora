@@ -33,7 +33,6 @@ func (workaroundWeb31682) Name() string {
 
 Now we can get into the meat and potatoes of how to override this specific issue. 
 
-I'm using [31682](https://github.com/Azure/azure-rest-api-specs/issues/31682) in this example where we're unmarshalling Parameter Value incorrectly and we're seeing `Error: occurred unmarshalling JSON - Error = 'json: cannot unmarshal bool into Go struct field` in the provider.
 
 First, we need to find where this information is incorrect in our `api-definitions` folder. For this issue, I've daisy chained my down to this [file](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json) that holds the ParameterValue Models that we're looking for.
 
