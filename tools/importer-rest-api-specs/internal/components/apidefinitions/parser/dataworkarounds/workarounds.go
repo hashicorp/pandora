@@ -11,6 +11,7 @@ var workarounds = []workaround{
 	workaroundAutomation25435{},
 	workaroundBatch21291{},
 	workaroundBotService27351{},
+	workaroundContainerRegistry32154{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
 	workaroundDataMigration31001{},
