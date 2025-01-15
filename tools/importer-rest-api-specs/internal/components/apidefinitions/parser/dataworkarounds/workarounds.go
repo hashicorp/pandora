@@ -25,6 +25,7 @@ var workarounds = []workaround{
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
 	workaroundNetwork29303{},
+	workaroundWeb31682{},
 
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
