@@ -10,7 +10,9 @@ If there is an issue with the Rest API Spec, open an issue on [Azure/azure-rest-
 
 ## Create a new workaround in `/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/dataworkarounds`
 
-The file should be called `workaround_servicepackage_issue#`. For this example, we'll create a file called `workaround_web_31682.go`
+The file should be called `workaround_servicepackage_{issue#}.go`. For this example, we're going to add a workaround for the issue [#31682](https://github.com/Azure/azure-rest-api-specs/issues/31682), where we're unmarshalling the Parameter Value incorrectly and receiving `Error: occurred unmarshalling JSON - Error = 'json: cannot unmarshal bool into Go struct field` in the provider.
+
+We'll start by creating a file called `workaround_web_31682.go`
 
 The following is boilerplate that uses the package and api issue number that this workaround applies to
 ```
