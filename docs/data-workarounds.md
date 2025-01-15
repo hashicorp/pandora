@@ -6,7 +6,7 @@ These data workarounds live in `/tools/importer-rest-api-specs/internal/componen
 
 ## Open an issue on github.com/Azure/azure-rest-api-specs/issues 
 
-If there is an issue with the api-specs, open an issue on that repo as we'll use the issue number in our filename.
+If there is an issue with the Rest API Spec, open an issue on [Azure/azure-rest-api-specs](https://github.com/Azure/azure-rest-api-specs) as the issue number will be referenced in the workaround as well as the filename to help keep track of data issues that we come across.
 
 ## Create a new workaround in `/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/dataworkarounds`
 
