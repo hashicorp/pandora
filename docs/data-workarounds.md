@@ -134,32 +134,24 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Model `ApiConnectionDefinitionProperties`")
 	}
-	cpvField, ok := model.Fields["CustomParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
-	}
-	if cpvField.ObjectDefinition.NestedItem != nil {
-		cpvField.ObjectDefinition.NestedItem.Type = "RawObject"
+	fields := []string{
+		"CustomParameterValues",
+		"NonSecretParameterValues",
+		"ParameterValues",
 	}
 
-	nspvField, ok := model.Fields["NonSecretParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
-	}
-	if nspvField.ObjectDefinition.NestedItem != nil {
-		nspvField.ObjectDefinition.NestedItem.Type = "RawObject"
-	}
+	for _, field := range fields {
+		f, ok := model.Fields[field]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find the field `%s` in model `ApiConnectionDefinitionProperties`", field)
+		}
+		if f.ObjectDefinition.NestedItem != nil {
+			f.ObjectDefinition.NestedItem.Type = "RawObject"
+		}
 
-	pvField, ok := model.Fields["ParameterValues"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
+		model.Fields[field] = f
 	}
-	if pvField.ObjectDefinition.NestedItem != nil {
-		pvField.ObjectDefinition.NestedItem.Type = "RawObject"
-	}
-	model.Fields["CustomParameterValues"] = cpvField
-	model.Fields["NonSecretParameterValues"] = nspvField
-	model.Fields["ParameterValues"] = pvField
+	
 	resource.Models["ApiConnectionDefinitionProperties"] = model
 	input.Resources["Connections"] = resource
 

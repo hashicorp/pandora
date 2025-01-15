@@ -32,16 +32,16 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 		"NonSecretParameterValues",
 		"ParameterValues",
 	}
-	
+
 	for _, field := range fields {
 		f, ok := model.Fields[field]
 		if !ok {
 			return nil, fmt.Errorf("couldn't find the field `%s` in model `ApiConnectionDefinitionProperties`", field)
 		}
-		f.ObjectDefinition.NestedItem != nil {
+		if f.ObjectDefinition.NestedItem != nil {
 			f.ObjectDefinition.NestedItem.Type = "RawObject"
 		}
-		
+
 		model.Fields[field] = f
 	}
 	resource.Models["ApiConnectionDefinitionProperties"] = model
