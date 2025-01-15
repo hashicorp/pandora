@@ -25,7 +25,7 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 	}
 	model, ok := resource.Models["ApiConnectionDefinitionProperties"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model AutoStorageBaseProperties")
+		return nil, fmt.Errorf("couldn't find Model `ApiConnectionDefinitionProperties`")
 	}
 	fields := []string{
 		"CustomParameterValues",
