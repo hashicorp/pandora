@@ -354,12 +354,19 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 
 func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data GeneratorData, excludeComments bool) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
+	isDiscriminator := false
+	objectDefinition := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
+	if refName := objectDefinition.ReferenceName; refName != nil {
+		if refModel, ok := data.models[*refName]; ok && refModel.IsDiscriminatedParentType() {
+			isDiscriminator = true
+		}
+	}
 
 	if strings.HasPrefix(fieldType, "nullable.") {
 		// nullable types should have the omitempty tag option and not be pointers
 		jsonDetails += ",omitempty"
 	} else {
-		if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly || fieldDetails.ObjectDefinition.Nullable {
+		if !isDiscriminator && (fieldDetails.Optional || fieldDetails.ReadOnly || fieldDetails.ObjectDefinition.Nullable) {
 			fieldType = fmt.Sprintf("*%s", fieldType)
 		}
 
