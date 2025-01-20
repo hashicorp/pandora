@@ -53,6 +53,7 @@ service "automanage" {
 service "automation" {
   name      = "Automation"
   available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08", "2023-11-01"]
+  ignore    = ["2024-10-23"] # this version introduces a resource called package which is a reserved keyword in go and breaks the SDK generation - this will require a workaround before it can go in
 }
 service "azure-kusto" {
   name      = "Kusto"
@@ -133,7 +134,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2023-03-02-preview", "2023-10-15", "2024-04-01", "2024-05-01"]
+  available = ["2019-08-01", "2023-03-02-preview", "2023-10-15", "2024-04-01", "2024-05-01", "2024-09-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -161,7 +162,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01", "2022-06-01", "2023-01-01"]
+  available = ["2021-03-01", "2022-06-01", "2023-01-01", "2023-10-20"]
 }
 service "datafactory" {
   name      = "DataFactory"
@@ -189,8 +190,8 @@ service "datashare" {
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
-  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09", "2024-04-08-preview"]
-  ignore    = ["2023-09-05", "2024-04-03"]
+  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09", "2024-04-03"]
+  ignore    = ["2023-09-05"]
 }
 service "devcenter" {
   name      = "DevCenter"
@@ -567,7 +568,7 @@ service "servicelinker" {
 }
 service "servicenetworking" {
   name      = "ServiceNetworking"
-  available = ["2023-11-01"]
+  available = ["2023-11-01", "2025-01-01"]
 }
 service "signalr" {
   name      = "SignalR"

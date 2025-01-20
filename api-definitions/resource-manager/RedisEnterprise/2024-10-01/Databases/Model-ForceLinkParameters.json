@@ -3,34 +3,13 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "groupNickname",
-      "name": "GroupNickname",
+      "jsonName": "geoReplication",
+      "name": "GeoReplication",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ForceLinkParametersGeoReplication",
         "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "linkedDatabases",
-      "name": "LinkedDatabases",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "LinkedDatabase",
-          "referenceNameIsCommonType": null
-        }
       },
       "optional": false,
       "readOnly": false,
