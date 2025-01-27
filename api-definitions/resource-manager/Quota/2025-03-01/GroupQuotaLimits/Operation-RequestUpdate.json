@@ -1,0 +1,24 @@
+{
+  "name": "RequestUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "GroupQuotaLimitId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GroupQuotaLimitList",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GroupQuotaLimitList",
+    "referenceNameIsCommonType": null
+  }
+}

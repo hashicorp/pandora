@@ -1,0 +1,18 @@
+{
+  "name": "ListByMHSMResource",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ManagedHSMId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MHSMPrivateLinkResourceListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/privateLinkResources"
+}
