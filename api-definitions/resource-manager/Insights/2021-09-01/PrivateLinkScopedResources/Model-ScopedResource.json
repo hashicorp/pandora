@@ -1,46 +1,10 @@
 {
-  "name": "ApplicationInsightsComponentProactiveDetectionConfiguration",
+  "name": "ScopedResource",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "customEmails",
-      "name": "CustomEmails",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "enabled",
-      "name": "Enabled",
-      "objectDefinition": {
-        "type": "Boolean",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "lastUpdatedTime",
-      "name": "LastUpdatedTime",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -69,12 +33,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ruleDefinitions",
-      "name": "RuleDefinitions",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions",
+        "referenceName": "ScopedResourceProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -84,10 +48,25 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sendEmailsToSubscriptionOwners",
-      "name": "SendEmailsToSubscriptionOwners",
+      "jsonName": "systemData",
+      "name": "SystemData",
       "objectDefinition": {
-        "type": "Boolean",
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

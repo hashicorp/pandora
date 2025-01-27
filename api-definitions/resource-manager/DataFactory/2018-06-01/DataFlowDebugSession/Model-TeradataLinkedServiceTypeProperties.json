@@ -18,6 +18,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "characterSet",
+      "name": "CharacterSet",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "connectionString",
       "name": "ConnectionString",
       "objectDefinition": {
@@ -48,6 +63,36 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "httpsPortNumber",
+      "name": "HTTPSPortNumber",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxRespSize",
+      "name": "MaxRespSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "password",
       "name": "Password",
       "objectDefinition": {
@@ -63,10 +108,55 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "portNumber",
+      "name": "PortNumber",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "server",
       "name": "Server",
       "objectDefinition": {
         "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sslMode",
+      "name": "SslMode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "useDataEncryption",
+      "name": "UseDataEncryption",
+      "objectDefinition": {
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

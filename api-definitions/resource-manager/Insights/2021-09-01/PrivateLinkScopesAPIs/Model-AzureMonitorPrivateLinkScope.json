@@ -1,46 +1,10 @@
 {
-  "name": "ApplicationInsightsComponentProactiveDetectionConfiguration",
+  "name": "AzureMonitorPrivateLinkScope",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "customEmails",
-      "name": "CustomEmails",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "enabled",
-      "name": "Enabled",
-      "objectDefinition": {
-        "type": "Boolean",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "lastUpdatedTime",
-      "name": "LastUpdatedTime",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -50,6 +14,21 @@
       "optional": true,
       "readOnly": false,
       "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "Location",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
       "sensitive": false
     },
     {
@@ -69,12 +48,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ruleDefinitions",
-      "name": "RuleDefinitions",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions",
+        "referenceName": "AzureMonitorPrivateLinkScopeProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -84,10 +78,25 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sendEmailsToSubscriptionOwners",
-      "name": "SendEmailsToSubscriptionOwners",
+      "jsonName": "tags",
+      "name": "Tags",
       "objectDefinition": {
-        "type": "Boolean",
+        "type": "Tags",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
