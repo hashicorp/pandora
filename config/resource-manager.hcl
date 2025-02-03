@@ -211,7 +211,7 @@ service "deviceupdate" {
 }
 service "devopsinfrastructure" {
   name      = "DevOpsInfrastructure"
-  available = ["2024-04-04-preview", "2024-10-19"]
+  available = ["2024-04-04-preview", "2024-10-19", "2025-01-21"]
 }
 service "devtestlabs" {
   name      = "DevTestLab"
@@ -406,7 +406,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01", "2024-07-01"]
+  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01", "2024-07-01", "2024-09-01"]
 }
 service "network" {
   name      = "Network"
