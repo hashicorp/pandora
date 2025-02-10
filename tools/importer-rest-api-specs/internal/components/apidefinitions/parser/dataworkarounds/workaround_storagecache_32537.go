@@ -11,7 +11,7 @@ import (
 
 // workaroundStorageCache32537 is a workaround to convert the `percentComplete` field to a float
 // which is what the API returns and results in an unmarshaling error in the SDK when trying to
-// read the response body - this can be removed when PR https://github.com/Azure/azure-rest-api-specs/pull/27577
+// read the response body - this can be removed when PR https://github.com/Azure/azure-rest-api-specs/pull/32537
 // has been merged
 type workaroundStorageCache32537 struct {
 }
