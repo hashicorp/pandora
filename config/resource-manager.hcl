@@ -412,10 +412,6 @@ service "network" {
   name      = "Network"
   available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-03-01", "2024-05-01"]
 }
-service "networkanalytics" {
-  name      = "NetworkAnalytics"
-  available = ["2023-11-15"]
-}
 service "networkcloud" {
   name      = "NetworkCloud"
   available = ["2023-07-01", "2024-07-01"]
