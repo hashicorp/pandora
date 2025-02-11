@@ -1,0 +1,19 @@
+{
+  "name": "ValidateCustomDomainOwnership",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NamespaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CustomDomainOwnershipValidationResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateCustomDomainOwnership"
+}

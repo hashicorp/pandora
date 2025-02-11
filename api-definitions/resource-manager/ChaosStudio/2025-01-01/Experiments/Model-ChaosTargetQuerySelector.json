@@ -1,0 +1,45 @@
+{
+  "name": "ChaosTargetQuerySelector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryString",
+      "name": "QueryString",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionIds",
+      "name": "SubscriptionIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChaosTargetSelector",
+  "discriminatedTypeValue": "Query",
+  "typeHintIn": "Type"
+}

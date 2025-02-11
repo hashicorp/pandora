@@ -1,0 +1,24 @@
+{
+  "name": "ChaosTargetSimpleFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChaosTargetSimpleFilterParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChaosTargetFilter",
+  "discriminatedTypeValue": "Simple",
+  "typeHintIn": "Type"
+}

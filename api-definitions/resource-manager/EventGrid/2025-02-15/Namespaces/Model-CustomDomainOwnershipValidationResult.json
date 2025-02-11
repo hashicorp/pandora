@@ -1,0 +1,48 @@
+{
+  "name": "CustomDomainOwnershipValidationResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customDomainsForTopicSpacesConfiguration",
+      "name": "CustomDomainsForTopicSpacesConfiguration",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CustomDomainConfiguration",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customDomainsForTopicsConfiguration",
+      "name": "CustomDomainsForTopicsConfiguration",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CustomDomainConfiguration",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

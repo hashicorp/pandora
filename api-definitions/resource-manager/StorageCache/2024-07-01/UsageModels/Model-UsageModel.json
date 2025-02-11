@@ -1,0 +1,51 @@
+{
+  "name": "UsageModel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "display",
+      "name": "Display",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UsageModelDisplay",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "modelName",
+      "name": "ModelName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetType",
+      "name": "TargetType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

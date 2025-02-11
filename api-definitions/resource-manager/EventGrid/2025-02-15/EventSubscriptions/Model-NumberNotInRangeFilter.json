@@ -1,0 +1,36 @@
+{
+  "name": "NumberNotInRangeFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "List",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null,
+          "nestedItem": {
+            "type": "Float",
+            "nullable": false,
+            "referenceName": null,
+            "referenceNameIsCommonType": null
+          }
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Filter",
+  "discriminatedTypeValue": "NumberNotInRange",
+  "typeHintIn": "OperatorType"
+}

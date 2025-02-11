@@ -1,0 +1,24 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ExperimentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Experiment",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Experiment",
+    "referenceNameIsCommonType": null
+  }
+}

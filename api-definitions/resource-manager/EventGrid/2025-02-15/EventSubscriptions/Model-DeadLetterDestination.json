@@ -1,0 +1,22 @@
+{
+  "name": "DeadLetterDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "endpointType",
+      "name": "EndpointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeadLetterEndPointType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "EndpointType"
+}

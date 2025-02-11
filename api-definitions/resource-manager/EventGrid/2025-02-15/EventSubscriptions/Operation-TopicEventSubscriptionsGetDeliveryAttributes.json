@@ -1,0 +1,18 @@
+{
+  "name": "TopicEventSubscriptionsGetDeliveryAttributes",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "EventSubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeliveryAttributeListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getDeliveryAttributes"
+}

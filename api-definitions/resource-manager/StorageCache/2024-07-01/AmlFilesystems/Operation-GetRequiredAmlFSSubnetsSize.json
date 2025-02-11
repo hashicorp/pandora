@@ -1,0 +1,24 @@
+{
+  "name": "GetRequiredAmlFSSubnetsSize",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RequiredAmlFilesystemSubnetsSizeInfo",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RequiredAmlFilesystemSubnetsSize",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.StorageCache/getRequiredAmlFSSubnetsSize"
+}

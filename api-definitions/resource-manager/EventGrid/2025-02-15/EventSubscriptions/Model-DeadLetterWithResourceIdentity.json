@@ -1,0 +1,36 @@
+{
+  "name": "DeadLetterWithResourceIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deadLetterDestination",
+      "name": "DeadLetterDestination",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeadLetterDestination",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identity",
+      "name": "Identity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EventSubscriptionIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

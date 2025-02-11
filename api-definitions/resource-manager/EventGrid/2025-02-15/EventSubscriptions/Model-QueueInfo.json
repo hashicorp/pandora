@@ -1,0 +1,66 @@
+{
+  "name": "QueueInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deadLetterDestinationWithResourceIdentity",
+      "name": "DeadLetterDestinationWithResourceIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeadLetterWithResourceIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventTimeToLive",
+      "name": "EventTimeToLive",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxDeliveryCount",
+      "name": "MaxDeliveryCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "receiveLockDurationInSeconds",
+      "name": "ReceiveLockDurationInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
