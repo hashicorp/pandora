@@ -1,0 +1,36 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$include",
+      "required": false,
+      "field": "Include",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "x-ms-snapshot",
+      "optional": true,
+      "required": false,
+      "field": "XMsSnapshot",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ShareId"
+}

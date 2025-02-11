@@ -1,0 +1,18 @@
+{
+  "name": "ListEventTypes",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ScopeId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "EventTypesListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.EventGrid/eventTypes"
+}

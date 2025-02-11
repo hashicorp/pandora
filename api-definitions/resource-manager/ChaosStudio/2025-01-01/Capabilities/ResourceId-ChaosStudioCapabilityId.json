@@ -1,0 +1,46 @@
+{
+  "name": "ChaosStudioCapabilityId",
+  "commonAlias": "ChaosStudioCapability",
+  "id": "/{scope}/providers/Microsoft.Chaos/targets/{targetName}/capabilities/{capabilityName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftChaos",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Chaos"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticTargets",
+      "type": "Static",
+      "value": "targets"
+    },
+    {
+      "exampleValue": "targetName",
+      "name": "targetName",
+      "type": "UserSpecified"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticCapabilities",
+      "type": "Static",
+      "value": "capabilities"
+    },
+    {
+      "exampleValue": "capabilityName",
+      "name": "capabilityName",
+      "type": "UserSpecified"
+    }
+  ]
+}

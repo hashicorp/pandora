@@ -1,0 +1,24 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "TopicId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TopicUpdateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Topic",
+    "referenceNameIsCommonType": null
+  }
+}

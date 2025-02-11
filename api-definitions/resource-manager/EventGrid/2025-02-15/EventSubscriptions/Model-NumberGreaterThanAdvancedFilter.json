@@ -1,0 +1,24 @@
+{
+  "name": "NumberGreaterThanAdvancedFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AdvancedFilter",
+  "discriminatedTypeValue": "NumberGreaterThan",
+  "typeHintIn": "OperatorType"
+}
