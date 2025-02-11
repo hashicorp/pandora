@@ -93,7 +93,7 @@ service "cdn" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2023-11-01", "2024-01-01"]
+  available = ["2023-11-01", "2024-01-01", "2025-01-01"]
 }
 service "codesigning" {
   name      = "CodeSigning"
@@ -182,7 +182,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01"]
+  available = ["2024-04-01", "2025-01-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -248,7 +248,7 @@ service "elasticsan" {
 }
 service "eventgrid" {
   name      = "EventGrid"
-  available = ["2022-06-15", "2023-12-15-preview"]
+  available = ["2022-06-15", "2023-12-15-preview", "2025-02-15"]
 }
 service "eventhub" {
   name      = "EventHub"
@@ -584,12 +584,12 @@ service "standbypool" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2023-01-01", "2023-05-01"]
+  available = ["2023-01-01", "2023-05-01", "2024-01-01"]
   ignore    = ["2023-04-01"]
 }
 service "storagecache" {
   name      = "StorageCache"
-  available = ["2023-05-01", "2024-03-01"]
+  available = ["2023-05-01", "2024-03-01", "2024-07-01"]
 }
 service "storagemover" {
   name      = "StorageMover"
