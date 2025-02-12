@@ -10,6 +10,8 @@ import (
 
 var _ workaround = workaroundDataFactory27816{}
 
+// workaroundDataFactory27816 converts the `headers` property from a string to an interface - this can be removed once
+// https://github.com/Azure/azure-rest-api-specs/issues/27816 has been fixed
 type workaroundDataFactory27816 struct {
 }
 
