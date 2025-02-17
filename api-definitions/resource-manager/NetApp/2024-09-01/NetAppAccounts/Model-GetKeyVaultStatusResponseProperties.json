@@ -1,14 +1,14 @@
 {
-  "name": "Configuration",
+  "name": "GetKeyVaultStatusResponseProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "activeRevisionsMode",
-      "name": "ActiveRevisionsMode",
+      "jsonName": "keyName",
+      "name": "KeyName",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "String",
         "nullable": false,
-        "referenceName": "ActiveRevisionsMode",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -18,23 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ingress",
-      "name": "Ingress",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "Ingress",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "registries",
-      "name": "Registries",
+      "jsonName": "keyVaultPrivateEndpoints",
+      "name": "KeyVaultPrivateEndpoints",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
@@ -43,7 +28,7 @@
         "nestedItem": {
           "type": "Reference",
           "nullable": false,
-          "referenceName": "RegistryCredentials",
+          "referenceName": "KeyVaultPrivateEndpoint",
           "referenceNameIsCommonType": null
         }
       },
@@ -54,19 +39,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "secrets",
-      "name": "Secrets",
+      "jsonName": "keyVaultResourceId",
+      "name": "KeyVaultResourceId",
       "objectDefinition": {
-        "type": "List",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "Secret",
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyVaultUri",
+      "name": "KeyVaultUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
