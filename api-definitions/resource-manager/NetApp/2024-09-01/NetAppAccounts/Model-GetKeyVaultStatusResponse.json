@@ -1,14 +1,14 @@
 {
-  "name": "SyndicatedRegistry",
+  "name": "GetKeyVaultStatusResponse",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "registryId",
-      "name": "RegistryId",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "GetKeyVaultStatusResponseProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
