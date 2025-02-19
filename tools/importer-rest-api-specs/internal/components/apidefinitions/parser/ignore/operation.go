@@ -57,6 +57,14 @@ func Operation(operationUri string) bool {
 		"/providers/microsoft.storagesync/locations/{locationName}/operations/{operationid}":                               {},
 	}
 	for key := range pathsContainingLROs {
+		// This is definitely a hack but it gets us what we need...
+		// Do we want to handle exceptions to the ignored operations above, and if yes, how do we want to implement this?
+		if key == "/operationresults/" &&
+			strings.Contains(loweredOperationUri, "microsoft.recoveryservices/vaults") &&
+			strings.Contains(loweredOperationUri, "protecteditems") {
+			return false
+		}
+
 		if strings.Contains(loweredOperationUri, key) {
 			return true
 		}
