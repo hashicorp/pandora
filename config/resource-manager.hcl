@@ -195,7 +195,7 @@ service "desktopvirtualization" {
 }
 service "devcenter" {
   name      = "DevCenter"
-  available = ["2023-04-01", "2024-02-01"]
+  available = ["2023-04-01", "2024-02-01", "2025-02-01"]
 }
 service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
@@ -414,7 +414,7 @@ service "network" {
 }
 service "networkcloud" {
   name      = "NetworkCloud"
-  available = ["2023-07-01", "2024-07-01"]
+  available = ["2023-07-01", "2024-07-01", "2025-02-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -621,7 +621,7 @@ service "trafficmanager" {
 }
 service "vi" {
   name      = "VideoIndexer"
-  available = ["2024-01-01", "2025-01-01"]
+  available = ["2024-01-01", "2025-01-01", "2025-03-01"]
 }
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
