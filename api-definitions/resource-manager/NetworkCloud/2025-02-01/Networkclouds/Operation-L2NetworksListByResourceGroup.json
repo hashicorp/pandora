@@ -1,0 +1,19 @@
+{
+  "name": "L2NetworksListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "L2Network",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.NetworkCloud/l2Networks"
+}

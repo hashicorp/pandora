@@ -1,0 +1,36 @@
+{
+  "name": "InheritedSettingsForProject",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkSettings",
+      "name": "NetworkSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProjectNetworkSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "projectCatalogSettings",
+      "name": "ProjectCatalogSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DevCenterProjectCatalogSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
