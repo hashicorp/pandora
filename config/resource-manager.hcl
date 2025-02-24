@@ -195,7 +195,7 @@ service "desktopvirtualization" {
 }
 service "devcenter" {
   name      = "DevCenter"
-  available = ["2023-04-01", "2024-02-01"]
+  available = ["2023-04-01", "2024-02-01", "2025-02-01"]
 }
 service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
@@ -394,7 +394,7 @@ service "mongocluster" {
 }
 service "monitor" {
   name      = "Insights"
-  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-05-01-preview", "2021-07-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-15-preview", "2023-03-11", "2023-04-03", "2023-10-01", "2024-02-01"]
+  available = ["2015-04-01", "2016-03-01", "2018-03-01", "2018-04-16", "2019-10-17-preview", "2020-10-01", "2021-05-01-preview", "2021-07-01-preview", "2021-08-01", "2021-09-01", "2022-06-01", "2022-10-01", "2023-01-01", "2023-03-11", "2023-03-15-preview", "2023-04-03", "2023-10-01", "2024-02-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
@@ -414,7 +414,7 @@ service "network" {
 }
 service "networkcloud" {
   name      = "NetworkCloud"
-  available = ["2023-07-01", "2024-07-01"]
+  available = ["2023-07-01", "2024-07-01", "2025-02-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -621,7 +621,7 @@ service "trafficmanager" {
 }
 service "vi" {
   name      = "VideoIndexer"
-  available = ["2024-01-01", "2025-01-01"]
+  available = ["2024-01-01", "2025-01-01", "2025-03-01"]
 }
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
