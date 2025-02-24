@@ -1,0 +1,18 @@
+{
+  "name": "ProjectCatalogImageDefinitionBuildGetBuildDetails",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BuildId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImageDefinitionBuildDetails",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getBuildDetails"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "BareMetalMachinesRunDataExtracts",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BareMetalMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BareMetalMachineRunDataExtractsParameters",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/runDataExtracts"
+}
