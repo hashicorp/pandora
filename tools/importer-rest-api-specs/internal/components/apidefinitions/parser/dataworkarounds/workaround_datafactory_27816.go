@@ -5,6 +5,8 @@ package dataworkarounds
 
 import (
 	"fmt"
+	"strings"
+
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -29,6 +31,9 @@ func (workaroundDataFactory27816) Process(input sdkModels.APIVersion) (*sdkModel
 		return nil, fmt.Errorf("expected a Resource named `Pipelines` but didn't get one")
 	}
 
+	// The following patches the discriminated activity types and sub-properties to allow objects or strings since we do not expose these models directly and Go's strict type system will balk at processing the query objects as strings
+	resource = patchActivitiesStringTypeToObjectType(resource)
+
 	model, ok := resource.Models["WebActivityTypeProperties"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Model `WebActivityTypeProperties`")
@@ -48,4 +53,22 @@ func (workaroundDataFactory27816) Process(input sdkModels.APIVersion) (*sdkModel
 	input.Resources["Pipelines"] = resource
 
 	return &input, nil
+}
+
+func patchActivitiesStringTypeToObjectType(resource sdkModels.APIResource) sdkModels.APIResource {
+	for k, v := range resource.Models {
+		if strings.Contains(k, "Activity") {
+			for fieldName, field := range v.Fields {
+				if strings.EqualFold(fieldName, "DependsOn") {
+					continue
+				}
+				if field.ObjectDefinition.NestedItem != nil && field.ObjectDefinition.NestedItem.Type == sdkModels.StringSDKObjectDefinitionType {
+					field.ObjectDefinition.NestedItem.Type = sdkModels.RawObjectSDKObjectDefinitionType
+					resource.Models[k].Fields[fieldName] = field
+				}
+			}
+		}
+	}
+
+	return resource
 }
