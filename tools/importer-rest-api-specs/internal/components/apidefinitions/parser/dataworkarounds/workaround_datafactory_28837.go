@@ -26,7 +26,7 @@ func (workaroundDataFactory28837) Name() string {
 func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	resource, ok := input.Resources["Credentials"]
 	if !ok {
-		return nil, fmt.Errorf("expected a Resource named `Pipelines` but didn't get one")
+		return nil, fmt.Errorf("expected a Resource named `Credentials` but didn't get one")
 	}
 
 	// Exposed directly, so the following values are strings to avoid casting to / from `interface{}`
@@ -59,7 +59,7 @@ func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModel
 
 	resource.Models["ServicePrincipalCredentialTypeProperties"] = model
 
-	input.Resources["Pipelines"] = resource
+	input.Resources["Credentials"] = resource
 
 	return &input, nil
 }
