@@ -25,6 +25,7 @@ var workarounds = []workaround{
 	workaroundOperationalinsights27524{},
 	workaroundRecoveryServicesSiteRecovery26680{},
 	workaroundRedis22407{},
+	workaroundResources29885{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
