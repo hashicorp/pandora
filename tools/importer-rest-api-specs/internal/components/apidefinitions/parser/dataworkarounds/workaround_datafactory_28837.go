@@ -24,7 +24,7 @@ func (workaroundDataFactory28837) Name() string {
 }
 
 func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["Pipelines"]
+	resource, ok := input.Resources["Credentials"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `Pipelines` but didn't get one")
 	}
