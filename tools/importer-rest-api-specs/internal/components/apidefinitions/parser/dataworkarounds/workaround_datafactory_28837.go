@@ -40,9 +40,7 @@ func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModel
 		return nil, fmt.Errorf("couldn't find Field `ServicePrincipalId`")
 	}
 
-	if field.ObjectDefinition.NestedItem != nil {
-		field.ObjectDefinition.NestedItem.Type = sdkModels.StringSDKObjectDefinitionType
-	}
+	field.ObjectDefinition.Type = sdkModels.StringSDKObjectDefinitionType
 
 	model.Fields["ServicePrincipalId"] = field
 
@@ -51,9 +49,7 @@ func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModel
 		return nil, fmt.Errorf("couldn't find Field `Tenant`")
 	}
 
-	if field.ObjectDefinition.NestedItem != nil {
-		field.ObjectDefinition.NestedItem.Type = sdkModels.StringSDKObjectDefinitionType
-	}
+	field.ObjectDefinition.Type = sdkModels.StringSDKObjectDefinitionType
 
 	model.Fields["Tenant"] = field
 
