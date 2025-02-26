@@ -40,17 +40,17 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 			ReferenceName: pointer.To(constant.Name),
 		}
 
-		//TODO: re-enable min/max/unique
-		//if input.MaxItems != nil {
+		// TODO: re-enable min/max/unique
+		// if input.MaxItems != nil {
 		//	v := int(*input.MaxItems)
 		//	definition.Maximum = &v
-		//}
-		//if input.MinItems != nil {
+		// }
+		// if input.MinItems != nil {
 		//	v := int(*input.MinItems)
 		//	definition.Minimum = &v
-		//}
-		//v := input.UniqueItems
-		//definition.UniqueItems = &v
+		// }
+		// v := input.UniqueItems
+		// definition.UniqueItems = &v
 
 		return &definition, &result, nil
 	}
@@ -132,16 +132,16 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 			ReferenceName: pointer.To(modelName),
 		}
 		// TODO: re-enable min/max/unique
-		//if input.MaxItems != nil {
+		// if input.MaxItems != nil {
 		//	v := int(*input.MaxItems)
 		//	definition.Maximum = &v
-		//}
-		//if input.MinItems != nil {
+		// }
+		// if input.MinItems != nil {
 		//	v := int(*input.MinItems)
 		//	definition.Minimum = &v
-		//}
-		//v := input.UniqueItems
-		//definition.UniqueItems = &v
+		// }
+		// v := input.UniqueItems
+		// definition.UniqueItems = &v
 		return &definition, &result, nil
 	}
 
@@ -185,16 +185,16 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 		}
 
 		// TODO: re-enable min/max/unique
-		//if input.MaxItems != nil {
+		// if input.MaxItems != nil {
 		//	v := int(*input.MaxItems)
 		//	nestedItem.Maximum = &v
-		//}
-		//if input.MinItems != nil {
+		// }
+		// if input.MinItems != nil {
 		//	v := int(*input.MinItems)
 		//	nestedItem.Minimum = &v
-		//}
-		//v := input.UniqueItems
-		//nestedItem.UniqueItems = &v
+		// }
+		// v := input.UniqueItems
+		// nestedItem.UniqueItems = &v
 
 		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
@@ -264,7 +264,7 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 	}
 	if strings.EqualFold(formatVal, "dfe-string") {
 		return &sdkModels.SDKObjectDefinition{
-			Type: sdkModels.StringSDKObjectDefinitionType,
+			Type: sdkModels.RawObjectSDKObjectDefinitionType,
 		}, nil, nil
 	}
 
