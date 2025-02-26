@@ -55,6 +55,31 @@ func (workaroundDataFactory28837) Process(input sdkModels.APIVersion) (*sdkModel
 
 	resource.Models["ServicePrincipalCredentialTypeProperties"] = model
 
+	model, ok = resource.Models["AzureKeyVaultSecretReference"]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find Model `AzureKeyVaultSecretReference`")
+	}
+
+	field, ok = model.Fields["SecretName"]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find Field `SecretName`")
+	}
+
+	field.ObjectDefinition.Type = sdkModels.StringSDKObjectDefinitionType
+
+	model.Fields["SecretName"] = field
+
+	field, ok = model.Fields["SecretVersion"]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find Field `SecretVersion`")
+	}
+
+	field.ObjectDefinition.Type = sdkModels.StringSDKObjectDefinitionType
+
+	model.Fields["SecretVersion"] = field
+
+	resource.Models["AzureKeyVaultSecretReference"] = model
+
 	input.Resources["Credentials"] = resource
 
 	return &input, nil
