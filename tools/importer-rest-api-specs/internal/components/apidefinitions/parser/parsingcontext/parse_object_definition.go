@@ -264,6 +264,8 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 	}
 	if strings.EqualFold(formatVal, "dfe-string") {
 		return &sdkModels.SDKObjectDefinition{
+			// Note: The spec here is for string or object that resolves to a string API-side. Since Go is statically typed we need to use a raw object here or JSON processing will fail
+			// We may need to update the other dfe- primitives in time, however, this is not essential for the AzureRM provider support today.
 			Type: sdkModels.RawObjectSDKObjectDefinitionType,
 		}, nil, nil
 	}
