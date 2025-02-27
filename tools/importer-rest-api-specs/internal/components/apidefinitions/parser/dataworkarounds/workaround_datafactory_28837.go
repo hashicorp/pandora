@@ -12,6 +12,7 @@ import (
 var _ workaround = workaroundDataFactory28837{}
 
 // workaroundDataFactory28837 converts the ServicePrincipalCredentialTypeProperties.ServicePrincipalId and Tenant values to strings as they are exposed directly as such in the azurerm_data_factory_credential_service_principal resource
+// the issue number referred to here is on hashicorp/terraform-provider-azurerm rather than the api-specs as this is a limitation on Go / our implementation of the resources.
 type workaroundDataFactory28837 struct {
 }
 
