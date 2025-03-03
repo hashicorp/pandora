@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ScopedPolicyAssignmentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyAssignmentUpdate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyAssignment",
+    "referenceNameIsCommonType": null
+  }
+}
