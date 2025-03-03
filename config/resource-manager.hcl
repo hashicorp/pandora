@@ -342,10 +342,6 @@ service "logic" {
   name      = "Logic"
   available = ["2019-05-01"]
 }
-service "logz" {
-  name      = "Logz"
-  available = ["2020-10-01"]
-}
 service "machinelearningservices" {
   name      = "MachineLearningServices"
   available = ["2024-04-01", "2024-10-01", "2024-10-01-preview"]
