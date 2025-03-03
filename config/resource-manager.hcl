@@ -378,7 +378,7 @@ service "migrate" {
 }
 service "mixedreality" {
   name      = "MixedReality"
-  available = ["2021-01-01"]
+  available = ["2021-01-01", "2025-01-01"]
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
@@ -519,7 +519,7 @@ service "resourcegraph" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2015-11-01", "2020-05-01", "2020-10-01", "2021-07-01", "2022-02-01", "2022-06-01", "2022-09-01", "2022-12-01", "2023-07-01", "2023-08-01", "2024-03-01", "2024-04-01", "2024-07-01", "2024-08-01", "2025-01-01"]
+  available = ["2015-11-01", "2020-05-01", "2020-10-01", "2021-07-01", "2022-02-01", "2022-06-01", "2022-09-01", "2022-12-01", "2023-07-01", "2023-08-01", "2024-03-01", "2024-04-01", "2024-07-01", "2024-08-01", "2025-01-01", "2025-03-01"]
   ignore    = ["2023-11-01"]
 }
 service "scvmm" {
@@ -576,7 +576,7 @@ service "sqlvirtualmachine" {
 }
 service "standbypool" {
   name      = "StandbyPool"
-  available = ["2024-03-01"]
+  available = ["2024-03-01", "2025-03-01"]
 }
 service "storage" {
   name      = "Storage"
