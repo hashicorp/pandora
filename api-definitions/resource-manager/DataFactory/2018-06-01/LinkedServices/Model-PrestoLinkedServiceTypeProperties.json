@@ -63,6 +63,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableServerCertificateValidation",
+      "name": "EnableServerCertificateValidation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "enableSsl",
       "name": "EnableSsl",
       "objectDefinition": {
@@ -146,9 +161,9 @@
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {

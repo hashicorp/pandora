@@ -1,12 +1,12 @@
 {
-  "name": "AzureDevOpsResourceInfo",
+  "name": "ServiceNowV2DatasetTypeProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "pipelineId",
-      "name": "PipelineId",
+      "jsonName": "tableName",
+      "name": "TableName",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,12 +18,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "serviceConnectionId",
-      "name": "ServiceConnectionId",
+      "jsonName": "valueType",
+      "name": "ValueType",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ValueType",
         "referenceNameIsCommonType": null
       },
       "optional": true,

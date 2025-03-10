@@ -1,10 +1,10 @@
 {
-  "name": "RepositoryAccess",
+  "name": "ListResultContainerGroup",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "clientId",
-      "name": "ClientId",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +18,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "identity",
+      "name": "Identity",
+      "objectDefinition": {
+        "type": "SystemAndUserAssignedIdentityMap",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "Location",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,27 +63,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "installationId",
-      "name": "InstallationId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "kind",
-      "name": "Kind",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "RepositoryAccessKind",
+        "referenceName": "ListResultContainerGroupPropertiesProperties",
         "referenceNameIsCommonType": null
       },
       "optional": false,
@@ -63,8 +78,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
+      "jsonName": "tags",
+      "name": "Tags",
+      "objectDefinition": {
+        "type": "Tags",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -78,10 +108,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "token",
-      "name": "Token",
+      "jsonName": "zones",
+      "name": "Zones",
       "objectDefinition": {
-        "type": "String",
+        "type": "Zones",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
