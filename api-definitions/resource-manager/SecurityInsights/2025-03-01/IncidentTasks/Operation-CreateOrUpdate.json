@@ -1,0 +1,24 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "TaskId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IncidentTask",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IncidentTask",
+    "referenceNameIsCommonType": null
+  }
+}
