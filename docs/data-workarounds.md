@@ -75,10 +75,10 @@ We'll start with finding the resource:
 // At the time this function is called, we know we have the information about the specific service and api version that we want to override.
 // From the top level `api-definitions` folder, our `input` is the information contained in `api-definitions/resource-manager/Web/2016-06-01`
 func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-    // And then we need to grab the resource we want to override which for this issue is `Connections` or `api-definitions/resource-manager/Web/2016-06-01/Connections`
+	// And then we need to grab the resource we want to override which for this issue is `Connections` or `api-definitions/resource-manager/Web/2016-06-01/Connections`
 	resource, ok := input.Resources["Connections"]
 	if !ok {
-		return nil, fmt.Errorf("expected a Resource named `Connections` but didn't get one")
+		return nil, errors.New("expected a Resource named `Connections` but didn't get one")
 	}
 	...
 ```
@@ -86,10 +86,10 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 Once we've grabbed the Connections resource, we have to work our way to the specific model we want to change. For this issue, the file we want to override is [Model-ApiConnectionDefinitionProperties.json](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json) which has the JSON name [ApiConnectionDefinitionProperties](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json#L2). 
 
 ```
-    ...
-    model, ok := resource.Models["ApiConnectionDefinitionProperties"]
+	...
+	model, ok := resource.Models["ApiConnectionDefinitionProperties"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model `ApiConnectionDefinitionProperties`")
+		return nil, errors.New("couldn't find Model `ApiConnectionDefinitionProperties`")
 	}
     ...
 ```
@@ -97,10 +97,10 @@ Once we've grabbed the Connections resource, we have to work our way to the spec
 After we've obtained the model, we need to grab the field and update it. The field we're trying to override for this issue is [CustomParameterValues](https://github.com/hashicorp/pandora/blob/main/api-definitions/resource-manager/Web/2016-06-01/Connections/Model-ApiConnectionDefinitionProperties.json#L54)
 
 ```
-    ...
-    cpvField, ok := model.Fields["CustomParameterValues"]
+	...
+	cpvField, ok := model.Fields["CustomParameterValues"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
+		return nil, errors.New("couldn't find the field `CustomParameterValues` within model `ApiConnectionDefinitionProperties`")
 	}
 	
 	// Once we've grabbed the field, we can navigate to the incorrect piece and fix it
@@ -113,8 +113,8 @@ After we've obtained the model, we need to grab the field and update it. The fie
 Once we've overridden the incorrect field, we need to apply those changes back to all the models we touched like so:
 
 ```
-    ...
-    model.Fields["CustomParameterValues"] = cpvField
+	...
+	model.Fields["CustomParameterValues"] = cpvField
 	resource.Models["ApiConnectionDefinitionProperties"] = model
 	input.Resources["Connections"] = resource
 
@@ -128,11 +128,11 @@ The final Process method with all three fields changed looks like:
 func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	resource, ok := input.Resources["Connections"]
 	if !ok {
-		return nil, fmt.Errorf("expected a Resource named `Connections` but didn't get one")
+		return nil, errors.New("expected a Resource named `Connections` but didn't get one")
 	}
 	model, ok := resource.Models["ApiConnectionDefinitionProperties"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model `ApiConnectionDefinitionProperties`")
+		return nil, errors.New("couldn't find Model `ApiConnectionDefinitionProperties`")
 	}
 	fields := []string{
 		"CustomParameterValues",
@@ -143,7 +143,7 @@ func (workaroundWeb31682) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 	for _, field := range fields {
 		f, ok := model.Fields[field]
 		if !ok {
-			return nil, fmt.Errorf("couldn't find the field `%s` in model `ApiConnectionDefinitionProperties`", field)
+			return nil, errors.New("couldn't find the field `%s` in model `ApiConnectionDefinitionProperties`", field)
 		}
 		if f.ObjectDefinition.NestedItem != nil {
 			f.ObjectDefinition.NestedItem.Type = "RawObject"
@@ -164,9 +164,9 @@ Finally, we want to update `/tools/importer-rest-api-specs/internal/components/a
 ```
 // Add the workaround to the following list
 var workarounds = []workaround{
-    ...
+	...
 	workaroundWeb31682{},
-    ...
+	...
 ```
 
 To confirm the override works as intended run `make import` from `tools/importer-rest-api-specs` and confirm the model has changed.
