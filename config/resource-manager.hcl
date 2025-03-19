@@ -566,6 +566,10 @@ service "solutions" {
   name      = "ManagedApplications"
   available = ["2019-07-01", "2021-07-01"]
 }
+service "sovereign" {
+  name      = "Sovereign"
+  available = ["2025-02-27-preview"]
+}
 service "sql" {
   name      = "Sql"
   available = ["2023-08-01-preview"]
