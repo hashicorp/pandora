@@ -1,0 +1,9 @@
+version: 2
+updates:
+- package-ecosystem: gitsubmodule
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "07:00"
+    timezone: "UTC"
+  open-pull-requests-limit: 10
