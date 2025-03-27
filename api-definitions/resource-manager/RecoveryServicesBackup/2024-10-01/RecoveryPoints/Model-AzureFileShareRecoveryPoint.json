@@ -48,6 +48,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointTierDetails",
+      "name": "RecoveryPointTierDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RecoveryPointTierInformation",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "dateFormat": "RFC3339",
       "jsonName": "recoveryPointTime",
       "name": "RecoveryPointTime",
