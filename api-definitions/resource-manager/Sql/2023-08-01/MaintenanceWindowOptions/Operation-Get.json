@@ -1,0 +1,31 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "maintenanceWindowOptionsName",
+      "required": true,
+      "field": "MaintenanceWindowOptionsName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SqlDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MaintenanceWindowOptions",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/maintenanceWindowOptions/current"
+}
