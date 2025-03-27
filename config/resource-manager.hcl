@@ -3,7 +3,7 @@
 
 service "advisor" {
   name      = "Advisor"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2025-01-01"]
   ignore    = ["2022-09-01"]
 }
 service "alertsmanagement" {
@@ -24,7 +24,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2023-05-01", "2024-02-02-preview", "2024-03-01"]
+  available = ["2023-05-01", "2024-02-02-preview", "2024-03-01", "2025-01-01"]
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
@@ -182,7 +182,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01", "2025-01-01"]
+  available = ["2024-04-01", "2025-01-01", "2025-02-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -300,7 +300,7 @@ service "hybridaks" {
 }
 service "hybridcompute" {
   name      = "HybridCompute"
-  available = ["2022-11-10", "2022-12-27", "2024-05-20-preview", "2024-07-10"]
+  available = ["2022-11-10", "2022-12-27", "2024-05-20-preview", "2024-07-10", "2025-01-13"]
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
@@ -431,7 +431,7 @@ service "notificationhubs" {
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
-  available = ["2019-09-01", "2020-08-01", "2021-06-01", "2022-10-01", "2023-09-01"]
+  available = ["2019-09-01", "2020-08-01", "2021-06-01", "2022-10-01", "2023-09-01", "2025-02-01"]
 }
 service "operationsmanagement" {
   name      = "OperationsManagement"
@@ -503,7 +503,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01", "2024-02-01", "2024-06-01-preview", "2024-10-01"]
+  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01", "2024-02-01", "2024-06-01-preview", "2024-10-01", "2025-04-01"]
 }
 service "relay" {
   name      = "Relay"
@@ -568,7 +568,7 @@ service "solutions" {
 }
 service "sql" {
   name      = "Sql"
-  available = ["2023-08-01-preview"]
+  available = ["2023-08-01", "2023-08-01-preview"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
