@@ -1,0 +1,36 @@
+{
+  "name": "KeyProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "candidatePublicKey",
+      "name": "CandidatePublicKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientPublicKey",
+      "name": "ClientPublicKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KeyDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

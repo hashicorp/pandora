@@ -1,0 +1,36 @@
+{
+  "name": "LicenseUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseDetails",
+      "name": "LicenseDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LicenseUpdatePropertiesLicenseDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LicenseType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

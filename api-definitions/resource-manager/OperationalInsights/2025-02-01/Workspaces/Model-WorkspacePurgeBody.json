@@ -1,0 +1,42 @@
+{
+  "name": "WorkspacePurgeBody",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filters",
+      "name": "Filters",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WorkspacePurgeBodyFilters",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "table",
+      "name": "Table",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

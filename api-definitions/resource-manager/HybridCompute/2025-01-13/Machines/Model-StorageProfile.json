@@ -1,0 +1,27 @@
+{
+  "name": "StorageProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disks",
+      "name": "Disks",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Disk",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

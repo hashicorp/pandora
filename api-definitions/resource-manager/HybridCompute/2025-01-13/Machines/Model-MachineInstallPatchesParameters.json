@@ -1,0 +1,66 @@
+{
+  "name": "MachineInstallPatchesParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "linuxParameters",
+      "name": "LinuxParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LinuxParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maximumDuration",
+      "name": "MaximumDuration",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rebootSetting",
+      "name": "RebootSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VMGuestPatchRebootSetting",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "windowsParameters",
+      "name": "WindowsParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

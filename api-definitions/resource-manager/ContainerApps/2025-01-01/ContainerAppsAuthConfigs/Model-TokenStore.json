@@ -1,0 +1,51 @@
+{
+  "name": "TokenStore",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureBlobStorage",
+      "name": "AzureBlobStorage",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BlobStorageTokenStore",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tokenRefreshExtensionHours",
+      "name": "TokenRefreshExtensionHours",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

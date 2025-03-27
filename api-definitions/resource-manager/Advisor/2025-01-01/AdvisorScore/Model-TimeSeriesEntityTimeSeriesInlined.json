@@ -1,0 +1,42 @@
+{
+  "name": "TimeSeriesEntityTimeSeriesInlined",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "aggregationLevel",
+      "name": "AggregationLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Aggregated",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scoreHistory",
+      "name": "ScoreHistory",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ScoreEntity",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

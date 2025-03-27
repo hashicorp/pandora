@@ -1,0 +1,66 @@
+{
+  "name": "Persistence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "aofEnabled",
+      "name": "AofEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "aofFrequency",
+      "name": "AofFrequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AofFrequency",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rdbEnabled",
+      "name": "RdbEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rdbFrequency",
+      "name": "RdbFrequency",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RdbFrequency",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

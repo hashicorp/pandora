@@ -1,0 +1,51 @@
+{
+  "name": "LicenseProfileUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esuProfile",
+      "name": "EsuProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EsuProfileUpdateProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "productProfile",
+      "name": "ProductProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProductProfileUpdateProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softwareAssurance",
+      "name": "SoftwareAssurance",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LicenseProfileUpdatePropertiesSoftwareAssurance",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

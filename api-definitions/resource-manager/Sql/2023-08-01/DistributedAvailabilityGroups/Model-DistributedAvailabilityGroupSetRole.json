@@ -1,0 +1,36 @@
+{
+  "name": "DistributedAvailabilityGroupSetRole",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceRole",
+      "name": "InstanceRole",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "InstanceRole",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "roleChangeType",
+      "name": "RoleChangeType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RoleChangeType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

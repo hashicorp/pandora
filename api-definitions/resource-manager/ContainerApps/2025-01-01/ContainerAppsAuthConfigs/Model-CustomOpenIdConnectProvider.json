@@ -1,0 +1,51 @@
+{
+  "name": "CustomOpenIdConnectProvider",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "login",
+      "name": "Login",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OpenIdConnectLogin",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registration",
+      "name": "Registration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OpenIdConnectRegistration",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

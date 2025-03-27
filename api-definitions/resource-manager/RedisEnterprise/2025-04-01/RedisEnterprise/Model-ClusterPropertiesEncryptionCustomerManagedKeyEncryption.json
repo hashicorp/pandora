@@ -1,0 +1,36 @@
+{
+  "name": "ClusterPropertiesEncryptionCustomerManagedKeyEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyEncryptionKeyIdentity",
+      "name": "KeyEncryptionKeyIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ClusterPropertiesEncryptionCustomerManagedKeyEncryptionKeyEncryptionKeyIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyEncryptionKeyUrl",
+      "name": "KeyEncryptionKeyURL",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

@@ -1,0 +1,25 @@
+{
+  "name": "InstallPatches",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MachineId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MachineInstallPatchesParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MachineInstallPatchesResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/installPatches"
+}

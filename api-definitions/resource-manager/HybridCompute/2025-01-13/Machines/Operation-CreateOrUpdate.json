@@ -1,0 +1,36 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MachineId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Machine",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Machine",
+    "referenceNameIsCommonType": null
+  }
+}

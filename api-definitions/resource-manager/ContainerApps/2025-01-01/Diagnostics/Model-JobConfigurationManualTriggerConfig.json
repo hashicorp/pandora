@@ -1,0 +1,36 @@
+{
+  "name": "JobConfigurationManualTriggerConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parallelism",
+      "name": "Parallelism",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicaCompletionCount",
+      "name": "ReplicaCompletionCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
