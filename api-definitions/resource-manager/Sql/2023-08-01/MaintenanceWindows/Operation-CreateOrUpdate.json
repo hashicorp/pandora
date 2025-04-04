@@ -1,0 +1,31 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "maintenanceWindowName",
+      "required": true,
+      "field": "MaintenanceWindowName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SqlDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MaintenanceWindows",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/maintenanceWindows/current"
+}

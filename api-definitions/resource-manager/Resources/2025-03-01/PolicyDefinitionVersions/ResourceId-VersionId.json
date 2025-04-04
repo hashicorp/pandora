@@ -1,0 +1,40 @@
+{
+  "name": "VersionId",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}/versions/{versionName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticPolicyDefinitions",
+      "type": "Static",
+      "value": "policyDefinitions"
+    },
+    {
+      "exampleValue": "policyDefinitionName",
+      "name": "policyDefinitionName",
+      "type": "UserSpecified"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticVersions",
+      "type": "Static",
+      "value": "versions"
+    },
+    {
+      "exampleValue": "versionName",
+      "name": "versionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

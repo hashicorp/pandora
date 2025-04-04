@@ -1,0 +1,29 @@
+{
+  "name": "PolicyDefinitionId",
+  "id": "/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticPolicyDefinitions",
+      "type": "Static",
+      "value": "policyDefinitions"
+    },
+    {
+      "exampleValue": "policyDefinitionName",
+      "name": "policyDefinitionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

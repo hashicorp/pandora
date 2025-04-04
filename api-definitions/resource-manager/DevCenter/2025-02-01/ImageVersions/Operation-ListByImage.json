@@ -1,0 +1,19 @@
+{
+  "name": "ListByImage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "GalleryImageId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImageVersion",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/versions"
+}

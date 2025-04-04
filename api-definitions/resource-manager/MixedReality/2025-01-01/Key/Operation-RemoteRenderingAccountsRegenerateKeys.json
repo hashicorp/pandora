@@ -1,0 +1,24 @@
+{
+  "name": "RemoteRenderingAccountsRegenerateKeys",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "RemoteRenderingAccountId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccountKeyRegenerateRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccountKeys",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/regenerateKeys"
+}

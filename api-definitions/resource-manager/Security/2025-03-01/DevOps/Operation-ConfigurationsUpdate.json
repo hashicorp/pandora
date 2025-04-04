@@ -1,0 +1,25 @@
+{
+  "name": "ConfigurationsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SecurityConnectorId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DevOpsConfiguration",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DevOpsConfiguration",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/devops/default"
+}

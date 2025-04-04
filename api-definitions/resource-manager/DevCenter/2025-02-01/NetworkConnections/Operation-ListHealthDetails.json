@@ -1,0 +1,19 @@
+{
+  "name": "ListHealthDetails",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "NetworkConnectionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "HealthCheckStatusDetails",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/healthChecks"
+}

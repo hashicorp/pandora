@@ -1,0 +1,25 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ResourceGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PartnerConfigurationUpdateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PartnerConfiguration",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.EventGrid/partnerConfigurations/default"
+}
