@@ -1,6 +1,7 @@
 module github.com/hashicorp/pandora/tools/generator-terraform
 
 go 1.21
+toolchain go1.24.1
 
 require (
 	github.com/hashicorp/go-azure-helpers v0.66.2
@@ -31,8 +32,8 @@ require (
 	github.com/posener/complete v1.1.1 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
-	golang.org/x/crypto v0.17.0 // indirect
-	golang.org/x/sys v0.20.0 // indirect
+	golang.org/x/crypto v0.35.0 // indirect
+	golang.org/x/sys v0.30.0 // indirect
 )
 
 replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
