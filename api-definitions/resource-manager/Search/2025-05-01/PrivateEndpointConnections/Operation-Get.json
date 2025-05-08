@@ -1,0 +1,30 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PrivateEndpointConnectionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrivateEndpointConnection",
+    "referenceNameIsCommonType": null
+  }
+}
