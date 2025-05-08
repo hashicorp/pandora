@@ -1,5 +1,5 @@
 {
-  "name": "ListByCloudExadataInfrastructure",
+  "name": "ListByParent",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
@@ -8,12 +8,12 @@
   "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "CloudExadataInfrastructureId",
+  "resourceIdName": "CloudVMClusterId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "DbServer",
+    "referenceName": "VirtualNetworkAddress",
     "referenceNameIsCommonType": null
   },
-  "uriSuffix": "/dbServers"
+  "uriSuffix": "/virtualNetworkAddresses"
 }
