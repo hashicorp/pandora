@@ -1,5 +1,5 @@
 {
-  "name": "ListByAutonomousDatabase",
+  "name": "ListByParent",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
@@ -8,12 +8,12 @@
   "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "AutonomousDatabaseId",
+  "resourceIdName": "CloudVMClusterId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "AutonomousDatabaseBackup",
+    "referenceName": "DbNode",
     "referenceNameIsCommonType": null
   },
-  "uriSuffix": "/autonomousDatabaseBackups"
+  "uriSuffix": "/dbNodes"
 }
