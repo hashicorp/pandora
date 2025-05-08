@@ -1,0 +1,30 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BackupEngineId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupEngineBaseResource",
+    "referenceNameIsCommonType": null
+  }
+}

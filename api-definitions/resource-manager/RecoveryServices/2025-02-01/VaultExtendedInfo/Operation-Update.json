@@ -1,0 +1,24 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VaultId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VaultExtendedInfoResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VaultExtendedInfoResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/extendedInformation/vaultExtendedInfo"
+}

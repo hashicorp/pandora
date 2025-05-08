@@ -1,0 +1,18 @@
+{
+  "name": "Patch",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VaultId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupResourceConfigResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/backupStorageConfig/vaultStorageConfig"
+}

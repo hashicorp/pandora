@@ -1,0 +1,19 @@
+{
+  "name": "RepairReplication",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationProtectionClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ReplicationProtectionCluster",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/repairReplication"
+}

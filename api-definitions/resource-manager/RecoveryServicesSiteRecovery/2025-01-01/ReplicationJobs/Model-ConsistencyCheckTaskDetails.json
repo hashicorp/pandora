@@ -1,0 +1,30 @@
+{
+  "name": "ConsistencyCheckTaskDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmDetails",
+      "name": "VMDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "InconsistentVMDetails",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TaskTypeDetails",
+  "discriminatedTypeValue": "ConsistencyCheckTaskDetails",
+  "typeHintIn": "InstanceType"
+}

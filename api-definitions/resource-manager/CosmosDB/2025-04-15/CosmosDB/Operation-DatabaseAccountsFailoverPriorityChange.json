@@ -1,0 +1,19 @@
+{
+  "name": "DatabaseAccountsFailoverPriorityChange",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DatabaseAccountId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FailoverPolicies",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/failoverPriorityChange"
+}

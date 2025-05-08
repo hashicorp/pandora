@@ -1,0 +1,24 @@
+{
+  "name": "AzureToAzureCreateNetworkMappingInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryNetworkId",
+      "name": "PrimaryNetworkId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "FabricSpecificCreateNetworkMappingInput",
+  "discriminatedTypeValue": "AzureToAzure",
+  "typeHintIn": "InstanceType"
+}

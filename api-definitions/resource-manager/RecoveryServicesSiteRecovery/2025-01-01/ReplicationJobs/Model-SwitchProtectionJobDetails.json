@@ -1,0 +1,24 @@
+{
+  "name": "SwitchProtectionJobDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "newReplicationProtectedItemId",
+      "name": "NewReplicationProtectedItemId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "JobDetails",
+  "discriminatedTypeValue": "SwitchProtectionJobDetails",
+  "typeHintIn": "InstanceType"
+}

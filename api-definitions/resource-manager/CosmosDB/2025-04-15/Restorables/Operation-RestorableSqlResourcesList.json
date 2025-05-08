@@ -1,0 +1,42 @@
+{
+  "name": "RestorableSqlResourcesList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "restoreLocation",
+      "required": false,
+      "field": "RestoreLocation",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "restoreTimestampInUtc",
+      "required": false,
+      "field": "RestoreTimestampInUtc",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RestorableDatabaseAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RestorableSqlResourcesListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/restorableSqlResources"
+}

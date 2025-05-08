@@ -1,0 +1,40 @@
+{
+  "name": "BillingProfileId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "exampleValue": "billingAccountId",
+      "name": "billingAccountId",
+      "type": "UserSpecified"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticBillingProfiles",
+      "type": "Static",
+      "value": "billingProfiles"
+    },
+    {
+      "exampleValue": "billingProfileId",
+      "name": "billingProfileId",
+      "type": "UserSpecified"
+    }
+  ]
+}

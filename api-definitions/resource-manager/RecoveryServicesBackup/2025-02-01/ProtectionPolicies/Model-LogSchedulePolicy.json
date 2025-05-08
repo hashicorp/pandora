@@ -1,0 +1,24 @@
+{
+  "name": "LogSchedulePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduleFrequencyInMins",
+      "name": "ScheduleFrequencyInMins",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SchedulePolicy",
+  "discriminatedTypeValue": "LogSchedulePolicy",
+  "typeHintIn": "SchedulePolicyType"
+}

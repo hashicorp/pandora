@@ -1,0 +1,18 @@
+{
+  "name": "GremlinResourcesListGremlinGraphs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "GremlinDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GremlinGraphListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/graphs"
+}

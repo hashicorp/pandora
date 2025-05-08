@@ -1,0 +1,24 @@
+{
+  "name": "IncludedQuantityUtilizationSummary",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IncludedQuantityUtilizationSummaryProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BenefitUtilizationSummary",
+  "discriminatedTypeValue": "IncludedQuantity",
+  "typeHintIn": "Kind"
+}
