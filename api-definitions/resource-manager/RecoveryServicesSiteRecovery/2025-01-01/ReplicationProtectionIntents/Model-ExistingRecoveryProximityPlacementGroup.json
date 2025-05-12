@@ -1,0 +1,24 @@
+{
+  "name": "ExistingRecoveryProximityPlacementGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryProximityPlacementGroupId",
+      "name": "RecoveryProximityPlacementGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RecoveryProximityPlacementGroupCustomDetails",
+  "discriminatedTypeValue": "Existing",
+  "typeHintIn": "ResourceType"
+}

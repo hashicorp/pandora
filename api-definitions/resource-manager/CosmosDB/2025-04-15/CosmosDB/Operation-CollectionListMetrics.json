@@ -1,0 +1,31 @@
+{
+  "name": "CollectionListMetrics",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "$filter",
+      "required": true,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "CollectionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetricListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/metrics"
+}

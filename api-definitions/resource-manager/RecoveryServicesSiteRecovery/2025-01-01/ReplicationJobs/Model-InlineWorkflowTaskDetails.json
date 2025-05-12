@@ -1,0 +1,30 @@
+{
+  "name": "InlineWorkflowTaskDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workflowIds",
+      "name": "WorkflowIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupTaskDetails",
+  "discriminatedTypeValue": "InlineWorkflowTaskDetails",
+  "typeHintIn": "InstanceType"
+}

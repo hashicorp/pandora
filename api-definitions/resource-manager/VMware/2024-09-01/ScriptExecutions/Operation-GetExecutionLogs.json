@@ -1,0 +1,30 @@
+{
+  "name": "GetExecutionLogs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ScriptExecutionId",
+  "requestObject": {
+    "type": "List",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null,
+    "nestedItem": {
+      "type": "Reference",
+      "nullable": false,
+      "referenceName": "ScriptOutputStreamType",
+      "referenceNameIsCommonType": null
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScriptExecution",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getExecutionLogs"
+}
