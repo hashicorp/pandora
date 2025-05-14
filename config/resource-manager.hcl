@@ -617,7 +617,7 @@ service "trafficmanager" {
 }
 service "vi" {
   name      = "VideoIndexer"
-  available = ["2024-01-01", "2025-01-01", "2025-03-01"]
+  available = ["2024-01-01", "2025-01-01", "2025-03-01", "2025-04-01"]
 }
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
