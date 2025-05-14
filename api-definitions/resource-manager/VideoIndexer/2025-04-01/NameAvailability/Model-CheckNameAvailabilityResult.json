@@ -1,10 +1,10 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "CheckNameAvailabilityResult",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "message",
+      "name": "Message",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,10 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
+      "jsonName": "nameAvailable",
+      "name": "NameAvailable",
       "objectDefinition": {
-        "type": "String",
+        "type": "Boolean",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -36,24 +36,9 @@
       "jsonName": "reason",
       "name": "Reason",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "Reason",
         "referenceNameIsCommonType": null
       },
       "optional": true,

@@ -1,12 +1,12 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "AccountPatch",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "identity",
+      "name": "Identity",
       "objectDefinition": {
-        "type": "String",
+        "type": "LegacySystemAndUserAssignedIdentityMap",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,12 +18,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "AccountPropertiesForPatchRequest",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -33,25 +33,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "reason",
-      "name": "Reason",
+      "jsonName": "tags",
+      "name": "Tags",
       "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
-      "objectDefinition": {
-        "type": "String",
+        "type": "Tags",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
