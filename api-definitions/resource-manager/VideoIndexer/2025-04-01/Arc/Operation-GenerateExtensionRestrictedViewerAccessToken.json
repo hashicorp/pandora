@@ -1,0 +1,24 @@
+{
+  "name": "GenerateExtensionRestrictedViewerAccessToken",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AccountId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GenerateExtensionRestrictedViewerAccessTokenParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AccessToken",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/generateExtensionRestrictedViewerAccessToken"
+}

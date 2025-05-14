@@ -1,12 +1,42 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "GenerateExtensionRestrictedViewerAccessTokenParameters",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "extensionId",
+      "name": "ExtensionId",
       "objectDefinition": {
         "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Scope",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tokenLifetimeInSeconds",
+      "name": "TokenLifetimeInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,38 +48,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "reason",
-      "name": "Reason",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
+      "jsonName": "videoId",
+      "name": "VideoId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

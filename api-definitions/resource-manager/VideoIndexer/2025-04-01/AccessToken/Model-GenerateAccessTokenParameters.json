@@ -1,10 +1,25 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "GenerateAccessTokenParameters",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "permissionType",
+      "name": "PermissionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PermissionType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "projectId",
+      "name": "ProjectId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,38 +33,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
+      "jsonName": "scope",
+      "name": "Scope",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "Scope",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "reason",
-      "name": "Reason",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
+      "jsonName": "videoId",
+      "name": "VideoId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

@@ -1,10 +1,10 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "PrivateEndpointConnection",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,10 +33,25 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "reason",
-      "name": "Reason",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivateEndpointConnectionProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -48,8 +63,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

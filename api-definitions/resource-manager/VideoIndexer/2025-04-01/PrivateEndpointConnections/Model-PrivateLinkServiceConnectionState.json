@@ -1,10 +1,10 @@
 {
-  "name": "LoadBalancerHealthPerRulePerBackendAddress",
+  "name": "PrivateLinkServiceConnectionState",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "actionsRequired",
+      "name": "ActionsRequired",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "networkInterfaceIPConfigurationId",
-      "name": "NetworkInterfaceIPConfigurationId",
+      "jsonName": "description",
+      "name": "Description",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,27 +33,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "reason",
-      "name": "Reason",
+      "jsonName": "status",
+      "name": "Status",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "state",
-      "name": "State",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "PrivateEndpointServiceConnectionStatus",
         "referenceNameIsCommonType": null
       },
       "optional": true,
