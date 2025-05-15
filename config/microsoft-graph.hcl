@@ -6,11 +6,6 @@ service "administrativeUnits" {
   available = ["beta"]
 }
 
-service "appRoleAssignments" {
-  name      = "AppRoleAssignments"
-  available = ["beta"]
-}
-
 service "applications" {
   name      = "Applications"
   available = ["stable", "beta"]

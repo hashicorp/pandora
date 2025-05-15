@@ -20,7 +20,6 @@ var workarounds = []dataWorkaround{
 	// Model-specific workarounds
 	workaroundAccessPackageResourceRoleScope{},
 	workaroundApplication{},
-	workaroundConditionalAccessPolicy{},
 	workaroundOAuth2PermissionGrant{},
 	workaroundUnifiedRoleAssignment{},
 }

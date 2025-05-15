@@ -22,13 +22,23 @@ func Parse(tags openapi3.Tags) (services ServiceTags, err error) {
 		}
 		if tag.Name != "" {
 			t := strings.Split(tag.Name, ".")
-			if len(t) != 2 {
+			switch len(t) {
+			case 2:
+				if _, ok := services[t[0]]; !ok {
+					services[t[0]] = make([]string, 0)
+				}
+				services[t[0]] = append(services[t[0]], t[1])
+
+			case 3:
+				if _, ok := services[t[0]]; !ok {
+					services[t[0]] = make([]string, 0)
+				}
+				services[t[0]] = append(services[t[0]], t[2])
+
+			default:
 				return nil, fmt.Errorf("encountered malformed tag: %q", tag.Name)
+
 			}
-			if _, ok := services[t[0]]; !ok {
-				services[t[0]] = make([]string, 0)
-			}
-			services[t[0]] = append(services[t[0]], t[1])
 		}
 	}
 	return
