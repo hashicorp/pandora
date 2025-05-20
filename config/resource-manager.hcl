@@ -280,7 +280,7 @@ service "guestconfiguration" {
 }
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
-  available = ["2021-11-30"]
+  available = ["2021-11-30", "2025-03-31"]
 }
 service "hdinsight" {
   name      = "HDInsight"
@@ -406,7 +406,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-03-01", "2024-05-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-03-01", "2024-05-01", "2024-07-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -633,7 +633,7 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01", "2022-09-01", "2023-01-01", "2023-12-01", "2024-04-01"]
+  available = ["2016-06-01", "2022-09-01", "2023-01-01", "2023-12-01", "2024-04-01", "2024-11-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
