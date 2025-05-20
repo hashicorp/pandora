@@ -1,0 +1,23 @@
+{
+  "name": "UpdateTags",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "VirtualNetworkTapId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TagsObject",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualNetworkTap",
+    "referenceNameIsCommonType": null
+  }
+}

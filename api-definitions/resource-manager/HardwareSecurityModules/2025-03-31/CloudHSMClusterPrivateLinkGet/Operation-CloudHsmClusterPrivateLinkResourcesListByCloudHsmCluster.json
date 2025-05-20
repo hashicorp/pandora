@@ -1,0 +1,19 @@
+{
+  "name": "CloudHsmClusterPrivateLinkResourcesListByCloudHsmCluster",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "CloudHsmClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrivateLinkResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/privateLinkResources"
+}
