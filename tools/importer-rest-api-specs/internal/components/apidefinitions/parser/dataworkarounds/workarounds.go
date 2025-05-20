@@ -5,6 +5,12 @@ package dataworkarounds
 
 var workarounds = []workaround{
 	// These workarounds are related to issues with the upstream API Definitions
+
+	// Common workarounds
+	// https://github.com/Azure/azure-rest-api-specs/issues/22758
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2023-02-01"}, []string{"ProtectedItems"}, []string{"CreateOrUpdate", "Delete"}},
+
+	// Workarounds
 	workaroundAlertsManagement{},
 	workaroundAuthorization25080{},
 	workaroundAutomation25108{},
