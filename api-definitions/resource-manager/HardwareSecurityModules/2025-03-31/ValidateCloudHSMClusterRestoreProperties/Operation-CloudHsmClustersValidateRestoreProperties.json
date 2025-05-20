@@ -1,0 +1,25 @@
+{
+  "name": "CloudHsmClustersValidateRestoreProperties",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "CloudHsmClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RestoreRequestProperties",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RestoreResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateRestoreProperties"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "ListGeoRegions",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "linuxDynamicWorkersEnabled",
+      "required": false,
+      "field": "LinuxDynamicWorkersEnabled",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "linuxWorkersEnabled",
+      "required": false,
+      "field": "LinuxWorkersEnabled",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "sku",
+      "required": false,
+      "field": "Sku",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SkuName"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "xenonWorkersEnabled",
+      "required": false,
+      "field": "XenonWorkersEnabled",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GeoRegion",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Web/geoRegions"
+}
