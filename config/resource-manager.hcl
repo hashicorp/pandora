@@ -491,7 +491,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2024-01-01", "2024-02-01", "2024-04-01", "2024-10-01", "2025-01-01"]
+  available = ["2024-01-01", "2024-02-01", "2024-04-01", "2024-10-01", "2025-01-01", "2025-02-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
