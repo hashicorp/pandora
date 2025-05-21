@@ -1,0 +1,24 @@
+{
+  "name": "JobTaskDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobTask",
+      "name": "JobTask",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "JobEntity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TaskTypeDetails",
+  "discriminatedTypeValue": "JobTaskDetails",
+  "typeHintIn": "InstanceType"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "RefreshProvider",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReplicationRecoveryServicesProviderId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RecoveryServicesProvider",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/refreshProvider"
+}
