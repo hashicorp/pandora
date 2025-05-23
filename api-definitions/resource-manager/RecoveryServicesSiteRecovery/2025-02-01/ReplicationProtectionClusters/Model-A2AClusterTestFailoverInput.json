@@ -1,0 +1,45 @@
+{
+  "name": "A2AClusterTestFailoverInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterRecoveryPointId",
+      "name": "ClusterRecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "individualNodeRecoveryPoints",
+      "name": "IndividualNodeRecoveryPoints",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ClusterTestFailoverProviderSpecificInput",
+  "discriminatedTypeValue": "A2A",
+  "typeHintIn": "InstanceType"
+}
