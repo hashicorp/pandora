@@ -320,7 +320,7 @@ service "keyvault" {
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
-  available = ["2022-11-01", "2023-05-01"]
+  available = ["2022-11-01", "2023-05-01", "2024-11-01"]
 }
 service "labservices" {
   name      = "LabServices"
