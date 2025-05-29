@@ -227,7 +227,7 @@ service "dns" {
 }
 service "dnsresolver" {
   name      = "DNSResolver"
-  available = ["2022-07-01"]
+  available = ["2022-07-01", "2025-05-01"]
 }
 service "domainservices" {
   name      = "AAD"
@@ -447,7 +447,7 @@ service "orbital" {
 }
 service "paloaltonetworks" {
   name      = "PaloAltoNetworks"
-  available = ["2022-08-29", "2023-09-01"]
+  available = ["2022-08-29", "2023-09-01", "2025-05-23"]
 }
 service "policyinsights" {
   name      = "PolicyInsights"
