@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "LocalRulestackId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LocalRulestackResourceUpdate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LocalRulestackResource",
+    "referenceNameIsCommonType": null
+  }
+}

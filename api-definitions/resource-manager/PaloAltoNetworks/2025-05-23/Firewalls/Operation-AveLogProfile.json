@@ -1,0 +1,18 @@
+{
+  "name": "AveLogProfile",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "FirewallId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LogSettings",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/saveLogProfile"
+}

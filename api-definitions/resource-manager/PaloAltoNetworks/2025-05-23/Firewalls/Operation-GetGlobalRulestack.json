@@ -1,0 +1,18 @@
+{
+  "name": "GetGlobalRulestack",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "FirewallId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GlobalRulestackInfo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getGlobalRulestack"
+}
