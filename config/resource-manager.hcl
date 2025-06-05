@@ -231,7 +231,7 @@ service "dnsresolver" {
 }
 service "domainservices" {
   name      = "AAD"
-  available = ["2021-05-01"]
+  available = ["2021-05-01", "2025-05-01"]
   ignore    = ["2022-09-01", "2022-12-01"]
 }
 service "dynatrace" {
