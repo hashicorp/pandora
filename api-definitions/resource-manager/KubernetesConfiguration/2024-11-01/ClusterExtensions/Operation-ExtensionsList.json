@@ -1,0 +1,19 @@
+{
+  "name": "ExtensionsList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ScopeId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Extension",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.KubernetesConfiguration/extensions"
+}
