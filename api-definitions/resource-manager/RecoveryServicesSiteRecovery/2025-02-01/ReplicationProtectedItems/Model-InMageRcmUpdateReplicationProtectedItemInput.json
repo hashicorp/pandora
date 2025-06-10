@@ -261,6 +261,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmDisks",
+      "name": "VMDisks",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "UpdateDiskInput",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "vmNics",
       "name": "VMNics",
       "objectDefinition": {
