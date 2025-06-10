@@ -288,7 +288,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2022-08-08", "2023-05-01", "2024-02-01"]
+  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
