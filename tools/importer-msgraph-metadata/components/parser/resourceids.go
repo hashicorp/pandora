@@ -226,7 +226,7 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*st
 	}
 
 	// TODO: it would be nice to do this but it's causing some clobbering issues
-	//name = normalize.DeDuplicateName(name)
+	// name = normalize.DeDuplicateName(name)
 
 	return &name, true
 }
@@ -334,24 +334,29 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 	for i, s := range segments {
 		var segment ResourceIdSegment
 
-		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
-			value := s[1 : len(s)-1]
-			field := normalize.CleanName(value)
-			value = normalize.CleanNameCamel(value)
-			segment = ResourceIdSegment{
-				Type:  SegmentUserValue,
-				Value: fmt.Sprintf("{%s}", value),
-				field: &field,
+		switch {
+		case strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}"):
+			{
+				value := s[1 : len(s)-1]
+				field := normalize.CleanName(value)
+				value = normalize.CleanNameCamel(value)
+				segment = ResourceIdSegment{
+					Type:  SegmentUserValue,
+					Value: fmt.Sprintf("{%s}", value),
+					field: &field,
+				}
 			}
-		} else if strings.Contains(s, "(") {
-			// Note: this will need updating if we are going to support complex user values such as `applications(appId='{appId}')`
-			segment = ResourceIdSegment{
-				Type:  SegmentFunction,
-				Value: s,
-				field: nil,
+		case strings.Contains(s, "("):
+			{
+				// Note: this will need updating if we are going to support complex user values such as `applications(appId='{appId}')`
+				segment = ResourceIdSegment{
+					Type:  SegmentFunction,
+					Value: s,
+					field: nil,
+				}
 			}
-		} else if strings.HasPrefix(strings.ToLower(s), "microsoft.graph.") || strings.HasPrefix(strings.ToLower(s), "graph.") {
-			if tagSuffix(".actions") {
+		case strings.HasPrefix(strings.ToLower(s), "microsoft.graph.") || strings.HasPrefix(strings.ToLower(s), "graph."):
+			{
 				value := s
 				if strings.HasPrefix(strings.ToLower(value), "microsoft.graph.") {
 					value = value[16:]
@@ -367,37 +372,39 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 					Value: value,
 					field: nil,
 				}
-			} else {
+			}
+		case strings.HasPrefix(s, "$"):
+			{
 				segment = ResourceIdSegment{
-					Type:  SegmentCast,
+					Type:  SegmentODataReference,
 					Value: s,
 					field: nil,
 				}
 			}
-		} else if strings.HasPrefix(s, "$") {
-			segment = ResourceIdSegment{
-				Type:  SegmentODataReference,
-				Value: s,
-				field: nil,
+		case i == len(segments)-1 && tagSuffix(".actions"):
+			{
+				segment = ResourceIdSegment{
+					Type:  SegmentAction,
+					Value: s,
+					field: nil,
+				}
 			}
-		} else if i == len(segments)-1 && tagSuffix(".actions") {
-			segment = ResourceIdSegment{
-				Type:  SegmentAction,
-				Value: s,
-				field: nil,
+		case i == len(segments)-1 && tagSuffix(".functions"):
+			{
+				segment = ResourceIdSegment{
+					Type:  SegmentFunction,
+					Value: s,
+					field: nil,
+				}
 			}
-		} else if i == len(segments)-1 && tagSuffix(".functions") {
-			segment = ResourceIdSegment{
-				Type:  SegmentFunction,
-				Value: s,
-				field: nil,
-			}
-		} else {
-			segment = ResourceIdSegment{
-				Type:   SegmentLabel,
-				Value:  s,
-				field:  nil,
-				plural: normalize.Pluralize(s) == s,
+		default:
+			{
+				segment = ResourceIdSegment{
+					Type:   SegmentLabel,
+					Value:  s,
+					field:  nil,
+					plural: normalize.Pluralize(s) == s,
+				}
 			}
 		}
 
