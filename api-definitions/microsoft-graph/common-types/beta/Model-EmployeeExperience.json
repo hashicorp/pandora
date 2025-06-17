@@ -106,30 +106,20 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The OData ID of this entity",
-      "jsonName": "@odata.id",
-      "name": "ODataId",
+      "description": "A collection of roles in Viva Engage.",
+      "jsonName": "roles",
+      "name": "Roles",
       "objectDefinition": {
-        "type": "String",
+        "type": "List",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "The OData Type of this entity",
-      "jsonName": "@odata.type",
-      "name": "ODataType",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EngagementRole",
+          "referenceNameIsCommonType": true
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -137,5 +127,8 @@
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.employeeExperience",
+  "typeHintIn": "ODataType"
 }

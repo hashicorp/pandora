@@ -363,6 +363,50 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Collection of CloudCertificationAuthority records associated with account.",
+      "jsonName": "cloudCertificationAuthority",
+      "name": "CloudCertificationAuthority",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CloudCertificationAuthority",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of CloudCertificationAuthorityLeafCertificate records associated with account.",
+      "jsonName": "cloudCertificationAuthorityLeafCertificate",
+      "name": "CloudCertificationAuthorityLeafCertificate",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CloudCertificationAuthorityLeafCertificate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The list of CloudPC Connectivity Issue.",
       "jsonName": "cloudPCConnectivityIssues",
       "name": "CloudPCConnectivityIssues",
@@ -919,28 +963,6 @@
         "nullable": false,
         "referenceName": "DeviceConfigurationDeviceStateSummary",
         "referenceNameIsCommonType": true
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Profile Id of the object.",
-      "jsonName": "deviceConfigurationProfiles",
-      "name": "DeviceConfigurationProfiles",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "DeviceConfigurationProfile",
-          "referenceNameIsCommonType": true
-        }
       },
       "optional": true,
       "readOnly": false,
@@ -1519,7 +1541,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Intune will provide customer the ability to configure hardware/bios settings on the enrolled windows 10 Azure Active Directory joined devices. Starting from June, 2024 (Intune Release 2406), this type will no longer be supported and will be marked as deprecated",
+      "description": "Intune will provide customer the ability to configure BIOS configuration settings on the enrolled Windows 10 and Windows 11 Microsoft Entra joined devices. Starting from June, 2024, customers should start using hardwarePasswordDetail resource type - Microsoft Graph beta | Microsoft Learn. HardwarePasswordInfo will be marked as deprecated with Intune Release 2409",
       "jsonName": "hardwarePasswordInfo",
       "name": "HardwarePasswordInfo",
       "objectDefinition": {
@@ -2190,7 +2212,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Reports singleton",
       "jsonName": "reports",
       "name": "Reports",
       "objectDefinition": {
@@ -3136,7 +3157,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User experience analytics device metric history",
+      "description": "User experience analytics device metric history. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.",
       "jsonName": "userExperienceAnalyticsDeviceMetricHistory",
       "name": "UserExperienceAnalyticsDeviceMetricHistory",
       "objectDefinition": {
@@ -3454,7 +3475,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User experience analytics remote connection",
+      "description": "User experience analytics remote connection. The report will be retired on December 31, 2024. You can start using the Cloud PC connection quality report now via https://learn.microsoft.com/windows-365/enterprise/report-cloud-pc-connection-quality.",
       "jsonName": "userExperienceAnalyticsRemoteConnection",
       "name": "UserExperienceAnalyticsRemoteConnection",
       "objectDefinition": {

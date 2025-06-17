@@ -98,6 +98,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the meeting template.",
+      "jsonName": "meetingTemplateId",
+      "name": "MeetingTemplateId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The participants associated with the online meeting, including the organizer and the attendees.",
       "jsonName": "participants",
       "name": "Participants",

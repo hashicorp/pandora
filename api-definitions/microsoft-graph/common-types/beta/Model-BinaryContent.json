@@ -1,0 +1,25 @@
+{
+  "name": "BinaryContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The binary content, encoded as a Base64 string. Inherited from contentBase.",
+      "jsonName": "data",
+      "name": "Data",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ContentBase",
+  "discriminatedTypeValue": "#microsoft.graph.binaryContent",
+  "typeHintIn": "ODataType"
+}

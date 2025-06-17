@@ -35,6 +35,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether breakout rooms are enabled for the meeting.",
+      "jsonName": "allowBreakoutRooms",
+      "name": "AllowBreakoutRooms",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether live share is enabled for the meeting. Possible values are: enabled, disabled, unknownFutureValue.",
+      "jsonName": "allowLiveShare",
+      "name": "AllowLiveShare",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MeetingLiveShareOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Specifies the mode of the meeting chat.",
       "jsonName": "allowMeetingChat",
       "name": "AllowMeetingChat",
@@ -67,6 +99,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether PowerPoint live is enabled for the meeting.",
+      "jsonName": "allowPowerPointSharing",
+      "name": "AllowPowerPointSharing",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether recording is enabled for the meeting.",
+      "jsonName": "allowRecording",
+      "name": "AllowRecording",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Indicates if Teams reactions are enabled for the meeting.",
       "jsonName": "allowTeamworkReactions",
       "name": "AllowTeamworkReactions",
@@ -75,6 +139,54 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether transcription is enabled for the meeting.",
+      "jsonName": "allowTranscription",
+      "name": "AllowTranscription",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether whiteboard is enabled for the meeting.",
+      "jsonName": "allowWhiteboard",
+      "name": "AllowWhiteboard",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the users who can admit from the lobby. Possible values are: organizerAndCoOrganizersAndPresenters, organizerAndCoOrganizers, unknownFutureValue.",
+      "jsonName": "allowedLobbyAdmitters",
+      "name": "AllowedLobbyAdmitters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AllowedLobbyAdmitterRoles",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,
@@ -144,6 +256,22 @@
         "type": "Reference",
         "nullable": false,
         "referenceName": "ChatInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the configuration settings for meeting chat restrictions.",
+      "jsonName": "chatRestrictions",
+      "name": "ChatRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChatRestrictions",
         "referenceNameIsCommonType": true
       },
       "optional": true,

@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.",
+      "description": "URL of the endpoint used by active clients when authenticating with federated domains set up for single sign-on in Microsoft Entra ID. Corresponds to the ActiveLogOnUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.",
       "jsonName": "activeSignInUri",
       "name": "ActiveSignInUri",
       "objectDefinition": {
@@ -67,6 +67,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "passwordResetUri",
+      "name": "PasswordResetUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Sets the preferred behavior for the sign-in prompt. The possible values are: translateToFreshPasswordAuthentication, nativeSupport, disabled, unknownFutureValue.",
       "jsonName": "promptLoginBehavior",
       "name": "PromptLoginBehavior",
@@ -83,7 +98,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet.",
+      "description": "URI that clients are redirected to when they sign out of Microsoft Entra services. Corresponds to the LogOffUri property of the Set-EntraDomainFederationSettings PowerShell cmdlet.",
       "jsonName": "signOutUri",
       "name": "SignOutUri",
       "objectDefinition": {

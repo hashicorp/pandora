@@ -49,6 +49,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A container for Microsoft Entra resources. Read-only.",
+      "jsonName": "entra",
+      "name": "Entra",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Entra",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A container for the Exchange admin functionality. Read-only.",
+      "jsonName": "exchange",
+      "name": "Exchange",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExchangeAdmin",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "forms",
       "name": "Forms",
       "objectDefinition": {
@@ -166,6 +198,22 @@
         "type": "Reference",
         "nullable": false,
         "referenceName": "Sharepoint",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a collection of user configurations.",
+      "jsonName": "teams",
+      "name": "Teams",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamsAdministrationTeamsAdminRoot",
         "referenceNameIsCommonType": true
       },
       "optional": true,

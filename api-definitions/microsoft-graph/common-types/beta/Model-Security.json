@@ -130,6 +130,36 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataDiscovery",
+      "name": "DataDiscovery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDataDiscoveryRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataSecurityAndGovernance",
+      "name": "DataSecurityAndGovernance",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TenantDataSecurityAndGovernance",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "domainSecurityProfiles",
       "name": "DomainSecurityProfiles",
       "objectDefinition": {

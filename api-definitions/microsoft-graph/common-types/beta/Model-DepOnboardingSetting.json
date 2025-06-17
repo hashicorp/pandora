@@ -67,6 +67,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Default TvOS Enrollment Profile",
+      "jsonName": "defaultTvOSEnrollmentProfile",
+      "name": "DefaultTvOSEnrollmentProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DepTvOSEnrollmentProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Default VisionOS Enrollment Profile",
+      "jsonName": "defaultVisionOSEnrollmentProfile",
+      "name": "DefaultVisionOSEnrollmentProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DepVisionOSEnrollmentProfile",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The enrollment profiles.",
       "jsonName": "enrollmentProfiles",
       "name": "EnrollmentProfiles",

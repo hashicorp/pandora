@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents a collection of all the columns in the table. Read-only.",
+      "description": "The list of all the columns in the table. Read-only.",
       "jsonName": "columns",
       "name": "Columns",
       "objectDefinition": {
@@ -57,7 +57,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Legacy ID used in older Excel clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and shouldn't be parsed to any other type. Read-only.",
+      "description": "A legacy identifier used in older Excel clients. The value of the identifier remains the same even when the table is renamed. This property should be interpreted as an opaque string value and shouldn't be parsed to any other type. Read-only.",
       "jsonName": "legacyId",
       "name": "LegacyId",
       "objectDefinition": {
@@ -73,7 +73,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Name of the table.",
+      "description": "The name of the table.",
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -89,7 +89,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents a collection of all the rows in the table. Read-only.",
+      "description": "The list of all the rows in the table. Read-only.",
       "jsonName": "rows",
       "name": "Rows",
       "objectDefinition": {
@@ -191,7 +191,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the sorting for the table. Read-only.",
+      "description": "The sorting for the table. Read-only.",
       "jsonName": "sort",
       "name": "Sort",
       "objectDefinition": {
@@ -207,7 +207,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Constant value that represents the Table style. The possible values are: TableStyleLight1 through TableStyleLight21, TableStyleMedium1 through TableStyleMedium28, TableStyleStyleDark1 through TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.",
+      "description": "A constant value that represents the Table style. Possible values are: TableStyleLight1 through TableStyleLight21, TableStyleMedium1 through TableStyleMedium28, TableStyleStyleDark1 through TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.",
       "jsonName": "style",
       "name": "Style",
       "objectDefinition": {

@@ -1,0 +1,53 @@
+{
+  "name": "SiteProtectionUnitsBulkAdditionJob",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of SharePoint site IDs to add to the SharePoint protection policy.",
+      "jsonName": "siteIds",
+      "name": "SiteIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of SharePoint site URLs to add to the SharePoint protection policy.",
+      "jsonName": "siteWebUrls",
+      "name": "SiteWebUrls",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionUnitsBulkJobBase",
+  "discriminatedTypeValue": "#microsoft.graph.siteProtectionUnitsBulkAdditionJob",
+  "typeHintIn": "ODataType"
+}

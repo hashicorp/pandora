@@ -1,0 +1,40 @@
+{
+  "name": "UserDataSecurityAndGovernance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Container for activity logs (content processing and audit) related to this user. ContainsTarget: true.",
+      "jsonName": "activities",
+      "name": "Activities",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ActivitiesContainer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionScopes",
+      "name": "ProtectionScopes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserProtectionScopeContainer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataSecurityAndGovernance",
+  "discriminatedTypeValue": "#microsoft.graph.userDataSecurityAndGovernance",
+  "typeHintIn": "ODataType"
+}

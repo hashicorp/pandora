@@ -1,0 +1,50 @@
+{
+  "name": "CreateAuthenticationMethodDeviceHardwareOathDevice",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Create hardwareOathTokenAuthenticationMethodDevice. Create a new hardwareOathTokenAuthenticationMethodDevice object. You can optionally create and assign to a user in the same request; Or assign to a user via the assign API.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "HardwareOathTokenAuthenticationMethodDevice",
+    "referenceNameIsCommonType": true
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "HardwareOathTokenAuthenticationMethodDevice",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/directory/authenticationMethodDevices/hardwareOathDevices"
+}

@@ -111,6 +111,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "mfaTelecomFraud",
+      "name": "MfaTelecomFraud",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MfaTelecomFraudMetric",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Total sign-ups on apps registered in the tenant for a specified period.",
       "jsonName": "signUps",
       "name": "SignUps",

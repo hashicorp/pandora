@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the protection rule is static or dynamic.",
+      "description": "true indicates that the protection rule is dynamic; false that it's static.",
       "jsonName": "isAutoApplyEnabled",
       "name": "IsAutoApplyEnabled",
       "objectDefinition": {
@@ -99,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The status of the protection rule. The possible values are: draft, active, completed, completedWithErrors, unknownFutureValue.",
+      "description": "The status of the protection rule. The possible values are: draft, active, completed, completedWithErrors, unknownFutureValue, updateRequested, deleteRequested. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: updateRequested , deleteRequested. The draft member is currently unsupported.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

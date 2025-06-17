@@ -35,11 +35,43 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The extra values associated with badge signals.",
+      "jsonName": "eventValue",
+      "name": "EventValue",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkplaceSensorEventValue",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The value of the sensor as an integer. Use it for sensors that report numerical values, such as people count.",
       "jsonName": "intValue",
       "name": "IntValue",
       "objectDefinition": {
         "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The additional information to indicate the location of the device.",
+      "jsonName": "locationHint",
+      "name": "LocationHint",
+      "objectDefinition": {
+        "type": "String",
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null

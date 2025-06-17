@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom label that can be stamped on this appointment by users.",
+      "description": "The custom label that can be stamped on this appointment by users.",
       "jsonName": "appointmentLabel",
       "name": "AppointmentLabel",
       "objectDefinition": {
@@ -51,6 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the appointment was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
@@ -66,6 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SMTP address of the bookingCustomer who books the appointment.",
       "jsonName": "customerEmailAddress",
       "name": "CustomerEmailAddress",
       "objectDefinition": {
@@ -81,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customer's name.",
       "jsonName": "customerName",
       "name": "CustomerName",
       "objectDefinition": {
@@ -96,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Notes from the customer associated with this appointment.",
+      "description": "Notes from the customer associated with this appointment. You can get the value only when you read this bookingAppointment by its ID. You can set this property only when you initially create an appointment with a new customer.",
       "jsonName": "customerNotes",
       "name": "CustomerNotes",
       "objectDefinition": {
@@ -112,6 +115,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The customer's phone number.",
       "jsonName": "customerPhone",
       "name": "CustomerPhone",
       "objectDefinition": {
@@ -196,7 +200,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The current number of customers in the appointment",
+      "description": "The current number of customers in the appointment.",
       "jsonName": "filledAttendeesCount",
       "name": "FilledAttendeesCount",
       "objectDefinition": {
@@ -212,6 +216,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates that the customer can manage bookings created by the staff. The default value is false.",
       "jsonName": "isCustomerAllowedToManageBooking",
       "name": "IsCustomerAllowedToManageBooking",
       "objectDefinition": {
@@ -227,7 +232,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If true, indicates that the appointment will be held online. Default value is false.",
+      "description": "Indicates that the appointment is held online. The default value is false.",
       "jsonName": "isLocationOnline",
       "name": "IsLocationOnline",
       "objectDefinition": {
@@ -259,6 +264,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the booking business was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "lastUpdatedDateTime",
       "name": "LastUpdatedDateTime",
       "objectDefinition": {
@@ -376,7 +382,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An additional tracking ID for the appointment, if the appointment has been created directly by the customer on the scheduling page, as opposed to by a staff member on the behalf of the customer. Only supported for appointment if maxAttendeeCount is 1.",
+      "description": "Another tracking ID for the appointment, if the appointment was created directly by the customer on the scheduling page, as opposed to by a staff member on behalf of the customer.",
       "jsonName": "selfServiceAppointmentId",
       "name": "SelfServiceAppointmentId",
       "objectDefinition": {

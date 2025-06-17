@@ -1,0 +1,25 @@
+{
+  "name": "AuthContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Supported values are c1 through c99.",
+      "jsonName": "authenticationContextValue",
+      "name": "AuthenticationContextValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignInContext",
+  "discriminatedTypeValue": "#microsoft.graph.authContext",
+  "typeHintIn": "ODataType"
+}

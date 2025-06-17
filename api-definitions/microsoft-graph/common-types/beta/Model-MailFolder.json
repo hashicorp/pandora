@@ -139,6 +139,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of long-running operations in the mailFolder.",
+      "jsonName": "operations",
+      "name": "Operations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MailFolderOperation",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The unique identifier for the mailFolder's parent mailFolder.",
       "jsonName": "parentFolderId",
       "name": "ParentFolderId",

@@ -1,0 +1,25 @@
+{
+  "name": "CopilotAdmin",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Set of Microsoft 365 Copilot settings that can be added or modified. Read-only. Nullable.",
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": true,
+        "referenceName": "CopilotAdminSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.copilotAdmin",
+  "typeHintIn": "ODataType"
+}

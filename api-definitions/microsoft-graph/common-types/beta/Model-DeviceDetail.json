@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the browser information of the used for signing-in.",
+      "description": "Indicates the browser information of the used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "browser",
       "name": "Browser",
       "objectDefinition": {
@@ -34,7 +34,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Refers to the UniqueID of the device used for signing-in.",
+      "description": "Refers to the unique ID of the device used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "deviceId",
       "name": "DeviceId",
       "objectDefinition": {
@@ -50,7 +50,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Refers to the name of the device used for signing-in.",
+      "description": "Refers to the name of the device used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -130,7 +130,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the OS name and version used for signing-in.",
+      "description": "Indicates the OS name and version used in the sign-in.",
       "jsonName": "operatingSystem",
       "name": "OperatingSystem",
       "objectDefinition": {
@@ -146,7 +146,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.",
+      "description": "Indicates information on whether the device used in the sign-in is workplace-joined, Microsoft Entra-joined, domain-joined.",
       "jsonName": "trustType",
       "name": "TrustType",
       "objectDefinition": {

@@ -1,0 +1,44 @@
+{
+  "name": "UpdateAuthenticationRequirement",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update authentication method states. Update the properties of a user's authentication method states. Use this API to update the following information",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "StrongAuthenticationRequirements",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/authentication/requirements"
+}

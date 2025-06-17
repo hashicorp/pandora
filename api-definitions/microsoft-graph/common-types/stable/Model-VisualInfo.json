@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI",
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)",
       "jsonName": "description",
       "name": "Description",

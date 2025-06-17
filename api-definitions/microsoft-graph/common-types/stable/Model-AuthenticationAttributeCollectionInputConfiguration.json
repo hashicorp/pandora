@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The default value of the attribute displayed to the end user.",
+      "description": "The default value of the attribute displayed to the end user. The capability to set the default value isn't available through the Microsoft Entra admin center.",
       "jsonName": "defaultValue",
       "name": "DefaultValue",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the attribute is editable by the end user.",
+      "description": "Defines whether the attribute is editable by the end user.",
       "jsonName": "editable",
       "name": "Editable",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the attribute is displayed to the end user.",
+      "description": "Defines whether the attribute is displayed to the end user. The capability to hide isn't available through the Microsoft Entra admin center.",
       "jsonName": "hidden",
       "name": "Hidden",
       "objectDefinition": {
@@ -82,7 +82,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The label of the attribute field that is displayed to end user, unless overridden.",
+      "description": "The label of the attribute field that's displayed to end user, unless overridden.",
       "jsonName": "label",
       "name": "Label",
       "objectDefinition": {
@@ -152,7 +152,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the field is required.",
+      "description": "Defines whether the field is required.",
       "jsonName": "required",
       "name": "Required",
       "objectDefinition": {
@@ -168,7 +168,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The regex for the value of the field.",
+      "description": "The regex for the value of the field. For more information about the supported regexes, see validationRegEx values for inputType objects. To understand how to specify regexes, see the Regular expressions cheat sheet.",
       "jsonName": "validationRegEx",
       "name": "ValidationRegEx",
       "objectDefinition": {
@@ -184,7 +184,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the value collected is stored.",
+      "description": "Defines whether Microsoft Entra ID stores the value that it collects.",
       "jsonName": "writeToDirectory",
       "name": "WriteToDirectory",
       "objectDefinition": {

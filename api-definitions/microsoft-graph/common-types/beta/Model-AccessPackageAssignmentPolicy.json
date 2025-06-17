@@ -50,6 +50,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the settings for email notifications for requests to an access package.",
+      "jsonName": "accessPackageNotificationSettings",
+      "name": "AccessPackageNotificationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessPackageNotificationSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Who must review, and how often, the assignments to the access package from this policy. This property is null if reviews aren't required.",
       "jsonName": "accessReviewSettings",
       "name": "AccessReviewSettings",

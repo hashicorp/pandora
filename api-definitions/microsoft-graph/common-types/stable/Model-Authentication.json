@@ -157,6 +157,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents a platform credential instance registered to a user on Mac OS.",
+      "jsonName": "platformCredentialMethods",
+      "name": "PlatformCredentialMethods",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PlatformCredentialAuthenticationMethod",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The software OATH time-based one-time password (TOTP) applications registered to a user for authentication.",
       "jsonName": "softwareOathMethods",
       "name": "SoftwareOathMethods",

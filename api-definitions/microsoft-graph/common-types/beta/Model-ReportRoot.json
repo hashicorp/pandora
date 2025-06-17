@@ -192,6 +192,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Reports for Microsoft Entra Health Monitoring.",
+      "jsonName": "healthMonitoring",
+      "name": "HealthMonitoring",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "HealthMonitoringHealthMonitoringRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Retrieve a list of monthly print usage summaries, grouped by printer.",
       "jsonName": "monthlyPrintUsageByPrinter",
       "name": "MonthlyPrintUsageByPrinter",
@@ -348,7 +364,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Reports that relate to tenant-level Microsoft Entra SLA attainment.",
+      "description": "Reports that relate to tenant-level Microsoft Entra Health SLA attainment.",
       "jsonName": "sla",
       "name": "Sla",
       "objectDefinition": {

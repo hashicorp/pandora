@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the published task list. Read-only.",
+      "jsonName": "publicationName",
+      "name": "PublicationName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The identifier of the plannerPlan this task was originally placed in. Read-only.",
       "jsonName": "publishedToPlanId",
       "name": "PublishedToPlanId",

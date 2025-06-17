@@ -1,0 +1,53 @@
+{
+  "name": "MailboxProtectionUnitsBulkAdditionJob",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of Exchange directoryObjectIds to add to the Exchange protection policy.",
+      "jsonName": "directoryObjectIds",
+      "name": "DirectoryObjectIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of Exchange email addresses to add to the Exchange protection policy.",
+      "jsonName": "mailboxes",
+      "name": "Mailboxes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionUnitsBulkJobBase",
+  "discriminatedTypeValue": "#microsoft.graph.mailboxProtectionUnitsBulkAdditionJob",
+  "typeHintIn": "ODataType"
+}

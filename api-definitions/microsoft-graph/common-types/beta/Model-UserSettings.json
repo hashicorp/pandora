@@ -51,6 +51,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Exchange settings for mailbox discovery.",
+      "jsonName": "exchange",
+      "name": "Exchange",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExchangeSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The user's settings for the visibility of meeting hour insights, and insights derived between a user and other items in Microsoft 365, such as documents or sites. Get userInsightsSettings through this navigation property.",
       "jsonName": "itemInsights",
       "name": "ItemInsights",

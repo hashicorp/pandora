@@ -1,0 +1,40 @@
+{
+  "name": "MutualTlsOauthConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Friendly name. Supports $filter (eq, in).",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tlsClientAuthParameter",
+      "name": "TlsClientAuthParameter",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TlsClientRegistrationMetadata",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TrustedCertificateAuthorityBase",
+  "discriminatedTypeValue": "#microsoft.graph.mutualTlsOauthConfiguration",
+  "typeHintIn": "ODataType"
+}

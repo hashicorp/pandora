@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "To whom the webinar is visible.",
+      "description": "To whom the webinar is visible. Possible values are: everyone, organization, and unknownFutureValue.",
       "jsonName": "audience",
       "name": "Audience",
       "objectDefinition": {
@@ -41,6 +41,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Registration configuration of the webinar.",
       "jsonName": "registrationConfiguration",
       "name": "RegistrationConfiguration",
       "objectDefinition": {

@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of more specific errors contributing to the overall error.",
       "jsonName": "details",
       "name": "Details",
       "objectDefinition": {
@@ -23,7 +24,7 @@
       "sensitive": false
     }
   ],
-  "IsParent": false,
+  "IsParent": true,
   "discriminatedParentModelName": "ClassifcationErrorBase",
   "discriminatedTypeValue": "#microsoft.graph.classificationError",
   "typeHintIn": "ODataType"

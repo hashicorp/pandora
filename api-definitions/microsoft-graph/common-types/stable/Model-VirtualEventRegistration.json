@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The external information for a virtual event registration.",
+      "jsonName": "externalRegistrationInformation",
+      "name": "ExternalRegistrationInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventExternalRegistrationInformation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "First name of the registrant.",
       "jsonName": "firstName",
       "name": "FirstName",
@@ -67,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The registrant's preferred language.",
       "jsonName": "preferredLanguage",
       "name": "PreferredLanguage",
       "objectDefinition": {
@@ -82,6 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The registrant's time zone details.",
       "jsonName": "preferredTimezone",
       "name": "PreferredTimezone",
       "objectDefinition": {
@@ -97,7 +115,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Date and time when the registrant registers for the virtual event. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "description": "Date and time when the registrant registers for the virtual event. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "registrationDateTime",
       "name": "RegistrationDateTime",
       "objectDefinition": {
@@ -135,6 +153,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Sessions for a registration.",
       "jsonName": "sessions",
       "name": "Sessions",
       "objectDefinition": {
@@ -156,7 +175,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Registration status of the registrant. Read-only.",
+      "description": "Registration status of the registrant. Read-only. Possible values are registered, canceled, waitlisted, pendingApproval, rejectedByOrganizer, and unknownFutureValue.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

@@ -111,6 +111,44 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "User groups which enroll Linux devices through partner.",
+      "jsonName": "linuxEnrollmentAssignments",
+      "name": "LinuxEnrollmentAssignments",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ComplianceManagementPartnerAssignment",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Partner onboarded for Linux devices.",
+      "jsonName": "linuxOnboarded",
+      "name": "LinuxOnboarded",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "User groups which enroll Mac devices through partner.",
       "jsonName": "macOsEnrollmentAssignments",
       "name": "MacOsEnrollmentAssignments",

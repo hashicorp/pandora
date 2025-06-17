@@ -99,6 +99,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The operating system version of this gallery image. For example, 10.0.22000.296. Read-only.",
+      "jsonName": "osVersionNumber",
+      "name": "OsVersionNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The publisher name of this gallery image that is passed to ARM to retrieve the image resource. Read-only. The publisher property is deprecated and will stop returning data on January 31, 2024. Going forward, use the publisherName property.",
       "jsonName": "publisher",
       "name": "Publisher",

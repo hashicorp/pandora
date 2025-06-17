@@ -3,6 +3,70 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Display name of sender from address.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time of creation of the sender domain.",
+      "jsonName": "domainCreationDateTime",
+      "name": "DomainCreationDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Registered name of the domain.",
+      "jsonName": "domainName",
+      "name": "DomainName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Owner of the domain.",
+      "jsonName": "domainOwner",
+      "name": "DomainOwner",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The sender email address in the mail From header, also known as the envelope sender or the P1 sender.",
       "jsonName": "fromAddress",
       "name": "FromAddress",
@@ -35,9 +99,41 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Location of the domain.",
+      "jsonName": "location",
+      "name": "Location",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The sender email address in the From header, which is visible to email recipients on their email clients. Also known as P2 sender.",
       "jsonName": "mailFromAddress",
       "name": "MailFromAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Domain name of sender mail from address.",
+      "jsonName": "mailFromDomainName",
+      "name": "MailFromDomainName",
       "objectDefinition": {
         "type": "String",
         "nullable": true,

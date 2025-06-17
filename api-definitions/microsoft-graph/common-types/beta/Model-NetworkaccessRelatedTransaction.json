@@ -1,0 +1,24 @@
+{
+  "name": "NetworkaccessRelatedTransaction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transactionId",
+      "name": "TransactionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRelatedResource",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.relatedTransaction",
+  "typeHintIn": "ODataType"
+}

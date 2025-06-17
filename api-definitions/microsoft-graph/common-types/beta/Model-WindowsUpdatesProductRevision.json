@@ -34,6 +34,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True indicates that the content is hotpatchable; otherwise, false. For more information, see Deploy a hotpatch quality update using Windows Autopatch. Read-only.",
+      "jsonName": "isHotpatchUpdate",
+      "name": "IsHotpatchUpdate",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The knowledge base article associated with the product revision.",
       "jsonName": "knowledgeBaseArticle",
       "name": "KnowledgeBaseArticle",

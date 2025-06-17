@@ -51,6 +51,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The DNS domain that this computer belongs to. A sequence of labels separated by dots.",
+      "jsonName": "dnsDomain",
+      "name": "DnsDomain",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The date and time when the device was first seen.",
       "jsonName": "firstSeenDateTime",
       "name": "FirstSeenDateTime",
@@ -75,6 +91,22 @@
         "nullable": false,
         "referenceName": "SecurityDeviceHealthStatus",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The hostname without the domain suffix.",
+      "jsonName": "hostName",
+      "name": "HostName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -160,6 +192,22 @@
       "description": "A unique identifier assigned to a device by Microsoft Defender for Endpoint.",
       "jsonName": "mdeDeviceId",
       "name": "MdeDeviceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A logical grouping of computers within a Microsoft Windows network.",
+      "jsonName": "ntDomain",
+      "name": "NtDomain",
       "objectDefinition": {
         "type": "String",
         "nullable": true,

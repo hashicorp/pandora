@@ -3,11 +3,12 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Description of the sensor.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
         "type": "String",
-        "nullable": false,
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "DNS names for the domain controller",
       "jsonName": "domainControllerDnsNames",
       "name": "DomainControllerDnsNames",
       "objectDefinition": {
@@ -39,6 +41,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether to delay updates for the sensor.",
       "jsonName": "isDelayedDeploymentEnabled",
       "name": "IsDelayedDeploymentEnabled",
       "objectDefinition": {

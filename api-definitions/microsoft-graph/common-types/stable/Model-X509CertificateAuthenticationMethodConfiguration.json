@@ -41,6 +41,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "crlValidationConfiguration",
+      "name": "CrlValidationConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "X509CertificateCRLValidationConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "A collection of groups that are enabled to use the authentication method.",
       "jsonName": "includeTargets",
       "name": "IncludeTargets",

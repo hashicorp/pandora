@@ -1,0 +1,56 @@
+{
+  "name": "UserSignIn",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "TenantId of the guest user as applies to Microsoft Entra B2B scenarios.",
+      "jsonName": "externalTenantId",
+      "name": "ExternalTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "externalUserType",
+      "name": "ExternalUserType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConditionalAccessGuestOrExternalUserTypes",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Object ID of the user.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignInIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.userSignIn",
+  "typeHintIn": "ODataType"
+}

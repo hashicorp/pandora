@@ -1,0 +1,153 @@
+{
+  "name": "EducationSpeakerProgressResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The feedback types that students should receive from AI feedback. This property should only be provided if isAiFeedbackEnabled is true.",
+      "jsonName": "aiFeedbackCriteria",
+      "name": "AiFeedbackCriteria",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationAiFeedbackCriteria",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether AI feedback is enabled for the student submissions.",
+      "jsonName": "isAiFeedbackEnabled",
+      "name": "IsAiFeedbackEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether video is required for the student recording.",
+      "jsonName": "isVideoRequired",
+      "name": "IsVideoRequired",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The maximum number of recording attempts available to the student. Specify 0 to set unlimited recording attempts.",
+      "jsonName": "maxRecordingAttempts",
+      "name": "MaxRecordingAttempts",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The title of the speaker progress resource visible to students.",
+      "jsonName": "presentationTitle",
+      "name": "PresentationTitle",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time limit is in minutes for the student recording.",
+      "jsonName": "recordingTimeLimitInMinutes",
+      "name": "RecordingTimeLimitInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Allows students to view their rehearsal report before the assignment is graded.",
+      "jsonName": "showRehearsalReportToStudentBeforeMediaUpload",
+      "name": "ShowRehearsalReportToStudentBeforeMediaUpload",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The feedback types that students should receive from the Speaker Coach.",
+      "jsonName": "speakerCoachSettings",
+      "name": "SpeakerCoachSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EducationSpeakerCoachSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The spoken language for the student recording. For example, en-US.",
+      "jsonName": "spokenLanguageLocale",
+      "name": "SpokenLanguageLocale",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EducationResource",
+  "discriminatedTypeValue": "#microsoft.graph.educationSpeakerProgressResource",
+  "typeHintIn": "ODataType"
+}

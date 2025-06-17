@@ -1,0 +1,53 @@
+{
+  "name": "DriveProtectionUnitsBulkAdditionJob",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of OneDrive directoryObjectIds to add to the OneDrive protection policy.",
+      "jsonName": "directoryObjectIds",
+      "name": "DirectoryObjectIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of email addresses to add to the OneDrive protection policy.",
+      "jsonName": "drives",
+      "name": "Drives",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionUnitsBulkJobBase",
+  "discriminatedTypeValue": "#microsoft.graph.driveProtectionUnitsBulkAdditionJob",
+  "typeHintIn": "ODataType"
+}

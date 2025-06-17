@@ -47,6 +47,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The hardware OATH time-based one-time password (TOTP) devices assigned to a user for authentication.",
+      "jsonName": "hardwareOathMethods",
+      "name": "HardwareOathMethods",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "HardwareOathAuthenticationMethod",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Represents all authentication methods registered to a user.",
       "jsonName": "methods",
       "name": "Methods",
@@ -179,6 +201,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents a platform credential instance registered to a user on Mac OS.",
       "jsonName": "platformCredentialMethods",
       "name": "PlatformCredentialMethods",
       "objectDefinition": {
@@ -192,6 +215,22 @@
           "referenceName": "PlatformCredentialAuthenticationMethod",
           "referenceNameIsCommonType": true
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a QR code authentication method registered to a user for authentication.",
+      "jsonName": "qrCodePinMethod",
+      "name": "QrCodePinMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "QrCodePinAuthenticationMethod",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

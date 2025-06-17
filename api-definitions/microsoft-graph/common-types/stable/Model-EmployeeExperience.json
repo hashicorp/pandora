@@ -3,6 +3,50 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of communities in Viva Engage.",
+      "jsonName": "communities",
+      "name": "Communities",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Community",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of long-running, asynchronous operations related to Viva Engage.",
+      "jsonName": "engagementAsyncOperations",
+      "name": "EngagementAsyncOperations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EngagementAsyncOperation",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "learningCourseActivities",
       "name": "LearningCourseActivities",
       "objectDefinition": {

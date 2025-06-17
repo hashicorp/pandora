@@ -3,13 +3,29 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Encapsulates the format properties chart point. Read-only.",
+      "description": "The format properties of the chart point. Read-only.",
       "jsonName": "format",
       "name": "Format",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
         "referenceName": "WorkbookChartPointFormat",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The value of a chart point. Read-only.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
         "referenceNameIsCommonType": true
       },
       "optional": true,

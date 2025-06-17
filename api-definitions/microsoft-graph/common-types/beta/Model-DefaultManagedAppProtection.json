@@ -73,7 +73,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.",
+      "description": "Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfAccountIsClockedOut",
       "name": "AppActionIfAccountIsClockedOut",
       "objectDefinition": {
@@ -169,7 +169,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanHigh",
       "name": "AppActionIfDevicePasscodeComplexityLessThanHigh",
       "objectDefinition": {
@@ -185,7 +185,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanLow",
       "name": "AppActionIfDevicePasscodeComplexityLessThanLow",
       "objectDefinition": {
@@ -201,7 +201,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanMedium",
       "name": "AppActionIfDevicePasscodeComplexityLessThanMedium",
       "objectDefinition": {

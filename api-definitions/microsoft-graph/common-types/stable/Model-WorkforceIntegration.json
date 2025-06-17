@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "API version for the call back URL. Start with 1.",
+      "description": "API version for the callback URL. Start with 1.",
       "jsonName": "apiVersion",
       "name": "ApiVersion",
       "objectDefinition": {
@@ -27,6 +27,22 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Support to view eligibility-filtered results. Possible values are: none, swapRequest, offerShiftRequest, unknownFutureValue, timeOffReason. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: timeOffReason.",
+      "jsonName": "eligibilityFilteringEnabledEntities",
+      "name": "EligibilityFilteringEnabledEntities",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EligibilityFilteringEnabledEntities",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,
@@ -67,7 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.",
+      "description": "The Shifts entities supported for synchronous change notifications. Shifts call back to the provided URL when client changes occur to the entities specified in this property. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openShift, openShiftRequest, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard , timeOffReason , timeOff , timeOffRequest.",
       "jsonName": "supportedEntities",
       "name": "SupportedEntities",
       "objectDefinition": {

@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the type for the comment.",
+      "description": "The content type of the comment.",
       "jsonName": "contentType",
       "name": "ContentType",
       "objectDefinition": {
@@ -35,11 +35,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The list of replies to the comment. Read-only. Nullable.",
       "jsonName": "replies",
       "name": "Replies",
       "objectDefinition": {
         "type": "List",
-        "nullable": false,
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
@@ -50,7 +51,7 @@
         }
       },
       "optional": true,
-      "readOnly": false,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },

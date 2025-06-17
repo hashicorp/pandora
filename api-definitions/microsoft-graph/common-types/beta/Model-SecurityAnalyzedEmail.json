@@ -47,22 +47,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The number of attachments in the email.",
-      "jsonName": "attachmentsCount",
-      "name": "AttachmentsCount",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": true,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "description": "The authentication details associated with the email.",
       "jsonName": "authenticationDetails",
       "name": "AuthenticationDetails",
@@ -82,6 +66,22 @@
       "description": "The bulk complaint level of the email. A higher level is more likely to be spam.",
       "jsonName": "bulkComplaintLevel",
       "name": "BulkComplaintLevel",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Shows the type of client that sent the message (for example, REST).",
+      "jsonName": "clientType",
+      "name": "ClientType",
       "objectDefinition": {
         "type": "String",
         "nullable": true,
@@ -171,6 +171,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Data loss prevention rules configured in purview.",
+      "jsonName": "dlpRules",
+      "name": "DlpRules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityAnalyzedEmailDlpRuleInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The identifier for the group of similar emails clustered based on heuristic analysis of their content.",
       "jsonName": "emailClusterId",
       "name": "EmailClusterId",
@@ -201,6 +223,38 @@
           "referenceName": "SecurityAnalyzedEmailExchangeTransportRuleInfo",
           "referenceNameIsCommonType": true
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Email smtp forwarding details.",
+      "jsonName": "forwardingDetail",
+      "name": "ForwardingDetail",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Custom instructions name that defines organizational mail flow and how the email was routed.",
+      "jsonName": "inboundConnectorFormattedName",
+      "name": "InboundConnectorFormattedName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -375,6 +429,54 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of policy configured that defines the delivery action on email.",
+      "jsonName": "policyType",
+      "name": "PolicyType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Shows the organization or user setting that altered the intended delivery location of the message (allowed instead of blocked, or blocked instead of allowed).",
+      "jsonName": "primaryOverrideSource",
+      "name": "PrimaryOverrideSource",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Details of the recipients.",
+      "jsonName": "recipientDetail",
+      "name": "RecipientDetail",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityAnalyzedEmailRecipientDetail",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Contains the email address of the recipient.",
       "jsonName": "recipientEmailAddress",
       "name": "RecipientEmailAddress",
@@ -471,6 +573,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Information about threats detected in the email.",
+      "jsonName": "threatDetectionDetails",
+      "name": "ThreatDetectionDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityThreatDetectionDetail",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Indicates the threat types. The possible values are: unknown, spam, malware, phish, none, unknownFutureValue.",
       "jsonName": "threatTypes",
       "name": "ThreatTypes",
@@ -483,6 +607,28 @@
           "type": "Reference",
           "nullable": false,
           "referenceName": "SecurityThreatType",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Delivery and post-delivery events that happened to the email.",
+      "jsonName": "timelineEvents",
+      "name": "TimelineEvents",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityTimelineEvent",
           "referenceNameIsCommonType": true
         }
       },
@@ -507,22 +653,6 @@
           "referenceName": "SecurityAnalyzedEmailUrl",
           "referenceNameIsCommonType": true
         }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "The number of URLs in the email.",
-      "jsonName": "urlsCount",
-      "name": "UrlsCount",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": true,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

@@ -1,0 +1,39 @@
+{
+  "name": "WindowsUpdatesQualityUpdateApprovalRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cadence",
+      "name": "Cadence",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesQualityUpdateCadence",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "classification",
+      "name": "Classification",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesQualityUpdateClassification",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesApprovalRule",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.qualityUpdateApprovalRule",
+  "typeHintIn": "ODataType"
+}

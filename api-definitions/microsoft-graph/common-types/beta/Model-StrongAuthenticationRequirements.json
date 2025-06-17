@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Sets the per-user MFA state for the user. The possible values are: disabled, enforced, enabled, unknownFutureValue.",
+      "description": "Sets the per-user MFA state for the user. The possible values are: disabled, enforced, enabled, unknownFutureValue. When you update a user's MFA state to enabled and the user has already registered an MFA method, their state changes automatically to enforced.",
       "jsonName": "perUserMfaState",
       "name": "PerUserMfaState",
       "objectDefinition": {

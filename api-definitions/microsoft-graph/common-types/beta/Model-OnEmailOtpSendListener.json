@@ -1,0 +1,25 @@
+{
+  "name": "OnEmailOtpSendListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Used to configure what to invoke if the onEmailOTPSend event resolves to this listener. This base class serves as a generic OTP event handler used for both email and SMS OTP messages.",
+      "jsonName": "handler",
+      "name": "Handler",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnOtpSendHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventListener",
+  "discriminatedTypeValue": "#microsoft.graph.onEmailOtpSendListener",
+  "typeHintIn": "ODataType"
+}

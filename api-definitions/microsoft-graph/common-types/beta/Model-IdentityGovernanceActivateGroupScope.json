@@ -1,0 +1,24 @@
+{
+  "name": "IdentityGovernanceActivateGroupScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Group",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceActivationScope",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.activateGroupScope",
+  "typeHintIn": "ODataType"
+}

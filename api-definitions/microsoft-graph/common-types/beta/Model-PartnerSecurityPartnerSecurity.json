@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The security alerts or a vulnerability of a CSP partner's customer that the partner must be made aware of for further action.",
+      "description": "The security alerts or a vulnerability of a Cloud Solution Provider (CSP) partner's customer that the partner must be made aware of for further action.",
       "jsonName": "securityAlerts",
       "name": "SecurityAlerts",
       "objectDefinition": {
@@ -17,6 +17,22 @@
           "referenceName": "PartnerSecurityPartnerSecurityAlert",
           "referenceNameIsCommonType": true
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The security score calculated for the CSP partner and their customers.",
+      "jsonName": "securityScore",
+      "name": "SecurityScore",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerSecurityPartnerSecurityScore",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

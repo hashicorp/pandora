@@ -1,0 +1,25 @@
+{
+  "name": "Entra",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents settings related to access to the Microsoft Entra admin center.",
+      "jsonName": "uxSetting",
+      "name": "UxSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UxSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.entra",
+  "typeHintIn": "ODataType"
+}

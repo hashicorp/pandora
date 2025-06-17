@@ -1,6 +1,23 @@
 {
   "name": "ManagedAppStatusRaw",
-  "fields": [],
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Status report content.",
+      "jsonName": "content",
+      "name": "Content",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
   "IsParent": false,
   "discriminatedParentModelName": "ManagedAppStatus",
   "discriminatedTypeValue": "#microsoft.graph.managedAppStatusRaw",

@@ -79,7 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An optional description for the team. Maximum length: 1024 characters.",
+      "description": "An optional description for the team. Maximum length: 1,024 characters.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -114,6 +114,22 @@
       "description": "The name of the team.",
       "jsonName": "displayName",
       "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the first channel in the team. This is an optional property, only used during team creation and isn't returned in methods to get and list teams.",
+      "jsonName": "firstChannelName",
+      "name": "FirstChannelName",
       "objectDefinition": {
         "type": "String",
         "nullable": true,
@@ -552,7 +568,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A hyperlink that goes to the team in the Microsoft Teams client. It is the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.",
+      "description": "A hyperlink that goes to the team in the Microsoft Teams client. It's the URL you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.",
       "jsonName": "webUrl",
       "name": "WebUrl",
       "objectDefinition": {

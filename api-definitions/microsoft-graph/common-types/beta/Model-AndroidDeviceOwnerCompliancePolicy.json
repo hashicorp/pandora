@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "MDATP Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.",
+      "description": "Indicates the Microsoft Defender for Endpoint (also referred to Microsoft Defender Advanced Threat Protection (MDATP)) minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.",
       "jsonName": "advancedThreatProtectionRequiredSecurityLevel",
       "name": "AdvancedThreatProtectionRequiredSecurityLevel",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require that devices have enabled device threat protection.",
+      "description": "Indicates whether the policy requires devices have device threat protection enabled.  When TRUE, threat protection is enabled.  When FALSE, threat protection is not enabled.  Default is FALSE.",
       "jsonName": "deviceThreatProtectionEnabled",
       "name": "DeviceThreatProtectionEnabled",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.",
+      "description": "Indicates the minimum mobile threat protection risk level to that results in Intune reporting device noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet. Possible values are: unavailable, secured, low, medium, high, notSet.",
       "jsonName": "deviceThreatProtectionRequiredSecurityLevel",
       "name": "DeviceThreatProtectionRequiredSecurityLevel",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum Android security patch level.",
+      "description": "Indicates the minimum Android security patch level required to mark the device as compliant.  For example: 'February 1, 2025'",
       "jsonName": "minAndroidSecurityPatchLevel",
       "name": "MinAndroidSecurityPatchLevel",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum Android version.",
+      "description": "Indicates the maximum Android version required to mark the device as compliant.  For example: '15'",
       "jsonName": "osMaximumVersion",
       "name": "OsMaximumVersion",
       "objectDefinition": {
@@ -83,7 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum Android version.",
+      "description": "Indicates the minimum Android version required to mark the device as compliant. For example: '14'",
       "jsonName": "osMinimumVersion",
       "name": "OsMinimumVersion",
       "objectDefinition": {
@@ -99,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of days before the password expires. Valid values 1 to 365",
+      "description": "Indicates the number of days before the password expires. Valid values 1 to 365.",
       "jsonName": "passwordExpirationDays",
       "name": "PasswordExpirationDays",
       "objectDefinition": {
@@ -115,7 +115,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minimum password length. Valid values 4 to 16",
+      "description": "Indicates the minimum password length required to mark the device as compliant. Valid values are 4 to 16, inclusive. Valid values 4 to 16",
       "jsonName": "passwordMinimumLength",
       "name": "PasswordMinimumLength",
       "objectDefinition": {
@@ -131,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of letter characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumLetterCharacters",
       "name": "PasswordMinimumLetterCharacters",
       "objectDefinition": {
@@ -147,7 +147,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of lower case characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of lower case characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumLowerCaseCharacters",
       "name": "PasswordMinimumLowerCaseCharacters",
       "objectDefinition": {
@@ -163,7 +163,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of non-letter characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of non-letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumNonLetterCharacters",
       "name": "PasswordMinimumNonLetterCharacters",
       "objectDefinition": {
@@ -179,7 +179,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of numeric characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of numeric characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumNumericCharacters",
       "name": "PasswordMinimumNumericCharacters",
       "objectDefinition": {
@@ -195,7 +195,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of symbol characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of symbol characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumSymbolCharacters",
       "name": "PasswordMinimumSymbolCharacters",
       "objectDefinition": {
@@ -211,7 +211,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the minimum number of upper case letter characters required for device password. Valid values 1 to 16",
+      "description": "Indicates the minimum number of upper case letter characters required for device password for the device to be marked compliant. Valid values 1 to 16.",
       "jsonName": "passwordMinimumUpperCaseCharacters",
       "name": "PasswordMinimumUpperCaseCharacters",
       "objectDefinition": {
@@ -227,7 +227,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Minutes of inactivity before a password is required.",
+      "description": "Indicates the number of minutes of inactivity before a password is required.",
       "jsonName": "passwordMinutesOfInactivityBeforeLock",
       "name": "PasswordMinutesOfInactivityBeforeLock",
       "objectDefinition": {
@@ -243,7 +243,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Number of previous passwords to block. Valid values 1 to 24",
+      "description": "Indicates the number of previous passwords to block. Valid values 1 to 24.",
       "jsonName": "passwordPreviousPasswordCountToBlock",
       "name": "PasswordPreviousPasswordCountToBlock",
       "objectDefinition": {
@@ -259,7 +259,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require a password to unlock device.",
+      "description": "Indicates whether a password is required to unlock the device. When TRUE, there must be a password set that unlocks the device for the device to be marked as compliant.  When FALSE, a device is marked as compliant whether or not a password is set as required to unlock the device.  Default is FALSE.",
       "jsonName": "passwordRequired",
       "name": "PasswordRequired",
       "objectDefinition": {
@@ -275,7 +275,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of characters in password. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.",
+      "description": "Indicates the password complexity requirement for the device to be marked compliant. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword. Possible values are: deviceDefault, required, numeric, numericComplex, alphabetic, alphanumeric, alphanumericWithSymbols, lowSecurityBiometric, customPassword.",
       "jsonName": "passwordRequiredType",
       "name": "PasswordRequiredType",
       "objectDefinition": {
@@ -291,7 +291,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require device to have no pending Android system updates.",
+      "description": "Indicates whether the device has pending security or OS updates and sets the compliance state accordingly.  When TRUE, checks if there are any pending system updates on each check in and if there are any pending security or OS version updates (System Updates), the device will be reported as non-compliant. If set to FALSE, then checks for any pending security or OS version updates (System Updates) are done without impact to device compliance state. Default is FALSE.",
       "jsonName": "requireNoPendingSystemUpdates",
       "name": "RequireNoPendingSystemUpdates",
       "objectDefinition": {
@@ -307,7 +307,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If setting is set to true, checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Playstore. If the check fails, the device will be reported as non-compliant.",
+      "description": "Indicates the device should not be rooted. When TRUE, if the device is detected as rooted it will be reported non-compliant. When FALSE, the device is not reported as non-compliant regardless of device rooted state. Default is FALSE.",
+      "jsonName": "securityBlockJailbrokenDevices",
+      "name": "SecurityBlockJailbrokenDevices",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether Intune application integrity is required to mark the device as compliant.  When TRUE, Intune checks that the Intune app installed on fully managed, dedicated, or corporate-owned work profile Android Enterprise enrolled devices, is the one provided by Microsoft from the Managed Google Play store. If the check fails, the device will be reported as non-compliant. Default is FALSE.",
       "jsonName": "securityRequireIntuneAppIntegrity",
       "name": "SecurityRequireIntuneAppIntegrity",
       "objectDefinition": {
@@ -323,7 +339,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require the device to pass the Play Integrity basic integrity check.",
+      "description": "Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity basic check must pass to consider the device compliant.  When FALSE, the Google Play integrity basic check can pass or fail and the device will be considered compliant.  Default is FALSE.",
       "jsonName": "securityRequireSafetyNetAttestationBasicIntegrity",
       "name": "SecurityRequireSafetyNetAttestationBasicIntegrity",
       "objectDefinition": {
@@ -339,7 +355,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require the device to pass the Play Integrity device integrity check.",
+      "description": "Indicates whether the compliance check will validate the Google Play Integrity check. When TRUE, the Google Play integrity device check must pass to consider the device compliant.  When FALSE, the Google Play integrity device check can pass or fail and the device will be considered compliant.  Default is FALSE.",
       "jsonName": "securityRequireSafetyNetAttestationCertifiedDevice",
       "name": "SecurityRequireSafetyNetAttestationCertifiedDevice",
       "objectDefinition": {
@@ -355,7 +371,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require a specific Play Integrity evaluation type for compliance. Possible values are: basic, hardwareBacked.",
+      "description": "Indicates the types of measurements and reference data used to evaluate the device SafetyNet evaluation. Evaluation is completed on the device to assess device integrity based on checks defined by Android and built into the device hardware, for example, compromised OS version or root detection. Possible values are: basic, hardwareBacked, with default value of basic. Possible values are: basic, hardwareBacked.",
       "jsonName": "securityRequiredAndroidSafetyNetEvaluationType",
       "name": "SecurityRequiredAndroidSafetyNetEvaluationType",
       "objectDefinition": {
@@ -371,7 +387,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Require encryption on Android devices.",
+      "description": "Indicates whether encryption on Android devices is required to mark the device as compliant.",
       "jsonName": "storageRequireEncryption",
       "name": "StorageRequireEncryption",
       "objectDefinition": {

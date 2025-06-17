@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DeviceId of device represented by this object",
+      "description": "The unique identifier (DeviceId) associated with the device.",
       "jsonName": "deviceId",
       "name": "DeviceId",
       "objectDefinition": {
@@ -51,13 +51,13 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the type of execution status of the device management script.",
+      "description": "Indicates the type of execution status of the device management script. This status provides insights into whether the script has been successfully executed, encountered errors, or is pending execution.",
       "jsonName": "summarizedAppState",
       "name": "SummarizedAppState",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "RunState",
+        "referenceName": "DeviceManagementScriptRunState",
         "referenceNameIsCommonType": true
       },
       "optional": true,

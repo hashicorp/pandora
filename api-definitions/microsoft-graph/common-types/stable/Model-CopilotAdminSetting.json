@@ -1,0 +1,25 @@
+{
+  "name": "CopilotAdminSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a setting that controls whether users of Microsoft 365 Copilot in Teams meetings can receive responses to sentiment-related prompts. Read-only. Nullable.",
+      "jsonName": "limitedMode",
+      "name": "LimitedMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": true,
+        "referenceName": "CopilotAdminLimitedMode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.copilotAdminSetting",
+  "typeHintIn": "ODataType"
+}

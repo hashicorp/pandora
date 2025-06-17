@@ -41,7 +41,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Identity of the user associated with this attendance record.",
+      "description": "The external information for a virtualEventRegistration.",
+      "jsonName": "externalRegistrationInformation",
+      "name": "ExternalRegistrationInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventExternalRegistrationInformation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identity of the user associated with this attendance record. The specific type is one of the following derived types of identity, depending on the user type: communicationsUserIdentity, azureCommunicationServicesUserIdentity.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
@@ -49,6 +65,22 @@
         "nullable": false,
         "referenceName": "Identity",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Unique identifier of a virtualEventRegistration that is available to all participants registered for the virtualEventWebinar.",
+      "jsonName": "registrationId",
+      "name": "RegistrationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

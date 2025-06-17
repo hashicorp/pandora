@@ -89,6 +89,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Properties bag of the web part.",
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Contains collections of data that can be processed by server side services like search index and link fixup.",
       "jsonName": "serverProcessedContent",
       "name": "ServerProcessedContent",

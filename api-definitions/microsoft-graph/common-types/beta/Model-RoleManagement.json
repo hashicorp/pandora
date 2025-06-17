@@ -18,6 +18,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "defender",
+      "name": "Defender",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RbacApplicationMultiple",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The RbacApplication for Device Management",
       "jsonName": "deviceManagement",
       "name": "DeviceManagement",

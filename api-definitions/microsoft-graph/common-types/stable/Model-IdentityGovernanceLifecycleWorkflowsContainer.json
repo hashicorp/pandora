@@ -41,6 +41,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The insight container holding workflow insight summaries for a tenant.",
+      "jsonName": "insights",
+      "name": "Insights",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceInsights",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "settings",
       "name": "Settings",
       "objectDefinition": {

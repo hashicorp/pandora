@@ -41,7 +41,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn.",
+      "description": "Defines a managed app behavior, either block or warn, if the user is clocked out (non-working time). Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfAccountIsClockedOut",
       "name": "AppActionIfAccountIsClockedOut",
       "objectDefinition": {
@@ -137,7 +137,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of high complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanHigh",
       "name": "AppActionIfDevicePasscodeComplexityLessThanHigh",
       "objectDefinition": {
@@ -153,7 +153,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of low complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanLow",
       "name": "AppActionIfDevicePasscodeComplexityLessThanLow",
       "objectDefinition": {
@@ -169,7 +169,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn.",
+      "description": "If the device does not have a passcode of medium complexity or higher, trigger the stored action. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfDevicePasscodeComplexityLessThanMedium",
       "name": "AppActionIfDevicePasscodeComplexityLessThanMedium",
       "objectDefinition": {
@@ -185,7 +185,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block \u0026 wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn.",
+      "description": "Defines the behavior of a managed app when Samsung Knox Attestation is required. Possible values are null, warn, block \u0026 wipe. If the admin does not set this action, the default is null, which indicates this setting is not configured. Possible values are: block, wipe, warn, blockWhenSettingIsSupported.",
       "jsonName": "appActionIfSamsungKnoxAttestationRequired",
       "name": "AppActionIfSamsungKnoxAttestationRequired",
       "objectDefinition": {
@@ -293,7 +293,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Friendly name of the preferred custom browser to open weblink on Android.",
+      "description": "Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.",
       "jsonName": "customBrowserDisplayName",
       "name": "CustomBrowserDisplayName",
       "objectDefinition": {
@@ -309,7 +309,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique identifier of a custom browser to open weblink on Android.",
+      "description": "Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.",
       "jsonName": "customBrowserPackageId",
       "name": "CustomBrowserPackageId",
       "objectDefinition": {

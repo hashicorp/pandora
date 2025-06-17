@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "True if an end user is allowed to set up cross-region disaster recovery for Cloud PC; otherwise, false. The default value is false. This property is deprecated and will no longer be supported effective February 11, 2025. For scenarios where crossRegionDisasterRecoveryEnabled is true, set disasterRecoveryType to crossRegion. For scenarios where crossRegionDisasterRecoveryEnabled is false,  set disasterRecoveryType to notconfigured.",
       "jsonName": "crossRegionDisasterRecoveryEnabled",
       "name": "CrossRegionDisasterRecoveryEnabled",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the network settings of the Cloud PC during a cross-region disaster recovery operation.",
       "jsonName": "disasterRecoveryNetworkSetting",
       "name": "DisasterRecoveryNetworkSetting",
       "objectDefinition": {
@@ -33,6 +35,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the type of disaster recovery to perform when a disaster occurs on the user's Cloud PC. The possible values are: notConfigured, crossRegion, premium, unknownFutureValue. The default value is notConfigured.",
+      "jsonName": "disasterRecoveryType",
+      "name": "DisasterRecoveryType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCDisasterRecoveryType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether Windows 365 maintain the cross-region disaster recovery function generated restore points. If true, the Windows 365 stored restore points; false indicates that Windows 365 doesn't generate or keep the restore point from the original Cloud PC. If a disaster occurs, the new Cloud PC can only be provisioned using the initial image. This limitation can result in the loss of some user data on the original Cloud PC. The default value is false.",
       "jsonName": "maintainCrossRegionRestorePointEnabled",
       "name": "MaintainCrossRegionRestorePointEnabled",
       "objectDefinition": {
@@ -70,6 +89,22 @@
       "objectDefinition": {
         "type": "String",
         "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the client allows the end user to initiate a disaster recovery activation. True indicates that the client includes the option for the end user to activate Backup Cloud PC. When false, the end user doesn't have the option to activate disaster recovery. The default value is false. Currently, only premium disaster recovery is supported.",
+      "jsonName": "userInitiatedDisasterRecoveryAllowed",
+      "name": "UserInitiatedDisasterRecoveryAllowed",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },

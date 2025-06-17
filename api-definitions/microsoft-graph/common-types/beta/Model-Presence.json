@@ -51,6 +51,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The lexicographically sortable String stamp that represents the version of a presence object.",
+      "jsonName": "sequenceNumber",
+      "name": "SequenceNumber",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The presence status message of a user.",
       "jsonName": "statusMessage",
       "name": "StatusMessage",

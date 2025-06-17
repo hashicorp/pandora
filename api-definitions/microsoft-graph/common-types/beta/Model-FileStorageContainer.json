@@ -3,6 +3,21 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "archivalDetails",
+      "name": "ArchivalDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SiteArchivalDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Sensitivity label assigned to the fileStorageContainer. Read-write.",
       "jsonName": "assignedSensitivityLabel",
       "name": "AssignedSensitivityLabel",
@@ -152,7 +167,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether versioning is enabled for the fileStorageContainer. The setting is applicable to all items in the fileStorageContainer. Read-Write.",
       "jsonName": "isItemVersioningEnabled",
       "name": "IsItemVersioningEnabled",
       "objectDefinition": {
@@ -168,7 +182,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Maximum number of major versions allowed for items in the fileStorageContainer. Read-write.",
       "jsonName": "itemMajorVersionLimit",
       "name": "ItemMajorVersionLimit",
       "objectDefinition": {
@@ -222,7 +235,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Ownership type of the fileStorageContainer.The possible values are: tenantOwned. Read-only.",
+      "description": "Ownership type of the fileStorageContainer. The possible values are: tenantOwned. Read-only.",
       "jsonName": "ownershipType",
       "name": "OwnershipType",
       "objectDefinition": {
@@ -238,7 +251,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are 'reader', 'writer', 'manager', and 'owner'. Read-write.",
+      "description": "The set of permissions for users in the fileStorageContainer. The permission for each user is set by the roles property. The possible values are reader, writer, manager, and owner. Read-write.",
       "jsonName": "permissions",
       "name": "Permissions",
       "objectDefinition": {
@@ -283,6 +296,28 @@
         "nullable": false,
         "referenceName": "FileStorageContainerSettings",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of sharePointGroup objects local to the container. Read-write.",
+      "jsonName": "sharePointGroups",
+      "name": "SharePointGroups",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SharePointGroup",
+          "referenceNameIsCommonType": true
+        }
       },
       "optional": true,
       "readOnly": false,

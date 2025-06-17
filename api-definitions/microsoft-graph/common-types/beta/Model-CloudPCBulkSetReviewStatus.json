@@ -1,0 +1,24 @@
+{
+  "name": "CloudPCBulkSetReviewStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reviewStatus",
+      "name": "ReviewStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCReviewStatus",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CloudPCBulkAction",
+  "discriminatedTypeValue": "#microsoft.graph.cloudPcBulkSetReviewStatus",
+  "typeHintIn": "ODataType"
+}
