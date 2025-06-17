@@ -101,7 +101,7 @@ service "codesigning" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2023-05-01", "2023-10-01-preview", "2024-10-01"]
+  available = ["2023-05-01", "2023-10-01-preview", "2024-10-01", "2025-06-01"]
 }
 service "communication" {
   name      = "Communication"
@@ -182,7 +182,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01", "2025-01-01", "2025-02-01"]
+  available = ["2024-04-01", "2025-01-01", "2025-02-01", "2025-07-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -288,7 +288,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2022-08-08", "2023-05-01", "2024-02-01"]
+  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -344,7 +344,7 @@ service "logic" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2024-04-01", "2024-10-01", "2024-10-01-preview", "2025-04-01"]
+  available = ["2024-04-01", "2024-10-01", "2024-10-01-preview", "2025-04-01", "2025-06-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
