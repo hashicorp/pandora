@@ -19,6 +19,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Extension of the file.",
+      "jsonName": "fileExtension",
+      "name": "FileExtension",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The name of the attachment in the email.",
       "jsonName": "fileName",
       "name": "FileName",
@@ -35,9 +51,41 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Size of the file.",
+      "jsonName": "fileSize",
+      "name": "FileSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The type of the attachment in the email.",
       "jsonName": "fileType",
       "name": "FileType",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The threat name associated with the threat type.",
+      "jsonName": "malwareFamily",
+      "name": "MalwareFamily",
       "objectDefinition": {
         "type": "String",
         "nullable": true,
@@ -99,9 +147,9 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The threat name associated with the threat type.",
-      "jsonName": "threatName",
-      "name": "ThreatName",
+      "description": "Details of entries in tenant allow/block list configured by tenant.",
+      "jsonName": "tenantAllowBlockListDetailInfo",
+      "name": "TenantAllowBlockListDetailInfo",
       "objectDefinition": {
         "type": "String",
         "nullable": true,

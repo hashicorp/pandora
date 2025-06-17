@@ -1,0 +1,25 @@
+{
+  "name": "RecommendationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether notifications for recommendations are enabled.",
+      "jsonName": "isNotificationEnabled",
+      "name": "IsNotificationEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.recommendationConfiguration",
+  "typeHintIn": "ODataType"
+}

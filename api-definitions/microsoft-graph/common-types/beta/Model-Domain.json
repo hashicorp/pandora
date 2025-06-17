@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.",
+      "description": "The objects such as users and groups that reference the domain ID. Read-only, Nullable. Does not support $expand. Supports $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.",
       "jsonName": "domainNameReferences",
       "name": "DomainNameReferences",
       "objectDefinition": {
@@ -79,7 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Domain settings configured by customer when federated with Microsoft Entra ID. Supports $expand.",
+      "description": "Domain settings configured by customer when federated with Microsoft Entra ID. Does not support $expand.",
       "jsonName": "federationConfiguration",
       "name": "FederationConfiguration",
       "objectDefinition": {
@@ -229,7 +229,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.",
+      "description": "DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Does not support $expand.",
       "jsonName": "serviceConfigurationRecords",
       "name": "ServiceConfigurationRecords",
       "objectDefinition": {
@@ -310,7 +310,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Supports $expand.",
+      "description": "DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Does not support $expand.",
       "jsonName": "verificationDnsRecords",
       "name": "VerificationDnsRecords",
       "objectDefinition": {

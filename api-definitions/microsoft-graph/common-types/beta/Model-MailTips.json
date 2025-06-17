@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Mail tips for automatic reply if it has been set up by the recipient.",
+      "description": "Mailtips for an automatic reply if set up by the recipient.",
       "jsonName": "automaticReplies",
       "name": "AutomaticReplies",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.",
+      "description": "Whether the recipient's mailbox is restricted. For example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.",
       "jsonName": "deliveryRestricted",
       "name": "DeliveryRestricted",
       "objectDefinition": {
@@ -99,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.",
+      "description": "Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator is set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.",
       "jsonName": "isModerated",
       "name": "IsModerated",
       "objectDefinition": {
@@ -131,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The maximum message size that has been configured for the recipient's organization or mailbox.",
+      "description": "The maximum message size configured for the recipient's organization or mailbox.",
       "jsonName": "maxMessageSize",
       "name": "MaxMessageSize",
       "objectDefinition": {
@@ -179,7 +179,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.",
+      "description": "The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone, and content.",
       "jsonName": "recipientScope",
       "name": "RecipientScope",
       "objectDefinition": {

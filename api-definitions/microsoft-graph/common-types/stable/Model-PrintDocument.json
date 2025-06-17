@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time the document was downloaded. Read-only",
+      "jsonName": "downloadedDateTime",
+      "name": "DownloadedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The document's size in bytes. Read-only.",
       "jsonName": "size",
       "name": "Size",
@@ -46,6 +62,22 @@
       },
       "optional": true,
       "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time the document was uploaded. Read-only",
+      "jsonName": "uploadedDateTime",
+      "name": "UploadedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     }

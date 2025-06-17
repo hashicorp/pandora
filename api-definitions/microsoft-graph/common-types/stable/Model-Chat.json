@@ -56,6 +56,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the chat is hidden for all its members. Read-only.",
+      "jsonName": "isHiddenForAllMembers",
+      "name": "IsHiddenForAllMembers",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Preview of the last message sent in the chat. Null if no messages were sent in the chat. Currently, only the list chats operation supports this property.",
       "jsonName": "lastMessagePreview",
       "name": "LastMessagePreview",

@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they are shared, which copies the changes from the draftShift to the sharedShift property.",
+      "description": "Draft changes in the shift. Draft changes are only visible to managers. The changes are visible to employees when they're shared, which copies the changes from the draftShift to the sharedShift property.",
       "jsonName": "draftShift",
       "name": "DraftShift",
       "objectDefinition": {
@@ -11,6 +11,22 @@
         "nullable": false,
         "referenceName": "ShiftItem",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The shift is marked for deletion, a process that is finalized when the schedule is shared.",
+      "jsonName": "isStagedForDeletion",
+      "name": "IsStagedForDeletion",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

@@ -70,13 +70,13 @@
       "name": "GrantControls",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessGrantControls",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -102,13 +102,13 @@
       "name": "SessionControls",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessSessionControls",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {

@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The event type of the call. Possible values are: callStarted, callEnded, unknownFutureValue, rosterUpdated. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: rosterUpdated.",
       "jsonName": "callEventType",
       "name": "CallEventType",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time when event occurred.",
       "jsonName": "eventDateTime",
       "name": "EventDateTime",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Participants collection for the call event.",
       "jsonName": "participants",
       "name": "Participants",
       "objectDefinition": {
@@ -53,7 +56,7 @@
       "sensitive": false
     }
   ],
-  "IsParent": false,
+  "IsParent": true,
   "discriminatedParentModelName": "Entity",
   "discriminatedTypeValue": "#microsoft.graph.callEvent",
   "typeHintIn": "ODataType"

@@ -1,0 +1,31 @@
+{
+  "name": "PublicKeyInfrastructureRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of public key infrastructure instances for the certificate-based authentication feature for users.",
+      "jsonName": "certificateBasedAuthConfigurations",
+      "name": "CertificateBasedAuthConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CertificateBasedAuthPki",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.publicKeyInfrastructureRoot",
+  "typeHintIn": "ODataType"
+}

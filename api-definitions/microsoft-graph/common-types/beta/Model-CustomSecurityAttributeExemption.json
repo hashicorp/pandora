@@ -1,0 +1,25 @@
+{
+  "name": "CustomSecurityAttributeExemption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The possible values are: equals, unknownFutureValue. If equals, the customSecurityAttributeExemption value is compared to match the custom security attribute value for the exemption to be applied. The comparison is case sensitive.",
+      "jsonName": "operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomSecurityAttributeComparisonOperator",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": true,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.customSecurityAttributeExemption",
+  "typeHintIn": "ODataType"
+}

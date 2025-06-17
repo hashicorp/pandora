@@ -19,6 +19,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Latest known threat on the email.",
+      "jsonName": "latestThreats",
+      "name": "LatestThreats",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The delivery location of the email. The possible values are: unknown, inboxfolder, junkFolder, deletedFolder, quarantine, onpremexternal, failed, dropped, others, unknownFutureValue.",
       "jsonName": "location",
       "name": "Location",
@@ -57,6 +73,22 @@
       "objectDefinition": {
         "type": "String",
         "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Threats identified at the time of delivery.",
+      "jsonName": "originalThreats",
+      "name": "OriginalThreats",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },

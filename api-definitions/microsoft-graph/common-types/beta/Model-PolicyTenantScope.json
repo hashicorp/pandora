@@ -1,0 +1,25 @@
+{
+  "name": "PolicyTenantScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the users and groups included in or excluded from this tenant-level policy scope.",
+      "jsonName": "policyScope",
+      "name": "PolicyScope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PolicyBinding",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PolicyScopeBase",
+  "discriminatedTypeValue": "#microsoft.graph.policyTenantScope",
+  "typeHintIn": "ODataType"
+}

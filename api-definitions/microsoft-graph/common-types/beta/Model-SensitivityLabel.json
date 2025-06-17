@@ -3,6 +3,21 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionSource",
+      "name": "ActionSource",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LabelActionSource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "applicableTo",
       "name": "ApplicableTo",
       "objectDefinition": {
@@ -69,6 +84,36 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoTooltip",
+      "name": "AutoTooltip",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "color",
+      "name": "Color",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -114,8 +159,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "isEndpointProtectionEnabled",
       "name": "IsEndpointProtectionEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isScopedToUser",
+      "name": "IsScopedToUser",
       "objectDefinition": {
         "type": "Boolean",
         "nullable": true,
@@ -150,6 +225,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "locale",
+      "name": "Locale",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
@@ -172,6 +262,21 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rights",
+      "name": "Rights",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UsageRightsIncluded",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

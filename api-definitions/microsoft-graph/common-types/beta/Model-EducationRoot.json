@@ -71,6 +71,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "reports",
+      "name": "Reports",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ReportsRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "schools",
       "name": "Schools",
       "objectDefinition": {
@@ -82,27 +97,6 @@
           "type": "Reference",
           "nullable": false,
           "referenceName": "EducationSchool",
-          "referenceNameIsCommonType": true
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "synchronizationProfiles",
-      "name": "SynchronizationProfiles",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "EducationSynchronizationProfile",
           "referenceNameIsCommonType": true
         }
       },

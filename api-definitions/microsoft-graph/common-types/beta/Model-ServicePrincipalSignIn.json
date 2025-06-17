@@ -1,0 +1,25 @@
+{
+  "name": "ServicePrincipalSignIn",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "appId of the service principal that is signing in.",
+      "jsonName": "servicePrincipalId",
+      "name": "ServicePrincipalId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignInIdentity",
+  "discriminatedTypeValue": "#microsoft.graph.servicePrincipalSignIn",
+  "typeHintIn": "ODataType"
+}

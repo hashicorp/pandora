@@ -111,6 +111,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "mfaRegisteredUsers",
+      "name": "MfaRegisteredUsers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MfaUserCountMetric",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Insights for all user requests on apps registered in the tenant for a specified period.",
       "jsonName": "requests",
       "name": "Requests",

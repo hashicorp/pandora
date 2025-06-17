@@ -1,0 +1,25 @@
+{
+  "name": "DriveProtectionRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains a drive expression. For examples, see driveExpression examples.",
+      "jsonName": "driveExpression",
+      "name": "DriveExpression",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProtectionRuleBase",
+  "discriminatedTypeValue": "#microsoft.graph.driveProtectionRule",
+  "typeHintIn": "ODataType"
+}

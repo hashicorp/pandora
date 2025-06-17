@@ -1,0 +1,47 @@
+{
+  "name": "SecurityEndpointDiscoveredCloudAppDetail",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of devices that accessed the discovered app.",
+      "jsonName": "deviceCount",
+      "name": "DeviceCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the devices that access the discovered apps.",
+      "jsonName": "devices",
+      "name": "Devices",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityDiscoveredCloudAppDevice",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SecurityDiscoveredCloudAppDetail",
+  "discriminatedTypeValue": "#microsoft.graph.security.endpointDiscoveredCloudAppDetail",
+  "typeHintIn": "ODataType"
+}

@@ -309,6 +309,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of page templates on this site.",
+      "jsonName": "pageTemplates",
+      "name": "PageTemplates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PageTemplate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The collection of pages in the baseSitePages list on this site.",
       "jsonName": "pages",
       "name": "Pages",

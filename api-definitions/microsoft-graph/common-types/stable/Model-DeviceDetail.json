@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the browser information of the used for signing in.",
+      "description": "Indicates the browser information of the used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "browser",
       "name": "Browser",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Refers to the UniqueID of the device used for signing in.",
+      "description": "Refers to the unique ID of the device used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "deviceId",
       "name": "DeviceId",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Refers to the name of the device used for signing in.",
+      "description": "Refers to the name of the device used in the sign-in. Populated for devices registered in Microsoft Entra.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the device is compliant.",
+      "description": "Indicates whether the device is compliant or not.",
       "jsonName": "isCompliant",
       "name": "IsCompliant",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the device is managed.",
+      "description": "Indicates if the device is managed or not.",
       "jsonName": "isManaged",
       "name": "IsManaged",
       "objectDefinition": {
@@ -115,7 +115,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the operating system name and version used for signing in.",
+      "description": "Indicates the OS name and version used in the sign-in.",
       "jsonName": "operatingSystem",
       "name": "OperatingSystem",
       "objectDefinition": {
@@ -131,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.",
+      "description": "Indicates information on whether the device used in the sign-in is workplace-joined, Microsoft Entra-joined, domain-joined.",
       "jsonName": "trustType",
       "name": "TrustType",
       "objectDefinition": {

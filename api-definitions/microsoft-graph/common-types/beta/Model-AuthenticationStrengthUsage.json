@@ -3,48 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "mfa",
-      "name": "Mfa",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ConditionalAccessPolicy",
-          "referenceNameIsCommonType": true
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "none",
-      "name": "None",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ConditionalAccessPolicy",
-          "referenceNameIsCommonType": true
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "description": "The OData ID of this entity",
       "jsonName": "@odata.id",
       "name": "ODataId",

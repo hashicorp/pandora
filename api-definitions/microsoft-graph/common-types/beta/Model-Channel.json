@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A collection of membership records associated with the channel. It includes both direct and indirect members of shared channels.",
+      "jsonName": "allMembers",
+      "name": "AllMembers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ConversationMember",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Read only. Timestamp at which the channel was created.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
@@ -115,6 +137,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "layoutType",
+      "name": "LayoutType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChannelLayoutType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "A collection of membership records associated with the channel.",
       "jsonName": "members",
       "name": "Members",
@@ -137,7 +174,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.",
+      "description": "The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.",
       "jsonName": "membershipType",
       "name": "MembershipType",
       "objectDefinition": {
@@ -153,7 +190,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A collection of all the messages in the channel. A navigation property. Nullable.",
+      "description": "A collection of all the messages in the channel. Nullable.",
       "jsonName": "messages",
       "name": "Messages",
       "objectDefinition": {
@@ -186,6 +223,22 @@
       },
       "optional": true,
       "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Selective Planner services available to this channel. Currently, only shared channels are supported. Read-only. Nullable.",
+      "jsonName": "planner",
+      "name": "Planner",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": true,
+        "referenceName": "TeamsChannelPlanner",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
@@ -229,7 +282,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A collection of all the tabs in the channel. A navigation property.",
+      "description": "A collection of all the tabs in the channel.",
       "jsonName": "tabs",
       "name": "Tabs",
       "objectDefinition": {

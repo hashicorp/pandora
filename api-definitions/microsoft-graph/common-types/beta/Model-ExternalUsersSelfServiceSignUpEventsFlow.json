@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration for what to invoke when attribution collection has started.",
+      "description": "The configuration for what to invoke when attribution collection starts.",
       "jsonName": "onAttributeCollectionStart",
       "name": "OnAttributeCollectionStart",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The configuration for what to invoke when attributes have been submitted at the end of attribution collection.",
+      "description": "The configuration for what to invoke when attributes are submitted at the end of attribution collection.",
       "jsonName": "onAttributeCollectionSubmit",
       "name": "OnAttributeCollectionSubmit",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.",
+      "description": "Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.",
       "jsonName": "onAuthenticationMethodLoadStart",
       "name": "OnAuthenticationMethodLoadStart",
       "objectDefinition": {

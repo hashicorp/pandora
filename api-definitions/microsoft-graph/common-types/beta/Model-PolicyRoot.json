@@ -193,28 +193,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The custom rules that define an access scenario.",
-      "jsonName": "conditionalAccessPolicies",
-      "name": "ConditionalAccessPolicies",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ConditionalAccessPolicy",
-          "referenceNameIsCommonType": true
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "description": "The custom rules that define an access scenario when interacting with external Microsoft Entra tenants.",
       "jsonName": "crossTenantAccessPolicy",
       "name": "CrossTenantAccessPolicy",
@@ -247,6 +225,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the policy scope that controls quota restrictions, additional authentication, and authorization policies to register device identities to your organization.",
       "jsonName": "deviceRegistrationPolicy",
       "name": "DeviceRegistrationPolicy",
       "objectDefinition": {

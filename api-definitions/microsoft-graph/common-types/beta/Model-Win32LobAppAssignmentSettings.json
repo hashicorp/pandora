@@ -3,6 +3,22 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The auto-update settings to apply for this app assignment.",
+      "jsonName": "autoUpdateSettings",
+      "name": "AutoUpdateSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Win32LobAppAutoUpdateSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Contains value for delivery optimization priority.",
       "jsonName": "deliveryOptimizationPriority",
       "name": "DeliveryOptimizationPriority",

@@ -117,6 +117,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "authenticationBehaviors",
+      "name": "AuthenticationBehaviors",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationBehaviors",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Specifies the certification status of the application.",
       "jsonName": "certification",
       "name": "Certification",
@@ -228,7 +243,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name for the application. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
+      "description": "The display name for the application. Maximum length is 256 characters. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -325,7 +340,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://\u003cappId\u003e, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).",
+      "description": "Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you reference in your API's code, and it must be globally unique across Microsoft Entra ID. For more information on valid identifierUris patterns and best practices, see Microsoft Entra application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).",
       "jsonName": "identifierUris",
       "name": "IdentifierUris",
       "objectDefinition": {
@@ -496,12 +511,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Directory objects that are owners of the application. Read-only. Nullable. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.",
+      "description": "Directory objects that are owners of this application. The owners are a set of nonadmin users or service principals who are allowed to modify this object. Supports $expand, $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1), and $select nested in $expand.",
       "jsonName": "owners",
       "name": "Owners",
       "objectDefinition": {
         "type": "List",
-        "nullable": true,
+        "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
@@ -512,7 +527,7 @@
         }
       },
       "optional": true,
-      "readOnly": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     },

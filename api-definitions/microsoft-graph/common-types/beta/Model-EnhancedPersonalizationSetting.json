@@ -1,0 +1,41 @@
+{
+  "name": "EnhancedPersonalizationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of a Microsoft Entra group to which the value is used to disable the control for populated users. The default value is null. This parameter is optional.",
+      "jsonName": "disabledForGroup",
+      "name": "DisabledForGroup",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "If true, enables the enhanced personalization control and therefore related features as defined in control enhanced personalization privacy",
+      "jsonName": "isEnabledInOrganization",
+      "name": "IsEnabledInOrganization",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.enhancedPersonalizationSetting",
+  "typeHintIn": "ODataType"
+}

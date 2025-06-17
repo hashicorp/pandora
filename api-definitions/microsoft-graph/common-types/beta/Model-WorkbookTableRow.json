@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.",
+      "description": "The index of the row within the rows collection of the table. Zero-based. Read-only.",
       "jsonName": "index",
       "name": "Index",
       "objectDefinition": {
@@ -14,6 +14,22 @@
       },
       "optional": true,
       "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The raw values of the specified range. The data returned could be of type string, number, or a Boolean. Any cell that contain an error will return the error string.",
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     }

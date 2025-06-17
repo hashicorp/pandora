@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue.",
+      "description": "The additional items to include in the export. The possible values are: none, teamsAndYammerConversations, cloudAttachments, allDocumentVersions, subfolderContents, listAttachments, unknownFutureValue, htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: htmlTranscripts, advancedIndexing, allItemsInFolder, includeFolderAndPath, condensePaths, friendlyName, splitSource, optimizedPartitionSize, includeReport.",
       "jsonName": "additionalOptions",
       "name": "AdditionalOptions",
       "objectDefinition": {
@@ -19,7 +19,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of export provided by the user.",
+      "description": "The versions of cloud attachments to include in messages. Possible values are: latest, recent10, recent100, all, unknownFutureValue.",
+      "jsonName": "cloudAttachmentVersion",
+      "name": "CloudAttachmentVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityCloudAttachmentVersion",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The description of the export by the user.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -35,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The description of the export by the user.",
+      "description": "The name of export provided by the user.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -43,6 +59,22 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The versions of files in SharePoint to include. Possible values are: latest, recent10, recent100, all, unknownFutureValue.",
+      "jsonName": "documentVersion",
+      "name": "DocumentVersion",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDocumentVersion",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Returns a list of ediscoveryCaseMember objects associated to this case.",
+      "jsonName": "caseMembers",
+      "name": "CaseMembers",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityEdiscoveryCaseMember",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The user who closed the case.",
       "jsonName": "closedBy",
       "name": "ClosedBy",

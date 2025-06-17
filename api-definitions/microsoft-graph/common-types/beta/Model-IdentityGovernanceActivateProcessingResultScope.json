@@ -1,0 +1,30 @@
+{
+  "name": "IdentityGovernanceActivateProcessingResultScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "processingResults",
+      "name": "ProcessingResults",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IdentityGovernanceUserProcessingResult",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceActivationScope",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.activateProcessingResultScope",
+  "typeHintIn": "ODataType"
+}

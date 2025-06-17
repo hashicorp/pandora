@@ -19,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the staff member was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
@@ -50,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The email address of the staff member. This can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.",
+      "description": "The email address of the staff member. This email address can be in the same Microsoft 365 tenant as the business, or in a different email domain. This email address can be used if the sendConfirmationsToOwner property is set to true in the scheduling policy of the business. Required.",
       "jsonName": "emailAddress",
       "name": "EmailAddress",
       "objectDefinition": {
@@ -66,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True indicates that a staff member will be notified via email when a booking assigned to them is created or changed.",
+      "description": "Indicates that a staff member is notified via email when a booking assigned to them is created or changed. The default value is true.",
       "jsonName": "isEmailNotificationEnabled",
       "name": "IsEmailNotificationEnabled",
       "objectDefinition": {
@@ -82,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the staff member was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "lastUpdatedDateTime",
       "name": "LastUpdatedDateTime",
       "objectDefinition": {
@@ -159,7 +161,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The range of hours each day of the week that the staff member is available for booking. By default, they are initialized to be the same as the businessHours property of the business.",
+      "description": "The range of hours each day of the week that the staff member is available for booking. By default, they're initialized to be the same as the businessHours property of the business.",
       "jsonName": "workingHours",
       "name": "WorkingHours",
       "objectDefinition": {

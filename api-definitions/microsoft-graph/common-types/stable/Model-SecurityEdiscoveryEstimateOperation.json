@@ -83,6 +83,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "statisticsOptions",
+      "name": "StatisticsOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityStatisticsOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The estimated count of unindexed items for the collection.",
       "jsonName": "unindexedItemCount",
       "name": "UnindexedItemCount",

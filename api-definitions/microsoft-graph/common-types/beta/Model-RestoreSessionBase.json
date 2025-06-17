@@ -99,7 +99,39 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Status of the restore session. The value is an aggregated status of the restored artifacts. The possible values are: draft, activating, active, completedWithError, completed, unknownFutureValue, failed. You must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: failed.",
+      "description": "Indicates whether the restore session was created normally or by a bulk job.",
+      "jsonName": "restoreJobType",
+      "name": "RestoreJobType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RestoreJobType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of metadata artifacts that belong to this restore session.",
+      "jsonName": "restoreSessionArtifactCount",
+      "name": "RestoreSessionArtifactCount",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RestoreSessionArtifactCount",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Status of the restore session. The value is an aggregated status of the restored artifacts. The possible values are: draft, activating, active, completedWithError, completed, unknownFutureValue, failed. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: failed.",
       "jsonName": "status",
       "name": "Status",
       "objectDefinition": {

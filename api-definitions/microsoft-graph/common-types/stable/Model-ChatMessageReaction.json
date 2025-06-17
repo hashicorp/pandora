@@ -3,12 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z",
+      "description": "The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
         "type": "DateTime",
         "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the reaction.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
@@ -51,7 +67,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Supported values are like, angry, sad, laugh, heart, surprised.",
+      "description": "The hosted content URL for the custom reaction type.",
+      "jsonName": "reactionContentUrl",
+      "name": "ReactionContentUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The reaction type. Supported values include Unicode characters, custom, and some backward-compatible reaction types, such as like, angry, sad, laugh, heart, and surprised.",
       "jsonName": "reactionType",
       "name": "ReactionType",
       "objectDefinition": {

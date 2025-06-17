@@ -1,0 +1,39 @@
+{
+  "name": "OnPhoneMethodLoadStartExternalUsersAuthHandler",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "smsOptions",
+      "name": "SmsOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PhoneOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "voiceOptions",
+      "name": "VoiceOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PhoneOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "OnPhoneMethodLoadStartHandler",
+  "discriminatedTypeValue": "#microsoft.graph.onPhoneMethodLoadStartExternalUsersAuthHandler",
+  "typeHintIn": "ODataType"
+}

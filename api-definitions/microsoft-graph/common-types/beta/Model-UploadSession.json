@@ -56,7 +56,7 @@
       "sensitive": false
     },
     {
-      "containsDiscriminatedTypeValue": false,
+      "containsDiscriminatedTypeValue": true,
       "description": "The OData Type of this entity",
       "jsonName": "@odata.type",
       "name": "ODataType",
@@ -88,5 +88,6 @@
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": true,
+  "typeHintIn": "ODataType"
 }

@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents potential issues identified by Microsoft Defender for Identity within a customer's Microsoft Defender for Identity configuration.",
       "jsonName": "healthIssues",
       "name": "HealthIssues",
       "objectDefinition": {
@@ -14,6 +15,28 @@
           "type": "Reference",
           "nullable": false,
           "referenceName": "SecurityHealthIssue",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents a customer's Microsoft Defender for Identity sensors.",
+      "jsonName": "sensors",
+      "name": "Sensors",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecuritySensor",
           "referenceNameIsCommonType": true
         }
       },

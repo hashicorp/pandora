@@ -1,0 +1,24 @@
+{
+  "name": "WindowsUpdatesRemediationUpdateFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "remediationType",
+      "name": "RemediationType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsUpdatesRemediationType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WindowsUpdatesWindowsUpdateFilter",
+  "discriminatedTypeValue": "#microsoft.graph.windowsUpdates.remediationUpdateFilter",
+  "typeHintIn": "ODataType"
+}

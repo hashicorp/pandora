@@ -1,0 +1,25 @@
+{
+  "name": "HardwareOathAuthenticationMethod",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Exposes the hardware OATH method in the directory.",
+      "jsonName": "device",
+      "name": "Device",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "HardwareOathTokenAuthenticationMethodDevice",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethod",
+  "discriminatedTypeValue": "#microsoft.graph.hardwareOathAuthenticationMethod",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "EmergencyCallEvent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The information of the emergency caller.",
+      "jsonName": "callerInfo",
+      "name": "CallerInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EmergencyCallerInfo",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The emergency number dialed.",
+      "jsonName": "emergencyNumberDialed",
+      "name": "EmergencyNumberDialed",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The policy name for emergency call event.",
+      "jsonName": "policyName",
+      "name": "PolicyName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CallEvent",
+  "discriminatedTypeValue": "#microsoft.graph.emergencyCallEvent",
+  "typeHintIn": "ODataType"
+}

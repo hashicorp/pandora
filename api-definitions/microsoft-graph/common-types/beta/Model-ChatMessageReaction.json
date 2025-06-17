@@ -19,6 +19,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The name of the reaction.",
+      "jsonName": "displayName",
+      "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The OData ID of this entity",
       "jsonName": "@odata.id",
       "name": "ODataId",
@@ -67,7 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Supported values are Unicode characters and custom. Some backward-compatible reaction types include like, angry, sad, laugh, heart, and surprised.",
+      "description": "The reaction type. Supported values include Unicode characters, custom, and some backward-compatible reaction types, such as like, angry, sad, laugh, heart, and surprised.",
       "jsonName": "reactionType",
       "name": "ReactionType",
       "objectDefinition": {

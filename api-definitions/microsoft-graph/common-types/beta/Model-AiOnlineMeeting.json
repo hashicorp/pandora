@@ -1,0 +1,31 @@
+{
+  "name": "AiOnlineMeeting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A set of AI insights associated with an AI online meeting.",
+      "jsonName": "aiInsights",
+      "name": "AiInsights",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CallAiInsight",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.aiOnlineMeeting",
+  "typeHintIn": "ODataType"
+}

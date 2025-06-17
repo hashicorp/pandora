@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the comment associated with this name.",
+      "description": "The comment associated with this name.",
       "jsonName": "comment",
       "name": "Comment",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.",
+      "description": "The type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.",
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
@@ -67,7 +67,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the object is visible or not.",
+      "description": "The formula that the name is defined to refer to. For example, =Sheet14!$B$2:$H$12 and =4.75. Read-only.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the object is visible.",
       "jsonName": "visible",
       "name": "Visible",
       "objectDefinition": {
@@ -83,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.",
+      "description": "Returns the worksheet to which the named item is scoped. Available only if the item is scoped to the worksheet. Read-only.",
       "jsonName": "worksheet",
       "name": "Worksheet",
       "objectDefinition": {

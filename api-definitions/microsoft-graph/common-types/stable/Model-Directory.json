@@ -179,6 +179,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicKeyInfrastructure",
+      "name": "PublicKeyInfrastructure",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicKeyInfrastructureRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "List of commercial subscriptions that an organization acquired.",
       "jsonName": "subscriptions",
       "name": "Subscriptions",

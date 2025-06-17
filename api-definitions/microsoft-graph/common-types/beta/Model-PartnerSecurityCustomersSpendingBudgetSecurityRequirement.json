@@ -1,0 +1,41 @@
+{
+  "name": "PartnerSecurityCustomersSpendingBudgetSecurityRequirement",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of customers with a spending budget set.",
+      "jsonName": "customersWithSpendBudgetCount",
+      "name": "CustomersWithSpendBudgetCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of customers associated with the partner.",
+      "jsonName": "totalCustomersCount",
+      "name": "TotalCustomersCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PartnerSecuritySecurityRequirement",
+  "discriminatedTypeValue": "#microsoft.graph.partner.security.customersSpendingBudgetSecurityRequirement",
+  "typeHintIn": "ODataType"
+}

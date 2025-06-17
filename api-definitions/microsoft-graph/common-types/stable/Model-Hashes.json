@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The CRC32 value of the file in little endian (if available). Read-only.",
+      "description": "The CRC32 value of the file (if available). Read-only.",
       "jsonName": "crc32Hash",
       "name": "Crc32Hash",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only.",
+      "description": "A proprietary hash of the file that can be used to determine if the contents of the file change (if available). Read-only.",
       "jsonName": "quickXorHash",
       "name": "QuickXorHash",
       "objectDefinition": {
@@ -83,7 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "SHA256 hash for the contents of the file (if available). Read-only.",
+      "description": "This property isn't supported. Don't use.",
       "jsonName": "sha256Hash",
       "name": "Sha256Hash",
       "objectDefinition": {
@@ -93,7 +93,7 @@
         "referenceNameIsCommonType": null
       },
       "optional": true,
-      "readOnly": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     }

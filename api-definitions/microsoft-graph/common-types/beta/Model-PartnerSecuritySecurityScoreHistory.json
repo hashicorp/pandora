@@ -1,0 +1,57 @@
+{
+  "name": "PartnerSecuritySecurityScoreHistory",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of compliant security requirements at the time.",
+      "jsonName": "compliantRequirementsCount",
+      "name": "CompliantRequirementsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The date the history entry was created.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of requirements at the time.",
+      "jsonName": "totalRequirementsCount",
+      "name": "TotalRequirementsCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.partner.security.securityScoreHistory",
+  "typeHintIn": "ODataType"
+}

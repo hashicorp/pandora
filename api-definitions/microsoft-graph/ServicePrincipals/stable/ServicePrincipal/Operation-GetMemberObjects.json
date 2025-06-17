@@ -1,7 +1,7 @@
 {
   "name": "GetMemberObjects",
   "contentType": "application/json; charset=utf-8",
-  "description": "Invoke action getMemberObjects. Return all IDs for the groups, administrative units, and directory roles that a user, group, service principal, organizational contact, device, or directory object is a member of. This function is transitive. Note: Only users and role-enabled groups can be members of directory roles.",
+  "description": "Invoke action getMemberObjects. Return all IDs for the groups, administrative units, and directory roles that an object of one of the following types is a member of:\n- user\n- group\n- service principal\n- organizational contact\n- device\n- directory object This function is transitive. Only users and role-enabled groups can be members of directory roles.",
   "expectedStatusCodes": [
     200
   ],

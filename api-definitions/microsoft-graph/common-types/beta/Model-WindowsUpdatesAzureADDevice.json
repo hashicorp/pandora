@@ -3,23 +3,16 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.",
-      "jsonName": "enrollments",
-      "name": "Enrollments",
+      "jsonName": "enrollment",
+      "name": "Enrollment",
       "objectDefinition": {
-        "type": "List",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "WindowsUpdatesUpdatableAssetEnrollment",
-          "referenceNameIsCommonType": true
-        }
+        "referenceName": "WindowsUpdatesUpdateManagementEnrollment",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
-      "readOnly": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     },

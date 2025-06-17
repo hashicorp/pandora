@@ -1,0 +1,25 @@
+{
+  "name": "ProtectedApplicationMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Entra client (application) ID. Required.",
+      "jsonName": "applicationLocation",
+      "name": "ApplicationLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PolicyLocation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IntegratedApplicationMetadata",
+  "discriminatedTypeValue": "#microsoft.graph.protectedApplicationMetadata",
+  "typeHintIn": "ODataType"
+}

@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The new restored folder identifier for the user.",
+      "description": "The newly restored folder identifier for the user.",
       "jsonName": "restoredFolderId",
       "name": "RestoredFolderId",
       "objectDefinition": {
@@ -32,9 +32,25 @@
       "readOnly": true,
       "required": false,
       "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of items that are being restored in the folder.",
+      "jsonName": "restoredItemCount",
+      "name": "RestoredItemCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
   ],
-  "IsParent": false,
+  "IsParent": true,
   "discriminatedParentModelName": "RestoreArtifactBase",
   "discriminatedTypeValue": "#microsoft.graph.mailboxRestoreArtifact",
   "typeHintIn": "ODataType"

@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The day notes in the schedule.",
+      "jsonName": "dayNotes",
+      "name": "DayNotes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DayNote",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Indicates whether the schedule is enabled for the team. Required.",
       "jsonName": "enabled",
       "name": "Enabled",
@@ -15,6 +37,22 @@
       "optional": false,
       "readOnly": false,
       "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether copied shifts include activities from the original shift.",
+      "jsonName": "isActivitiesIncludedWhenCopyingShiftsEnabled",
+      "name": "IsActivitiesIncludedWhenCopyingShiftsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
       "sensitive": false
     },
     {
@@ -193,6 +231,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the start day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.",
+      "jsonName": "startDayOfWeek",
+      "name": "StartDayOfWeek",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DayOfWeek",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The swap requests for shifts in the schedule.",
       "jsonName": "swapShiftsChangeRequests",
       "name": "SwapShiftsChangeRequests",
@@ -231,6 +285,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The time cards in the schedule.",
+      "jsonName": "timeCards",
+      "name": "TimeCards",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "TimeCard",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Indicates whether time clock is enabled for the schedule.",
       "jsonName": "timeClockEnabled",
       "name": "TimeClockEnabled",
@@ -239,6 +315,22 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The time clock location settings for this schedule.",
+      "jsonName": "timeClockSettings",
+      "name": "TimeClockSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TimeClockSettings",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,
@@ -345,6 +437,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IDs for the workforce integrations associated with this schedule.",
       "jsonName": "workforceIntegrationIds",
       "name": "WorkforceIntegrationIds",
       "objectDefinition": {

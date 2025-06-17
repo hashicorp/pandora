@@ -19,7 +19,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync which includes EAS supported and unsupported platforms.",
+      "description": "Authentication flows included in the policy scope.",
+      "jsonName": "authenticationFlows",
+      "name": "AuthenticationFlows",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConditionalAccessAuthenticationFlows",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  The easUnsupported enumeration member will be deprecated in favor of exchangeActiveSync, which includes EAS supported and unsupported platforms.",
       "jsonName": "clientAppTypes",
       "name": "ClientAppTypes",
       "objectDefinition": {
@@ -62,13 +78,13 @@
       "name": "Devices",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessDevices",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -94,13 +110,13 @@
       "name": "Locations",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessLocations",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -142,13 +158,13 @@
       "name": "Platforms",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessPlatforms",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {

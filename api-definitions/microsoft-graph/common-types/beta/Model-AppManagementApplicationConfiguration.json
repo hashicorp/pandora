@@ -1,6 +1,39 @@
 {
   "name": "AppManagementApplicationConfiguration",
-  "fields": [],
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Property to restrict creation or update of apps based on their target signInAudience types.",
+      "jsonName": "audiences",
+      "name": "Audiences",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AudiencesConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Configuration object for restrictions on identifierUris property for an application.",
+      "jsonName": "identifierUris",
+      "name": "IdentifierUris",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentifierUriConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
   "IsParent": false,
   "discriminatedParentModelName": "AppManagementConfiguration",
   "discriminatedTypeValue": "#microsoft.graph.appManagementApplicationConfiguration",

@@ -41,6 +41,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the Windows Autopatch settings for Cloud PCs using this provisioning policy. The settings take effect when the tenant enrolls in Autopatch and the managedType of the microsoftManagedDesktop property is set as starterManaged. Supports $select.",
+      "jsonName": "autopatch",
+      "name": "Autopatch",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCProvisioningPolicyAutopatch",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The display name of the Cloud PC group that the Cloud PCs reside in. Read-only.",
       "jsonName": "cloudPcGroupDisplayName",
       "name": "CloudPCGroupDisplayName",

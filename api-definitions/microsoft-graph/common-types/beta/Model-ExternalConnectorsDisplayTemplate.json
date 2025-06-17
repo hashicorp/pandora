@@ -19,6 +19,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Standard way to represent a Json blob on Graph.",
+      "jsonName": "layout",
+      "name": "Layout",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The OData ID of this entity",
       "jsonName": "@odata.id",
       "name": "ODataId",

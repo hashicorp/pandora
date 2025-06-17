@@ -1,0 +1,47 @@
+{
+  "name": "AiUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The history of interactions between AI agents and users.",
+      "jsonName": "interactionHistory",
+      "name": "InteractionHistory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AiInteractionHistory",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Information about an online meeting, including AI insights.",
+      "jsonName": "onlineMeetings",
+      "name": "OnlineMeetings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AiOnlineMeeting",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.aiUser",
+  "typeHintIn": "ODataType"
+}

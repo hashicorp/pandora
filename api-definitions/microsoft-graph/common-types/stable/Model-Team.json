@@ -47,7 +47,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.",
+      "description": "An optional label. Typically describes the data or business sensitivity of the team. Must match one of a preconfigured set in the tenant's directory.",
       "jsonName": "classification",
       "name": "Classification",
       "objectDefinition": {
@@ -79,7 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "An optional description for the team. Maximum length: 1024 characters.",
+      "description": "An optional description for the team. Maximum length: 1,024 characters.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -98,6 +98,22 @@
       "description": "The name of the team.",
       "jsonName": "displayName",
       "name": "DisplayName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The name of the first channel in the team. This is an optional property, only used during team creation and isn't returned in methods to get and list teams.",
+      "jsonName": "firstChannelName",
+      "name": "FirstChannelName",
       "objectDefinition": {
         "type": "String",
         "nullable": true,
@@ -202,7 +218,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.",
+      "description": "A unique ID for the team that was used in a few places such as the audit log/Office 365 Management Activity API.",
       "jsonName": "internalId",
       "name": "InternalId",
       "objectDefinition": {
@@ -380,7 +396,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.",
+      "description": "Optional. Indicates whether the team is intended for a particular use case. Each team specialization has access to unique behaviors and experiences targeted to its use case.",
       "jsonName": "specialization",
       "name": "Specialization",
       "objectDefinition": {
@@ -482,7 +498,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.",
+      "description": "A hyperlink that goes to the team in the Microsoft Teams client. You get this URL when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.",
       "jsonName": "webUrl",
       "name": "WebUrl",
       "objectDefinition": {

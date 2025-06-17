@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if to allow customers to choose a specific person for the booking.",
+      "description": "True to allow customers to choose a specific person for the booking.",
       "jsonName": "allowStaffSelection",
       "name": "AllowStaffSelection",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "collection of custom availabilities for a given time range.",
+      "description": "Custom availability of the service in a given time frame.",
       "jsonName": "customAvailabilities",
       "name": "CustomAvailabilities",
       "objectDefinition": {
@@ -41,7 +41,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "General availability ",
+      "description": "General availability of the service defined by the scheduling policy.",
       "jsonName": "generalAvailability",
       "name": "GeneralAvailability",
       "objectDefinition": {
@@ -57,7 +57,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enable sending meeting invite to customers. False by default.",
+      "description": "Indicates whether the meeting invite is sent to the customers. The default value is false.",
       "jsonName": "isMeetingInviteToCustomersEnabled",
       "name": "IsMeetingInviteToCustomersEnabled",
       "objectDefinition": {

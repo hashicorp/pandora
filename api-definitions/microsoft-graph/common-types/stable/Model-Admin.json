@@ -83,6 +83,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A container for administrative resources to manage reports.",
+      "jsonName": "reportSettings",
+      "name": "ReportSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AdminReportSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "A container for service communications resources. Read-only.",
       "jsonName": "serviceAnnouncement",
       "name": "ServiceAnnouncement",

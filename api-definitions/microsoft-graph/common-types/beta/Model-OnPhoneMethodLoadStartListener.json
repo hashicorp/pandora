@@ -1,0 +1,24 @@
+{
+  "name": "OnPhoneMethodLoadStartListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "handler",
+      "name": "Handler",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnPhoneMethodLoadStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationEventListener",
+  "discriminatedTypeValue": "#microsoft.graph.onPhoneMethodLoadStartListener",
+  "typeHintIn": "ODataType"
+}

@@ -99,6 +99,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionSources",
+      "name": "ProtectionSources",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProtectionSource",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The status of the protection unit. The possible values are: protectRequested, protected, unprotectRequested, unprotected, removeRequested, unknownFutureValue.",
       "jsonName": "status",
       "name": "Status",

@@ -1,0 +1,41 @@
+{
+  "name": "PartnerSecurityCustomersMfaEnforcedSecurityRequirement",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of customer tenants that are compliant.",
+      "jsonName": "compliantTenantCount",
+      "name": "CompliantTenantCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The total number of customer tenants associated with this partner",
+      "jsonName": "totalTenantCount",
+      "name": "TotalTenantCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "PartnerSecuritySecurityRequirement",
+  "discriminatedTypeValue": "#microsoft.graph.partner.security.customersMfaEnforcedSecurityRequirement",
+  "typeHintIn": "ODataType"
+}

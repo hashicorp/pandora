@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The activity ID associated with the request that generated the error.",
       "jsonName": "activityId",
       "name": "ActivityId",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The client request ID, if provided by the caller.",
       "jsonName": "clientRequestId",
       "name": "ClientRequestId",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A more specific, potentially internal, error code string.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
@@ -48,6 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date and time the inner error occurred.",
       "jsonName": "errorDateTime",
       "name": "ErrorDateTime",
       "objectDefinition": {

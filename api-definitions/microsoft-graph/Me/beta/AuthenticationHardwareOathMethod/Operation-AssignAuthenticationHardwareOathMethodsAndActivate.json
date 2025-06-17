@@ -1,0 +1,44 @@
+{
+  "name": "AssignAuthenticationHardwareOathMethodsAndActivate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action assignAndActivate. Assign and activate a hardware token at the same time. This operation requires the device ID to activate it.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AssignAuthenticationHardwareOathMethodsAndActivateRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/me/authentication/hardwareOathMethods/assignAndActivate"
+}

@@ -89,7 +89,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).",
+      "description": "Unique identifier set by Azure Device Registration Service at the time of registration. This alternate key can be used to reference the device object. Supports $filter (eq, ne, not, startsWith).",
       "jsonName": "deviceId",
       "name": "DeviceId",
       "objectDefinition": {
@@ -121,7 +121,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.",
+      "description": "Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.",
       "jsonName": "deviceOwnership",
       "name": "DeviceOwnership",
       "objectDefinition": {
@@ -153,7 +153,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
+      "description": "The display name for the device. Maximum length is 256 characters. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -185,7 +185,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement.",
+      "description": "Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.",
       "jsonName": "enrollmentType",
       "name": "EnrollmentType",
       "objectDefinition": {
@@ -242,6 +242,21 @@
       "description": "true if the device is managed by a Mobile Device Management (MDM) app; otherwise, false. This can only be updated by Intune for any device OS type or by an approved MDM app for Windows OS devices. Supports $filter (eq, ne, not).",
       "jsonName": "isManaged",
       "name": "IsManaged",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isManagementRestricted",
+      "name": "IsManagementRestricted",
       "objectDefinition": {
         "type": "Boolean",
         "nullable": true,
@@ -667,7 +682,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more details, see Introduction to device management in Microsoft Entra ID.",
+      "description": "Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud-only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more information, see Introduction to device management in Microsoft Entra ID. Supports $filter (eq, ne, not, in).",
       "jsonName": "trustType",
       "name": "TrustType",
       "objectDefinition": {

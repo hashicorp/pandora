@@ -1,0 +1,25 @@
+{
+  "name": "GlobalSecureAccessFilteringProfileSessionControl",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies the distinct identifier that is assigned to the security profile or filtering profile.",
+      "jsonName": "profileId",
+      "name": "ProfileId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConditionalAccessSessionControl",
+  "discriminatedTypeValue": "#microsoft.graph.globalSecureAccessFilteringProfileSessionControl",
+  "typeHintIn": "ODataType"
+}

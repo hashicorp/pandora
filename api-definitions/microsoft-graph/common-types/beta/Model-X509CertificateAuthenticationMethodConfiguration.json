@@ -19,6 +19,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines configuration to allow a group of users to use certificates from specific issuing certificate authorities to successfully authenticate.",
+      "jsonName": "certificateAuthorityScopes",
+      "name": "CertificateAuthorityScopes",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "X509CertificateAuthorityScope",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Defines fields in the X.509 certificate that map to attributes of the Microsoft Entra user object in order to bind the certificate to the user. The priority of the object determines the order in which the binding is carried out. The first binding that matches will be used and the rest ignored.",
       "jsonName": "certificateUserBindings",
       "name": "CertificateUserBindings",

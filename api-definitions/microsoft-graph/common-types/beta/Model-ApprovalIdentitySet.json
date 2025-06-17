@@ -1,0 +1,25 @@
+{
+  "name": "ApprovalIdentitySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Entra group associated with the approval item.",
+      "jsonName": "group",
+      "name": "Group",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Identity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentitySet",
+  "discriminatedTypeValue": "#microsoft.graph.approvalIdentitySet",
+  "typeHintIn": "ODataType"
+}

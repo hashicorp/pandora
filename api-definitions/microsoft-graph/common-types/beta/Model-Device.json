@@ -19,6 +19,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of alternative names for the device.",
+      "jsonName": "alternativeNames",
+      "name": "AlternativeNames",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "For internal use only. Not nullable. Supports $filter (eq, not, ge, le).",
       "jsonName": "alternativeSecurityIds",
       "name": "AlternativeSecurityIds",
@@ -111,7 +133,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Unique Identifier set by Azure Device Registration Service at the time of registration. This is an alternate key that can be used to reference the device object. Also Supports $filter (eq, ne, not, startsWith).",
+      "description": "Unique identifier set by Azure Device Registration Service at the time of registration. This ID is an alternate key that can be used to reference the device object. Also supports $filter (eq, ne, not, startsWith).",
       "jsonName": "deviceId",
       "name": "DeviceId",
       "objectDefinition": {
@@ -143,7 +165,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Ownership of the device. This property is set by Intune. Possible values are: unknown, company, personal.",
+      "description": "Ownership of the device. Intune sets this property. Possible values are: unknown, company, personal.",
       "jsonName": "deviceOwnership",
       "name": "DeviceOwnership",
       "objectDefinition": {
@@ -154,6 +176,28 @@
       },
       "optional": true,
       "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Device template used to instantiate this device. Nullable. Read-only.",
+      "jsonName": "deviceTemplate",
+      "name": "DeviceTemplate",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceTemplate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
@@ -175,7 +219,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display name for the device. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
+      "description": "The display name for the device. Maximum length is 256 characters. Required. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderby.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -191,7 +235,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The on-premises domain name of Microsoft Entra hybrid joined devices. This property is set by Intune.",
+      "description": "The on-premises domain name of Microsoft Entra hybrid joined devices. Intune sets this property.",
       "jsonName": "domainName",
       "name": "DomainName",
       "objectDefinition": {
@@ -207,7 +251,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. This property is set by Intune.",
+      "description": "Enrollment profile applied to the device. For example, Apple Device Enrollment Profile, Device enrollment - Corporate device identifiers, or Windows Autopilot profile name. Intune sets this property.",
       "jsonName": "enrollmentProfileName",
       "name": "EnrollmentProfileName",
       "objectDefinition": {
@@ -223,7 +267,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Enrollment type of the device. This property is set by Intune. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement.",
+      "description": "Enrollment type of the device. Intune sets this property. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth,appleUserEnrollment, appleUserEnrollmentWithServiceAccount. NOTE: This property might return other values apart from those listed.",
       "jsonName": "enrollmentType",
       "name": "EnrollmentType",
       "objectDefinition": {
@@ -331,7 +375,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether the device is a member of a restricted management administrative unit, in which case it requires a role scoped to the restricted administrative unit to manage. The default value is false. Read-only.  To manage a device that's a member of a restricted administrative unit, the calling app must be assigned the Directory.Write.Restricted permission. For delegated scenarios, the administrators must also be explicitly assigned supported roles at the restricted administrative unit scope.",
+      "description": "Indicates whether the device is a member of a restricted management administrative unit. The default value is false. Read-only.  To manage a device that's a member of a restricted management administrative unit, the administrator or calling app must be assigned a Microsoft Entra role at the scope of the restricted management administrative unit.",
       "jsonName": "isManagementRestricted",
       "name": "IsManagementRestricted",
       "objectDefinition": {
@@ -379,7 +423,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Management channel of the device.  This property is set by Intune. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.",
+      "description": "Management channel of the device. Intune sets this property. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.",
       "jsonName": "managementType",
       "name": "ManagementType",
       "objectDefinition": {
@@ -823,7 +867,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more information, see Introduction to device management in Microsoft Entra ID.",
+      "description": "Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Microsoft Entra ID). For more information, see Introduction to device management in Microsoft Entra ID. Supports $filter (eq, ne, not, in).",
       "jsonName": "trustType",
       "name": "TrustType",
       "objectDefinition": {

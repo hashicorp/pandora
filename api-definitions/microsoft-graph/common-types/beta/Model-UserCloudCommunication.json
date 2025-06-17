@@ -1,0 +1,25 @@
+{
+  "name": "UserCloudCommunication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The call settings assigned to the user.",
+      "jsonName": "callSettings",
+      "name": "CallSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CallSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.userCloudCommunication",
+  "typeHintIn": "ODataType"
+}

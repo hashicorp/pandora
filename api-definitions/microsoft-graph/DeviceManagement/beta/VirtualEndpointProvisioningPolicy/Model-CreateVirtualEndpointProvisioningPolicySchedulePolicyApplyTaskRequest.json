@@ -1,0 +1,21 @@
+{
+  "name": "CreateVirtualEndpointProvisioningPolicySchedulePolicyApplyTaskRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduledRule",
+      "name": "ScheduledRule",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCPolicyScheduledApplyActionDetail",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
