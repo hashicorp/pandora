@@ -1,5 +1,5 @@
 {
-  "name": "PrivateEndpointConnection",
+  "name": "NetworkSecurityPerimeter",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -18,10 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "location",
+      "name": "Location",
       "objectDefinition": {
-        "type": "String",
+        "type": "Location",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -33,38 +33,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "PrivateEndpointConnectionProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
-      "objectDefinition": {
-        "type": "SystemData",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "perimeterGuid",
+      "name": "PerimeterGuid",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

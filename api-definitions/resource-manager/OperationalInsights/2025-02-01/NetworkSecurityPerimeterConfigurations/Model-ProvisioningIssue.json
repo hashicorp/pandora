@@ -1,12 +1,12 @@
 {
-  "name": "ProfileUpdateParameters",
+  "name": "ProvisioningIssue",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "identity",
-      "name": "Identity",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
-        "type": "LegacySystemAndUserAssignedIdentityMap",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -23,22 +23,7 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ProfilePropertiesUpdateParameters",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "tags",
-      "name": "Tags",
-      "objectDefinition": {
-        "type": "Tags",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "ProvisioningIssueProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
