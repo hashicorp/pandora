@@ -1,29 +1,6 @@
 {
   "name": "ConditionalAccessEnumeratedExternalTenants",
-  "fields": [
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "A collection of tenant IDs that define the scope of a policy targeting conditional access for guests and external users.",
-      "jsonName": "members",
-      "name": "Members",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    }
-  ],
+  "fields": [],
   "IsParent": false,
   "discriminatedParentModelName": "ConditionalAccessExternalTenants",
   "discriminatedTypeValue": "#microsoft.graph.conditionalAccessEnumeratedExternalTenants",
