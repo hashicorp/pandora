@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/data-api
 
-go 1.22.1
+go 1.23.10
 
 require (
 	github.com/go-chi/chi/v5 v5.0.8
@@ -24,7 +24,7 @@ require (
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
-	github.com/hashicorp/go-retryablehttp v0.7.7 // indirect
+	github.com/hashicorp/go-retryablehttp v0.7.8 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
@@ -34,8 +34,8 @@ require (
 	github.com/posener/complete v1.1.1 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/crypto v0.39.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
 )
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
