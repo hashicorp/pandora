@@ -89,7 +89,7 @@ service "botservice" {
 }
 service "cdn" {
   name      = "CDN"
-  available = ["2024-02-01", "2024-09-01", "2025-04-15"]
+  available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01"]
 }
 service "chaos" {
   name      = "ChaosStudio"
@@ -231,7 +231,7 @@ service "dnsresolver" {
 }
 service "domainservices" {
   name      = "AAD"
-  available = ["2021-05-01", "2025-05-01"]
+  available = ["2021-05-01", "2025-05-01", "2025-06-01"]
   ignore    = ["2022-09-01", "2022-12-01"]
 }
 service "dynatrace" {
@@ -240,7 +240,7 @@ service "dynatrace" {
 }
 service "elastic" {
   name      = "Elastic"
-  available = ["2023-06-01", "2024-03-01"]
+  available = ["2023-06-01", "2024-03-01", "2025-06-01"]
 }
 service "elasticsan" {
   name      = "ElasticSan"
@@ -402,7 +402,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01", "2024-07-01", "2024-09-01", "2025-01-01"]
+  available = ["2023-05-01", "2023-07-01", "2023-11-01", "2024-03-01", "2024-07-01", "2024-09-01", "2025-01-01", "2025-03-01"]
 }
 service "network" {
   name      = "Network"
@@ -536,7 +536,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2023-12-01-preview", "2024-03-01", "2024-09-01", "2025-03-01"]
+  available = ["2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01", "2023-12-01-preview", "2024-03-01", "2024-09-01", "2025-03-01", "2025-06-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
@@ -580,7 +580,7 @@ service "standbypool" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2023-01-01", "2023-05-01", "2024-01-01"]
+  available = ["2023-01-01", "2023-05-01", "2024-01-01", "2025-01-01"]
   ignore    = ["2023-04-01"]
 }
 service "storagecache" {
