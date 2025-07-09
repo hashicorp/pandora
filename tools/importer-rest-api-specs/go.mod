@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 
-go 1.22.7
+go 1.23.10
 
 require (
 	github.com/davecgh/go-spew v1.1.1
@@ -10,14 +10,14 @@ require (
 	github.com/go-openapi/loads v0.20.2
 	github.com/go-openapi/spec v0.20.3
 	github.com/hashicorp/go-azure-helpers v0.69.0
-	github.com/hashicorp/go-hclog v1.4.0
+	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/hcl/v2 v2.16.2
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 	github.com/zclconf/go-cty v1.13.1
-	golang.org/x/text v0.21.0
+	golang.org/x/text v0.26.0
 )
 
 require (
@@ -35,7 +35,7 @@ require (
 	github.com/cloudflare/circl v1.3.7 // indirect
 	github.com/cyphar/filepath-securejoin v0.2.5 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
-	github.com/fatih/color v1.13.0 // indirect
+	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
 	github.com/go-git/go-billy/v5 v5.6.0 // indirect
 	github.com/go-openapi/errors v0.19.9 // indirect
@@ -54,8 +54,8 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
-	github.com/mattn/go-colorable v0.1.12 // indirect
-	github.com/mattn/go-isatty v0.0.14 // indirect
+	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
@@ -68,12 +68,12 @@ require (
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	go.mongodb.org/mongo-driver v1.10.3 // indirect
-	golang.org/x/crypto v0.31.0 // indirect
-	golang.org/x/mod v0.18.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/sync v0.10.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
-	golang.org/x/tools v0.22.0 // indirect
+	golang.org/x/crypto v0.39.0 // indirect
+	golang.org/x/mod v0.25.0 // indirect
+	golang.org/x/net v0.41.0 // indirect
+	golang.org/x/sync v0.15.0 // indirect
+	golang.org/x/sys v0.33.0 // indirect
+	golang.org/x/tools v0.33.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
