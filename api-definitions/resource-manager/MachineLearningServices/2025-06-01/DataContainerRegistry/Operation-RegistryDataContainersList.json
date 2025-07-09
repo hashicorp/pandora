@@ -1,0 +1,43 @@
+{
+  "name": "RegistryDataContainersList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "listViewType",
+      "required": false,
+      "field": "ListViewType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListViewType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RegistryId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataContainerResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/data"
+}
