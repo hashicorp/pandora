@@ -1,0 +1,23 @@
+{
+  "name": "AccountConnectionsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectionUpdateContent",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectionPropertiesV2BasicResource",
+    "referenceNameIsCommonType": null
+  }
+}

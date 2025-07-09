@@ -1,0 +1,24 @@
+{
+  "name": "CategoricalDataQualityMetricThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metric",
+      "name": "Metric",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CategoricalDataQualityMetric",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataQualityMetricThresholdBase",
+  "discriminatedTypeValue": "Categorical",
+  "typeHintIn": "DataType"
+}

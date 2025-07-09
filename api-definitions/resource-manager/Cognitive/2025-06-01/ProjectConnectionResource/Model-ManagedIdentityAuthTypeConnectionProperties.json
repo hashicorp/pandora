@@ -1,0 +1,24 @@
+{
+  "name": "ManagedIdentityAuthTypeConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectionManagedIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConnectionPropertiesV2",
+  "discriminatedTypeValue": "ManagedIdentity",
+  "typeHintIn": "AuthType"
+}

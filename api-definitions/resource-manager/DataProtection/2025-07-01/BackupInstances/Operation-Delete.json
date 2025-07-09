@@ -1,0 +1,26 @@
+{
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-authorization-auxiliary",
+      "optional": true,
+      "required": false,
+      "field": "XMsAuthorizationAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BackupInstanceId"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "GetLogs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "OnlineEndpointDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeploymentLogsRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeploymentLogs",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getLogs"
+}

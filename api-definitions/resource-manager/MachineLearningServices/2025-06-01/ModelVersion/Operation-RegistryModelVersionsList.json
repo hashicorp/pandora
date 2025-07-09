@@ -1,0 +1,109 @@
+{
+  "name": "RegistryModelVersionsList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "description",
+      "required": false,
+      "field": "Description",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "listViewType",
+      "required": false,
+      "field": "ListViewType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListViewType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$orderBy",
+      "required": false,
+      "field": "OrderBy",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "properties",
+      "required": false,
+      "field": "Properties",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "tags",
+      "required": false,
+      "field": "Tags",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "version",
+      "required": false,
+      "field": "Version",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RegistryModelId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ModelVersionResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/versions"
+}
