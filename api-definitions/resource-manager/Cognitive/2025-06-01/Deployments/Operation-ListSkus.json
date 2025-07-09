@@ -1,0 +1,19 @@
+{
+  "name": "ListSkus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DeploymentId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SkuResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/skus"
+}
