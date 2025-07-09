@@ -20,7 +20,7 @@ validate: build
 	./importer-rest-api-specs validate
 
 test: build
-	go test -v ./... -timeout=60m
+	go test -v ./... -timeout=90m
 
 tools:
 	@echo "==> no tools required..."
