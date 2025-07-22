@@ -6,10 +6,16 @@
       "jsonName": "contents",
       "name": "Contents",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
