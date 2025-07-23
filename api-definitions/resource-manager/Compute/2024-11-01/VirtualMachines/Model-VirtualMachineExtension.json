@@ -26,9 +26,9 @@
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
@@ -54,6 +54,21 @@
         "type": "Reference",
         "nullable": false,
         "referenceName": "VirtualMachineExtensionProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,

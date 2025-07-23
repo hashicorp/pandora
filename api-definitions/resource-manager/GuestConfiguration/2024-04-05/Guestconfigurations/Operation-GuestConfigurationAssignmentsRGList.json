@@ -1,0 +1,20 @@
+{
+  "name": "GuestConfigurationAssignmentsRGList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GuestConfigurationAssignment",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments"
+}

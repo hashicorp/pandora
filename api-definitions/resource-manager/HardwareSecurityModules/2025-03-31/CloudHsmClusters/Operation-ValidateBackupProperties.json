@@ -1,0 +1,25 @@
+{
+  "name": "ValidateBackupProperties",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "CloudHsmClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupRestoreRequestBaseProperties",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateBackupProperties"
+}

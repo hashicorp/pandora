@@ -1,0 +1,37 @@
+{
+  "name": "CreateAndAssociateIPFilterCreate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "ips",
+      "required": false,
+      "field": "IPs",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "name",
+      "required": false,
+      "field": "Name",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MonitorId",
+  "uriSuffix": "/createAndAssociateIPFilter"
+}

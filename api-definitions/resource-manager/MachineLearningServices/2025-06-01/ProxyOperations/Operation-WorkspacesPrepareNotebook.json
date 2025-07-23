@@ -1,0 +1,19 @@
+{
+  "name": "WorkspacesPrepareNotebook",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NotebookResourceInfo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/prepareNotebook"
+}

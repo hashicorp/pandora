@@ -1,0 +1,18 @@
+{
+  "name": "IncidentsRunPlaybook",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "IncidentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManualTriggerRequestBody",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/runPlaybook"
+}

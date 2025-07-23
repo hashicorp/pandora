@@ -1,0 +1,19 @@
+{
+  "name": "ReportsList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ProviderVirtualMachineProviders2GuestConfigurationAssignmentId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GuestConfigurationAssignmentReport",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/reports"
+}
