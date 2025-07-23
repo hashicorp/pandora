@@ -64,7 +64,7 @@ func GetPlural(input string) string {
 	}
 
 	for _, v := range irregularPlurals() {
-		if input == v.single {
+		if input == v.single || v.plural == input {
 			return v.plural
 		}
 	}

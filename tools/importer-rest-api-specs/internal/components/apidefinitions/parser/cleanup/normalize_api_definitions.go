@@ -40,6 +40,7 @@ func NormalizeTag(input string) string {
 	// come across them?)
 	output := input
 	output = strings.ReplaceAll(output, "EndPoint", "Endpoint")
+	output = strings.ReplaceAll(output, "VirtualMachineScaleSetVMS", "VirtualMachineScaleSetVMs")
 	output = strings.ReplaceAll(output, "NetWork", "Network")
 	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
 	output = strings.ReplaceAll(output, "virtualWans", "VirtualWANs")
