@@ -1,0 +1,19 @@
+{
+  "name": "SyncBackupInstance",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BackupInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SyncBackupInstanceRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/sync"
+}

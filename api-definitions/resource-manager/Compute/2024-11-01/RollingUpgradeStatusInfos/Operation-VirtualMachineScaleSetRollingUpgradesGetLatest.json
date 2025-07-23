@@ -1,0 +1,18 @@
+{
+  "name": "VirtualMachineScaleSetRollingUpgradesGetLatest",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VirtualMachineScaleSetId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RollingUpgradeStatusInfo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/rollingUpgrades/latest"
+}

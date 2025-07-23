@@ -1,0 +1,19 @@
+{
+  "name": "DataConnectorDefinitionsList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "WorkspaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataConnectorDefinition",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.SecurityInsights/dataConnectorDefinitions"
+}

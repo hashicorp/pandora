@@ -1,0 +1,19 @@
+{
+  "name": "ListAssociations",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "CommitmentPlanId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CommitmentPlanAccountAssociation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/accountAssociations"
+}

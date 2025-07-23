@@ -1,0 +1,24 @@
+{
+  "name": "TopNFeaturesByAttribution",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "top",
+      "name": "Top",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MonitoringFeatureFilterBase",
+  "discriminatedTypeValue": "TopNByAttribution",
+  "typeHintIn": "FilterType"
+}

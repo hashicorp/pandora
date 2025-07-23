@@ -1,0 +1,31 @@
+{
+  "name": "DeleteImmutabilityPolicy",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StorageContainerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImmutabilityPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/immutabilityPolicies/default"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "PropertyConditionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditionProperties",
+      "name": "ConditionProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyValuesCondition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AutomationRuleCondition",
+  "discriminatedTypeValue": "Property",
+  "typeHintIn": "ConditionType"
+}
