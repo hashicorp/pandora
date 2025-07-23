@@ -1,0 +1,19 @@
+{
+  "name": "ListByEmailServiceResource",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "EmailServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DomainResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/domains"
+}

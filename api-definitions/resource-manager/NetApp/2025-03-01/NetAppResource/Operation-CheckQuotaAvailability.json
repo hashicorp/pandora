@@ -1,0 +1,24 @@
+{
+  "name": "CheckQuotaAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "LocationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "QuotaAvailabilityRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CheckAvailabilityResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/checkQuotaAvailability"
+}

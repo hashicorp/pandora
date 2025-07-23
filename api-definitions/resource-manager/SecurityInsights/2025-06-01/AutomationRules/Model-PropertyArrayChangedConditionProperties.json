@@ -1,0 +1,24 @@
+{
+  "name": "PropertyArrayChangedConditionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditionProperties",
+      "name": "ConditionProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AutomationRulePropertyArrayChangedValuesCondition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AutomationRuleCondition",
+  "discriminatedTypeValue": "PropertyArrayChanged",
+  "typeHintIn": "ConditionType"
+}
