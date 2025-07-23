@@ -1,0 +1,32 @@
+{
+  "name": "SuspendBackups",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-authorization-auxiliary",
+      "optional": true,
+      "required": false,
+      "field": "XMsAuthorizationAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BackupInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SuspendBackupRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/suspendBackups"
+}
