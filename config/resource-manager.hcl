@@ -475,7 +475,7 @@ service "privatedns" {
 }
 service "purview" {
   name      = "Purview"
-  available = ["2021-07-01", "2021-12-01"]
+  available = ["2021-07-01", "2021-12-01", "2024-04-01-preview"]
 }
 service "quota" {
   name      = "Quota"
