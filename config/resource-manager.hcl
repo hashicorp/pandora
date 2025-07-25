@@ -540,7 +540,7 @@ service "securityinsights" {
 }
 service "servicebus" {
   name      = "ServiceBus"
-  available = ["2021-06-01-preview", "2022-10-01-preview", "2024-01-01"]
+  available = ["2024-01-01"]
 }
 service "servicefabric" {
   name      = "ServiceFabric"
