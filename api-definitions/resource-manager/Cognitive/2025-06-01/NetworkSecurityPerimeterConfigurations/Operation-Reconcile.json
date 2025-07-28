@@ -1,0 +1,19 @@
+{
+  "name": "Reconcile",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkSecurityPerimeterConfigurationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NetworkSecurityPerimeterConfiguration",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/reconcile"
+}
