@@ -1,0 +1,24 @@
+{
+  "name": "OAuth2AuthTypeWorkspaceConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WorkspaceConnectionOAuth2",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+  "discriminatedTypeValue": "OAuth2",
+  "typeHintIn": "AuthType"
+}
