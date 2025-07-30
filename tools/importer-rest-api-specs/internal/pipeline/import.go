@@ -12,14 +12,14 @@ import (
 )
 
 func RunImporter(opts Options) error {
-	logging.Infof("Importing Data..")
+	logging.Info("Importing Data..")
 
-	logging.Debugf("Building the repository..")
+	logging.Debug("Building the repository..")
 	repo, err := repository.NewRepository(opts.APIDefinitionsDirectory, opts.SourceDataType, &opts.ServiceNamesToLimitTo, logging.Log)
 	if err != nil {
 		return fmt.Errorf("building repository: %+v", err)
 	}
-	logging.Debugf("Completed - Building the repository.")
+	logging.Debug("Completed - Building the repository.")
 
 	loadingMessage()
 
@@ -35,16 +35,16 @@ func RunImporter(opts Options) error {
 	}
 	logging.Debugf("Completed - Determining the Git Commit SHA from %q.", p.opts.RestAPISpecsDirectory)
 
-	logging.Infof("Loading the Configuration Files..")
+	logging.Info("Loading the Configuration Files..")
 	if err := p.loadConfigurationFiles(); err != nil {
 		return fmt.Errorf("loading the Configuration Files: %+v", err)
 	}
 
-	logging.Debugf("Clearing any existing API Definitions..")
+	logging.Debug("Clearing any existing API Definitions..")
 	if err := p.clearExistingAPIDefinitions(); err != nil {
 		return fmt.Errorf("clearing the existing API Definitions within %q: %+v", opts.APIDefinitionsDirectory, err)
 	}
-	logging.Debugf("Completed - Clearing any existing API Definitions.")
+	logging.Debug("Completed - Clearing any existing API Definitions.")
 
 	logging.Infof("Processing %d Services..", len(p.servicesFromConfigurationFiles))
 	for _, service := range p.servicesFromConfigurationFiles {
@@ -95,6 +95,6 @@ func RunImporter(opts Options) error {
 		logging.Debugf("Completed - writing Data for Service %q.", service.Name)
 	}
 
-	logging.Infof("Completed - Importing Data.")
+	logging.Info("Completed - Importing Data.")
 	return nil
 }

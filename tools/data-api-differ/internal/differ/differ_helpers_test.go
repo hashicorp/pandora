@@ -25,7 +25,7 @@ func determineAndValidateDiff(t *testing.T, initial, updated v1.LoadAllDataResul
 		t.Fatal(err.Error())
 	}
 	if actual == nil {
-		t.Fatalf("`actual` was unexpectedly nil")
+		t.Fatal("`actual` was unexpectedly nil")
 	}
 	if len(actual.Changes) != len(expected) {
 		t.Fatalf("expected %d changes but got %d. Expected: %+v\n\nActual: %+v", len(expected), len(actual.Changes), expected, *actual)
@@ -66,7 +66,7 @@ func assertContainsBreakingChanges(t *testing.T, actual []changes.Change) {
 	}
 
 	if !breaking {
-		t.Fatalf("expected `actual` to contain breaking changes but it didn't")
+		t.Fatal("expected `actual` to contain breaking changes but it didn't")
 	}
 }
 

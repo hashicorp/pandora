@@ -154,7 +154,7 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 	for serviceName, service := range data.Services {
 		logging.Debugf("Service %q", serviceName)
 		if !service.Generate {
-			logging.Debugf(".. is opted out of generation, skipping..")
+			logging.Debug(".. is opted out of generation, skipping..")
 			continue
 		}
 

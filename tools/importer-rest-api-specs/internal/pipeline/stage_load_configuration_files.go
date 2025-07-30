@@ -13,15 +13,15 @@ import (
 )
 
 func (p *Pipeline) loadConfigurationFiles() error {
-	logging.Debugf("Parsing the Configuration File..")
+	logging.Debug("Parsing the Configuration File..")
 	servicesFromConfigurationFile, err := services.LoadFromFile(p.opts.ConfigFilePath)
 	if err != nil {
 		return fmt.Errorf("loading config at %q: %+v", p.opts.ConfigFilePath, err)
 	}
 	p.servicesFromConfigurationFiles = servicesFromConfigurationFile.Services
-	logging.Debugf("Completed - Parsing the Configuration File.")
+	logging.Debug("Completed - Parsing the Configuration File.")
 
-	logging.Debugf("Parsing the Terraform Resource Definitions..")
+	logging.Debug("Parsing the Terraform Resource Definitions..")
 	terraformResourceDefinitions, err := definitions.LoadFromDirectory(p.opts.TerraformDefinitionsDirectory)
 	if err != nil {
 		return fmt.Errorf("parsing the Terraform Definitions from %q: %+v", p.opts.TerraformDefinitionsDirectory, err)
@@ -45,6 +45,6 @@ func (p *Pipeline) loadConfigurationFiles() error {
 		}
 	}
 	p.servicesToTerraformDetails = servicesToTerraformDetails
-	logging.Debugf("Completed - Parsing the Terraform Resource Definitions.")
+	logging.Debug("Completed - Parsing the Terraform Resource Definitions.")
 	return nil
 }

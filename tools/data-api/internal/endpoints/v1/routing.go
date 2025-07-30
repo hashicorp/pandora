@@ -83,7 +83,7 @@ func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		serviceName := chi.URLParam(r, "serviceName")
 		if serviceName == "" {
-			logging.Debugf("Missing Service Name")
+			logging.Debug("Missing Service Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
@@ -104,7 +104,7 @@ func (api Api) commonTypesApiVersionRouteContext(next http.Handler) http.Handler
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		commonTypesApiVersion := chi.URLParam(r, "commonTypesApiVersion")
 		if commonTypesApiVersion == "" {
-			logging.Debugf("Missing Common Types API Version")
+			logging.Debug("Missing Common Types API Version")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
@@ -112,7 +112,7 @@ func (api Api) commonTypesApiVersionRouteContext(next http.Handler) http.Handler
 		ctx := r.Context()
 		commonTypes, err := api.servicesRepository.GetCommonTypes()
 		if err != nil {
-			logging.Debugf("Missing Common Types API Version")
+			logging.Debug("Missing Common Types API Version")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
@@ -137,7 +137,7 @@ func serviceApiVersionRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		serviceApiVersion := chi.URLParam(r, "serviceApiVersion")
 		if serviceApiVersion == "" {
-			logging.Debugf("Missing Service API Version")
+			logging.Debug("Missing Service API Version")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}
@@ -165,7 +165,7 @@ func apiResourceNameRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		resourceName := chi.URLParam(r, "resourceName")
 		if resourceName == "" {
-			logging.Debugf("Missing Resource Name")
+			logging.Debug("Missing Resource Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 			return
 		}

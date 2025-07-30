@@ -28,7 +28,7 @@ func ParseOperationsWithinTag(parsingContext *parsingcontext.Context, tag *strin
 		logging.Debugf("Operation - %s %q..", operation.httpMethod, operation.uri)
 
 		if ignore.Operation(operation.uri) {
-			logging.Debugf("Operation should be ignored - skipping..")
+			logging.Debug("Operation should be ignored - skipping..")
 			continue
 		}
 

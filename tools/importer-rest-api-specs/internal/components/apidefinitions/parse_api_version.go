@@ -79,17 +79,17 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 	}
 
 	// Next let's apply any data workarounds
-	logging.Debugf("Applying Data Workarounds..")
+	logging.Debug("Applying Data Workarounds..")
 	withFixesApplied, err := dataworkarounds.Apply(serviceName, apiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("applying Data Workarounds for Service %q / API Version %q: %+v", serviceName, input.APIVersion, err)
 	}
-	logging.Debugf("Applying Data Workarounds - Complete.")
+	logging.Debug("Applying Data Workarounds - Complete.")
 
 	// Finally let's remove any unused items
-	logging.Debugf("Removing unused items..")
+	logging.Debug("Removing unused items..")
 	output := cleanup.RemoveUnusedItems(*withFixesApplied)
-	logging.Debugf("Removing unused items - Complete.")
+	logging.Debug("Removing unused items - Complete.")
 
 	return &output, nil
 }

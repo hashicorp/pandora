@@ -125,7 +125,7 @@ type terraformDetailsForService struct {
 }
 
 func loadTerraformConfigurations(terraformDefinitionsDirectory string) (map[string]terraformDetailsForService, error) {
-	logging.Debugf("Parsing the Terraform Resource Definitions..")
+	logging.Debug("Parsing the Terraform Resource Definitions..")
 	terraformResourceDefinitions, err := definitions.LoadFromDirectory(terraformDefinitionsDirectory)
 	if err != nil {
 		return nil, fmt.Errorf("parsing the Terraform Definitions from %q: %+v", terraformDefinitionsDirectory, err)

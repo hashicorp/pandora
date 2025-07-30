@@ -12,7 +12,7 @@ import (
 
 func (p *Pipeline) clearExistingAPIDefinitions() error {
 	// Common Types don't/shouldn't be needed for ARM, so this is mostly for sanity-checking purposes
-	logging.Infof("Removing any Common Types..")
+	logging.Info("Removing any Common Types..")
 	commonTypesOpts := repository.RemoveCommonTypesOptions{
 		SourceDataOrigin: p.opts.SourceDataOrigin,
 	}
