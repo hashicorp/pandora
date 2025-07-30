@@ -28,7 +28,7 @@ func identifyMethodsForAPIResource(input sdkModels.APIResource, resourceMetaData
 
 		// if it's an operation on just a suffix we're not interested
 		if operation.ResourceIDName == nil {
-			logging.Tracef("ResourceIDName was nil for this Operation, skipping")
+			logging.Trace("ResourceIDName was nil for this Operation, skipping")
 			continue
 		}
 		if *operation.ResourceIDName != resourceIdName {
@@ -85,9 +85,9 @@ func identifyMethodsForAPIResource(input sdkModels.APIResource, resourceMetaData
 			}
 		}
 		// TODO: determine if we're concerned with these in the future (e.g. ListKeys etc)
-		//if operation.URISuffix != nil && !strings.EqualFold(operation.Method, "GET") {
+		// if operation.URISuffix != nil && !strings.EqualFold(operation.Method, "GET") {
 		//	hasSuffixedMethods = true
-		//}
+		// }
 	}
 
 	// once we've been over all the methods, check if the Create method is actually CreateOrUpdate

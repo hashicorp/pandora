@@ -35,7 +35,7 @@ func TestAttributeValueForField_EdgeZone(t *testing.T) {
 	expected := "element(data.azurerm_extended_locations.test.extended_locations, 0)"
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -76,7 +76,7 @@ func TestAttributeValueForField_Location(t *testing.T) {
 	expected := "example_resource_group.test.location"
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -120,7 +120,7 @@ func TestAttributeValueForField_LocationWithinTheResourceGroupResource(t *testin
 	expected := `var.primary_location`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -161,7 +161,7 @@ func TestAttributeValueForField_ResourceGroup(t *testing.T) {
 	expected := "example_resource_group.test.name"
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -205,7 +205,7 @@ func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *t
 	expected := `"acctestrg-${var.random_integer}"`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -251,7 +251,7 @@ func TestAttributeValueForField_Tags(t *testing.T) {
 `
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -293,7 +293,7 @@ func TestAttributeValueForField_Zone(t *testing.T) {
 	expected := `"1"`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -332,7 +332,7 @@ func TestAttributeValueForField_Zones(t *testing.T) {
 	expected := `["1", "2", "3"]`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{

@@ -68,7 +68,7 @@ func TestDirectAssignment_CreateOrUpdate_Identity_UserAssignedList_RequiredToReq
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
 		if actual == nil {
-			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+			t.Fatal("retrieving create/update assignment mapping: `actual` was nil")
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
 	}
@@ -131,7 +131,7 @@ func TestDirectAssignment_CreateOrUpdate_Identity_UserAssignedList_RequiredToOpt
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
 		if actual == nil {
-			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+			t.Fatal("retrieving create/update assignment mapping: `actual` was nil")
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
 	}
@@ -184,7 +184,7 @@ func TestDirectAssignment_CreateOrUpdate_Identity_UserAssignedList_OptionalToReq
 		}
 		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, nil, "sdkresource")
 		if err == nil {
-			t.Fatalf("expected an error but didn't get one")
+			t.Fatal("expected an error but didn't get one")
 		}
 		if actual != nil {
 			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)

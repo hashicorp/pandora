@@ -38,7 +38,7 @@ func (c ServeCommand) Run(inputArgs []string) int {
 		ServiceNames:  nil,
 	}
 	if err := args.Parse(inputArgs); err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	logging.Debugf("Launching Server on port %d", args.Port)

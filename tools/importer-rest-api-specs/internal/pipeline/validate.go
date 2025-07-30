@@ -13,21 +13,21 @@ import (
 )
 
 func RunValidate(opts Options) error {
-	logging.Infof("Validating Data..")
+	logging.Info("Validating Data..")
 
-	logging.Debugf("Building the repository..")
+	logging.Debug("Building the repository..")
 	repo, err := repository.NewRepository(opts.RestAPISpecsDirectory, opts.SourceDataType, &opts.ServiceNamesToLimitTo, logging.Log)
 	if err != nil {
 		return fmt.Errorf("building repository: %+v", err)
 	}
-	logging.Debugf("Completed - Building the repository.")
+	logging.Debug("Completed - Building the repository.")
 
 	p := &Pipeline{
 		opts:       opts,
 		repository: repo,
 	}
 
-	logging.Infof("Loading the Configuration Files..")
+	logging.Info("Loading the Configuration Files..")
 	if err := p.loadConfigurationFiles(); err != nil {
 		return fmt.Errorf("loading the Configuration Files: %+v", err)
 	}
@@ -60,7 +60,7 @@ func RunValidate(opts Options) error {
 	}
 	sort.Strings(serviceNames)
 
-	logging.Infof("Validation Results:")
+	logging.Info("Validation Results:")
 	for _, serviceName := range serviceNames {
 		result := serviceNamesToResults[serviceName]
 		if result.succeeded {

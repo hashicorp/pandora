@@ -14,7 +14,7 @@ import (
 
 func ObjectDefinitionsMatch(first, second *sdkModels.SDKObjectDefinition) (bool, error) {
 	if first == nil && second == nil {
-		logging.Tracef("Both ObjectDefinitions were nil - so the same")
+		logging.Trace("Both ObjectDefinitions were nil - so the same")
 		return true, nil
 	}
 	if first != nil && second == nil {

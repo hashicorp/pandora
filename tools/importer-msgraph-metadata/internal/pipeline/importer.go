@@ -23,7 +23,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 		return fmt.Errorf("loading config: %+v", err)
 	}
 
-	logging.Debugf("Removing any existing API Definitions")
+	logging.Debug("Removing any existing API Definitions")
 	if err = input.Repo.PurgeExistingData(sdkModels.MicrosoftGraphMetaDataSourceDataOrigin); err != nil {
 		return fmt.Errorf("removing existing API Definitions: %+v", err)
 	}
@@ -34,7 +34,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 			return err
 		}
 	}
-	logging.Infof("Finished!")
+	logging.Info("Finished!")
 
 	return nil
 }
@@ -56,19 +56,19 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	logging.Infof("Parsing models and constants...")
+	logging.Info("Parsing models and constants...")
 	p.models, p.constants, err = parser.ModelsAndConstants(p.spec.Components.Schemas)
 	if err != nil {
 		return err
 	}
 
-	logging.Infof("Parsing resource IDs...")
+	logging.Info("Parsing resource IDs...")
 	p.resourceIds, err = parser.ResourceIDs(p.spec.Paths, nil)
 	if err != nil {
 		return err
 	}
 
-	logging.Infof("Applying data workarounds...")
+	logging.Info("Applying data workarounds...")
 	if err = workarounds.ApplyWorkarounds(p.apiVersion, p.models, p.constants, p.resourceIds); err != nil {
 		return err
 	}

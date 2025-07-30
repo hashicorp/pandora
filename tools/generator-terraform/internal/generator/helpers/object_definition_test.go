@@ -135,7 +135,7 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			t.Fatalf("expected an error but didn't get one for iteration %d", i)
 		}
 		if result == nil {
-			t.Fatalf("expected no error and a result but got no error and no result")
+			t.Fatal("expected no error and a result but got no error and no result")
 		}
 		if *result != *data.expected {
 			t.Fatalf("expected %q but got %q", *data.expected, *result)
@@ -316,7 +316,7 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 			t.Fatalf("expected an error but didn't get one for iteration %d", i)
 		}
 		if result == nil {
-			t.Fatalf("expected no error and a result but got no error and no result")
+			t.Fatal("expected no error and a result but got no error and no result")
 		}
 		if *result != *data.expected {
 			t.Fatalf("expected %q but got %q", *data.expected, *result)

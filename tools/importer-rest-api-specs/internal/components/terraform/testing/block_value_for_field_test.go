@@ -51,7 +51,7 @@ some_nested_item {
 `
 	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	actualRendered := renderBlocksToHcl(*actual)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actualRendered)
@@ -134,7 +134,7 @@ some_nested_item {
 `
 	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	actualRendered := renderBlocksToHcl(*actual)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actualRendered)
@@ -240,7 +240,7 @@ some_nested_item {
 `
 	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	actualRendered := renderBlocksToHcl(*actual)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actualRendered)
@@ -303,7 +303,7 @@ some_nested_item {
 `
 	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	actualRendered := renderBlocksToHcl(*actual)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actualRendered)
@@ -366,7 +366,7 @@ some_nested_item {
 `
 	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	actualRendered := renderBlocksToHcl(*actual)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actualRendered)

@@ -28,7 +28,7 @@ func TestDiff_FieldNoChanges(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := make([]changes.Change, 0)
 	assertChanges(t, expected, *actual)
@@ -57,7 +57,7 @@ func TestDiff_FieldAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldAdded{
@@ -94,7 +94,7 @@ func TestDiff_FieldRemoved(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldRemoved{
@@ -128,7 +128,7 @@ func TestDiff_FieldJsonNameChanged(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldJsonNameChanged{
@@ -164,7 +164,7 @@ func TestDiff_FieldIsNowOptional(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldIsNowOptional{
@@ -198,7 +198,7 @@ func TestDiff_FieldIsNowRequired(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldIsNowRequired{
@@ -231,7 +231,7 @@ func TestDiff_FieldObjectDefinitionChanged(t *testing.T) {
 	}
 	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.FieldObjectDefinitionChanged{

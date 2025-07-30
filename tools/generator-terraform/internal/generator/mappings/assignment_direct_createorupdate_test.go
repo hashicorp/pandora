@@ -102,7 +102,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
 		if actual == nil {
-			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+			t.Fatal("retrieving create/update assignment mapping: `actual` was nil")
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
 	}
@@ -199,7 +199,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 			t.Fatalf("retrieving create/update assignment mapping: %+v", err)
 		}
 		if actual == nil {
-			t.Fatalf("retrieving create/update assignment mapping: `actual` was nil")
+			t.Fatal("retrieving create/update assignment mapping: `actual` was nil")
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, *actual)
 	}
@@ -292,7 +292,7 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 		}
 		actual, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, &v.constant, "sdkresource")
 		if err == nil {
-			t.Fatalf("expected an error but didn't get one")
+			t.Fatal("expected an error but didn't get one")
 		}
 		if actual != nil {
 			t.Fatalf("expected an error and no result but got a result (%q) and no error", *actual)

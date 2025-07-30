@@ -21,7 +21,7 @@ func TestDebugSingleSwaggerFile(t *testing.T) {
 	}
 	result, err := parseAPIVersion("StorageCache", input, pointer.To("Microsoft.StorageCache"))
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	t.Logf("Got %d APIResources", len(result.Resources))
 }

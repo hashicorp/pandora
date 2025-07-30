@@ -35,7 +35,7 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 					break
 				}
 				if strings.EqualFold(item, "examples") {
-					logging.Tracef("File contains examples, skipping..")
+					logging.Trace("File contains examples, skipping..")
 					shouldIgnore = true
 					break
 				}
@@ -68,7 +68,7 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 		components = strings.Split(relativeFilePath, fmt.Sprintf("%c", filepath.Separator))
 		if !strings.HasSuffix(strings.ToLower(relativeFilePath), ".json") {
 			// non-JSON files aren't interesting at this time
-			logging.Tracef("File doesn't contain JSON - skipping..")
+			logging.Trace("File doesn't contain JSON - skipping..")
 			continue
 		}
 

@@ -41,7 +41,7 @@ func TestBlockValueForModel_RequiredOnly_OnlyTopLevelProperties(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	renderedActual := renderBlocksToHcl([]*hclwrite.Block{actual})
 	expected := `
@@ -87,7 +87,7 @@ func TestBlockValueForModel_RequiredAndOptional_OnlyTopLevelProperties(t *testin
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	renderedActual := renderBlocksToHcl([]*hclwrite.Block{actual})
 	expected := `
@@ -168,7 +168,7 @@ func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	renderedActual := renderBlocksToHcl([]*hclwrite.Block{actual})
 	expected := `
@@ -252,7 +252,7 @@ func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestVariables())
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	renderedActual := renderBlocksToHcl([]*hclwrite.Block{actual})
 	expected := `

@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/sdk
 
-go 1.21
+go 1.24.5
 
 require github.com/hashicorp/hcl/v2 v2.16.2
 
