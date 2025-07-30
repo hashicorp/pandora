@@ -25,7 +25,7 @@ func main() {
 	os.Setenv("OAIGEN_DEDUPE", "false")
 
 	if err := run(); err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 }
 

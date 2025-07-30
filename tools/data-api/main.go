@@ -29,7 +29,7 @@ func main() {
 
 	exitStatus, err := c.Run()
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	os.Exit(exitStatus)
