@@ -104,7 +104,7 @@ func TestGolangTypeForSDKOperationOptionObjectDefinition_Valid(t *testing.T) {
 
 		actual, err := GolangTypeForSDKOperationOptionObjectDefinition(val.input)
 		if err != nil {
-			t.Fatalf(err.Error())
+			t.Fatal(err.Error())
 		}
 
 		if *actual != val.expected {

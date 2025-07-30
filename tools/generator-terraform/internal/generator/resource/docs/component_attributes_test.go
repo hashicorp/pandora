@@ -1037,7 +1037,7 @@ func TestDocumentationLineForAttribute_ReferencingAModel(t *testing.T) {
 	}
 	actual, err := documentationLineForAttribute(input, "")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `some_item` - A `some_item` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -1060,7 +1060,7 @@ func TestDocumentationLineForAttribute_ReferencingAList(t *testing.T) {
 	}
 	actual, err := documentationLineForAttribute(input, "")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `some_item` - A list of `some_item` blocks as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -1083,7 +1083,7 @@ func TestDocumentationLineForAttribute_ReferencingASet(t *testing.T) {
 	}
 	actual, err := documentationLineForAttribute(input, "")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	// Sets are technically different internally, but still exposed to users in the same fashion, so we reuse `List` here
 	expected := "* `some_item` - A list of `some_item` blocks as defined below."
@@ -1102,7 +1102,7 @@ func TestDocumentationLineForAttribute_LocationAbove(t *testing.T) {
 	}
 	actual, err := documentationLineForAttribute(input, "person")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `animal` - An `animal` block as defined above."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -1120,7 +1120,7 @@ func TestDocumentationLineForAttribute_LocationBelow(t *testing.T) {
 	}
 	actual, err := documentationLineForAttribute(input, "cat")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `napping_place` - A `napping_place` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -1137,7 +1137,7 @@ func TestDocumentationLineForAttribute_LocationForTopLevelItemShouldAlwaysSayBel
 	}
 	actual, err := documentationLineForAttribute(input, "")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `animal` - An `animal` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)

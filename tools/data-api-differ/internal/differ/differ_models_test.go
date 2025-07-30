@@ -38,7 +38,7 @@ func TestDiff_ModelNoChanges(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := make([]changes.Change, 0)
 	assertChanges(t, expected, *actual)
@@ -55,7 +55,7 @@ func TestDiff_ModelAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelAdded{
@@ -79,7 +79,7 @@ func TestDiff_ModelRemoved(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelRemoved{
@@ -106,7 +106,7 @@ func TestDiff_ModelDiscriminatedParentTypeAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeAdded{
@@ -134,7 +134,7 @@ func TestDiff_ModelDiscriminatedParentTypeChanged(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeChanged{
@@ -163,7 +163,7 @@ func TestDiff_ModelDiscriminatedParentTypeRemoved(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeRemoved{
@@ -191,7 +191,7 @@ func TestDiff_ModelDiscriminatedFieldNameContainingDiscriminatedValueChanged(t *
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedTypeHintInChanged{
@@ -220,7 +220,7 @@ func TestDiff_ModelDiscriminatedDiscriminatedValueChanged(t *testing.T) {
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedTypeValueChanged{

@@ -22,7 +22,7 @@ func init() {
 func determineAndValidateDiff(t *testing.T, initial, updated v1.LoadAllDataResult, expected []changes.Change, breakingChanges bool) {
 	actual, err := performDiff(initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual == nil {
 		t.Fatalf("`actual` was unexpectedly nil")

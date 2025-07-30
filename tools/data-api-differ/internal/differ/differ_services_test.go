@@ -19,7 +19,7 @@ func TestDiff_ServiceNoChanges(t *testing.T) {
 	}
 	actual, err := differ{}.changesForService("Computer", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := make([]changes.Change, 0)
 	assertChanges(t, expected, *actual)
@@ -39,7 +39,7 @@ func TestDiff_ServiceAdded_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForService("Computer", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ServiceAdded{
@@ -63,7 +63,7 @@ func TestDiff_ServiceAdded_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForService("Computer", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ServiceAdded{
@@ -83,7 +83,7 @@ func TestDiff_ServiceRemoved_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForService("Computer", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ServiceRemoved{
@@ -103,7 +103,7 @@ func TestDiff_ServiceRemoved_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForService("Computer", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ServiceRemoved{

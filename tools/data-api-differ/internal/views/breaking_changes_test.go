@@ -16,7 +16,7 @@ import (
 func TestBreakingChangeView_Markdown_NoChanges(t *testing.T) {
 	actual, err := NewBreakingChangesView(make([]changes.Change, 0)).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "## Breaking Changes\n\nNo Breaking Changes were found 👍"
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -36,7 +36,7 @@ func TestBreakingChangeView_Markdown_WithOnlyBreakingChanges(t *testing.T) {
 	}
 	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.ReplaceAll(`
  ## Breaking Changes
@@ -63,7 +63,7 @@ func TestBreakingChangeView_Markdown_WithOnlyNonBreakingChanges(t *testing.T) {
 	}
 	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `
 ## Breaking Changes
@@ -87,7 +87,7 @@ func TestBreakingChangeView_Markdown_WithBreakingAndNonBreakingChanges(t *testin
 	}
 	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.ReplaceAll(`
  ## Breaking Changes

@@ -39,7 +39,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantVal
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual != nil {
 		t.Fatalf("expected `actual` to be nil since this isn't applicable but got %q", *actual)
@@ -49,7 +49,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantVal
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentName(t *testing.T) {
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("Location", FieldMetadata{})
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual != nil {
 		t.Fatalf("expected `actual` to be nil since this isn't applicable but got %q", *actual)
@@ -72,7 +72,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testi
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual != nil {
 		t.Fatalf("expected `actual` to be nil since this isn't applicable but got %q", *actual)
@@ -105,7 +105,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *te
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual != nil {
 		t.Fatalf("expected `actual` to be nil since this isn't applicable but got %q", *actual)
@@ -141,7 +141,7 @@ func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testin
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual == nil {
 		t.Fatalf("expected `actual` to have a value but was nil")
@@ -172,7 +172,7 @@ func TestFieldNameRenameMislabelledResourceID_WithAMatchingTypeFieldThatIsAStrin
 	}
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("ResourceId", metadata)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if actual == nil {
 		t.Fatalf("expected `actual` to have a value but was nil")

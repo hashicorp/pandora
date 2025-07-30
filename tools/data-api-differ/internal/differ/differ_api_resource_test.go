@@ -29,7 +29,7 @@ func TestDiff_APIResourceAdded_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiResourceAdded{
@@ -71,7 +71,7 @@ func TestDiff_APIResourceAdded_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiResourceAdded{
@@ -104,7 +104,7 @@ func TestDiff_APIResourceRemoved_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiResourceRemoved{
@@ -137,7 +137,7 @@ func TestDiff_APIResourceRemoved_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiResourceRemoved{

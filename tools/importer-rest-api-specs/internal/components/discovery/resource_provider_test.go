@@ -78,7 +78,7 @@ func TestDetermineResourceProviderForService(t *testing.T) {
 				continue
 			}
 
-			t.Fatalf(err.Error())
+			t.Fatal(err.Error())
 		}
 		if input.expected == nil {
 			if actual == nil {

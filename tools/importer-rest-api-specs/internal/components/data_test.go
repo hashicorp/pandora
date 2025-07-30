@@ -78,7 +78,7 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 func TestCanParseTerraformConfigurations(t *testing.T) {
 	terraformConfigurations, err := loadTerraformConfigurations(terraformDefinitionsDirectory)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	t.Logf("Loaded %d Terraform Configurations", len(terraformConfigurations))
 }
@@ -91,7 +91,7 @@ func TestCanBuildTerraformResources(t *testing.T) {
 
 	terraformConfigurations, err := loadTerraformConfigurations(terraformDefinitionsDirectory)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	for serviceName, serviceDetails := range terraformConfigurations {

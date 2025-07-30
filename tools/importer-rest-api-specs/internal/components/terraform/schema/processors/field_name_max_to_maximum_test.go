@@ -10,7 +10,7 @@ import (
 func TestFieldNameMaxToMaximum_Valid(t *testing.T) {
 	result, err := fieldNameMaxToMaximum{}.ProcessField("MaxValue", FieldMetadata{})
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	if result == nil {
@@ -24,7 +24,7 @@ func TestFieldNameMaxToMaximum_Valid(t *testing.T) {
 func TestFieldNameMaxToMaximum_Invalid(t *testing.T) {
 	result, err := fieldNameMaxToMaximum{}.ProcessField("Maximillian", FieldMetadata{})
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	if result != nil {
@@ -35,7 +35,7 @@ func TestFieldNameMaxToMaximum_Invalid(t *testing.T) {
 func TestFieldNameMaxToMaximum_LiteralValueOfMax(t *testing.T) {
 	result, err := fieldNameMaxToMaximum{}.ProcessField("Max", FieldMetadata{})
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if result == nil {
 		t.Fatalf("expected result to be non-nil but it was")
@@ -48,7 +48,7 @@ func TestFieldNameMaxToMaximum_LiteralValueOfMax(t *testing.T) {
 func TestFieldNameMaxToMaximum_LiteralValueOfMaxLowerCase(t *testing.T) {
 	result, err := fieldNameMaxToMaximum{}.ProcessField("max", FieldMetadata{})
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	if result == nil {
 		t.Fatalf("expected result to be non-nil but it was")

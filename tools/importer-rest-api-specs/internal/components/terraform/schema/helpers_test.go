@@ -84,7 +84,7 @@ func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
 
 		actual, err := applySchemaOverrides(v.fieldInput, v.overrides)
 		if err != nil {
-			t.Fatalf(err.Error())
+			t.Fatal(err.Error())
 		}
 		if actual == nil {
 			if v.expected == nil {

@@ -23,7 +23,7 @@ resource "example_test" "test" {
 `
 	actualConfig, actualVariables, err := updateTemplateWithVariableNames(inputConfig)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expectedConfig := `
 variable "primary_location" {
@@ -61,7 +61,7 @@ resource "example_test" "test" {
 `
 	actualConfig, actualVariables, err := updateTemplateWithVariableNames(inputConfig)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expectedConfig := `
 variable "random_string" {
@@ -96,7 +96,7 @@ resource "example_test" "test" {
 `
 	actualConfig, actualVariables, err := updateTemplateWithVariableNames(inputConfig)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expectedConfig := `
 variable "primary_location" {
@@ -125,7 +125,7 @@ resource "example_test" "test" {
 `
 	actualConfig, actualVariables, err := updateTemplateWithVariableNames(inputConfig)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expectedConfig := `
 variable "random_integer" {
@@ -155,7 +155,7 @@ resource "example_test" "test" {
 `
 	actualConfig, actualVariables, err := updateTemplateWithVariableNames(inputConfig)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expectedConfig := `
 variable "random_string" {

@@ -45,7 +45,7 @@ func TestAttributeValueForField_PossibleValuesInteger(t *testing.T) {
 	expected := `32`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -94,7 +94,7 @@ func TestAttributeValueForField_PossibleValuesFloat(t *testing.T) {
 	expected := `32.02`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -143,7 +143,7 @@ func TestAttributeValueForField_PossibleValuesString(t *testing.T) {
 	expected := `"First"`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{

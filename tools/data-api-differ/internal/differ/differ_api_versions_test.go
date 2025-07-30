@@ -33,7 +33,7 @@ func TestDiff_APIVersionAdded_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiVersionAdded{
@@ -83,7 +83,7 @@ func TestDiff_APIVersionAdded_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		// we should get the API Version and API Resource but nothing under it
@@ -125,7 +125,7 @@ func TestDiff_APIVersionRemoved_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiVersionRemoved{
@@ -161,7 +161,7 @@ func TestDiff_APIVersionRemoved_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ApiVersionRemoved{
