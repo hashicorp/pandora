@@ -125,6 +125,6 @@ func runGoImports(path string) {
 	if err != nil {
 		logging.Errorf("failed to execute goimports: %s", err.Error())
 	} else {
-		logging.Debugf(string(o))
+		logging.Debug(string(o))
 	}
 }
