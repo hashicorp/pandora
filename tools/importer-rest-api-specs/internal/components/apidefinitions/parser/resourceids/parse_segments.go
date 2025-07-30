@@ -266,7 +266,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		uniqueNames[segment.Name] = struct{}{}
 	}
 	if len(uniqueNames) != len(segments) && out.segments != nil {
-		logging.Tracef("Determining Unique Names for Segments..")
+		logging.Trace("Determining Unique Names for Segments..")
 		uniquelyNamedSegments, err := determineUniqueNamesForSegments(segments)
 		if err != nil {
 			return nil, fmt.Errorf("determining unique names for the segments as multiple have the same key: %+v", err)

@@ -45,7 +45,7 @@ func BuildForService(input sdkModels.Service, terraformConfig map[string]definit
 		return nil, fmt.Errorf("building the Terraform Example Usage: %+v", err)
 	}
 
-	logging.Tracef("Exporting the completed Terraform Data..")
+	logging.Trace("Exporting the completed Terraform Data..")
 	resources := data.TerraformResources()
 	logging.Tracef("%q has %d Resources", input.Name, len(resources))
 	input.TerraformDefinition = &sdkModels.TerraformDefinition{

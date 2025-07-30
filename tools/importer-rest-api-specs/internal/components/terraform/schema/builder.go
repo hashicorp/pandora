@@ -49,7 +49,7 @@ func (b Builder) Build(input sdkModels.TerraformResourceDefinition, resourceDefi
 
 	if parsedTopLevelModel == nil {
 		// it's been filtered out, e.g. a discriminator or similar, more info in the parent error message
-		logging.Tracef("top level model was filtered out")
+		logging.Trace("top level model was filtered out")
 		return nil, nil, nil
 	}
 
@@ -496,7 +496,7 @@ func (b Builder) identifyModelsWithinField(field sdkModels.SDKField, knownModels
 			// finally check if it has any models and add to that
 			logging.Tracef("checking for models within fields for model %q", *objectDefinition.ReferenceName)
 			for nestedFieldName, nestedField := range model.Fields {
-				logging.Tracef(fmt.Sprintf("field %q", nestedFieldName))
+				logging.Tracef("field %q", nestedFieldName)
 				nestedModels, err := b.identifyModelsWithinField(nestedField, allModels)
 				if err != nil {
 					return nil, fmt.Errorf("identifying models within field %q: %+v", nestedFieldName, err)

@@ -13,15 +13,15 @@ import (
 
 func buildResource(resourceIdName string, resourceMetaData definitions.ResourceDefinition, methods methodsForResource) *sdkModels.TerraformResourceDefinition {
 	if methods.createMethod == nil {
-		logging.Tracef("Missing a method for POST/PUT - skipping")
+		logging.Trace("Missing a method for POST/PUT - skipping")
 		return nil
 	}
 	if methods.deleteMethod == nil {
-		logging.Tracef("Missing a method for DELETE - skipping")
+		logging.Trace("Missing a method for DELETE - skipping")
 		return nil
 	}
 	if methods.getMethod == nil {
-		logging.Tracef("Missing a method for GET - skipping")
+		logging.Trace("Missing a method for GET - skipping")
 		return nil
 	}
 

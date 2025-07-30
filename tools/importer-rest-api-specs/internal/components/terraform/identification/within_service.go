@@ -54,7 +54,7 @@ func WithinService(providerPrefix string, input sdkModels.Service, terraformConf
 
 		resourceDefinition := buildResource(resourceIDName, resourceMetaData, *methods)
 		if resourceDefinition == nil {
-			logging.Tracef("Resource Definition was nil - skipping")
+			logging.Trace("Resource Definition was nil - skipping")
 			continue
 		}
 
