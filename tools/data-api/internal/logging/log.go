@@ -5,6 +5,7 @@ package logging
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/hashicorp/go-hclog"
 )
@@ -13,6 +14,16 @@ var Log hclog.Logger
 
 func init() {
 	Log = hclog.NewNullLogger()
+}
+
+func Fatalf(msg string, args ...interface{}) {
+	Log.Error(fmt.Sprintf(msg, args...))
+	os.Exit(1)
+}
+
+func Fatal(msg string) {
+	Log.Error(msg)
+	os.Exit(1)
 }
 
 func Debugf(msg string, args ...interface{}) {
