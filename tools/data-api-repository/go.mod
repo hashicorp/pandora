@@ -1,5 +1,7 @@
 module github.com/hashicorp/pandora/tools/data-api-repository
 
+go 1.24.5
+
 require (
 	github.com/hashicorp/go-azure-helpers v0.66.2
 	github.com/hashicorp/go-hclog v1.6.3
@@ -14,5 +16,3 @@ require (
 )
 
 replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
-
-go 1.23.10

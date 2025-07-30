@@ -58,7 +58,6 @@ func (s *Generator) Generate(input ServiceGeneratorInput) error {
 		}
 	}
 
-	runGoFmt(data.resourceOutputPath)
 	runGoImports(data.resourceOutputPath)
 
 	return nil
@@ -88,7 +87,6 @@ func (s *Generator) GenerateForVersion(input VersionGeneratorInput) error {
 		}
 	}
 
-	runGoFmt(data.versionOutputPath)
 	runGoImports(data.versionOutputPath)
 
 	return nil
@@ -111,22 +109,22 @@ func (s *Generator) GenerateCommonTypes(input VersionGeneratorInput) error {
 		}
 	}
 
-	runGoFmt(data.commonTypesOutputPath)
 	runGoImports(data.commonTypesOutputPath)
 
 	return nil
 }
 
-func runGoFmt(path string) {
-	logging.Debugf("Running gofmt -w %s..", path)
-	cmd := exec.Command("gofmt", "-w", path)
-	_ = cmd.Start()
-	_ = cmd.Wait()
-}
-
 func runGoImports(path string) {
 	logging.Debugf("Running goimports -w %s..", path)
-	cmd := exec.Command("goimports", "-w", path)
-	_ = cmd.Start()
-	_ = cmd.Wait()
+	p, err := exec.LookPath("goimports")
+	if err != nil {
+		logging.Errorf("goimports not found in path!")
+	}
+	cmd := exec.Command(p, "-w", path)
+	o, err := cmd.CombinedOutput()
+	if err != nil {
+		logging.Errorf("failed to execute goimports: %s", err.Error())
+	} else {
+		logging.Debugf(string(o))
+	}
 }
