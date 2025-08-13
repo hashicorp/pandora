@@ -123,13 +123,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "deletedAccountCreationTime",
-      "name": "DeletedAccountCreationTime",
+      "jsonName": "dnsEndpointType",
+      "name": "DnsEndpointType",
       "objectDefinition": {
-        "type": "DateTime",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "DnsEndpointType",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -139,12 +138,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "dnsEndpointType",
-      "name": "DnsEndpointType",
+      "jsonName": "dualStackEndpointPreference",
+      "name": "DualStackEndpointPreference",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "DnsEndpointType",
+        "referenceName": "DualStackEndpointPreference",
         "referenceNameIsCommonType": null
       },
       "optional": true,
