@@ -1,0 +1,32 @@
+{
+  "name": "ServiceTasksList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "taskType",
+      "required": false,
+      "field": "TaskType",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProjectTask",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/serviceTasks"
+}

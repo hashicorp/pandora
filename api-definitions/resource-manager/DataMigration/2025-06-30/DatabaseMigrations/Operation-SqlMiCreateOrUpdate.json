@@ -1,0 +1,24 @@
+{
+  "name": "SqlMiCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "Providers2DatabaseMigrationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlMi",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlMi",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "FilesGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "FileId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProjectFile",
+    "referenceNameIsCommonType": null
+  }
+}

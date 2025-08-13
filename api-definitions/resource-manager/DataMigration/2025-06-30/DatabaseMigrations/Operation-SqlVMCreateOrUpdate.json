@@ -1,0 +1,24 @@
+{
+  "name": "SqlVMCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlVirtualMachineProviders2DatabaseMigrationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlVM",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlVM",
+    "referenceNameIsCommonType": null
+  }
+}
