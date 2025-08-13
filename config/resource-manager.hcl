@@ -178,7 +178,7 @@ service "datalake-store" {
 }
 service "datamigration" {
   name      = "DataMigration"
-  available = ["2021-06-30"]
+  available = ["2021-06-30", "2025-06-30"]
 }
 service "dataprotection" {
   name      = "DataProtection"
@@ -402,7 +402,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2025-01-01", "2025-03-01"]
+  available = ["2025-01-01", "2025-03-01", "2025-06-01"]
 }
 service "network" {
   name      = "Network"
