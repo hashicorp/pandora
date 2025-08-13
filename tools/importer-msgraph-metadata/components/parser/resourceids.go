@@ -415,10 +415,14 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 }
 
 // ResourceIDs parses the provided openapi3.Paths and returns a map of ResourceId containing all possible detected resource IDs
-func ResourceIDs(paths openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
+func ResourceIDs(paths *openapi3.Paths, serviceName *string) (resourceIds ResourceIds, err error) {
 	resourceIds = make(ResourceIds)
 
-	for path, item := range paths {
+	if paths == nil {
+		return
+	}
+
+	for path, item := range paths.Map() { // TODO - kin-openapi changed from single type to map here - is this OK?
 		operations := item.Operations()
 		operationTags := make([]string, 0)
 
