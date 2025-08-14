@@ -1,0 +1,24 @@
+{
+  "name": "MongoToCosmosDbRUMongoCreate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DatabaseAccountProviders2DatabaseMigrationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationCosmosDbMongo",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationCosmosDbMongo",
+    "referenceNameIsCommonType": null
+  }
+}
