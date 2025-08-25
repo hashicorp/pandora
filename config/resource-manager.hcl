@@ -463,7 +463,7 @@ service "postgresql" {
 }
 service "postgresqlhsc" {
   name      = "PostgreSqlHSC"
-  available = ["2022-11-08"]
+  available = ["2022-11-08", "2023-03-02-preview"]
 }
 service "powerbidedicated" {
   name      = "PowerBIDedicated"
