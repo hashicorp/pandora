@@ -589,7 +589,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2024-07-01"]
+  available = ["2023-03-01", "2024-07-01", "2025-07-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
