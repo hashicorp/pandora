@@ -1,5 +1,5 @@
 {
-  "name": "ListByVirtualNetwork",
+  "name": "DnsResolversListByVirtualNetwork",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
@@ -25,8 +25,8 @@
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "VirtualNetworkDnsForwardingRuleset",
+    "referenceName": "SubResource",
     "referenceNameIsCommonType": null
   },
-  "uriSuffix": "/listDnsForwardingRulesets"
+  "uriSuffix": "/listDnsResolvers"
 }
