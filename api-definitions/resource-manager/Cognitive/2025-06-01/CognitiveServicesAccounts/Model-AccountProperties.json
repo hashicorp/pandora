@@ -381,10 +381,16 @@
       "jsonName": "networkInjections",
       "name": "NetworkInjections",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "List",
         "nullable": false,
-        "referenceName": "NetworkInjections",
-        "referenceNameIsCommonType": null
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "NetworkInjection",
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
