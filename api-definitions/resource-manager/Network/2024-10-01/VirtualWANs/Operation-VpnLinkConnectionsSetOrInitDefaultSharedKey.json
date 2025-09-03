@@ -1,0 +1,25 @@
+{
+  "name": "VpnLinkConnectionsSetOrInitDefaultSharedKey",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "VpnLinkConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectionSharedKeyResult",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectionSharedKeyResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/sharedKeys/default"
+}
