@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+	"unicode"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -149,7 +150,7 @@ func golangTypeNameForConstantType(input models.SDKConstantType) (*string, error
 	}
 	segmentType, ok := segmentTypes[input]
 	if !ok {
-		return nil, fmt.Errorf("constant type %q has no segmentTypes mapping", string(input))
+		return nil, fmt.Errorf("constant type %q has no segmentTypes mapping", input)
 	}
 	return &segmentType, nil
 }
@@ -173,12 +174,31 @@ func wordifyString(input string) string {
 	val = strings.TrimSuffix(val, "Id")
 	output := ""
 
-	for _, c := range val {
-		character := string(c)
-		if strings.ToUpper(character) == character {
-			output += " "
+	valLength := len(val)
+	for i, c := range val {
+		isUpper := unicode.IsUpper(c)
+		isLower := unicode.IsLower(c)
+		isNum := unicode.IsDigit(c)
+
+		if (i + 1) < valLength {
+			next := rune(val[i+1])
+			nextIsUpper := unicode.IsUpper(next)
+			nextIsLower := unicode.IsLower(next)
+			nextIsNum := unicode.IsDigit(next)
+
+			if i > 0 {
+				if prevIsUpper := unicode.IsUpper(rune(val[i-1])); prevIsUpper && isUpper && nextIsLower {
+					output += " "
+				}
+			}
+
+			if (isUpper && nextIsNum) || (isLower && (nextIsUpper || nextIsNum) || (isNum && (nextIsUpper || nextIsLower))) {
+				output += string(c)
+				output += " "
+				continue
+			}
 		}
-		output += character
+		output += string(c)
 	}
 
 	return strings.TrimPrefix(output, " ")
