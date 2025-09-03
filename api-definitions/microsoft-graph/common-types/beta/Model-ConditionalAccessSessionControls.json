@@ -24,13 +24,13 @@
       "name": "CloudAppSecurity",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "CloudAppSecuritySessionControl",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -59,6 +59,22 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Session control to link to Global Secure Access security profiles or filtering profiles.",
+      "jsonName": "globalSecureAccessFilteringProfile",
+      "name": "GlobalSecureAccessFilteringProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "GlobalSecureAccessFilteringProfileSessionControl",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

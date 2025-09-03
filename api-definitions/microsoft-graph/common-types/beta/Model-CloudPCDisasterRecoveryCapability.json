@@ -19,6 +19,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The disaster recovery license type that provides the capability. The possible values are: none, standard, unknownFutureValue, plus. Use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: plus.",
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCDisasterRecoveryLicenseType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The OData ID of this entity",
       "jsonName": "@odata.id",
       "name": "ODataId",

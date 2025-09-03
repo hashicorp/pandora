@@ -48,6 +48,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableServerCertificateValidation",
+      "name": "EnableServerCertificateValidation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "enableSsl",
       "name": "EnableSsl",
       "objectDefinition": {
@@ -81,7 +96,7 @@
       "jsonName": "httpPath",
       "name": "HTTPPath",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -96,7 +111,7 @@
       "jsonName": "host",
       "name": "Host",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -186,7 +201,7 @@
       "jsonName": "trustedCertPath",
       "name": "TrustedCertPath",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -231,7 +246,7 @@
       "jsonName": "username",
       "name": "Username",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -246,7 +261,7 @@
       "jsonName": "zooKeeperNameSpace",
       "name": "ZooKeeperNameSpace",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

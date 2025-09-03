@@ -83,6 +83,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The Md5 cryptographic hash of the file content.",
+      "jsonName": "md5",
+      "name": "Md5",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The OData ID of this entity",
       "jsonName": "@odata.id",
       "name": "ODataId",
@@ -134,6 +150,21 @@
       "description": "The Sha256 cryptographic hash of the file content.",
       "jsonName": "sha256",
       "name": "Sha256",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sha256Ac",
+      "name": "Sha256Ac",
       "objectDefinition": {
         "type": "String",
         "nullable": true,

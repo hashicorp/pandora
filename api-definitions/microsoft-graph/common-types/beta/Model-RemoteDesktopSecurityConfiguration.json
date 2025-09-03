@@ -3,6 +3,27 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "approvedClientApps",
+      "name": "ApprovedClientApps",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ApprovedClientApp",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Determines if Microsoft Entra ID RDS authentication protocol for RDP is enabled.",
       "jsonName": "isRemoteDesktopProtocolEnabled",
       "name": "IsRemoteDesktopProtocolEnabled",

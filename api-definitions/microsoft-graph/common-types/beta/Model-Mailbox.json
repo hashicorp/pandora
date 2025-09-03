@@ -1,0 +1,31 @@
+{
+  "name": "Mailbox",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of folders in the mailbox.",
+      "jsonName": "folders",
+      "name": "Folders",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MailboxFolder",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DirectoryObject",
+  "discriminatedTypeValue": "#microsoft.graph.mailbox",
+  "typeHintIn": "ODataType"
+}

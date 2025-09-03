@@ -1,0 +1,25 @@
+{
+  "name": "Acquire",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DnsAliasId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerDnsAliasAcquisition",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerDnsAlias",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/acquire"
+}

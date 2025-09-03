@@ -19,7 +19,7 @@ func main() {
 		loggingOpts.Level = hclog.LevelFromString(v)
 	}
 	logging.Log = hclog.New(loggingOpts)
-	logging.Infof("Data API launched..")
+	logging.Info("Data API launched..")
 
 	c := cli.NewCLI("data-api", "1.0.0")
 	c.Args = os.Args[1:]
@@ -29,7 +29,7 @@ func main() {
 
 	exitStatus, err := c.Run()
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	os.Exit(exitStatus)

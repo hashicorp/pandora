@@ -3,13 +3,13 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Windows quality update classification",
+      "description": "Windows quality update category",
       "jsonName": "classification",
       "name": "Classification",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "WindowsQualityUpdateClassification",
+        "referenceName": "WindowsQualityUpdateCategory",
         "referenceNameIsCommonType": true
       },
       "optional": true,
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Flag indicating if update qualifies for expedite",
+      "description": "When TRUE, indicates that the quality updates qualify for expedition. When FALSE, indicates the quality updates do not quality for expedition. Default value is FALSE. Read-only",
       "jsonName": "isExpeditable",
       "name": "IsExpeditable",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Knowledge base article id",
+      "description": "Identifies the knowledge base article associated with the Windows quality update catalog item. Read-only",
       "jsonName": "kbArticleId",
       "name": "KbArticleId",
       "objectDefinition": {
@@ -43,6 +43,44 @@
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The operating system product revisions that are released as part of this quality update. Read-only.",
+      "jsonName": "productRevisions",
+      "name": "ProductRevisions",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WindowsQualityUpdateCatalogProductRevision",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The publishing cadence of the quality update. Possible values are: monthly, outOfBand. This property cannot be modified and is automatically populated when the catalog is created.",
+      "jsonName": "qualityUpdateCadence",
+      "name": "QualityUpdateCadence",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WindowsQualityUpdateCadence",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

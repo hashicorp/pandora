@@ -1,0 +1,25 @@
+{
+  "name": "UserActionContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the user action that the authenticating identity is performing. The possible values are: registerSecurityInformation, registerOrJoinDevices, unknownFutureValue.",
+      "jsonName": "userAction",
+      "name": "UserAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UserAction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignInContext",
+  "discriminatedTypeValue": "#microsoft.graph.userActionContext",
+  "typeHintIn": "ODataType"
+}

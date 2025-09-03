@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of administrativeUnitInfo objects for the call participant.",
+      "jsonName": "administrativeUnitInfos",
+      "name": "AdministrativeUnitInfos",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CallRecordsAdministrativeUnitInfo",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The identity of the call participant.",
       "jsonName": "identity",
       "name": "Identity",

@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Email address of the presenter.",
       "jsonName": "email",
       "name": "Email",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identity information of the presenter. The supported identities are: communicationsGuestIdentity and communicationsUserIdentity.",
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Other details about the presenter. This property returns null when the virtual event type is virtualEventTownhall.",
       "jsonName": "presenterDetails",
       "name": "PresenterDetails",
       "objectDefinition": {

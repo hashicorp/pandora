@@ -1,0 +1,39 @@
+{
+  "name": "CreateOutlookTaskFolderPermanentDelete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action permanentDelete. Permanently delete an outlook task folder and remove its items from the user's mailbox. For more information about item retention, see Configure Deleted Item retention and Recoverable Items quotas.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdOutlookTaskFolderId",
+  "resourceIdNameIsCommonType": true,
+  "uriSuffix": "/permanentDelete"
+}

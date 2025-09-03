@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The on-premises nonweb application published through Microsoft Entra application proxy. Expanded by default and supports $expand.",
       "jsonName": "application",
       "name": "Application",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Either the IP address, IP range, or FQDN of the applicationSegment, with or without wildcards.",
       "jsonName": "destinationHost",
       "name": "DestinationHost",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The possible values are: ipAddress, ipRange, ipRangeCidr, fqdn, dnsSuffix, unknownFutureValue.",
       "jsonName": "destinationType",
       "name": "DestinationType",
       "objectDefinition": {
@@ -48,6 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Port supported for the application segment. DO NOT USE.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -63,6 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List of ports supported for the application segment.",
       "jsonName": "ports",
       "name": "Ports",
       "objectDefinition": {
@@ -84,6 +89,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates the protocol of the network traffic acquired for the application segment. The possible values are: tcp, udp, unknownFutureValue.",
       "jsonName": "protocol",
       "name": "Protocol",
       "objectDefinition": {

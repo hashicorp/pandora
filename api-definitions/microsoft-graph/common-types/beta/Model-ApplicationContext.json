@@ -1,0 +1,31 @@
+{
+  "name": "ApplicationContext",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Collection of appId values for the applications.",
+      "jsonName": "includeApplications",
+      "name": "IncludeApplications",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignInContext",
+  "discriminatedTypeValue": "#microsoft.graph.applicationContext",
+  "typeHintIn": "ODataType"
+}

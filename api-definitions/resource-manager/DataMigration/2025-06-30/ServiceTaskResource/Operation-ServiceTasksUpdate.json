@@ -1,0 +1,23 @@
+{
+  "name": "ServiceTasksUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServiceTaskId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProjectTask",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProjectTask",
+    "referenceNameIsCommonType": null
+  }
+}

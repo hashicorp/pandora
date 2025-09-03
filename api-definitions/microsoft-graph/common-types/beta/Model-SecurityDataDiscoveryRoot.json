@@ -1,0 +1,25 @@
+{
+  "name": "SecurityDataDiscoveryRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The available entities are IP addresses, devices, and users who access a cloud app.",
+      "jsonName": "cloudAppDiscovery",
+      "name": "CloudAppDiscovery",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDataDiscoveryReport",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.security.dataDiscoveryRoot",
+  "typeHintIn": "ODataType"
+}

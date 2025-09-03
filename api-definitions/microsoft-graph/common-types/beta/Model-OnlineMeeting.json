@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The AI insights generated for an online meeting. Read-only.",
+      "jsonName": "aiInsights",
+      "name": "AiInsights",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "CallAiInsight",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The content stream of the alternative recording of a Microsoft Teams live event. Read-only.",
       "jsonName": "alternativeRecording",
       "name": "AlternativeRecording",

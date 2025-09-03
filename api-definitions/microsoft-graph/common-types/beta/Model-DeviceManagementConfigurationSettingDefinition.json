@@ -18,7 +18,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details which device setting is applicable on",
+      "description": "Details which device setting is applicable on. Supports: $filters.",
       "jsonName": "applicability",
       "name": "Applicability",
       "objectDefinition": {
@@ -50,7 +50,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the area group under which the setting is configured in a specified configuration service provider (CSP)",
+      "description": "Specify category in which the setting is under. Support $filters.",
       "jsonName": "categoryId",
       "name": "CategoryId",
       "objectDefinition": {
@@ -66,7 +66,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the item",
+      "description": "Description of the setting.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -82,7 +82,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Display name of the item",
+      "description": "Name of the setting. For example: Allow Toast.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -98,7 +98,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Help text of the item",
+      "description": "Help text of the setting. Give more details of the setting.",
       "jsonName": "helpText",
       "name": "HelpText",
       "objectDefinition": {
@@ -114,7 +114,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of links more info for the setting can be found at",
+      "description": "List of links more info for the setting can be found at.",
       "jsonName": "infoUrls",
       "name": "InfoUrls",
       "objectDefinition": {
@@ -228,7 +228,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Root setting definition if the setting is a child setting.",
+      "description": "Setting RiskLevel",
+      "jsonName": "riskLevel",
+      "name": "RiskLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceManagementConfigurationSettingRiskLevel",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Root setting definition id if the setting is a child setting.",
       "jsonName": "rootDefinitionId",
       "name": "RootDefinitionId",
       "objectDefinition": {

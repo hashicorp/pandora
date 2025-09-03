@@ -800,7 +800,7 @@ func TestDocumentationLineForArgument_ReferencingAModel(t *testing.T) {
 	}
 	actual, err := documentationLineForArgument(input, "", "Example Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `some_item` - (Optional) A `some_item` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -823,7 +823,7 @@ func TestDocumentationLineForArgument_ReferencingAList(t *testing.T) {
 	}
 	actual, err := documentationLineForArgument(input, "", "Example Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `some_item` - (Optional) A list of `some_item` blocks as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -846,7 +846,7 @@ func TestDocumentationLineForArgument_ReferencingASet(t *testing.T) {
 	}
 	actual, err := documentationLineForArgument(input, "", "Example Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	// Sets are technically different internally, but still exposed to users in the same fashion, so we reuse `List` here
 	expected := "* `some_item` - (Optional) A list of `some_item` blocks as defined below."
@@ -865,7 +865,7 @@ func TestDocumentationLineForArgument_LocationAbove(t *testing.T) {
 	}
 	actual, err := documentationLineForArgument(input, "person", "Some Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `animal` - (Optional) An `animal` block as defined above."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -883,7 +883,7 @@ func TestDocumentationLineForArgument_LocationBelow(t *testing.T) {
 	}
 	actual, err := documentationLineForArgument(input, "cat", "Some Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `napping_place` - (Optional) A `napping_place` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
@@ -900,7 +900,7 @@ func TestDocumentationLineForArgument_LocationForTopLevelItemShouldAlwaysSayBelo
 	}
 	actual, err := documentationLineForArgument(input, "", "Some Resource")
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := "* `animal` - (Optional) An `animal` block as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)

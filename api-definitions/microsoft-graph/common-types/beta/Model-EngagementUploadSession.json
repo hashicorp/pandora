@@ -1,0 +1,25 @@
+{
+  "name": "EngagementUploadSession",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The ID of the session.",
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "UploadSession",
+  "discriminatedTypeValue": "#microsoft.graph.engagementUploadSession",
+  "typeHintIn": "ODataType"
+}

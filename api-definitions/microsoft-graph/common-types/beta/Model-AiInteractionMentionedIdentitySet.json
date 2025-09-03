@@ -1,0 +1,41 @@
+{
+  "name": "AiInteractionMentionedIdentitySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The conversation details.",
+      "jsonName": "conversation",
+      "name": "Conversation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkConversationIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The tag details.",
+      "jsonName": "tag",
+      "name": "Tag",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TeamworkTagIdentity",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentitySet",
+  "discriminatedTypeValue": "#microsoft.graph.aiInteractionMentionedIdentitySet",
+  "typeHintIn": "ODataType"
+}

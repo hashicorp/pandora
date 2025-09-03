@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Android for work restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for Android For Work platform.",
       "jsonName": "androidForWorkRestriction",
       "name": "AndroidForWorkRestriction",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Android restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for Android platform.",
       "jsonName": "androidRestriction",
       "name": "AndroidRestriction",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Ios restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for IOS platform.",
       "jsonName": "iosRestriction",
       "name": "IosRestriction",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Mac restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for MacOS platform.",
       "jsonName": "macOSRestriction",
       "name": "MacOSRestriction",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Mac restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for Mac platform.",
       "jsonName": "macRestriction",
       "name": "MacRestriction",
       "objectDefinition": {
@@ -83,7 +83,39 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Windows Home Sku restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for TvOS platform.",
+      "jsonName": "tvosRestriction",
+      "name": "TvosRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates restrictions for VisionOS platform.",
+      "jsonName": "visionOSRestriction",
+      "name": "VisionOSRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeviceEnrollmentPlatformRestriction",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates restrictions for Windows HomeSku platform.",
       "jsonName": "windowsHomeSkuRestriction",
       "name": "WindowsHomeSkuRestriction",
       "objectDefinition": {
@@ -99,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Windows mobile restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for Windows Mobile platform.",
       "jsonName": "windowsMobileRestriction",
       "name": "WindowsMobileRestriction",
       "objectDefinition": {
@@ -115,7 +147,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Windows restrictions based on platform, platform operating system version, and device ownership",
+      "description": "Indicates restrictions for Windows platform.",
       "jsonName": "windowsRestriction",
       "name": "WindowsRestriction",
       "objectDefinition": {

@@ -131,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of the file prior to encryption. To be deprecated, please use sizeInBytes property instead.",
+      "description": "Indicates the original size of the file, in bytes.",
       "jsonName": "size",
       "name": "Size",
       "objectDefinition": {
@@ -147,41 +147,9 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The size of the file after encryption. To be deprecated, please use sizeEncryptedInBytes property instead.",
+      "description": "Indicates the size of the file after encryption, in bytes.",
       "jsonName": "sizeEncrypted",
       "name": "SizeEncrypted",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the size of the file after encryption, in bytes. Valid values 0 to 9.22337203685478E+18",
-      "jsonName": "sizeEncryptedInBytes",
-      "name": "SizeEncryptedInBytes",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the original size of the file, in bytes. Valid values 0 to 9.22337203685478E+18",
-      "jsonName": "sizeInBytes",
-      "name": "SizeInBytes",
       "objectDefinition": {
         "type": "Integer",
         "nullable": false,

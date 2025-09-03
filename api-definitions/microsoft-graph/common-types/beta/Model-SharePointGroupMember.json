@@ -1,0 +1,25 @@
+{
+  "name": "SharePointGroupMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The identity represented by the sharePointGroupMember object.",
+      "jsonName": "identity",
+      "name": "Identity",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SharePointIdentitySet",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.sharePointGroupMember",
+  "typeHintIn": "ODataType"
+}

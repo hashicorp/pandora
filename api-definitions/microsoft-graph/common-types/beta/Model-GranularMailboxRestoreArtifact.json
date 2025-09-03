@@ -1,0 +1,41 @@
+{
+  "name": "GranularMailboxRestoreArtifact",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": ".",
+      "jsonName": "artifactCount",
+      "name": "ArtifactCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": ".",
+      "jsonName": "searchResponseId",
+      "name": "SearchResponseId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "MailboxRestoreArtifact",
+  "discriminatedTypeValue": "#microsoft.graph.granularMailboxRestoreArtifact",
+  "typeHintIn": "ODataType"
+}

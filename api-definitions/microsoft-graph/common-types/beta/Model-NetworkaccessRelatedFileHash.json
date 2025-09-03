@@ -1,0 +1,39 @@
+{
+  "name": "NetworkaccessRelatedFileHash",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "algorithm",
+      "name": "Algorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NetworkaccessAlgorithm",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "NetworkaccessRelatedResource",
+  "discriminatedTypeValue": "#microsoft.graph.networkaccess.relatedFileHash",
+  "typeHintIn": "ODataType"
+}

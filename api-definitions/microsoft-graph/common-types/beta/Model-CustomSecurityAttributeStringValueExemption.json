@@ -1,0 +1,25 @@
+{
+  "name": "CustomSecurityAttributeStringValueExemption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value representing custom security attribute value to compare against while evaluating the exemption.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CustomSecurityAttributeExemption",
+  "discriminatedTypeValue": "#microsoft.graph.customSecurityAttributeStringValueExemption",
+  "typeHintIn": "ODataType"
+}

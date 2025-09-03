@@ -1,6 +1,23 @@
 {
   "name": "CustomAuthenticationExtension",
-  "fields": [],
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The behaviour on error for the custom authentication extension.",
+      "jsonName": "behaviorOnError",
+      "name": "BehaviorOnError",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomExtensionBehaviorOnError",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
   "IsParent": true,
   "discriminatedParentModelName": "CustomCalloutExtension",
   "discriminatedTypeValue": "#microsoft.graph.customAuthenticationExtension",

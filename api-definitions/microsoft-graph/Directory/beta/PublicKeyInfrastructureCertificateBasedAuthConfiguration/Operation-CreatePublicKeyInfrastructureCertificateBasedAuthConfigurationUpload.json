@@ -1,0 +1,45 @@
+{
+  "name": "CreatePublicKeyInfrastructureCertificateBasedAuthConfigurationUpload",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action upload. Append additional certificate authority details to a certificateBasedAuthPki resource. Only one operation can run at a time and this operation can take up to 30 minutes to complete. To know whether another upload is in progress, call the Get certificateBasedAuthPki. The status property will have the value running.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DirectoryPublicKeyInfrastructureCertificateBasedAuthConfigurationId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreatePublicKeyInfrastructureCertificateBasedAuthConfigurationUploadRequest",
+    "referenceNameIsCommonType": false
+  },
+  "uriSuffix": "/upload"
+}

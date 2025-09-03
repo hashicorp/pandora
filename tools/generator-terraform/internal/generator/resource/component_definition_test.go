@@ -18,7 +18,7 @@ func TestComponentDefinition(t *testing.T) {
 	}
 	actual, err := definitionForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.TrimSpace(`
 var _ sdk.Resource = ExampleResource{}
@@ -41,7 +41,7 @@ func TestComponentDefinitionForMethodWithUpdate(t *testing.T) {
 	}
 	actual, err := definitionForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.TrimSpace(`
 var _ sdk.Resource = ExampleResource{}
@@ -65,7 +65,7 @@ func TestComponentDefinitionForMethodWithUpdateDisabled(t *testing.T) {
 	}
 	actual, err := definitionForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.TrimSpace(`
 var _ sdk.Resource = ExampleResource{}

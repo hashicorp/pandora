@@ -1,0 +1,24 @@
+{
+  "name": "IdentityGovernanceActivateRunScope",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "run",
+      "name": "Run",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IdentityGovernanceRun",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityGovernanceActivationScope",
+  "discriminatedTypeValue": "#microsoft.graph.identityGovernance.activateRunScope",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "CopilotSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "people",
+      "name": "People",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CopilotPeopleAdminSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.copilotSetting",
+  "typeHintIn": "ODataType"
+}

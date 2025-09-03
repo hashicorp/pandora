@@ -169,6 +169,21 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "notificationSettings",
+      "name": "NotificationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AccessPackageNotificationSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Questions that are posed to the  requestor.",
       "jsonName": "questions",
       "name": "Questions",

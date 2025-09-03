@@ -1,0 +1,51 @@
+{
+  "name": "ReplyChatMessageRepliesWithQuote",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Invoke action replyWithQuote. Reply with quote to a single chat message or multiple chat messages in a chat.",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserIdChatIdMessageId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ReplyChatMessageRepliesWithQuoteRequest",
+    "referenceNameIsCommonType": false
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ChatMessage",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/replies/replyWithQuote"
+}

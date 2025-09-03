@@ -19,6 +19,44 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents indicators and its associated verdict that suggests whether an email is compromised.",
+      "jsonName": "compromiseIndicators",
+      "name": "CompromiseIndicators",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityCompromiseIndicator",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Shows the exact events that took place during detonation, and problematic or benign observations that contain URLs, IPs, domains, and files that were found during detonation",
+      "jsonName": "detonationBehaviourDetails",
+      "name": "DetonationBehaviourDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityDetonationBehaviourDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The chain of detonation.",
       "jsonName": "detonationChain",
       "name": "DetonationChain",
@@ -43,6 +81,22 @@
         "nullable": false,
         "referenceName": "SecurityDetonationObservables",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Show any screenshots that were captured during detonation. No screenshots are captured if the URL opens into a link that directly downloads a file. However, you see the downloaded file in the detonation chain.",
+      "jsonName": "detonationScreenshotUri",
+      "name": "DetonationScreenshotUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether the attachment is a link to a folder. Must set this to true if sourceUrl is a link to a folder. Optional.",
+      "description": "Specifies whether the attachment is a link to a folder. You must set this property to true if sourceUrl is a link to a folder. Optional.",
       "jsonName": "isFolder",
       "name": "IsFolder",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "URL to get the attachment content. If this is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.",
+      "description": "URL to get the attachment content. If this value is a URL to a folder, then for the folder to be displayed correctly in Outlook or Outlook on the web, set isFolder to true. Required.",
       "jsonName": "sourceUrl",
       "name": "SourceUrl",
       "objectDefinition": {

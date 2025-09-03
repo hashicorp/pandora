@@ -1,0 +1,25 @@
+{
+  "name": "AiUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The history of interactions between AI agents and users.",
+      "jsonName": "interactionHistory",
+      "name": "InteractionHistory",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AiInteractionHistory",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.aiUser",
+  "typeHintIn": "ODataType"
+}

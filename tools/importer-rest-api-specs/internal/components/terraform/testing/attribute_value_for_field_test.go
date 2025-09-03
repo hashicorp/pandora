@@ -35,7 +35,7 @@ func TestAttributeValueForField_BasicTypeBoolean(t *testing.T) {
 	expected := `false`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -74,7 +74,7 @@ func TestAttributeValueForField_BasicTypeInteger(t *testing.T) {
 	expected := `21`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -113,7 +113,7 @@ func TestAttributeValueForField_BasicTypeFloat(t *testing.T) {
 	expected := `21.42`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -152,7 +152,7 @@ func TestAttributeValueForField_BasicTypeString(t *testing.T) {
 	expected := `"val-${var.random_string}"`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -194,7 +194,7 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 	expected := `"Description for the Example Thing"`
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
 	expectedDependencies := testDependencies{
@@ -238,7 +238,7 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 		builder := newTestBuilder("example", resourceLabel, details)
 		actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 		if err != nil {
-			t.Fatalf(err.Error())
+			t.Fatal(err.Error())
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, expectedValue, string(actual.Bytes()))
 		expectedDependencies := testDependencies{
@@ -281,7 +281,7 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_key_vault.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -322,7 +322,7 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_key_vault_key.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -365,7 +365,7 @@ func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T)
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_kubernetes_cluster.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -406,7 +406,7 @@ func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) 
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_network_interface.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -448,7 +448,7 @@ func TestAttributeValueForField_BasicTypeStringSubnetID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_subnet.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -489,7 +489,7 @@ func TestAttributeValueForField_BasicTypeStringSubscriptionID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `data.example_client_config.test.subscription_id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -524,7 +524,7 @@ func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `data.example_client_config.test.tenant_id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -559,7 +559,7 @@ func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_user_assigned_identity.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
@@ -599,7 +599,7 @@ func TestAttributeValueForField_BasicTypeStringVirtualNetworkID(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `example_virtual_network.test.id`
 	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))

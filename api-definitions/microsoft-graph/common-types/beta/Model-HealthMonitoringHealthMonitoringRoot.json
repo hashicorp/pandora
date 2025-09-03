@@ -1,0 +1,53 @@
+{
+  "name": "HealthMonitoringHealthMonitoringRoot",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The configuration of an alert type, which defines behavior that occurs when an alert is created.",
+      "jsonName": "alertConfigurations",
+      "name": "AlertConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "HealthMonitoringAlertConfiguration",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of health monitoring system detected alerts for anomalous usage patterns found in a Microsoft Entra tenant.",
+      "jsonName": "alerts",
+      "name": "Alerts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "HealthMonitoringAlert",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.healthMonitoring.healthMonitoringRoot",
+  "typeHintIn": "ODataType"
+}

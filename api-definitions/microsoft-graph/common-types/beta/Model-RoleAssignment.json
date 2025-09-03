@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Description of the Role Assignment.",
+      "description": "Indicates the description of the role assignment. For example: 'All administrators, employees and scope tags associated with the Houston office.' Max length is 1024 characters.",
       "jsonName": "description",
       "name": "Description",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The display or friendly name of the role Assignment.",
+      "description": "Indicates the display name of the role assignment. For example: 'Houston administrators and users'. Max length is 128 characters.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of ids of role scope member security groups.  These are IDs from Azure Active Directory.",
+      "description": "Indicates the list of resource scope security group Entra IDs. For example: {dec942f4-6777-4998-96b4-522e383b08e2}.",
       "jsonName": "resourceScopes",
       "name": "ResourceScopes",
       "objectDefinition": {
@@ -57,7 +57,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Role definition this assignment is part of.",
+      "description": "Indicates the role definition for this role assignment.",
       "jsonName": "roleDefinition",
       "name": "RoleDefinition",
       "objectDefinition": {
@@ -73,7 +73,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "List of ids of role scope member security groups.  These are IDs from Azure Active Directory.",
+      "description": "Indicates the list of role scope member security groups Entra IDs. For example, {dec942f4-6777-4998-96b4-522e383b08e2}.",
       "jsonName": "scopeMembers",
       "name": "ScopeMembers",
       "objectDefinition": {

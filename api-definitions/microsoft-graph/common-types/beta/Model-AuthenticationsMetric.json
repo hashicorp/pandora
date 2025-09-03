@@ -35,6 +35,36 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "authFlow",
+      "name": "AuthFlow",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "browser",
+      "name": "Browser",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The location where the customers authenticated from. Supports $filter (eq).",
       "jsonName": "country",
       "name": "Country",
@@ -59,6 +89,27 @@
         "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failures",
+      "name": "Failures",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AuthenticationFailure",
+          "referenceNameIsCommonType": true
+        }
       },
       "optional": true,
       "readOnly": false,

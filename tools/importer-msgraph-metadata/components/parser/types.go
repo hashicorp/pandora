@@ -374,7 +374,7 @@ func (ft DataType) DataApiSdkOperationOptionObjectDefinitionType() sdkModels.SDK
 }
 
 // FieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
-func FieldType(schemaType, schemaFormat string, hasReference bool) *DataType {
+func FieldType(schemaType []string, schemaFormat string, hasReference bool) *DataType {
 	var ret DataType
 
 	if hasReference {
@@ -424,15 +424,17 @@ func FieldType(schemaType, schemaFormat string, hasReference bool) *DataType {
 		return &ret
 	}
 
-	switch strings.ToLower(schemaType) {
-	case "array":
-		ret = DataTypeArray
-	case "boolean":
-		ret = DataTypeBool
-	case "integer":
-		ret = DataTypeInteger64
-	case "string":
-		ret = DataTypeString
+	if len(schemaType) > 0 {
+		switch strings.ToLower(schemaType[0]) {
+		case "array":
+			ret = DataTypeArray
+		case "boolean":
+			ret = DataTypeBool
+		case "integer":
+			ret = DataTypeInteger64
+		case "string":
+			ret = DataTypeString
+		}
 	}
 	if ret > 0 {
 		return &ret
@@ -502,7 +504,7 @@ func ModelOrConstant(schemaName string, schemaRef *openapi3.SchemaRef, common bo
 			Name:   normalize.CleanName(schemaName),
 			Common: common,
 			Enum:   parseEnum(schema.Enum),
-			Type:   FieldType(schema.Type, schema.Format, false),
+			Type:   FieldType(schema.Type.Slice(), schema.Format, false), // TODO - kin-openapi changed from single type to list here, we're assuming the first entry is going to be OK, but do we need to cater for multiple items?
 		}
 
 		return nil, &constant, nil
@@ -599,7 +601,7 @@ func modelFieldFromSchemaRef(jsonField string, fieldSchema *openapi3.SchemaRef) 
 		field.ReferenceName = &referencedSchemaName
 	}
 
-	field.Type = FieldType(fieldSchema.Value.Type, fieldSchema.Value.Format, field.ReferenceName != nil)
+	field.Type = FieldType(fieldSchema.Value.Type.Slice(), fieldSchema.Value.Format, field.ReferenceName != nil)
 
 	if items := fieldSchema.Value.Items; items != nil {
 		if items.Value != nil && items.Value.AnyOf != nil {
@@ -626,7 +628,7 @@ func modelFieldFromSchemaRef(jsonField string, fieldSchema *openapi3.SchemaRef) 
 			return nil, fmt.Errorf("item reference not found and items have no definition")
 		}
 
-		field.ItemType = FieldType(items.Value.Type, items.Value.Format, field.ReferenceName != nil)
+		field.ItemType = FieldType(items.Value.Type.Slice(), items.Value.Format, field.ReferenceName != nil)
 	}
 
 	// Detect nullable, read-only and required fields from the description, which appears to be reliably auto-generated.

@@ -1,0 +1,18 @@
+{
+  "name": "GetPoolUsage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "IPamPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PoolUsage",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getPoolUsage"
+}

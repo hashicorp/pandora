@@ -30,13 +30,13 @@
       "name": "ExcludeGuestsOrExternalUsers",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessGuestsOrExternalUsers",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -112,13 +112,13 @@
       "name": "IncludeGuestsOrExternalUsers",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": true,
+        "nullable": false,
         "referenceName": "ConditionalAccessGuestsOrExternalUsers",
         "referenceNameIsCommonType": true
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {

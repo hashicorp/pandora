@@ -79,17 +79,18 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Filter that defines the dynamic-servicePrincipal-syntax rule to include/exclude service principals. A filter can use custom security attributes to include/exclude service principals.",
       "jsonName": "servicePrincipalFilter",
       "name": "ServicePrincipalFilter",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": false,
+        "nullable": true,
         "referenceName": "ConditionalAccessFilter",
         "referenceNameIsCommonType": true
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     }
   ],

@@ -39,7 +39,7 @@ func TestDiff_CommonTypesAdded_WithNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypes(initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesApiVersionAdded{
@@ -91,7 +91,7 @@ func TestDiff_CommonTypesAdded_WithoutNestedDetails(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypes(initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesApiVersionAdded{
@@ -131,7 +131,7 @@ func TestDiff_CommonTypesRemoved_WithNestedDetails(t *testing.T) {
 	updated := map[string]models.CommonTypes{}
 	actual, err := differ{}.changesForCommonTypes(initial, updated, true)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesApiVersionRemoved{
@@ -172,7 +172,7 @@ func TestDiff_CommonTypesRemoved_WithoutNestedDetails(t *testing.T) {
 	updated := map[string]models.CommonTypes{}
 	actual, err := differ{}.changesForCommonTypes(initial, updated, false)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesApiVersionRemoved{

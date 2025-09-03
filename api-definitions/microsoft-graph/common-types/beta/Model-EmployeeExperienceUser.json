@@ -3,6 +3,28 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents the collection of Viva Engage roles assigned to a user.",
+      "jsonName": "assignedRoles",
+      "name": "AssignedRoles",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EngagementRole",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "learningCourseActivities",
       "name": "LearningCourseActivities",
       "objectDefinition": {

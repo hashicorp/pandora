@@ -3,6 +3,21 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "liveCaptionOptions",
+      "name": "LiveCaptionOptions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LiveCaptionOptions",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The list of media to prefetch.",
       "jsonName": "preFetchMedia",
       "name": "PreFetchMedia",

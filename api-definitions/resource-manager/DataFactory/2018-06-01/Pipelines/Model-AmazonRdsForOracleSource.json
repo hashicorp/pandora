@@ -18,10 +18,40 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "numberPrecision",
+      "name": "NumberPrecision",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "numberScale",
+      "name": "NumberScale",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "oracleReaderQuery",
       "name": "OracleReaderQuery",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -36,7 +66,7 @@
       "jsonName": "partitionOption",
       "name": "PartitionOption",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -66,7 +96,7 @@
       "jsonName": "queryTimeout",
       "name": "QueryTimeout",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

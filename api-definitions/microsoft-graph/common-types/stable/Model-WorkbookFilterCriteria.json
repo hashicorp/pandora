@@ -144,6 +144,22 @@
       "readOnly": false,
       "required": false,
       "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The values that appear in the cell.",
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
   ],
   "IsParent": false

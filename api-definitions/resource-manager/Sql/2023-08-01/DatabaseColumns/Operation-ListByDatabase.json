@@ -1,0 +1,81 @@
+{
+  "name": "ListByDatabase",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "column",
+      "required": false,
+      "field": "Column",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "orderBy",
+      "required": false,
+      "field": "OrderBy",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "schema",
+      "required": false,
+      "field": "Schema",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "table",
+      "required": false,
+      "field": "Table",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    }
+  ],
+  "resourceIdName": "SqlDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseColumn",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/columns"
+}

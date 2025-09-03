@@ -3,6 +3,22 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents details about the agentic sign-in. Includes the type of agent as well as parentAppID in some cases",
+      "jsonName": "agent",
+      "name": "Agent",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AgenticAgentSignIn",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The application name displayed in the Microsoft Entra admin center.  Supports $filter (eq, startsWith).",
       "jsonName": "appDisplayName",
       "name": "AppDisplayName",
@@ -35,6 +51,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the tenant that owns the client application.  Supports $filter (eq).",
+      "jsonName": "appOwnerTenantId",
+      "name": "AppOwnerTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Token protection creates a cryptographically secure tie between the token and the device it's issued to. This field indicates whether the app token was bound to the device.",
       "jsonName": "appTokenProtectionStatus",
       "name": "AppTokenProtectionStatus",
@@ -51,7 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list of conditional access policies that the corresponding sign-in activity triggers. Apps need more Conditional Access-related privileges to read the details of this property. For more information, see Viewing applied conditional access (CA) policies in sign-ins.",
+      "description": "A list of conditional access policies that the corresponding sign-in activity triggers. Apps need more Conditional Access-related privileges to read the details of this property. For more information, see Permissions for viewing applied conditional access (CA) policies in sign-ins.",
       "jsonName": "appliedConditionalAccessPolicies",
       "name": "AppliedConditionalAccessPolicies",
       "objectDefinition": {
@@ -199,7 +231,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "More authentication processing details, such as the agent name for  PTA and PHS, or a server or farm name for federated authentication.",
+      "description": "More authentication processing details, such as the agent name for PTA and PHS, or a server or farm name for federated authentication.",
       "jsonName": "authenticationProcessingDetails",
       "name": "AuthenticationProcessingDetails",
       "objectDefinition": {
@@ -221,7 +253,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth. Use none for all authentications that don't have a specific value in that list. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: authenticationTransfer, nativeAuth.",
+      "description": "Lists the protocol type or grant type used in the authentication. The possible values are: none, oAuth2, ropc, wsFederation, saml20, deviceCode, unknownFutureValue, authenticationTransfer, nativeAuth, implicitAccessTokenAndGetResponseMode, implicitIdTokenAndGetResponseMode, implicitAccessTokenAndPostResponseMode, implicitIdTokenAndPostResponseMode, authorizationCodeWithoutPkce, authorizationCodeWithPkce, clientCredentials, refreshTokenGrant, encryptedAuthorizeResponse, directUserGrant, kerberos, prtGrant, seamlessSso, prtBrokerBased, prtNonBrokerBased, onBehalfOf, samlOnBehalfOf. Use the Prefer: include-unknown-enum-members request header to get the following values from this {evolvable enum}(/graph/best-practices-concept#handling-future-members-in-evolvable-enumerations): authenticationTransfer , nativeAuth , implicitAccessTokenAndGetResponseMode , implicitIdTokenAndGetResponseMode , implicitAccessTokenAndPostResponseMode , implicitIdTokenAndPostResponseMode , authorizationCodeWithoutPkce , authorizationCodeWithPkce , clientCredentials , refreshTokenGrant , encryptedAuthorizeResponse , directUserGrant , kerberos , prtGrant , seamlessSso , prtBrokerBased , prtNonBrokerBased , onBehalfOf , samlOnBehalfOf.",
       "jsonName": "authenticationProtocol",
       "name": "AuthenticationProtocol",
       "objectDefinition": {
@@ -339,7 +371,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A list that indicates the audience that was evaluated by Conditional Access during a sign-in event.  Supports $filter (eq).",
+      "description": "A list that indicates the audience that Conditional Access evaluated during a sign-in event.  Supports $filter (eq).",
       "jsonName": "conditionalAccessAudiences",
       "name": "ConditionalAccessAudiences",
       "objectDefinition": {
@@ -348,10 +380,10 @@
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
-          "type": "Reference",
+          "type": "String",
           "nullable": false,
-          "referenceName": "ConditionalAccessAudience",
-          "referenceNameIsCommonType": true
+          "referenceName": null,
+          "referenceNameIsCommonType": null
         }
       },
       "optional": true,
@@ -377,7 +409,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The identifier the client sends when sign-in is initiated. This is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).",
+      "description": "The identifier the client sends when sign-in is initiated. This property is used for troubleshooting the corresponding sign-in activity when calling for support.  Supports $filter (eq).",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
@@ -409,7 +441,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.",
+      "description": "Describes the type of cross-tenant access used by the actor to access the resource. Possible values are: none, b2bCollaboration, b2bDirectConnect, microsoftSupport, serviceProvider, unknownFutureValue, passthrough. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: passthrough. If the sign in didn't cross tenant boundaries, the value is none.",
       "jsonName": "crossTenantAccessType",
       "name": "CrossTenantAccessType",
       "objectDefinition": {
@@ -505,7 +537,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant has provided affirmative consent to Microsoft Entra ID to show the tenant content.",
+      "description": "For user sign ins, the identifier of the tenant that the user is a member of. Only populated in cases where the home tenant provides affirmative consent to Microsoft Entra ID to show the tenant content.",
       "jsonName": "homeTenantName",
       "name": "HomeTenantName",
       "objectDefinition": {
@@ -553,7 +585,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Also, you must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken.",
+      "description": "Indicates the token types that were presented to Microsoft Entra ID to authenticate the actor in the sign in. The possible values are: none, primaryRefreshToken, saml11, saml20, unknownFutureValue, remoteDesktopToken, refreshToken.  NOTE Microsoft Entra ID might have also used token types not listed in this enum type to authenticate the actor. Don't infer the lack of a token if it isn't one of the types listed. Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: remoteDesktopToken, refreshToken.",
       "jsonName": "incomingTokenType",
       "name": "IncomingTokenType",
       "objectDefinition": {
@@ -783,6 +815,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The identifier of the owner of the resource.  Supports $filter (eq).",
+      "jsonName": "resourceOwnerTenantId",
+      "name": "ResourceOwnerTenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The identifier of the service principal representing the target resource in the sign-in event.",
       "jsonName": "resourceServicePrincipalId",
       "name": "ResourceServicePrincipalId",
@@ -815,7 +863,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  You must use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.",
+      "description": "The reason behind a specific state of a risky user, sign-in, or a risk event. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.  Use the Prefer: include-unknown-enum-members request header to get the following value or values in this evolvable enum: adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal, m365DAdminDismissedDetection, userChangedPasswordOnPremises, adminDismissedRiskForSignIn, adminConfirmedAccountSafe.The value none means that Microsoft Entra risk detection hasn't flagged the user or the sign-in as a risky event so far.  Supports $filter (eq). Note: Details for this property are only available for Microsoft Entra ID P2 customers. All other customers are returned hidden.",
       "jsonName": "riskDetail",
       "name": "RiskDetail",
       "objectDefinition": {
@@ -965,6 +1013,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Identifier of the session that was generated during the sign-in.",
+      "jsonName": "sessionId",
+      "name": "SessionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Any conditional access session management policies that were applied during the sign-in event.",
       "jsonName": "sessionLifetimePolicies",
       "name": "SessionLifetimePolicies",
@@ -987,7 +1051,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne).",
+      "description": "Indicates the category of sign in that the event represents. For user sign ins, the category can be interactiveUser or nonInteractiveUser and corresponds to the value for the isInteractive property on the signin resource. For managed identity sign ins, the category is managedIdentity. For service principal sign-ins, the category is servicePrincipal. Possible values are: interactiveUser, nonInteractiveUser, servicePrincipal, managedIdentity, unknownFutureValue.  Supports $filter (eq, ne). NOTE: Only interactive sign-ins are returned unless you set an explicit filter. For example, the filter for getting non-interactive sign-ins is https://graph.microsoft.com/beta/auditLogs/signIns?\u0026$filter=signInEventTypes/any(t: t eq 'nonInteractiveUser').",
       "jsonName": "signInEventTypes",
       "name": "SignInEventTypes",
       "objectDefinition": {
@@ -1089,7 +1153,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. You must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.",
+      "description": "The type of identity provider. The possible values are: AzureAD, ADFederationServices, UnknownFutureValue, AzureADBackupAuth, ADFederationServicesMFAAdapter, NPSExtension. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: AzureADBackupAuth , ADFederationServicesMFAAdapter , NPSExtension.",
       "jsonName": "tokenIssuerType",
       "name": "TokenIssuerType",
       "objectDefinition": {
@@ -1105,7 +1169,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A unique base64 encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.",
+      "jsonName": "tokenProtectionStatusDetails",
+      "name": "TokenProtectionStatusDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TokenProtectionStatusDetails",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A unique base64-encoded request identifier used to track tokens issued by Microsoft Entra ID as they're redeemed at resource providers.",
       "jsonName": "uniqueTokenIdentifier",
       "name": "UniqueTokenIdentifier",
       "objectDefinition": {

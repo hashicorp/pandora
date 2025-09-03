@@ -1,0 +1,41 @@
+{
+  "name": "ForwardToChatResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The chatMessage ID generated after a message is successfully forwarded to the target chat ID.",
+      "jsonName": "forwardedMessageId",
+      "name": "ForwardedMessageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The target chat ID where the message was forwarded.",
+      "jsonName": "targetChatId",
+      "name": "TargetChatId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ActionResultPart",
+  "discriminatedTypeValue": "#microsoft.graph.forwardToChatResult",
+  "typeHintIn": "ODataType"
+}

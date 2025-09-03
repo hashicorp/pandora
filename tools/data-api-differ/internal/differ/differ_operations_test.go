@@ -26,7 +26,7 @@ func TestDiff_OperationNoChanges(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := make([]changes.Change, 0)
 	assertChanges(t, expected, *actual)
@@ -50,7 +50,7 @@ func TestDiff_OperationAddedWithResourceId(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationAdded{
@@ -83,7 +83,7 @@ func TestDiff_OperationAddedWithResourceIdAndUriSuffix(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationAdded{
@@ -111,7 +111,7 @@ func TestDiff_OperationAddedWithUriSuffix(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationAdded{
@@ -140,7 +140,7 @@ func TestDiff_OperationContentTypeChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationContentTypeChanged{
@@ -170,7 +170,7 @@ func TestDiff_OperationExpectedStatusCodeChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationExpectedStatusCodesChanged{
@@ -202,7 +202,7 @@ func TestDiff_OperationExpectedStatusCodeChangedBreakingChange(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationExpectedStatusCodesChanged{
@@ -232,7 +232,7 @@ func TestDiff_OperationLongRunningAdded(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationLongRunningAdded{
@@ -260,7 +260,7 @@ func TestDiff_OperationLongRunningRemoved(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationLongRunningRemoved{
@@ -288,7 +288,7 @@ func TestDiff_OperationMethodChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationMethodChanged{
@@ -326,7 +326,7 @@ func TestDiff_OperationOptionsAdded(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationOptionsAdded{
@@ -381,7 +381,7 @@ func TestDiff_OperationOptionsChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationOptionsChanged{
@@ -434,7 +434,7 @@ func TestDiff_OperationOptionsChangedBreakingChange(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationOptionsChanged{
@@ -476,7 +476,7 @@ func TestDiff_OperationOptionsRemoved(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationOptionsRemoved{
@@ -507,7 +507,7 @@ func TestDiff_OperationPaginationFieldChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationPaginationFieldChanged{
@@ -540,7 +540,7 @@ func TestDiff_OperationRemovedWithResourceId(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRemoved{
@@ -573,7 +573,7 @@ func TestDiff_OperationRemovedWithResourceIdAndUriSuffix(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRemoved{
@@ -601,7 +601,7 @@ func TestDiff_OperationRemovedWithUriSuffix(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRemoved{
@@ -632,7 +632,7 @@ func TestDiff_OperationRequestObjectAdded(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRequestObjectAdded{
@@ -666,7 +666,7 @@ func TestDiff_OperationRequestObjectChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRequestObjectChanged{
@@ -698,7 +698,7 @@ func TestDiff_OperationRequestObjectRemoved(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationRequestObjectRemoved{
@@ -732,7 +732,7 @@ func TestDiff_OperationResourceIDAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResourceIdAdded{
@@ -770,7 +770,7 @@ func TestDiff_OperationResourceIDChangedUri(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResourceIdChanged{
@@ -811,7 +811,7 @@ func TestDiff_OperationResourceIDChangedNameAndUri(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResourceIdRenamed{
@@ -856,7 +856,7 @@ func TestDiff_OperationResourceIDRemoved(t *testing.T) {
 	newIds := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResourceIdRemoved{
@@ -894,7 +894,7 @@ func TestDiff_OperationResourceIDRenamed(t *testing.T) {
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResourceIdRenamed{
@@ -926,7 +926,7 @@ func TestDiff_OperationResponseObjectAdded(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResponseObjectAdded{
@@ -960,7 +960,7 @@ func TestDiff_OperationResponseObjectChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResponseObjectChanged{
@@ -992,7 +992,7 @@ func TestDiff_OperationResponseObjectRemoved(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationResponseObjectRemoved{
@@ -1021,7 +1021,7 @@ func TestDiff_OperationUriSuffixAdded(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationUriSuffixAdded{
@@ -1050,7 +1050,7 @@ func TestDiff_OperationUriSuffixChanged(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationUriSuffixChanged{
@@ -1080,7 +1080,7 @@ func TestDiff_OperationUriSuffixRemoved(t *testing.T) {
 	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.OperationUriSuffixRemoved{

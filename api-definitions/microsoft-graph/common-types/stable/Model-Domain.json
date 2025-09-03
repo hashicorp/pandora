@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.",
+      "description": "The objects such as users and groups that reference the domain ID. Read-only, Nullable. Doesn't support $expand. Supports $filter by the OData type of objects returned. For example, /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.",
       "jsonName": "domainNameReferences",
       "name": "DomainNameReferences",
       "objectDefinition": {
@@ -79,7 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Domain settings configured by a customer when federated with Microsoft Entra ID. Supports $expand.",
+      "description": "Domain settings configured by a customer when federated with Microsoft Entra ID. Doesn't support $expand.",
       "jsonName": "federationConfiguration",
       "name": "FederationConfiguration",
       "objectDefinition": {
@@ -117,7 +117,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "true if this is the default domain that is used for user creation. There's only one default domain per company. Not nullable",
+      "description": "true if this is the default domain that is used for user creation. There's only one default domain per company. Not nullable.",
       "jsonName": "isDefault",
       "name": "IsDefault",
       "objectDefinition": {
@@ -149,7 +149,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable",
+      "description": "true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable.",
       "jsonName": "isRoot",
       "name": "IsRoot",
       "objectDefinition": {
@@ -165,7 +165,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "true if the domain has completed domain ownership verification. Not nullable",
+      "description": "true if the domain completed domain ownership verification. Not nullable.",
       "jsonName": "isVerified",
       "name": "IsVerified",
       "objectDefinition": {
@@ -211,7 +211,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the number of days before a user receives notification that their password will expire. If the property isn't set, a default value of 14 days is used.",
+      "description": "Specifies the number of days before a user receives notification that their password expires. If the property isn't set, a default value of 14 days is used.",
       "jsonName": "passwordNotificationWindowInDays",
       "name": "PasswordNotificationWindowInDays",
       "objectDefinition": {
@@ -243,7 +243,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.",
+      "description": "Root domain of a subdomain. Read-only, Nullable. Supports $expand.",
+      "jsonName": "rootDomain",
+      "name": "RootDomain",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": true,
+        "referenceName": "Domain",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Doesn't support $expand.",
       "jsonName": "serviceConfigurationRecords",
       "name": "ServiceConfigurationRecords",
       "objectDefinition": {
@@ -303,7 +319,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Supports $expand.",
+      "description": "DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Microsoft Entra ID. Read-only, Nullable. Doesn't support $expand.",
       "jsonName": "verificationDnsRecords",
       "name": "VerificationDnsRecords",
       "objectDefinition": {

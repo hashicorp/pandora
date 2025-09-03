@@ -19,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the service was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
@@ -158,7 +159,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if the URL to join the appointment anonymously (anonymousJoinWebUrl) will be generated for the appointment booked for this service.",
+      "description": "Indicates if an anonymousJoinWebUrl(webrtcUrl) is generated for the appointment booked for this service. The default value is false.",
       "jsonName": "isAnonymousJoinEnabled",
       "name": "IsAnonymousJoinEnabled",
       "objectDefinition": {
@@ -174,6 +175,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates that the customer can manage bookings created by the staff. The default value is false.",
       "jsonName": "isCustomerAllowedToManageBooking",
       "name": "IsCustomerAllowedToManageBooking",
       "objectDefinition": {
@@ -189,7 +191,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True means this service is not available to customers for booking.",
+      "description": "True indicates that this service isn't available to customers for booking.",
       "jsonName": "isHiddenFromCustomers",
       "name": "IsHiddenFromCustomers",
       "objectDefinition": {
@@ -205,7 +207,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True indicates that the appointments for the service will be held online. Default value is false.",
+      "description": "Indicates that the appointments for the service are held online. The default value is false.",
       "jsonName": "isLocationOnline",
       "name": "IsLocationOnline",
       "objectDefinition": {
@@ -237,6 +239,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the service was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "lastUpdatedDateTime",
       "name": "LastUpdatedDateTime",
       "objectDefinition": {

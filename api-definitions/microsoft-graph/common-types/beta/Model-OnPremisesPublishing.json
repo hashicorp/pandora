@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "If you're configuring a traffic manager in front of multiple App Proxy applications, the alternateUrl is the user-friendly URL that points to the traffic manager.",
+      "description": "If you're configuring a traffic manager in front of multiple app proxy applications, this user-friendly URL points to the traffic manager.",
       "jsonName": "alternateUrl",
       "name": "AlternateUrl",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates if this application is an Application Proxy configured application. This is pre-set by the system. Read-only.",
+      "description": "System-defined value that indicates whether this application is an application proxy configured application. The possible values are quickaccessapp and nonwebapp. Read-only.",
       "jsonName": "applicationType",
       "name": "ApplicationType",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The published external url for the application. For example, https://intranet-contoso.msappproxy.net/.",
+      "description": "The published external URL for the application. For example, https://intranet-contoso.msappproxy.net/.",
       "jsonName": "externalUrl",
       "name": "ExternalUrl",
       "objectDefinition": {
@@ -99,6 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the application is accessible via a Global Secure Access client on a managed device.",
       "jsonName": "isAccessibleViaZTNAClient",
       "name": "IsAccessibleViaZTNAClient",
       "objectDefinition": {
@@ -130,6 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates Microsoft Entra Private Access should handle DNS resolution. false by default.",
       "jsonName": "isDnsResolutionEnabled",
       "name": "IsDnsResolutionEnabled",
       "objectDefinition": {
@@ -343,6 +345,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether the application should use alternateUrl instead of externalUrl.",
       "jsonName": "useAlternateUrlForTranslationAndRedirect",
       "name": "UseAlternateUrlForTranslationAndRedirect",
       "objectDefinition": {
@@ -398,6 +401,57 @@
         "nullable": false,
         "referenceName": "PasswordCredential",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wafAllowedHeaders",
+      "name": "WafAllowedHeaders",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WafAllowedHeadersDictionary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wafIpRanges",
+      "name": "WafIPRanges",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "IPRange",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "wafProvider",
+      "name": "WafProvider",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

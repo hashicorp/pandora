@@ -1,0 +1,41 @@
+{
+  "name": "ExchangeSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the user's in-place archive mailbox.",
+      "jsonName": "inPlaceArchiveMailboxId",
+      "name": "InPlaceArchiveMailboxId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for the user's primary mailbox.",
+      "jsonName": "primaryMailboxId",
+      "name": "PrimaryMailboxId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.exchangeSettings",
+  "typeHintIn": "ODataType"
+}

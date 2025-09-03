@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The draft version of this timeOff item that is viewable by managers. It must be shared before it is visible to team members. Required.",
+      "description": "The draft version of this timeOff item that is viewable by managers. It must be shared before it's visible to team members. Required.",
       "jsonName": "draftTimeOff",
       "name": "DraftTimeOff",
       "objectDefinition": {
@@ -15,6 +15,22 @@
       "optional": false,
       "readOnly": false,
       "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The timeOff is marked for deletion, a process that is finalized when the schedule is shared.",
+      "jsonName": "isStagedForDeletion",
+      "name": "IsStagedForDeletion",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
       "sensitive": false
     },
     {

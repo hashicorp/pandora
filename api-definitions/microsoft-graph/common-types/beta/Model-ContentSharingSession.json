@@ -1,6 +1,37 @@
 {
   "name": "ContentSharingSession",
-  "fields": [],
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pngOfCurrentSlide",
+      "name": "PngOfCurrentSlide",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "presenterParticipantId",
+      "name": "PresenterParticipantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
   "IsParent": false,
   "discriminatedParentModelName": "Entity",
   "discriminatedTypeValue": "#microsoft.graph.contentSharingSession",

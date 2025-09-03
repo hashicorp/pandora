@@ -1,0 +1,18 @@
+{
+  "name": "ServiceTasksCancel",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceTaskId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProjectTask",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/cancel"
+}

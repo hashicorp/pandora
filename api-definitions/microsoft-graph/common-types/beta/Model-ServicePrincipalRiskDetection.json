@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates the activity type the detected risk is linked to.  The possible values are: signin, servicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: servicePrincipal.",
+      "description": "Indicates the activity type the detected risk is linked to. The possible values are: signin, servicePrincipal. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: servicePrincipal.",
       "jsonName": "activity",
       "name": "Activity",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Correlation ID of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity.",
+      "description": "Correlation ID of the sign-in activity associated with the risk detection. This property is null if the risk detection isn't associated with a sign-in activity.",
       "jsonName": "correlationId",
       "name": "CorrelationId",
       "objectDefinition": {
@@ -99,7 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Timing of the detected risk , whether real-time or offline). The possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.",
+      "description": "Timing of the detected risk, whether real-time or offline). The possible values are: notDefined, realtime, nearRealtime, offline, unknownFutureValue.",
       "jsonName": "detectionTimingType",
       "name": "DetectionTimingType",
       "objectDefinition": {
@@ -200,7 +200,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Request identifier of the sign-in activity associated with the risk detection. This property is null if the risk detection is not associated with a sign-in activity. Supports $filter (eq).",
+      "description": "Request identifier of the sign-in activity associated with the risk detection. This property is null if the risk detection isn't associated with a sign-in activity. Supports $filter (eq).",
       "jsonName": "requestId",
       "name": "RequestId",
       "objectDefinition": {
@@ -216,7 +216,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.",
+      "description": "Details of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license are returned hidden. The possible values are: none, hidden, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.",
       "jsonName": "riskDetail",
       "name": "RiskDetail",
       "objectDefinition": {
@@ -232,7 +232,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The type of risk event detected. The possible values are: investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, anomalousServicePrincipalActivity, maliciousApplication, suspiciousApplication.",
+      "description": "The type of risk event detected. The possible values are: investigationsThreatIntelligence, generic, adminConfirmedServicePrincipalCompromised, suspiciousSignins, leakedCredentials, anomalousServicePrincipalActivity, maliciousApplication, suspiciousApplication, suspiciousAPITraffic.",
       "jsonName": "riskEventType",
       "name": "RiskEventType",
       "objectDefinition": {
@@ -248,7 +248,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Level of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license will be returned hidden. The possible values are: low, medium, high, hidden, none.",
+      "description": "Level of the detected risk. Note: Details for this property are only available for Workload Identities Premium customers. Events in tenants without this license are returned hidden. The possible values are: low, medium, high, hidden, none.",
       "jsonName": "riskLevel",
       "name": "RiskLevel",
       "objectDefinition": {

@@ -19,7 +19,39 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.",
+      "description": "The configuration for what to invoke when attribution collection starts.",
+      "jsonName": "onAttributeCollectionStart",
+      "name": "OnAttributeCollectionStart",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAttributeCollectionStartHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The configuration for what to invoke when attributes are submitted at the end of attribution collection.",
+      "jsonName": "onAttributeCollectionSubmit",
+      "name": "OnAttributeCollectionSubmit",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnAttributeCollectionSubmitHandler",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Required. The configuration for what to invoke when authentication methods are ready to be presented to the user. Must have at least one identity provider linked.  Supports $filter (eq). See support for filtering on user flows for syntax information.",
       "jsonName": "onAuthenticationMethodLoadStart",
       "name": "OnAuthenticationMethodLoadStart",
       "objectDefinition": {

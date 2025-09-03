@@ -3,6 +3,22 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The code for the schedulingGroup to represent an external identifier. This field must be unique within the team in Microsoft Teams and uses an alphanumeric format, with a maximum of 100 characters.",
+      "jsonName": "code",
+      "name": "Code",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The display name for the schedulingGroup. Required.",
       "jsonName": "displayName",
       "name": "DisplayName",

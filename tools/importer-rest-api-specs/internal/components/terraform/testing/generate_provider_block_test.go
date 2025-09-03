@@ -31,7 +31,7 @@ provider "example" {
 `
 	actual, err := builder.generateProviderBlock(&actualDependencies)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)

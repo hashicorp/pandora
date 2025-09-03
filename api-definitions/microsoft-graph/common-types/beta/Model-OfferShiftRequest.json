@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z",
+      "description": "The date and time when the recipient approved or declined the request.",
       "jsonName": "recipientActionDateTime",
       "name": "RecipientActionDateTime",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Custom message sent by recipient of the offer shift request.",
+      "description": "The message sent by the recipient regarding the request.",
       "jsonName": "recipientActionMessage",
       "name": "RecipientActionMessage",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User id of the recipient of the offer shift request.",
+      "description": "The recipient's user ID.",
       "jsonName": "recipientUserId",
       "name": "RecipientUserId",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "User id of the sender of the offer shift request.",
+      "description": "The sender's shift ID.",
       "jsonName": "senderShiftId",
       "name": "SenderShiftId",
       "objectDefinition": {

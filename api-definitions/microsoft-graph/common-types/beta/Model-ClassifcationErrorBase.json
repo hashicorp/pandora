@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A service-defined error code string.",
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains more specific, potentially internal error details.",
       "jsonName": "innerError",
       "name": "InnerError",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A human-readable representation of the error.",
       "jsonName": "message",
       "name": "Message",
       "objectDefinition": {
@@ -80,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The target of the error (for example, the specific property or item causing the issue).",
       "jsonName": "target",
       "name": "Target",
       "objectDefinition": {

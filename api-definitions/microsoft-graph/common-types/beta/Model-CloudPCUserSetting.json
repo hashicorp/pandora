@@ -41,6 +41,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Defines whether the user's Cloud PC enables cross-region disaster recovery and specifies the network for the disaster recovery.",
       "jsonName": "crossRegionDisasterRecoverySetting",
       "name": "CrossRegionDisasterRecoverySetting",
       "objectDefinition": {
@@ -104,7 +105,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Indicates whether an end user is allowed to reset their Cloud PC. When true, the user is allowed to reset their Cloud PC. When false, end-user initiated reset is not allowed. The default value is false.",
+      "description": "Defines the setting of the Cloud PC notification prompts for the Cloud PC user.",
+      "jsonName": "notificationSetting",
+      "name": "NotificationSetting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CloudPCNotificationSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Indicates whether an end user is allowed to reset their Cloud PC. When true, the user is allowed to reset their Cloud PC. When false, end-user initiated reset isn't allowed. The default value is false.",
       "jsonName": "resetEnabled",
       "name": "ResetEnabled",
       "objectDefinition": {

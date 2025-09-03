@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The user principal name of the mailbox.",
+      "jsonName": "upn",
+      "name": "Upn",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The user account of the mailbox.",
       "jsonName": "userAccount",
       "name": "UserAccount",

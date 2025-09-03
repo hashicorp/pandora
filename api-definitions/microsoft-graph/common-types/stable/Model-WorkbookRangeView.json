@@ -3,7 +3,23 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Returns the number of visible columns. Read-only.",
+      "description": "The cell addresses.",
+      "jsonName": "cellAddresses",
+      "name": "CellAddresses",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of visible columns. Read-only.",
       "jsonName": "columnCount",
       "name": "ColumnCount",
       "objectDefinition": {
@@ -19,7 +35,55 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Index of the range.",
+      "description": "The formula in A1-style notation.",
+      "jsonName": "formulas",
+      "name": "Formulas",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The formula in A1-style notation, in the user's language and number-formatting locale. For example, the English '=SUM(A1, 1.5)' formula would become '=SUMME(A1; 1,5)' in German.",
+      "jsonName": "formulasLocal",
+      "name": "FormulasLocal",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents the formula in R1C1-style notation.",
+      "jsonName": "formulasR1C1",
+      "name": "FormulasR1C1",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The index of the range.",
       "jsonName": "index",
       "name": "Index",
       "objectDefinition": {
@@ -35,7 +99,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Returns the number of visible rows. Read-only.",
+      "description": "Excel's number format code for the given cell. Read-only.",
+      "jsonName": "numberFormat",
+      "name": "NumberFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The number of visible rows. Read-only.",
       "jsonName": "rowCount",
       "name": "RowCount",
       "objectDefinition": {
@@ -51,7 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents a collection of range views associated with the range. Read-only. Read-only.",
+      "description": "The collection of range views associated with the range. Read-only. Read-only.",
       "jsonName": "rows",
       "name": "Rows",
       "objectDefinition": {
@@ -68,6 +148,54 @@
       },
       "optional": true,
       "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The text values of the specified range. The Text value won't depend on the cell width. The # sign substitution that happens in Excel UI won't affect the text value returned by the API. Read-only.",
+      "jsonName": "text",
+      "name": "Text",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of data of each cell. Read-only. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.",
+      "jsonName": "valueTypes",
+      "name": "ValueTypes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The raw values of the specified range view. The data returned could be of type string, number, or a Boolean. Cell that contains an error returns the error string.",
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
       "required": false,
       "sensitive": false
     }

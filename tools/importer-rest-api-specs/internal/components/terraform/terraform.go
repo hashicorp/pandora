@@ -27,25 +27,25 @@ func BuildForService(input sdkModels.Service, terraformConfig map[string]definit
 		return nil, fmt.Errorf("identifying the Terraform objects for the Service %q: %+v", input.Name, err)
 	}
 
-	logging.Infof("Building the Terraform Schema/Documentation..")
+	logging.Info("Building the Terraform Schema/Documentation..")
 	data, err = schema.Build(*data)
 	if err != nil {
 		return nil, fmt.Errorf("building the Terraform Schema/Documentation: %+v", err)
 	}
 
-	logging.Debugf("Building the Terraform Tests..")
+	logging.Debug("Building the Terraform Tests..")
 	data, err = testing.Build(*data)
 	if err != nil {
 		return nil, fmt.Errorf("building the Terraform Tests: %+v", err)
 	}
 
-	logging.Debugf("Building the Example Usage..")
+	logging.Debug("Building the Example Usage..")
 	data, err = examples.Build(*data)
 	if err != nil {
 		return nil, fmt.Errorf("building the Terraform Example Usage: %+v", err)
 	}
 
-	logging.Tracef("Exporting the completed Terraform Data..")
+	logging.Trace("Exporting the completed Terraform Data..")
 	resources := data.TerraformResources()
 	logging.Tracef("%q has %d Resources", input.Name, len(resources))
 	input.TerraformDefinition = &sdkModels.TerraformDefinition{

@@ -131,22 +131,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Time spent in device enrollment.",
-      "jsonName": "devicePreparationDuration",
-      "name": "DevicePreparationDuration",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "description": "Device registration date.",
       "jsonName": "deviceRegisteredDateTime",
       "name": "DeviceRegisteredDateTime",
@@ -321,50 +305,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Policy and application status details for this device.",
-      "jsonName": "policyStatusDetails",
-      "name": "PolicyStatusDetails",
+      "description": "UserId id associated with the object",
+      "jsonName": "userId",
+      "name": "UserId",
       "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "DeviceManagementAutopilotPolicyStatusDetail",
-          "referenceNameIsCommonType": true
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Count of applications targeted.",
-      "jsonName": "targetedAppCount",
-      "name": "TargetedAppCount",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Count of policies targeted.",
-      "jsonName": "targetedPolicyCount",
-      "name": "TargetedPolicyCount",
-      "objectDefinition": {
-        "type": "Integer",
-        "nullable": false,
+        "type": "String",
+        "nullable": true,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },

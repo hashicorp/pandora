@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Name of the profile source intended to inform users about the profile source name.",
       "jsonName": "displayName",
       "name": "DisplayName",
       "objectDefinition": {
@@ -18,6 +19,61 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of the profile source.",
+      "jsonName": "kind",
+      "name": "Kind",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Alternative localized labels specified by an administrator.",
+      "jsonName": "localizations",
+      "name": "Localizations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ProfileSourceLocalization",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Profile source identifier used as an alternate key.",
+      "jsonName": "sourceId",
+      "name": "SourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Web URL of the profile source that directs users to the page view of profile data.",
       "jsonName": "webUrl",
       "name": "WebUrl",
       "objectDefinition": {

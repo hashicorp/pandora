@@ -3,6 +3,22 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The dateTimeOffset when the job was acknowledged. Read-only.",
+      "jsonName": "acknowledgedDateTime",
+      "name": "AcknowledgedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
@@ -65,6 +81,22 @@
       },
       "optional": true,
       "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The error code of the print job. Read-only.",
+      "jsonName": "errorCode",
+      "name": "ErrorCode",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },

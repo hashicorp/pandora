@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Addresses associated with the customer. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.",
+      "description": "Addresses associated with the customer. The attribute type of physicalAddress isn't supported in v1.0. Internally we map the addresses to the type others.",
       "jsonName": "addresses",
       "name": "Addresses",
       "objectDefinition": {
@@ -25,6 +25,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the customer was created. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "createdDateTime",
       "name": "CreatedDateTime",
       "objectDefinition": {
@@ -72,6 +73,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date, time, and time zone when the customer was last updated. The timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "lastUpdatedDateTime",
       "name": "LastUpdatedDateTime",
       "objectDefinition": {
@@ -87,7 +89,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Phone numbers associated with the customer, including home, business and mobile numbers.",
+      "description": "Phone numbers associated with the customer, including home, business, and mobile numbers.",
       "jsonName": "phones",
       "name": "Phones",
       "objectDefinition": {

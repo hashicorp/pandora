@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "A link to the banner image for the newsLinkPage.",
       "jsonName": "bannerImageWebUrl",
       "name": "BannerImageWebUrl",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The SharePoint IDs of the referenced news article if it's recognized as a SharePoint resource. Read-only.",
       "jsonName": "newsSharepointIds",
       "name": "NewsSharepointIds",
       "objectDefinition": {
@@ -27,12 +29,13 @@
         "referenceNameIsCommonType": true
       },
       "optional": true,
-      "readOnly": false,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The URL of the news article referenced by the newsLinkPage. It can be an external link.",
       "jsonName": "newsWebUrl",
       "name": "NewsWebUrl",
       "objectDefinition": {

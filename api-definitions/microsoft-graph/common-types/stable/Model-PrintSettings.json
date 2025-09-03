@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.",
+      "description": "Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service converts documents into a format compatible with the printer (xps to pdf) when needed.",
       "jsonName": "documentConversionEnabled",
       "name": "DocumentConversionEnabled",
       "objectDefinition": {
@@ -43,6 +43,22 @@
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Specifies settings that affect printer discovery when using Universal Print.",
+      "jsonName": "printerDiscoverySettings",
+      "name": "PrinterDiscoverySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrinterDiscoverySettings",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

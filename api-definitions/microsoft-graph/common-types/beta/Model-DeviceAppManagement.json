@@ -413,6 +413,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "List mobileAppRelationship objects for mobile applications.",
+      "jsonName": "mobileAppRelationships",
+      "name": "MobileAppRelationships",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "MobileAppRelationship",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The mobile apps.",
       "jsonName": "mobileApps",
       "name": "MobileApps",

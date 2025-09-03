@@ -3,6 +3,21 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupRestore",
+      "name": "BackupRestore",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BackupRestoreRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "jsonName": "bookingBusinesses",
       "name": "BookingBusinesses",
       "objectDefinition": {

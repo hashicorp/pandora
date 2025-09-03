@@ -1,0 +1,24 @@
+{
+  "name": "Predict",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PredictionRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PredictionResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Advisor/predict"
+}

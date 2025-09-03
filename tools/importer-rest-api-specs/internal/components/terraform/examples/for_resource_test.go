@@ -30,7 +30,7 @@ resource "azurerm_load_test" "example" {
 `
 	actual, err := exampleUsageForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -50,7 +50,7 @@ resource "azurerm_some_resource" "example" {
 `
 	actual, err := exampleUsageForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -72,7 +72,7 @@ resource "azurerm_resource_group" "example" {
 `
 	actual, err := exampleUsageForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -109,7 +109,7 @@ resource "azurerm_load_test" "example" {
 `
 	actual, err := exampleUsageForResource(input)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

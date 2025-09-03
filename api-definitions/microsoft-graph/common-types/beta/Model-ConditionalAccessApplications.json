@@ -41,6 +41,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.",
+      "jsonName": "globalSecureAccess",
+      "name": "GlobalSecureAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConditionalAccessGlobalSecureAccess",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Apps included in Conditional Access Office 365 app suite  MicrosoftAdminPortals - For more information, see Conditional Access Target resources: Microsoft Admin Portals",
       "jsonName": "includeApplications",
       "name": "IncludeApplications",
@@ -99,6 +115,22 @@
           "referenceName": null,
           "referenceNameIsCommonType": null
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Represents traffic profile for Global Secure Access. This property is deprecated and will stop returning data on June 1, 2025. Use new Global Secure Access applications instead.",
+      "jsonName": "networkAccess",
+      "name": "NetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConditionalAccessNetworkAccess",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

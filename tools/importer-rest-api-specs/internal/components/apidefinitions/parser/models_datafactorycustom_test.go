@@ -4,11 +4,11 @@
 package parser_test
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/testhelpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/featureflags"
 )
 
@@ -57,7 +57,7 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 				"StringField": {
 					JsonName: "stringField",
 					ObjectDefinition: sdkModels.SDKObjectDefinition{
-						Type: sdkModels.StringSDKObjectDefinitionType,
+						Type: sdkModels.RawObjectSDKObjectDefinitionType,
 					},
 					Required: false,
 				},
@@ -107,7 +107,7 @@ func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
 					ObjectDefinition: sdkModels.SDKObjectDefinition{
 						Type: sdkModels.DictionarySDKObjectDefinitionType,
 						NestedItem: &sdkModels.SDKObjectDefinition{
-							Type: sdkModels.StringSDKObjectDefinitionType,
+							Type: sdkModels.RawObjectSDKObjectDefinitionType,
 						},
 					},
 					Required: false,

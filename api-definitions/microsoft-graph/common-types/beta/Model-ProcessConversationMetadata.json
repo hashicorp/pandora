@@ -1,0 +1,69 @@
+{
+  "name": "ProcessConversationMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of resources (for example, file URLs, web URLs) accessed during the generation of this message (relevant for bot interactions).",
+      "jsonName": "accessedResources",
+      "name": "AccessedResources",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Identifier of the parent message in a threaded conversation, if applicable.",
+      "jsonName": "parentMessageId",
+      "name": "ParentMessageId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of plugins used during the generation of this message (relevant for AI/bot interactions).",
+      "jsonName": "plugins",
+      "name": "Plugins",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AiInteractionPlugin",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProcessContentMetadataBase",
+  "discriminatedTypeValue": "#microsoft.graph.processConversationMetadata",
+  "typeHintIn": "ODataType"
+}

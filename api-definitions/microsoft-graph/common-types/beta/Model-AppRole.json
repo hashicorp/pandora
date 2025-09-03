@@ -73,7 +73,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.",
+      "description": "When you create or updating an app role, this value must be true. To delete a role, this must first be set to false. At that point, in a subsequent call, this role might be removed. Default value is true.",
       "jsonName": "isEnabled",
       "name": "IsEnabled",
       "objectDefinition": {
@@ -137,7 +137,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % \u0026 ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, aren't allowed. May not begin with ..",
+      "description": "Specifies the value to include in the roles claim in ID tokens and access tokens authenticating an assigned user or service principal. Must not exceed 120 characters in length. Allowed characters are : ! # $ % \u0026 ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, and characters in the ranges 0-9, A-Z, and a-z. Any other character, including the space character, aren't allowed. May not begin with ..",
       "jsonName": "value",
       "name": "Value",
       "objectDefinition": {

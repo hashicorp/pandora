@@ -1,0 +1,24 @@
+{
+  "name": "SqlDbretry",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DatabaseMigrationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MigrationOperationInput",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlDb",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/retry"
+}

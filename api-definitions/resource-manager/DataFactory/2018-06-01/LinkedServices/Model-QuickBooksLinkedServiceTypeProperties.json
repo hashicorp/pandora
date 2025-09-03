@@ -36,7 +36,7 @@
       "jsonName": "companyId",
       "name": "CompanyId",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -66,7 +66,7 @@
       "jsonName": "consumerKey",
       "name": "ConsumerKey",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -111,9 +111,24 @@
       "jsonName": "endpoint",
       "name": "Endpoint",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "refreshToken",
+      "name": "RefreshToken",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecretBase",
         "referenceNameIsCommonType": null
       },
       "optional": true,

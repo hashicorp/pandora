@@ -38,7 +38,7 @@ func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 	builder := newTestBuilder("example", "resource", details)
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	if actual != nil {
@@ -85,7 +85,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -141,7 +141,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -196,7 +196,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -273,7 +273,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -342,7 +342,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -423,7 +423,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -506,7 +506,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
@@ -589,7 +589,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	if actual == nil {
@@ -675,7 +675,7 @@ resource "example_resource" "test" {
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies, testData)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 
 	if actual == nil {

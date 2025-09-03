@@ -17,22 +17,22 @@ import (
 func (p *Parser) Parse() (*ParseResult, error) {
 	// 1. Go through and map the Operation IDs to the parsed Resource ID
 	// (which includes the Resource ID and any URISuffix as needed)
-	logging.Tracef("Parsing the segments for each operation..")
+	logging.Trace("Parsing the segments for each operation..")
 	operationIdsToSegments, err := p.parseSegmentsForEachOperation()
 	if err != nil {
 		return nil, fmt.Errorf("parsing the segments for each operation: %+v", err)
 	}
 
 	// 2. Process the list of parsed segments to obtain a unique list of Resource IDs
-	logging.Tracef("Determining the list of unique Resource IDs from the parsed input")
+	logging.Trace("Determining the list of unique Resource IDs from the parsed input")
 	uniqueResourceIds, distinctConstants := p.distinctResourceIds(operationIdsToSegments)
 
 	// 3. Then we need to find any Common Resource IDs and switch those references out
-	logging.Tracef("Switching out Common IDs as needed..")
+	logging.Trace("Switching out Common IDs as needed..")
 	resourceIds := switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
 
 	// 4. We then need to generate a unique Resource ID name for each of the Resource IDs
-	logging.Tracef("Generating Names for Resource IDs..")
+	logging.Trace("Generating Names for Resource IDs..")
 	namesToResourceIds, err := p.generateNamesForResourceIds(resourceIds, nil)
 	if err != nil {
 		return nil, fmt.Errorf("generating Names for Resource IDs: %+v", err)

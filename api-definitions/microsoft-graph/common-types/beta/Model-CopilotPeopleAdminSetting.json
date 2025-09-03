@@ -1,0 +1,24 @@
+{
+  "name": "CopilotPeopleAdminSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enhancedPersonalization",
+      "name": "EnhancedPersonalization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EnhancedPersonalizationSetting",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.copilotPeopleAdminSetting",
+  "typeHintIn": "ODataType"
+}

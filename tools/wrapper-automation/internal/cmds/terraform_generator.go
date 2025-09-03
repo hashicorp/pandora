@@ -41,7 +41,7 @@ func (c TerraformGenerator) Run(args []string) int {
 
 	opts, err := parseCLIArguments(args)
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	pipelineOpts := pipeline.Options{
@@ -52,7 +52,7 @@ func (c TerraformGenerator) Run(args []string) int {
 	}
 
 	if err := pipeline.RunTerraformGenerator(ctx, pipelineOpts); err != nil {
-		log.Fatalf(err.Error())
+		log.Fatal(err.Error())
 	}
 
 	return 0

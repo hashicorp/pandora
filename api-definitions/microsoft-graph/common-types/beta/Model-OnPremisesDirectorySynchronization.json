@@ -3,12 +3,12 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant.",
+      "description": "Consists of configurations that can be fine-tuned and impact the on-premises directory synchronization process for a tenant. Nullable.",
       "jsonName": "configuration",
       "name": "Configuration",
       "objectDefinition": {
         "type": "Reference",
-        "nullable": false,
+        "nullable": true,
         "referenceName": "OnPremisesDirectorySynchronizationConfiguration",
         "referenceNameIsCommonType": true
       },

@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "HTML color code representing the color of the border line, of the form #RRGGBB (for example 'FFA500') or as a named HTML color (for example 'orange').",
+      "description": "The HTML color code that represents the color of the border line. Can either be of the form #RRGGBB, for example 'FFA500', or a named HTML color, for example 'orange'.",
       "jsonName": "color",
       "name": "Color",
       "objectDefinition": {
@@ -19,7 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.",
+      "description": "Indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.",
       "jsonName": "sideIndex",
       "name": "SideIndex",
       "objectDefinition": {
@@ -35,7 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.",
+      "description": "Indicates the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.",
       "jsonName": "style",
       "name": "Style",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.",
+      "description": "The weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.",
       "jsonName": "weight",
       "name": "Weight",
       "objectDefinition": {

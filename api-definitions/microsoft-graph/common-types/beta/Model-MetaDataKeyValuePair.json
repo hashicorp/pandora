@@ -48,6 +48,22 @@
       "readOnly": false,
       "required": false,
       "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Value of the metadata. Should be an object.",
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Json",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
   ],
   "IsParent": false

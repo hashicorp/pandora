@@ -47,6 +47,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Exposes the hardware OATH method in the directory.",
+      "jsonName": "authenticationMethodDevices",
+      "name": "AuthenticationMethodDevices",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AuthenticationMethodDevice",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Container for certificate authorities-related configurations for applications in the tenant.",
       "jsonName": "certificateAuthorities",
       "name": "CertificateAuthorities",
       "objectDefinition": {
@@ -323,6 +340,37 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The collection of public key infrastructure instances for the certificate-based authentication feature for users in a Microsoft Entra tenant.",
+      "jsonName": "publicKeyInfrastructure",
+      "name": "PublicKeyInfrastructure",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PublicKeyInfrastructureRoot",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recommendationConfiguration",
+      "name": "RecommendationConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RecommendationConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "List of recommended improvements to improve tenant posture.",
       "jsonName": "recommendations",
       "name": "Recommendations",
@@ -380,6 +428,22 @@
           "referenceName": "CompanySubscription",
           "referenceNameIsCommonType": true
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A container for templates, such as device templates used for onboarding devices in Microsoft Entra ID.",
+      "jsonName": "templates",
+      "name": "Templates",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Template",
+        "referenceNameIsCommonType": true
       },
       "optional": true,
       "readOnly": false,

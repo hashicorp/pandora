@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents administrator settings that manage the support for item insights in an organization.",
+      "description": "Administrator settings that manage the support for item insights in an organization.",
       "jsonName": "itemInsights",
       "name": "ItemInsights",
       "objectDefinition": {
@@ -19,7 +19,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Contains a collection of the properties an administrator defined as visible on the Microsoft 365 profile card.",
+      "description": "Administrator settings that manage the support of name pronunciation in an organization.",
+      "jsonName": "namePronunciation",
+      "name": "NamePronunciation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NamePronunciationSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of the properties an administrator defined as visible on the Microsoft 365 profile card.",
       "jsonName": "profileCardProperties",
       "name": "ProfileCardProperties",
       "objectDefinition": {
@@ -41,7 +57,51 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents administrator settings that manage the support of pronouns in an organization.",
+      "description": "A collection of profile property configuration settings defined by an administrator for an organization.",
+      "jsonName": "profilePropertySettings",
+      "name": "ProfilePropertySettings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ProfilePropertySetting",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of profile source settings configured by an administrator in an organization.",
+      "jsonName": "profileSources",
+      "name": "ProfileSources",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ProfileSource",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Administrator settings that manage the support of pronouns in an organization.",
       "jsonName": "pronouns",
       "name": "Pronouns",
       "objectDefinition": {

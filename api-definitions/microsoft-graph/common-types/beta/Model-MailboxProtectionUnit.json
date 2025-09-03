@@ -48,6 +48,22 @@
       "readOnly": true,
       "required": false,
       "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The type of mailbox which is assigned to the user with id: directoryObjectId.The possible values are: unknown, user, shared, unknownFutureValue.",
+      "jsonName": "mailboxType",
+      "name": "MailboxType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MailboxType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
     }
   ],
   "IsParent": false,

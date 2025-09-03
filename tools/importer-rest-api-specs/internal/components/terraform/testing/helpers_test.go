@@ -43,7 +43,7 @@ func assertTerraformConfigurationsAreSemanticallyTheSame(t *testing.T, expected,
 	var expectedParsed testConfiguration
 	expectedFile, diags := parser.ParseHCL([]byte(expected), "expected.hcl")
 	if diags.HasErrors() {
-		t.Fatalf(diags.Error())
+		t.Fatal(diags.Error())
 	}
 	if diags := gohcl.DecodeBody(expectedFile.Body, ctx, &expectedParsed); diags != nil {
 		t.Fatalf("decoding content for `expected`: %+v\n\nContent:\n\n%s", diags.Error(), actual)

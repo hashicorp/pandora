@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.",
+      "description": "true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. The default is true.",
       "jsonName": "allowNewTimeProposals",
       "name": "AllowNewTimeProposals",
       "objectDefinition": {
@@ -79,7 +79,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The preview of the message associated with the event. It is in text format.",
+      "description": "The preview of the message associated with the event. It's in text format.",
       "jsonName": "bodyPreview",
       "name": "BodyPreview",
       "objectDefinition": {
@@ -111,6 +111,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains occurrenceId property values of canceled instances in a recurring series, if the event is the series master. Instances in a recurring series that are canceled are called canceled occurences.Returned only on $select in a Get operation which specifies the ID (seriesMasterId property value) of a series master event.",
+      "jsonName": "cancelledOccurrences",
+      "name": "CancelledOccurrences",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "The date, time, and time zone that the event ends. By default, the end time is in UTC.",
       "jsonName": "end",
       "name": "End",
@@ -119,6 +141,28 @@
         "nullable": false,
         "referenceName": "DateTimeTimeZone",
         "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Contains the id property values of the event instances that are exceptions in a recurring series.Exceptions can differ from other occurrences in a recurring series, such as the subject, start or end times, or attendees. Exceptions don't include canceled occurrences.Returned only on $select and $expand in a GET operation that specifies the ID (seriesMasterId property value) of a series master event.",
+      "jsonName": "exceptionOccurrences",
+      "name": "ExceptionOccurrences",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "Event",
+          "referenceNameIsCommonType": true
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -165,7 +209,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false.",
+      "description": "When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. The default is false.",
       "jsonName": "hideAttendees",
       "name": "HideAttendees",
       "objectDefinition": {
@@ -213,7 +257,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.",
+      "description": "The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions modified, but doesn't include occurrences canceled from the series. Navigation property. Read-only. Nullable.",
       "jsonName": "instances",
       "name": "Instances",
       "objectDefinition": {
@@ -235,7 +279,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set to true if the event lasts all day. If true, regardless of whether it's a single-day or multi-day event, start and end time must be set to midnight and be in the same time zone.",
+      "description": "Set to true if the event lasts all day. If true, regardless of whether it's a single-day or multi-day event, start, and endtime must be set to midnight and be in the same time zone.",
       "jsonName": "isAllDay",
       "name": "IsAllDay",
       "objectDefinition": {
@@ -267,7 +311,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set to true if the user has updated the meeting in Outlook but has not sent the updates to attendees. Set to false if all changes have been sent, or if the event is an appointment without any attendees.",
+      "description": "Set to true if the user has updated the meeting in Outlook but hasn't sent the updates to attendees. Set to false if all changes are sent, or if the event is an appointment without any attendees.",
       "jsonName": "isDraft",
       "name": "IsDraft",
       "objectDefinition": {
@@ -283,7 +327,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if this event has online meeting information (that is, onlineMeeting points to an onlineMeetingInfo resource), false otherwise. Default is false (onlineMeeting is null). Optional.  After you set isOnlineMeeting to true, Microsoft Graph initializes onlineMeeting. Subsequently Outlook ignores any further changes to isOnlineMeeting, and the meeting remains available online.",
+      "description": "True if this event has online meeting information (that is, onlineMeeting points to an onlineMeetingInfo resource), false otherwise. Default is false (onlineMeeting is null). Optional.  After you set isOnlineMeeting to true, Microsoft Graph initializes onlineMeeting. Subsequently, Outlook ignores any further changes to isOnlineMeeting, and the meeting remains available online.",
       "jsonName": "isOnlineMeeting",
       "name": "IsOnlineMeeting",
       "objectDefinition": {
@@ -299,7 +343,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.",
+      "description": "Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). It also applies if a delegate organized the event on behalf of the owner.",
       "jsonName": "isOrganizer",
       "name": "IsOrganizer",
       "objectDefinition": {
@@ -347,7 +391,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.",
+      "description": "The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection are removed and replaced by the new location value.",
       "jsonName": "locations",
       "name": "Locations",
       "objectDefinition": {
@@ -391,7 +435,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Details for an attendee to join the meeting online. Default is null. Read-only. After you set the isOnlineMeeting and onlineMeetingProvider properties to enable a meeting online, Microsoft Graph initializes onlineMeeting. When set, the meeting remains available online, and you cannot change the isOnlineMeeting, onlineMeetingProvider, and onlneMeeting properties again.",
+      "description": "Details for an attendee to join the meeting online. The default is null. Read-only. After you set the isOnlineMeeting and onlineMeetingProvider properties to enable a meeting online, Microsoft Graph initializes onlineMeeting. When set, the meeting remains available online, and you can't change the isOnlineMeeting, onlineMeetingProvider, and onlneMeeting properties again.",
       "jsonName": "onlineMeeting",
       "name": "OnlineMeeting",
       "objectDefinition": {
@@ -407,7 +451,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the online meeting service provider. By default, onlineMeetingProvider is unknown. The possible values are unknown, teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  After you set onlineMeetingProvider, Microsoft Graph initializes onlineMeeting. Subsequently you cannot change onlineMeetingProvider again, and the meeting remains available online.",
+      "description": "Represents the online meeting service provider. By default, onlineMeetingProvider is unknown. The possible values are unknown, teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  After you set onlineMeetingProvider, Microsoft Graph initializes onlineMeeting. Subsequently, you can't change onlineMeetingProvider again, and the meeting remains available online.",
       "jsonName": "onlineMeetingProvider",
       "name": "OnlineMeetingProvider",
       "objectDefinition": {
@@ -471,7 +515,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Represents the start time of an event when it is initially created as an occurrence or exception in a recurring series. This property is not returned for events that are single instances. Its date and time information is expressed in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z",
+      "description": "Represents the start time of an event when it's initially created as an occurrence or exception in a recurring series. This property is not returned for events that are single instances. Its date and time information is expressed in ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z",
       "jsonName": "originalStart",
       "name": "OriginalStart",
       "objectDefinition": {
@@ -567,7 +611,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Possible values are: normal, personal, private, confidential.",
+      "description": "Possible values are: normal, personal, private, and confidential.",
       "jsonName": "sensitivity",
       "name": "Sensitivity",
       "objectDefinition": {
@@ -669,7 +713,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.",
+      "description": "A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. It's useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you can't change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.",
       "jsonName": "transactionId",
       "name": "TransactionId",
       "objectDefinition": {
@@ -701,7 +745,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL cannot be accessed from within an iFrame.",
+      "description": "The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL can't be accessed from within an iFrame.",
       "jsonName": "webLink",
       "name": "WebLink",
       "objectDefinition": {

@@ -1,0 +1,57 @@
+{
+  "name": "QrCodePinAuthenticationMethod",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The PIN linked to the QR Code auth method of the user.",
+      "jsonName": "pin",
+      "name": "Pin",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "QrPin",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Standard QR code is primary QR code of the user with lifetime upto 395 days (13 months). There can be only one active standard QR code for the user.",
+      "jsonName": "standardQRCode",
+      "name": "StandardQRCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "QrCode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Temporary QR code has lifetime up to 12 hours. It can be issued when the user doesn't have access to their standard QR code. There can be only one active temporary QR code for the user.",
+      "jsonName": "temporaryQRCode",
+      "name": "TemporaryQRCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "QrCode",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationMethod",
+  "discriminatedTypeValue": "#microsoft.graph.qrCodePinAuthenticationMethod",
+  "typeHintIn": "ODataType"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "TextContent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The text content data. Inherits properties from contentBase.",
+      "jsonName": "data",
+      "name": "Data",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ContentBase",
+  "discriminatedTypeValue": "#microsoft.graph.textContent",
+  "typeHintIn": "ODataType"
+}

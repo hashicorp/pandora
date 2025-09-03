@@ -99,38 +99,6 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "URL of the proxy server automatic configuration script when automatic configuration is selected. This URL is typically the location of PAC (Proxy Auto Configuration) file.",
-      "jsonName": "proxyAutomaticConfigurationUrl",
-      "name": "ProxyAutomaticConfigurationUrl",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": true,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "description": "Wi-Fi Proxy Settings.",
-      "jsonName": "proxySettings",
-      "name": "ProxySettings",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "WiFiProxySetting",
-        "referenceNameIsCommonType": true
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "description": "Trusted Root Certificate for Server Validation when EAP Type is configured to EAP-TLS, EAP-TTLS or PEAP. This is the certificate presented by the Wi-Fi endpoint when the device attempts to connect to Wi-Fi endpoint. The device (or user) must accept this certificate to continue the connection attempt.",
       "jsonName": "rootCertificateForServerValidation",
       "name": "RootCertificateForServerValidation",

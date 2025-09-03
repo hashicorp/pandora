@@ -1,0 +1,31 @@
+{
+  "name": "Template",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Defines the templates that are common to a set of device objects, such as IoT devices.",
+      "jsonName": "deviceTemplates",
+      "name": "DeviceTemplates",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeviceTemplate",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.template",
+  "typeHintIn": "ODataType"
+}

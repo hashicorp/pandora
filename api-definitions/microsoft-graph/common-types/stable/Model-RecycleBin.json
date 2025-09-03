@@ -1,0 +1,46 @@
+{
+  "name": "RecycleBin",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "List of the recycleBinItems deleted by a user.",
+      "jsonName": "items",
+      "name": "Items",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "RecycleBinItem",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RecycleBinSettings",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseItem",
+  "discriminatedTypeValue": "#microsoft.graph.recycleBin",
+  "typeHintIn": "ODataType"
+}

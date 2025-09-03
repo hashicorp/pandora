@@ -1,0 +1,41 @@
+{
+  "name": "SqlMiGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "migrationOperationId",
+      "required": false,
+      "field": "MigrationOperationId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "Providers2DatabaseMigrationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseMigrationSqlMi",
+    "referenceNameIsCommonType": null
+  }
+}

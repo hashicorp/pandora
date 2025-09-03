@@ -3,7 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For example, 'Enabled'.",
+      "description": "Condition of the capability assignment. The possible values are Enabled, Warning, Suspended, Deleted, LockedOut. See a detailed description of each value.",
       "jsonName": "capabilityStatus",
       "name": "CapabilityStatus",
       "objectDefinition": {
@@ -51,7 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "For example, 'Success'.",
+      "description": "The possible values are:Success - Service is fully provisioned.Disabled - Service is disabled.Error - The service plan isn't provisioned and is in an error state.PendingInput - The service isn't provisioned and is awaiting service confirmation.PendingActivation - The service is provisioned but requires explicit activation by an administrator (for example, Intune_O365 service plan)PendingProvisioning - Microsoft has added a new service to the product SKU and it isn't activated in the tenant.",
       "jsonName": "provisioningStatus",
       "name": "ProvisioningStatus",
       "objectDefinition": {
@@ -67,7 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The name of the service; for example, 'AccessControlS2S'",
+      "description": "The name of the service; for example, 'AccessControlS2S'.",
       "jsonName": "service",
       "name": "Service",
       "objectDefinition": {

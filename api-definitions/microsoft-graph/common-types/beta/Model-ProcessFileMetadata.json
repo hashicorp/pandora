@@ -1,0 +1,41 @@
+{
+  "name": "ProcessFileMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A dictionary containing custom metadata associated with the file, potentially extracted by the calling application.",
+      "jsonName": "customProperties",
+      "name": "CustomProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomMetadataDictionary",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier (for example, Object ID or UPN) of the owner of the file.",
+      "jsonName": "ownerId",
+      "name": "OwnerId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ProcessContentMetadataBase",
+  "discriminatedTypeValue": "#microsoft.graph.processFileMetadata",
+  "typeHintIn": "ODataType"
+}

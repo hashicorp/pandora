@@ -1,0 +1,63 @@
+{
+  "name": "PageTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The layout of the content in a given SharePoint page template, including horizontal sections and vertical sections.",
+      "jsonName": "canvasLayout",
+      "name": "CanvasLayout",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CanvasLayout",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The title area on the SharePoint page template.",
+      "jsonName": "titleArea",
+      "name": "TitleArea",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TitleArea",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The collection of web parts on the SharePoint page.",
+      "jsonName": "webParts",
+      "name": "WebParts",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "WebPart",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BaseSitePage",
+  "discriminatedTypeValue": "#microsoft.graph.pageTemplate",
+  "typeHintIn": "ODataType"
+}

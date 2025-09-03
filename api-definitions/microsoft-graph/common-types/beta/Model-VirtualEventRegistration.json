@@ -35,6 +35,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The external information for a virtual event registration.",
+      "jsonName": "externalRegistrationInformation",
+      "name": "ExternalRegistrationInformation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VirtualEventExternalRegistrationInformation",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "First name of the registrant.",
       "jsonName": "firstName",
       "name": "FirstName",
@@ -99,7 +115,22 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "Date and time when the registrant registers for the virtual event. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
+      "jsonName": "registrantVideoOnDemandWebUrl",
+      "name": "RegistrantVideoOnDemandWebUrl",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Date and time when the registrant registers for the virtual event. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.",
       "jsonName": "registrationDateTime",
       "name": "RegistrationDateTime",
       "objectDefinition": {

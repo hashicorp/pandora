@@ -1,0 +1,31 @@
+{
+  "name": "SecurityDataDiscoveryReport",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "A collection of streams available for generating cloud discovery report.",
+      "jsonName": "uploadedStreams",
+      "name": "UploadedStreams",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SecurityCloudAppDiscoveryReport",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.security.dataDiscoveryReport",
+  "typeHintIn": "ODataType"
+}

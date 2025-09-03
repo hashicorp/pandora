@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The type of access used to connect to this application segment. The possible values are: quickAccess, privateAccess, unknownFutureValue, appAccess. Use the Prefer: include-unknown-enum-members request header to get the following values from this evolvable enum: appAccess.",
       "jsonName": "accessType",
       "name": "AccessType",
       "objectDefinition": {
@@ -18,6 +19,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of unique devices that have accessed this application segment.",
       "jsonName": "deviceCount",
       "name": "DeviceCount",
       "objectDefinition": {
@@ -33,6 +35,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for this discovered application segment.",
       "jsonName": "discoveredApplicationSegmentId",
       "name": "DiscoveredApplicationSegmentId",
       "objectDefinition": {
@@ -48,6 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date and time when this application segment was first accessed.",
       "jsonName": "firstAccessDateTime",
       "name": "FirstAccessDateTime",
       "objectDefinition": {
@@ -63,6 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The fully qualified domain name associated with this application segment.",
       "jsonName": "fqdn",
       "name": "Fqdn",
       "objectDefinition": {
@@ -78,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The IP address associated with this application segment.",
       "jsonName": "ip",
       "name": "Ip",
       "objectDefinition": {
@@ -93,6 +99,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The date and time when this application segment was last accessed.",
       "jsonName": "lastAccessDateTime",
       "name": "LastAccessDateTime",
       "objectDefinition": {
@@ -140,6 +147,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The port number used to access this application segment.",
       "jsonName": "port",
       "name": "Port",
       "objectDefinition": {
@@ -155,6 +163,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of bytes received from this application segment.",
       "jsonName": "totalBytesReceived",
       "name": "TotalBytesReceived",
       "objectDefinition": {
@@ -170,6 +179,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The total number of bytes sent to this application segment.",
       "jsonName": "totalBytesSent",
       "name": "TotalBytesSent",
       "objectDefinition": {
@@ -185,6 +195,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of transactions recorded for this application segment.",
       "jsonName": "transactionCount",
       "name": "TransactionCount",
       "objectDefinition": {
@@ -215,6 +226,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The number of unique users who have accessed this application segment.",
       "jsonName": "userCount",
       "name": "UserCount",
       "objectDefinition": {

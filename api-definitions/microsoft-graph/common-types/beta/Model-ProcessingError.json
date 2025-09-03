@@ -1,0 +1,24 @@
+{
+  "name": "ProcessingError",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorType",
+      "name": "ErrorType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ContentProcessingErrorType",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ClassificationError",
+  "discriminatedTypeValue": "#microsoft.graph.processingError",
+  "typeHintIn": "ODataType"
+}

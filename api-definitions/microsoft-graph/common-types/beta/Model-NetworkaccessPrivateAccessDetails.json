@@ -3,6 +3,7 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Type of accessed application. Access type options: QuickAccess, PrivateAccess.",
       "jsonName": "accessType",
       "name": "AccessType",
       "objectDefinition": {
@@ -18,6 +19,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The unique identifier for Application segment ID from Azure AD.",
+      "jsonName": "appSegmentId",
+      "name": "AppSegmentId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Status of a connection. Status options: Open, Active, Closed.",
       "jsonName": "connectionStatus",
       "name": "ConnectionStatus",
       "objectDefinition": {
@@ -33,6 +51,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private access connector ID.",
       "jsonName": "connectorId",
       "name": "ConnectorId",
       "objectDefinition": {
@@ -48,6 +67,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private access connector IP address.",
       "jsonName": "connectorIp",
       "name": "ConnectorIp",
       "objectDefinition": {
@@ -63,6 +83,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Private access connector name.",
       "jsonName": "connectorName",
       "name": "ConnectorName",
       "objectDefinition": {
@@ -110,6 +131,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Region where the request was processed by the backend service.",
       "jsonName": "processingRegion",
       "name": "ProcessingRegion",
       "objectDefinition": {
@@ -125,6 +147,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Details about third-party tokens used in the transaction.",
       "jsonName": "thirdPartyTokenDetails",
       "name": "ThirdPartyTokenDetails",
       "objectDefinition": {

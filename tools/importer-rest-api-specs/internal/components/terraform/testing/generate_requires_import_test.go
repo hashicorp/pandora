@@ -210,7 +210,7 @@ resource "example_resource" "import" {
 			builder := newTestBuilder("example", "resource", details)
 			actual, err := builder.generateRequiresImportTest()
 			if err != nil {
-				t.Fatalf(err.Error())
+				t.Fatal(err.Error())
 			}
 			assertTerraformConfigurationsAreSemanticallyTheSame(t, test.Expected, *actual, test.HclContext)
 		})

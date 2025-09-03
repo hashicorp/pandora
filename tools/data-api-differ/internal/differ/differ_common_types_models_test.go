@@ -38,7 +38,7 @@ func TestDiff_CommonTypesModelNoChanges(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := make([]changes.Change, 0)
 	assertChanges(t, expected, *actual)
@@ -55,7 +55,7 @@ func TestDiff_CommonTypesModelAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesModelAdded{
@@ -77,7 +77,7 @@ func TestDiff_CommonTypesModelRemoved(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.CommonTypesModelRemoved{
@@ -102,7 +102,7 @@ func TestDiff_CommonTypesModelDiscriminatedParentTypeAdded(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeAdded{
@@ -130,7 +130,7 @@ func TestDiff_CommonTypesModelDiscriminatedParentTypeChanged(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeChanged{
@@ -159,7 +159,7 @@ func TestDiff_CommonTypesModelDiscriminatedParentTypeRemoved(t *testing.T) {
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedParentTypeRemoved{
@@ -187,7 +187,7 @@ func TestDiff_CommonTypesModelDiscriminatedFieldNameContainingDiscriminatedValue
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedTypeHintInChanged{
@@ -216,7 +216,7 @@ func TestDiff_CommonTypesModelDiscriminatedDiscriminatedValueChanged(t *testing.
 	}
 	actual, err := differ{}.changesForCommonTypesModels("2020-01-01", initial, updated)
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := []changes.Change{
 		changes.ModelDiscriminatedTypeValueChanged{

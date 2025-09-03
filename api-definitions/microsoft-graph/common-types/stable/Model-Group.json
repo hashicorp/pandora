@@ -85,7 +85,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.",
+      "description": "The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. This property can be updated only in delegated scenarios where the caller requires both the Microsoft Graph permission and a supported administrator role.",
       "jsonName": "assignedLabels",
       "name": "AssignedLabels",
       "objectDefinition": {
@@ -107,7 +107,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.",
+      "description": "The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.",
       "jsonName": "assignedLicenses",
       "name": "AssignedLicenses",
       "objectDefinition": {
@@ -123,7 +123,7 @@
         }
       },
       "optional": true,
-      "readOnly": false,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
@@ -459,7 +459,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "True if the group isn't displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).",
+      "description": "True if the group isn't displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. The default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).",
       "jsonName": "hideFromAddressLists",
       "name": "HideFromAddressLists",
       "objectDefinition": {
@@ -510,6 +510,21 @@
       "description": "Indicates whether this group can be assigned to a Microsoft Entra role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true, visibility must be Hidden, and the group can't be a dynamic group (that is, groupTypes can't contain DynamicMembership). Only callers with at least the Privileged Role Administrator role can set this property. The caller must also be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Microsoft Entra role assignmentsUsing this feature requires a Microsoft Entra ID P1 license. Returned by default. Supports $filter (eq, ne, not).",
       "jsonName": "isAssignableToRole",
       "name": "IsAssignableToRole",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isManagementRestricted",
+      "name": "IsManagementRestricted",
       "objectDefinition": {
         "type": "Boolean",
         "nullable": true,
@@ -767,6 +782,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Read-only.",
       "jsonName": "onPremisesDomainName",
       "name": "OnPremisesDomainName",
       "objectDefinition": {
@@ -776,7 +792,7 @@
         "referenceNameIsCommonType": null
       },
       "optional": true,
-      "readOnly": false,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
@@ -798,6 +814,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers synchronizing their on-premises directory to Microsoft Entra ID via Microsoft Entra Connect.Returned by default. Read-only.",
       "jsonName": "onPremisesNetBiosName",
       "name": "OnPremisesNetBiosName",
       "objectDefinition": {
@@ -807,7 +824,7 @@
         "referenceNameIsCommonType": null
       },
       "optional": true,
-      "readOnly": false,
+      "readOnly": true,
       "required": false,
       "sensitive": false
     },
@@ -898,7 +915,7 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "description": "The owners of the group. Limited to 100 owners. Nullable. If this property isn't specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner.  Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1). Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')\u0026$select=id,displayName\u0026$expand=owners($select=id,userPrincipalName,displayName).",
+      "description": "The owners of the group who can be users or service principals. Limited to 100 owners. Nullable. If this property isn't specified when creating a Microsoft 365 group the calling user (admin or non-admin) is automatically assigned as the group owner. A non-admin user can't explicitly add themselves to this collection when they're creating the group. For more information, see the related known issue. For security groups, the admin user isn't automatically added to this collection. For more information, see the related known issue. Supports $filter (/$count eq 0, /$count ne 0, /$count eq 1, /$count ne 1); Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')\u0026$select=id,displayName\u0026$expand=owners($select=id,userPrincipalName,displayName).",
       "jsonName": "owners",
       "name": "Owners",
       "objectDefinition": {

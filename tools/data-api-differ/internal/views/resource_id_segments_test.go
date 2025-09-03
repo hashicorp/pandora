@@ -17,7 +17,7 @@ import (
 func TestResourceIdSegmentsView_Markdown_NoChanges(t *testing.T) {
 	actual, err := NewResourceIdSegmentsView(make([]changes.Change, 0)).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `
 ## New Resource ID Segments containing Static Identifiers
@@ -52,7 +52,7 @@ func TestResourceIdSegmentsView_Markdown_WithChanges(t *testing.T) {
 	}
 	actual, err := NewResourceIdSegmentsView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.ReplaceAll(`
 ## New Resource ID Segments containing Static Identifiers
@@ -96,7 +96,7 @@ func TestResourceIdSegmentsView_Markdown_WithIrrelevantChanges(t *testing.T) {
 	}
 	actual, err := NewResourceIdSegmentsView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := `
 ## New Resource ID Segments containing Static Identifiers
@@ -144,7 +144,7 @@ func TestResourceIdSegmentsView_Markdown_WithRelevantAndIrrelevantChanges(t *tes
 	}
 	actual, err := NewResourceIdSegmentsView(diff).RenderMarkdown()
 	if err != nil {
-		t.Fatalf(err.Error())
+		t.Fatal(err.Error())
 	}
 	expected := strings.ReplaceAll(`
 ## New Resource ID Segments containing Static Identifiers

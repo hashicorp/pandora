@@ -37,7 +37,7 @@ func (s *Generator) writeToPathForResource(directory, filePath string, templater
 		return fmt.Errorf("opening %q: %+v", fullFilePath, err)
 	}
 
-	logging.Tracef(fmt.Sprintf("writing to %q", fullFilePath))
+	logging.Tracef("writing to %q", fullFilePath)
 	_, _ = file.WriteString(*fileContents)
 	return nil
 }
@@ -60,7 +60,7 @@ func (s *Generator) writeToPathForVersion(directory, filePath string, templater 
 		return fmt.Errorf("opening %q: %+v", fullFilePath, err)
 	}
 
-	logging.Tracef(fmt.Sprintf("writing to %q", fullFilePath))
+	logging.Tracef("writing to %q", fullFilePath)
 	_, _ = file.WriteString(*fileContents)
 	return nil
 }

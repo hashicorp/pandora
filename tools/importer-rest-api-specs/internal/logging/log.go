@@ -19,18 +19,38 @@ func Debugf(msg string, args ...interface{}) {
 	Log.Debug(fmt.Sprintf(msg, args...))
 }
 
+func Debug(msg string) {
+	Log.Debug(msg)
+}
+
 func Errorf(msg string, args ...interface{}) {
 	Log.Error(fmt.Sprintf(msg, args...))
 }
 
-func Infof(msg string, args ...interface{}) {
-	Log.Info(fmt.Sprintf(msg, args...))
+func Error(msg string) {
+	Log.Error(msg)
 }
 
 func Tracef(msg string, args ...interface{}) {
 	Log.Trace(fmt.Sprintf(msg, args...))
 }
 
+func Trace(msg string) {
+	Log.Trace(msg)
+}
+
+func Infof(msg string, args ...interface{}) {
+	Log.Info(fmt.Sprintf(msg, args...))
+}
+
+func Info(msg string) {
+	Log.Info(msg)
+}
+
 func Warnf(msg string, args ...interface{}) {
 	Log.Warn(fmt.Sprintf(msg, args...))
+}
+
+func Warn(msg string) {
+	Log.Warn(msg)
 }

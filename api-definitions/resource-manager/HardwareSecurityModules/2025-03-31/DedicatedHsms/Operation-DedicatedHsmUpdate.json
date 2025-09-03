@@ -1,0 +1,24 @@
+{
+  "name": "DedicatedHsmUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DedicatedHSMId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DedicatedHsmPatchParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DedicatedHsm",
+    "referenceNameIsCommonType": null
+  }
+}

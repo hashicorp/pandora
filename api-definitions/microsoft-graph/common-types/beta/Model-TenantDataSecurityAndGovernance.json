@@ -1,0 +1,24 @@
+{
+  "name": "TenantDataSecurityAndGovernance",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "protectionScopes",
+      "name": "ProtectionScopes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TenantProtectionScopeContainer",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataSecurityAndGovernance",
+  "discriminatedTypeValue": "#microsoft.graph.tenantDataSecurityAndGovernance",
+  "typeHintIn": "ODataType"
+}

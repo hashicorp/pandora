@@ -22,7 +22,7 @@ const directoryObjectSchemaName = "microsoft.graph.directoryObject"
 func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, models parser.Models, constants parser.Constants) (resources parser.Resources, err error) {
 	resources = make(parser.Resources)
 
-	for pathKey, pathItem := range p.spec.Paths {
+	for pathKey, pathItem := range p.spec.Paths.Map() {
 		path := strings.Clone(pathKey)
 		operations := pathItem.Operations()
 		operationTags := make([]string, 0)
@@ -151,7 +151,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 			if operation.Responses != nil {
 				responseFound := false
 
-				for stat, resp := range operation.Responses {
+				for stat, resp := range operation.Responses.Map() {
 
 					var status int
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
@@ -493,7 +493,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 					continue
 				}
 
-				paramType := parser.FieldType(param.Value.Schema.Value.Type, param.Value.Schema.Value.Format, false)
+				paramType := parser.FieldType(param.Value.Schema.Value.Type.Slice(), param.Value.Schema.Value.Format, false)
 
 				switch param.Value.In {
 				case "header":
@@ -508,7 +508,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 						if items == nil || items.Value == nil {
 							return nil, fmt.Errorf("encountered query parameter %q with Array type but no Items", param.Value.Name)
 						}
-						itemType = parser.FieldType(items.Value.Type, items.Value.Format, false)
+						itemType = parser.FieldType(items.Value.Type.Slice(), items.Value.Format, false)
 					}
 
 					params = append(params, parser.Param{
@@ -612,7 +612,7 @@ func (p pipelineForService) parseResources(resourceIds parser.ResourceIds, model
 		// Remove duplicate words in the category
 		// TODO: Figure out whether we can do this safely; causes clobbering in identityGovernance, e.g.
 		// EntitlementManagementAccessPackageResourceRoleScopeClient vs EntitlementManagementAccessPackageAccessPackageResourceRoleScopeClient
-		//resource.Category = normalize.DeDuplicateName(resource.Category)
+		// resource.Category = normalize.DeDuplicateName(resource.Category)
 	}
 
 	// Look for resources with no operations, as well as duplicate operations. For duplicate operations drop the one with the

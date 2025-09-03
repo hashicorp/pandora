@@ -1,6 +1,23 @@
 {
   "name": "CustomAppManagementConfiguration",
-  "fields": [],
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "Restrictions that are applicable only to application objects to which the policy is attached.",
+      "jsonName": "applicationRestrictions",
+      "name": "ApplicationRestrictions",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CustomAppManagementApplicationConfiguration",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
   "IsParent": false,
   "discriminatedParentModelName": "AppManagementConfiguration",
   "discriminatedTypeValue": "#microsoft.graph.customAppManagementConfiguration",

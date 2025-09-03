@@ -1,0 +1,53 @@
+{
+  "name": "DriveRestoreArtifactsBulkAdditionRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of directory object IDs that are added to the corresponding OneDrive for work or school restore session in a bulk operation.",
+      "jsonName": "directoryObjectIds",
+      "name": "DirectoryObjectIds",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The list of email addresses that are added to the corresponding OneDrive for work or school restore session in a bulk operation.",
+      "jsonName": "drives",
+      "name": "Drives",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RestoreArtifactsBulkRequestBase",
+  "discriminatedTypeValue": "#microsoft.graph.driveRestoreArtifactsBulkAdditionRequest",
+  "typeHintIn": "ODataType"
+}

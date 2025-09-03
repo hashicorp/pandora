@@ -1,0 +1,44 @@
+{
+  "name": "UpdateAuthenticationQrCodePinMethodPin",
+  "contentType": "application/json; charset=utf-8",
+  "description": "Update qrPin. Reset a user's PIN and generate a new temporary PIN that's represented by a qrPin object and is linked to the user's QR Code authentication method object.",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "odataFieldName": "Metadata",
+      "optional": true,
+      "required": false,
+      "field": "Metadata",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "odata.Metadata"
+      }
+    },
+    {
+      "type": "RetryFunc",
+      "optional": true,
+      "required": false,
+      "field": "RetryFunc",
+      "optionsObjectDefinition": {
+        "type": "",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UserId",
+  "resourceIdNameIsCommonType": true,
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "QrPin",
+    "referenceNameIsCommonType": true
+  },
+  "uriSuffix": "/authentication/qrCodePinMethod/pin"
+}

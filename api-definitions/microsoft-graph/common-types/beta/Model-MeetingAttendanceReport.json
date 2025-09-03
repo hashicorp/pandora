@@ -25,6 +25,28 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
+      "description": "The external information of a virtual event. Returned only for event organizers or coorganizers. Read-only.",
+      "jsonName": "externalEventInformation",
+      "name": "ExternalEventInformation",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "VirtualEventExternalInformation",
+          "referenceNameIsCommonType": true
+        }
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
       "description": "UTC time when the meeting ended. Read-only.",
       "jsonName": "meetingEndDateTime",
       "name": "MeetingEndDateTime",

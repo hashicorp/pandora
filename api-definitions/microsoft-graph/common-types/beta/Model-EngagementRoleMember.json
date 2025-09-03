@@ -1,0 +1,57 @@
+{
+  "name": "EngagementRoleMember",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The timestamp when the role was assigned to the user.",
+      "jsonName": "createdDateTime",
+      "name": "CreatedDateTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "User entity of the member who has been assigned the role.",
+      "jsonName": "user",
+      "name": "User",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "User",
+        "referenceNameIsCommonType": true
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "description": "The Microsoft Entra ID of the user who has the role assigned.",
+      "jsonName": "userId",
+      "name": "UserId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": true,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": true,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "#microsoft.graph.engagementRoleMember",
+  "typeHintIn": "ODataType"
+}
