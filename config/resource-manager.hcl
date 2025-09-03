@@ -406,7 +406,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -479,7 +479,7 @@ service "purview" {
 }
 service "quota" {
   name      = "Quota"
-  available = ["2025-07-15"]
+  available = ["2025-07-15", "2025-09-01"]
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
@@ -589,7 +589,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2024-07-01"]
+  available = ["2023-03-01", "2024-07-01", "2025-07-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
