@@ -314,6 +314,10 @@ service "iotcentral" {
   name      = "IoTCentral"
   available = ["2021-11-01-preview"]
 }
+service "iotoperations" {
+  name = "IoTOperations"
+  available = ["2024-11-01", "2025-07-01-preview"]
+}
 service "keyvault" {
   name      = "KeyVault"
   available = ["2023-02-01", "2023-07-01", "2024-11-01"]
