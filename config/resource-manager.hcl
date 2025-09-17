@@ -316,7 +316,7 @@ service "iotcentral" {
 }
 service "iotoperations" {
   name = "IoTOperations"
-  available = ["2024-11-01", "2025-07-01-preview"]
+  available = ["2024-11-01"]
 }
 service "keyvault" {
   name      = "KeyVault"
