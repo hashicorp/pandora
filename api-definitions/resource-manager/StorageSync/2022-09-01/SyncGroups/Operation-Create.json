@@ -1,0 +1,23 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "SyncGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SyncGroupCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SyncGroup",
+    "referenceNameIsCommonType": null
+  }
+}

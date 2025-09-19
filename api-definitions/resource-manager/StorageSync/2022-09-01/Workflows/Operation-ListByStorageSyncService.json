@@ -1,0 +1,19 @@
+{
+  "name": "ListByStorageSyncService",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "StorageSyncServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Workflow",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/workflows"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "GroupQuotaLocationSettingsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "LocationSettingId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GroupQuotasEnforcementStatus",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GroupQuotasEnforcementStatus",
+    "referenceNameIsCommonType": null
+  }
+}

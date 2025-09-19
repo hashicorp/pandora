@@ -1,0 +1,24 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ServerEndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerEndpointCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerEndpoint",
+    "referenceNameIsCommonType": null
+  }
+}
