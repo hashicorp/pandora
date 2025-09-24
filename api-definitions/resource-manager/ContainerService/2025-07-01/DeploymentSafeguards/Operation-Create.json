@@ -1,0 +1,25 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeploymentSafeguard",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeploymentSafeguard",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.ContainerService/deploymentSafeguards/default"
+}
