@@ -1,0 +1,43 @@
+{
+  "name": "ConnectorList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "pageSize",
+      "required": false,
+      "field": "PageSize",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "pageToken",
+      "required": false,
+      "field": "PageToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectorResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/connectors"
+}
