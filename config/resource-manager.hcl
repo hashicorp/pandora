@@ -117,7 +117,7 @@ service "confidentialledger" {
 }
 service "confluent" {
   name      = "Confluent"
-  available = ["2024-07-01", "2025-08-18-preview"]
+  available = ["2024-07-01"]
 }
 service "connectedvmware" {
   name      = "ConnectedVmware"
