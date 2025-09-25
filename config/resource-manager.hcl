@@ -115,6 +115,10 @@ service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
 }
+service "confluent" {
+  name      = "Confluent"
+  available = ["2024-07-01"]
+}
 service "connectedvmware" {
   name      = "ConnectedVmware"
   available = ["2023-12-01"]
