@@ -1,0 +1,22 @@
+{
+  "name": "PartnerInfoBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "partnerConnectorType",
+      "name": "PartnerConnectorType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PartnerConnectorType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "PartnerConnectorType"
+}

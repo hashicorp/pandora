@@ -1,0 +1,22 @@
+{
+  "name": "ConnectorServiceTypeInfoBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "connectorServiceType",
+      "name": "ConnectorServiceType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectorServiceType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "ConnectorServiceType"
+}
