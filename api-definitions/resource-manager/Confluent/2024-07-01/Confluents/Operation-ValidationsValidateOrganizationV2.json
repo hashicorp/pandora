@@ -1,0 +1,24 @@
+{
+  "name": "ValidationsValidateOrganizationV2",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ValidationId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "OrganizationResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ValidationResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/orgvalidateV2"
+}

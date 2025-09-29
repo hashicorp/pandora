@@ -1,0 +1,36 @@
+{
+  "name": "CertManagerPrivateKey",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "algorithm",
+      "name": "Algorithm",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivateKeyAlgorithm",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rotationPolicy",
+      "name": "RotationPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrivateKeyRotationPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

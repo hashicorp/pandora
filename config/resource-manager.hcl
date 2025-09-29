@@ -115,6 +115,10 @@ service "confidentialledger" {
   name      = "ConfidentialLedger"
   available = ["2022-05-13"]
 }
+service "confluent" {
+  name      = "Confluent"
+  available = ["2024-07-01"]
+}
 service "connectedvmware" {
   name      = "ConnectedVmware"
   available = ["2023-12-01"]
@@ -134,7 +138,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-05-01"]
+  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -313,6 +317,10 @@ service "informatica" {
 service "iotcentral" {
   name      = "IoTCentral"
   available = ["2021-11-01-preview"]
+}
+service "iotoperations" {
+  name = "IoTOperations"
+  available = ["2024-11-01"]
 }
 service "keyvault" {
   name      = "KeyVault"
