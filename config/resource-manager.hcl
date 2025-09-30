@@ -447,7 +447,7 @@ service "operationsmanagement" {
 }
 service "oracle" {
   name      = "OracleDatabase"
-  available = ["2025-03-01"]
+  available = ["2025-03-01", "2025-09-01"]
 }
 service "orbital" {
   name      = "Orbital"
