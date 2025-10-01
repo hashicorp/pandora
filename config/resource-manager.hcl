@@ -97,7 +97,7 @@ service "chaos" {
 }
 service "codesigning" {
   name      = "CodeSigning"
-  available = ["2024-09-30-preview"]
+  available = ["2024-09-30-preview", "2025-10-13"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
