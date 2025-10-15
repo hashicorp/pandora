@@ -1,0 +1,24 @@
+{
+  "name": "DataflowGraphDestinationNode",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destinationSettings",
+      "name": "DestinationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataflowGraphDestinationNodeSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataflowGraphNode",
+  "discriminatedTypeValue": "Destination",
+  "typeHintIn": "NodeType"
+}

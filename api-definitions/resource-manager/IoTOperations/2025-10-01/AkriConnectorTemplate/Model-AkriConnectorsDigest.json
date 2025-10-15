@@ -1,0 +1,24 @@
+{
+  "name": "AkriConnectorsDigest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "digest",
+      "name": "Digest",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AkriConnectorsTagDigestSettings",
+  "discriminatedTypeValue": "Digest",
+  "typeHintIn": "TagDigestType"
+}

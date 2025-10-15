@@ -1,0 +1,25 @@
+{
+  "name": "SourceControllistRepositories",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RepositoryAccessProperties",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Repo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.SecurityInsights/listRepositories"
+}

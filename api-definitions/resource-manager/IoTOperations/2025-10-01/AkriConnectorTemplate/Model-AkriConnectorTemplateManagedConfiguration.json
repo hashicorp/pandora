@@ -1,0 +1,24 @@
+{
+  "name": "AkriConnectorTemplateManagedConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedConfigurationSettings",
+      "name": "ManagedConfigurationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AkriConnectorTemplateManagedConfigurationSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AkriConnectorTemplateRuntimeConfiguration",
+  "discriminatedTypeValue": "ManagedConfiguration",
+  "typeHintIn": "RuntimeConfigurationType"
+}

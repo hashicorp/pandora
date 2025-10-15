@@ -1,0 +1,24 @@
+{
+  "name": "DatasetBrokerStateStoreDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BrokerStateStoreDestinationConfiguration",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DatasetDestination",
+  "discriminatedTypeValue": "BrokerStateStore",
+  "typeHintIn": "Target"
+}

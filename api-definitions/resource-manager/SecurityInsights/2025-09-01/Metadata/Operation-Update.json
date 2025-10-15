@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "MetadataId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetadataPatch",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetadataModel",
+    "referenceNameIsCommonType": null
+  }
+}

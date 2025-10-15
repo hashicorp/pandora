@@ -1,0 +1,22 @@
+{
+  "name": "DataflowDestinationHeaderAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "actionType",
+      "name": "ActionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataflowHeaderActionType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "ActionType"
+}

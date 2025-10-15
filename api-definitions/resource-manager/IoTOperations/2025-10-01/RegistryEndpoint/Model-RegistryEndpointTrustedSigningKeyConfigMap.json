@@ -1,0 +1,24 @@
+{
+  "name": "RegistryEndpointTrustedSigningKeyConfigMap",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configMapRef",
+      "name": "ConfigMapRef",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RegistryEndpointTrustedSigningKey",
+  "discriminatedTypeValue": "ConfigMap",
+  "typeHintIn": "Type"
+}
