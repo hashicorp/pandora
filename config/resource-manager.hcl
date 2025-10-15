@@ -540,7 +540,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2019-01-01-preview", "2021-06-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2025-03-01"]
+  available = ["2019-01-01-preview", "2021-06-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-12-01-preview" ,"2025-03-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
