@@ -1,0 +1,24 @@
+{
+  "name": "BrokerSubscriberQueueCustomPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriberQueueSettings",
+      "name": "SubscriberQueueSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BrokerSubscriberQueueCustomPolicySettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BrokerSubscriberQueuePolicy",
+  "discriminatedTypeValue": "Custom",
+  "typeHintIn": "Mode"
+}

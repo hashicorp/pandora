@@ -1,0 +1,24 @@
+{
+  "name": "BrokerStateStoreCustomPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stateStoreSettings",
+      "name": "StateStoreSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BrokerStateStorePolicySettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BrokerStateStorePolicy",
+  "discriminatedTypeValue": "Custom",
+  "typeHintIn": "Mode"
+}

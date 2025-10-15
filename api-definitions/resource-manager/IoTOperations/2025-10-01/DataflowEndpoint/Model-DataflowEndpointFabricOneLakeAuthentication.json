@@ -1,0 +1,51 @@
+{
+  "name": "DataflowEndpointFabricOneLakeAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "method",
+      "name": "Method",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedIdentityMethod",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemAssignedManagedIdentitySettings",
+      "name": "SystemAssignedManagedIdentitySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataflowEndpointAuthenticationSystemAssignedManagedIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userAssignedManagedIdentitySettings",
+      "name": "UserAssignedManagedIdentitySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataflowEndpointAuthenticationUserAssignedManagedIdentity",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

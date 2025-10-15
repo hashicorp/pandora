@@ -1,0 +1,22 @@
+{
+  "name": "BrokerStateStorePolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BrokerPersistencePolicyMode",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "Mode"
+}

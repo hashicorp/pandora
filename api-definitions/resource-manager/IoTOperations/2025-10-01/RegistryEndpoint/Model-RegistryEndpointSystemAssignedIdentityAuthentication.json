@@ -1,0 +1,24 @@
+{
+  "name": "RegistryEndpointSystemAssignedIdentityAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemAssignedManagedIdentitySettings",
+      "name": "SystemAssignedManagedIdentitySettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RegistryEndpointSystemAssignedManagedIdentitySettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RegistryEndpointAuthentication",
+  "discriminatedTypeValue": "SystemAssignedManagedIdentity",
+  "typeHintIn": "Method"
+}

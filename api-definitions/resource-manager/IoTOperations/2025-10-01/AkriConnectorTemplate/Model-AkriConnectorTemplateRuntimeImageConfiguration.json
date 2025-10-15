@@ -1,0 +1,24 @@
+{
+  "name": "AkriConnectorTemplateRuntimeImageConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageConfigurationSettings",
+      "name": "ImageConfigurationSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AkriConnectorTemplateRuntimeImageConfigurationSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AkriConnectorTemplateManagedConfigurationSettings",
+  "discriminatedTypeValue": "ImageConfiguration",
+  "typeHintIn": "ManagedConfigurationType"
+}

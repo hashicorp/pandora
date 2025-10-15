@@ -1,0 +1,22 @@
+{
+  "name": "AkriConnectorTemplateAllocation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "policy",
+      "name": "Policy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AkriConnectorTemplateAllocationPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "Policy"
+}

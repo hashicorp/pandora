@@ -1,0 +1,24 @@
+{
+  "name": "StreamMqttDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MqttDestinationConfiguration",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StreamDestination",
+  "discriminatedTypeValue": "Mqtt",
+  "typeHintIn": "Target"
+}

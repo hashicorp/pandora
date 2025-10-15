@@ -1,0 +1,24 @@
+{
+  "name": "DataflowGraphGraphNode",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "graphSettings",
+      "name": "GraphSettings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DataflowGraphNodeGraphSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataflowGraphNode",
+  "discriminatedTypeValue": "Graph",
+  "typeHintIn": "NodeType"
+}

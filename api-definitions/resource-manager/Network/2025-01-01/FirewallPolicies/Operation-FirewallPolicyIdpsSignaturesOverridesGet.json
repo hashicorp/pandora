@@ -1,0 +1,18 @@
+{
+  "name": "FirewallPolicyIdpsSignaturesOverridesGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "FirewallPolicyId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SignaturesOverrides",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/signatureOverrides/default"
+}

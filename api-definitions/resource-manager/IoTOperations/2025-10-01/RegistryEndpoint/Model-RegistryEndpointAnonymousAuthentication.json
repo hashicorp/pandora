@@ -1,0 +1,24 @@
+{
+  "name": "RegistryEndpointAnonymousAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "anonymousSettings",
+      "name": "AnonymousSettings",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "RegistryEndpointAuthentication",
+  "discriminatedTypeValue": "Anonymous",
+  "typeHintIn": "Method"
+}
