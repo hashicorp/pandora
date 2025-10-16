@@ -393,7 +393,7 @@ service "mobilenetwork" {
 }
 service "mongocluster" {
   name      = "MongoCluster"
-  available = ["2024-07-01"]
+  available = ["2024-07-01", "2025-09-01"]
 }
 service "monitor" {
   name      = "Insights"
