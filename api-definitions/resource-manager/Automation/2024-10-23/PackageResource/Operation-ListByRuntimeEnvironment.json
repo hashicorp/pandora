@@ -1,0 +1,19 @@
+{
+  "name": "ListByRuntimeEnvironment",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "RuntimeEnvironmentId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Package",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/packages"
+}
