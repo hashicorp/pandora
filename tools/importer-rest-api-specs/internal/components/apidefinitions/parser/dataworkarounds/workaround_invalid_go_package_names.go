@@ -16,7 +16,7 @@ type workaroundInvalidGoPackageNames struct{}
 
 func (workaroundInvalidGoPackageNames) IsApplicable(_ string, apiVersion sdkModels.APIVersion) bool {
 	for key := range apiVersion.Resources {
-		if strings.EqualFold(key, "documentation") {
+		if strings.EqualFold(key, "documentation") || strings.EqualFold(key, "package") {
 			return true
 		}
 	}
@@ -42,6 +42,15 @@ func (workaroundInvalidGoPackageNames) Process(input sdkModels.APIVersion) (*sdk
 				return nil, fmt.Errorf("the Resource %q is not valid as a Go Package Name - however the replacement name %q is already in use", originalName, resourceName)
 			}
 		}
+
+		// `package` is not a valid Go package name (reserved keyword), so let's rename it to `PackageResource`
+        // double-checking that we're not overwriting anything
+        if strings.EqualFold(resourceName, "package") {
+            resourceName = "PackageResource"
+            if _, ok := input.Resources[resourceName]; ok {
+                return nil, fmt.Errorf("the Resource %q is not valid as a Go Package Name - however the replacement name %q is already in use", originalName, resourceName)
+            }
+        }
 
 		resources[resourceName] = resource
 	}
