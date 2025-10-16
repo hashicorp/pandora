@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "WatcherId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WatcherUpdateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Watcher",
+    "referenceNameIsCommonType": null
+  }
+}
