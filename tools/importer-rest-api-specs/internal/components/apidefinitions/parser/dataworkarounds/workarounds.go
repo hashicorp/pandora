@@ -49,4 +49,7 @@ var workarounds = []workaround{
 	// These workarounds relate to data inconsistencies
 	workaroundInconsistentlyDefinedSegments{},
 	workaroundInvalidGoPackageNames{},
+
+	// These workarounds are for a specific use cases that are not API related issues
+	WorkaroundSqlJobExecutionsCreateNotLRO{},
 }
