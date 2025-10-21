@@ -51,5 +51,5 @@ var workarounds = []workaround{
 	workaroundInvalidGoPackageNames{},
 
 	// These workarounds are for a specific use cases that are not API related issues
-	WorkaroundSqlJobExecutionsCreateNotLRO{},
+	workaroundSqlJobExecutionsCreateNotLRO{},
 }
