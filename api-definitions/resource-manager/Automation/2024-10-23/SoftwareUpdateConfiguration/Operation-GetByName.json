@@ -1,0 +1,30 @@
+{
+  "name": "GetByName",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "clientRequestId",
+      "optional": true,
+      "required": false,
+      "field": "ClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SoftwareUpdateConfigurationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SoftwareUpdateConfiguration",
+    "referenceNameIsCommonType": null
+  }
+}

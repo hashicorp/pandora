@@ -1,0 +1,24 @@
+{
+  "name": "DataflowDestinationRemoveHeaderAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "key",
+      "name": "Key",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataflowDestinationHeaderAction",
+  "discriminatedTypeValue": "Remove",
+  "typeHintIn": "ActionType"
+}

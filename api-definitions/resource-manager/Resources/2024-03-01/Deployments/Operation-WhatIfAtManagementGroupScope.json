@@ -1,0 +1,25 @@
+{
+  "name": "WhatIfAtManagementGroupScope",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "Providers2DeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScopedDeploymentWhatIf",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WhatIfOperationResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/whatIf"
+}

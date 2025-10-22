@@ -1,0 +1,19 @@
+{
+  "name": "ListByDataflowProfile",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DataflowProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataflowGraphResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/dataflowGraphs"
+}

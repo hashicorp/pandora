@@ -1,0 +1,30 @@
+{
+  "name": "RaiBlocklistItemsBatchAdd",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "RaiBlocklistId",
+  "requestObject": {
+    "type": "List",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null,
+    "nestedItem": {
+      "type": "Reference",
+      "nullable": false,
+      "referenceName": "RaiBlocklistItemBulkRequest",
+      "referenceNameIsCommonType": null
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RaiBlocklist",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/addRaiBlocklistItems"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "SoftwareUpdateConfigurationRunTasks",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "postTask",
+      "name": "PostTask",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SoftwareUpdateConfigurationRunTaskProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preTask",
+      "name": "PreTask",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SoftwareUpdateConfigurationRunTaskProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

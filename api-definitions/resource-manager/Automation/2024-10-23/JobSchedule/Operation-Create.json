@@ -1,0 +1,23 @@
+{
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "JobScheduleId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "JobScheduleCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "JobSchedule",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "AkriConnectorTemplateRuntimeStatefulSetConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statefulSetConfigurationSettings",
+      "name": "StatefulSetConfigurationSettings",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AkriConnectorTemplateManagedConfigurationSettings",
+  "discriminatedTypeValue": "StatefulSetConfiguration",
+  "typeHintIn": "ManagedConfigurationType"
+}

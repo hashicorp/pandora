@@ -1,0 +1,22 @@
+{
+  "name": "AkriConnectorsMqttAuthentication",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "method",
+      "name": "Method",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AkriConnectorsMqttAuthenticationMethod",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "Method"
+}

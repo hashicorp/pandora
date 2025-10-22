@@ -1,0 +1,23 @@
+{
+  "name": "QueueUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "QueueId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "StorageQueue",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "StorageQueue",
+    "referenceNameIsCommonType": null
+  }
+}
