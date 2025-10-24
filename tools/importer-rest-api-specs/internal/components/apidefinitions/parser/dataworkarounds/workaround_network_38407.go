@@ -1,7 +1,7 @@
 package dataworkarounds
 
 import (
-	"fmt"
+	"errors"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -21,16 +21,16 @@ func (w workaroundNetwork38407) Name() string {
 func (w workaroundNetwork38407) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	resource, ok := input.Resources["WebApplicationFirewallPolicies"]
 	if !ok {
-		return nil, fmt.Errorf("expected a Resource named `WebApplicationFirewallPolicies` but didn't get one")
+		return nil, errors.New("expected a Resource named `WebApplicationFirewallPolicies` but didn't get one")
 	}
 
 	model, ok := resource.Models["ManagedRuleSet"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Model `ManagedRuleSet`")
+		return nil, errors.New("couldn't find Model `ManagedRuleSet`")
 	}
 
 	if _, ok := model.Fields["ComputedDisabledRules"]; !ok {
-		return nil, fmt.Errorf("couldn't find field `ComputedDisabledRules in Model `ManagedRuleSet`")
+		return nil, errors.New("couldn't find field `ComputedDisabledRules in Model `ManagedRuleSet`")
 	}
 
 	// This field should return an array of strings, but instead it returns an array of integers.
