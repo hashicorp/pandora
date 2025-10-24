@@ -1,36 +1,30 @@
 {
-  "name": "ManagedRuleSetRuleGroup",
+  "name": "ErrorAdditionalInfo",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ruleGroupName",
-      "name": "RuleGroupName",
+      "jsonName": "info",
+      "name": "Info",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "rules",
-      "name": "Rules",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
       },
       "optional": true,
       "readOnly": false,
