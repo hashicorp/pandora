@@ -29,6 +29,7 @@ var workarounds = []workaround{
 	workaroundLoadTest20961{},
 	workaroundMachineLearning25142{},
 	workaroundNetwork29303{},
+	workaroundNetwork38407{},
 	workaroundNewRelic29256{},
 	workaroundOperationalinsights27524{},
 	workaroundRecoveryServicesSiteRecovery26680{},
