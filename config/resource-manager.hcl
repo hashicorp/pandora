@@ -626,10 +626,6 @@ service "vi" {
   name      = "VideoIndexer"
   available = ["2025-04-01"]
 }
-service "videoanalyzer" {
-  name      = "VideoAnalyzer"
-  available = ["2021-05-01-preview"]
-}
 service "vmware" {
   name      = "VMware"
   available = ["2022-05-01", "2024-09-01"]
