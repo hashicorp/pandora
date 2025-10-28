@@ -1,6 +1,21 @@
 {
-  "name": "VideoAnalyzerIdentity",
+  "name": "ErrorAdditionalInfo",
   "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "info",
+      "name": "Info",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "type",
@@ -10,27 +25,6 @@
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "userAssignedIdentities",
-      "name": "UserAssignedIdentities",
-      "objectDefinition": {
-        "type": "Dictionary",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "UserAssignedManagedIdentity",
-          "referenceNameIsCommonType": null
-        }
       },
       "optional": true,
       "readOnly": false,

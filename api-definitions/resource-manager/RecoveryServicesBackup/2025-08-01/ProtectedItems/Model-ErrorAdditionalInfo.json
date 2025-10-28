@@ -1,12 +1,12 @@
 {
-  "name": "Endpoint",
+  "name": "ErrorAdditionalInfo",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "endpointUrl",
-      "name": "EndpointURL",
+      "jsonName": "info",
+      "name": "Info",
       "objectDefinition": {
-        "type": "String",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -21,14 +21,14 @@
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "String",
         "nullable": false,
-        "referenceName": "VideoAnalyzerEndpointType",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     }
   ],
