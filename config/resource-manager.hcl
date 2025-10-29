@@ -510,7 +510,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2024-10-01", "2025-04-01"]
+  available = ["2024-10-01", "2025-04-01", "2025-07-01"]
 }
 service "relay" {
   name      = "Relay"
