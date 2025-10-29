@@ -226,7 +226,7 @@ service "digitaltwins" {
 }
 service "dns" {
   name      = "DNS"
-  available = ["2018-05-01"]
+  available = ["2018-05-01", "2023-07-01-preview"]
 }
 service "dnsresolver" {
   name      = "DNSResolver"
