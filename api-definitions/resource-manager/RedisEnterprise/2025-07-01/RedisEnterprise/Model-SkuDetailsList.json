@@ -1,0 +1,27 @@
+{
+  "name": "SkuDetailsList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "skus",
+      "name": "Skus",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "SkuDetails",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
