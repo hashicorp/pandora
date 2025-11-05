@@ -9,6 +9,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/go-openapi/spec"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
@@ -21,7 +22,7 @@ type ParsedConstant struct {
 	Details sdkModels.SDKConstant
 }
 
-func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
+func Parse(typeVal openapi3.Types, fieldName string, modelName *string, values []interface{}, extensions spec.Extensions) (*ParsedConstant, error) {
 	if len(values) == 0 {
 		return nil, fmt.Errorf("the Enum in %q has no values", fieldName)
 	}
@@ -51,9 +52,9 @@ func Parse(typeVal spec.StringOrArray, fieldName string, modelName *string, valu
 	}
 
 	constantType := sdkModels.StringSDKConstantType
-	if typeVal.Contains("integer") {
+	if typeVal.Is("integer") {
 		constantType = sdkModels.IntegerSDKConstantType
-	} else if typeVal.Contains("number") {
+	} else if typeVal.Is("number") {
 		constantType = sdkModels.FloatSDKConstantType
 	}
 
@@ -150,7 +151,7 @@ func parseKeysAndValues(input []interface{}, constantType sdkModels.SDKConstantT
 			continue
 		}
 
-		return nil, fmt.Errorf("unsupported constant type %q", string(constantType))
+		return nil, fmt.Errorf("unsupported constant type %q", constantType)
 	}
 
 	return keysAndValues, nil

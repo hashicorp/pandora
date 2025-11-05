@@ -25,7 +25,7 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 	paginationField := fieldContainingPaginationDetailsForOperation(operation)
 	requestObject, nestedResult, err := requestObjectForOperation(parsingContext, operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
+		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.OperationID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -34,7 +34,7 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 	}
 	responseResult, nestedResult, err := responseObjectForOperation(parsingContext, operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
+		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.OperationID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -56,7 +56,7 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 		}
 	}
 
-	resourceId := operationIdsToParsedOperations[operation.operation.ID]
+	resourceId := operationIdsToParsedOperations[operation.operation.OperationID]
 	usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(resourceId.ResourceId, resourceProvider)
 	if err != nil {
 		return nil, nil, err
@@ -66,7 +66,7 @@ func parseOperation(parsingContext *parsingcontext.Context, operation parsedOper
 		// the ResourceProvider may be different across those resources. prior to refactoring the importer to use
 		// Data API SDK types, this check never worked, but now it does, and we don't need it.
 		logging.Tracef("Skipping default ResourceProvider check for %q (%q)", *resourceId.ResourceIdName, *resourceProvider)
-		//return nil, nil, nil
+		// return nil, nil, nil
 	}
 
 	operationData := sdkModels.SDKOperation{

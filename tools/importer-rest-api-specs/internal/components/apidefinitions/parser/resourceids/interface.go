@@ -4,16 +4,19 @@
 package resourceids
 
 import (
-	"github.com/go-openapi/analysis"
+	"github.com/getkin/kin-openapi/openapi2"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/parsingcontext"
 )
 
 type Parser struct {
-	swaggerSpecExpanded *analysis.Spec
+	Context *parsingcontext.Context
+
+	Expanded openapi2.SchemaRef
 }
 
 // NewParser returns a Parser instance which can be used to parse Resource IDs
-func NewParser(swaggerSpecExpanded *analysis.Spec) *Parser {
+func NewParser(ctx *parsingcontext.Context) *Parser {
 	return &Parser{
-		swaggerSpecExpanded: swaggerSpecExpanded,
+		Context: ctx,
 	}
 }

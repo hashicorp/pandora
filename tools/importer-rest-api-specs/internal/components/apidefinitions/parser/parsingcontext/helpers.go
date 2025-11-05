@@ -5,9 +5,12 @@ package parsingcontext
 
 import (
 	"fmt"
+	"log"
 	"net/url"
 	"strings"
 
+	"github.com/getkin/kin-openapi/openapi2"
+	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/go-openapi/spec"
 	sdkHelpers "github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -17,8 +20,8 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func fragmentNameFromReference(input spec.Ref) *string {
-	fragmentName := input.String()
+func fragmentNameFromReference(input openapi2.SchemaRef) *string {
+	fragmentName := input.RefString()
 	return fragmentNameFromString(fragmentName)
 }
 
@@ -63,7 +66,7 @@ func referencesAreTheSame(first []string, second []string) bool {
 	}
 
 	// first load the existing keys
-	keys := make(map[string]struct{}, 0)
+	keys := make(map[string]struct{})
 	for _, key := range first {
 		keys[key] = struct{}{}
 	}
@@ -110,7 +113,7 @@ func (c *Context) FindNestedItemsYetToBeParsed(operations map[string]sdkModels.S
 				return nil, fmt.Errorf("finding top level object named %q: %+v", referenceName, err)
 			}
 
-			parsedAsAConstant, constErr := constants.Parse(topLevelObject.Type, referenceName, nil, topLevelObject.Enum, topLevelObject.Extensions)
+			parsedAsAConstant, constErr := constants.Parse(*topLevelObject.Value.Type, referenceName, nil, topLevelObject.Value.Enum, topLevelObject.Extensions)
 			parsedAsAModel, modelErr := c.ParseModel(referenceName, *topLevelObject)
 			if (constErr != nil && modelErr != nil) || (parsedAsAConstant == nil && parsedAsAModel == nil) {
 				return nil, fmt.Errorf("reference %q didn't parse as a Model or a Constant.\n\nConstant Error: %+v\n\nModel Error: %+v", referenceName, constErr, modelErr)
@@ -228,7 +231,7 @@ func (c *Context) determineObjectsRequiredButNotParsed(operations map[string]sdk
 }
 
 func (c *Context) objectsUsedByModel(modelName string, model sdkModels.SDKModel) (*[]string, error) {
-	typeNames := make(map[string]struct{}, 0)
+	typeNames := make(map[string]struct{})
 
 	for fieldName, field := range model.Fields {
 		logging.Tracef("Determining objects used by field %q..", fieldName)
@@ -283,4 +286,69 @@ func (c *Context) objectsRequiredByModel(modelName string, model sdkModels.SDKMo
 		out = append(out, k)
 	}
 	return &out, nil
+}
+
+func openapi3to2SchemaRef(input *openapi3.SchemaRef) *openapi2.SchemaRef {
+	if input.Ref != "" {
+		return &openapi2.SchemaRef{
+			Ref: input.Ref,
+		}
+	}
+
+	// 2. Handle Schema Value
+	schema3 := input.Value
+	if schema3 == nil {
+		return &openapi2.SchemaRef{}
+	}
+
+	schema2 := openapi2.Schema{}
+
+	if !schema3.Type.Is("") {
+		schema2.Type = schema3.Type
+	}
+	if schema3.Format != "" {
+		schema2.Format = schema3.Format
+	}
+	if schema3.Description != "" {
+		schema2.Description = schema3.Description
+	}
+
+	// Array Items
+	if schema3.Items != nil {
+		schema2.Items = openapi3to2SchemaRef(schema3.Items)
+	}
+
+	// --- PROPERTIES (Mapping Nested Schemas) ---
+	if schema3.Properties != nil && len(schema3.Properties) > 0 {
+		props2 := openapi2.Schemas{}
+		for name, propRef3 := range schema3.Properties {
+			props2[name] = openapi3to2SchemaRef(propRef3)
+		}
+		schema2.Properties = props2
+	}
+
+	// --- ADVANCED FIELD HANDLING (Compromises) ---
+
+	// The 'required' field in OAI3 is a list of strings on the schema itself.
+	// In Swagger 2.0, it is also a list of strings on the schema itself.
+	schema2.Required = schema3.Required
+
+	// AllOf (Direct mapping is usually safe, as long as the sub-schemas don't use OAI3-only features)
+	if len(schema3.AllOf) > 0 {
+		log.Println("WARNING: AllOf is being mapped. Ensure nested schemas are OAI2-compatible.")
+		allOf := openapi2.SchemaRefs{}
+		for i, ref3 := range schema3.AllOf {
+			allOf[i] = openapi3to2SchemaRef(ref3)
+		}
+		schema2.AllOf = allOf
+	}
+
+	// AnyOf/OneOf/Not: Cannot be directly represented in Swagger 2.0.
+	if len(schema3.AnyOf) > 0 || len(schema3.OneOf) > 0 || schema3.Not != nil {
+		log.Printf("ERROR: Detected unsupported OAI3 features (AnyOf/OneOf/Not). Data will be lost/omitted.")
+	}
+
+	return &openapi2.SchemaRef{
+		Value: &schema2,
+	}
 }

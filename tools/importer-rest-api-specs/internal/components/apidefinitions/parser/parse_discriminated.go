@@ -18,9 +18,9 @@ func (p *apiDefinitionsParser) FindOrphanedDiscriminatedModels(serviceName strin
 		Models:    map[string]sdkModels.SDKModel{},
 	}
 
-	for modelName, definition := range p.context.SwaggerSpecWithReferencesRaw.Definitions {
-		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
-			details, err := p.context.ParseModel(modelName, definition)
+	for modelName, definition := range p.context.Expanded.Definitions {
+		if _, ok := definition.Extensions["x-ms-discriminator-value"]; ok {
+			details, err := p.context.ParseModel(modelName, *definition)
 			if err != nil {
 				return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
 			}
@@ -35,13 +35,13 @@ func (p *apiDefinitionsParser) FindOrphanedDiscriminatedModels(serviceName strin
 		if strings.EqualFold(serviceName, "datafactory") {
 			// this catches orphaned discriminated models where the discriminator information is housed in the parent
 			// and uses the name of the model as the discriminated value
-			if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); !ok && len(definition.AllOf) > 0 {
-				parentType, discriminator, err := p.context.FindAncestorType(definition)
+			if _, ok := definition.Extensions["x-ms-discriminator-value"]; !ok && len(definition.Value.AllOf) > 0 {
+				parentType, discriminator, err := p.context.FindAncestorType(*definition)
 				if err != nil {
 					return nil, fmt.Errorf("determining ancestor type for model %q: %+v", modelName, err)
 				}
 
-				details, err := p.context.ParseModel(modelName, definition)
+				details, err := p.context.ParseModel(modelName, *definition)
 				if err != nil {
 					return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
 				}

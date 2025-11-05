@@ -6,6 +6,7 @@ package operation
 import (
 	"fmt"
 	"sort"
+	"strconv"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	parserModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/models"
@@ -26,31 +27,32 @@ func responseObjectForOperation(parsingContext *parsingcontext.Context, input pa
 	result.Append(known)
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := parsingContext.SwaggerSpecWithReferences.OperationForName(input.operation.ID)
+	_, _, unexpandedOperation, found := parsingContext.OperationForID(input.operation.OperationID)
 	if !found {
-		return nil, nil, fmt.Errorf("couldn't find Operation ID %q in the unexpanded Swagger spec", input.operation.ID)
+		return nil, nil, fmt.Errorf("couldn't find Operation ID %q in the unexpanded Swagger spec", input.operation.OperationID)
 	}
 
 	// since it's possible for operations to have multiple status codes, parse out all the objects and then find the most applicable
 	statusCodes := make([]int, 0)
 	objectDefinitionsByStatusCode := map[int]sdkModels.SDKObjectDefinition{}
-	for statusCode, details := range unexpandedOperation.Responses.StatusCodeResponses {
-		if !isASuccessResponse(statusCode, details) {
+	for statusCode, details := range unexpandedOperation.Responses {
+		atoi, _ := strconv.Atoi(statusCode)
+		if !isASuccessResponse(atoi, *details) {
 			continue
 		}
 
-		if details.ResponseProps.Schema == nil {
+		if details.Schema == nil || details.Schema.Value == nil {
 			continue
 		}
 
 		parsingModel := true
-		objectDefinition, nestedResult, err := parsingContext.ParseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, parsingModel)
+		objectDefinition, nestedResult, err := parsingContext.ParseObjectDefinition(details.Schema.Value.Title, details.Schema.Value.Title, details.Schema, result, parsingModel)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}
 
-		statusCodes = append(statusCodes, statusCode)
-		objectDefinitionsByStatusCode[statusCode] = *objectDefinition
+		statusCodes = append(statusCodes, atoi)
+		objectDefinitionsByStatusCode[atoi] = *objectDefinition
 		result.Append(*nestedResult)
 	}
 

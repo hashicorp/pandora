@@ -4,12 +4,13 @@
 package operation
 
 import (
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"net/http"
 	"sort"
+	"strconv"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func determineContentType(operation parsedOperation) string {
@@ -31,10 +32,11 @@ func determineContentType(operation parsedOperation) string {
 func expectedStatusCodesForOperation(input parsedOperation) []int {
 	statusCodes := make([]int, 0)
 
-	for statusCode, resp := range input.operation.Responses.StatusCodeResponses {
+	for statusCode, resp := range input.operation.Responses {
 		// sanity checking
-		if isASuccessResponse(statusCode, resp) {
-			statusCodes = append(statusCodes, statusCode)
+		atoi, _ := strconv.Atoi(statusCode)
+		if isASuccessResponse(atoi, *resp) {
+			statusCodes = append(statusCodes, atoi)
 		}
 	}
 
@@ -68,7 +70,7 @@ func expectedStatusCodesForOperation(input parsedOperation) []int {
 }
 
 func fieldContainingPaginationDetailsForOperation(input parsedOperation) *string {
-	if raw, ok := input.operation.VendorExtensible.Extensions["x-ms-pageable"]; ok {
+	if raw, ok := input.operation.Extensions["x-ms-pageable"]; ok {
 		val, ok := raw.(map[string]interface{})
 		if ok {
 			for k, v := range val {
@@ -87,11 +89,11 @@ func fieldContainingPaginationDetailsForOperation(input parsedOperation) *string
 	return nil
 }
 
-func isASuccessResponse(statusCode int, resp spec.Response) bool {
+func isASuccessResponse(statusCode int, resp openapi2.Response) bool {
 	// Status Codes with the extension `x-ms-error-response` reference an error response
 	// which should be ignored in our case - as errors will instead be pulled out via the
 	// base layer
-	isErrorValue, exists := resp.Extensions.GetBool("x-ms-error-response")
+	isErrorValue, exists := resp.Extensions["x-ms-error-response"].(bool)
 	if exists && isErrorValue {
 		return false
 	}
@@ -123,7 +125,7 @@ func isLongRunning(input parsedOperation) bool {
 	//   > }
 	// Whilst these _could_ be useful at some point we can likely ignore them for
 	// the moment since the convention is either `Location` or `Azure-AsyncOperation`
-	val, exists := input.operation.Extensions.GetBool("x-ms-long-running-operation")
+	val, exists := input.operation.Extensions["x-ms-long-running-operation"].(bool)
 	if !exists {
 		return false
 	}
@@ -131,7 +133,7 @@ func isLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func matchesTag(operation *spec.Operation, tag *string) bool {
+func matchesTag(operation *openapi2.Operation, tag *string) bool {
 	// if there's no tags defined, we should capture it when the tag matched
 	if tag == nil {
 		return len(operation.Tags) == 0

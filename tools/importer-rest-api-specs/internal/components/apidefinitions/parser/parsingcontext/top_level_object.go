@@ -7,19 +7,19 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
 )
 
-func (c *Context) findTopLevelObject(name string) (*spec.Schema, error) {
-	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
+func (c *Context) findTopLevelObject(name string) (*openapi2.SchemaRef, error) {
+	for modelName, model := range c.Expanded.Definitions {
 		if strings.EqualFold(modelName, name) {
-			return &model, nil
+			return model, nil
 		}
 	}
 
-	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
+	for modelName, model := range c.Expanded.Definitions {
 		if strings.EqualFold(modelName, name) {
-			return &model, nil
+			return model, nil
 		}
 	}
 

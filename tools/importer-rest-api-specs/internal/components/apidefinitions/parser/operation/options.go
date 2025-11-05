@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
@@ -54,16 +54,14 @@ func optionsForOperation(input parsedOperation) (map[string]sdkModels.SDKOperati
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
-			objectDefinition, err := determineObjectDefinitionForOption(param)
+			objectDefinition, err := determineObjectDefinitionForOption(*param)
 			if err != nil {
 				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
 			}
 			option.ObjectDefinition = *objectDefinition
 
 			if param.Enum != nil {
-				types := []string{
-					param.Type,
-				}
+				types := *param.Type
 				constant, err := constants.Parse(types, param.Name, nil, param.Enum, param.Extensions)
 				if err != nil {
 					return nil, nil, fmt.Errorf("mapping %q: %+v", param.Name, err)
@@ -83,14 +81,14 @@ func optionsForOperation(input parsedOperation) (map[string]sdkModels.SDKOperati
 	return output, &result, nil
 }
 
-func determineObjectDefinitionForOption(input spec.Parameter) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
-	if strings.EqualFold(input.Type, "array") {
+func determineObjectDefinitionForOption(input openapi2.Parameter) (*sdkModels.SDKOperationOptionObjectDefinition, error) {
+	if input.Type.Is("array") {
 		// https://github.com/Azure/azure-rest-api-specs/blob/1b0ed8edd58bb7c9ade9a27430759527bd4eec8e/specification/trafficmanager/resource-manager/Microsoft.Network/stable/2018-03-01/trafficmanager.json#L735-L738
 		if input.Items == nil {
 			return nil, fmt.Errorf("an array/csv option type was specified with no items")
 		}
 
-		innerType, err := determineObjectDefinitionForOptionRaw(input.Items.Type, input.Items.CollectionFormat, input.Items.Format)
+		innerType, err := determineObjectDefinitionForOptionRaw(input.Items.Value.Type.Slice()[0], input.Items.CollectionName(), input.Items.Value.Format)
 		if err != nil {
 			return nil, fmt.Errorf("determining nested object definition for option: %+v", err)
 		}
@@ -108,7 +106,7 @@ func determineObjectDefinitionForOption(input spec.Parameter) (*sdkModels.SDKOpe
 		}, nil
 	}
 
-	return determineObjectDefinitionForOptionRaw(input.Type, input.CollectionFormat, input.Format)
+	return determineObjectDefinitionForOptionRaw(input.Type.Slice()[0], input.CollectionFormat, input.Format)
 }
 
 func determineObjectDefinitionForOptionRaw(paramType string, collectionFormat string, format string) (*sdkModels.SDKOperationOptionObjectDefinition, error) {

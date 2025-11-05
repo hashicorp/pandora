@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
@@ -18,7 +18,7 @@ import (
 
 // ParseObjectDefinition ... TODO
 // if `parsingModel` is false, it means the `input` schema cannot be used to parse the model of `modelName`
-func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *spec.Schema, known parserModels.ParseResult, parsingModel bool) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
+func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *openapi2.SchemaRef, known parserModels.ParseResult, parsingModel bool) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := parserModels.ParseResult{
@@ -28,8 +28,8 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 	_ = result.Append(known)
 
 	// if it's an enum then parse that out
-	if len(input.Enum) > 0 {
-		constant, err := constants.Parse(input.Type, propertyName, &modelName, input.Enum, input.Extensions)
+	if len(input.Value.Enum) > 0 {
+		constant, err := constants.Parse(*input.Value.Type, propertyName, &modelName, input.Value.Enum, input.Extensions)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -56,7 +56,7 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 	}
 
 	// if it's a reference to a model, return that
-	if objectName := fragmentNameFromReference(input.Ref); objectName != nil {
+	if objectName := fragmentNameFromString(input.Ref); objectName != nil {
 		// first find the top level object
 		topLevelObject, err := c.findTopLevelObject(*objectName)
 		if err != nil {
@@ -90,25 +90,25 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 	}
 
 	// however we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
-	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
+	if len(input.Value.Properties) > 0 || len(input.Value.AllOf) > 0 {
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
-		if len(input.Properties) == 0 && len(input.AllOf) > 0 {
+		if len(input.Value.Properties) == 0 && len(input.Value.AllOf) > 0 {
 			// `AllOf` can contain either a Reference, a model/constant or just a description.
 			// As such we need to filter out the description-only `AllOf`'s when determining whether the model
 			// should be replaced by the single type it's referencing.
-			allOfFields := make([]spec.Schema, 0)
-			for _, item := range input.AllOf {
-				fragmentName := fragmentNameFromReference(item.Ref)
-				if fragmentName == nil && len(item.Type) == 0 && len(item.Properties) == 0 {
+			allOfFields := make([]openapi2.SchemaRef, 0)
+			for _, item := range input.Value.AllOf {
+				fragmentName := fragmentNameFromString(item.Ref)
+				if fragmentName == nil && len(*item.Value.Type) == 0 && len(item.Value.Properties) == 0 {
 					continue
 				}
-				allOfFields = append(allOfFields, item)
+				allOfFields = append(allOfFields, *item)
 			}
 			if len(allOfFields) == 1 {
 				inheritedModel := allOfFields[0]
 				const localParsingModel = true
-				return c.ParseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, localParsingModel)
+				return c.ParseObjectDefinition(inheritedModel.Value.Title, propertyName, &inheritedModel, result, localParsingModel)
 			}
 		}
 
@@ -145,15 +145,15 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 		return &definition, &result, nil
 	}
 
-	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
+	if input.Value.AdditionalProperties.Schema != nil {
 		// it'll be a Dictionary, so pull out the nested item and return that
 		// however we need a name for this model
 		innerModelName := fmt.Sprintf("%sProperties", propertyName)
-		if input.AdditionalProperties.Schema.Title != "" {
-			innerModelName = input.AdditionalProperties.Schema.Title
+		if input.Value.AdditionalProperties.Schema.Value.Title != "" {
+			innerModelName = input.Value.AdditionalProperties.Schema.Value.Title
 		}
 
-		nestedItem, nestedResult, err := c.ParseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result, true)
+		nestedItem, nestedResult, err := c.ParseObjectDefinition(innerModelName, propertyName, openapi3to2SchemaRef(input.Value.AdditionalProperties.Schema), result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
 		}
@@ -169,14 +169,14 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 		}, &result, nil
 	}
 
-	if input.Type.Contains("array") && input.Items.Schema != nil {
-		inlinedName := input.Items.Schema.Title
+	if input.Value.Type.Is("array") && input.Value.Items.Value != nil {
+		inlinedName := input.Value.Items.Value.Title
 		if inlinedName == "" {
 			// generate one based on the info we have
 			inlinedName = fmt.Sprintf("%s%sInlined", cleanup.NormalizeName(modelName), cleanup.NormalizeName(propertyName))
 		}
 
-		nestedItem, nestedResult, err := c.ParseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result, true)
+		nestedItem, nestedResult, err := c.ParseObjectDefinition(inlinedName, propertyName, input.Value.Items, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}
@@ -227,10 +227,10 @@ func (c *Context) ParseObjectDefinition(modelName, propertyName string, input *s
 	return nil, nil, fmt.Errorf("unimplemented object definition")
 }
 
-func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserModels.ParseResult) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
+func (c *Context) parseDataFactoryCustomTypes(input *openapi2.SchemaRef, known parserModels.ParseResult) (*sdkModels.SDKObjectDefinition, *parserModels.ParseResult, error) {
 	formatVal := ""
-	if input.Type.Contains("object") {
-		formatVal, _ = input.Extensions.GetString("x-ms-format")
+	if input.Value.Type.Is("object") {
+		formatVal, _ = input.Extensions["x-ms-format"].(string)
 	}
 	if formatVal == "" {
 		return nil, nil, nil
@@ -273,7 +273,7 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 	// DataFactory has some specific reimplementations of List too..
 	if strings.EqualFold(formatVal, "dfe-list-generic") && featureflags.ParseDataFactoryListsOfReferencesAsRegularObjectDefinitionTypes {
 		// NOTE: it's also possible to have
-		elementType, ok := input.Extensions.GetString("x-ms-format-element-type")
+		elementType, ok := input.Extensions["x-ms-format-element-type"].(string)
 		if !ok {
 			return nil, nil, fmt.Errorf("when `x-ms-format` is set to `dfe-list-generic` a `x-ms-format-element-type` must be set - but was not found")
 		}
@@ -313,37 +313,38 @@ func (c *Context) parseDataFactoryCustomTypes(input *spec.Schema, known parserMo
 	}, nil, nil
 }
 
-func (c *Context) parseNativeType(input *spec.Schema) *sdkModels.SDKObjectDefinition {
+func (c *Context) parseNativeType(input *openapi2.SchemaRef) *sdkModels.SDKObjectDefinition {
 	if input == nil {
 		return nil
 	}
+	schema := input.Value
 
-	if input.Type.Contains("bool") || input.Type.Contains("boolean") {
+	if schema.Type.Is("bool") || schema.Type.Is("boolean") {
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.BooleanSDKObjectDefinitionType,
 		}
 	}
 
-	if input.Type.Contains("file") {
+	if schema.Type.Is("file") {
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.RawFileSDKObjectDefinitionType,
 		}
 	}
 
-	if input.Type.Contains("integer") {
+	if schema.Type.Is("integer") {
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.IntegerSDKObjectDefinitionType,
 		}
 	}
 
-	if input.Type.Contains("number") {
+	if schema.Type.Is("number") {
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.FloatSDKObjectDefinitionType,
 		}
 	}
 
-	if input.Type.Contains("object") {
-		if strings.EqualFold(input.Format, "file") {
+	if schema.Type.Is("object") {
+		if strings.EqualFold(schema.Format, "file") {
 			return &sdkModels.SDKObjectDefinition{
 				Type: sdkModels.RawFileSDKObjectDefinitionType,
 			}
@@ -356,14 +357,14 @@ func (c *Context) parseNativeType(input *spec.Schema) *sdkModels.SDKObjectDefini
 
 	// NOTE: whilst a DateTime _should_ always be Type: String with a Format of DateTime - bad data means
 	// that this could have no Type value but a Format value, so we have to check this separately.
-	if strings.EqualFold(input.Format, "date-time") {
+	if strings.EqualFold(schema.Format, "date-time") {
 		// TODO: handle there being a custom format - for now we assume these are all using RFC3339 (#8)
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.DateTimeSDKObjectDefinitionType,
 		}
 	}
 
-	if input.Type.Contains("string") {
+	if schema.Type.Is("string") {
 		// TODO: handle the `format` of `arm-id` (#1289)
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.StringSDKObjectDefinitionType,
@@ -372,7 +373,7 @@ func (c *Context) parseNativeType(input *spec.Schema) *sdkModels.SDKObjectDefini
 
 	// whilst all fields _should_ have a Type field, it's not guaranteed that they do
 	// NOTE: this is _intentionally_ not part of the Object comparison above
-	if len(input.Type) == 0 {
+	if schema.Type.Is("") {
 		return &sdkModels.SDKObjectDefinition{
 			Type: sdkModels.RawObjectSDKObjectDefinitionType,
 		}

@@ -10,7 +10,7 @@ import (
 )
 
 func (p *apiDefinitionsParser) ParseResourceIds() (*resourceids.ParseResult, error) {
-	parser := resourceids.NewParser(p.context.SwaggerSpecExpanded)
+	parser := resourceids.NewParser(p.context)
 	resourceIds, err := parser.Parse()
 	if err != nil {
 		return nil, fmt.Errorf("finding Resource IDs: %+v", err)

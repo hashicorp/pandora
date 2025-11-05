@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
@@ -16,7 +16,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
-func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.ParseResult, error) {
+func (c *Context) ParseModel(name string, input openapi2.SchemaRef) (*parserModels.ParseResult, error) {
 	logging.Tracef("Parsing details for Model %q..", name)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -58,7 +58,7 @@ func (c *Context) ParseModel(name string, input spec.Schema) (*parserModels.Pars
 	return &result, nil
 }
 
-func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, input spec.Schema, known parserModels.ParseResult) (*parserModels.ParseResult, error) {
+func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, input openapi2.SchemaRef, known parserModels.ParseResult) (*parserModels.ParseResult, error) {
 	// NOTE: both Models and Fields are passed in here
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -66,8 +66,8 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 	}
 	result.Append(known)
 
-	if len(input.Enum) > 0 {
-		constant, err := constants.Parse(input.Type, fieldName, modelName, input.Enum, input.Extensions)
+	if len(input.Value.Enum) > 0 {
+		constant, err := constants.Parse(*input.Value.Type, fieldName, modelName, input.Value.Enum, input.Extensions)
 		if err != nil {
 			return nil, fmt.Errorf("parsing constant: %+v", err)
 		}
@@ -75,9 +75,9 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 	}
 
 	// Check any object that this model inherits from
-	if len(input.AllOf) > 0 {
-		for _, parent := range input.AllOf {
-			fragmentName := fragmentNameFromReference(parent.Ref)
+	if len(input.Value.AllOf) > 0 {
+		for _, parent := range input.Value.AllOf {
+			fragmentName := fragmentNameFromString(parent.Ref)
 			if fragmentName == nil {
 				continue
 			}
@@ -103,10 +103,10 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 		}
 	}
 
-	for propName, propVal := range input.Properties {
+	for propName, propVal := range input.Value.Properties {
 		logging.Tracef("Processing Property %q..", propName)
 		// models can contain nested models - either can contain constants, so around we go..
-		nestedResult, err := c.findConstantsWithinModel(propName, &fieldName, propVal, result)
+		nestedResult, err := c.findConstantsWithinModel(propName, &fieldName, *propVal, result)
 		if err != nil {
 			return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 		}
@@ -115,11 +115,12 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 		}
 	}
 
-	if input.AdditionalProperties != nil && input.AdditionalProperties.Schema != nil {
-		for propName, propVal := range input.AdditionalProperties.Schema.Properties {
+	if input.Value.AdditionalProperties.Schema != nil {
+		for propName, propVal := range input.Value.AdditionalProperties.Schema.Value.Properties {
 			logging.Tracef("Processing Additional Property %q..", propName)
 			// models can contain nested models - either can contain constants, so around we go..
-			nestedConstants, err := c.findConstantsWithinModel(propName, &fieldName, propVal, result)
+			convertedPropVal := openapi3to2SchemaRef(propVal)
+			nestedConstants, err := c.findConstantsWithinModel(propName, &fieldName, *convertedPropVal, result)
 			if err != nil {
 				return nil, fmt.Errorf("finding nested constants within %q: %+v", propName, err)
 			}
@@ -133,7 +134,7 @@ func (c *Context) findConstantsWithinModel(fieldName string, modelName *string, 
 	return &result, nil
 }
 
-func (c *Context) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known parserModels.ParseResult) (*sdkModels.SDKField, *parserModels.ParseResult, error) {
+func (c *Context) detailsForField(modelName string, propertyName string, value openapi2.SchemaRef, isRequired bool, known parserModels.ParseResult) (*sdkModels.SDKField, *parserModels.ParseResult, error) {
 	logging.Tracef("Parsing details for field %q in %q..", propertyName, modelName)
 
 	result := parserModels.ParseResult{
@@ -144,11 +145,11 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 
 	field := sdkModels.SDKField{
 		Required:  isRequired,
-		Optional:  !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
+		Optional:  !isRequired, // TODO: re-enable readonly && !value.ReadOnly,
 		ReadOnly:  false,       // TODO: re-enable readonly value.ReadOnly,
 		Sensitive: false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:  propertyName,
-		//Description: value.Description, // TODO: currently causes flapping diff in api definitions, see https://github.com/hashicorp/pandora/issues/3325
+		// Description: value.Description, // TODO: currently causes flapping diff in api definitions, see https://github.com/hashicorp/pandora/issues/3325
 	}
 
 	// first get the object definition
@@ -168,19 +169,19 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 	}
 
 	// if there are more than 1 allOf, it can not use a simple reference type, but a new definition
-	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
+	if len(value.Value.Properties) > 0 || len(value.Value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
 		nestedFields := make(map[string]sdkModels.SDKField, 0)
-		for propName, propVal := range value.Properties {
+		for propName, propVal := range value.Value.Properties {
 			nestedFieldRequired := false
-			for _, field := range value.Required {
+			for _, field := range value.Value.Required {
 				if strings.EqualFold(field, propName) {
 					nestedFieldRequired = true
 					break
 				}
 			}
-			nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
+			nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, *propVal, nestedFieldRequired, result)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
 			}
@@ -189,8 +190,8 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 			}
 			nestedFields[propName] = *nestedField
 		}
-		for _, inlinedModel := range value.AllOf {
-			remoteRef := fragmentNameFromReference(inlinedModel.Ref)
+		for _, inlinedModel := range value.Value.AllOf {
+			remoteRef := fragmentNameFromString(inlinedModel.Ref)
 			if remoteRef == nil {
 				// it's possible for the AllOf to just be a description (or contain a Type)
 				continue
@@ -201,15 +202,15 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", *remoteRef)
 			}
 
-			for propName, propVal := range remoteSpec.Properties {
+			for propName, propVal := range remoteSpec.Value.Properties {
 				nestedFieldRequired := false
-				for _, field := range value.Required {
+				for _, field := range value.Value.Required {
 					if strings.EqualFold(field, propName) {
 						nestedFieldRequired = true
 						break
 					}
 				}
-				nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, propVal, nestedFieldRequired, result)
+				nestedField, nestedResult, err := c.detailsForField(inlinedName, propName, *propVal, nestedFieldRequired, result)
 				if err != nil {
 					return nil, nil, fmt.Errorf("parsing inlined model %q: %+v", inlinedName, err)
 				}
@@ -237,7 +238,7 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 	return &field, &result, err
 }
 
-func (c *Context) fieldsForModel(modelName string, input spec.Schema, known parserModels.ParseResult) (map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
+func (c *Context) fieldsForModel(modelName string, input openapi2.SchemaRef, known parserModels.ParseResult) (map[string]sdkModels.SDKField, *parserModels.ParseResult, error) {
 	fields := make(map[string]sdkModels.SDKField, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -246,13 +247,13 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 	result.Append(known)
 
 	requiredFields := make(map[string]struct{}, 0)
-	for _, k := range input.Required {
+	for _, k := range input.Value.Required {
 		requiredFields[k] = struct{}{}
 	}
 
 	// models can inherit from other models, so let's get all of the parent fields here
-	for i, parent := range input.AllOf {
-		fragmentName := fragmentNameFromReference(parent.Ref)
+	for i, parent := range input.Value.AllOf {
+		fragmentName := fragmentNameFromString(parent.Ref)
 		if fragmentName == nil {
 			// sometimes this is bad data rather than a reference, so it should be skipped, example:
 			//  > "allOf": [
@@ -294,12 +295,12 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 			// >   ]
 			// > },
 
-			if parent.Type.Contains("object") {
+			if parent.Value.Type.Is("object") {
 				innerModelName := modelName
-				if parent.Title != "" {
-					innerModelName = parent.Title
+				if parent.Value.Title != "" {
+					innerModelName = parent.Value.Title
 				}
-				parsedParent, nestedResult, err := c.fieldsForModel(innerModelName, parent, known)
+				parsedParent, nestedResult, err := c.fieldsForModel(innerModelName, *parent, known)
 				if err != nil {
 					return nil, nil, fmt.Errorf("parsing fields within allOf model %q (index %d): %+v", innerModelName, i, err)
 				}
@@ -322,7 +323,7 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing top level object %q: %+v", *fragmentName, err)
 		}
-		for _, k := range topLevelObject.Required {
+		for _, k := range topLevelObject.Value.Required {
 			requiredFields[k] = struct{}{}
 		}
 
@@ -341,9 +342,9 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 	}
 
 	// then we get the simple thing of iterating over these fields
-	for propName, propVal := range input.Properties {
+	for propName, propVal := range input.Value.Properties {
 		isRequired := isFieldRequired(propName, requiredFields)
-		field, nestedResult, err := c.detailsForField(modelName, propName, propVal, isRequired, result)
+		field, nestedResult, err := c.detailsForField(modelName, propName, *propVal, isRequired, result)
 		if err != nil {
 			return nil, nil, fmt.Errorf("mapping field %q for %q: %+v", propName, modelName, err)
 		}
@@ -360,14 +361,14 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 	return fields, &result, nil
 }
 
-func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]sdkModels.SDKField) (*sdkModels.SDKModel, error) {
+func (c *Context) modelDetailsFromObject(modelName string, input openapi2.SchemaRef, fields map[string]sdkModels.SDKField) (*sdkModels.SDKModel, error) {
 	details := sdkModels.SDKModel{
 		Fields: fields,
 	}
 
 	// if this is a Parent
-	if input.Discriminator != "" {
-		details.FieldNameContainingDiscriminatedValue = &input.Discriminator
+	if input.Value.Discriminator != "" {
+		details.FieldNameContainingDiscriminatedValue = &input.Value.Discriminator
 
 		// check that there's at least one implementation of this type - otherwise this this isn't a discriminated type
 		// but bad data we should ignore
@@ -391,8 +392,8 @@ func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fi
 		details.FieldNameContainingDiscriminatedValue = discriminator
 
 		// look for the discriminated value, or use the model name
-		if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
-			details.DiscriminatedValue = &v
+		if v, ok := input.Extensions["x-ms-discriminator-value"]; ok {
+			details.DiscriminatedValue = pointer.To(v.(string))
 		} else {
 			details.DiscriminatedValue = pointer.To(modelName)
 		}
@@ -406,9 +407,9 @@ func (c *Context) modelDetailsFromObject(modelName string, input spec.Schema, fi
 	return &details, nil
 }
 
-func (c *Context) FindAncestorType(input spec.Schema) (*string, *string, error) {
-	for _, parentRaw := range input.AllOf {
-		parentFragmentName := fragmentNameFromReference(parentRaw.Ref)
+func (c *Context) FindAncestorType(input openapi2.SchemaRef) (*string, *string, error) {
+	for _, parentRaw := range input.Value.AllOf {
+		parentFragmentName := fragmentNameFromString(parentRaw.Ref)
 		if parentFragmentName == nil {
 			continue
 		}
@@ -418,12 +419,12 @@ func (c *Context) FindAncestorType(input spec.Schema) (*string, *string, error) 
 			return nil, nil, fmt.Errorf("finding top level object %q: %+v", *parentFragmentName, err)
 		}
 
-		if parent.Discriminator != "" {
-			return parentFragmentName, &parent.Discriminator, nil
+		if parent.Value.Discriminator != "" {
+			return parentFragmentName, &parent.Value.Discriminator, nil
 		}
 
 		// does the parent itself inherit from something?
-		if len(parent.AllOf) == 0 {
+		if len(parent.Value.AllOf) == 0 {
 			continue
 		}
 

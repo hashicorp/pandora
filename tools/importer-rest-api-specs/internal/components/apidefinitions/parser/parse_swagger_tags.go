@@ -12,7 +12,7 @@ import (
 func (p *apiDefinitionsParser) ParseSwaggerTags() []string {
 	tags := make(map[string]struct{})
 
-	for _, operation := range p.context.SwaggerSpecExpanded.Operations() {
+	for _, operation := range p.context.Operations() {
 		for _, details := range operation {
 			for _, tag := range details.Tags {
 				normalizedTag := cleanup.Title(tag)

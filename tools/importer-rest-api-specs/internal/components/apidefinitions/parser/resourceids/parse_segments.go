@@ -8,7 +8,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/go-openapi/spec"
+	"github.com/getkin/kin-openapi/openapi2"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser/constants"
@@ -39,8 +39,8 @@ type processedResourceId struct {
 func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId, error) {
 	// TODO: document this
 
-	operationIdsToProcessedResourceIds := make(map[string]processedResourceId, 0)
-	for _, operation := range p.swaggerSpecExpanded.Operations() {
+	operationIdsToProcessedResourceIds := make(map[string]processedResourceId)
+	for _, operation := range p.Context.Operations() {
 		for uri, operationDetails := range operation {
 			if ignore.Operation(uri) {
 				logging.Debugf("Ignoring %q", uri)
@@ -53,14 +53,14 @@ func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId
 				return nil, fmt.Errorf("parsing Resource ID from Operation for %q: %+v", uri, err)
 			}
 
-			operationIdsToProcessedResourceIds[operationDetails.ID] = *resourceId
+			operationIdsToProcessedResourceIds[operationDetails.OperationID] = *resourceId
 		}
 	}
 
 	return operationIdsToProcessedResourceIds, nil
 }
 
-func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
+func (p *Parser) parseResourceIdFromOperation(uri string, operation *openapi2.Operation) (*processedResourceId, error) {
 	// TODO: document this
 
 	segments := make([]sdkModels.ResourceIDSegment, 0)
@@ -127,13 +127,13 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 			isConstant := false
 			for _, param := range operation.Parameters {
 				if strings.EqualFold(param.Name, normalizedSegment) && strings.EqualFold(param.In, "path") {
-					if param.Ref.String() != "" {
+					if param.Ref != "" {
 						return nil, fmt.Errorf("TODO: Enum's aren't supported by Reference right now, but apparently should be for %q", uriSegment)
 					}
 
 					if param.Enum != nil {
 						// then find the constant itself
-						constant, err := constants.Parse([]string{param.Type}, param.Name, nil, param.Enum, param.Extensions)
+						constant, err := constants.Parse(*param.Type, param.Name, nil, param.Enum, param.Extensions)
 						if err != nil {
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
@@ -261,7 +261,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	}
 
 	// finally, validate that all of the segments have a unique name
-	uniqueNames := make(map[string]struct{}, 0)
+	uniqueNames := make(map[string]struct{})
 	for _, segment := range segments {
 		uniqueNames[segment.Name] = struct{}{}
 	}
@@ -343,7 +343,7 @@ func segmentsContainAResourceManagerScope(input []sdkModels.ResourceIDSegment) (
 }
 
 func determineUniqueNamesForSegments(input []sdkModels.ResourceIDSegment) (*[]sdkModels.ResourceIDSegment, error) {
-	segmentNamesUsed := make(map[string]int, 0)
+	segmentNamesUsed := make(map[string]int)
 
 	output := make([]sdkModels.ResourceIDSegment, 0)
 

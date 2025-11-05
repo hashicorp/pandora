@@ -16,15 +16,19 @@ func requestObjectForOperation(parsingContext *parsingcontext.Context, input par
 	// all we should parse out is the top level object - nothing more.
 
 	// find the same operation in the unexpanded swagger spec since we need the reference name
-	_, _, unexpandedOperation, found := parsingContext.SwaggerSpecWithReferences.OperationForName(input.operation.ID)
+	_, _, unexpandedOperation, found := parsingContext.OperationForID(input.operation.OperationID)
 	if !found {
 		return nil, nil, nil
 	}
 
 	for _, param := range unexpandedOperation.Parameters {
+		if param == nil || param.Schema == nil || param.Schema.Value == nil {
+			continue
+		}
+
 		if strings.EqualFold(param.In, "body") {
 			parsingModel := true
-			objectDefinition, result, err := parsingContext.ParseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, parsingModel)
+			objectDefinition, result, err := parsingContext.ParseObjectDefinition(param.Schema.Value.Title, param.Schema.Value.Title, param.Schema, known, parsingModel)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}

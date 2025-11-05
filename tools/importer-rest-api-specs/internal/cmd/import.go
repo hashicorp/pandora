@@ -64,6 +64,7 @@ func (c ImportCommand) Run(args []string) int {
 		SourceDataType:                sdkModels.ResourceManagerSourceDataType,
 		TerraformDefinitionsDirectory: c.terraformDefinitionsPath,
 	}
+
 	if err := pipeline.RunImporter(opts); err != nil {
 		log.Printf("Error: %+v", err)
 		return 1
