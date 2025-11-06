@@ -5,10 +5,10 @@ package workarounds
 
 import (
 	"errors"
-	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/parser"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/components/versions"
 )
 
 var _ dataWorkaround = workaroundConditionalAccessPolicy{}
@@ -46,7 +46,12 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 		return errors.New("`ConditionalAccessConditionSet` model not found")
 	}
 
-	// `devices`, `locations`, `platforms` must each be null to unset them, so make them nullable + required
+	// `authenticationFlows`, `devices`, `locations`, `platforms` must each be null to unset them, so make them nullable + required
+	if _, ok = model.Fields["authenticationFlows"]; !ok {
+		return errors.New("`authenticationFlows` field not found")
+	}
+	model.Fields["authenticationFlows"].Nullable = true
+	model.Fields["authenticationFlows"].Required = true
 	if _, ok = model.Fields["devices"]; !ok {
 		return errors.New("`Devices` field not found")
 	}
