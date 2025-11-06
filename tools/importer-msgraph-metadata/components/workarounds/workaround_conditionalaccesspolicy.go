@@ -47,7 +47,6 @@ func (workaroundConditionalAccessPolicy) Process(apiVersion string, models parse
 	}
 
 	// `authenticationFlows`, `devices`, `locations`, `platforms` must each be null to unset them, so make them nullable + required
-	model.Fields["authenticationFlows"].Required = true
 	if _, ok = model.Fields["authenticationFlows"]; !ok {
 		return errors.New("`authenticationFlows` field not found")
 	}
