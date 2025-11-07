@@ -1,0 +1,54 @@
+{
+  "name": "GlobalRulestacklistSecurityServices",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "type",
+      "required": true,
+      "field": "Type",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SecurityServicesTypeEnum"
+      }
+    }
+  ],
+  "resourceIdName": "GlobalRulestackId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SecurityServicesTypeList",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/listSecurityServices"
+}
