@@ -401,7 +401,7 @@ service "msi" {
 }
 service "mysql" {
   name      = "MySql"
-  available = ["2017-12-01", "2023-12-30"]
+  available = ["2017-12-01", "2023-12-30", "2024-12-30"]
 }
 service "netapp" {
   name      = "NetApp"
