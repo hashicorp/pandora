@@ -1,0 +1,31 @@
+{
+  "name": "PostRulesgetCounters",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "firewallName",
+      "required": false,
+      "field": "FirewallName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PostRuleId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RuleCounter",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getCounters"
+}

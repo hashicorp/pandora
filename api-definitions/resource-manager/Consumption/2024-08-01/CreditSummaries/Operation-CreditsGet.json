@@ -1,0 +1,19 @@
+{
+  "name": "CreditsGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "BillingProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreditSummary",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Consumption/credits/balanceSummary"
+}

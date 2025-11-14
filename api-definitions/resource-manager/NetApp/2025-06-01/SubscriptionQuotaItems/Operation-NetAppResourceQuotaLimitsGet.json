@@ -1,0 +1,17 @@
+{
+  "name": "NetAppResourceQuotaLimitsGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "QuotaLimitId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SubscriptionQuotaItem",
+    "referenceNameIsCommonType": null
+  }
+}

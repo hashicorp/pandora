@@ -1,0 +1,19 @@
+{
+  "name": "MetricsObjectFirewallListByFirewalls",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "FirewallId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetricsObjectFirewallResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/metrics"
+}
