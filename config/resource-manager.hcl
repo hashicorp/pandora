@@ -165,7 +165,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01", "2023-10-20"]
+  available = ["2021-03-01", "2023-10-20", "2025-06-11"]
 }
 service "datafactory" {
   name      = "DataFactory"
@@ -271,7 +271,7 @@ service "fluidrelay" {
 }
 service "frontdoor" {
   name      = "FrontDoor"
-  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01"]
+  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01", "2025-10-01"]
 }
 service "graphservicesprod" {
   name      = "GraphServices"
@@ -409,7 +409,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-03-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
