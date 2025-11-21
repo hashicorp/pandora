@@ -1,0 +1,26 @@
+{
+  "name": "UpdatePut",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "FlexibleServerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtection",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtection",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/advancedThreatProtectionSettings/default"
+}

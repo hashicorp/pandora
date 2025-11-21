@@ -1,0 +1,24 @@
+{
+  "name": "ValidateEstimateHighAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "FlexibleServerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "HighAvailabilityValidationEstimation",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "HighAvailabilityValidationEstimation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateEstimateHighAvailability"
+}
