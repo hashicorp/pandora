@@ -1,0 +1,25 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "FlexibleServerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtectionForUpdate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AdvancedThreatProtection",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/advancedThreatProtectionSettings/default"
+}
