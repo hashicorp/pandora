@@ -2,6 +2,7 @@ package dataworkarounds
 
 import (
 	"errors"
+	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -19,27 +20,35 @@ func (workaroundPaloAltoNetworks38348) Name() string {
 }
 
 func (workaroundPaloAltoNetworks38348) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["PaloAltoNetworks"]
+	resource, ok := input.Resources["Firewalls"]
 	if !ok {
-		return nil, errors.New("expected a resource named `PaloAltoNetworks` but didn't get one")
+		return nil, errors.New("expected a resource named `Firewalls` but didn't get one")
 	}
 
-	model, ok := resource.Models["PaloAltoNetworks"]
-	if !ok {
-		return nil, errors.New("couldn't find model `PaloAltoNetworks`")
-	}
+    models := []string{
+        "FirewallResource",
+        "FirewallResourceUpdate",
+    }
 
-	identityField, ok := model.Fields["Identity"]
-	if !ok {
-		return nil, errors.New("couldn't find the field `Identity`")
-	}
+    for _, modelName := range models {
+        model, ok := resource.Models[modelName]
+        if !ok {
+            return nil, fmt.Errorf("couldn't find model `%s`", modelName)
+        }
 
-	identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
-	identityField.ObjectDefinition.ReferenceName = nil
+        identityField, ok := model.Fields["Identity"]
+        if !ok {
+            return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
+        }
 
-	model.Fields["Identity"] = identityField
-	resource.Models["PaloAltoNetworks"] = model
-	input.Resources["PaloAltoNetworks"] = resource
+        identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
+        identityField.ObjectDefinition.ReferenceName = nil
 
-	return &input, nil
+        model.Fields["Identity"] = identityField
+        resource.Models[modelName] = model
+    }
+
+    input.Resources["Firewalls"] = resource
+
+    return &input, nil
 }
