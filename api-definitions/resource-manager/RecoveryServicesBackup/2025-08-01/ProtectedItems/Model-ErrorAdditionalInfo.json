@@ -1,12 +1,12 @@
 {
-  "name": "FirewallResourceUpdate",
+  "name": "ErrorAdditionalInfo",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "identity",
-      "name": "Identity",
+      "jsonName": "info",
+      "name": "Info",
       "objectDefinition": {
-        "type": "UserAssignedIdentityMap",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,25 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "FirewallResourceUpdateProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "tags",
-      "name": "Tags",
-      "objectDefinition": {
-        "type": "Tags",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
