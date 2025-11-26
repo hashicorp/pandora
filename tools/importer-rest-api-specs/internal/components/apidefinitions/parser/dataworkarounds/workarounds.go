@@ -33,6 +33,7 @@ var workarounds = []workaround{
 	workaroundNetwork38407{},
 	workaroundNewRelic29256{},
 	workaroundOperationalinsights27524{},
+	workaroundPaloAltoNetworks38348{},
 	workaroundRecoveryServicesSiteRecovery26680{},
 	workaroundRedis22407{},
 	workaroundSql33215{},
