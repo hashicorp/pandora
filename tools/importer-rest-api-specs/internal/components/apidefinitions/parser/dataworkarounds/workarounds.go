@@ -42,6 +42,8 @@ var workarounds = []workaround{
 	workaroundSubscriptions20254{},
 	workaroundWeb31682{},
 
+	workaroundFluidRelayTODO{},
+
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
 	workaroundTempReadOnlyFieldsContainerService{},
