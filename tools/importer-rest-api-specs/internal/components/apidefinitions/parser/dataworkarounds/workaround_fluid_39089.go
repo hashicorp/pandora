@@ -7,19 +7,19 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var _ workaround = workaroundFluidRelayTODO{}
+var _ workaround = workaroundFluidRelay39089{}
 
-type workaroundFluidRelayTODO struct{}
+type workaroundFluidRelay39089 struct{}
 
-func (workaroundFluidRelayTODO) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "FluidRelay" && apiVersion.APIVersion == "2022-06-01"
+func (workaroundFluidRelay39089) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
+	return serviceName == "FluidRelay" && (apiVersion.APIVersion == "2022-06-01" || apiVersion.APIVersion == "2022-05-26")
 }
 
-func (workaroundFluidRelayTODO) Name() string {
-	return "FluidRelay / TODO"
+func (workaroundFluidRelay39089) Name() string {
+	return "FluidRelay / 39089"
 }
 
-func (workaroundFluidRelayTODO) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
+func (workaroundFluidRelay39089) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	resource, ok := input.Resources["FluidRelayServers"]
 	if !ok {
 		return &input, errors.New("couldn't find API Resource FluidRelayServers")
@@ -31,7 +31,7 @@ func (workaroundFluidRelayTODO) Process(input sdkModels.APIVersion) (*sdkModels.
 	}
 
 	operation.ExpectedStatusCodes = append(operation.ExpectedStatusCodes, http.StatusAccepted)
-	// operation.LongRunning = true
+	operation.LongRunning = true
 
 	resource.Operations["Delete"] = operation
 
