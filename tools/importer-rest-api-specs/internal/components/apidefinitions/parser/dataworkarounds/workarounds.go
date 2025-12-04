@@ -25,6 +25,7 @@ var workarounds = []workaround{
 	workaroundDataFactory28837{},
 	workaroundDataMigration31001{},
 	workaroundDigitalTwins25120{},
+	workaroundFluidRelay39089{},
 	workaroundHDInsight26838{},
 	workaroundLoadTest20961{},
 	workaroundMachineLearning25142{},
@@ -41,7 +42,6 @@ var workarounds = []workaround{
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
 	workaroundWeb31682{},
-	workaroundFluidRelay39089{},
 
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
