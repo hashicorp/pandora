@@ -165,7 +165,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01", "2023-10-20"]
+  available = ["2021-03-01", "2023-10-20", "2025-06-11"]
 }
 service "datafactory" {
   name      = "DataFactory"
