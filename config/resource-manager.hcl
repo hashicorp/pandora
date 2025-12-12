@@ -383,10 +383,6 @@ service "migrate" {
   available = ["2020-01-01", "2020-07-07"]
   ignore    = ["2023-06-06"]
 }
-service "mobilenetwork" {
-  name      = "MobileNetwork"
-  available = ["2022-11-01", "2024-04-01"]
-}
 service "mongocluster" {
   name      = "MongoCluster"
   available = ["2024-07-01", "2025-09-01"]
