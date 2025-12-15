@@ -3,27 +3,6 @@
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "additionalInfo",
-      "name": "AdditionalInfo",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorAdditionalInfo",
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
       "jsonName": "code",
       "name": "Code",
       "objectDefinition": {
@@ -31,27 +10,6 @@
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "details",
-      "name": "Details",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorDetail",
-          "referenceNameIsCommonType": null
-        }
       },
       "optional": true,
       "readOnly": false,
@@ -75,13 +33,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "target",
-      "name": "Target",
+      "jsonName": "recommendations",
+      "name": "Recommendations",
       "objectDefinition": {
-        "type": "String",
+        "type": "List",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
