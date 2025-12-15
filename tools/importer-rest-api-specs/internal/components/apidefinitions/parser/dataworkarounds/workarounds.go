@@ -8,7 +8,8 @@ var workarounds = []workaround{
 
 	// Common workarounds
 	// https://github.com/Azure/azure-rest-api-specs/issues/22758
-	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2023-02-01", "2025-02-01"}, []string{"ProtectedItems"}, []string{"CreateOrUpdate", "Delete"}},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2023-02-01"}, []string{"ProtectedItems"}, []string{"CreateOrUpdate", "Delete"}},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectedItems"}, []string{"Delete"}},
 	// https://github.com/Azure/azure-rest-api-specs/issues/37325
 	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectionContainers"}, []string{"Unregister"}},
 
