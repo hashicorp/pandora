@@ -1,0 +1,24 @@
+{
+  "name": "MonitorsGetMetricStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "MonitorId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetricStatusRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MetricsStatusResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getMetricStatus"
+}

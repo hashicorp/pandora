@@ -1,0 +1,18 @@
+{
+  "name": "MonitorsManageAgentInstallation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "MonitorId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManageAgentInstallationRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/manageAgentInstallation"
+}

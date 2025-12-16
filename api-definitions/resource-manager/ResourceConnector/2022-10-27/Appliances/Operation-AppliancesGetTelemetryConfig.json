@@ -1,0 +1,18 @@
+{
+  "name": "AppliancesGetTelemetryConfig",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ApplianceGetTelemetryConfigResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.ResourceConnector/telemetryconfig"
+}
