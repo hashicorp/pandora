@@ -1,0 +1,18 @@
+{
+  "name": "DiagnosticSettingsGetDiagnosticRemoteSupportSettings",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DataBoxEdgeDeviceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DiagnosticRemoteSupportSettings",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/diagnosticRemoteSupportSettings/default"
+}

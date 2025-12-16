@@ -1,0 +1,43 @@
+{
+  "name": "BenefitUtilizationSummariesListByBillingAccountId",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "grainParameter",
+      "required": false,
+      "field": "GrainParameter",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "GrainParameter"
+      }
+    }
+  ],
+  "resourceIdName": "BillingAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BenefitUtilizationSummary",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/benefitUtilizationSummaries"
+}

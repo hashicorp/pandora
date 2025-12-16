@@ -5,13 +5,14 @@
   "expectedStatusCodes": [
     200
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
   "resourceIdName": "StorageAccountId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "ListBlobInventoryPolicy",
+    "referenceName": "BlobInventoryPolicy",
     "referenceNameIsCommonType": null
   },
   "uriSuffix": "/inventoryPolicies"
