@@ -104,7 +104,7 @@ service "cognitiveservices" {
 }
 service "communication" {
   name      = "Communication"
-  available = ["2023-03-31", "2023-04-01", "2025-05-01"]
+  available = ["2023-03-31", "2023-04-01", "2025-05-01", "2025-09-01"]
 }
 service "compute" {
   name      = "Compute"
@@ -271,7 +271,7 @@ service "fluidrelay" {
 }
 service "frontdoor" {
   name      = "FrontDoor"
-  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01"]
+  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01", "2025-10-01"]
 }
 service "graphservicesprod" {
   name      = "GraphServices"
@@ -291,7 +291,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25"]
+  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25", "2025-11-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -405,7 +405,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-03-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -531,7 +531,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2019-01-01-preview", "2021-06-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2025-03-01", "2025-06-01"]
+  available = ["2019-01-01-preview", "2021-06-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2025-03-01", "2025-06-01", "2026-01-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
@@ -575,7 +575,7 @@ service "sqlvirtualmachine" {
 }
 service "standbypool" {
   name      = "StandbyPool"
-  available = ["2025-03-01"]
+  available = ["2025-03-01", "2025-10-01"]
 }
 service "storage" {
   name      = "Storage"
@@ -588,7 +588,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2024-07-01", "2025-07-01"]
+  available = ["2023-03-01", "2024-07-01", "2025-07-01", "2025-08-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
