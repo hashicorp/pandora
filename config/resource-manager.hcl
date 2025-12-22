@@ -141,7 +141,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15", "2025-10-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
