@@ -237,6 +237,10 @@ service "domainservices" {
   available = ["2021-05-01", "2025-06-01"]
   ignore    = ["2022-09-01", "2022-12-01"]
 }
+service "durabletask" {
+  name      = "DurableTask"
+  available = ["2025-11-01"]
+}
 service "dynatrace" {
   name      = "Dynatrace"
   available = ["2023-04-27", "2024-04-24"]
