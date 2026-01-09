@@ -161,7 +161,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview", "2022-10-01-preview", "2024-05-01"]
+  available = ["2022-04-01-preview", "2022-10-01-preview", "2024-05-01", "2026-01-01"]
 }
 service "datadog" {
   name      = "DataDog"
