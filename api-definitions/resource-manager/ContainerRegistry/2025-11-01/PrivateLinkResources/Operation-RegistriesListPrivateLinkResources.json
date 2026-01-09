@@ -1,0 +1,19 @@
+{
+  "name": "RegistriesListPrivateLinkResources",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "RegistryId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PrivateLinkResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/privateLinkResources"
+}
