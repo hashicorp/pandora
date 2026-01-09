@@ -1,31 +1,10 @@
 {
-  "name": "ErrorDetail",
+  "name": "SchedulerPropertiesUpdate",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "additionalInfo",
-      "name": "AdditionalInfo",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorAdditionalInfo",
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "endpoint",
+      "name": "Endpoint",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -39,17 +18,17 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "details",
-      "name": "Details",
+      "jsonName": "ipAllowlist",
+      "name": "IPAllowlist",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
-          "type": "Reference",
+          "type": "String",
           "nullable": false,
-          "referenceName": "ErrorDetail",
+          "referenceName": null,
           "referenceNameIsCommonType": null
         }
       },
@@ -60,12 +39,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "message",
-      "name": "Message",
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ProvisioningState",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -75,12 +54,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "target",
-      "name": "Target",
+      "jsonName": "sku",
+      "name": "Sku",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "SchedulerSkuUpdate",
         "referenceNameIsCommonType": null
       },
       "optional": true,
