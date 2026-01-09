@@ -1,35 +1,50 @@
 {
-  "name": "ErrorDetail",
+  "name": "SchedulerProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "additionalInfo",
-      "name": "AdditionalInfo",
+      "jsonName": "endpoint",
+      "name": "Endpoint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipAllowlist",
+      "name": "IPAllowlist",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
-          "type": "Reference",
+          "type": "String",
           "nullable": false,
-          "referenceName": "ErrorAdditionalInfo",
+          "referenceName": null,
           "referenceNameIsCommonType": null
         }
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ProvisioningState",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -39,53 +54,17 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "details",
-      "name": "Details",
+      "jsonName": "sku",
+      "name": "Sku",
       "objectDefinition": {
-        "type": "List",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorDetail",
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "message",
-      "name": "Message",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "SchedulerSku",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "target",
-      "name": "Target",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     }
   ],

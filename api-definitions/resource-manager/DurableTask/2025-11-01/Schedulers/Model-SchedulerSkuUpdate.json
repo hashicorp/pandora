@@ -1,12 +1,12 @@
 {
-  "name": "ErrorDetail",
+  "name": "SchedulerSkuUpdate",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "capacity",
+      "name": "Capacity",
       "objectDefinition": {
-        "type": "String",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,12 +18,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "message",
-      "name": "Message",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "SchedulerSkuName",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -33,19 +33,13 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "recommendations",
-      "name": "Recommendations",
+      "jsonName": "redundancyState",
+      "name": "RedundancyState",
       "objectDefinition": {
-        "type": "List",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
+        "referenceName": "RedundancyState",
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

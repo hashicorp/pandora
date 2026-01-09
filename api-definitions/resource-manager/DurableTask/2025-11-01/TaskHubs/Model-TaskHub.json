@@ -1,31 +1,10 @@
 {
-  "name": "ErrorDetail",
+  "name": "TaskHub",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "additionalInfo",
-      "name": "AdditionalInfo",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorAdditionalInfo",
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -39,29 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "details",
-      "name": "Details",
-      "objectDefinition": {
-        "type": "List",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "ErrorDetail",
-          "referenceNameIsCommonType": null
-        }
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "message",
-      "name": "Message",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -75,8 +33,38 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "target",
-      "name": "Target",
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TaskHubProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

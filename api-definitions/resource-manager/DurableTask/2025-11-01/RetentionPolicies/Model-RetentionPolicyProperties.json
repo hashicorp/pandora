@@ -1,14 +1,14 @@
 {
-  "name": "ErrorDetail",
+  "name": "RetentionPolicyProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "code",
-      "name": "Code",
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ProvisioningState",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -18,32 +18,17 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "message",
-      "name": "Message",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "recommendations",
-      "name": "Recommendations",
+      "jsonName": "retentionPolicies",
+      "name": "RetentionPolicies",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
-          "type": "String",
+          "type": "Reference",
           "nullable": false,
-          "referenceName": null,
+          "referenceName": "RetentionPolicyDetails",
           "referenceNameIsCommonType": null
         }
       },
