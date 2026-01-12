@@ -51,10 +51,22 @@ func (s *Generator) Generate(input ServiceGeneratorInput) error {
 		"predicates": s.predicates,
 		"version":    s.version,
 	}
-	for name, stage := range stages {
-		logging.Debugf("Running Stage %q..", name)
-		if err := stage(data); err != nil {
-			return fmt.Errorf("generating %s: %+v", name, err)
+	// ensure that the generator steps are consistent. Primarily this matters to ensure that the ID stage is executed
+	// before the readme stage as ID date is mutated there to accommodate Azure Data Plane URL style IDs.
+	consistentOrder := []string{
+		"clients",
+		"constants",
+		"ids",
+		"methods",
+		"models",
+		"readmeFile",
+		"predicates",
+		"version",
+	}
+	for _, stage := range consistentOrder {
+		logging.Debugf("Running Stage %q..", stage)
+		if err := stages[stage](data); err != nil {
+			return fmt.Errorf("generating %s: %+v", stage, err)
 		}
 	}
 

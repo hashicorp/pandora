@@ -16,6 +16,7 @@ func emptyTestVariables() definitions.VariablesDefinition {
 }
 
 func TestBlockValueForField_CommonSchemaIdentitySystemAssigned(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "identity",
 		Optional: false,
@@ -60,6 +61,7 @@ identity {
 }
 
 func TestBlockValueForField_CommonSchemaIdentitySystemAndUserAssigned(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "identity",
 		Optional: false,
@@ -108,6 +110,7 @@ identity {
 }
 
 func TestBlockValueForField_CommonSchemaIdentitySystemOrUserAssigned(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "identity",
 		Optional: false,
@@ -155,6 +158,7 @@ identity {
 }
 
 func TestBlockValueForField_CommonSchemaIdentityUserAssigned(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "identity",
 		Optional: false,

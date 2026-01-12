@@ -58,44 +58,57 @@ func (g GenerateCommand) Run(args []string) int {
 		},
 	}
 
-	if g.sourceDataType == models.MicrosoftGraphSourceDataType {
-		input.settings.AllowOmittingDiscriminatedValue = true
-		input.settings.DeleteExistingResourcesForVersion = true
-		input.settings.GenerateDescriptionsForModels = true
-		input.settings.RecurseParentModels = false
+	switch {
+	case g.sourceDataType == models.MicrosoftGraphSourceDataType:
+		{
+			input.settings.AllowOmittingDiscriminatedValue = true
+			input.settings.DeleteExistingResourcesForVersion = true
+			input.settings.GenerateDescriptionsForModels = true
+			input.settings.RecurseParentModels = false
 
-		input.settings.CanonicalApiVersions = map[string]string{
-			"stable": "v1.0",
+			input.settings.CanonicalApiVersions = map[string]string{
+				"stable": "v1.0",
+			}
+
+			input.settings.VersionsToGenerateCommonTypes = map[string]models.SourceDataOrigin{
+				"stable": models.MicrosoftGraphMetaDataSourceDataOrigin,
+				"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
+			}
 		}
+	case g.sourceDataType == models.ResourceManagerSourceDataType:
+		{
+			input.settings.AllowOmittingDiscriminatedValue = false
+			input.settings.DeleteExistingResourcesForVersion = false
+			input.settings.GenerateDescriptionsForModels = false
+			input.settings.RecurseParentModels = true
 
-		input.settings.VersionsToGenerateCommonTypes = map[string]models.SourceDataOrigin{
-			"stable": models.MicrosoftGraphMetaDataSourceDataOrigin,
-			"beta":   models.MicrosoftGraphMetaDataSourceDataOrigin,
+			input.settings.UseOldBaseLayerFor(
+				// @tombuildsstuff: New Services should now use the `hashicorp/go-azure-sdk` base layer by default
+				// instead of the base layer from `Azure/go-autorest` - as such this list is for compatibility purposes
+				// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
+				// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
+
+				"FrontDoor",
+				"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
+				"Subscription",
+
+				// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
+				// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
+				// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
+				//
+				// After testing, it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
+				// `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
+				"KeyVault@2023-02-01",
+			)
 		}
-	} else if g.sourceDataType == models.ResourceManagerSourceDataType {
-		input.settings.AllowOmittingDiscriminatedValue = false
-		input.settings.DeleteExistingResourcesForVersion = false
-		input.settings.GenerateDescriptionsForModels = false
-		input.settings.RecurseParentModels = true
-
-		input.settings.UseOldBaseLayerFor(
-			// @tombuildsstuff: New Services should now use the `hashicorp/go-azure-sdk` base layer by default
-			// instead of the base layer from `Azure/go-autorest` - as such this list is for compatibility purposes
-			// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
-			// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
-
-			"FrontDoor",
-			"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
-			"Subscription",
-
-			// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
-			// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
-			// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
-			//
-			// After testing, it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
-			// `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
-			"KeyVault@2023-02-01",
-		)
+	case g.sourceDataType == models.DataPlaneSourceDataType:
+		{
+			input.settings.AllowOmittingDiscriminatedValue = false
+			input.settings.DeleteExistingResourcesForVersion = false
+			input.settings.GenerateDescriptionsForModels = false
+			input.settings.RecurseParentModels = true
+			// input.settings.UseOldBaseLayerFor("KeyVault")
+		}
 	}
 
 	var serviceNames string

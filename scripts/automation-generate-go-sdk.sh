@@ -12,6 +12,7 @@ usage() {
   echo "Usage: automation-generate-go-sdk.sh sdkToGenerate" >&2
   echo "" >&2
   echo "sdkToGenerate is required and should be one of:" >&2
+  echo "  data-plane" >&2
   echo "  microsoft-graph" >&2
   echo "  resource-manager" >&2
   echo "" >&2

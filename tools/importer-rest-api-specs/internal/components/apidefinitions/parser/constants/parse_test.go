@@ -6,6 +6,7 @@ package constants
 import "testing"
 
 func TestRenameMultiplesOfZero(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		input    string
 		expected string

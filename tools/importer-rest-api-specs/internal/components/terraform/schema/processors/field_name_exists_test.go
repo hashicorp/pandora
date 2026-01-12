@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessField_Exists(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		fieldInput    string
 		metadataInput FieldMetadata

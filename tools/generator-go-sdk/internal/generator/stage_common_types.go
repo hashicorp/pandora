@@ -56,7 +56,7 @@ func (s *Generator) commonTypes(data VersionGeneratorData) error {
 			resource:        resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(data.commonTypesOutputPath, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data.GeneratorData); err != nil {
+		if err := s.writeToPathForResource(data.commonTypesOutputPath, fmt.Sprintf("id_%s.go", fileNamePrefix), &pt, data.GeneratorData); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
@@ -65,7 +65,7 @@ func (s *Generator) commonTypes(data VersionGeneratorData) error {
 			resourceData:    resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(data.commonTypesOutputPath, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data.GeneratorData); err != nil {
+		if err := s.writeToPathForResource(data.commonTypesOutputPath, fmt.Sprintf("id_%s_test.go", fileNamePrefix), &tpt, data.GeneratorData); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}

@@ -11,9 +11,11 @@ import (
 var sourceDataTypesFromRepository = map[repositoryModels.DataSource]sdkModels.SourceDataType{
 	repositoryModels.AzureResourceManagerDataSource: sdkModels.ResourceManagerSourceDataType,
 	repositoryModels.MicrosoftGraphDataSource:       sdkModels.MicrosoftGraphSourceDataType,
+	repositoryModels.AzureDataPlaneDataSource:       sdkModels.DataPlaneSourceDataType,
 }
 
 var sourceDataTypesToRepository = map[sdkModels.SourceDataType]repositoryModels.DataSource{
 	sdkModels.ResourceManagerSourceDataType: repositoryModels.AzureResourceManagerDataSource,
 	sdkModels.MicrosoftGraphSourceDataType:  repositoryModels.MicrosoftGraphDataSource,
+	sdkModels.DataPlaneSourceDataType:       repositoryModels.AzureDataPlaneDataSource,
 }

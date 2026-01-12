@@ -23,7 +23,7 @@ func (p pipelineForService) persistApiDefinitions(sdkService sdkModels.Service, 
 		SourceDataOrigin: sdkModels.MicrosoftGraphMetaDataSourceDataOrigin,
 	}
 
-	if err := p.repo.SaveService(opts); err != nil {
+	if err := p.repo.SaveService(opts, 0); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", sdkService.Name, err)
 	}
 

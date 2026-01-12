@@ -11,9 +11,11 @@ import (
 )
 
 func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
+	t.Parallel(
 	// Resource IDs containing a constant with a single value aren't really constants, so there's
 	// no point in outputting them as such - instead they get transformed into static values
 	// as such whilst this provides a (single) Constant value we expect that this is a static value.
+	)
 
 	param := spec.PathParam("planetName").WithEnum("Earth")
 	param.AddExtension("x-ms-enum", map[string]interface{}{
@@ -43,6 +45,7 @@ func TestParseResourceIDFromOperation_ConstantSingle(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
+	t.Parallel()
 	param := spec.PathParam("planetName").WithEnum("Earth", "Mars")
 	param.AddExtension("x-ms-enum", map[string]interface{}{
 		"name": "NameOfPlanet",
@@ -87,9 +90,12 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *testing.T) {
+	t.Parallel(
 	// `default` is a language keyword in Go - so we need to ensure it's
 	// not output directly, but should be transformed into `defaultName` so that it's
 	// output as a variable rather than a language keyword (see #935)
+	)
+
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/defaults/{default}"
 
@@ -123,8 +129,11 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *te
 }
 
 func TestParseResourceIDFromOperation_InvalidSegmentDefaultAsStaticValueGetsLeft(t *testing.T) {
+	t.Parallel(
 	// whilst `default` is a language keyword, since this is a static segment it shouldn't be
 	// transformed - which this test is explicitly checking
+	)
+
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/default"
 
@@ -149,9 +158,12 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultAsStaticValueGetsLeft
 }
 
 func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testing.T) {
+	t.Parallel(
 	// `type` is a language keyword in Go - so we need to ensure it's
 	// not output directly, but should be transformed into `typeName` so that it's
 	// output as a variable rather than a language keyword (see #935)
+	)
+
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/things/{type}"
 
@@ -185,6 +197,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testi
 }
 
 func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/providers/Microsoft.Management/managementGroups/{groupId}"
 
@@ -213,6 +226,7 @@ func TestParseResourceIDFromOperation_ManagementGroupId(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
 
@@ -241,6 +255,7 @@ func TestParseResourceIDFromOperation_ResourceGroupId(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{sourceResourceGroupName}"
 
@@ -269,6 +284,7 @@ func TestParseResourceIDFromOperation_ResourceGroupId_IncorrectSegment(t *testin
 }
 
 func TestParseResourceIDFromOperation_Scope(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/{resourceId}"
 
@@ -294,6 +310,7 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}"
 
@@ -320,6 +337,7 @@ func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_UriSuffixOnly(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/someUri"
 
@@ -338,6 +356,7 @@ func TestParseResourceIDFromOperation_UriSuffixOnly(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
+	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{resourceName}"
 

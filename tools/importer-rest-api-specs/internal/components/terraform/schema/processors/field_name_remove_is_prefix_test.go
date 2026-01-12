@@ -6,6 +6,7 @@ package processors
 import "testing"
 
 func TestProcessField_RemoveIsPrefix(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		input         string
 		metadataInput FieldMetadata

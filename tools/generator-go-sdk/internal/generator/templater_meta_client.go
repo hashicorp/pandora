@@ -18,6 +18,76 @@ type metaClientTemplater struct {
 	sourceType              models.SourceDataType
 }
 
+var (
+	resourceManagerMetaClientTemplate = `package %[1]s
+
+%[3]s
+
+import (
+	"fmt"
+
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/dataplane"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
+	%[4]s
+)
+
+type Client struct {
+	%[5]s
+}
+
+func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *%[2]s.Client)) (*Client, error) {
+	%[6]s
+
+	return &Client{
+		%[7]s
+	}, nil
+}
+`
+
+	dataPlaneMetaClientTemplate = `package %[1]s
+
+%[3]s
+
+import (
+	"fmt"
+
+	"github.com/hashicorp/go-azure-sdk/sdk/client"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/dataplane"
+	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
+	%[4]s
+)
+
+type Client struct {
+	%[5]s
+}
+
+func NewClient(configureFunc func(c *%[2]s.Client)) (*Client, error) {
+	%[6]s
+
+	return &Client{
+		%[7]s
+	}, nil
+}
+`
+
+	resourceManagerClientInitializationTemplate = `%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(sdkApi)
+if err != nil {
+	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
+}
+configureFunc(%[1]s.Client)
+`
+
+	dataPlaneClientInitializationTemplate = `%[1]s, err := %[2]s.New%[3]sClientUnconfigured()
+if err != nil {
+	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
+}
+configureFunc(%[1]s.Client)
+`
+)
+
 func (m metaClientTemplater) template() (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(m.source)
 	if err != nil {
@@ -37,14 +107,17 @@ func (m metaClientTemplater) template() (*string, error) {
 	for _, resourceName := range resourceNames {
 		variableName := fmt.Sprintf("%s%sClient", strings.ToLower(string(resourceName[0])), resourceName[1:])
 
-		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/%s/%s/%s/%s"`, m.sourceType, strings.ToLower(m.serviceName), m.apiVersionDirectoryName, strings.ToLower(resourceName)))
-		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
-		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(sdkApi)
-if err != nil {
-	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
-}
-configureFunc(%[1]s.Client)
-`, variableName, strings.ToLower(resourceName), resourceName)
+		imports = append(imports, fmt.Sprintf(`	"github.com/hashicorp/go-azure-sdk/%s/%s/%s/%s"`, m.sourceType, strings.ToLower(m.serviceName), m.apiVersionDirectoryName, strings.ToLower(resourceName)))
+		fields = append(fields, fmt.Sprintf("	%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
+
+		var clientInitializationTemplate string
+		switch m.sourceType {
+		case models.DataPlaneSourceDataType:
+			clientInitializationTemplate = fmt.Sprintf(dataPlaneClientInitializationTemplate, variableName, strings.ToLower(resourceName), resourceName)
+		default:
+			clientInitializationTemplate = fmt.Sprintf(resourceManagerClientInitializationTemplate, variableName, strings.ToLower(resourceName), resourceName)
+		}
+
 		clientInitialization = append(clientInitialization, clientInitializationTemplate)
 		assignments = append(assignments, fmt.Sprintf("%[1]s: %[2]s,", resourceName, variableName))
 	}
@@ -54,31 +127,14 @@ configureFunc(%[1]s.Client)
 	sort.Strings(fields)
 	sort.Strings(imports)
 
-	out := fmt.Sprintf(`package %[1]s
+	var template string
+	switch m.sourceType {
+	case models.DataPlaneSourceDataType:
+		template = dataPlaneMetaClientTemplate
+	default:
+		template = resourceManagerMetaClientTemplate
+	}
 
-%[3]s
-
-import (
-	"fmt"
-
-	"github.com/hashicorp/go-azure-sdk/sdk/client"
-	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
-	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
-	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
-	%[4]s
-)
-
-type Client struct {
-	%[5]s
-}
-
-func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *%[2]s.Client)) (*Client, error) {
-	%[6]s
-
-	return &Client{
-		%[7]s
-	}, nil
-}
-`, m.apiVersionPackageName, m.baseClientPackage, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
+	out := fmt.Sprintf(template, m.apiVersionPackageName, m.baseClientPackage, *copyrightLines, strings.Join(imports, "\n"), strings.Join(fields, "\n"), strings.Join(clientInitialization, "\n"), strings.Join(assignments, "\n"))
 	return &out, nil
 }

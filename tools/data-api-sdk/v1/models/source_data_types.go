@@ -12,6 +12,9 @@ const (
 
 	// ResourceManagerSourceDataType defines that this Data is related to Azure Resource Manager.
 	ResourceManagerSourceDataType SourceDataType = "resource-manager"
+
+	// DataPlaneSourceDataType defines that this Data is related to Azure Resource Manager.
+	DataPlaneSourceDataType SourceDataType = "data-plane"
 )
 
 func SourceDataTypeIsDataPlane(sourceDataType SourceDataType) bool {

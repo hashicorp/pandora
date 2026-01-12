@@ -11,6 +11,8 @@ import (
 
 type apiDefinitionsParser struct {
 	context *parsingcontext.Context
+
+	DataPlane bool
 }
 
 func NewAPIDefinitionsParser(filePath string) (*apiDefinitionsParser, error) {

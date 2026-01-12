@@ -12,6 +12,7 @@ import (
 )
 
 func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
+	t.Parallel()
 	apiResource := sdkModels.APIResource{
 		Constants: map[string]sdkModels.SDKConstant{},
 		Models: map[string]sdkModels.SDKModel{
@@ -148,6 +149,7 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 }
 
 func TestBuildForResourceGroupUsingRealData(t *testing.T) {
+	t.Parallel()
 	t.Skipf("TODO: update schema gen & re-enable this test")
 
 	apiResource := sdkModels.APIResource{

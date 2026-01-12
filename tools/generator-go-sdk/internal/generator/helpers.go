@@ -60,6 +60,8 @@ func baseClientPackageForSdk(input models.SourceDataType) string {
 		return "msgraph"
 	case models.ResourceManagerSourceDataType:
 		return "resourcemanager"
+	case models.DataPlaneSourceDataType:
+		return "dataplane"
 	}
 	return "client"
 }
@@ -113,6 +115,9 @@ func golangConstantForStatusCode(statusCode int) string {
 		201: "http.StatusCreated",
 		202: "http.StatusAccepted",
 		204: "http.StatusNoContent",
+		205: "http.StatusResetContent",
+		206: "http.StatusPartialContent",
+		207: "http.StatusMultiStatus",
 		301: "http.StatusMovedPermanently",
 		302: "http.StatusFound",
 		307: "http.StatusTemporaryRedirect",
@@ -155,11 +160,11 @@ func golangTypeNameForConstantType(input models.SDKConstantType) (*string, error
 	return &segmentType, nil
 }
 
-func urlFromSegments(input []string) string {
+func urlFromSegments(input []string, isDataPlane bool) string {
 	output := ""
-	for _, v := range input {
+	for k, v := range input {
 		// intentionally to handle scopes
-		if !strings.HasPrefix(v, "/") {
+		if !strings.HasPrefix(v, "/") && !(k == 0 && isDataPlane) {
 			output += "/"
 		}
 		output += v
