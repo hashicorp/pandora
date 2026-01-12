@@ -15,7 +15,8 @@ import (
 
 func (p *Pipeline) parseDataForService(input services.Service) (*sdkModels.Service, error) {
 	logging.Debugf("Discovering Data for Service %q in %q..", input.Name, p.opts.RestAPISpecsDirectory)
-	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory)
+	skipDataPlane := p.opts.SourceDataType != sdkModels.DataPlaneSourceDataType
+	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory, skipDataPlane)
 	if err != nil {
 		return nil, fmt.Errorf("discovering for Service %q: %+v", input.Name, err)
 	}

@@ -16,7 +16,7 @@ import (
 // DiscoverForService discovers the Available Data Set for the specified Service.
 // `workingDirectory` is the path to the `Azure/azure-rest-api-specs` dependency
 // `service` is the Configuration File for the Service which should be loaded.
-func DiscoverForService(service services.Service, workingDirectory string) (*models.AvailableDataSet, error) {
+func DiscoverForService(service services.Service, workingDirectory string, skipDataPlane bool) (*models.AvailableDataSet, error) {
 	logging.Infof("Discovering API Definitions for Service %q within %q..", service.Name, workingDirectory)
 	specificationsDirectory := filepath.Join(workingDirectory, "specification")
 	serviceDirectory, err := filepath.Abs(filepath.Join(specificationsDirectory, service.Directory))
@@ -47,7 +47,7 @@ func DiscoverForService(service services.Service, workingDirectory string) (*mod
 	for _, apiVersion := range service.Available {
 		// NOTE: information on the available paths can be found in the README for this package
 		logging.Debugf("Discovering the available Data Set for API Version %q..", apiVersion)
-		dataSet, err := discoverDataSetForAPIVersion(apiVersion, *filePaths)
+		dataSet, err := discoverDataSetForAPIVersion(apiVersion, *filePaths, skipDataPlane)
 		if err != nil {
 			return nil, fmt.Errorf("discovering the Data Set for the API Version %q for Service %q: %+v", apiVersion, service.Name, err)
 		}

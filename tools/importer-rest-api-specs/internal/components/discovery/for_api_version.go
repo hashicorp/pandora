@@ -14,7 +14,7 @@ import (
 )
 
 // discoverDataSetForAPIVersion parses a set of filePaths and identifies the files which contain API Definitions for the API Version.
-func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*models.AvailableDataSetForAPIVersion, error) {
+func discoverDataSetForAPIVersion(apiVersion string, filePaths []string, skipDataPlane bool) (*models.AvailableDataSetForAPIVersion, error) {
 	// handle this being Stable/Preview etc
 	// e.g. /2020-02-01/ to ensure we don't unintentionally also bring in Preview API versions
 	apiVersionDirectory := fmt.Sprintf("%c%s%c", filepath.Separator, apiVersion, filepath.Separator)
@@ -29,7 +29,8 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string) (*model
 			// So just handling the directory name here is fine
 			shouldIgnore := false
 			for _, item := range strings.Split(filePath, fmt.Sprintf("%c", filepath.Separator)) {
-				if strings.EqualFold(item, "data-plane") {
+				// TODO - Fix this
+				if skipDataPlane && strings.EqualFold(item, "data-plane") {
 					logging.Tracef("File contains `data-plane`, skipping..")
 					shouldIgnore = true
 					break
