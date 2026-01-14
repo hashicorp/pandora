@@ -1,0 +1,43 @@
+{
+  "name": "LocationListSupportedVirtualMachineSkus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "maxresults",
+      "required": false,
+      "field": "Maxresults",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SupportedSku",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/virtualMachineSkus"
+}
