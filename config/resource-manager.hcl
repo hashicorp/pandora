@@ -590,6 +590,10 @@ service "storagecache" {
   name      = "StorageCache"
   available = ["2023-05-01", "2024-07-01", "2025-07-01"]
 }
+service "storagediscovery" {
+  name      = "StorageDiscovery"
+  available = ["2025-09-01"]
+}
 service "storagemover" {
   name      = "StorageMover"
   available = ["2023-03-01", "2024-07-01", "2025-07-01"]
