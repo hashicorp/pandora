@@ -1,0 +1,17 @@
+{
+  "name": "TenantBackfillStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TenantBackfillStatusResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Management/tenantBackfillStatus"
+}

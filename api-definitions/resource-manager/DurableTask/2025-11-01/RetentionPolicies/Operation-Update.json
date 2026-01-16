@@ -1,0 +1,25 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SchedulerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RetentionPolicyUpdate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RetentionPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/retentionPolicies/default"
+}

@@ -19,7 +19,7 @@ func writeToFile(config services.Config, filePath string) error {
 	gohcl.EncodeIntoBody(&config, newFile.Body())
 	bytes := hclwrite.Format(newFile.Bytes())
 	filePlusHeader := strings.TrimSpace(fmt.Sprintf(`
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2021, 2025
 # SPDX-License-Identifier: MPL-2.0
 %s
 `, string(bytes)))

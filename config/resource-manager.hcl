@@ -1,4 +1,4 @@
-# Copyright (c) HashiCorp, Inc.
+# Copyright IBM Corp. 2021, 2025
 # SPDX-License-Identifier: MPL-2.0
 
 service "advisor" {
@@ -133,15 +133,15 @@ service "containerinstance" {
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
-  available = ["2019-06-01-preview", "2023-07-01", "2023-11-01-preview", "2025-04-01"]
+  available = ["2019-06-01-preview", "2023-07-01", "2023-11-01-preview", "2025-04-01", "2025-11-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01"]
+  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15", "2025-10-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -165,7 +165,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01", "2023-10-20"]
+  available = ["2021-03-01", "2023-10-20", "2025-06-11"]
 }
 service "datafactory" {
   name      = "DataFactory"
@@ -185,7 +185,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01", "2025-07-01"]
+  available = ["2024-04-01", "2025-07-01", "2025-09-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -236,6 +236,10 @@ service "domainservices" {
   name      = "AAD"
   available = ["2021-05-01", "2025-06-01"]
   ignore    = ["2022-09-01", "2022-12-01"]
+}
+service "durabletask" {
+  name      = "DurableTask"
+  available = ["2025-11-01"]
 }
 service "dynatrace" {
   name      = "Dynatrace"
@@ -361,8 +365,8 @@ service "managedservices" {
   name      = "ManagedServices"
   available = ["2022-10-01"]
 }
-service "managementgroups" {
-  name      = "ManagementGroups"
+service "management" {
+  name      = "Management"
   available = ["2020-05-01", "2023-04-01"]
 }
 service "maps" {

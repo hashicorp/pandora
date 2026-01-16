@@ -1,0 +1,48 @@
+{
+  "name": "BackupVaultsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-authorization-auxiliary",
+      "optional": true,
+      "required": false,
+      "field": "XMsAuthorizationAuxiliary",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "x-ms-deleted-vault-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsDeletedVaultId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BackupVaultId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupVaultResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupVaultResource",
+    "referenceNameIsCommonType": null
+  }
+}

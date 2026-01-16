@@ -19,7 +19,7 @@ func copyrightLinesForResource(_ generatorModels.ResourceInput) (*string, error)
 func copyrightLinesForSourceDataOrigin(input models.SourceDataOrigin) (*string, error) {
 	if input == models.HandWrittenSourceDataOrigin {
 		output := `
-// Copyright (c) HashiCorp Inc. All rights reserved.
+// Copyright IBM Corp. 2021, 2025 All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &output, nil
