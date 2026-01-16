@@ -129,7 +129,7 @@ service "consumption" {
 }
 service "containerinstance" {
   name      = "ContainerInstance"
-  available = ["2023-05-01"]
+  available = ["2023-05-01", "2025-09-01"]
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
