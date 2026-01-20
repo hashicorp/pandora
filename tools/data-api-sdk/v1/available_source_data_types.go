@@ -12,5 +12,6 @@ func AvailableSourceDataTypes() []models.SourceDataType {
 	return []models.SourceDataType{
 		models.MicrosoftGraphSourceDataType,
 		models.ResourceManagerSourceDataType,
+		models.DataPlaneSourceDataType,
 	}
 }

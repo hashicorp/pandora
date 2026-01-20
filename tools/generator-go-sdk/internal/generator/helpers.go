@@ -60,6 +60,8 @@ func baseClientPackageForSdk(input models.SourceDataType) string {
 		return "msgraph"
 	case models.ResourceManagerSourceDataType:
 		return "resourcemanager"
+	case models.DataPlaneSourceDataType:
+		return "dataplane"
 	}
 	return "client"
 }

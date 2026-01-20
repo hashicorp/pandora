@@ -142,7 +142,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data GeneratorData) 
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -212,7 +212,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -301,7 +301,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*str
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -557,7 +557,7 @@ func (p *%[2]sCustomPager) NextPageLink() *odata.Link {
 	return output
 }
 
-func (c methodsPandoraTemplater) requestOptions() (*string, error) {
+func (c methodsPandoraTemplater) requestOptions(sourceType models.SourceDataType) (*string, error) {
 	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
@@ -575,7 +575,12 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 		}
 	} else {
 		if c.operation.ResourceIDName != nil {
-			path = "id.ID()"
+			switch sourceType {
+			case models.DataPlaneSourceDataType:
+				path = "id.Path()"
+			default:
+				path = "id.ID()"
+			}
 		}
 	}
 

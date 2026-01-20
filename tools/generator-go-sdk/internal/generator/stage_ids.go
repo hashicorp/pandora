@@ -23,7 +23,7 @@ func (s *Generator) ids(data GeneratorData) error {
 			resource:        resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), &pt, data); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 

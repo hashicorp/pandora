@@ -4,12 +4,12 @@
 package operation
 
 import (
-	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"net/http"
 	"sort"
 	"strings"
 
 	"github.com/go-openapi/spec"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func determineContentType(operation parsedOperation) string {

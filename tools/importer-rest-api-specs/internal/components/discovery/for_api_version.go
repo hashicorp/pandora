@@ -83,6 +83,7 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string, skipDat
 		APIVersion:                        apiVersion,
 		ContainsStableAPIVersion:          containsStableAPIVersion,
 		FilePathsContainingAPIDefinitions: filePathsContainingAPIDefinitions,
+		DataSetIsDataPlane:                !skipDataPlane,
 	}, nil
 }
 
