@@ -1,0 +1,19 @@
+{
+  "name": "ContainerGroupsDelete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "resourceIdName": "ContainerGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ContainerGroup",
+    "referenceNameIsCommonType": null
+  }
+}

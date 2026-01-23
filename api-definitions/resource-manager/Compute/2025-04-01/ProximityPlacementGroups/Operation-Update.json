@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ProximityPlacementGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UpdateResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProximityPlacementGroup",
+    "referenceNameIsCommonType": null
+  }
+}

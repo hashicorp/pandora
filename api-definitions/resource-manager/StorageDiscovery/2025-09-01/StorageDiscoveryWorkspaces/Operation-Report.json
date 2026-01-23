@@ -1,0 +1,25 @@
+{
+  "name": "Report",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ProviderStorageDiscoveryWorkspaceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetReportContent",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetReportResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/report"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "UpdateInstances",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualMachineScaleSetId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualMachineScaleSetVMInstanceRequiredIDs",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/manualupgrade"
+}

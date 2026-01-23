@@ -1,0 +1,54 @@
+{
+  "name": "ListAll",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExpandTypesForListVMs"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "statusOnly",
+      "required": false,
+      "field": "StatusOnly",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualMachine",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Compute/virtualMachines"
+}

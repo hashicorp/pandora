@@ -1,0 +1,42 @@
+{
+  "name": "ContainersListLogs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "tail",
+      "required": false,
+      "field": "Tail",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "timestamps",
+      "required": false,
+      "field": "Timestamps",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ContainerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Logs",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/logs"
+}
