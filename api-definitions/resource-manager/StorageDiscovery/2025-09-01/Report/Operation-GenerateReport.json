@@ -1,0 +1,25 @@
+{
+  "name": "GenerateReport",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ReportId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetReportContent",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetReportResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/generateReport"
+}

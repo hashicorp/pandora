@@ -1,0 +1,19 @@
+{
+  "name": "AssessPatches",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualMachineId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualMachineAssessPatchesResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/assessPatches"
+}

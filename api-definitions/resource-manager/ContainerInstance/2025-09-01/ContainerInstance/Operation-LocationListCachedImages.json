@@ -1,0 +1,19 @@
+{
+  "name": "LocationListCachedImages",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CachedImages",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/cachedImages"
+}

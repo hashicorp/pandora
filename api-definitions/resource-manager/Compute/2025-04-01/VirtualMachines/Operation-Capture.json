@@ -1,0 +1,25 @@
+{
+  "name": "Capture",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualMachineCaptureParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualMachineCaptureResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/capture"
+}
