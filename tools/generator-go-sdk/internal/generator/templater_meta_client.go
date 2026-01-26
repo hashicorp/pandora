@@ -64,7 +64,7 @@ type Client struct {
 	%[5]s
 }
 
-func NewClientWithBaseURI(endpoint string, additionalEndpoint string, configureFunc func(c *%[2]s.Client)) (*Client, error) {
+func NewClient(configureFunc func(c *%[2]s.Client)) (*Client, error) {
 	%[6]s
 
 	return &Client{
@@ -80,7 +80,7 @@ if err != nil {
 configureFunc(%[1]s.Client)
 `
 
-	dataPlaneClientInitializationTemplate = `%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(endpoint, additionalEndpoint)
+	dataPlaneClientInitializationTemplate = `%[1]s, err := %[2]s.New%[3]sClientUnconfigured()
 if err != nil {
 	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
 }

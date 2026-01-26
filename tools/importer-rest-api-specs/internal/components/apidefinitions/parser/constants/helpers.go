@@ -97,6 +97,8 @@ func stringifyNumberInput(input string) string {
 	vals := map[int32]string{
 		'.': "Point",
 		'+': "Positive",
+		'=': "Equals", // edge case in APIs that expose header values as enums
+		'/': "Slash",
 		'-': "Negative",
 		'0': "Zero",
 		'1': "One",

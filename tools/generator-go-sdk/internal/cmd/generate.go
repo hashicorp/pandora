@@ -107,6 +107,7 @@ func (g GenerateCommand) Run(args []string) int {
 			input.settings.DeleteExistingResourcesForVersion = false
 			input.settings.GenerateDescriptionsForModels = false
 			input.settings.RecurseParentModels = true
+			// input.settings.UseOldBaseLayerFor("KeyVault")
 		}
 	}
 

@@ -59,7 +59,7 @@ type %[2]s struct {
 }
 
 func New%[2]sUnconfigured() (*%[2]s, error) {
-	client, err := %[3]s.NewClient("please_configure_client_endpoint", "", %[1]q, defaultApiVersion)
+	client, err := %[3]s.NewClient("please_configure_client_endpoint", %[1]q, defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}
@@ -73,12 +73,8 @@ func (c *%[2]s) %[2]sSetEndpoint(endpoint string) {
 	c.Client.Client.BaseUri = endpoint 
 }
 
-func (c *%[2]s) %[2]sSetAdditionalEndpoint(endpoint string) {
-	c.Client.AdditionalEndpoint = endpoint 
-}
-
-func New%[2]sWithBaseURI(endpoint string, additionalEndpoint string) (*%[2]s, error) {
-	client, err := %[3]s.NewClient(endpoint, additionalEndpoint, %[1]q, defaultApiVersion)
+func New%[2]sWithBaseURI(endpoint string) (*%[2]s, error) {
+	client, err := %[3]s.NewClient(endpoint, %[1]q, defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}

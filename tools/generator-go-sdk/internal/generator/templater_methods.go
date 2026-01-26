@@ -45,6 +45,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/dataplane"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
@@ -569,7 +570,12 @@ func (c methodsPandoraTemplater) requestOptions(sourceType models.SourceDataType
 	var path string
 	if c.operation.URISuffix != nil {
 		if c.operation.ResourceIDName != nil {
-			path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
+			switch sourceType {
+			case models.DataPlaneSourceDataType:
+				path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.Path())`, *c.operation.URISuffix)
+			default:
+				path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
+			}
 		} else {
 			path = fmt.Sprintf("%q", *c.operation.URISuffix)
 		}

@@ -303,7 +303,13 @@ func (r *resourceIdTemplater) pathFunction() (*string, error) {
 				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
 			}
 
-		case models.ScopeResourceIDSegmentType, models.DataPlaneBaseURLResourceIDSegmentType:
+		case models.ScopeResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
+		case models.DataPlaneBaseURLResourceIDSegmentType:
 
 		default:
 			{
@@ -319,7 +325,7 @@ func (r *resourceIdTemplater) pathFunction() (*string, error) {
 	wordifiedName := wordifyString(r.name)
 
 	out := fmt.Sprintf(`
-// Path returns the formatted %[4]s ID without the Scope / BaseURI
+// Path returns the formatted %[4]s ID without the BaseURI
 func (id %[1]s) Path() string {
 	fmtString := %[2]q
 	return fmt.Sprintf(fmtString, %[3]s)
@@ -349,10 +355,16 @@ func (r *resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, er
 				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), segment.Name))
 			}
 
-		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType, models.DataPlaneBaseURLResourceIDSegmentType:
+		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
 			{
 				arguments = append(arguments, fmt.Sprintf("%s string", segment.Name))
 				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), segment.Name))
+			}
+
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+			{
+				arguments = append(arguments, fmt.Sprintf("%s string", segment.Name))
+				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), fmt.Sprintf(`strings.TrimSuffix(%s, "/")`, segment.Name)))
 			}
 
 		default:
