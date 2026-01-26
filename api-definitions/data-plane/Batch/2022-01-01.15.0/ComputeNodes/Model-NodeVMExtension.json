@@ -1,0 +1,51 @@
+{
+  "name": "NodeVMExtension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceView",
+      "name": "InstanceView",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VMExtensionInstanceView",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmExtension",
+      "name": "VmExtension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VmExtension",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

@@ -1,0 +1,27 @@
+{
+  "name": "AuthenticationTokenSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "access",
+      "name": "Access",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AccessScope",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

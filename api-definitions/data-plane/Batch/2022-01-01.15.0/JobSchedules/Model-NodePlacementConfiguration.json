@@ -1,0 +1,21 @@
+{
+  "name": "NodePlacementConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policy",
+      "name": "Policy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NodePlacementPolicyType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

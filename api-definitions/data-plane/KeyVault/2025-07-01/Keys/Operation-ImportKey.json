@@ -1,0 +1,23 @@
+{
+  "name": "ImportKey",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "KeyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "KeyImportParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "KeyBundle",
+    "referenceNameIsCommonType": null
+  }
+}

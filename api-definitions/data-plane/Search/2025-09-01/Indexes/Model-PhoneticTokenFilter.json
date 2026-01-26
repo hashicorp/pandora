@@ -1,0 +1,39 @@
+{
+  "name": "PhoneticTokenFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encoder",
+      "name": "Encoder",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PhoneticEncoder",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replace",
+      "name": "Replace",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TokenFilter",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.PhoneticTokenFilter",
+  "typeHintIn": "OdataType"
+}

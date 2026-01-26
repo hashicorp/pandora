@@ -1,0 +1,39 @@
+{
+  "name": "BM25Similarity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "b",
+      "name": "B",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "k1",
+      "name": "K1",
+      "objectDefinition": {
+        "type": "Float",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Similarity",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.BM25Similarity",
+  "typeHintIn": "OdataType"
+}

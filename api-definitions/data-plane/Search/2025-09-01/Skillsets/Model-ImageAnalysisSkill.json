@@ -1,0 +1,66 @@
+{
+  "name": "ImageAnalysisSkill",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultLanguageCode",
+      "name": "DefaultLanguageCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ImageAnalysisSkillLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "details",
+      "name": "Details",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ImageDetail",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "visualFeatures",
+      "name": "VisualFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "VisualFeature",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchIndexerSkill",
+  "discriminatedTypeValue": "#Microsoft.Skills.Vision.ImageAnalysisSkill",
+  "typeHintIn": "OdataType"
+}

@@ -1,0 +1,81 @@
+{
+  "name": "IssuerBundle",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "attributes",
+      "name": "Attributes",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IssuerAttributes",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IssuerCredentials",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "org_details",
+      "name": "OrgDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OrganizationDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provider",
+      "name": "Provider",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

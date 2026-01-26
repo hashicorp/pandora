@@ -1,0 +1,23 @@
+{
+  "name": "PreFullBackup",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PreBackupOperationParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FullBackupOperation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/prebackup"
+}

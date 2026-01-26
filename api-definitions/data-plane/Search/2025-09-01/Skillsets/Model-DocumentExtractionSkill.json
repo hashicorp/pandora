@@ -1,0 +1,54 @@
+{
+  "name": "DocumentExtractionSkill",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configuration",
+      "name": "Configuration",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataToExtract",
+      "name": "DataToExtract",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parsingMode",
+      "name": "ParsingMode",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchIndexerSkill",
+  "discriminatedTypeValue": "#Microsoft.Skills.Util.DocumentExtractionSkill",
+  "typeHintIn": "OdataType"
+}
