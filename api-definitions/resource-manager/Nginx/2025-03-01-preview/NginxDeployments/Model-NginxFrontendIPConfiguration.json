@@ -1,0 +1,48 @@
+{
+  "name": "NginxFrontendIPConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateIPAddresses",
+      "name": "PrivateIPAddresses",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "NginxPrivateIPAddress",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicIPAddresses",
+      "name": "PublicIPAddresses",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "NginxPublicIPAddress",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
