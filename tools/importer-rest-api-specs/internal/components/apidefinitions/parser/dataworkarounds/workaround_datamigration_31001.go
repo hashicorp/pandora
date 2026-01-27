@@ -20,7 +20,7 @@ type workaroundDataMigration31001 struct {
 }
 
 func (workaroundDataMigration31001) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "DataMigration" && apiVersion.APIVersion == "2021-06-30"
+	return serviceName == "DataMigration"
 }
 
 func (workaroundDataMigration31001) Name() string {
