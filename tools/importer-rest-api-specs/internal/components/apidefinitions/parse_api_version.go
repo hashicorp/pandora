@@ -33,7 +33,7 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		}
 
 		parser.DataPlane = input.DataSetIsDataPlane
-		parsedResourceIds, err := parser.ParseResourceIds() // [STEBUG] Last context of data source type
+		parsedResourceIds, err := parser.ParseResourceIds()
 		if err != nil {
 			return nil, fmt.Errorf("parsing the Resource IDs from %q: %+v", filePath, err)
 		}

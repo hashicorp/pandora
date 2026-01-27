@@ -5,6 +5,7 @@ package resourceids
 
 import (
 	"fmt"
+	"regexp"
 	"sort"
 	"strings"
 
@@ -66,6 +67,26 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	segments := make([]sdkModels.ResourceIDSegment, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
+	}
+
+	if p.DataPlane && strings.Contains(uri, "=") {
+		segs := regexp.MustCompile(`([a-zA-Z0-9]+)=(\{[a-zA-Z0-9]+\})`).FindAllStringSubmatch(uri, -1)
+		idSegments := make([]sdkModels.ResourceIDSegment, 0)
+		idConsts := map[string]sdkModels.SDKConstant{}
+
+		for _, seg := range segs {
+			if len(seg) == 3 {
+				idSegments = append(idSegments, sdkModels.NewStaticValueResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[1])))
+				idSegments = append(idSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[2])))
+				uri = strings.Replace(uri, seg[0], "%s", 1)
+			}
+		}
+
+		return &processedResourceId{
+			segments:  &idSegments,
+			uriSuffix: &uri,
+			constants: idConsts,
+		}, nil
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")

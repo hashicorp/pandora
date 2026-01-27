@@ -572,7 +572,11 @@ func (c methodsPandoraTemplater) requestOptions(sourceType models.SourceDataType
 		if c.operation.ResourceIDName != nil {
 			switch sourceType {
 			case models.DataPlaneSourceDataType:
-				path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.Path())`, *c.operation.URISuffix)
+				if strings.Contains(*c.operation.URISuffix, "%s") {
+					path = fmt.Sprintf(`fmt.Sprintf("%s", id.PathElements()...)`, *c.operation.URISuffix)
+				} else {
+					path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.Path())`, *c.operation.URISuffix)
+				}
 			default:
 				path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
 			}

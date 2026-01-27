@@ -163,6 +163,11 @@ func (r *resourceIdTemplater) methods(sourceType models.SourceDataType) (*string
 			return nil, fmt.Errorf("generating ID function: %+v", err)
 		}
 		methods = append(methods, *functionBody)
+		functionBody, err = r.pathElementsFunction()
+		if err != nil {
+			return nil, fmt.Errorf("generating ID function: %+v", err)
+		}
+		methods = append(methods, *functionBody)
 	}
 
 	// Segments function
@@ -331,6 +336,79 @@ func (id %[1]s) Path() string {
 	return fmt.Sprintf(fmtString, %[3]s)
 }
 `, r.name, fmtString, segmentsString, wordifiedName)
+	return &out, nil
+}
+
+func (r *resourceIdTemplater) pathElementsFunction() (*string, error) {
+	fmtSegments := make([]string, 0)      // %s
+	segmentArguments := make([]string, 0) // id.Foo
+	for _, segment := range r.resource.Segments {
+		switch segment.Type {
+		case models.ResourceProviderResourceIDSegmentType, models.StaticResourceIDSegmentType:
+			{
+				if segment.FixedValue == nil {
+					return nil, fmt.Errorf("segment %q should have a static value but didn't get one", segment.Name)
+				}
+				fmtSegments = append(fmtSegments, *segment.FixedValue)
+				continue
+			}
+
+		case models.ConstantResourceIDSegmentType:
+			{
+				if segment.ConstantReference == nil {
+					return nil, fmt.Errorf("the constant segment %q has no reference", segment.Name)
+				}
+
+				// get the segment and determine the type
+				constant, ok := r.constantDetails[*segment.ConstantReference]
+				if !ok {
+					return nil, fmt.Errorf("the constant %q was not found in the data for segment %q", *segment.ConstantReference, segment.Name)
+				}
+
+				fmtVals := map[models.SDKConstantType]string{
+					models.FloatSDKConstantType:   "%f",
+					models.IntegerSDKConstantType: "%d",
+					models.StringSDKConstantType:  "%s",
+				}
+				fmtVal, ok := fmtVals[constant.Type]
+				if !ok {
+					return nil, fmt.Errorf("constant type %q has no fmtVals mapping", string(constant.Type))
+				}
+				fmtSegments = append(fmtSegments, fmtVal)
+
+				segmentType, err := golangTypeNameForConstantType(constant.Type)
+				if err != nil {
+					return nil, fmt.Errorf("determining golang type name for constant type %q: %+v", constant.Type, err)
+				}
+				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
+			}
+
+		case models.ScopeResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+
+		default:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("id.%s", strings.Title(segment.Name)))
+			}
+		}
+	}
+
+	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
+	// segmentsString := strings.Join(segmentArguments, ", ")
+	wordifiedName := wordifyString(r.name)
+
+	out := fmt.Sprintf(`
+// PathElements returns the values of %[3]s ID Segments without the BaseURI
+func (id %[1]s) PathElements() []any {
+	return []any{%3s}
+}
+`, r.name, strings.Join(segmentArguments, ", "), wordifiedName)
 	return &out, nil
 }
 
