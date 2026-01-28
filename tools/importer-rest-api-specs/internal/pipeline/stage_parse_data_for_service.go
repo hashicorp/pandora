@@ -16,7 +16,7 @@ import (
 func (p *Pipeline) parseDataForService(input services.Service, threadId int) (*sdkModels.Service, error) {
 	logging.Debugf("ThreadID: %d - Discovering Data for Service %q in %q..", threadId, input.Name, p.opts.RestAPISpecsDirectory)
 	skipDataPlane := p.opts.SourceDataType != sdkModels.DataPlaneSourceDataType
-	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory, skipDataPlane)
+	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory, skipDataPlane, threadId)
 	if err != nil {
 		return nil, fmt.Errorf("discovering for Service %q: %+v", input.Name, err)
 	}
