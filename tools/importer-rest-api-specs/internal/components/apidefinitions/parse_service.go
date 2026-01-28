@@ -23,10 +23,10 @@ func ParseService(input discoveryModels.AvailableDataSet) (*sdkModels.Service, e
 	apiVersions := make(map[string]sdkModels.APIVersion)
 
 	for apiVersionName, dataSet := range input.DataSetsForAPIVersions {
-		logging.Infof("Parsing Data for API Version %q..", apiVersionName)
+		logging.Infof("Parsing Data for %q API Version %q..", input.ServiceName, apiVersionName)
 		parsed, err := parseAPIVersion(input.ServiceName, dataSet, input.ResourceProvider)
 		if err != nil {
-			return nil, fmt.Errorf("parsing API Version %q: %+v", apiVersionName, err)
+			return nil, fmt.Errorf("parsing %q API Version %q: %+v", input.ServiceName, apiVersionName, err)
 		}
 
 		apiVersions[apiVersionName] = *parsed
