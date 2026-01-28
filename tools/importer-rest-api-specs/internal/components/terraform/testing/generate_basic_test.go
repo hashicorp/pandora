@@ -14,6 +14,7 @@ import (
 )
 
 func TestGenerateBasicTest_NoRequiredProperties(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -69,6 +70,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_NameOnly(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -126,6 +128,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_SystemAssignedIdentityOnly(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -181,6 +184,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_CoreProperties(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -262,6 +266,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_OnlyRequiredPropertiesShouldBeOutput(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -326,7 +331,10 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_NestedObject(t *testing.T) {
+	t.Parallel(
 	// NestedObjects are output as a List of one-item
+	)
+
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -407,6 +415,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_ListOfANestedObject(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -490,6 +499,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateBasicTest_SetOfANestedObject(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {

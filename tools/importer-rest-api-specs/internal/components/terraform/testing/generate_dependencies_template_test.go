@@ -12,6 +12,7 @@ import (
 )
 
 func TestDependenciesTemplate_NoDependenciesShouldOutputNothing(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -22,6 +23,7 @@ func TestDependenciesTemplate_NoDependenciesShouldOutputNothing(t *testing.T) {
 }
 
 func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -102,6 +104,7 @@ resource "example_virtual_network" "test" {
 }
 
 func TestDependenciesTemplate_NeedsClientConfig(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		needsClientConfig: true,
@@ -114,6 +117,7 @@ data "example_client_config" "test" {}
 }
 
 func TestDependenciesTemplate_NeedsDevCenter(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -136,6 +140,7 @@ resource "example_dev_center" "test" {
 }
 
 func TestDependenciesTemplate_NeedsEdgeZone(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{
@@ -154,6 +159,7 @@ data "example_extended_locations" "test" {
 }
 
 func TestDependenciesTemplate_NeedsKeyVault(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -202,6 +208,7 @@ resource "example_key_vault" "test" {
 }
 
 func TestDependenciesTemplate_NeedsKeyVaultKey(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -226,6 +233,7 @@ resource "example_key_vault_key" "test" {
 }
 
 func TestDependenciesTemplate_NeedsNetworkInterface(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{
@@ -252,6 +260,7 @@ resource "example_network_interface" "test" {
 }
 
 func TestDependenciesTemplate_NeedsPublicIP(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -271,6 +280,7 @@ resource "example_public_ip" "test" {
 }
 
 func TestDependenciesTemplate_NeedsResourceGroup(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -288,6 +298,7 @@ resource "example_resource_group" "test" {
 }
 
 func TestDependenciesTemplate_NeedsSubnet(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -307,6 +318,7 @@ resource "example_subnet" "test" {
 }
 
 func TestDependenciesTemplate_NeedsUserAssignedIdentity(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -325,6 +337,7 @@ resource "example_user_assigned_identity" "test" {
 }
 
 func TestDependenciesTemplate_NeedsVirtualNetwork(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables: testVariables{},
@@ -344,6 +357,7 @@ resource "example_virtual_network" "test" {
 }
 
 func TestDependenciesTemplate_NeedsKubernetesFleetManager(t *testing.T) {
+	t.Parallel()
 	builder := newTestBuilder("example", "resource", sdkModels.TerraformResourceDefinition{})
 	dependencies := testDependencies{
 		variables:                   testVariables{},

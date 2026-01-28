@@ -6,6 +6,7 @@ package cleanup
 import "testing"
 
 func TestPluralisingWords(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		input    string
 		expected string
@@ -95,6 +96,7 @@ func TestPluralisingWords(t *testing.T) {
 }
 
 func TestSingularisingWords(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		input    string
 		expected string

@@ -13,6 +13,7 @@ import (
 )
 
 func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			// intentionally none
@@ -36,6 +37,7 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -92,6 +94,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -170,6 +173,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -274,6 +278,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -377,6 +382,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 }
 
 func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -489,6 +495,7 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -579,6 +586,7 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 }
 
 func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.ResourceID{
 		Segments: []sdkModels.ResourceIDSegment{
 			sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),

@@ -16,7 +16,10 @@ import (
 // TODO: ensure that Lists, References and Sets work
 
 func TestGenerateRequiresImport(t *testing.T) {
+	t.Parallel(
 	// all of these expect the resource `example_resource` with the model name `TopLevel`
+	)
+
 	testData := []struct {
 		Name            string
 		TerraformModels map[string]sdkModels.TerraformSchemaModel
@@ -203,6 +206,7 @@ resource "example_resource" "import" {
 	}
 	for _, test := range testData {
 		t.Run(test.Name, func(t *testing.T) {
+			t.Parallel()
 			details := sdkModels.TerraformResourceDefinition{
 				SchemaModels:    test.TerraformModels,
 				SchemaModelName: "TopLevel",

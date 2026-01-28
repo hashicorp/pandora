@@ -16,6 +16,7 @@ import (
 // to split out for now
 
 func TestProviderBlock_AllUnset(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
