@@ -1,12 +1,12 @@
 {
-  "name": "ErrorAdditionalInfo",
+  "name": "NginxCertificateErrorResponseBody",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "info",
-      "name": "Info",
+      "jsonName": "code",
+      "name": "Code",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "message",
+      "name": "Message",
       "objectDefinition": {
         "type": "String",
         "nullable": false,

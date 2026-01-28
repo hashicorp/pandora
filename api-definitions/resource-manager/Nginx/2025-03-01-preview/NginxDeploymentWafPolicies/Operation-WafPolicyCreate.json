@@ -1,0 +1,24 @@
+{
+  "name": "WafPolicyCreate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "WafPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NginxDeploymentWafPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NginxDeploymentWafPolicy",
+    "referenceNameIsCommonType": null
+  }
+}
