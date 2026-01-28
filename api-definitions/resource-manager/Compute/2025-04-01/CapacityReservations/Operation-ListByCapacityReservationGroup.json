@@ -8,6 +8,19 @@
   "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExpandTypesForGetCapacityReservationGroups"
+      }
+    }
+  ],
   "resourceIdName": "CapacityReservationGroupId",
   "responseObject": {
     "type": "Reference",
