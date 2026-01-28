@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: mount a ramdisk to working dir
         run: |
-          sudo mount -t tmpfs -o size=16G tmpfs /home/runner/actions-runner/_work
+          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
           
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
