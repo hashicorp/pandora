@@ -8,10 +8,10 @@ import (
 	"fmt"
 	"runtime"
 
-	"golang.org/x/sync/errgroup"
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
+	"golang.org/x/sync/errgroup"
 )
 
 func RunImporter(opts Options) error {
@@ -54,7 +54,7 @@ func RunImporter(opts Options) error {
 	g, ctx := errgroup.WithContext(context.Background())
 	semaphore := make(chan struct{}, runtime.NumCPU())
 
-	for _, service := range p.servicesFromConfigurationFiles {
+	for threadId, service := range p.servicesFromConfigurationFiles {
 		service := service
 
 		if len(opts.ServiceNamesToLimitTo) > 0 {
@@ -66,7 +66,7 @@ func RunImporter(opts Options) error {
 				}
 			}
 			if !processThisService {
-				logging.Infof("Skipping the Service %q..", service.Name)
+				logging.Infof("ThreadID: %d - Skipping the Service %q..", threadId, service.Name)
 				continue
 			}
 		}
@@ -79,26 +79,26 @@ func RunImporter(opts Options) error {
 			}
 			defer func() { <-semaphore }()
 
-			logging.Infof("Discovering the Data for Service %q..", service.Name)
-			data, err := p.parseDataForService(service)
+			logging.Infof("ThreadID: %d - Discovering the Data for Service %q..", threadId, service.Name)
+			data, err := p.parseDataForService(service, threadId)
 			if err != nil {
 				return fmt.Errorf("parsing Data for the Service %q: %+v", service.Name, err)
 			}
-			logging.Debugf("Completed - Discovering the Data for Service %q.", service.Name)
+			logging.Debugf("ThreadID: %d - Completed - Discovering the Data for Service %q.", threadId, service.Name)
 
 			terraformDetails, ok := p.servicesToTerraformDetails[service.Name]
 			if ok {
-				logging.Infof("Building the Terraform Data for the Service %q..", service.Name)
+				logging.Infof("ThreadID: %d - Building the Terraform Data for the Service %q..", threadId, service.Name)
 				data, err = terraform.BuildForService(*data, terraformDetails.resourceLabelToResourceDefinitions, p.opts.ProviderPrefix, terraformDetails.terraformPackageName)
 				if err != nil {
 					return fmt.Errorf("building the Terraform Data for Service %q: %+v", service.Name, err)
 				}
-				logging.Debugf("Completed - Building the Terraform Data for the Service %q.", service.Name)
+				logging.Debugf("ThreadID: %d - Completed - Building the Terraform Data for the Service %q.", threadId, service.Name)
 			} else {
-				logging.Debugf("Skipping - no Terraform Definitions for the Service %q..", service.Name)
+				logging.Debugf("ThreadID: %d - Skipping - no Terraform Definitions for the Service %q..", threadId, service.Name)
 			}
 
-			logging.Infof("Writing Data for Service %q..", service.Name)
+			logging.Infof("ThreadID: %d - Writing Data for Service %q..", threadId, service.Name)
 			saveServiceOpts := repository.SaveServiceOptions{
 				ResourceProvider: service.ResourceProvider,
 				Service:          *data,
@@ -106,10 +106,10 @@ func RunImporter(opts Options) error {
 				SourceCommitSHA:  restAPISpecsCommitSHA,
 				SourceDataOrigin: p.opts.SourceDataOrigin,
 			}
-			if err := p.repository.SaveService(saveServiceOpts); err != nil {
+			if err := p.repository.SaveService(saveServiceOpts, threadId); err != nil {
 				return fmt.Errorf("saving the Service %q: %+v", service.Name, err)
 			}
-			logging.Debugf("Completed - writing Data for Service %q.", service.Name)
+			logging.Debugf("ThreadID: %d - Completed - writing Data for Service %q.", threadId, service.Name)
 
 			return nil
 		})

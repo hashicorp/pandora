@@ -37,5 +37,5 @@ type Repository interface {
 	SaveCommonTypes(opts SaveCommonTypesOptions) error
 
 	// SaveService persists the API Definitions for the Service specified in opts.
-	SaveService(opts SaveServiceOptions) error
+	SaveService(opts SaveServiceOptions, threadId int) error
 }
