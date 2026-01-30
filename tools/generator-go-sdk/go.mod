@@ -7,7 +7,6 @@ require (
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.5
-	golang.org/x/text v0.26.0
 )
 
 require (
