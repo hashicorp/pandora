@@ -160,11 +160,11 @@ func golangTypeNameForConstantType(input models.SDKConstantType) (*string, error
 	return &segmentType, nil
 }
 
-func urlFromSegments(input []string) string {
+func urlFromSegments(input []string, isDataPlane bool) string {
 	output := ""
-	for _, v := range input {
+	for k, v := range input {
 		// intentionally to handle scopes
-		if !strings.HasPrefix(v, "/") {
+		if !strings.HasPrefix(v, "/") && !(k == 0 && isDataPlane) {
 			output += "/"
 		}
 		output += v

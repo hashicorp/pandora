@@ -27,7 +27,7 @@ func (r *resourceIdTemplater) template(data GeneratorData) (*string, error) {
 
 	if data.sourceType == models.DataPlaneSourceDataType {
 		r.resource.Segments = slices.Insert(r.resource.Segments, 0, models.ResourceIDSegment{
-			ExampleValue: "https://endpoint_url",
+			ExampleValue: "https://endpoint-url.example.com",
 			Type:         models.DataPlaneBaseURLResourceIDSegmentType,
 			Name:         "baseURI",
 		})
@@ -238,6 +238,12 @@ func (r *resourceIdTemplater) idFunction(sourceType models.SourceDataType) (*str
 				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
 			}
 
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimSuffix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
 		default:
 			{
 				fmtSegments = append(fmtSegments, "%s")
@@ -247,10 +253,7 @@ func (r *resourceIdTemplater) idFunction(sourceType models.SourceDataType) (*str
 	}
 
 	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
-	fmtString := urlFromSegments(fmtSegments)
-	if sourceType == models.DataPlaneSourceDataType && r.resource.Segments[0].Type == models.DataPlaneBaseURLResourceIDSegmentType {
-		fmtString = strings.TrimPrefix(fmtString, "/")
-	}
+	fmtString := urlFromSegments(fmtSegments, sourceType == models.DataPlaneSourceDataType)
 	segmentsString := strings.Join(segmentArguments, ", ")
 	wordifiedName := wordifyString(r.name)
 
@@ -325,7 +328,7 @@ func (r *resourceIdTemplater) pathFunction() (*string, error) {
 	}
 
 	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
-	fmtString := urlFromSegments(fmtSegments)
+	fmtString := urlFromSegments(fmtSegments, false)
 	segmentsString := strings.Join(segmentArguments, ", ")
 	wordifiedName := wordifyString(r.name)
 

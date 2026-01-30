@@ -69,24 +69,17 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		Constants: map[string]sdkModels.SDKConstant{},
 	}
 
-	if p.DataPlane && strings.Contains(uri, "=") {
-		segs := regexp.MustCompile(`([a-zA-Z0-9]+)=(\{[a-zA-Z0-9]+\})`).FindAllStringSubmatch(uri, -1)
-		idSegments := make([]sdkModels.ResourceIDSegment, 0)
-		idConsts := map[string]sdkModels.SDKConstant{}
-
-		for _, seg := range segs {
-			if len(seg) == 3 {
-				idSegments = append(idSegments, sdkModels.NewStaticValueResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[1])))
-				idSegments = append(idSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[2])))
-				uri = strings.Replace(uri, seg[0], "%s", 1)
-			}
+	if p.DataPlane {
+		parserMap := map[string]string{
+			"={": `([a-zA-Z0-9]+)=(\{[a-zA-Z0-9]+\})`,   // matches form: /certificates(thumbprintAlgorithm={thumbprintAlgorithm},thumbprint={thumbprint})/canceldelete
+			"'{": `([a-zA-Z0-9]+)\('(\{[a-zA-Z0-9]+\})`, // matches form: /indexers('{indexerName}')/search.run and /skillsets('{skillsetName}')
 		}
 
-		return &processedResourceId{
-			segments:  &idSegments,
-			uriSuffix: &uri,
-			constants: idConsts,
-		}, nil
+		for k, v := range parserMap {
+			if strings.Contains(uri, k) {
+				return processDataPlaneResourceID(uri, v)
+			}
+		}
 	}
 
 	uriSegments := strings.Split(strings.TrimPrefix(uri, "/"), "/")
@@ -394,4 +387,24 @@ func normalizeSegment(input string) string {
 	output = fmt.Sprintf("%s%s", strings.ToLower(string(output[0])), output[1:])
 
 	return output
+}
+
+func processDataPlaneResourceID(uri string, idMatcher string) (*processedResourceId, error) {
+	segs := regexp.MustCompile(idMatcher).FindAllStringSubmatch(uri, -1)
+	idSegments := make([]sdkModels.ResourceIDSegment, 0)
+	idConsts := map[string]sdkModels.SDKConstant{}
+
+	for _, seg := range segs {
+		if len(seg) == 3 {
+			idSegments = append(idSegments, sdkModels.NewStaticValueResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[1])))
+			idSegments = append(idSegments, sdkModels.NewUserSpecifiedResourceIDSegment(normalizeSegment(seg[1]), normalizeSegment(seg[2])))
+			uri = strings.Replace(uri, seg[2], "%s", 1)
+		}
+	}
+
+	return &processedResourceId{
+		segments:  &idSegments,
+		uriSuffix: &uri,
+		constants: idConsts,
+	}, nil
 }

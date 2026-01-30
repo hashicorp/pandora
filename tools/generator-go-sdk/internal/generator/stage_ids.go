@@ -28,11 +28,11 @@ func (s *Generator) ids(data GeneratorData) error {
 		}
 
 		tpt := resourceIdTestsTemplater{
-			resourceName:    idName,
-			resourceData:    resourceData,
-			constantDetails: data.constants,
+			resourceName:    pt.name,
+			resourceData:    pt.resource,
+			constantDetails: pt.constantDetails,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), &tpt, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}
