@@ -45,6 +45,9 @@ var workarounds = []workaround{
 	workaroundSubscriptions20254{},
 	workaroundWeb31682{},
 
+	// Special Case for Network duplicated Enum
+	workaroundNetworkProvisioningState{},
+
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},
 	workaroundTempReadOnlyFieldsContainerService{},

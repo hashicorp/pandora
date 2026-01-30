@@ -3,7 +3,7 @@ module github.com/hashicorp/pandora/tools/data-api-repository
 go 1.24.5
 
 require (
-	github.com/hashicorp/go-azure-helpers v0.66.2
+	github.com/hashicorp/go-azure-helpers v0.76.1
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 )
