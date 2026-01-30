@@ -31,6 +31,8 @@ func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetF
 		if err != nil {
 			return nil, fmt.Errorf("parsing the API Definitions within %q: %+v", filePath, err)
 		}
+
+		parser.DataPlane = input.DataSetIsDataPlane
 		parsedResourceIds, err := parser.ParseResourceIds()
 		if err != nil {
 			return nil, fmt.Errorf("parsing the Resource IDs from %q: %+v", filePath, err)

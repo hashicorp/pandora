@@ -1,0 +1,30 @@
+{
+  "name": "RawVectorQuery",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vector",
+      "name": "Vector",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Float",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorQuery",
+  "discriminatedTypeValue": "vector",
+  "typeHintIn": "Kind"
+}

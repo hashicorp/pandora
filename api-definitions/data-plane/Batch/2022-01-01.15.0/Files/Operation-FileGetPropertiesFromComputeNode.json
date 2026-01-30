@@ -1,0 +1,79 @@
+{
+  "name": "FileGetPropertiesFromComputeNode",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "HEAD",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "ClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "If-Modified-Since",
+      "optional": true,
+      "required": false,
+      "field": "IfModifiedSince",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "If-Unmodified-Since",
+      "optional": true,
+      "required": false,
+      "field": "IfUnmodifiedSince",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "ocp-date",
+      "optional": true,
+      "required": false,
+      "field": "OcpDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "return-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "ReturnClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "timeout",
+      "required": false,
+      "field": "Timeout",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "NodeFileId"
+}

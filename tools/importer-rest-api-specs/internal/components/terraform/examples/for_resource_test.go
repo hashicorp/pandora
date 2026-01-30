@@ -12,8 +12,11 @@ import (
 )
 
 func TestResourceExampleForResource_NoTemplate_LoadTest(t *testing.T) {
+	t.Parallel(
 	// Load Test is a special-case since the resource type contains the word `test`, validate
 	// that this doesn't get transformed into `load_example`
+	)
+
 	input := sdkModels.TerraformResourceTestsDefinition{
 		BasicConfiguration: `
 resource "azurerm_load_test" "test" {
@@ -36,6 +39,7 @@ resource "azurerm_load_test" "example" {
 }
 
 func TestResourceExampleFromTests_NoTemplate_InterpolatedValue(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.TerraformResourceTestsDefinition{
 		BasicConfiguration: `
 resource "azurerm_some_resource" "test" {
@@ -56,6 +60,7 @@ resource "azurerm_some_resource" "example" {
 }
 
 func TestResourceExampleForResource_NoTemplate_ResourceGroup(t *testing.T) {
+	t.Parallel()
 	input := sdkModels.TerraformResourceTestsDefinition{
 		BasicConfiguration: `
 resource "azurerm_resource_group" "test" {
@@ -78,8 +83,11 @@ resource "azurerm_resource_group" "example" {
 }
 
 func TestResourceExampleForResource_WithTemplate_LoadTest(t *testing.T) {
+	t.Parallel(
 	// Load Test is a special-case since the resource type contains the word `test`, validate
 	// that this doesn't get transformed into `load_example`
+	)
+
 	input := sdkModels.TerraformResourceTestsDefinition{
 		BasicConfiguration: `
 resource "azurerm_load_test" "test" {

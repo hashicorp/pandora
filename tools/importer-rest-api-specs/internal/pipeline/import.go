@@ -4,11 +4,14 @@
 package pipeline
 
 import (
+	"context"
 	"fmt"
+	"runtime"
 
 	"github.com/hashicorp/pandora/tools/data-api-repository/repository"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
+	"golang.org/x/sync/errgroup"
 )
 
 func RunImporter(opts Options) error {
@@ -47,7 +50,13 @@ func RunImporter(opts Options) error {
 	logging.Debug("Completed - Clearing any existing API Definitions.")
 
 	logging.Infof("Processing %d Services..", len(p.servicesFromConfigurationFiles))
-	for _, service := range p.servicesFromConfigurationFiles {
+
+	g, ctx := errgroup.WithContext(context.Background())
+	semaphore := make(chan struct{}, runtime.NumCPU())
+
+	for threadId, service := range p.servicesFromConfigurationFiles {
+		service := service
+
 		if len(opts.ServiceNamesToLimitTo) > 0 {
 			processThisService := false
 			for _, serviceNameToLimitTo := range opts.ServiceNamesToLimitTo {
@@ -57,42 +66,57 @@ func RunImporter(opts Options) error {
 				}
 			}
 			if !processThisService {
-				logging.Infof("Skipping the Service %q..", service.Name)
+				logging.Infof("ThreadID: %d - Skipping the Service %q..", threadId, service.Name)
 				continue
 			}
 		}
 
-		logging.Infof("Discovering the Data for Service %q..", service.Name)
-		data, err := p.parseDataForService(service)
-		if err != nil {
-			return fmt.Errorf("parsing Data for the Service %q: %+v", service.Name, err)
-		}
-		logging.Debugf("Completed - Discovering the Data for Service %q.", service.Name)
-
-		terraformDetails, ok := p.servicesToTerraformDetails[service.Name]
-		if ok {
-			logging.Infof("Building the Terraform Data for the Service %q..", service.Name)
-			data, err = terraform.BuildForService(*data, terraformDetails.resourceLabelToResourceDefinitions, p.opts.ProviderPrefix, terraformDetails.terraformPackageName)
-			if err != nil {
-				return fmt.Errorf("building the Terraform Data for Service %q: %+v", service.Name, err)
+		g.Go(func() error {
+			select {
+			case semaphore <- struct{}{}:
+			case <-ctx.Done():
+				return ctx.Err()
 			}
-			logging.Debugf("Completed - Building the Terraform Data for the Service %q.", service.Name)
-		} else {
-			logging.Debugf("Skipping - no Terraform Definitions for the Service %q..", service.Name)
-		}
+			defer func() { <-semaphore }()
 
-		logging.Infof("Writing Data for Service %q..", service.Name)
-		saveServiceOpts := repository.SaveServiceOptions{
-			ResourceProvider: service.ResourceProvider,
-			Service:          *data,
-			ServiceName:      service.Name,
-			SourceCommitSHA:  restAPISpecsCommitSHA,
-			SourceDataOrigin: p.opts.SourceDataOrigin,
-		}
-		if err := p.repository.SaveService(saveServiceOpts); err != nil {
-			return fmt.Errorf("saving the Service %q: %+v", service.Name, err)
-		}
-		logging.Debugf("Completed - writing Data for Service %q.", service.Name)
+			logging.Infof("ThreadID: %d - Discovering the Data for Service %q..", threadId, service.Name)
+			data, err := p.parseDataForService(service, threadId)
+			if err != nil {
+				return fmt.Errorf("parsing Data for the Service %q: %+v", service.Name, err)
+			}
+			logging.Debugf("ThreadID: %d - Completed - Discovering the Data for Service %q.", threadId, service.Name)
+
+			terraformDetails, ok := p.servicesToTerraformDetails[service.Name]
+			if ok {
+				logging.Infof("ThreadID: %d - Building the Terraform Data for the Service %q..", threadId, service.Name)
+				data, err = terraform.BuildForService(*data, terraformDetails.resourceLabelToResourceDefinitions, p.opts.ProviderPrefix, terraformDetails.terraformPackageName)
+				if err != nil {
+					return fmt.Errorf("building the Terraform Data for Service %q: %+v", service.Name, err)
+				}
+				logging.Debugf("ThreadID: %d - Completed - Building the Terraform Data for the Service %q.", threadId, service.Name)
+			} else {
+				logging.Debugf("ThreadID: %d - Skipping - no Terraform Definitions for the Service %q..", threadId, service.Name)
+			}
+
+			logging.Infof("ThreadID: %d - Writing Data for Service %q..", threadId, service.Name)
+			saveServiceOpts := repository.SaveServiceOptions{
+				ResourceProvider: service.ResourceProvider,
+				Service:          *data,
+				ServiceName:      service.Name,
+				SourceCommitSHA:  restAPISpecsCommitSHA,
+				SourceDataOrigin: p.opts.SourceDataOrigin,
+			}
+			if err := p.repository.SaveService(saveServiceOpts, threadId); err != nil {
+				return fmt.Errorf("saving the Service %q: %+v", service.Name, err)
+			}
+			logging.Debugf("ThreadID: %d - Completed - writing Data for Service %q.", threadId, service.Name)
+
+			return nil
+		})
+	}
+
+	if err := g.Wait(); err != nil {
+		return err
 	}
 
 	logging.Info("Completed - Importing Data.")

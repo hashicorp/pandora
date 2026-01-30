@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/version-bumper
 
-go 1.24.5
+go 1.25.5
 
 require (
 	github.com/hashicorp/hcl/v2 v2.16.2

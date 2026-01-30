@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessModel_RenameZones_Valid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition
@@ -143,6 +144,7 @@ func TestProcessModel_RenameZones_Valid(t *testing.T) {
 }
 
 func TestProcessModel_RenameZone_Valid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition
@@ -270,6 +272,7 @@ func TestProcessModel_RenameZone_Valid(t *testing.T) {
 }
 
 func TestProcessModel_RenameZones_Invalid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition

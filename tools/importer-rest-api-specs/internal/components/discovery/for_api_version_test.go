@@ -13,6 +13,7 @@ import (
 )
 
 func TestDiscoverDataSetForAPIVersion_IgnoresExamples(t *testing.T) {
+	t.Parallel()
 	apiVersion := "2020-01-01"
 	filePaths := []string{
 		"specification/compute/Compute.Management/examples/2020-01-01/VirtualMachine_Get.json",
@@ -27,7 +28,7 @@ func TestDiscoverDataSetForAPIVersion_IgnoresExamples(t *testing.T) {
 		},
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
-	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
+	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths, true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
@@ -40,6 +41,7 @@ func TestDiscoverDataSetForAPIVersion_IgnoresExamples(t *testing.T) {
 }
 
 func TestDiscoverDataSetForAPIVersion_IgnoresNonJSONFiles(t *testing.T) {
+	t.Parallel()
 	apiVersion := "2020-01-01"
 	filePaths := []string{
 		"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
@@ -56,7 +58,7 @@ func TestDiscoverDataSetForAPIVersion_IgnoresNonJSONFiles(t *testing.T) {
 		},
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
-	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
+	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths, true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
@@ -69,6 +71,7 @@ func TestDiscoverDataSetForAPIVersion_IgnoresNonJSONFiles(t *testing.T) {
 }
 
 func TestDiscoverDataSetForAPIVersion_PreviewAPIVersion(t *testing.T) {
+	t.Parallel()
 	apiVersion := "2020-01-01-preview"
 	filePaths := []string{
 		"specification/compute/resource-manager/stable/2020-01-01-preview/virtualMachines.json",
@@ -82,7 +85,7 @@ func TestDiscoverDataSetForAPIVersion_PreviewAPIVersion(t *testing.T) {
 		},
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
-	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
+	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths, true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}
@@ -95,6 +98,7 @@ func TestDiscoverDataSetForAPIVersion_PreviewAPIVersion(t *testing.T) {
 }
 
 func TestDiscoverDataSetForAPIVersion_StableAPIVersion(t *testing.T) {
+	t.Parallel()
 	apiVersion := "2020-01-01"
 	filePaths := []string{
 		"specification/compute/resource-manager/stable/2020-01-01/virtualMachines.json",
@@ -108,7 +112,7 @@ func TestDiscoverDataSetForAPIVersion_StableAPIVersion(t *testing.T) {
 		},
 	}
 	logging.Log = hclog.New(hclog.DefaultOptions)
-	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths)
+	actual, err := discoverDataSetForAPIVersion(apiVersion, filePaths, true)
 	if err != nil {
 		t.Fatalf("unexpected error: %+v", err)
 	}

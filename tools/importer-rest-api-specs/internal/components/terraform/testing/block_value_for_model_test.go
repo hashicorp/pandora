@@ -13,6 +13,7 @@ import (
 )
 
 func TestBlockValueForModel_RequiredOnly_OnlyTopLevelProperties(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -59,6 +60,7 @@ wrapper {
 }
 
 func TestBlockValueForModel_RequiredAndOptional_OnlyTopLevelProperties(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -106,6 +108,7 @@ wrapper {
 }
 
 func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -190,6 +193,7 @@ wrapper {
 }
 
 func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {

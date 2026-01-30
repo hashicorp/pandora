@@ -1,0 +1,21 @@
+{
+  "name": "IndexAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "@search.action",
+      "name": "SearchAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IndexActionType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

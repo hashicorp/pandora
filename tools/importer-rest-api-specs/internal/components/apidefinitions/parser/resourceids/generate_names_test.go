@@ -150,6 +150,7 @@ var redisPatchSchedulesResourceId = sdkModels.ResourceID{
 }
 
 func TestResourceIDNamingEmpty(t *testing.T) {
+	t.Parallel()
 	uriToParsedOperation := map[string]ParsedOperation{}
 	actualNamesToIds, err := generateNamesForResourceIds([]sdkModels.ResourceID{}, uriToParsedOperation)
 	if err != nil {
@@ -163,6 +164,7 @@ func TestResourceIDNamingEmpty(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		subscriptionResourceId,
 	}
@@ -183,6 +185,7 @@ func TestResourceIDNamingSubscriptionId(t *testing.T) {
 }
 
 func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		// intentionally here twice
 		subscriptionResourceId,
@@ -205,6 +208,7 @@ func TestResourceIDNamingSubscriptionIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		resourceGroupResourceId,
 	}
@@ -225,6 +229,7 @@ func TestResourceIDNamingResourceGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		// intentionally in here twice
 		resourceGroupResourceId,
@@ -247,6 +252,7 @@ func TestResourceIDNamingResourceGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		managementGroupResourceId,
 	}
@@ -267,6 +273,7 @@ func TestResourceIDNamingManagementGroupId(t *testing.T) {
 }
 
 func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		// intentionally here twice
 		managementGroupResourceId,
@@ -289,6 +296,7 @@ func TestResourceIDNamingManagementGroupIdAndSuffix(t *testing.T) {
 }
 
 func TestResourceIDNamingEventHubSkuId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		eventHubSkuResourceId,
 	}
@@ -309,6 +317,7 @@ func TestResourceIDNamingEventHubSkuId(t *testing.T) {
 }
 
 func TestResourceIDNamingTopLevelScope(t *testing.T) {
+	t.Parallel()
 	scopeResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
 		Segments: []sdkModels.ResourceIDSegment{
@@ -336,6 +345,7 @@ func TestResourceIDNamingTopLevelScope(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstant(t *testing.T) {
+	t.Parallel()
 	dnsResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{
 			"DnsRecordType",
@@ -372,6 +382,7 @@ func TestResourceIDNamingContainingAConstant(t *testing.T) {
 }
 
 func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
+	t.Parallel()
 	dnsResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{
 			"DnsRecordType",
@@ -410,6 +421,7 @@ func TestResourceIDNamingContainingAConstantAndSuffix(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		virtualMachineResourceId,
 	}
@@ -430,6 +442,7 @@ func TestResourceIdNamingTopLevelResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		virtualMachineResourceId,
 		virtualMachineExtensionResourceId,
@@ -452,6 +465,7 @@ func TestResourceIdNamingTopLevelAndNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingNestedResourceId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		virtualMachineExtensionResourceId,
 	}
@@ -472,6 +486,7 @@ func TestResourceIdNamingNestedResourceId(t *testing.T) {
 }
 
 func TestResourceIdNamingResourceUnderScope(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		scopedMonitorResourceId,
 	}
@@ -492,6 +507,7 @@ func TestResourceIdNamingResourceUnderScope(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
@@ -514,6 +530,7 @@ func TestResourceIdNamingConflictingTwoLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		virtualNetworkExtensionResourceId,
 		virtualMachineExtensionResourceId,
@@ -553,6 +570,7 @@ func TestResourceIdNamingConflictingWithUpdatingOperation(t *testing.T) {
 }
 
 func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
+	t.Parallel()
 	workerPoolInstanceResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
 		Segments: []sdkModels.ResourceIDSegment{
@@ -654,6 +672,7 @@ func TestResourceIdNamingConflictingMultipleLevels(t *testing.T) {
 }
 
 func TestResourceIdNamingSignalRId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		signalRResourceId,
 	}
@@ -674,6 +693,7 @@ func TestResourceIdNamingSignalRId(t *testing.T) {
 }
 
 func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		trafficManagerProfileResourceId,
 	}
@@ -694,6 +714,7 @@ func TestResourceIdNamingTrafficManagerEndpoint(t *testing.T) {
 }
 
 func TestResourceIDNamingRedisDefaultId(t *testing.T) {
+	t.Parallel()
 	input := []sdkModels.ResourceID{
 		redisPatchSchedulesResourceId,
 	}

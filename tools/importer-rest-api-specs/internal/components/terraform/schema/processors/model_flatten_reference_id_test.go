@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition
@@ -105,6 +106,7 @@ func TestProcessModel_FlattenReferenceId_Valid(t *testing.T) {
 }
 
 func TestProcessModel_FlattenReferenceId_Invalid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition

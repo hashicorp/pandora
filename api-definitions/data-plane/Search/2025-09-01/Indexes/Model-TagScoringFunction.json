@@ -1,0 +1,24 @@
+{
+  "name": "TagScoringFunction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tag",
+      "name": "Tag",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TagScoringParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScoringFunction",
+  "discriminatedTypeValue": "tag",
+  "typeHintIn": "Type"
+}

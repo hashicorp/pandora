@@ -1,0 +1,24 @@
+{
+  "name": "WebApiVectorizer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customWebApiParameters",
+      "name": "CustomWebApiParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "WebApiParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorSearchVectorizer",
+  "discriminatedTypeValue": "customWebApi",
+  "typeHintIn": "Kind"
+}

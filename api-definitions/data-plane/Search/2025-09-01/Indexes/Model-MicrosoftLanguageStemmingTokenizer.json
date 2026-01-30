@@ -1,0 +1,54 @@
+{
+  "name": "MicrosoftLanguageStemmingTokenizer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isSearchTokenizer",
+      "name": "IsSearchTokenizer",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "language",
+      "name": "Language",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MicrosoftStemmingTokenizerLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxTokenLength",
+      "name": "MaxTokenLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LexicalTokenizer",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.MicrosoftLanguageStemmingTokenizer",
+  "typeHintIn": "OdataType"
+}

@@ -8,37 +8,44 @@ import (
 	"strings"
 )
 
+var (
+	charactersFilter = map[string]string{
+		" ":  "Space",
+		"-":  "Dash",     // note: different to below
+		"–":  "Negative", // note: different to above
+		"_":  "Underscore",
+		"[":  "SquareBraceLeft",
+		"]":  "SquareBraceRight",
+		"(":  "ParenLeft",
+		")":  "ParenRight",
+		"{":  "BraceLeft",
+		"}":  "BraceRight",
+		"@":  "At",
+		"#":  "Octothorpe",
+		"+":  "Plus",
+		",":  "Comma",
+		"/":  "Slash",
+		`\`:  "BackSlash",
+		"=":  "Equals",
+		":":  "Colon",
+		";":  "Semicolon", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\r": "Return",    // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\n": "NewLine",   // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"$":  "Dollar",
+		"'":  "SingleQuote",
+		".":  "Period",
+	}
+)
+
 func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
-	output := input
+	output := filterSingleCharacterKeys(input)
+	if output != input {
+		return output
+	}
 
 	// foreach of these characters, work through and Capitalize the segments as necessary
 	// e.g. `Azure-kusto` becomes `AzureKusto`
-	charactersToReplace := []string{
-		" ",
-		"_",
-		"-", // note: different to below
-		"–", // note: different to above
-		"_",
-		"[",
-		"]",
-		"(",
-		")",
-		"{",
-		"}",
-		"@",
-		"#",
-		"+",
-		",",
-		"/",
-		":",
-		";",  // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"\r", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"\n", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"$",
-		"'",
-		".",
-	}
-	for _, find := range charactersToReplace {
+	for find := range charactersFilter {
 		split := strings.Split(output, find)
 		newVal := ""
 		for _, word := range split {
@@ -52,6 +59,14 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	}
 
 	return output
+}
+
+func filterSingleCharacterKeys(input string) string {
+	if v := charactersFilter[input]; v != "" {
+		return v
+	}
+
+	return input
 }
 
 func NormalizeName(input string) string {

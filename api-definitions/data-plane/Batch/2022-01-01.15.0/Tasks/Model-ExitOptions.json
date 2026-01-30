@@ -1,0 +1,36 @@
+{
+  "name": "ExitOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dependencyAction",
+      "name": "DependencyAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DependencyAction",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobAction",
+      "name": "JobAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "JobAction",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

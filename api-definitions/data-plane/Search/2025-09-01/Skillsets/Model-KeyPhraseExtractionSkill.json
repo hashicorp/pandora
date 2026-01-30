@@ -1,0 +1,54 @@
+{
+  "name": "KeyPhraseExtractionSkill",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultLanguageCode",
+      "name": "DefaultLanguageCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "KeyPhraseExtractionSkillLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxKeyPhraseCount",
+      "name": "MaxKeyPhraseCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "modelVersion",
+      "name": "ModelVersion",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchIndexerSkill",
+  "discriminatedTypeValue": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
+  "typeHintIn": "OdataType"
+}

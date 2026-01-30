@@ -8,6 +8,7 @@ import (
 )
 
 func TestFieldNameMaxToMaximum_Valid(t *testing.T) {
+	t.Parallel()
 	result, err := fieldNameMaxToMaximum{}.ProcessField("MaxValue", FieldMetadata{})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -22,6 +23,7 @@ func TestFieldNameMaxToMaximum_Valid(t *testing.T) {
 }
 
 func TestFieldNameMaxToMaximum_Invalid(t *testing.T) {
+	t.Parallel()
 	result, err := fieldNameMaxToMaximum{}.ProcessField("Maximillian", FieldMetadata{})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -33,6 +35,7 @@ func TestFieldNameMaxToMaximum_Invalid(t *testing.T) {
 }
 
 func TestFieldNameMaxToMaximum_LiteralValueOfMax(t *testing.T) {
+	t.Parallel()
 	result, err := fieldNameMaxToMaximum{}.ProcessField("Max", FieldMetadata{})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -46,6 +49,7 @@ func TestFieldNameMaxToMaximum_LiteralValueOfMax(t *testing.T) {
 }
 
 func TestFieldNameMaxToMaximum_LiteralValueOfMaxLowerCase(t *testing.T) {
+	t.Parallel()
 	result, err := fieldNameMaxToMaximum{}.ProcessField("max", FieldMetadata{})
 	if err != nil {
 		t.Fatal(err.Error())

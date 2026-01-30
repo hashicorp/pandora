@@ -1,0 +1,23 @@
+{
+  "name": "RoleDefinitionsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopedRoleDefinitionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RoleDefinitionCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RoleDefinition",
+    "referenceNameIsCommonType": null
+  }
+}

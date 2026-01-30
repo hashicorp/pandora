@@ -1,0 +1,39 @@
+{
+  "name": "SoftDeleteColumnDeletionDetectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softDeleteColumnName",
+      "name": "SoftDeleteColumnName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "softDeleteMarkerValue",
+      "name": "SoftDeleteMarkerValue",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataDeletionDetectionPolicy",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.SoftDeleteColumnDeletionDetectionPolicy",
+  "typeHintIn": "OdataType"
+}

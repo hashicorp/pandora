@@ -14,6 +14,7 @@ import (
 // TODO: tests for the different types of Object Definition
 
 func TestParseModelTopLevel(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -94,6 +95,7 @@ func TestParseModelTopLevel(t *testing.T) {
 }
 
 func TestParseModelTopLevelWithRawFile(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level_with_rawfile.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -124,6 +126,7 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 }
 
 func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_top_level_with_inlined_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -223,6 +226,7 @@ func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 }
 
 func TestParseModelWithDateTimeNoType(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_datetime_no_type.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -268,6 +272,7 @@ func TestParseModelWithDateTimeNoType(t *testing.T) {
 }
 
 func TestParseModelWithInlinedObject(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_inlined_object.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -362,6 +367,7 @@ func TestParseModelWithInlinedObject(t *testing.T) {
 }
 
 func TestParseModelWithNumberPrefixedField(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -410,6 +416,7 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 }
 
 func TestParseModelWithReference(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -492,6 +499,7 @@ func TestParseModelWithReference(t *testing.T) {
 }
 
 func TestParseModelWithReferenceToArray(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_array.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -560,6 +568,7 @@ func TestParseModelWithReferenceToArray(t *testing.T) {
 }
 
 func TestParseModelWithReferenceToConstant(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_constant.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -640,6 +649,7 @@ func TestParseModelWithReferenceToConstant(t *testing.T) {
 }
 
 func TestParseModelWithReferenceToString(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_reference_string.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -710,6 +720,7 @@ func TestParseModelWithReferenceToString(t *testing.T) {
 }
 
 func TestParseModelWithCircularReferences(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_with_circular_reference.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -811,6 +822,7 @@ func TestParseModelWithCircularReferences(t *testing.T) {
 }
 
 func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -854,6 +866,7 @@ func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 }
 
 func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -914,6 +927,7 @@ func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
 }
 
 func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_only_description.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -957,11 +971,14 @@ func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
 }
 
 func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
+	t.Parallel(
 	// This test ensures that when a Model inherits from a Model and defines properties within
 	// the `AllOf` field, that the Model isn't flattened into the Parent Model.
 	// This covers a regression from https://github.com/hashicorp/pandora/pull/3720
 	// which surfaced in https://github.com/hashicorp/pandora/pull/3726 for the model `AgentPool`
 	// within `ContainerService@2019-08-01/AgentPools` which was renamed `SubResource`.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_properties_within_allof.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1006,6 +1023,7 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 }
 
 func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1058,6 +1076,7 @@ func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
 }
 
 func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1110,6 +1129,7 @@ func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
 }
 
 func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1188,6 +1208,7 @@ func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
 }
 
 func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1278,6 +1299,7 @@ func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
 }
 
 func TestParseModelContainingLists(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_containing_lists.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1363,6 +1385,7 @@ func TestParseModelContainingLists(t *testing.T) {
 }
 
 func TestParseModelInlinedWithNoName(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inlined_with_no_name.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1419,6 +1442,7 @@ func TestParseModelInlinedWithNoName(t *testing.T) {
 }
 
 func TestParseModelInheritingFromParent(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_inheriting_from_parent.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1492,6 +1516,7 @@ func TestParseModelInheritingFromParent(t *testing.T) {
 }
 
 func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_multiple_top_level_models_and_operations.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1600,6 +1625,7 @@ func TestParseModelMultipleTopLevelModelsAndOperations(t *testing.T) {
 }
 
 func TestParseModelBug2675DuplicateModel(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "models_bug_2675_duplicate_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
