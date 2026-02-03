@@ -13,9 +13,11 @@ on:
 jobs:
   test:
     runs-on: custom-linux-xl
-    strategy:
-      fail-fast: true
     steps:
+      - name: mount a ramdisk to working dir
+        run: |
+          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
+
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           submodules: recursive
