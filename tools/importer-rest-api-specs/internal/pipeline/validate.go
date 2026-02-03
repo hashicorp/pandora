@@ -35,7 +35,7 @@ func RunValidate(opts Options) error {
 	serviceNamesToResults := make(map[string]validationResult)
 	for _, service := range p.servicesFromConfigurationFiles {
 		logging.Infof("Parsing the Data for Service %q..", service.Name)
-		data, err := p.parseDataForService(service)
+		data, err := p.parseDataForService(service, 0)
 		if err != nil {
 			serviceNamesToResults[service.Name] = validationResult{
 				succeeded: false,

@@ -13,20 +13,20 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/config/services"
 )
 
-func (p *Pipeline) parseDataForService(input services.Service) (*sdkModels.Service, error) {
-	logging.Debugf("Discovering Data for Service %q in %q..", input.Name, p.opts.RestAPISpecsDirectory)
-	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory)
+func (p *Pipeline) parseDataForService(input services.Service, threadId int) (*sdkModels.Service, error) {
+	logging.Debugf("ThreadID: %d - Discovering Data for Service %q in %q..", threadId, input.Name, p.opts.RestAPISpecsDirectory)
+	data, err := discovery.DiscoverForService(input, p.opts.RestAPISpecsDirectory, threadId)
 	if err != nil {
 		return nil, fmt.Errorf("discovering for Service %q: %+v", input.Name, err)
 	}
-	logging.Tracef("Resource Provider is %q for the Service %q", *data.ResourceProvider, input.Name)
-	logging.Debugf("Discovering Data for Service %q in %q - Completed", input.Name, p.opts.RestAPISpecsDirectory)
+	logging.Tracef("ThreadID: %d - Resource Provider is %q for the Service %q", threadId, *data.ResourceProvider, input.Name)
+	logging.Debugf("ThreadID: %d - Discovering Data for Service %q in %q - Completed", threadId, input.Name, p.opts.RestAPISpecsDirectory)
 
-	logging.Debugf("Parsing Data for Service %q..", input.Name)
-	service, err := apidefinitions.ParseService(*data)
+	logging.Debugf("ThreadID: %d - Parsing Data for Service %q..", threadId, input.Name)
+	service, err := apidefinitions.ParseService(*data, threadId)
 	if err != nil {
 		return nil, fmt.Errorf("parsing Data for Service %q: %+v", input.Name, err)
 	}
-	logging.Debugf("Parsing Data for Service %q - Completed", input.Name)
+	logging.Debugf("ThreadID: %d - Parsing Data for Service %q - Completed", threadId, input.Name)
 	return service, nil
 }
