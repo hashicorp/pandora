@@ -40,12 +40,12 @@ func containsDiscriminatedTypes(terraformResource *sdkModels.TerraformResourceDe
 			}
 			result := modelContainsDiscriminatedTypes(model, apiResource)
 			if result {
-				return pointer.FromBool(true), nil
+				return pointer.To(true), nil
 			}
 		}
 	}
 
-	return pointer.FromBool(false), nil
+	return pointer.To(false), nil
 }
 
 func modelContainsDiscriminatedTypes(model sdkModels.SDKModel, apiResource sdkModels.APIResource) bool {
