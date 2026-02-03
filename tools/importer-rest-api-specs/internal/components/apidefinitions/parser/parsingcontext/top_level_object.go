@@ -11,12 +11,14 @@ import (
 )
 
 func (c *Context) findTopLevelObject(name string) (*spec.Schema, error) {
+	// case specific match first
 	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
-		if strings.EqualFold(modelName, name) {
+		if modelName == name {
 			return &model, nil
 		}
 	}
 
+	// case insensitive catch
 	for modelName, model := range c.SwaggerSpecWithReferencesRaw.Definitions {
 		if strings.EqualFold(modelName, name) {
 			return &model, nil
