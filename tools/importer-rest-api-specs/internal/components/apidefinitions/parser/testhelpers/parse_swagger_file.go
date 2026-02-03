@@ -34,7 +34,7 @@ func ParseSwaggerFileForTesting(t *testing.T, filePath string, serviceName *stri
 }
 
 func ParseDataSetForTesting(t *testing.T, input discoveryModels.AvailableDataSet, apiVersion string) (*sdkModels.APIVersion, error) {
-	result, err := apidefinitions.ParseService(input)
+	result, err := apidefinitions.ParseService(input, 0)
 	if err != nil {
 		t.Fatal(err.Error())
 	}

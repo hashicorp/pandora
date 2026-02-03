@@ -16,8 +16,8 @@ import (
 // DiscoverForService discovers the Available Data Set for the specified Service.
 // `workingDirectory` is the path to the `Azure/azure-rest-api-specs` dependency
 // `service` is the Configuration File for the Service which should be loaded.
-func DiscoverForService(service services.Service, workingDirectory string) (*models.AvailableDataSet, error) {
-	logging.Infof("Discovering API Definitions for Service %q within %q..", service.Name, workingDirectory)
+func DiscoverForService(service services.Service, workingDirectory string, threadID int) (*models.AvailableDataSet, error) {
+	logging.Infof("ThreadID: %d - Discovering API Definitions for Service %q within %q", threadID, service.Name, workingDirectory)
 	specificationsDirectory := filepath.Join(workingDirectory, "specification")
 	serviceDirectory, err := filepath.Abs(filepath.Join(specificationsDirectory, service.Directory))
 	if err != nil {
@@ -33,25 +33,25 @@ func DiscoverForService(service services.Service, workingDirectory string) (*mod
 	// determine the Resource Provider for this Resource Manager service
 	resourceProvider := pointer.From(service.ResourceProvider)
 	if service.ResourceProvider == nil {
-		logging.Debugf("Determining the Resource Provider for Service %q in %q..", service.Name, serviceDirectory)
+		logging.Infof("ThreadID: %d - Determining the Resource Provider for Service %q in %q", threadID, service.Name, serviceDirectory)
 		resourceProviderName, err := determineDefaultResourceProviderForService(serviceDirectory, service.Name, *filePaths)
 		if err != nil {
 			return nil, fmt.Errorf("determining the Resource Provider for Service %q in %q: %+v", service.Name, serviceDirectory, err)
 		}
 		resourceProvider = *resourceProviderName
 	}
-	logging.Tracef("Identified %q as the Resource Provider for the Service %q..", resourceProvider, service.Name)
+	logging.Tracef("ThreadID: %d - Identified %q as the Resource Provider for the Service %q", threadID, resourceProvider, service.Name)
 
 	// now that we know the files within this directory, iterate over the API versions we're expecting and pull out those files
 	dataSetsForAPIVersions := make(map[string]models.AvailableDataSetForAPIVersion)
 	for _, apiVersion := range service.Available {
 		// NOTE: information on the available paths can be found in the README for this package
-		logging.Debugf("Discovering the available Data Set for API Version %q..", apiVersion)
+		logging.Infof("ThreadID: %d - Discovering the available Data Set for API Version %q", threadID, apiVersion)
 		dataSet, err := discoverDataSetForAPIVersion(apiVersion, *filePaths)
 		if err != nil {
 			return nil, fmt.Errorf("discovering the Data Set for the API Version %q for Service %q: %+v", apiVersion, service.Name, err)
 		}
-		logging.Tracef("Identified %d API Definitions for API Version %q..", len(dataSet.FilePathsContainingAPIDefinitions), apiVersion)
+		logging.Tracef("ThreadID: %d - Identified %d API Definitions for API Version %q", threadID, len(dataSet.FilePathsContainingAPIDefinitions), apiVersion)
 
 		dataSetsForAPIVersions[apiVersion] = *dataSet
 	}

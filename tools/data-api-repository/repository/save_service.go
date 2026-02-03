@@ -33,8 +33,8 @@ type SaveServiceOptions struct {
 }
 
 // SaveService persists the API Definitions for the Service specified in opts.
-func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
-	r.logger.Info(fmt.Sprintf("Processing Service %q", opts.ServiceName))
+func (r *repositoryImpl) SaveService(opts SaveServiceOptions, threadId int) error {
+	r.logger.Info(fmt.Sprintf("ThreadID: %d - Processing Service %q", threadId, opts.ServiceName))
 
 	if opts.ServiceName == helpers.CommonTypesDirectoryName {
 		return fmt.Errorf("`ServiceName` cannot be %q since that's reserved for storing Common Types", opts.ServiceName)
@@ -50,7 +50,7 @@ func (r *repositoryImpl) SaveService(opts SaveServiceOptions) error {
 	}
 
 	for apiVersion, apiVersionDetails := range opts.Service.APIVersions {
-		r.logger.Info(fmt.Sprintf("Processing Service %q / API Version %q..", opts.ServiceName, apiVersion))
+		r.logger.Info(fmt.Sprintf("ThreadID: %d - Processing Service %q / API Version %q", threadId, opts.ServiceName, apiVersion))
 		items = append(items, stages.APIVersionStage{
 			APIVersion: apiVersionDetails,
 		})
