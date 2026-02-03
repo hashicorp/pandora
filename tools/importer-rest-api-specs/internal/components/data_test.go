@@ -28,6 +28,7 @@ func init() {
 }
 
 func TestCanDiscoverFilesForAllServicesFromConfig(t *testing.T) {
+	t.Parallel()
 	servicesFromConfigurationFile, err := services.LoadFromFile(configurationFilePath)
 	if err != nil {
 		t.Fatalf("loading config at %q: %+v", configurationFilePath, err)
@@ -46,10 +47,13 @@ func TestCanDiscoverFilesForAllServicesFromConfig(t *testing.T) {
 }
 
 func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
+	t.Parallel(
 	// NOTE: this test is an extension on the test above - and whilst we COULD combine them
 	// it's actually helpful context to know whether we're having an issue loading the files
 	// or parsing them, so that we know where to look - so I think it's worth having these as
 	// separate tests for now.
+	)
+
 	servicesFromConfigurationFile, err := services.LoadFromFile(configurationFilePath)
 	if err != nil {
 		t.Fatalf("loading config at %q: %+v", configurationFilePath, err)
@@ -76,6 +80,7 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 }
 
 func TestCanParseTerraformConfigurations(t *testing.T) {
+	t.Parallel()
 	terraformConfigurations, err := loadTerraformConfigurations(terraformDefinitionsDirectory)
 	if err != nil {
 		t.Fatal(err.Error())
@@ -84,6 +89,7 @@ func TestCanParseTerraformConfigurations(t *testing.T) {
 }
 
 func TestCanBuildTerraformResources(t *testing.T) {
+	t.Parallel()
 	servicesFromConfigurationFile, err := services.LoadFromFile(configurationFilePath)
 	if err != nil {
 		t.Fatalf("loading config at %q: %+v", configurationFilePath, err)

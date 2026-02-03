@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessField_RenameBoolean(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		fieldInput    string
 		metadataInput FieldMetadata

@@ -12,6 +12,7 @@ import (
 )
 
 func TestParseResourceIdBasic(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_basic.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -50,6 +51,7 @@ func TestParseResourceIdBasic(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAConstant(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_constant.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -96,6 +98,7 @@ func TestParseResourceIdContainingAConstant(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAScope(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_scope.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -131,6 +134,7 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
+	t.Parallel()
 	files := []string{
 		"resource_ids_containing_hidden_scope.json",
 		"resource_ids_containing_hidden_scope_constant.json",
@@ -174,7 +178,10 @@ func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
+	t.Parallel(
 	// The extra segment should be ignored and detected as a regular scope
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_extra_segment.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -207,6 +214,7 @@ func TestParseResourceIdContainingAHiddenScopeWithExtraSegment(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -240,6 +248,7 @@ func TestParseResourceIdContainingAHiddenScopeWithSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
+	t.Parallel()
 	files := []string{
 		"resource_ids_containing_hidden_scope_nested.json",
 		"resource_ids_containing_hidden_scope_nested_constants.json",
@@ -283,6 +292,7 @@ func TestParseResourceIdContainingAHiddenScopeNested(t *testing.T) {
 }
 
 func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_extra_segment.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -315,6 +325,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithExtraSegment(t *testing.
 }
 
 func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_nested_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -348,6 +359,7 @@ func TestParseResourceIdContainingAHiddenScopeNestedWithSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_with_just_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -372,6 +384,7 @@ func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_with_suffix.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -411,6 +424,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffix(t *testing.T) {
 }
 
 func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_with_suffix_multiple_uris.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -463,6 +477,7 @@ func TestParseResourceIdWithResourceIdAndUriSuffixForMultipleUris(t *testing.T) 
 }
 
 func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_lowercased_resource_provider.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -501,6 +516,7 @@ func TestParseResourceIdContainingResourceProviderShouldGetTitleCased(t *testing
 }
 
 func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_same_id_different_segment_casing.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -546,6 +562,7 @@ func TestParseResourceIdContainingTheSameResourceIdWithDifferentSegments(t *test
 }
 
 func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_multiple_segments_same_name.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -585,6 +602,7 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 }
 
 func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperation(t *testing.T) {
+	t.Parallel(
 	// Whilst a URI may contain Constants, the values for those constants can differ per HTTP Operation
 	// as such we need to ensure that these are output as different Resource ID types
 	//
@@ -595,6 +613,8 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 	// This means we should end up with 2 IDs, GalaxyId and PlanetId (with Earth and Mars the Constant PlanetNames in PlanetId)
 	//
 	// Experience has shown this is eventually consistent, maybe 100x is overkill, but it'll do for now.
+	)
+
 	for i := 0; i < 100; i++ {
 		t.Logf("iteration %d", i)
 
@@ -658,6 +678,7 @@ func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperat
 }
 
 func TestParseResourceIdsCommon(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "resource_ids_common.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)

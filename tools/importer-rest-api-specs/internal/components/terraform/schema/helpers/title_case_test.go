@@ -6,6 +6,7 @@ package helpers
 import "testing"
 
 func TestConvertFromSnakeToTitleCase(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		input    string
 		expected string

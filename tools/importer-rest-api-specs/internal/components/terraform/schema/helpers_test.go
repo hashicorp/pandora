@@ -35,6 +35,7 @@ func checkDirectAssignmentMappingExistsBetween(t *testing.T, mappings []sdkModel
 }
 
 func TestExtractDescription(t *testing.T) {
+	t.Parallel()
 	testData := map[string]string{
 		// input : expected
 		"": "",
@@ -52,6 +53,7 @@ func TestExtractDescription(t *testing.T) {
 }
 
 func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		fieldInput string
 		overrides  []definitions.Override

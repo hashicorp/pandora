@@ -12,6 +12,7 @@ import (
 )
 
 func TestAttributeValueForField_BasicTypeBoolean(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -51,6 +52,7 @@ func TestAttributeValueForField_BasicTypeBoolean(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeInteger(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -90,6 +92,7 @@ func TestAttributeValueForField_BasicTypeInteger(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeFloat(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -129,6 +132,7 @@ func TestAttributeValueForField_BasicTypeFloat(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeString(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -170,6 +174,7 @@ func TestAttributeValueForField_BasicTypeString(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "description",
 		Required: true,
@@ -204,6 +209,7 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
+	t.Parallel()
 	resourceLabelsToExpected := map[string]string{
 		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_string}"`,
 		"resource":                        `"acctestr-${var.random_string}"`,
@@ -257,6 +263,7 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "key_vault_id",
 		Required: true,
@@ -298,6 +305,7 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "key_vault_key_id",
 		Required: true,
@@ -341,6 +349,7 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "kubernetes_cluster_id",
 		Required: true,
@@ -382,6 +391,7 @@ func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T)
 }
 
 func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "network_interface_id",
 		Required: true,
@@ -424,6 +434,7 @@ func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) 
 }
 
 func TestAttributeValueForField_BasicTypeStringSubnetID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "subnet_id",
 		Required: true,
@@ -465,6 +476,7 @@ func TestAttributeValueForField_BasicTypeStringSubnetID(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringSubscriptionID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "subscription_id",
 		Required: true,
@@ -500,6 +512,7 @@ func TestAttributeValueForField_BasicTypeStringSubscriptionID(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "tenant_id",
 		Required: true,
@@ -535,6 +548,7 @@ func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
 }
 
 func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "user_assigned_identity_id",
 		Required: true,
@@ -575,6 +589,7 @@ func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing
 }
 
 func TestAttributeValueForField_BasicTypeStringVirtualNetworkID(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "virtual_network_id",
 		Required: true,
