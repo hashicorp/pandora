@@ -1,12 +1,12 @@
 {
-  "name": "ErrorAdditionalInfo",
+  "name": "AgentPoolUpgradeProfilePropertiesUpgradesItem",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "info",
-      "name": "Info",
+      "jsonName": "isPreview",
+      "name": "IsPreview",
       "objectDefinition": {
-        "type": "RawObject",
+        "type": "Boolean",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "kubernetesVersion",
+      "name": "KubernetesVersion",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
