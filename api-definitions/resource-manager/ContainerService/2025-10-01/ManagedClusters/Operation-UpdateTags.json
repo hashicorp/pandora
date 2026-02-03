@@ -3,14 +3,15 @@
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
-    200
+    200,
+    202
   ],
   "longRunning": true,
   "httpMethod": "PATCH",
   "options": [
     {
       "type": "Data",
-      "headerName": "If-Match",
+      "headerName": "if-match",
       "optional": true,
       "required": false,
       "field": "IfMatch",
