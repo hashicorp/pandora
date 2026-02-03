@@ -35,7 +35,7 @@ func TestCanDiscoverFilesForAllServicesFromConfig(t *testing.T) {
 
 	for _, service := range servicesFromConfigurationFile.Services {
 		t.Run(service.Name, func(t *testing.T) {
-			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory)
+			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, 0)
 			if err != nil {
 				t.Fatalf("discovering Data for Service %q: %+v", service.Name, err)
 			}
@@ -57,12 +57,12 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 
 	for _, service := range servicesFromConfigurationFile.Services {
 		t.Run(service.Name, func(t *testing.T) {
-			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory)
+			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, 0)
 			if err != nil {
 				t.Fatalf("discovering Data for Service %q: %+v", service.Name, err)
 			}
 
-			parsedService, err := apidefinitions.ParseService(*availableDataSet)
+			parsedService, err := apidefinitions.ParseService(*availableDataSet, 0)
 			if err != nil {
 				t.Fatalf("parsing Data for Service %q: %+v", service.Name, err)
 			}
@@ -100,12 +100,12 @@ func TestCanBuildTerraformResources(t *testing.T) {
 			t.Fatalf("Unable to find the Configuration for the Service %q referenced in Terraform Resources", serviceName)
 		}
 
-		availableDataSet, err := discovery.DiscoverForService(*service, restAPISpecsDirectory)
+		availableDataSet, err := discovery.DiscoverForService(*service, restAPISpecsDirectory, 0)
 		if err != nil {
 			t.Fatalf("discovering Data for Service %q: %+v", serviceName, err)
 		}
 
-		parsedService, err := apidefinitions.ParseService(*availableDataSet)
+		parsedService, err := apidefinitions.ParseService(*availableDataSet, 0)
 		if err != nil {
 			t.Errorf("parsing Data for Service %q: %+v", serviceName, err)
 		}
