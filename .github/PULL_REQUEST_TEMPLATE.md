@@ -41,7 +41,7 @@
 <!-- If you are adding a preview API version, please answer the following questions. Otherwise, delete this subsection. -->
 
 > [!IMPORTANT]
-> We generally do not add preview API versions to Pandora, and we rarely support preview features in the provider. Exceptions require strong justification, such as when preview features have no GA date and or stable API version exists for a service. Please ensure you have thoroughly considered whether a preview API is truly necessary before proceeding.
+> We generally do not add preview API versions to `go-azure-sdk`, and we rarely support preview features in the provider. Exceptions require strong justification, such as when preview features have no GA date and or stable API version exists for a service. Please ensure you have thoroughly considered whether a preview API is truly necessary before proceeding.
 
 - [ ] This PR adds a **preview** API version
 
