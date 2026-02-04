@@ -586,6 +586,10 @@ service "storage" {
   available = ["2023-01-01", "2023-05-01", "2025-01-01", "2025-06-01"]
   ignore    = ["2023-04-01"]
 }
+service "storageactions" {
+  name      = "StorageActions"
+  available = ["2023-01-01"]
+}
 service "storagecache" {
   name      = "StorageCache"
   available = ["2023-05-01", "2024-07-01", "2025-07-01"]
