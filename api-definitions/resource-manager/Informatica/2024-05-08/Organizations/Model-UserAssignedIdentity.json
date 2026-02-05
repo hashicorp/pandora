@@ -1,14 +1,14 @@
 {
-  "name": "InformaticaServerlessRuntimeResourceUpdate",
+  "name": "UserAssignedIdentity",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "identity",
-      "name": "Identity",
+      "jsonName": "clientId",
+      "name": "ClientId",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "String",
         "nullable": false,
-        "referenceName": "AzureResourceManagerCommonTypesManagedServiceIdentityUpdate",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -18,12 +18,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "principalId",
+      "name": "PrincipalId",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "String",
         "nullable": false,
-        "referenceName": "ServerlessRuntimePropertiesCustomUpdate",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,

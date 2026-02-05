@@ -1,17 +1,18 @@
 {
-  "name": "ListByResourceGroup",
+  "name": "PrometheusRuleGroupsListBySubscription",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
     200
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
-  "resourceIdName": "ResourceGroupId",
+  "resourceIdName": "SubscriptionId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "PrometheusRuleGroupResourceCollection",
+    "referenceName": "PrometheusRuleGroupResource",
     "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.AlertsManagement/prometheusRuleGroups"

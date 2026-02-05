@@ -1,18 +1,17 @@
 {
-  "name": "CreateOrUpdate",
+  "name": "PrometheusRuleGroupsUpdate",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
-    200,
-    201
+    200
   ],
   "longRunning": false,
-  "httpMethod": "PUT",
+  "httpMethod": "PATCH",
   "resourceIdName": "PrometheusRuleGroupId",
   "requestObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "PrometheusRuleGroupResource",
+    "referenceName": "PrometheusRuleGroupResourcePatchParameters",
     "referenceNameIsCommonType": null
   },
   "responseObject": {
