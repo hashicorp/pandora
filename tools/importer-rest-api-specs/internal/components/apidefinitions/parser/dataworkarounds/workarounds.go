@@ -31,6 +31,7 @@ var workarounds = []workaround{
 	workaroundHDInsight26838{},
 	workaroundLoadTest20961{},
 	workaroundMachineLearning25142{},
+	workaroundMachineLearning40149{},
 	workaroundMongoCluster38810{},
 	workaroundNetwork29303{},
 	workaroundNetwork38407{},
