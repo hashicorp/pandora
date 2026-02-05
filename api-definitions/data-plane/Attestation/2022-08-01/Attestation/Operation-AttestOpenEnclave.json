@@ -1,0 +1,23 @@
+{
+  "name": "AttestOpenEnclave",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AttestOpenEnclaveRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AttestationResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/attest/openEnclave"
+}

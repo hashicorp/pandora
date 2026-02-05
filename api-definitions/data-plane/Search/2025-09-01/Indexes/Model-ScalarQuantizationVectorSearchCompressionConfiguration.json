@@ -1,0 +1,24 @@
+{
+  "name": "ScalarQuantizationVectorSearchCompressionConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scalarQuantizationParameters",
+      "name": "ScalarQuantizationParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ScalarQuantizationParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorSearchCompressionConfiguration",
+  "discriminatedTypeValue": "scalarQuantization",
+  "typeHintIn": "Kind"
+}

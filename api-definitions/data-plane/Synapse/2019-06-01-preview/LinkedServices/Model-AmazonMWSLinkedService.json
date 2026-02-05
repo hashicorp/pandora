@@ -1,0 +1,24 @@
+{
+  "name": "AmazonMWSLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AmazonMWSLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "AmazonMWS",
+  "typeHintIn": "Type"
+}

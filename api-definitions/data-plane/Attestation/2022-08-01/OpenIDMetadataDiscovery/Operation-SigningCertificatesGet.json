@@ -1,0 +1,17 @@
+{
+  "name": "SigningCertificatesGet",
+  "contentType": "application/jwk+json",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "JsonWebKeySet",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/certs"
+}

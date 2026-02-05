@@ -1,0 +1,32 @@
+{
+  "name": "DevicesListRelationships",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "maxpagesize",
+      "required": false,
+      "field": "Maxpagesize",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceRelationship",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/relationships"
+}

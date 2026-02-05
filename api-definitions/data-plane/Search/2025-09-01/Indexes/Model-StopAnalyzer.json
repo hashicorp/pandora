@@ -1,0 +1,30 @@
+{
+  "name": "StopAnalyzer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stopwords",
+      "name": "Stopwords",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LexicalAnalyzer",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.StopAnalyzer",
+  "typeHintIn": "OdataType"
+}

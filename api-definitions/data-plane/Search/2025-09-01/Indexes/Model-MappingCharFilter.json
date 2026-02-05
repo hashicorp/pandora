@@ -1,0 +1,30 @@
+{
+  "name": "MappingCharFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mappings",
+      "name": "Mappings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CharFilter",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.MappingCharFilter",
+  "typeHintIn": "OdataType"
+}

@@ -1,0 +1,54 @@
+{
+  "name": "TextTranslationSkill",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultFromLanguageCode",
+      "name": "DefaultFromLanguageCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TextTranslationSkillLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultToLanguageCode",
+      "name": "DefaultToLanguageCode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TextTranslationSkillLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "suggestedFrom",
+      "name": "SuggestedFrom",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TextTranslationSkillLanguage",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchIndexerSkill",
+  "discriminatedTypeValue": "#Microsoft.Skills.Text.TranslationSkill",
+  "typeHintIn": "OdataType"
+}

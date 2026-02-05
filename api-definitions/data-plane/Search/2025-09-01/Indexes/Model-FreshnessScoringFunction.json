@@ -1,0 +1,24 @@
+{
+  "name": "FreshnessScoringFunction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "freshness",
+      "name": "Freshness",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FreshnessScoringParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScoringFunction",
+  "discriminatedTypeValue": "freshness",
+  "typeHintIn": "Type"
+}

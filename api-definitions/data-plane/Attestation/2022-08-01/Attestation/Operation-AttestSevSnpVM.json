@@ -1,0 +1,23 @@
+{
+  "name": "AttestSevSnpVM",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AttestSevSnpVMRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AttestationResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/attest/sevSnpVm"
+}

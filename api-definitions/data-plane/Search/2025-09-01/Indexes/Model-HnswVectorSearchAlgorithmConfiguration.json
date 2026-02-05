@@ -1,0 +1,24 @@
+{
+  "name": "HnswVectorSearchAlgorithmConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hnswParameters",
+      "name": "HnswParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "HnswParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorSearchAlgorithmConfiguration",
+  "discriminatedTypeValue": "hnsw",
+  "typeHintIn": "Kind"
+}

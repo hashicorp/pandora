@@ -1,0 +1,36 @@
+{
+  "name": "RecurrenceScheduleOccurrence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "day",
+      "name": "Day",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DayOfWeek",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "occurrence",
+      "name": "Occurrence",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

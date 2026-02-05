@@ -1,0 +1,24 @@
+{
+  "name": "HighWaterMarkChangeDetectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "highWaterMarkColumnName",
+      "name": "HighWaterMarkColumnName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataChangeDetectionPolicy",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.HighWaterMarkChangeDetectionPolicy",
+  "typeHintIn": "OdataType"
+}

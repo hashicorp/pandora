@@ -1,0 +1,36 @@
+{
+  "name": "ScheduledJobsUpdate",
+  "contentType": "application/merge-patch+json",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScheduledJobId",
+  "requestObject": {
+    "type": "RawObject",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScheduledJob",
+    "referenceNameIsCommonType": null
+  }
+}

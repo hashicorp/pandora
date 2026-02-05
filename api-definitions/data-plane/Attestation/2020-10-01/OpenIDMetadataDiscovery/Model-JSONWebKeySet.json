@@ -1,0 +1,27 @@
+{
+  "name": "JSONWebKeySet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keys",
+      "name": "Keys",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "JSONWebKey",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

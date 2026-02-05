@@ -1,0 +1,39 @@
+{
+  "name": "ADGroupUser",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "objectId",
+      "name": "ObjectId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "User",
+  "discriminatedTypeValue": "adGroup",
+  "typeHintIn": "Type"
+}
