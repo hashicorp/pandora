@@ -1,0 +1,24 @@
+{
+  "name": "DatasetTarGZipCompression",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "level",
+      "name": "Level",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DatasetCompression",
+  "discriminatedTypeValue": "TarGZip",
+  "typeHintIn": "Type"
+}

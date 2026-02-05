@@ -1,0 +1,23 @@
+{
+  "name": "DevicesUpdateRelationship",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "RelationshipId",
+  "requestObject": {
+    "type": "RawObject",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceRelationship",
+    "referenceNameIsCommonType": null
+  }
+}

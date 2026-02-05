@@ -1,0 +1,24 @@
+{
+  "name": "ServiceBusTopicV1Destination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorization",
+      "name": "Authorization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ServiceBusTopicV1DestinationAuth",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Destination",
+  "discriminatedTypeValue": "servicebustopic@v1",
+  "typeHintIn": "Type"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "DataFlowRenameDataFlow",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DataflowId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ArtifactRenameRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/rename"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "AzureMySqlSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preCopyScript",
+      "name": "PreCopyScript",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "AzureMySqlSink",
+  "typeHintIn": "Type"
+}

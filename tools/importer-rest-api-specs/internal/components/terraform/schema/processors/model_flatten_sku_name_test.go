@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition
@@ -133,6 +134,7 @@ func TestProcessModel_FlattenSkuName_Valid(t *testing.T) {
 }
 
 func TestProcessModel_FlattenSkuName_Invalid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition

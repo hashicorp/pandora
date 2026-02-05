@@ -1,0 +1,57 @@
+{
+  "name": "CheckKeys",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "HEAD",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "Accept-Datetime",
+      "optional": true,
+      "required": false,
+      "field": "AcceptDatetime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "After",
+      "required": false,
+      "field": "After",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "name",
+      "required": false,
+      "field": "Name",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "Sync-Token",
+      "optional": true,
+      "required": false,
+      "field": "SyncToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "uriSuffix": "/keys"
+}

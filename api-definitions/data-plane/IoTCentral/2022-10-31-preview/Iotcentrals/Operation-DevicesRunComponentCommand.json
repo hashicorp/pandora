@@ -1,0 +1,23 @@
+{
+  "name": "DevicesRunComponentCommand",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ComponentCommandId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceCommand",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceCommand",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ExternalContentTileConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceUrl",
+      "name": "SourceURL",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "TileConfiguration",
+  "discriminatedTypeValue": "externalContent",
+  "typeHintIn": "Type"
+}

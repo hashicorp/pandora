@@ -1,0 +1,39 @@
+{
+  "name": "BlobStorageV1DestinationSystemAssignedManagedIdentityAuth",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerName",
+      "name": "ContainerName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpointUri",
+      "name": "EndpointUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BlobStorageV1DestinationAuth",
+  "discriminatedTypeValue": "systemAssignedManagedIdentity",
+  "typeHintIn": "Type"
+}

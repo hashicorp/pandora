@@ -1,0 +1,24 @@
+{
+  "name": "BlobStorageV1Destination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorization",
+      "name": "Authorization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BlobStorageV1DestinationAuth",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Destination",
+  "discriminatedTypeValue": "blobstorage@v1",
+  "typeHintIn": "Type"
+}

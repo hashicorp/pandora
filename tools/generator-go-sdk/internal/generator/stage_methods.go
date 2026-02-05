@@ -10,7 +10,6 @@ import (
 
 func (s *Generator) methods(data GeneratorData) error {
 	for operationName, operation := range data.operations {
-
 		if data.useNewBaseLayer {
 			fileName := fmt.Sprintf("method_%s.go", strings.ToLower(operationName))
 			gen := methodsPandoraTemplater{

@@ -1,0 +1,63 @@
+{
+  "name": "ListRoleAssignments",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "principalId",
+      "required": false,
+      "field": "PrincipalId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "roleId",
+      "required": false,
+      "field": "RoleId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "scope",
+      "required": false,
+      "field": "Scope",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "x-ms-continuation",
+      "optional": true,
+      "required": false,
+      "field": "XMsContinuation",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RoleAssignmentDetailsList",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/roleAssignments"
+}

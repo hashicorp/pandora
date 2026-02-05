@@ -11,6 +11,7 @@ import (
 )
 
 func TestDebugSingleSwaggerFile(t *testing.T) {
+	t.Parallel()
 	t.Skipf("This is intended to be used for debugging a single API Definition")
 	input := discoveryModels.AvailableDataSetForAPIVersion{
 		APIVersion:               "2023-05-01",

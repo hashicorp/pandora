@@ -1,0 +1,341 @@
+{
+  "name": "SearchGet",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    206
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "answers",
+      "required": false,
+      "field": "Answers",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryAnswerType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "captions",
+      "required": false,
+      "field": "Captions",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryCaptionType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$count",
+      "required": false,
+      "field": "Count",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "debug",
+      "required": false,
+      "field": "Debug",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryDebugMode"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "facet",
+      "required": false,
+      "field": "Facet",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "highlight",
+      "required": false,
+      "field": "Highlight",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "highlightPostTag",
+      "required": false,
+      "field": "HighlightPostTag",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "highlightPreTag",
+      "required": false,
+      "field": "HighlightPreTag",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "minimumCoverage",
+      "required": false,
+      "field": "MinimumCoverage",
+      "optionsObjectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$orderby",
+      "required": false,
+      "field": "Orderby",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "queryType",
+      "required": false,
+      "field": "QueryType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "scoringParameter",
+      "required": false,
+      "field": "ScoringParameter",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "scoringProfile",
+      "required": false,
+      "field": "ScoringProfile",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "scoringStatistics",
+      "required": false,
+      "field": "ScoringStatistics",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScoringStatistics"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "search",
+      "required": false,
+      "field": "Search",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "searchFields",
+      "required": false,
+      "field": "SearchFields",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "searchMode",
+      "required": false,
+      "field": "SearchMode",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SearchMode"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$select",
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "semanticConfiguration",
+      "required": false,
+      "field": "SemanticConfiguration",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "semanticErrorHandling",
+      "required": false,
+      "field": "SemanticErrorHandling",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SemanticErrorMode"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "semanticMaxWaitInMilliseconds",
+      "required": false,
+      "field": "SemanticMaxWaitInMilliseconds",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "semanticQuery",
+      "required": false,
+      "field": "SemanticQuery",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "sessionId",
+      "required": false,
+      "field": "SessionId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SearchDocumentsResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/docs"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "DistanceScoringFunction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "distance",
+      "name": "Distance",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DistanceScoringParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ScoringFunction",
+  "discriminatedTypeValue": "distance",
+  "typeHintIn": "Type"
+}

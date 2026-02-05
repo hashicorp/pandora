@@ -12,6 +12,7 @@ import (
 )
 
 func TestDetermineResourceProviderForService(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		serviceDirectory string
 		serviceName      string

@@ -45,6 +45,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-sdk/sdk/client"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/dataplane"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/msgraph"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
@@ -142,7 +143,7 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data GeneratorData) 
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -212,7 +213,7 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -301,7 +302,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data GeneratorData) (*str
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
 	requestOptionStruct := c.requestOptionStruct()
-	requestOptions, err := c.requestOptions()
+	requestOptions, err := c.requestOptions(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -557,7 +558,7 @@ func (p *%[2]sCustomPager) NextPageLink() *odata.Link {
 	return output
 }
 
-func (c methodsPandoraTemplater) requestOptions() (*string, error) {
+func (c methodsPandoraTemplater) requestOptions(sourceType models.SourceDataType) (*string, error) {
 	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
@@ -569,13 +570,27 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	var path string
 	if c.operation.URISuffix != nil {
 		if c.operation.ResourceIDName != nil {
-			path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
+			switch sourceType {
+			case models.DataPlaneSourceDataType:
+				if strings.Contains(*c.operation.URISuffix, "%s") {
+					path = fmt.Sprintf(`fmt.Sprintf("%s", id.PathElements()...)`, *c.operation.URISuffix)
+				} else {
+					path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.Path())`, *c.operation.URISuffix)
+				}
+			default:
+				path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
+			}
 		} else {
 			path = fmt.Sprintf("%q", *c.operation.URISuffix)
 		}
 	} else {
 		if c.operation.ResourceIDName != nil {
-			path = "id.ID()"
+			switch sourceType {
+			case models.DataPlaneSourceDataType:
+				path = "id.Path()"
+			default:
+				path = "id.ID()"
+			}
 		}
 	}
 

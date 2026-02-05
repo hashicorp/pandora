@@ -1,0 +1,65 @@
+{
+  "name": "PipelineCreatePipelineRun",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "isRecovery",
+      "required": false,
+      "field": "IsRecovery",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "referencePipelineRunId",
+      "required": false,
+      "field": "ReferencePipelineRunId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "startActivityName",
+      "required": false,
+      "field": "StartActivityName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PipelineId",
+  "requestObject": {
+    "type": "Dictionary",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null,
+    "nestedItem": {
+      "type": "RawObject",
+      "nullable": false,
+      "referenceName": null,
+      "referenceNameIsCommonType": null
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CreateRunResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/createRun"
+}

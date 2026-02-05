@@ -37,6 +37,17 @@ func Router(workingDirectory string, serviceNames *[]string) func(chi.Router) {
 			}
 			v1.Router(r, opts, serviceRepo)
 		})
+		router.Route("/v1/data-plane", func(r chi.Router) {
+			opts := v1.Options{
+				ServiceType: sdkModels.DataPlaneSourceDataType,
+				UriPrefix:   "/v1/data-plane",
+			}
+			serviceRepo, err := repository.NewRepository(workingDirectory, opts.ServiceType, serviceNames, logging.Log)
+			if err != nil {
+				logging.Fatalf("Error: %+v", err)
+			}
+			v1.Router(r, opts, serviceRepo)
+		})
 		router.Get("/", HomePage(router))
 	}
 }

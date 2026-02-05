@@ -1,0 +1,24 @@
+{
+  "name": "X509Attestation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "x509",
+      "name": "X509",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "X509",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Attestation",
+  "discriminatedTypeValue": "x509",
+  "typeHintIn": "Type"
+}

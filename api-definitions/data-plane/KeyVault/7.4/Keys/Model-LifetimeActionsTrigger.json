@@ -1,0 +1,36 @@
+{
+  "name": "LifetimeActionsTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeAfterCreate",
+      "name": "TimeAfterCreate",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeBeforeExpiry",
+      "name": "TimeBeforeExpiry",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

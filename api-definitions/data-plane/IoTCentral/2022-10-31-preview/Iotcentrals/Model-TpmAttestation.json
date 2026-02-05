@@ -1,0 +1,24 @@
+{
+  "name": "TpmAttestation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tpm",
+      "name": "Tpm",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "Tpm",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Attestation",
+  "discriminatedTypeValue": "tpm",
+  "typeHintIn": "Type"
+}

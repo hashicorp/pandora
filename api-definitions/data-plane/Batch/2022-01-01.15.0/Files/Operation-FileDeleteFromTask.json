@@ -1,0 +1,68 @@
+{
+  "name": "FileDeleteFromTask",
+  "contentType": "application/json; odata=minimalmetadata; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "ClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "ocp-date",
+      "optional": true,
+      "required": false,
+      "field": "OcpDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "recursive",
+      "required": false,
+      "field": "Recursive",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "return-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "ReturnClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "timeout",
+      "required": false,
+      "field": "Timeout",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "FileId"
+}

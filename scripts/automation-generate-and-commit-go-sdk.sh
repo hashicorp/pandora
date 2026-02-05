@@ -11,12 +11,12 @@ function buildAndInstallDependencies {
   echo "Outputting Go Version.."
   go version
 
-  echo "Installing the Data API V2 onto the GOBIN.."
+  echo "Installing the Data API V2 onto the GOBIN"
   cd "${DIR}/tools/data-api"
   go install .
   cd "${DIR}"
 
-  echo "Installing the Go SDK Generator into the GOBIN.."
+  echo "Installing the Go SDK Generator into the GOBIN"
   cd "${DIR}/tools/generator-go-sdk"
   go install .
   cd "${DIR}"
@@ -31,13 +31,19 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper for Resource Manager.."
+  echo "Running Wrapper for Resource Manager"
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation resource-manager go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
-  echo "Running Wrapper for Microsoft Graph.."
+  echo "Running Wrapper for Data Plane"
+  cd "${DIR}/tools/wrapper-automation"
+  ./wrapper-automation microsoft-graph go-sdk \
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
+
+  echo "Running Wrapper for Microsoft Graph"
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation microsoft-graph go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
@@ -45,14 +51,11 @@ function runWrapper {
 
   cd "${DIR}"
 
-  echo "Running 'make tools' within the SDK codebase.."
+  echo "Running 'make tools' within the SDK codebase"
   cd "${outputDirectory}"
   make tools
 
-  echo "Running 'make fmt' on the generated code.."
-  make fmt
-
-  echo "Running 'make imports' on the generated code.."
+  echo "Running 'make imports' on the generated code"
   make imports
 }
 
@@ -60,11 +63,11 @@ function prepareGoSdk {
   local workingDirectory=$1
   local sdkRepo=$2
 
-  echo "Removing any existing working directory.."
+  echo "Removing any existing working directory"
   cd "${DIR}"
   rm -rf "$workingDirectory"
 
-  echo "Cloning SDK Repository into $workingDirectory.."
+  echo "Cloning SDK Repository into $workingDirectory"
   git clone "$sdkRepo" "$workingDirectory"
 
   echo "Preparing the repository for generation"

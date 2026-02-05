@@ -1,0 +1,17 @@
+{
+  "name": "DevicesGetModuleTelemetryValue",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ModuleTelemetryId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DeviceTelemetry",
+    "referenceNameIsCommonType": null
+  }
+}

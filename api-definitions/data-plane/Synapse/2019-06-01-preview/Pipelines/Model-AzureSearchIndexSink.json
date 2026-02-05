@@ -1,0 +1,24 @@
+{
+  "name": "AzureSearchIndexSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureSearchIndexWriteBehaviorType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "AzureSearchIndexSink",
+  "typeHintIn": "Type"
+}

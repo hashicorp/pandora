@@ -1,0 +1,36 @@
+{
+  "name": "NotebookMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "kernelspec",
+      "name": "Kernelspec",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NotebookKernelSpec",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "language_info",
+      "name": "LanguageInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NotebookLanguageInfo",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

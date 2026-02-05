@@ -12,6 +12,7 @@ import (
 )
 
 func TestAttributeValueForField_EdgeZone(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "edge_zone",
 		Required: true,
@@ -53,6 +54,7 @@ func TestAttributeValueForField_EdgeZone(t *testing.T) {
 }
 
 func TestAttributeValueForField_Location(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "location",
 		Required: true,
@@ -95,8 +97,11 @@ func TestAttributeValueForField_Location(t *testing.T) {
 }
 
 func TestAttributeValueForField_LocationWithinTheResourceGroupResource(t *testing.T) {
+	t.Parallel(
 	// When the Location field is present within the Resource Group resource, it should be
 	// a regular `location` field, rather than a reference to the Resource Group's Location
+	)
+
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "location",
 		Required: true,
@@ -138,6 +143,7 @@ func TestAttributeValueForField_LocationWithinTheResourceGroupResource(t *testin
 }
 
 func TestAttributeValueForField_ResourceGroup(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "resource_group_name",
 		Required: true,
@@ -180,8 +186,11 @@ func TestAttributeValueForField_ResourceGroup(t *testing.T) {
 }
 
 func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *testing.T) {
+	t.Parallel(
 	// When the Resource Group Name field is present within the Resource Group resource, it should be
 	// a regular `name` field, rather than a reference to the Resource Group
+	)
+
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "resource_group_name",
 		Required: true,
@@ -223,6 +232,7 @@ func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *t
 }
 
 func TestAttributeValueForField_Tags(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "tags",
 		Optional: true,
@@ -270,6 +280,7 @@ func TestAttributeValueForField_Tags(t *testing.T) {
 }
 
 func TestAttributeValueForField_Zone(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "zone",
 		Required: true,
@@ -309,6 +320,7 @@ func TestAttributeValueForField_Zone(t *testing.T) {
 }
 
 func TestAttributeValueForField_Zones(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "zones",
 		Required: true,

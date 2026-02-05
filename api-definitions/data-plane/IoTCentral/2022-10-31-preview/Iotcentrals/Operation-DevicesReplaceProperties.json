@@ -1,0 +1,37 @@
+{
+  "name": "DevicesReplaceProperties",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "unmodeled",
+      "required": false,
+      "field": "Unmodeled",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DeviceId",
+  "requestObject": {
+    "type": "RawObject",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "RawObject",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/properties"
+}

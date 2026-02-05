@@ -96,10 +96,11 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) GeneratorData {
 	servicePackageName := strings.ToLower(i.ServiceName)
 	versionDirectoryName := strings.ToLower(i.VersionName)
 
-	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, strings.ReplaceAll(versionDirectoryName, ".", "-"))
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 
 	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
+	versionPackageName = strings.ToLower(strings.ReplaceAll(versionPackageName, ".", "_"))
 	if regexp.MustCompile(`^[0-9]+`).MatchString(versionPackageName) {
 		versionPackageName = fmt.Sprintf("v%s", versionPackageName)
 	}
@@ -157,9 +158,10 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 	versionDirectoryName := strings.ToLower(i.VersionName)
 
 	commonTypesOutputPath := filepath.Join(i.OutputDirectory, settings.CommonTypesPackageName, versionDirectoryName)
-	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionDirectoryName)
+	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, strings.ReplaceAll(versionDirectoryName, ".", "-"))
 
 	versionPackageName := strings.ToLower(strings.ReplaceAll(i.VersionName, "-", "_"))
+	versionPackageName = strings.ReplaceAll(versionPackageName, ".", "_")
 	if regexp.MustCompile(`^[0-9]+`).MatchString(versionPackageName) {
 		versionPackageName = fmt.Sprintf("v%s", versionPackageName)
 	}
@@ -183,7 +185,7 @@ func (i VersionGeneratorInput) generatorData(settings Settings) VersionGenerator
 			source:                          i.Source,
 			sourceType:                      i.Type,
 			useNewBaseLayer:                 useNewBaseLayer,
-			versionDirectoryName:            versionDirectoryName,
+			versionDirectoryName:            strings.ReplaceAll(versionDirectoryName, ".", "-"),
 			versionPackageName:              versionPackageName,
 		},
 		commonTypesOutputPath: commonTypesOutputPath,

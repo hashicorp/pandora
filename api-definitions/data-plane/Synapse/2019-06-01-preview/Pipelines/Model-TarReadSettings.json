@@ -1,0 +1,24 @@
+{
+  "name": "TarReadSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "preserveCompressionFileNameAsFolder",
+      "name": "PreserveCompressionFileNameAsFolder",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CompressionReadSettings",
+  "discriminatedTypeValue": "TarReadSettings",
+  "typeHintIn": "Type"
+}

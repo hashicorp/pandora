@@ -1,0 +1,89 @@
+{
+  "name": "GetKeyValue",
+  "contentType": "application/vnd.microsoft.appconfig.kv+json",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "Accept-Datetime",
+      "optional": true,
+      "required": false,
+      "field": "AcceptDatetime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "label",
+      "required": false,
+      "field": "Label",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$Select",
+      "required": false,
+      "field": "Select",
+      "optionsObjectDefinition": {
+        "type": "Csv",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "Sync-Token",
+      "optional": true,
+      "required": false,
+      "field": "SyncToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "KvId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "KeyValue",
+    "referenceNameIsCommonType": null
+  }
+}

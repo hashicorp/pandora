@@ -54,4 +54,7 @@ var defaultDataDirectories = map[sdkModels.SourceDataType]map[sdkModels.SourceDa
 		sdkModels.AzureRestAPISpecsSourceDataOrigin: "resource-manager",
 		sdkModels.HandWrittenSourceDataOrigin:       "handwritten-resource-manager",
 	},
+	sdkModels.DataPlaneSourceDataType: {
+		sdkModels.AzureRestAPISpecsSourceDataOrigin: "data-plane",
+	},
 }

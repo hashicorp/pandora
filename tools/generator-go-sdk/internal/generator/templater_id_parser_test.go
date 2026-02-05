@@ -10,7 +10,7 @@ import (
 )
 
 func TestTemplateIdParserBasic(t *testing.T) {
-	actual, err := resourceIdTemplater{
+	templater := resourceIdTemplater{
 		name: "BasicTestId",
 		resource: models.ResourceID{
 			ExampleValue: "/subscriptions/{subscriptionId}",
@@ -19,7 +19,8 @@ func TestTemplateIdParserBasic(t *testing.T) {
 				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 			},
 		},
-	}.template(GeneratorData{
+	}
+	actual, err := templater.template(GeneratorData{
 		resourceIds: map[string]models.ResourceID{
 			"empty": {
 				CommonIDAlias: stringPointer("basic"),
@@ -146,7 +147,7 @@ var _ resourceids.ResourceId = &BasicTestId{}
 }
 
 func TestTemplateIdParserConstantsOnly(t *testing.T) {
-	actual, err := resourceIdTemplater{
+	templater := resourceIdTemplater{
 		name: "ConstantOnlyId",
 		resource: models.ResourceID{
 			ExampleValue: "/thing/{thingId}",
@@ -167,7 +168,8 @@ func TestTemplateIdParserConstantsOnly(t *testing.T) {
 				},
 			},
 		},
-	}.template(GeneratorData{
+	}
+	actual, err := templater.template(GeneratorData{
 		resourceIds: map[string]models.ResourceID{
 			"empty": {
 				CommonIDAlias: stringPointer("thing"),

@@ -1,0 +1,24 @@
+{
+  "name": "GroupX509Attestation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "x509",
+      "name": "X509",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SigningX509",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "GroupAttestation",
+  "discriminatedTypeValue": "x509",
+  "typeHintIn": "Type"
+}

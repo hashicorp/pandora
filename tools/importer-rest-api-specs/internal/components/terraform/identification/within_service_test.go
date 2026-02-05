@@ -12,6 +12,7 @@ import (
 )
 
 func TestIdentityWithinServiceCreateAndReadAndUpdateAndDelete(t *testing.T) {
+	t.Parallel()
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,
@@ -120,7 +121,10 @@ func TestIdentityWithinServiceCreateAndReadAndUpdateAndDelete(t *testing.T) {
 }
 
 func TestIdentityWithinServiceCreateOrUpdateAndReadAndDelete(t *testing.T) {
+	t.Parallel(
 	// shared CreateOrUpdate method
+	)
+
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,
@@ -217,7 +221,10 @@ func TestIdentityWithinServiceCreateOrUpdateAndReadAndDelete(t *testing.T) {
 }
 
 func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
+	t.Parallel(
 	// shared CreateOrUpdate method but we should use the specific Update method
+	)
+
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,
@@ -342,8 +349,11 @@ func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete(t *testing
 }
 
 func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *testing.T) {
+	t.Parallel(
 	// whilst there's both a shared CreateOrUpdate method and a specific Update method, since
 	// the Update model doesn't contain a `properties` model we should use CreateOrUpdate here
+	)
+
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,
@@ -449,6 +459,7 @@ func TestIdentityWithinServiceCreateOrUpdateAndUpdateAndReadAndDelete_NoProperti
 }
 
 func TestIdentityWithinServiceCreateReadDeleteAndUpdateTags(t *testing.T) {
+	t.Parallel()
 	service := sdkModels.Service{
 		Name:     "Networking",
 		Generate: true,

@@ -1,0 +1,24 @@
+{
+  "name": "ExhaustiveKnnVectorSearchAlgorithmConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exhaustiveKnnParameters",
+      "name": "ExhaustiveKnnParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExhaustiveKnnParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorSearchAlgorithmConfiguration",
+  "discriminatedTypeValue": "exhaustiveKnn",
+  "typeHintIn": "Kind"
+}

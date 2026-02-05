@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"slices"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -10,7 +11,7 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templaterForResource = resourceIdTemplater{}
+var _ templaterForResource = &resourceIdTemplater{}
 
 type resourceIdTemplater struct {
 	name            string
@@ -18,17 +19,25 @@ type resourceIdTemplater struct {
 	constantDetails map[string]models.SDKConstant
 }
 
-func (r resourceIdTemplater) template(data GeneratorData) (*string, error) {
+func (r *resourceIdTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
+	if data.sourceType == models.DataPlaneSourceDataType {
+		r.resource.Segments = slices.Insert(r.resource.Segments, 0, models.ResourceIDSegment{
+			ExampleValue: "https://endpoint-url.example.com",
+			Type:         models.DataPlaneBaseURLResourceIDSegmentType,
+			Name:         "baseURI",
+		})
 	}
 
 	structBody, err := r.structBody()
 	if err != nil {
 		return nil, fmt.Errorf("generating struct body: %+v", err)
 	}
-	methods, err := r.methods()
+	methods, err := r.methods(data.sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("generating methods: %+v", err)
 	}
@@ -57,7 +66,7 @@ import (
 	return &out, nil
 }
 
-func (r resourceIdTemplater) structBody() (*string, error) {
+func (r *resourceIdTemplater) structBody() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, segment := range r.resource.Segments {
@@ -90,7 +99,7 @@ type %[1]s struct {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) registerId() string {
+func (r *resourceIdTemplater) registerId() string {
 	wordifiedName := wordifyString(r.name)
 	return fmt.Sprintf(`
 	func init() {
@@ -99,7 +108,7 @@ func (r resourceIdTemplater) registerId() string {
 `, wordifiedName, r.name)
 }
 
-func (r resourceIdTemplater) methods() (*string, error) {
+func (r *resourceIdTemplater) methods(sourceType models.SourceDataType) (*string, error) {
 	nameWithoutSuffix := strings.TrimSuffix(r.name, "Id")
 
 	// NOTE: ordering is useful here for skimming the code, we do Public -> Private
@@ -141,11 +150,25 @@ func (r resourceIdTemplater) methods() (*string, error) {
 	methods = append(methods, r.validateFunction(nameWithoutSuffix))
 
 	// Id function
-	functionBody, err = r.idFunction()
+	functionBody, err = r.idFunction(sourceType)
 	if err != nil {
 		return nil, fmt.Errorf("generating ID function: %+v", err)
 	}
 	methods = append(methods, *functionBody)
+
+	// Data Plane Path function
+	if sourceType == models.DataPlaneSourceDataType {
+		functionBody, err = r.pathFunction()
+		if err != nil {
+			return nil, fmt.Errorf("generating Path function: %+v", err)
+		}
+		methods = append(methods, *functionBody)
+		functionBody, err = r.pathElementsFunction()
+		if err != nil {
+			return nil, fmt.Errorf("generating PathElements function: %+v", err)
+		}
+		methods = append(methods, *functionBody)
+	}
 
 	// Segments function
 	functionBody, err = r.segmentsFunction()
@@ -165,7 +188,7 @@ func (r resourceIdTemplater) methods() (*string, error) {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) idFunction() (*string, error) {
+func (r *resourceIdTemplater) idFunction(sourceType models.SourceDataType) (*string, error) {
 	fmtSegments := make([]string, 0)      // %s
 	segmentArguments := make([]string, 0) // id.Foo
 	for _, segment := range r.resource.Segments {
@@ -215,6 +238,12 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
 			}
 
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimSuffix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
 		default:
 			{
 				fmtSegments = append(fmtSegments, "%s")
@@ -224,7 +253,7 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 	}
 
 	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
-	fmtString := urlFromSegments(fmtSegments)
+	fmtString := urlFromSegments(fmtSegments, sourceType == models.DataPlaneSourceDataType)
 	segmentsString := strings.Join(segmentArguments, ", ")
 	wordifiedName := wordifyString(r.name)
 
@@ -238,7 +267,155 @@ func (id %[1]s) ID() string {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, error) {
+func (r *resourceIdTemplater) pathFunction() (*string, error) {
+	fmtSegments := make([]string, 0)      // %s
+	segmentArguments := make([]string, 0) // id.Foo
+	for _, segment := range r.resource.Segments {
+		switch segment.Type {
+		case models.ResourceProviderResourceIDSegmentType, models.StaticResourceIDSegmentType:
+			{
+				if segment.FixedValue == nil {
+					return nil, fmt.Errorf("segment %q should have a static value but didn't get one", segment.Name)
+				}
+				fmtSegments = append(fmtSegments, *segment.FixedValue)
+				continue
+			}
+
+		case models.ConstantResourceIDSegmentType:
+			{
+				if segment.ConstantReference == nil {
+					return nil, fmt.Errorf("the constant segment %q has no reference", segment.Name)
+				}
+
+				// get the segment and determine the type
+				constant, ok := r.constantDetails[*segment.ConstantReference]
+				if !ok {
+					return nil, fmt.Errorf("the constant %q was not found in the data for segment %q", *segment.ConstantReference, segment.Name)
+				}
+
+				fmtVals := map[models.SDKConstantType]string{
+					models.FloatSDKConstantType:   "%f",
+					models.IntegerSDKConstantType: "%d",
+					models.StringSDKConstantType:  "%s",
+				}
+				fmtVal, ok := fmtVals[constant.Type]
+				if !ok {
+					return nil, fmt.Errorf("constant type %q has no fmtVals mapping", string(constant.Type))
+				}
+				fmtSegments = append(fmtSegments, fmtVal)
+
+				segmentType, err := golangTypeNameForConstantType(constant.Type)
+				if err != nil {
+					return nil, fmt.Errorf("determining golang type name for constant type %q: %+v", constant.Type, err)
+				}
+				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
+			}
+
+		case models.ScopeResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+
+		default:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("id.%s", strings.Title(segment.Name)))
+			}
+		}
+	}
+
+	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
+	fmtString := urlFromSegments(fmtSegments, false)
+	segmentsString := strings.Join(segmentArguments, ", ")
+	wordifiedName := wordifyString(r.name)
+
+	out := fmt.Sprintf(`
+// Path returns the formatted %[4]s ID without the BaseURI
+func (id %[1]s) Path() string {
+	fmtString := %[2]q
+	return fmt.Sprintf(fmtString, %[3]s)
+}
+`, r.name, fmtString, segmentsString, wordifiedName)
+	return &out, nil
+}
+
+func (r *resourceIdTemplater) pathElementsFunction() (*string, error) {
+	fmtSegments := make([]string, 0)      // %s
+	segmentArguments := make([]string, 0) // id.Foo
+	for _, segment := range r.resource.Segments {
+		switch segment.Type {
+		case models.ResourceProviderResourceIDSegmentType, models.StaticResourceIDSegmentType:
+			{
+				if segment.FixedValue == nil {
+					return nil, fmt.Errorf("segment %q should have a static value but didn't get one", segment.Name)
+				}
+				fmtSegments = append(fmtSegments, *segment.FixedValue)
+				continue
+			}
+
+		case models.ConstantResourceIDSegmentType:
+			{
+				if segment.ConstantReference == nil {
+					return nil, fmt.Errorf("the constant segment %q has no reference", segment.Name)
+				}
+
+				// get the segment and determine the type
+				constant, ok := r.constantDetails[*segment.ConstantReference]
+				if !ok {
+					return nil, fmt.Errorf("the constant %q was not found in the data for segment %q", *segment.ConstantReference, segment.Name)
+				}
+
+				fmtVals := map[models.SDKConstantType]string{
+					models.FloatSDKConstantType:   "%f",
+					models.IntegerSDKConstantType: "%d",
+					models.StringSDKConstantType:  "%s",
+				}
+				fmtVal, ok := fmtVals[constant.Type]
+				if !ok {
+					return nil, fmt.Errorf("constant type %q has no fmtVals mapping", string(constant.Type))
+				}
+				fmtSegments = append(fmtSegments, fmtVal)
+
+				segmentType, err := golangTypeNameForConstantType(constant.Type)
+				if err != nil {
+					return nil, fmt.Errorf("determining golang type name for constant type %q: %+v", constant.Type, err)
+				}
+				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
+			}
+
+		case models.ScopeResourceIDSegmentType:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
+			}
+
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+
+		default:
+			{
+				fmtSegments = append(fmtSegments, "%s")
+				segmentArguments = append(segmentArguments, fmt.Sprintf("id.%s", strings.Title(segment.Name)))
+			}
+		}
+	}
+
+	// intentionally doing this and not using strings.Join to handle Scopes which are full Resource ID's
+	// segmentsString := strings.Join(segmentArguments, ", ")
+	wordifiedName := wordifyString(r.name)
+
+	out := fmt.Sprintf(`
+// PathElements returns the values of %[3]s ID Segments without the BaseURI
+func (id %[1]s) PathElements() []any {
+	return []any{%3s}
+}
+`, r.name, strings.Join(segmentArguments, ", "), wordifiedName)
+	return &out, nil
+}
+
+func (r *resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, error) {
 	arguments := make([]string, 0)
 	lines := make([]string, 0)
 
@@ -265,6 +442,12 @@ func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, err
 				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), segment.Name))
 			}
 
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+			{
+				arguments = append(arguments, fmt.Sprintf("%s string", segment.Name))
+				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), fmt.Sprintf(`strings.TrimSuffix(%s, "/")`, segment.Name)))
+			}
+
 		default:
 			return nil, fmt.Errorf("unsupported segment type %q", string(segment.Type))
 		}
@@ -280,7 +463,7 @@ func New%[1]sID(%[3]s) %[2]s {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensitive bool) (*string, error) {
+func (r *resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensitive bool) (*string, error) {
 	functionName := fmt.Sprintf("Parse%[1]sID", nameWithoutSuffix)
 	if !caseSensitive {
 		functionName += "Insensitively"
@@ -311,7 +494,7 @@ func %[1]s(input string) (*%[2]s, error) {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) fromParseResultFunction(segments []models.ResourceIDSegment) (*string, error) {
+func (r *resourceIdTemplater) fromParseResultFunction(segments []models.ResourceIDSegment) (*string, error) {
 
 	lines := make([]string, 0)
 	varDeclaration := ""
@@ -340,7 +523,7 @@ func (r resourceIdTemplater) fromParseResultFunction(segments []models.ResourceI
 				continue
 			}
 
-		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
+		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType, models.DataPlaneBaseURLResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf(`
 	if id.%[2]s, ok = input.Parsed[%[1]q]; !ok {
@@ -367,7 +550,7 @@ func (r resourceIdTemplater) fromParseResultFunction(segments []models.ResourceI
 	return &out, nil
 }
 
-func (r resourceIdTemplater) segmentsFunction() (*string, error) {
+func (r *resourceIdTemplater) segmentsFunction() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, segment := range r.resource.Segments {
@@ -397,6 +580,11 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 		case models.ScopeResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf("resourceids.ScopeSegment(%q, %q),", segment.Name, segment.ExampleValue))
+				continue
+			}
+		case models.DataPlaneBaseURLResourceIDSegmentType:
+			{
+				lines = append(lines, fmt.Sprintf("resourceids.DataPlaneBaseURISegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
 			}
 		case models.StaticResourceIDSegmentType:
@@ -436,7 +624,7 @@ func (id %[1]s) Segments() []resourceids.Segment {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) stringFunction() (*string, error) {
+func (r *resourceIdTemplater) stringFunction() (*string, error) {
 	componentsLines := make([]string, 0)
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
@@ -479,7 +667,7 @@ func (id %[1]s) String() string {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) validateFunction(nameWithoutSuffix string) string {
+func (r *resourceIdTemplater) validateFunction(nameWithoutSuffix string) string {
 	wordifiedName := wordifyString(r.name)
 	return fmt.Sprintf(`
 // Validate%[1]sID checks that 'input' can be parsed as a %[2]s ID

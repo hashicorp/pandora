@@ -1,0 +1,24 @@
+{
+  "name": "JsonWriteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filePattern",
+      "name": "FilePattern",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "JsonWriteFilePattern",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "FormatWriteSettings",
+  "discriminatedTypeValue": "JsonWriteSettings",
+  "typeHintIn": "Type"
+}

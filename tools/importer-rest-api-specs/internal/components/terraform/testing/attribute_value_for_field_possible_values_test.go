@@ -12,6 +12,7 @@ import (
 )
 
 func TestAttributeValueForField_PossibleValuesInteger(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -61,6 +62,7 @@ func TestAttributeValueForField_PossibleValuesInteger(t *testing.T) {
 }
 
 func TestAttributeValueForField_PossibleValuesFloat(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,
@@ -110,6 +112,7 @@ func TestAttributeValueForField_PossibleValuesFloat(t *testing.T) {
 }
 
 func TestAttributeValueForField_PossibleValuesString(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_field",
 		Required: true,

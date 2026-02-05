@@ -28,4 +28,6 @@ const (
 	// UserSpecifiedResourceIDSegmentType specifies that the ResourceIDSegment is a User-Specified/Provided value.
 	// Typically (but importantly not always) these represent the Name components for a given Resource.
 	UserSpecifiedResourceIDSegmentType ResourceIDSegmentType = "UserSpecified"
+
+	DataPlaneBaseURLResourceIDSegmentType ResourceIDSegmentType = "DataPlaneBaseUrl"
 )

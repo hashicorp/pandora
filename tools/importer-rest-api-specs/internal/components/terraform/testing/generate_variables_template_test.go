@@ -10,6 +10,7 @@ import (
 )
 
 func TestVariablesTemplate_NoVariablesShouldOutputNothing(t *testing.T) {
+	t.Parallel()
 	variables := testVariables{}
 	expected := ""
 	actual := generateTemplateForLocalVariables(variables)
@@ -17,6 +18,7 @@ func TestVariablesTemplate_NoVariablesShouldOutputNothing(t *testing.T) {
 }
 
 func TestVariablesTemplate_EnablingEverything(t *testing.T) {
+	t.Parallel()
 	variables := testVariables{
 		needsRandomInteger:   true,
 		needsRandomString:    true,
@@ -32,6 +34,7 @@ variable "random_string" {}
 }
 
 func TestVariablesTemplate_PrimaryLocation(t *testing.T) {
+	t.Parallel()
 	variables := testVariables{
 		needsPrimaryLocation: true,
 	}
@@ -43,6 +46,7 @@ variable "primary_location" {}
 }
 
 func TestVariablesTemplate_RandomInteger(t *testing.T) {
+	t.Parallel()
 	variables := testVariables{
 		needsRandomInteger: true,
 	}
@@ -54,6 +58,7 @@ variable "random_integer" {}
 }
 
 func TestVariablesTemplate_RandomString(t *testing.T) {
+	t.Parallel()
 	variables := testVariables{
 		needsRandomString: true,
 	}

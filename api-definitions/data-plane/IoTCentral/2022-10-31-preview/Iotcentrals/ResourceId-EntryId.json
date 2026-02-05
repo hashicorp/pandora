@@ -1,0 +1,29 @@
+{
+  "name": "EntryId",
+  "id": "/enrollmentGroups/{enrollmentGroupId}/certificates/{entry}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "staticEnrollmentGroups",
+      "type": "Static",
+      "value": "enrollmentGroups"
+    },
+    {
+      "exampleValue": "enrollmentGroupId",
+      "name": "enrollmentGroupId",
+      "type": "UserSpecified"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticCertificates",
+      "type": "Static",
+      "value": "certificates"
+    },
+    {
+      "constantName": "CertificateEntry",
+      "exampleValue": "",
+      "name": "entry",
+      "type": "Constant"
+    }
+  ]
+}

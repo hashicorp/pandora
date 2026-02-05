@@ -12,6 +12,7 @@ import (
 )
 
 func TestBlockValueForField_Reference(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_nested_item",
 		Required: true,
@@ -72,6 +73,7 @@ some_nested_item {
 }
 
 func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_nested_item",
 		Required: true,
@@ -155,6 +157,7 @@ some_nested_item {
 }
 
 func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_nested_item",
 		Required: true,
@@ -261,6 +264,7 @@ some_nested_item {
 }
 
 func TestBlockValueForField_List(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_nested_item",
 		Required: true,
@@ -324,6 +328,7 @@ some_nested_item {
 }
 
 func TestBlockValueForField_Set(t *testing.T) {
+	t.Parallel()
 	field := sdkModels.TerraformSchemaField{
 		HCLName:  "some_nested_item",
 		Required: true,

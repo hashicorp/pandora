@@ -1,0 +1,23 @@
+{
+  "name": "Reset",
+  "contentType": "text/plain",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "String",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/policies/attestationTypereset"
+}

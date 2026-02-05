@@ -1,0 +1,34 @@
+{
+  "name": "ScopedRoleDefinitionId",
+  "id": "/{scope}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticRoleDefinitions",
+      "type": "Static",
+      "value": "roleDefinitions"
+    },
+    {
+      "exampleValue": "roleDefinitionName",
+      "name": "roleDefinitionName",
+      "type": "UserSpecified"
+    }
+  ]
+}

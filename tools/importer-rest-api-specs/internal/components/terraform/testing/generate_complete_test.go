@@ -14,6 +14,7 @@ import (
 )
 
 func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -47,6 +48,7 @@ func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 }
 
 func TestGenerateCompleteTest_NameOnlyOptional(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -104,6 +106,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_NameOnlyComputedShouldBeIgnored(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -158,6 +161,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_SystemAssignedIdentityOnly(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -213,6 +217,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_CoreProperties(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -294,6 +299,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_BothRequiredAndOptionalPropertiesShouldBeOutput(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -361,7 +367,10 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_NestedObject(t *testing.T) {
+	t.Parallel(
 	// NestedObjects are output as a List of one-item
+	)
+
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -442,6 +451,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_ListOfANestedObject(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -525,6 +535,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_SetOfAnOptionalNestedObject(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {
@@ -611,6 +622,7 @@ resource "example_resource" "test" {
 }
 
 func TestGenerateCompleteTest_SetOfANestedObjectWithOptionalField(t *testing.T) {
+	t.Parallel()
 	details := sdkModels.TerraformResourceDefinition{
 		SchemaModels: map[string]sdkModels.TerraformSchemaModel{
 			"TopLevelModel": {

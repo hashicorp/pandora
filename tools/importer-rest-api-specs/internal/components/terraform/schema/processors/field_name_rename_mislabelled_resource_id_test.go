@@ -11,6 +11,7 @@ import (
 )
 
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantValue(t *testing.T) {
+	t.Parallel()
 	metadata := FieldMetadata{
 		TerraformDetails: sdkModels.TerraformResourceDefinition{},
 		Model: sdkModels.SDKModel{
@@ -47,6 +48,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentConstantVal
 }
 
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentName(t *testing.T) {
+	t.Parallel()
 	actual, err := fieldNameRenameMislabelledResourceID{}.ProcessField("Location", FieldMetadata{})
 	if err != nil {
 		t.Fatal(err.Error())
@@ -57,6 +59,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_DifferentName(t *tes
 }
 
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testing.T) {
+	t.Parallel()
 	metadata := FieldMetadata{
 		TerraformDetails: sdkModels.TerraformResourceDefinition{},
 		Model: sdkModels.SDKModel{
@@ -80,6 +83,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_SingleField(t *testi
 }
 
 func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *testing.T) {
+	t.Parallel()
 	metadata := FieldMetadata{
 		TerraformDetails: sdkModels.TerraformResourceDefinition{},
 		Model: sdkModels.SDKModel{
@@ -113,6 +117,7 @@ func TestFieldNameRenameMislabelledResourceID_NotApplicable_MultipleFields(t *te
 }
 
 func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testing.T) {
+	t.Parallel()
 	metadata := FieldMetadata{
 		TerraformDetails: sdkModels.TerraformResourceDefinition{},
 		Model: sdkModels.SDKModel{
@@ -152,6 +157,7 @@ func TestFieldNameRenameMislabelledResourceID_Applicable_UsingConstant(t *testin
 }
 
 func TestFieldNameRenameMislabelledResourceID_WithAMatchingTypeFieldThatIsAString(t *testing.T) {
+	t.Parallel()
 	metadata := FieldMetadata{
 		TerraformDetails: sdkModels.TerraformResourceDefinition{},
 		Model: sdkModels.SDKModel{

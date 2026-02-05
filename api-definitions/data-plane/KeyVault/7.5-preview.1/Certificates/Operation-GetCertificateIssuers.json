@@ -1,0 +1,31 @@
+{
+  "name": "GetCertificateIssuers",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "maxresults",
+      "required": false,
+      "field": "Maxresults",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CertificateIssuerItem",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/certificates/issuers"
+}

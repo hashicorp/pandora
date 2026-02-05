@@ -1,0 +1,24 @@
+{
+  "name": "AzureBlobFSWriteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "blockSizeInMB",
+      "name": "BlockSizeInMB",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StoreWriteSettings",
+  "discriminatedTypeValue": "AzureBlobFSWriteSettings",
+  "typeHintIn": "Type"
+}

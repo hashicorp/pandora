@@ -1,0 +1,18 @@
+{
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SqlPool",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/sqlPools"
+}

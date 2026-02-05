@@ -1,0 +1,24 @@
+{
+  "name": "WebhookV1DestinationHeaderAuth",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "WebhookV1DestinationAuth",
+  "discriminatedTypeValue": "header",
+  "typeHintIn": "Type"
+}

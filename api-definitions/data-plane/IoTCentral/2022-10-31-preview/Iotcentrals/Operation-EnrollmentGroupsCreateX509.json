@@ -1,0 +1,23 @@
+{
+  "name": "EnrollmentGroupsCreateX509",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "EntryId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SigningX509Certificate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SigningX509Certificate",
+    "referenceNameIsCommonType": null
+  }
+}

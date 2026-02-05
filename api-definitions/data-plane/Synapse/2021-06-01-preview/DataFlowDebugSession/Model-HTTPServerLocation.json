@@ -1,0 +1,24 @@
+{
+  "name": "HTTPServerLocation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "relativeUrl",
+      "name": "RelativeURL",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DatasetLocation",
+  "discriminatedTypeValue": "HttpServerLocation",
+  "typeHintIn": "Type"
+}

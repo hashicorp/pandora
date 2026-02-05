@@ -1,0 +1,23 @@
+{
+  "name": "RoleAssignmentsCreate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopedRoleAssignmentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RoleAssignmentCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RoleAssignment",
+    "referenceNameIsCommonType": null
+  }
+}
