@@ -160,12 +160,12 @@ func (r *resourceIdTemplater) methods(sourceType models.SourceDataType) (*string
 	if sourceType == models.DataPlaneSourceDataType {
 		functionBody, err = r.pathFunction()
 		if err != nil {
-			return nil, fmt.Errorf("generating ID function: %+v", err)
+			return nil, fmt.Errorf("generating Path function: %+v", err)
 		}
 		methods = append(methods, *functionBody)
 		functionBody, err = r.pathElementsFunction()
 		if err != nil {
-			return nil, fmt.Errorf("generating ID function: %+v", err)
+			return nil, fmt.Errorf("generating PathElements function: %+v", err)
 		}
 		methods = append(methods, *functionBody)
 	}

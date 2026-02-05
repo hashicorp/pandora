@@ -19,7 +19,7 @@ func NewImportDataPlaneCommand(restAPISpecsRepositoryDirectoryPath, datPlaneConf
 	return func() (cli.Command, error) {
 		return ImportDataPlaneCommand{
 			outputDirectory:                     outputDirectory,
-			datPlaneConfigPath:                  datPlaneConfigPath,
+			dataPlaneConfigPath:                 datPlaneConfigPath,
 			restAPISpecsRepositoryDirectoryPath: restAPISpecsRepositoryDirectoryPath,
 		}, nil
 	}
@@ -27,7 +27,7 @@ func NewImportDataPlaneCommand(restAPISpecsRepositoryDirectoryPath, datPlaneConf
 
 type ImportDataPlaneCommand struct {
 	outputDirectory                     string
-	datPlaneConfigPath                  string
+	dataPlaneConfigPath                 string
 	restAPISpecsRepositoryDirectoryPath string
 }
 
@@ -52,7 +52,7 @@ func (c ImportDataPlaneCommand) Run(args []string) int {
 
 	opts := pipeline.Options{
 		APIDefinitionsDirectory: c.outputDirectory,
-		ConfigFilePath:          c.datPlaneConfigPath,
+		ConfigFilePath:          c.dataPlaneConfigPath,
 		ProviderPrefix:          "azurerm",
 		RestAPISpecsDirectory:   c.restAPISpecsRepositoryDirectoryPath,
 		ServiceNamesToLimitTo:   serviceNames,

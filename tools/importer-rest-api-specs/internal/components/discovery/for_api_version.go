@@ -30,7 +30,6 @@ func discoverDataSetForAPIVersion(apiVersion string, filePaths []string, sourceD
 			// So just handling the directory name here is fine
 			shouldIgnore := false
 			for _, item := range strings.Split(filePath, fmt.Sprintf("%c", filepath.Separator)) {
-				// TODO - Fix this
 				switch {
 				case sourceDataType == sdkModels.DataPlaneSourceDataType && strings.EqualFold(item, "resource-manager"):
 					logging.Tracef("path contains `resource-manager`, skipping..")

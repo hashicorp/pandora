@@ -37,7 +37,7 @@ func Router(workingDirectory string, serviceNames *[]string) func(chi.Router) {
 			}
 			v1.Router(r, opts, serviceRepo)
 		})
-		router.Route("/v1/data-plane/", func(r chi.Router) {
+		router.Route("/v1/data-plane", func(r chi.Router) {
 			opts := v1.Options{
 				ServiceType: sdkModels.DataPlaneSourceDataType,
 				UriPrefix:   "/v1/data-plane",
