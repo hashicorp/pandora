@@ -50,7 +50,13 @@ To show the workflow with examples:
 3. Once that Pull Request is merged that generates a Go SDK PR ([example](https://github.com/hashicorp/go-azure-sdk/pull/20)).
 4. Once that Pull Request is merged the SDK is automatically released (e.g. we add a new git tag).
 
-For information and guides and on how to contribute, add services, service versions or resources, see the overview of guides located in the [`./docs`](https://github.com/hashicorp/pandora/tree/main/docs).
+## Contributing API Versions
+
+The API versions maintained in this repository are primarily intended to serve the **Terraform Azure Providers**. The generated [`go-azure-sdk`](https://github.com/hashicorp/go-azure-sdk) is built to support the providers' needs, and API version additions are prioritized accordingly.
+
+If you would like to add an API version for use outside of the Terraform Azure Providers (e.g., for another project that consumes `go-azure-sdk`), please open a Pull Request and include a description of what you would like to use it for. This helps us evaluate the request and understand the broader impact of maintaining additional API versions.
+
+For information and guides on how to contribute, add services, service versions or resources, see the overview of guides located in the [`./docs`](https://github.com/hashicorp/pandora/tree/main/docs).
 
 ## Project Structure
 
