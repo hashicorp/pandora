@@ -1,5 +1,5 @@
 ---
-name: Verify All Resource Manager Services can be Imported and Generated
+name: Verify All Resource Manager Data Plane Services can be Imported and Generated
 on:
   pull_request:
     types: ['opened', 'synchronize']
@@ -8,6 +8,10 @@ on:
       - 'config/data-plane.hcl'
       - 'tools/generator-go-sdk/**'
       - 'tools/importer-rest-api-specs/**'
+
+concurrency:
+  group: 'unit-test-dp-${{ github.head_ref }}'
+  cancel-in-progress: true # Long running, always triggers, cancel if further changes are pushed
 
 jobs:
   test:
@@ -24,6 +28,18 @@ jobs:
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
+          cache-dependency-path: |
+            tools/generator-go-sdk/go.mod
+            tools/data-api-differ/go.mod
+            tools/wrapper-automation/go.mod
+            tools/data-api/go.mod
+            tools/importer-msgraph-metadata/go.mod
+            tools/data-api-sdk/go.mod
+            tools/sdk/go.mod
+            tools/importer-rest-api-specs/go.mod
+            tools/data-api-repository/go.mod
+            tools/version-bumper/go.mod
+            tools/generator-terraform/go.mod
 
       - name: Install tools
         run: |

@@ -9,10 +9,18 @@ on:
       - 'tools/generator-go-sdk/**'
       - 'tools/importer-msgraph-metadata/**'
 
+concurrency:
+  group: 'unit-test-graph-${{ github.head_ref }}'
+  cancel-in-progress: true # Long running, always triggers, cancel if further changes are pushed
+
 jobs:
   test:
     runs-on: custom-linux-xl
     steps:
+      - name: mount a ramdisk to working dir
+        run: |
+          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
+
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
           submodules: recursive
@@ -20,6 +28,19 @@ jobs:
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
+          cache-dependency-path: |
+            tools/generator-go-sdk/go.mod
+            tools/data-api-differ/go.mod
+            tools/wrapper-automation/go.mod
+            tools/data-api/go.mod
+            tools/importer-msgraph-metadata/go.mod
+            tools/data-api-sdk/go.mod
+            tools/sdk/go.mod
+            tools/importer-rest-api-specs/go.mod
+            tools/data-api-repository/go.mod
+            tools/version-bumper/go.mod
+            tools/generator-terraform/go.mod
+
 
       - name: "Build and Run importer-msgraph-metadata"
         id: import-data
