@@ -36,7 +36,7 @@ jobs:
           make tools
           make build
           make import-data-plane
-# Uncomment after the first data-plane files are present in go-azure-sdk
-#      - name: "Run the Go SDK Generator"
-#        run: |
-#          ./scripts/automation-generate-go-sdk.sh data-plane
+
+      - name: "Run the Go SDK Generator"
+        run: |
+          ./scripts/automation-generate-go-sdk.sh data-plane
