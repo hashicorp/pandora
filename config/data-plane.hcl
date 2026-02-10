@@ -31,7 +31,7 @@ service "search" {
   available = ["2025-09-01"]
 }
 
-service "synapse" {
-  name = "Synapse"
-  available = ["2019-06-01-preview", "2020-08-01-preview", "2021-06-01-preview"]
-}
+# service "synapse" {
+#   name = "Synapse"
+#   available = ["2019-06-01-preview", "2020-08-01-preview", "2021-06-01-preview"]
+# }
