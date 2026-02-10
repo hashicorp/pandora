@@ -23,16 +23,16 @@ func (s *Generator) ids(data GeneratorData) error {
 			resource:        resourceData,
 			constantDetails: data.constants,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), pt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s.go", fileNamePrefix), &pt, data); err != nil {
 			return fmt.Errorf("templating ids: %+v", err)
 		}
 
 		tpt := resourceIdTestsTemplater{
-			resourceName:    idName,
-			resourceData:    resourceData,
-			constantDetails: data.constants,
+			resourceName:    pt.name,
+			resourceData:    pt.resource,
+			constantDetails: pt.constantDetails,
 		}
-		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), tpt, data); err != nil {
+		if err := s.writeToPathForResource(outputDirectory, fmt.Sprintf("id_%s_test.go", fileNamePrefix), &tpt, data); err != nil {
 			return fmt.Errorf("templating tests for id: %+v", err)
 		}
 	}

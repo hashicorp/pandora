@@ -11,6 +11,7 @@ import (
 )
 
 func TestProcessField_PluralToSingular(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		fieldInput    string
 		metadataInput FieldMetadata

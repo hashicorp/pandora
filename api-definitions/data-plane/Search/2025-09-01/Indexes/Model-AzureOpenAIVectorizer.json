@@ -1,0 +1,24 @@
+{
+  "name": "AzureOpenAIVectorizer",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureOpenAIParameters",
+      "name": "AzureOpenAIParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureOpenAIParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "VectorSearchVectorizer",
+  "discriminatedTypeValue": "azureOpenAI",
+  "typeHintIn": "Kind"
+}

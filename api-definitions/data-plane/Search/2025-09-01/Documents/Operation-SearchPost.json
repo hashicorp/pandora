@@ -1,0 +1,37 @@
+{
+  "name": "SearchPost",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    206
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SearchRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SearchDocumentsResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/docs/Search.Post.Search"
+}

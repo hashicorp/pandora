@@ -1,0 +1,24 @@
+{
+  "name": "DevicesUpdateAttestation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DeviceId",
+  "requestObject": {
+    "type": "RawObject",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Attestation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/attestation"
+}

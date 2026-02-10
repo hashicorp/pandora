@@ -1,0 +1,53 @@
+{
+  "name": "DeleteKeyValue",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "label",
+      "required": false,
+      "field": "Label",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "headerName": "Sync-Token",
+      "optional": true,
+      "required": false,
+      "field": "SyncToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "KvId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "KeyValue",
+    "referenceNameIsCommonType": null
+  }
+}

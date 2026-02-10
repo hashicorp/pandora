@@ -19,4 +19,6 @@ type AvailableDataSetForAPIVersion struct {
 	// FilePathsContainingAPIDefinitions is a slice of the absolute file paths which contain the APIDefinitions
 	// for the Service/API Version combination.
 	FilePathsContainingAPIDefinitions []string
+
+	DataSetIsDataPlane bool
 }

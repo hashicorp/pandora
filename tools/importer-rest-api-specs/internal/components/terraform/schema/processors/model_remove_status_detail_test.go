@@ -10,6 +10,7 @@ import (
 )
 
 func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		modelsInput      map[string]sdkModels.TerraformSchemaModel
@@ -132,6 +133,7 @@ func TestProcessModel_RemoveStatusAndDetail_Valid(t *testing.T) {
 }
 
 func TestProcessModel_RemoveStatusAndDetail_Invalid(t *testing.T) {
+	t.Parallel()
 	testData := []struct {
 		modelNameInput   string
 		mappingsInput    sdkModels.TerraformMappingDefinition

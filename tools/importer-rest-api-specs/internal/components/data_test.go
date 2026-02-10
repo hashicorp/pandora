@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/terraform"
@@ -35,7 +36,8 @@ func TestCanDiscoverFilesForAllServicesFromConfig(t *testing.T) {
 
 	for _, service := range servicesFromConfigurationFile.Services {
 		t.Run(service.Name, func(t *testing.T) {
-			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, 0)
+			t.Parallel()
+			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, sdkModels.ResourceManagerSourceDataType, 0)
 			if err != nil {
 				t.Fatalf("discovering Data for Service %q: %+v", service.Name, err)
 			}
@@ -46,10 +48,13 @@ func TestCanDiscoverFilesForAllServicesFromConfig(t *testing.T) {
 }
 
 func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
-	// NOTE: this test is an extension on the test above - and whilst we COULD combine them
-	// it's actually helpful context to know whether we're having an issue loading the files
-	// or parsing them, so that we know where to look - so I think it's worth having these as
-	// separate tests for now.
+	t.Parallel(
+		// NOTE: this test is an extension on the test above - and whilst we COULD combine them
+		// it's actually helpful context to know whether we're having an issue loading the files
+		// or parsing them, so that we know where to look - so I think it's worth having these as
+		// separate tests for now.
+	)
+
 	servicesFromConfigurationFile, err := services.LoadFromFile(configurationFilePath)
 	if err != nil {
 		t.Fatalf("loading config at %q: %+v", configurationFilePath, err)
@@ -57,7 +62,8 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 
 	for _, service := range servicesFromConfigurationFile.Services {
 		t.Run(service.Name, func(t *testing.T) {
-			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, 0)
+			t.Parallel()
+			availableDataSet, err := discovery.DiscoverForService(service, restAPISpecsDirectory, sdkModels.ResourceManagerSourceDataType, 0)
 			if err != nil {
 				t.Fatalf("discovering Data for Service %q: %+v", service.Name, err)
 			}
@@ -76,6 +82,7 @@ func TestCanParseFilesForAllServicesFromConfig(t *testing.T) {
 }
 
 func TestCanParseTerraformConfigurations(t *testing.T) {
+	t.Parallel()
 	terraformConfigurations, err := loadTerraformConfigurations(terraformDefinitionsDirectory)
 	if err != nil {
 		t.Fatal(err.Error())
@@ -84,6 +91,7 @@ func TestCanParseTerraformConfigurations(t *testing.T) {
 }
 
 func TestCanBuildTerraformResources(t *testing.T) {
+	t.Parallel()
 	servicesFromConfigurationFile, err := services.LoadFromFile(configurationFilePath)
 	if err != nil {
 		t.Fatalf("loading config at %q: %+v", configurationFilePath, err)
@@ -100,7 +108,7 @@ func TestCanBuildTerraformResources(t *testing.T) {
 			t.Fatalf("Unable to find the Configuration for the Service %q referenced in Terraform Resources", serviceName)
 		}
 
-		availableDataSet, err := discovery.DiscoverForService(*service, restAPISpecsDirectory, 0)
+		availableDataSet, err := discovery.DiscoverForService(*service, restAPISpecsDirectory, sdkModels.ResourceManagerSourceDataType, 0)
 		if err != nil {
 			t.Fatalf("discovering Data for Service %q: %+v", serviceName, err)
 		}

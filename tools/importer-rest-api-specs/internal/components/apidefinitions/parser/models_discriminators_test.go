@@ -12,6 +12,7 @@ import (
 )
 
 func TestParseDiscriminatorsTopLevel(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_simple.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -108,6 +109,7 @@ func TestParseDiscriminatorsTopLevel(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithinArray(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_within_array.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -214,6 +216,7 @@ func TestParseDiscriminatorsWithinArray(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_within_discriminators.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -395,9 +398,12 @@ func TestParseDiscriminatorsWithinDiscriminators(t *testing.T) {
 }
 
 func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
+	t.Parallel(
 	// Some Swagger files define top level types with a Discriminator value which don't inherit
 	// from anything. As such these aren't actually discriminated types but bad data - so we should
 	// look to ensure these are parsed out as a regular non-discriminated type.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_parent_that_shouldnt_be.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -439,9 +445,12 @@ func TestParseDiscriminatedParentTypeThatShouldntBe(t *testing.T) {
 }
 
 func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
+	t.Parallel(
 	// Some Swagger files define top level types with a Discriminator value which don't inherit
 	// from anything. As such these aren't actually discriminated types but bad data - so we should
 	// look to ensure these are parsed out as a regular non-discriminated type.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_child_that_shouldnt_be.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -483,9 +492,12 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 }
 
 func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
+	t.Parallel(
 	// Some Swagger files contain Models with a reference to a Discriminated Type (e.g. an implementation
 	// where a Parent should be used instead) - this asserts that we shouldn't switch these out to
 	// referencing the Parent, instead should just use the Implementation itself.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_child_used_as_parent.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -582,6 +594,7 @@ func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 }
 
 func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_inherited_from_discriminators.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -685,6 +698,7 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 }
 
 func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_deep_inheritance.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -865,8 +879,11 @@ func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
+	t.Parallel(
 	// In this scenario the discriminated type Human inherits from NamedEntity (containing just properties)
 	// which inherits from the discriminated parent type BiologicalEntity
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1046,8 +1063,11 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 }
 
 func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
+	t.Parallel(
 	// In this scenario the discriminated type Human inherits from NamedEntity (containing just properties)
 	// which inherits from the discriminated parent type BiologicalEntity
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_multiple_parents_within_array.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1230,6 +1250,7 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1306,6 +1327,7 @@ func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_with_nested_model.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1411,7 +1433,10 @@ func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValue(t *testing.T) {
+	t.Parallel(
 	// see https://github.com/Azure/azure-rest-api-specs/issues/28380
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_without_discriminator_value.json", pointer.To("DataFactory"))
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1474,6 +1499,7 @@ func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValue(t *testing.T)
 }
 
 func TestParseDiscriminatorsReferenceInAnotherSpecFile(t *testing.T) {
+	t.Parallel(
 	// This tests whether Swagger Refs from another spec file are parsed correctly. The go-openapi module actually does
 	// the heaving lifting here (thankfully!), loading in another file transparently when an external Ref is encountered.
 	// An external Ref looks something like this:
@@ -1483,6 +1509,8 @@ func TestParseDiscriminatorsReferenceInAnotherSpecFile(t *testing.T) {
 	// Where the anchor is preceded by a path to a neighboring spec. We don't need to code for this explicitly, nor
 	// do we _really_ need to test for this, but since DataFactory relies heavily on this, this helps ensure we don't
 	// break this in the future.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_discriminators_ref_from_another_spec.json", pointer.To("DataFactory"))
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -1549,6 +1577,7 @@ func TestParseDiscriminatorsReferenceInAnotherSpecFile(t *testing.T) {
 }
 
 func TestParseDiscriminatorsOrphanedChildWithoutDiscriminatorValueForDifferentService(t *testing.T) {
+	t.Parallel()
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_without_discriminator_value.json", pointer.To("Compute"))
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)

@@ -1,0 +1,42 @@
+---
+name: Verify All Resource Manager Services can be Imported and Generated
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/unit-test-end-to-end-data-plane.yaml'
+      - 'config/data-plane.hcl'
+      - 'tools/generator-go-sdk/**'
+      - 'tools/importer-rest-api-specs/**'
+
+jobs:
+  test:
+    runs-on: custom-linux-xl
+    steps:
+      - name: mount a ramdisk to working dir
+        run: |
+          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
+
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: ./.go-version
+
+      - name: Install tools
+        run: |
+          go install golang.org/x/tools/cmd/goimports@latest
+
+      - name: "Build and Run importer-rest-api-specs"
+        id: import-data
+        run: |
+          cd ./tools/importer-rest-api-specs
+          make tools
+          make build
+          make import-data-plane
+# Uncomment after the first data-plane files are present in go-azure-sdk
+#      - name: "Run the Go SDK Generator"
+#        run: |
+#          ./scripts/automation-generate-go-sdk.sh data-plane

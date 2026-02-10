@@ -1,0 +1,17 @@
+{
+  "name": "DeleteCertificateIssuer",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "resourceIdName": "IssuernameId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IssuerBundle",
+    "referenceNameIsCommonType": null
+  }
+}

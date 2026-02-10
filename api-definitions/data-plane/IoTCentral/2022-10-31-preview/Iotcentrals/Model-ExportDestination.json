@@ -1,0 +1,24 @@
+{
+  "name": "ExportDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transform",
+      "name": "Transform",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Destination",
+  "discriminatedTypeValue": "ExportDestination",
+  "typeHintIn": "Type"
+}

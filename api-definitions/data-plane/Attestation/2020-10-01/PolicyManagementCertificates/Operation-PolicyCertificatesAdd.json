@@ -1,0 +1,23 @@
+{
+  "name": "PolicyCertificatesAdd",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "String",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PolicyCertificatesModifyResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/certificatesadd"
+}

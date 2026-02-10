@@ -1,0 +1,23 @@
+{
+  "name": "AttestTpm",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TpmAttestationRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TpmAttestationResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/attest/tpm"
+}

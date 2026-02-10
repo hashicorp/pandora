@@ -1,0 +1,24 @@
+{
+  "name": "ExecutePipelineActivity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ExecutePipelineActivityTypeProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Activity",
+  "discriminatedTypeValue": "ExecutePipeline",
+  "typeHintIn": "Type"
+}

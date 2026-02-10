@@ -1,0 +1,23 @@
+{
+  "name": "PreFullRestoreOperation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PreRestoreOperationParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RestoreOperation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/prerestore"
+}

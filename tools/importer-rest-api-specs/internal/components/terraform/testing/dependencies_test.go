@@ -9,6 +9,7 @@ import (
 )
 
 func TestDependencies_VirtualNetworkID(t *testing.T) {
+	t.Parallel()
 	dependencies := testDependencies{
 		variables: testVariables{},
 	}
@@ -35,6 +36,7 @@ func TestDependencies_VirtualNetworkID(t *testing.T) {
 }
 
 func TestDependencies_NonExistentID(t *testing.T) {
+	t.Parallel()
 	dependencies := testDependencies{
 		variables: testVariables{},
 	}

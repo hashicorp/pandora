@@ -1,0 +1,24 @@
+{
+  "name": "EventHubsV1Destination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authorization",
+      "name": "Authorization",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EventHubsV1DestinationAuth",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Destination",
+  "discriminatedTypeValue": "eventhubs@v1",
+  "typeHintIn": "Type"
+}

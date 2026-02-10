@@ -27,9 +27,12 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	logging.Trace("Determining the list of unique Resource IDs from the parsed input")
 	uniqueResourceIds, distinctConstants := p.distinctResourceIds(operationIdsToSegments)
 
+	resourceIds := uniqueResourceIds
 	// 3. Then we need to find any Common Resource IDs and switch those references out
-	logging.Trace("Switching out Common IDs as needed..")
-	resourceIds := switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
+	if !p.DataPlane { // [STEBUG] - skip if DataPlane source or we break IDs for scoped operations.
+		logging.Trace("Switching out Common IDs as needed..")
+		resourceIds = switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
+	}
 
 	// 4. We then need to generate a unique Resource ID name for each of the Resource IDs
 	logging.Trace("Generating Names for Resource IDs..")

@@ -79,6 +79,47 @@ func BuildFromFile(filePath string) (*Context, error) {
 		return nil, fmt.Errorf("loading swagger file %q: %+v", filePath, err)
 	}
 
+	// populate the `consumes` on the operations with the explicit global value if nil
+	globalConsumes := expandedSwaggerDoc.Spec().Consumes
+
+	if paths := expandedSwaggerDoc.Spec().Paths; paths != nil {
+		for path, item := range expandedSwaggerDoc.Spec().Paths.Paths {
+			// Operations to check: Get, Post, Put, Delete, etc.
+			ops := []*spec.Operation{item.Get, item.Post, item.Put, item.Delete, item.Patch}
+
+			for _, op := range ops {
+				if op == nil {
+					continue
+				}
+
+				// Logical Check: if operation 'consumes' is empty, inherit from global
+				effectiveConsumes := op.Consumes
+				if len(effectiveConsumes) == 0 {
+					effectiveConsumes = globalConsumes
+				}
+
+				ops := []*spec.Operation{
+					item.Post, item.Put,
+					item.Delete, item.Patch, item.Options,
+				}
+
+				for _, op := range ops {
+					if op != nil {
+						// Only overwrite if the operation doesn't have its own specific values
+						// or if you want to force the global values everywhere.
+						if len(op.Consumes) == 0 {
+							op.Consumes = globalConsumes
+						}
+					}
+				}
+
+				swaggerDocWithReferences.Spec().Paths.Paths[path] = item
+
+				// Proceed with effectiveConsumes...
+			}
+		}
+	}
+
 	// walk the refs in the loaded spec and resolve any external references
 	specWithRemotelyReferencedSchemas, err = resolveExternalSwaggerReferences(expandedSwaggerDoc, filePath)
 	if err != nil {

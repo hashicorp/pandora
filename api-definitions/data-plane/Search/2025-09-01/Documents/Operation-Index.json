@@ -1,0 +1,37 @@
+{
+  "name": "Index",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    207
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IndexBatch",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "IndexDocumentsResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/docs/Search.Index"
+}

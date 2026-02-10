@@ -9,6 +9,8 @@ import (
 
 type Parser struct {
 	swaggerSpecExpanded *analysis.Spec
+
+	DataPlane bool
 }
 
 // NewParser returns a Parser instance which can be used to parse Resource IDs

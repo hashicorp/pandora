@@ -1,0 +1,23 @@
+{
+  "name": "UpdateSetting",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SettingId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UpdateSettingRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Setting",
+    "referenceNameIsCommonType": null
+  }
+}

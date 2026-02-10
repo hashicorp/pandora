@@ -10,15 +10,17 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templaterForResource = resourceIdTestsTemplater{}
+var _ templaterForResource = &resourceIdTestsTemplater{}
 
 type resourceIdTestsTemplater struct {
 	resourceName    string
 	resourceData    models.ResourceID
 	constantDetails map[string]models.SDKConstant
+	hasUrlBasedId   bool
 }
 
-func (i resourceIdTestsTemplater) template(data GeneratorData) (*string, error) {
+func (i *resourceIdTestsTemplater) template(data GeneratorData) (*string, error) {
+	i.hasUrlBasedId = data.sourceType == models.DataPlaneSourceDataType
 	res, err := i.generateTests(data.packageName, data.source)
 	if err != nil {
 		return nil, fmt.Errorf("while generating parser tests: %+v", err)
@@ -99,7 +101,7 @@ func (i resourceIdTestsTemplater) generateIdFunctionTest(structWithoutSuffix str
 
 		exampleValues = append(exampleValues, segment.ExampleValue)
 	}
-	expectedUri := urlFromSegments(exampleValues)
+	expectedUri := urlFromSegments(exampleValues, i.hasUrlBasedId)
 
 	out := fmt.Sprintf(`
 func TestFormat%[1]sID(t *testing.T) {
@@ -232,7 +234,7 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 	}
 
 	for idx := 0; idx < len(urlVals); idx++ {
-		testUrl := urlFromSegments(urlVals[0:idx])
+		testUrl := urlFromSegments(urlVals[0:idx], i.hasUrlBasedId)
 
 		cases = append(cases, fmt.Sprintf(`{
 			// Incomplete URI
@@ -254,7 +256,7 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 
 	isSingleSegmentOnly := len(i.resourceData.Segments) == 1 && i.resourceData.Segments[0].Type == models.ScopeResourceIDSegmentType
 	idEndsInScopeSegment := len(i.resourceData.Segments) > 1 && i.resourceData.Segments[len(i.resourceData.Segments)-1].Type == models.ScopeResourceIDSegmentType
-	fullUrl := urlFromSegments(urlVals)
+	fullUrl := urlFromSegments(urlVals, i.hasUrlBasedId)
 	cases = append(cases, fmt.Sprintf(`{
 		// Valid URI
 		Input: "%s",

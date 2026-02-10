@@ -1,0 +1,23 @@
+{
+  "name": "RoleAssignmentsCheckPrincipalAccess",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CheckPrincipalAccessRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CheckPrincipalAccessResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/checkAccessSynapseRbac"
+}

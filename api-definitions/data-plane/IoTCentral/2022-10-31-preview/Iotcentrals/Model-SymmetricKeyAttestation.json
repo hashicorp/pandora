@@ -1,0 +1,24 @@
+{
+  "name": "SymmetricKeyAttestation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "symmetricKey",
+      "name": "SymmetricKey",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SymmetricKey",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "Attestation",
+  "discriminatedTypeValue": "symmetricKey",
+  "typeHintIn": "Type"
+}

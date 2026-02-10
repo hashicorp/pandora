@@ -1,0 +1,39 @@
+{
+  "name": "ServiceBusTopicV1DestinationSystemAssignedManagedIdentityAuth",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hostName",
+      "name": "HostName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "topicName",
+      "name": "TopicName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ServiceBusTopicV1DestinationAuth",
+  "discriminatedTypeValue": "systemAssignedManagedIdentity",
+  "typeHintIn": "Type"
+}

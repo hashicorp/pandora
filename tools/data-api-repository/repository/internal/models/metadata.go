@@ -27,6 +27,9 @@ const (
 	// AzureResourceManagerDataSource specifies that this Data is related to Azure Resource Manager.
 	AzureResourceManagerDataSource DataSource = "AzureResourceManager"
 
+	// AzureDataPlaneDataSource specifies that this Data is related to Azure Resource Manager.
+	AzureDataPlaneDataSource DataSource = "AzureDataPlane"
+
 	// MicrosoftGraphDataSource specifies that this Data is for Microsoft Graph.
 	MicrosoftGraphDataSource DataSource = "MicrosoftGraph"
 )

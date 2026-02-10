@@ -1,0 +1,24 @@
+{
+  "name": "OccurrencesJobScheduleEnd",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "occurrences",
+      "name": "Occurrences",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "JobScheduleEnd",
+  "discriminatedTypeValue": "occurrences",
+  "typeHintIn": "Type"
+}

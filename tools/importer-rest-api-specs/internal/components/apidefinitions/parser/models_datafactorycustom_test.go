@@ -13,7 +13,10 @@ import (
 )
 
 func TestParseModelWithDataFactoryCustomTypes(t *testing.T) {
+	t.Parallel(
 	// This test ensures that we parse the Data Factory Custom Types out to regular Object Definitions.
+	)
+
 	actual, err := testhelpers.ParseSwaggerFileForTesting(t, "model_using_datafactory_custom_types.json", nil)
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)

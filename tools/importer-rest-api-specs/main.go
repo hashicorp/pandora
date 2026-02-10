@@ -17,6 +17,7 @@ const (
 	outputDirectoryJson                 = "../../api-definitions"
 	restAPISpecsRepositoryDirectoryPath = "../../submodules/rest-api-specs"
 	resourceManagerConfig               = "../../config/resource-manager.hcl"
+	dataPlaneConfig                     = "../../config/data-plane.hcl"
 	terraformDefinitionsPath            = "../../config/resources/"
 )
 
@@ -39,8 +40,9 @@ func run() error {
 	c := cli.NewCLI("importer-rest-api-specs", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"import":   cmd.NewImportCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
-		"validate": cmd.NewValidateCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath),
+		"import":            cmd.NewImportCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
+		"import-data-plane": cmd.NewImportDataPlaneCommand(restAPISpecsRepositoryDirectoryPath, dataPlaneConfig, outputDirectoryJson),
+		"validate":          cmd.NewValidateCommand(restAPISpecsRepositoryDirectoryPath, resourceManagerConfig, terraformDefinitionsPath),
 	}
 
 	exitStatus, err := c.Run()

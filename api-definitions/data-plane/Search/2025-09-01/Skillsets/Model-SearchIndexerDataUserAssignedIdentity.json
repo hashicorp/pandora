@@ -1,0 +1,24 @@
+{
+  "name": "SearchIndexerDataUserAssignedIdentity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userAssignedIdentity",
+      "name": "UserAssignedIdentity",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SearchIndexerDataIdentity",
+  "discriminatedTypeValue": "#Microsoft.Azure.Search.DataUserAssignedIdentity",
+  "typeHintIn": "OdataType"
+}

@@ -38,8 +38,6 @@ require (
 	golang.org/x/sys v0.40.0 // indirect
 )
 
-replace github.com/hashicorp/pandora/tools/sdk => ../sdk
-
 replace github.com/hashicorp/pandora/tools/data-api-repository => ../data-api-repository
 
 replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
