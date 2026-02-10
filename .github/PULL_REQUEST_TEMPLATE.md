@@ -18,30 +18,27 @@
 - [ ] I have used a meaningful PR title to help maintainers and other users understand this change and help prevent duplicate work.
 
 
-## What is this PR for?
+## Adding New API Version
 
-- [ ] This PR is for the **Terraform Azure Provider** (`hashicorp/terraform-provider-azurerm`)
-- [ ] This PR is for another downstream project
+<!-- Complete this section if adding a new Service or API Version. Otherwise, delete it. -->
+
+> [!IMPORTANT]
+> The primary purpose of API versions in this repository is to serve the **Terraform Azure Providers**. API versions are imported and maintained to support the providers' needs. If you would like to add an API version for use outside of the providers (e.g., another project consuming `go-azure-sdk`), please include a description of what you would like to use it for so we can evaluate the request.
+
+- [ ] I have verified the Service/API Version exists in the Azure REST API Specs.
+- [ ] I have followed the [Service Import Guide](../blob/main/docs/resource-manager-service-import.md).
+- [ ] This PR is for another downstream project and not for the Terraform Azure Providers.
 
 <!-- If this is NOT for the Terraform Azure Provider, please explain what this change is for: -->
 
 
 <!-- You can erase any parts of this template below this point that are not applicable to your Pull Request. -->
-
-
-## Adding New API Version
-
-<!-- Complete this section if adding a new Service or API Version. Otherwise, delete it. -->
-
-- [ ] I have verified the Service/API Version exists in the Azure REST API Specs.
-- [ ] I have followed the [Service Import Guide](../blob/main/docs/resource-manager-service-import.md).
-
 ### Preview API Version
 
 <!-- If you are adding a preview API version, please answer the following questions. Otherwise, delete this subsection. -->
 
 > [!IMPORTANT]
-> We generally do not add preview API versions to `go-azure-sdk`, and we rarely support preview features in the provider. Exceptions require strong justification, such as when preview features have no GA date and or stable API version exists for a service. Please ensure you have thoroughly considered whether a preview API is truly necessary before proceeding.
+> We generally do not add preview API versions to `go-azure-sdk`, and we rarely support preview features in the provider. Exceptions require strong justification, such as when preview features have no GA date or no stable API version exists for a service. Please ensure you have thoroughly considered whether a preview API is truly necessary before proceeding.
 
 - [ ] This PR adds a **preview** API version
 
