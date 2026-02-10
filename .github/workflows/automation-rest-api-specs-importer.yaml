@@ -54,6 +54,7 @@ jobs:
           make tools
           make build
           make import
+          make import-data-plane
 
       - name: then commit the diff
         id: commit-imported-data
