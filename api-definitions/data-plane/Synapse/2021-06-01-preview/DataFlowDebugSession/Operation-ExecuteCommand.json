@@ -1,0 +1,24 @@
+{
+  "name": "ExecuteCommand",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataFlowDebugCommandRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataFlowDebugCommandResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/executeDataFlowDebugCommand"
+}

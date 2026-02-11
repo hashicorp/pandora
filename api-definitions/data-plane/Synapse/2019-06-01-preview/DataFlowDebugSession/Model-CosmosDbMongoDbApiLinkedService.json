@@ -1,0 +1,24 @@
+{
+  "name": "CosmosDbMongoDbApiLinkedService",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CosmosDbMongoDbApiLinkedServiceTypeProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "LinkedService",
+  "discriminatedTypeValue": "CosmosDbMongoDbApi",
+  "typeHintIn": "Type"
+}

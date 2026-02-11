@@ -1,0 +1,30 @@
+{
+  "name": "NotebookGetNotebook",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "NotebookId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NotebookResource",
+    "referenceNameIsCommonType": null
+  }
+}

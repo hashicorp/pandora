@@ -1,0 +1,24 @@
+{
+  "name": "CosmosDbSqlApiSink",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "writeBehavior",
+      "name": "WriteBehavior",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "CopySink",
+  "discriminatedTypeValue": "CosmosDbSqlApiSink",
+  "typeHintIn": "Type"
+}

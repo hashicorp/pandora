@@ -1,0 +1,24 @@
+{
+  "name": "AzureDataLakeStoreWriteSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expiryDateTime",
+      "name": "ExpiryDateTime",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StoreWriteSettings",
+  "discriminatedTypeValue": "AzureDataLakeStoreWriteSettings",
+  "typeHintIn": "Type"
+}
