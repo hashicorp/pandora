@@ -9,7 +9,7 @@ require (
 	github.com/go-openapi/analysis v0.20.1
 	github.com/go-openapi/loads v0.20.2
 	github.com/go-openapi/spec v0.20.3
-	github.com/hashicorp/go-azure-helpers v0.76.1
+	github.com/hashicorp/go-azure-helpers v0.76.2
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/hcl/v2 v2.24.0
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
