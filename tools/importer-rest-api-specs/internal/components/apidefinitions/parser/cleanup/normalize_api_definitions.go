@@ -45,6 +45,7 @@ func NormalizeTag(input string) string {
 	output = strings.ReplaceAll(output, "Baremetalinfrastructure", "BareMetalInfrastructure")
 	output = strings.ReplaceAll(output, "virtualWans", "VirtualWANs")
 	output = strings.ReplaceAll(output, "VirtualWans", "VirtualWANs")
+	output = strings.ReplaceAll(output, "dataflows", "dataFlows") // typo tag in Synapse Data Plane (all versions)
 
 	return output
 }
