@@ -112,6 +112,8 @@ function conditionallyCommitAndPushGoSdk {
       git add --all
       git commit -m "resource-manager: updating dependencies based on $sha"
     fi
+    cd "${DIR}"
+    cd "$workingDirectory"
 
     # Data Plane: conditional update of dependencies
     cd data-plane/
