@@ -481,6 +481,10 @@ func NormalizeCanonicalisation(input string) string {
 		output = "VirtualWAN"
 	}
 
+	if strings.EqualFold(output, "jsonwebkey") {
+		output = "JSONWebKey"
+	}
+
 	// intentionally case-sensitive
 	output = strings.ReplaceAll(output, "Ip", "IP")
 	output = strings.ReplaceAll(output, "Vmss", "VMSS")
