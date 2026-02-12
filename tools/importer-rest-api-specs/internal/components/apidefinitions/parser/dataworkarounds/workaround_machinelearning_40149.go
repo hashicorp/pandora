@@ -18,8 +18,9 @@ type workaroundMachineLearning40149 struct{}
 
 func (workaroundMachineLearning40149) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
 	serviceMatches := serviceName == "MachineLearningServices"
-	// 2025-06-01 is currently used for Machine Learning RPs, 2025-09-01 is the latest stable. So patching both.
-	apiVersionMatches := apiVersion.APIVersion == "2025-06-01" || apiVersion.APIVersion == "2025-09-01"
+	// As the latest version of the API is still having this issue, skipping the version check
+	// apiVersionMatches := apiVersion.APIVersion == "2025-06-01" || apiVersion.APIVersion == "2025-09-01"
+	apiVersionMatches := true
 	return serviceMatches && apiVersionMatches
 }
 
