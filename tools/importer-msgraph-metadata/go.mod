@@ -7,7 +7,7 @@ require (
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/getkin/kin-openapi v0.132.0
 	github.com/go-git/go-git/v5 v5.13.0
-	github.com/hashicorp/go-azure-helpers v0.76.1
+	github.com/hashicorp/go-azure-helpers v0.76.2
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
