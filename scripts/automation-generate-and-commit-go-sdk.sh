@@ -39,7 +39,7 @@ function runWrapper {
 
   echo "Running Wrapper for Data Plane"
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation microsoft-graph go-sdk \
+  ./wrapper-automation data-plane go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
@@ -111,6 +111,14 @@ function conditionallyCommitAndPushGoSdk {
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all
       git commit -m "resource-manager: updating dependencies based on $sha"
+    fi
+
+    # Data Plane: conditional update of dependencies
+    cd data-plane/
+    go mod tidy
+    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+      git add --all
+      git commit -m "data-plane: updating dependencies based on $sha"
     fi
 
     # NOTE: we're intentionally force-pushing here in-case this PR is
