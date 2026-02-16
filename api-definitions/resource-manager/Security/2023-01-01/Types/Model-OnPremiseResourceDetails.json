@@ -1,81 +1,69 @@
 {
-  "name": "Replication",
+  "name": "OnPremiseResourceDetails",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "endpointType",
-      "name": "EndpointType",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "EndpointType",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "remoteVolumeRegion",
-      "name": "RemoteVolumeRegion",
+      "jsonName": "machineName",
+      "name": "MachineName",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "remoteVolumeResourceId",
-      "name": "RemoteVolumeResourceId",
+      "jsonName": "sourceComputerId",
+      "name": "SourceComputerId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "replicationId",
-      "name": "ReplicationId",
+      "jsonName": "vmuuid",
+      "name": "VMuuid",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "replicationSchedule",
-      "name": "ReplicationSchedule",
+      "jsonName": "workspaceId",
+      "name": "WorkspaceId",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "String",
         "nullable": false,
-        "referenceName": "ReplicationSchedule",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "discriminatedParentModelName": "ResourceDetails",
+  "discriminatedTypeValue": "OnPremise",
+  "typeHintIn": "Source"
 }
