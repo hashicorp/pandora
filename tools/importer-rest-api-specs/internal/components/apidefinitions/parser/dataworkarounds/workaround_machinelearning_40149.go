@@ -17,11 +17,7 @@ var _ workaround = workaroundMachineLearning40149{}
 type workaroundMachineLearning40149 struct{}
 
 func (workaroundMachineLearning40149) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	serviceMatches := serviceName == "MachineLearningServices"
-	// As the latest version of the API is still having this issue, skipping the version check
-	// apiVersionMatches := apiVersion.APIVersion == "2025-06-01" || apiVersion.APIVersion == "2025-09-01"
-	apiVersionMatches := true
-	return serviceMatches && apiVersionMatches
+	return serviceName == "MachineLearningServices"
 }
 
 func (workaroundMachineLearning40149) Name() string {
