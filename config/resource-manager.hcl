@@ -104,7 +104,7 @@ service "cognitiveservices" {
 }
 service "communication" {
   name      = "Communication"
-  available = ["2023-03-31", "2023-04-01", "2025-05-01"]
+  available = ["2023-03-31", "2023-04-01", "2025-05-01", "2025-09-01"]
 }
 service "compute" {
   name      = "Compute"
@@ -275,7 +275,7 @@ service "fluidrelay" {
 }
 service "frontdoor" {
   name      = "FrontDoor"
-  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01"]
+  available = ["2020-04-01", "2020-05-01", "2024-02-01", "2025-03-01", "2025-10-01"]
 }
 service "graphservicesprod" {
   name      = "GraphServices"
@@ -295,7 +295,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25"]
+  available = ["2022-08-08", "2023-05-01", "2024-02-01", "2025-05-25", "2025-11-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -315,7 +315,7 @@ service "hybridkubernetes" {
 }
 service "informatica" {
   name      = "Informatica"
-  available = ["2024-05-08"]
+  available = ["2024-05-08", "2025-11-27"]
 }
 service "iotcentral" {
   name      = "IoTCentral"
@@ -323,7 +323,7 @@ service "iotcentral" {
 }
 service "iotoperations" {
   name      = "IoTOperations"
-  available = ["2024-11-01", "2025-10-01"]
+  available = ["2024-11-01", "2025-10-01", "2026-03-01"]
 }
 service "keyvault" {
   name      = "KeyVault"
@@ -355,7 +355,7 @@ service "logic" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2024-04-01", "2025-06-01", "2025-09-01"]
+  available = ["2024-04-01", "2025-06-01", "2025-09-01", "2025-12-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
@@ -426,7 +426,7 @@ service "newrelic" {
 }
 service "nginx" {
   name      = "Nginx"
-  available = ["2024-11-01-preview", "2025-03-01-preview"]
+  available = ["2024-11-01-preview", "2025-03-01-preview", "2025-11-01"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
@@ -579,7 +579,7 @@ service "sqlvirtualmachine" {
 }
 service "standbypool" {
   name      = "StandbyPool"
-  available = ["2025-03-01"]
+  available = ["2025-03-01", "2025-10-01"]
 }
 service "storage" {
   name      = "Storage"
@@ -596,7 +596,7 @@ service "storagediscovery" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01", "2024-07-01", "2025-07-01"]
+  available = ["2023-03-01", "2024-07-01", "2025-07-01", "2025-08-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
