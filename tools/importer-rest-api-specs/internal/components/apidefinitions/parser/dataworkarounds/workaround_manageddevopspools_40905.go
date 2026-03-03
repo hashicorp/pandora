@@ -10,7 +10,7 @@ import (
 var _ workaround = workaroundManagedDevopsPools40905{}
 
 // workaroundManagedDevopsPools40905 works around the wrong identity type.
-// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/40495
+// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/40905
 type workaroundManagedDevopsPools40905 struct{}
 
 func (workaroundManagedDevopsPools40905) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
