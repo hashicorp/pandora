@@ -1,26 +1,10 @@
 {
-  "name": "SystemData",
+  "name": "TuningOptions",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "dateFormat": "RFC3339",
-      "jsonName": "createdAt",
-      "name": "CreatedAt",
-      "objectDefinition": {
-        "type": "DateTime",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "createdBy",
-      "name": "CreatedBy",
+      "jsonName": "id",
+      "name": "Id",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -34,23 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "createdByType",
-      "name": "CreatedByType",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "CreatedByType",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "lastModifiedBy",
-      "name": "LastModifiedBy",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -64,12 +33,42 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "lastModifiedByType",
-      "name": "LastModifiedByType",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "CreatedByType",
+        "referenceName": "TuningOptionsProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,
