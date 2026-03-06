@@ -1,66 +1,69 @@
 {
-  "name": "Resource",
+  "name": "OnPremiseResourceDetails",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "machineName",
+      "name": "MachineName",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "sourceComputerId",
+      "name": "SourceComputerId",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
-      "objectDefinition": {
-        "type": "SystemData",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "vmuuid",
+      "name": "VMuuid",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workspaceId",
+      "name": "WorkspaceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
       "sensitive": false
     }
   ],
-  "IsParent": false
+  "IsParent": false,
+  "discriminatedParentModelName": "ResourceDetails",
+  "discriminatedTypeValue": "OnPremise",
+  "typeHintIn": "Source"
 }
