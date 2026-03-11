@@ -14,7 +14,7 @@ var _ workaround = workaroundManagedDevopsPools40905{}
 type workaroundManagedDevopsPools40905 struct{}
 
 func (workaroundManagedDevopsPools40905) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "DevOpsInfrastructure" && apiVersion.APIVersion == "2025-01-21"
+	return serviceName == "DevOpsInfrastructure" && (apiVersion.APIVersion == "2025-01-21" || apiVersion.APIVersion == "2025-09-20")
 }
 
 func (workaroundManagedDevopsPools40905) Name() string {
@@ -28,27 +28,27 @@ func (workaroundManagedDevopsPools40905) Process(input sdkModels.APIVersion) (*s
 	}
 
 	models := []string{
-        "Pool",
-        "PoolUpdate",
-    }
+		"Pool",
+		"PoolUpdate",
+	}
 
 	for _, modelName := range models {
-        model, ok := resource.Models[modelName]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find model `%s`", modelName)
-        }
+		model, ok := resource.Models[modelName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find model `%s`", modelName)
+		}
 
-        identityField, ok := model.Fields["Identity"]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
-        }
+		identityField, ok := model.Fields["Identity"]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
+		}
 
-        identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
-        identityField.ObjectDefinition.ReferenceName = nil
+		identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
+		identityField.ObjectDefinition.ReferenceName = nil
 
-        model.Fields["Identity"] = identityField
-        resource.Models[modelName] = model
-    }
+		model.Fields["Identity"] = identityField
+		resource.Models[modelName] = model
+	}
 
 	input.Resources["Pools"] = resource
 
