@@ -636,7 +636,7 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01", "2023-01-01", "2023-12-01", "2024-11-01"]
+  available = ["2016-06-01", "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
