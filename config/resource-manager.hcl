@@ -347,7 +347,7 @@ service "liftrqumulo" {
 }
 service "loadtestservice" {
   name      = "LoadTestService"
-  available = ["2022-12-01"]
+  available = ["2022-12-01", "2025-09-01"]
 }
 service "logic" {
   name      = "Logic"
