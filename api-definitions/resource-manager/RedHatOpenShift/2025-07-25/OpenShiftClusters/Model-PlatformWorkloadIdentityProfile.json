@@ -1,0 +1,42 @@
+{
+  "name": "PlatformWorkloadIdentityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "platformWorkloadIdentities",
+      "name": "PlatformWorkloadIdentities",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PlatformWorkloadIdentity",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeableTo",
+      "name": "UpgradeableTo",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

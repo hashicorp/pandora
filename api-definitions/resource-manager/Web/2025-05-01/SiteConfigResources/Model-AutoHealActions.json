@@ -1,0 +1,51 @@
+{
+  "name": "AutoHealActions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionType",
+      "name": "ActionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AutoHealActionType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customAction",
+      "name": "CustomAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AutoHealCustomAction",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minProcessExecutionTime",
+      "name": "MinProcessExecutionTime",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
