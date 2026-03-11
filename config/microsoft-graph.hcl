@@ -21,6 +21,11 @@ service "auditLogs" {
   available = ["stable", "beta"]
 }
 
+service "devices" {
+  name      = "Devices"
+  available = ["stable", "beta"]
+}
+
 service "deviceManagement" {
   name      = "DeviceManagement"
   available = ["stable", "beta"]
