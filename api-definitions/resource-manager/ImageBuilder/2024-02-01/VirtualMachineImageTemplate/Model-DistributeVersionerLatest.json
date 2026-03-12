@@ -1,0 +1,24 @@
+{
+  "name": "DistributeVersionerLatest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "major",
+      "name": "Major",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DistributeVersioner",
+  "discriminatedTypeValue": "Latest",
+  "typeHintIn": "Scheme"
+}

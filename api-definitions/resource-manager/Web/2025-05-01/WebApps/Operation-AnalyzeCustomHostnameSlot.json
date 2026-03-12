@@ -1,0 +1,31 @@
+{
+  "name": "AnalyzeCustomHostnameSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "hostName",
+      "required": false,
+      "field": "HostName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CustomHostnameAnalysisResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/analyzeCustomHostname"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "CertificateId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Certificate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Certificate",
+    "referenceNameIsCommonType": null
+  }
+}
