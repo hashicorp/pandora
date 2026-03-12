@@ -162,7 +162,7 @@
       "jsonName": "newClusterEnableElasticDisk",
       "name": "NewClusterEnableElasticDisk",
       "objectDefinition": {
-        "type": "Boolean",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -177,16 +177,10 @@
       "jsonName": "newClusterInitScripts",
       "name": "NewClusterInitScripts",
       "objectDefinition": {
-        "type": "List",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
