@@ -32,6 +32,7 @@ var workarounds = []workaround{
 	workaroundLoadTest20961{},
 	workaroundMachineLearning25142{},
 	workaroundMachineLearning40149{},
+	workaroundManagedDevopsPools40905{},
 	workaroundMongoCluster38810{},
 	workaroundNetwork29303{},
 	workaroundNetwork38407{},
