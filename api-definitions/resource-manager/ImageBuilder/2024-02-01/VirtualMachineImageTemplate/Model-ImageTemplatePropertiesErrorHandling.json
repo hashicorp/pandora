@@ -1,0 +1,36 @@
+{
+  "name": "ImageTemplatePropertiesErrorHandling",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "onCustomizerError",
+      "name": "OnCustomizerError",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnBuildError",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "onValidationError",
+      "name": "OnValidationError",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnBuildError",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
