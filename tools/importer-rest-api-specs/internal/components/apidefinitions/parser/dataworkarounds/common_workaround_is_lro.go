@@ -14,10 +14,11 @@ import (
 var _ workaround = commonWorkaroundIsLRO{}
 
 type commonWorkaroundIsLRO struct {
-	serviceName string
-	apiVersions []string
-	resources   []string
-	operations  []string
+	serviceName           string
+	apiVersions           []string
+	resources             []string
+	operations            []string
+	additionalStatusCodes []int
 }
 
 func (w commonWorkaroundIsLRO) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
@@ -43,6 +44,15 @@ func (w commonWorkaroundIsLRO) Process(input sdkModels.APIVersion) (*sdkModels.A
 
 			if o.LongRunning {
 				return nil, fmt.Errorf("expected operation `%s` to not be marked as `LongRunning`. The workaround for this operation should be removed", operation)
+			}
+
+			if len(w.additionalStatusCodes) > 0 {
+				for _, statusCode := range w.additionalStatusCodes {
+					if slices.Contains(o.ExpectedStatusCodes, statusCode) {
+						return nil, fmt.Errorf("expected operation `%s` to not contain status code `%d`. This should be removed", operation, statusCode)
+					}
+					o.ExpectedStatusCodes = append(o.ExpectedStatusCodes, statusCode)
+				}
 			}
 
 			o.LongRunning = true
