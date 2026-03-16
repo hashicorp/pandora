@@ -90,6 +90,10 @@ service "cdn" {
   name      = "CDN"
   available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01"]
 }
+service "certificateregistration" {
+  name = "CertificateRegistration"
+  available = ["2023-12-01"]
+}
 service "chaos" {
   name      = "ChaosStudio"
   available = ["2023-11-01", "2025-01-01"]
