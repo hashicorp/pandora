@@ -1,14 +1,14 @@
 {
-  "name": "IntegrationRuntimeDataFlowPropertiesCustomPropertiesInlined",
+  "name": "QueryUtterancesResult",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "sampleUtterance",
+      "name": "SampleUtterance",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "SampleUtterance",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -18,10 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "value",
-      "name": "Value",
+      "jsonName": "score",
+      "name": "Score",
       "objectDefinition": {
-        "type": "String",
+        "type": "Float",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

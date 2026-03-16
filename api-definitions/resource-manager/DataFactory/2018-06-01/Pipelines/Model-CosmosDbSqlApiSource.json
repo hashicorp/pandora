@@ -21,7 +21,7 @@
       "jsonName": "detectDatetime",
       "name": "DetectDatetime",
       "objectDefinition": {
-        "type": "Boolean",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -36,7 +36,7 @@
       "jsonName": "pageSize",
       "name": "PageSize",
       "objectDefinition": {
-        "type": "Integer",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -51,16 +51,10 @@
       "jsonName": "preferredRegions",
       "name": "PreferredRegions",
       "objectDefinition": {
-        "type": "List",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

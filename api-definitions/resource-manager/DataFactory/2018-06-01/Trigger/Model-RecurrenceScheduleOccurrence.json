@@ -1,14 +1,14 @@
 {
-  "name": "IntegrationRuntimeDataFlowPropertiesCustomPropertiesInlined",
+  "name": "RecurrenceScheduleOccurrence",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "day",
+      "name": "Day",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "DayOfWeek",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -18,10 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "value",
-      "name": "Value",
+      "jsonName": "occurrence",
+      "name": "Occurrence",
       "objectDefinition": {
-        "type": "String",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

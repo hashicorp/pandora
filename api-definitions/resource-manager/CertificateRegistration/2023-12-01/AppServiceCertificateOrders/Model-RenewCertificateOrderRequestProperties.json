@@ -1,10 +1,10 @@
 {
-  "name": "IntegrationRuntimeDataFlowPropertiesCustomPropertiesInlined",
+  "name": "RenewCertificateOrderRequestProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "csr",
+      "name": "Csr",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,10 +18,25 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "value",
-      "name": "Value",
+      "jsonName": "isPrivateKeyExternal",
+      "name": "IsPrivateKeyExternal",
       "objectDefinition": {
-        "type": "String",
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keySize",
+      "name": "KeySize",
+      "objectDefinition": {
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
