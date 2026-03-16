@@ -1,10 +1,10 @@
 {
-  "name": "IntegrationRuntimeDataFlowPropertiesCustomPropertiesInlined",
+  "name": "QueryUtterancesResults",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "query",
+      "name": "Query",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,13 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "value",
-      "name": "Value",
+      "jsonName": "results",
+      "name": "Results",
       "objectDefinition": {
-        "type": "String",
+        "type": "List",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "QueryUtterancesResult",
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
