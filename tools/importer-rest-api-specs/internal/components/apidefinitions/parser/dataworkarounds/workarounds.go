@@ -48,6 +48,7 @@ var workarounds = []workaround{
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
+	workaroundWeb14529{},
 	workaroundWeb31682{},
 
 	// Special Case for Network duplicated Enum
