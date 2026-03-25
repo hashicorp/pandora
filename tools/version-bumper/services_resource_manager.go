@@ -30,18 +30,33 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 
 			// appconfiguration/data-plane/Microsoft.AppConfiguration/stable/1.0
 			// vmware/resource-manager/Microsoft.AVS/{preview|stable}/{version}
+			// network/resource-manager/Microsoft.Network/Network/{preview|stable}/{version}
 			relativePath := strings.TrimPrefix(fullPath, specsDirectory)
 			relativePath = strings.TrimPrefix(relativePath, "/")
 			trimmed := strings.TrimPrefix(relativePath, specsDirectory)
 			segments := strings.Split(trimmed, "/")
-			if len(segments) != 5 {
+
+			var serviceName, serviceType, serviceReleaseState, apiVersion string
+			if len(segments) >= 5 {
+				lastSegment := segments[len(segments)-1]
+				// skip the parent path of the version folder
+				if lastSegment == "stable" || lastSegment == "preview" {
+					return nil
+				}
+
+				serviceName = segments[0]
+				serviceType = segments[1]
+				serviceReleaseState = segments[3]
+				apiVersion = segments[4]
+
+				// handle the v2 format path
+				if len(segments) == 6 {
+					serviceReleaseState = segments[4]
+					apiVersion = segments[5]
+				}
+			} else {
 				return nil
 			}
-
-			serviceName := segments[0]
-			serviceType := segments[1]
-			serviceReleaseState := segments[3]
-			apiVersion := segments[4]
 
 			if !strings.EqualFold(serviceType, "resource-manager") {
 				return nil
