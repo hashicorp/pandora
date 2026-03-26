@@ -6,7 +6,6 @@ package dataworkarounds
 import (
 	"errors"
 	"fmt"
-	"slices"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -27,14 +26,12 @@ func (workaroundMachineLearning40149) Name() string {
 }
 
 func (workaroundMachineLearning40149) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	// Old API versions follow the Swagger definition. New API versions follow the OpenAPI definition.
+	// Old API versions (< 2025-12-01) follow the Swagger definition. New API versions(>= 2025-12-01) follow the OpenAPI definition.
 	// The workaround is applicable for both new and old API versions, but the resource and model names are different between them.
-	oldAPIVersions := []string{"2024-04-01", "2025-06-01", "2025-09-01"}
-	isOldAPIVersion := slices.Contains(oldAPIVersions, input.APIVersion)
-
 	resourceName := "BatchEndpoints"
 	modelName := "BatchEndpoint"
-	if isOldAPIVersion {
+
+	if input.APIVersion < "2025-12-01" {
 		resourceName = "BatchEndpoint"
 		modelName = "BatchEndpointTrackedResource"
 	}
