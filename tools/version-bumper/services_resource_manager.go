@@ -36,7 +36,6 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 			trimmed := strings.TrimPrefix(relativePath, specsDirectory)
 			segments := strings.Split(trimmed, "/")
 
-			var serviceName, serviceType, serviceReleaseState, apiVersion string
 			if len(segments) < 5 || len(segments) > 6 {
 				return nil
 			}
@@ -47,10 +46,10 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 				return nil
 			}
 
-			serviceName = segments[0]
-			serviceType = segments[1]
-			serviceReleaseState = segments[3]
-			apiVersion = segments[4]
+			serviceName := segments[0]
+			serviceType := segments[1]
+			serviceReleaseState := segments[3]
+			apiVersion := segments[4]
 
 			// handle the v2 format path
 			if len(segments) == 6 {
