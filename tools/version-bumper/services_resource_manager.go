@@ -37,25 +37,25 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 			segments := strings.Split(trimmed, "/")
 
 			var serviceName, serviceType, serviceReleaseState, apiVersion string
-			if len(segments) >= 5 {
-				lastSegment := segments[len(segments)-1]
-				// skip the parent path of the version folder
-				if lastSegment == "stable" || lastSegment == "preview" {
-					return nil
-				}
-
-				serviceName = segments[0]
-				serviceType = segments[1]
-				serviceReleaseState = segments[3]
-				apiVersion = segments[4]
-
-				// handle the v2 format path
-				if len(segments) == 6 {
-					serviceReleaseState = segments[4]
-					apiVersion = segments[5]
-				}
-			} else {
+			if len(segments) < 5 || len(segments) > 6 {
 				return nil
+			}
+
+			// skip path like: network/resource-manager/Microsoft.Network/Network/{preview|stable}
+			lastSegment := segments[len(segments)-1]
+			if lastSegment == "stable" || lastSegment == "preview" {
+				return nil
+			}
+
+			serviceName = segments[0]
+			serviceType = segments[1]
+			serviceReleaseState = segments[3]
+			apiVersion = segments[4]
+
+			// handle the v2 format path
+			if len(segments) == 6 {
+				serviceReleaseState = segments[4]
+				apiVersion = segments[5]
 			}
 
 			if !strings.EqualFold(serviceType, "resource-manager") {
