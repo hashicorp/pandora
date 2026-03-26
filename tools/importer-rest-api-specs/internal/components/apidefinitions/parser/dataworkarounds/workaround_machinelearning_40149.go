@@ -5,6 +5,8 @@ package dataworkarounds
 
 import (
 	"errors"
+	"fmt"
+	"slices"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
@@ -25,14 +27,26 @@ func (workaroundMachineLearning40149) Name() string {
 }
 
 func (workaroundMachineLearning40149) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["BatchEndpoint"]
-	if !ok {
-		return nil, errors.New("expected a resource named `BatchEndpoint` but didn't get one")
+	// Old API versions follow the Swagger definition. New API versions follow the OpenAPI definition.
+	// The workaround is applicable for both new and old API versions, but the resource and model names are different between them.
+	oldAPIVersions := []string{"2024-04-01", "2025-06-01", "2025-09-01"}
+	isOldAPIVersion := slices.Contains(oldAPIVersions, input.APIVersion)
+
+	resourceName := "BatchEndpoints"
+	modelName := "BatchEndpoint"
+	if isOldAPIVersion {
+		resourceName = "BatchEndpoint"
+		modelName = "BatchEndpointTrackedResource"
 	}
 
-	model, ok := resource.Models["BatchEndpointTrackedResource"]
+	resource, ok := input.Resources[resourceName]
 	if !ok {
-		return nil, errors.New("couldn't find model `BatchEndpointTrackedResource`")
+		return nil, fmt.Errorf("expected a resource named %q but didn't get one", resourceName)
+	}
+
+	model, ok := resource.Models[modelName]
+	if !ok {
+		return nil, fmt.Errorf("couldn't find model %q", modelName)
 	}
 
 	identityField, ok := model.Fields["Identity"]
@@ -43,8 +57,8 @@ func (workaroundMachineLearning40149) Process(input sdkModels.APIVersion) (*sdkM
 	identityField.ObjectDefinition.Type = sdkModels.SystemAssignedIdentitySDKObjectDefinitionType
 
 	model.Fields["Identity"] = identityField
-	resource.Models["BatchEndpointTrackedResource"] = model
-	input.Resources["BatchEndpoint"] = resource
+	resource.Models[modelName] = model
+	input.Resources[resourceName] = resource
 
 	return &input, nil
 }
