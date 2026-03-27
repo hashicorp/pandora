@@ -1,0 +1,34 @@
+{
+  "name": "ScopedFluxConfigurationId",
+  "id": "/{scope}/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/{fluxConfigurationName}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticMicrosoftKubernetesConfiguration",
+      "type": "ResourceProvider",
+      "value": "Microsoft.KubernetesConfiguration"
+    },
+    {
+      "exampleValue": "",
+      "name": "staticFluxConfigurations",
+      "type": "Static",
+      "value": "fluxConfigurations"
+    },
+    {
+      "exampleValue": "fluxConfigurationName",
+      "name": "fluxConfigurationName",
+      "type": "UserSpecified"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "SubvolumesListByVolume",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VolumeId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SubvolumeInfo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/subVolumes"
+}

@@ -1,10 +1,10 @@
 {
-  "name": "JSONWebKeySet",
+  "name": "VolumePropertiesExportPolicy",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "keys",
-      "name": "Keys",
+      "jsonName": "rules",
+      "name": "Rules",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
@@ -13,7 +13,7 @@
         "nestedItem": {
           "type": "Reference",
           "nullable": false,
-          "referenceName": "JSONWebKey",
+          "referenceName": "ExportPolicyRule",
           "referenceNameIsCommonType": null
         }
       },
