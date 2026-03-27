@@ -1,0 +1,26 @@
+{
+  "name": "ConfigurationsDelete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "forceDelete",
+      "required": false,
+      "field": "ForceDelete",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopedFluxConfigurationId"
+}

@@ -1,17 +1,17 @@
 {
-  "name": "SigningCertificatesGet",
-  "contentType": "application/jwk+json",
+  "name": "ConfigurationsGet",
+  "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
   "httpMethod": "GET",
+  "resourceIdName": "ScopedFluxConfigurationId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "JsonWebKeySet",
+    "referenceName": "FluxConfiguration",
     "referenceNameIsCommonType": null
-  },
-  "uriSuffix": "/certs"
+  }
 }

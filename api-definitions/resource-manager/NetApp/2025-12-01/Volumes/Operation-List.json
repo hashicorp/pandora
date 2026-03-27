@@ -1,17 +1,19 @@
 {
-  "name": "SigningCertificatesGet",
-  "contentType": "application/jwk+json",
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
     200
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
+  "resourceIdName": "CapacityPoolId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "JsonWebKeySet",
+    "referenceName": "Volume",
     "referenceNameIsCommonType": null
   },
-  "uriSuffix": "/certs"
+  "uriSuffix": "/volumes"
 }
