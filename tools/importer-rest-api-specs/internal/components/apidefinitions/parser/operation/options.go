@@ -146,6 +146,12 @@ func determineObjectDefinitionForOptionRaw(paramType string, collectionFormat st
 				}, nil
 			}
 
+			if strings.EqualFold(format, "float") {
+				return &sdkModels.SDKOperationOptionObjectDefinition{
+					Type: sdkModels.FloatSDKOperationOptionObjectDefinitionType,
+				}, nil
+			}
+
 			if format != "" {
 				// we don't know what this is, better to raise an error and handle it than make
 				// it an integer if it should be a float or something
