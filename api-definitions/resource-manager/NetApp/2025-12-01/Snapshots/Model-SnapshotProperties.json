@@ -1,0 +1,52 @@
+{
+  "name": "SnapshotProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "created",
+      "name": "Created",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "snapshotId",
+      "name": "SnapshotId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

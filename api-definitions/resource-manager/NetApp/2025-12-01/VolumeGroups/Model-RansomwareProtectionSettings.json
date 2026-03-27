@@ -1,0 +1,36 @@
+{
+  "name": "RansomwareProtectionSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actualRansomwareProtectionState",
+      "name": "ActualRansomwareProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ActualRansomwareProtectionState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "desiredRansomwareProtectionState",
+      "name": "DesiredRansomwareProtectionState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DesiredRansomwareProtectionState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

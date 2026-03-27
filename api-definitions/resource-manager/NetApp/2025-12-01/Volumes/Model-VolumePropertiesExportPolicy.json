@@ -1,0 +1,27 @@
+{
+  "name": "VolumePropertiesExportPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ExportPolicyRule",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

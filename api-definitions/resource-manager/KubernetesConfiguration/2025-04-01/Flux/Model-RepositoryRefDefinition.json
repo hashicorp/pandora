@@ -1,0 +1,66 @@
+{
+  "name": "RepositoryRefDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "branch",
+      "name": "Branch",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commit",
+      "name": "Commit",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "semver",
+      "name": "Semver",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tag",
+      "name": "Tag",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

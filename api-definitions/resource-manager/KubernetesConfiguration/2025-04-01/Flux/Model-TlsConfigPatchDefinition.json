@@ -1,0 +1,51 @@
+{
+  "name": "TlsConfigPatchDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "caCertificate",
+      "name": "CaCertificate",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientCertificate",
+      "name": "ClientCertificate",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateKey",
+      "name": "PrivateKey",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

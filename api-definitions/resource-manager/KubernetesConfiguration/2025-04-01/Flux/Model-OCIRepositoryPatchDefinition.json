@@ -1,0 +1,171 @@
+{
+  "name": "OCIRepositoryPatchDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "insecure",
+      "name": "Insecure",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "layerSelector",
+      "name": "LayerSelector",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "LayerSelectorPatchDefinition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "localAuthRef",
+      "name": "LocalAuthRef",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "repositoryRef",
+      "name": "RepositoryRef",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OCIRepositoryRefPatchDefinition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceAccountName",
+      "name": "ServiceAccountName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "syncIntervalInSeconds",
+      "name": "SyncIntervalInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeoutInSeconds",
+      "name": "TimeoutInSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tlsConfig",
+      "name": "TlsConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TlsConfigPatchDefinition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "url",
+      "name": "Url",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "useWorkloadIdentity",
+      "name": "UseWorkloadIdentity",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "verify",
+      "name": "Verify",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "VerifyPatchDefinition",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

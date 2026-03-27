@@ -1,0 +1,141 @@
+{
+  "name": "ConnectionMonitorEndpoint",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "address",
+      "name": "Address",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "coverageLevel",
+      "name": "CoverageLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CoverageLevel",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filter",
+      "name": "Filter",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointFilter",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "locationDetails",
+      "name": "LocationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointLocationDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceId",
+      "name": "ResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scope",
+      "name": "Scope",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectionMonitorEndpointScope",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subscriptionId",
+      "name": "SubscriptionId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EndpointType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
