@@ -1,0 +1,25 @@
+{
+  "name": "VpnConnectionsStopPacketCapture",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VPNConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VpnConnectionPacketCaptureStopParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "String",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/stoppacketcapture"
+}
