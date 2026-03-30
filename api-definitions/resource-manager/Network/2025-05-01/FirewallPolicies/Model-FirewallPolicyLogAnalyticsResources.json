@@ -1,0 +1,42 @@
+{
+  "name": "FirewallPolicyLogAnalyticsResources",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultWorkspaceId",
+      "name": "DefaultWorkspaceId",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SubResource",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workspaces",
+      "name": "Workspaces",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "FirewallPolicyLogAnalyticsWorkspace",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

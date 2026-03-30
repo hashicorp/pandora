@@ -1,0 +1,37 @@
+{
+  "name": "NetworkManagerDeploymentStatusList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "NetworkManagerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NetworkManagerDeploymentStatusParameter",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "NetworkManagerDeploymentStatusListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/listDeploymentStatus"
+}

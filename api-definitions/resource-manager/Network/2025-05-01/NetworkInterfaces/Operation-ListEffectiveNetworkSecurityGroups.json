@@ -1,0 +1,20 @@
+{
+  "name": "ListEffectiveNetworkSecurityGroups",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkInterfaceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "EffectiveNetworkSecurityGroup",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/effectiveNetworkSecurityGroups"
+}
