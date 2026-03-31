@@ -1,0 +1,25 @@
+{
+  "name": "GetFlowLogStatus",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkWatcherId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FlowLogStatusParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FlowLogInformation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/queryFlowLogStatus"
+}
