@@ -1,0 +1,36 @@
+{
+  "name": "PrivateEndpointOutboundRuleDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceResourceId",
+      "name": "ServiceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subresourceTarget",
+      "name": "SubresourceTarget",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
