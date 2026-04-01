@@ -5,6 +5,7 @@ package apidefinitions
 
 import (
 	"fmt"
+	"strings"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/components/apidefinitions/parser"
@@ -71,6 +72,12 @@ func parseAPIResourcesFromFile(filePath, serviceName string, resourceProvider *s
 		}
 
 		if resource != nil {
+			for existsName := range parsedAPIResources {
+				if strings.EqualFold(inferredTag, existsName) && inferredTag != existsName {
+					logging.Warnf("conflict inferred Tag: %s to existing Tag: %s, reuse existing Tag", inferredTag, existsName)
+					inferredTag = existsName
+				}
+			}
 			discoveredResources := map[string]sdkModels.APIResource{
 				inferredTag: *resource,
 			}
