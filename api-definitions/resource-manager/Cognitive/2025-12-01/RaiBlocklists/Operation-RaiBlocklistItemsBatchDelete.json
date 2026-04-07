@@ -1,0 +1,24 @@
+{
+  "name": "RaiBlocklistItemsBatchDelete",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "RaiBlocklistId",
+  "requestObject": {
+    "type": "List",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null,
+    "nestedItem": {
+      "type": "String",
+      "nullable": false,
+      "referenceName": null,
+      "referenceNameIsCommonType": null
+    }
+  },
+  "uriSuffix": "/deleteRaiBlocklistItems"
+}
