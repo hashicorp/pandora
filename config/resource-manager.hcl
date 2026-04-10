@@ -591,7 +591,7 @@ service "standbypool" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2023-01-01", "2023-05-01", "2025-01-01", "2025-06-01"]
+  available = ["2023-01-01", "2023-05-01", "2025-01-01", "2025-06-01", "2025-08-01"]
   ignore    = ["2023-04-01"]
 }
 service "storageactions" {
