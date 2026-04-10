@@ -1,0 +1,23 @@
+{
+  "name": "LinkBackend",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "LinkedBackendId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "StaticSiteLinkedBackendARMResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "StaticSiteLinkedBackendARMResource",
+    "referenceNameIsCommonType": null
+  }
+}

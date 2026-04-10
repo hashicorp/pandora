@@ -1,0 +1,23 @@
+{
+  "name": "CreateDeployment",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "DeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Deployment",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Deployment",
+    "referenceNameIsCommonType": null
+  }
+}

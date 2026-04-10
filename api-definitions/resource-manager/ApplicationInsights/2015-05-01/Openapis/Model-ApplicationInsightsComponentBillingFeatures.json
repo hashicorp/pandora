@@ -1,0 +1,42 @@
+{
+  "name": "ApplicationInsightsComponentBillingFeatures",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "CurrentBillingFeatures",
+      "name": "CurrentBillingFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "DataVolumeCap",
+      "name": "DataVolumeCap",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ApplicationInsightsComponentDataVolumeCap",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
