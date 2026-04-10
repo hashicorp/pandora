@@ -1,22 +1,15 @@
 {
   "name": "ReplaceContent",
-  "contentType": "text/powershell",
+  "contentType": "text/plain",
   "description": "",
   "expectedStatusCodes": [
-    200,
     202
   ],
   "longRunning": true,
   "httpMethod": "PUT",
   "resourceIdName": "RunbookId",
   "requestObject": {
-    "type": "RawFile",
-    "nullable": false,
-    "referenceName": null,
-    "referenceNameIsCommonType": null
-  },
-  "responseObject": {
-    "type": "RawFile",
+    "type": "String",
     "nullable": false,
     "referenceName": null,
     "referenceNameIsCommonType": null

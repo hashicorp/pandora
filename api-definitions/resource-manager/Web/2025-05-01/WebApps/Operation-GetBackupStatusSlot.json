@@ -1,0 +1,17 @@
+{
+  "name": "GetBackupStatusSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SlotBackupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BackupItem",
+    "referenceNameIsCommonType": null
+  }
+}

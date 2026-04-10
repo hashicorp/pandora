@@ -1,0 +1,19 @@
+{
+  "name": "APIKeysList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ComponentId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ApplicationInsightsComponentAPIKey",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/apiKeys"
+}

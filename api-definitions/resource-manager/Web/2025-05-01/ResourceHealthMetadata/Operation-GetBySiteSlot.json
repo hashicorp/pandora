@@ -1,0 +1,18 @@
+{
+  "name": "GetBySiteSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ResourceHealthMetadata",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/resourceHealthMetadata/default"
+}

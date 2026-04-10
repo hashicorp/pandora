@@ -1,0 +1,24 @@
+{
+  "name": "UpdateAuthSettingsV2Slot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "SlotId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SiteAuthSettingsV2",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SiteAuthSettingsV2",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/config/authsettingsV2"
+}
