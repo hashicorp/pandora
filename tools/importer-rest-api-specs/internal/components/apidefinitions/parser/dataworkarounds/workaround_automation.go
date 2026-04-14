@@ -38,10 +38,10 @@ func (w WorkaroundAutomation42369) Process(input sdkModels.APIVersion) (*sdkMode
 			return nil, fmt.Errorf("%s - expected an Operation named `GetContent` but didn't get one", resource.Name)
 		}
 		if operation.ResponseObject == nil {
-			return nil, fmt.Errorf("%s - expected a non-nil RequestObject for Operation named `GetContent`", resource.Name)
+			return nil, fmt.Errorf("%s - expected a non-nil ResponseObject for Operation named `GetContent`", resource.Name)
 		}
 		if operation.ResponseObject.Type == sdkModels.RawFileSDKObjectDefinitionType {
-			return nil, fmt.Errorf("%s - expected RequestObject.Type for Operation named `GetContent` to not be %s, this workaround can be removed", resource.Name, sdkModels.RawFileSDKObjectDefinitionType)
+			return nil, fmt.Errorf("%s - expected ResponseObject.Type for Operation named `GetContent` to not be %s, this workaround can be removed", resource.Name, sdkModels.RawFileSDKObjectDefinitionType)
 		}
 		operation.ResponseObject.Type = sdkModels.RawFileSDKObjectDefinitionType
 		resource.Operations["GetContent"] = operation
