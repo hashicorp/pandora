@@ -9,19 +9,19 @@ import (
 
 // Workaround for a type change on typespec migration
 // request/response object types changed to `string` which is problematic for go-azure-sdk
-var _ workaround = WorkaroundAutomation{}
+var _ workaround = WorkaroundAutomation42369{}
 
-type WorkaroundAutomation struct{}
+type WorkaroundAutomation42369 struct{}
 
-func (w WorkaroundAutomation) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
+func (w WorkaroundAutomation42369) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
 	return serviceName == "Automation" && apiVersion.APIVersion == "2024-10-23"
 }
 
-func (w WorkaroundAutomation) Name() string {
-	return "Automation"
+func (w WorkaroundAutomation42369) Name() string {
+	return "Automation / 42369"
 }
 
-func (w WorkaroundAutomation) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
+func (w WorkaroundAutomation42369) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	runbook, ok := input.Resources["Runbook"]
 	if !ok {
 		return nil, errors.New("expected a `Runbook` resource but didn't get one")
