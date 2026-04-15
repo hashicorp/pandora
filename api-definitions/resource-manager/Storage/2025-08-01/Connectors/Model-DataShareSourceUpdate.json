@@ -1,0 +1,24 @@
+{
+  "name": "DataShareSourceUpdate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "authProperties",
+      "name": "AuthProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StorageConnectorAuthPropertiesUpdate",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StorageConnectorSourceUpdate",
+  "discriminatedTypeValue": "DataShare",
+  "typeHintIn": "Type"
+}

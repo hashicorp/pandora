@@ -1,0 +1,24 @@
+{
+  "name": "ManagedIdentityAuthProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "identityResourceId",
+      "name": "IdentityResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "StorageConnectorAuthProperties",
+  "discriminatedTypeValue": "ManagedIdentity",
+  "typeHintIn": "Type"
+}
