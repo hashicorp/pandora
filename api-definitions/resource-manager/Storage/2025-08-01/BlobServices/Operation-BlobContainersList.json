@@ -1,0 +1,54 @@
+{
+  "name": "BlobContainersList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$include",
+      "required": false,
+      "field": "Include",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListContainersInclude"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$maxpagesize",
+      "required": false,
+      "field": "Maxpagesize",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StorageAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ListContainerItem",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/blobServices/default/containers"
+}
