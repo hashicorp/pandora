@@ -22,6 +22,11 @@ func (w WorkaroundAutomation42369) Name() string {
 }
 
 func (w WorkaroundAutomation42369) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
+	dscConfiguration, ok := input.Resources["DscConfiguration"]
+	if !ok {
+		return nil, errors.New("expected a `DscConfiguration` resource but didn't get one")
+	}
+
 	runbook, ok := input.Resources["Runbook"]
 	if !ok {
 		return nil, errors.New("expected a `Runbook` resource but didn't get one")
@@ -32,7 +37,7 @@ func (w WorkaroundAutomation42369) Process(input sdkModels.APIVersion) (*sdkMode
 		return nil, errors.New("expected a `RunbookDraft` resource but didn't get one")
 	}
 
-	for _, resource := range []sdkModels.APIResource{runbook, runbookDraft} {
+	for _, resource := range []sdkModels.APIResource{dscConfiguration, runbook, runbookDraft} {
 		operation, ok := resource.Operations["GetContent"]
 		if !ok {
 			return nil, fmt.Errorf("%s - expected an Operation named `GetContent` but didn't get one", resource.Name)
