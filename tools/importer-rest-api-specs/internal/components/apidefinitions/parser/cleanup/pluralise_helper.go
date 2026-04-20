@@ -25,8 +25,12 @@ const (
 	CAMEL // This is likely the default in the context of TF and Azure?
 )
 
-var pluralizeClient *pluralize.Client
-var once sync.Once
+var (
+	pluralizeClient *pluralize.Client
+	once sync.Once
+	// pluralizeClient is not thread safe
+	mux sync.Mutex
+)
 
 func PluralizeClient() *pluralize.Client {
 	once.Do(func() {
@@ -54,8 +58,9 @@ func GetSingular(input string) string {
 		}
 	}
 
-	client := PluralizeClient()
-	output := client.Singular(input)
+	mux.Lock()
+	defer mux.Unlock()
+	output := PluralizeClient().Singular(input)
 
 	return returnCased(output, casing)
 }
@@ -80,8 +85,9 @@ func GetPlural(input string) string {
 		}
 	}
 
-	pluralize := PluralizeClient()
-	output := pluralize.Plural(input)
+	mux.Lock()
+	defer mux.Unlock()
+	output := PluralizeClient().Plural(input)
 
 	return returnCased(output, casing)
 }

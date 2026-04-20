@@ -28,10 +28,14 @@ var pluralExceptions = []plural{
 	{"Sortby", "Sortby"},
 }
 
-var singularMatchers = map[string]*regexp.Regexp{}
-var pluralMatchers = map[string]*regexp.Regexp{}
-var pluralizeClient *pluralize.Client
-var once sync.Once
+var (
+	singularMatchers = map[string]*regexp.Regexp{}
+	pluralMatchers = map[string]*regexp.Regexp{}
+	pluralizeClient *pluralize.Client
+	once sync.Once
+	// pluralizeClient is not thread safe
+	mux sync.Mutex
+)
 
 func PluralizeClient() *pluralize.Client {
 	once.Do(func() {
@@ -57,6 +61,8 @@ func Singularize(name string) string {
 		}
 	}
 
+	mux.Lock()
+	defer mux.Unlock()
 	output := PluralizeClient().Singular(name)
 
 	return output
@@ -69,6 +75,8 @@ func Pluralize(name string) string {
 		}
 	}
 
+	mux.Lock()
+	defer mux.Unlock()
 	output := PluralizeClient().Plural(name)
 
 	return output
