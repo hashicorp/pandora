@@ -6,6 +6,7 @@ package normalize
 import (
 	"fmt"
 	"regexp"
+	"sync"
 
 	"github.com/gertd/go-pluralize"
 )
@@ -29,6 +30,15 @@ var pluralExceptions = []plural{
 
 var singularMatchers = map[string]*regexp.Regexp{}
 var pluralMatchers = map[string]*regexp.Regexp{}
+var pluralizeClient *pluralize.Client
+var once sync.Once
+
+func PluralizeClient() *pluralize.Client {
+	once.Do(func() {
+		pluralizeClient = pluralize.NewClient()
+	})
+	return pluralizeClient
+}
 
 func init() {
 	singularMatchers = make(map[string]*regexp.Regexp)
@@ -47,8 +57,7 @@ func Singularize(name string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Singular(name)
+	output := PluralizeClient().Singular(name)
 
 	return output
 }
@@ -60,8 +69,7 @@ func Pluralize(name string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Plural(name)
+	output := PluralizeClient().Plural(name)
 
 	return output
 }
