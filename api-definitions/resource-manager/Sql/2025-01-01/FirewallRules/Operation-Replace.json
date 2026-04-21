@@ -1,0 +1,25 @@
+{
+  "name": "Replace",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlServerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallRuleList",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallRule",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/firewallRules"
+}
