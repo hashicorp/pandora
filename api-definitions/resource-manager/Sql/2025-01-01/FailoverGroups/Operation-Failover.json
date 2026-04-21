@@ -1,0 +1,19 @@
+{
+  "name": "Failover",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "FailoverGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FailoverGroup",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/failover"
+}

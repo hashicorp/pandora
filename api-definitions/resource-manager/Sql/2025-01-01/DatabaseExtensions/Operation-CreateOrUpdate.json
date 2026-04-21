@@ -1,0 +1,24 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ExtensionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DatabaseExtensions",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ImportExportExtensionsOperationResult",
+    "referenceNameIsCommonType": null
+  }
+}
