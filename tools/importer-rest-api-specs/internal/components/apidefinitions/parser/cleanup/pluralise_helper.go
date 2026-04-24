@@ -6,6 +6,7 @@ package cleanup
 import (
 	"fmt"
 	"strings"
+	"sync"
 
 	"github.com/gertd/go-pluralize"
 )
@@ -23,6 +24,20 @@ const (
 	TITLE
 	CAMEL // This is likely the default in the context of TF and Azure?
 )
+
+var (
+	pluralizeClient *pluralize.Client
+	once sync.Once
+	// pluralizeClient is not thread safe
+	mux sync.Mutex
+)
+
+func PluralizeClient() *pluralize.Client {
+	once.Do(func() {
+		pluralizeClient = pluralize.NewClient()
+	})
+	return pluralizeClient
+}
 
 // GetSingular return the singular version of a given plural
 // return values are case preserved to the input.
@@ -43,8 +58,9 @@ func GetSingular(input string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Singular(input)
+	mux.Lock()
+	defer mux.Unlock()
+	output := PluralizeClient().Singular(input)
 
 	return returnCased(output, casing)
 }
@@ -69,8 +85,9 @@ func GetPlural(input string) string {
 		}
 	}
 
-	pluralize := pluralize.NewClient()
-	output := pluralize.Plural(input)
+	mux.Lock()
+	defer mux.Unlock()
+	output := PluralizeClient().Plural(input)
 
 	return returnCased(output, casing)
 }
