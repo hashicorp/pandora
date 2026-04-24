@@ -29,6 +29,10 @@ const defaultApiVersion = "%[2]s"
 func userAgent() string {
 	return "hashicorp/go-azure-sdk/%[1]s/%[3]s"
 }
+
+func ApiVersion() string {
+	return defaultApiVersion
+}
 `, data.packageName, apiVersion, data.apiVersion, *copyrightLines)
 	return &template, nil
 }
