@@ -1,0 +1,25 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "LongTermRetentionBackupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "UpdateLongTermRetentionBackupParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackupOperationResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/update"
+}

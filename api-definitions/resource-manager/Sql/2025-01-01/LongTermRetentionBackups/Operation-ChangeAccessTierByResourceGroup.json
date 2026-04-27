@@ -1,0 +1,25 @@
+{
+  "name": "ChangeAccessTierByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "LongTermRetentionDatabaseLongTermRetentionBackupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ChangeLongTermRetentionBackupAccessTierParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LongTermRetentionBackup",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/changeAccessTier"
+}

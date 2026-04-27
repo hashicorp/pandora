@@ -1,0 +1,24 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "InstancePoolId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "InstancePoolUpdate",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "InstancePool",
+    "referenceNameIsCommonType": null
+  }
+}

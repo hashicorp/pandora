@@ -1,0 +1,19 @@
+{
+  "name": "ListByDatabase",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SqlManagedInstanceDatabaseId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedBackupShortTermRetentionPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/backupShortTermRetentionPolicies"
+}

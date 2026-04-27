@@ -1,0 +1,25 @@
+{
+  "name": "ServerBlobAuditingPoliciesCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlServerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServerBlobAuditingPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/auditingSettings/default"
+}

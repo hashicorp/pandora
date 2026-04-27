@@ -1,0 +1,43 @@
+{
+  "name": "ListByResourceGroupInstance",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "databaseState",
+      "required": false,
+      "field": "DatabaseState",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatabaseState"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "onlyLatestPerDatabase",
+      "required": false,
+      "field": "OnlyLatestPerDatabase",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocationLongTermRetentionManagedInstanceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedInstanceLongTermRetentionBackup",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/longTermRetentionManagedInstanceBackups"
+}

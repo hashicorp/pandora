@@ -335,7 +335,7 @@ service "iotoperations" {
 }
 service "keyvault" {
   name      = "KeyVault"
-  available = ["2023-02-01", "2023-07-01", "2024-11-01", "2025-05-01"]
+  available = ["2023-02-01", "2023-07-01", "2024-11-01", "2025-05-01", "2026-02-01"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
@@ -583,7 +583,7 @@ service "solutions" {
 }
 service "sql" {
   name      = "Sql"
-  available = ["2023-08-01", "2023-08-01-preview"]
+  available = ["2023-08-01", "2023-08-01-preview", "2025-01-01"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"

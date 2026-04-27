@@ -1,0 +1,65 @@
+{
+  "name": "ListLogs",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "continuationToken",
+      "required": false,
+      "field": "ContinuationToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "endTime",
+      "required": true,
+      "field": "EndTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "startTime",
+      "required": true,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": false,
+      "queryString": "type",
+      "required": true,
+      "field": "Type",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "SyncGroupsType"
+      }
+    }
+  ],
+  "resourceIdName": "SyncGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SyncGroupLogProperties",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/logs"
+}
