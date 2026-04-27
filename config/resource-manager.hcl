@@ -600,7 +600,7 @@ service "storage" {
 }
 service "storageactions" {
   name      = "StorageActions"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2026-03-01"]
 }
 service "storagecache" {
   name      = "StorageCache"
