@@ -6,7 +6,6 @@ package normalize
 import (
 	"fmt"
 	"regexp"
-	"sync"
 
 	"github.com/gertd/go-pluralize"
 )
@@ -31,18 +30,8 @@ var pluralExceptions = []plural{
 var (
 	singularMatchers = map[string]*regexp.Regexp{}
 	pluralMatchers = map[string]*regexp.Regexp{}
-	pluralizeClient *pluralize.Client
-	once sync.Once
-	// pluralizeClient is not thread safe
-	mux sync.Mutex
+	pluralizeClient = pluralize.NewClient()
 )
-
-func PluralizeClient() *pluralize.Client {
-	once.Do(func() {
-		pluralizeClient = pluralize.NewClient()
-	})
-	return pluralizeClient
-}
 
 func init() {
 	singularMatchers = make(map[string]*regexp.Regexp)
@@ -61,9 +50,7 @@ func Singularize(name string) string {
 		}
 	}
 
-	mux.Lock()
-	defer mux.Unlock()
-	output := PluralizeClient().Singular(name)
+	output := pluralizeClient.Singular(name)
 
 	return output
 }
@@ -75,9 +62,7 @@ func Pluralize(name string) string {
 		}
 	}
 
-	mux.Lock()
-	defer mux.Unlock()
-	output := PluralizeClient().Plural(name)
+	output := pluralizeClient.Plural(name)
 
 	return output
 }
