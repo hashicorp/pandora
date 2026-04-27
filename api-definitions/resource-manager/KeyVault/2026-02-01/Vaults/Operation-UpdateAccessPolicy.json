@@ -1,0 +1,24 @@
+{
+  "name": "UpdateAccessPolicy",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "OperationKindId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VaultAccessPolicyParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VaultAccessPolicyParameters",
+    "referenceNameIsCommonType": null
+  }
+}

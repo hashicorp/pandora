@@ -1,0 +1,23 @@
+{
+  "name": "CreateIfNotExist",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "KeyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedHsmKeyCreateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedHsmKey",
+    "referenceNameIsCommonType": null
+  }
+}
