@@ -4,8 +4,7 @@ import "fmt"
 
 var _ templaterForResource = versionTemplater{}
 
-type versionTemplater struct {
-}
+type versionTemplater struct{}
 
 func (c versionTemplater) template(data GeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
@@ -30,7 +29,7 @@ func userAgent() string {
 	return "hashicorp/go-azure-sdk/%[1]s/%[3]s"
 }
 
-func ApiVersion() string {
+func AzureAPIVersion() string {
 	return defaultApiVersion
 }
 `, data.packageName, apiVersion, data.apiVersion, *copyrightLines)
