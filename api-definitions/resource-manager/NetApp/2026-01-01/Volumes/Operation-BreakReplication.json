@@ -1,0 +1,19 @@
+{
+  "name": "BreakReplication",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VolumeId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BreakReplicationRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/breakReplication"
+}
