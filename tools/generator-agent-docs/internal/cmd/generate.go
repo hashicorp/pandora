@@ -9,7 +9,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/generator-agent-docs/internal/generator"
+	"github.com/hashicorp/pandora/tools/generator-agent-docs/generator"
 	"github.com/mitchellh/cli"
 )
 
@@ -74,7 +74,7 @@ func (c *generateCommand) Run(args []string) int {
 	}
 
 	logger.Info("Writing output files", "count", len(results))
-	for path, content := range results {
+	for path, res := range results {
 		fullPath := filepath.Join(outputDir, path)
 		dir := filepath.Dir(fullPath)
 
@@ -83,7 +83,7 @@ func (c *generateCommand) Run(args []string) int {
 			return 1
 		}
 
-		if err := os.WriteFile(fullPath, content, 0644); err != nil {
+		if err := os.WriteFile(fullPath, []byte(res.Markdown), 0644); err != nil {
 			logger.Error("Failed to write file", "path", fullPath, "error", err)
 			return 1
 		}
