@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"sync"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -22,12 +23,59 @@ import (
 )
 
 type PandoraServer struct {
-	// index maps an ARM resource type (e.g. "Microsoft.Compute/AvailabilitySets")
-	// to a map of API versions to GeneratedResource.
-	index map[string]map[string]generator.GeneratedResource
+	logger hclog.Logger
 
-	// flat contains all generated resources
-	flat []generator.GeneratedResource
+	// data
+	index map[string]map[string]generator.GeneratedResource
+	flat  []generator.GeneratedResource
+
+	// lazy load state
+	loadOnce sync.Once
+	loadErr  error
+
+	// configuration
+	dirFlag         string
+	refFlag         string
+	forceUpdateFlag bool
+}
+
+func (s *PandoraServer) ensureLoaded() error {
+	s.loadOnce.Do(func() {
+		apiDir, err := resolveApiDefinitionsDir(s.logger, s.dirFlag, s.refFlag, s.forceUpdateFlag)
+		if err != nil {
+			s.loadErr = fmt.Errorf("resolving api-definitions: %w", err)
+			return
+		}
+
+		s.logger.Info("Loading API Definitions into memory...", "dir", apiDir)
+		opts := generator.GenerateOptions{
+			APIDefinitionsDirectory: apiDir,
+			SourceDataType:          models.ResourceManagerSourceDataType,
+			Logger:                  s.logger,
+		}
+
+		results, err := generator.Generate(opts)
+		if err != nil {
+			s.loadErr = fmt.Errorf("generating docs: %v", err)
+			return
+		}
+
+		s.index = make(map[string]map[string]generator.GeneratedResource)
+		s.flat = make([]generator.GeneratedResource, 0, len(results))
+
+		for _, res := range results {
+			s.flat = append(s.flat, res)
+
+			armType := fmt.Sprintf("%s/%s", res.Provider, res.Resource)
+
+			if s.index[armType] == nil {
+				s.index[armType] = make(map[string]generator.GeneratedResource)
+			}
+			s.index[armType][res.Version] = res
+		}
+		s.logger.Info("Data loaded successfully", "total_resources", len(s.flat))
+	})
+	return s.loadErr
 }
 
 func main() {
@@ -42,8 +90,8 @@ func run() error {
 		refFlag         string
 		forceUpdateFlag bool
 	)
-	
-	// Flag parsing must happen manually since this might be run via `go run` 
+
+	// Flag parsing must happen manually since this might be run via `go run`
 	// or inside an MCP client where args are passed via the command.
 	flag.StringVar(&dirFlag, "dir", "", "Path to a local api-definitions directory")
 	flag.StringVar(&refFlag, "ref", "main", "GitHub ref (branch/tag/commit) to download if local dir is not found")
@@ -55,39 +103,12 @@ func run() error {
 		Level: hclog.Info,
 	})
 
-	apiDir, err := resolveApiDefinitionsDir(logger, dirFlag, refFlag, forceUpdateFlag)
-	if err != nil {
-		return fmt.Errorf("resolving api-definitions: %w", err)
-	}
-
-	logger.Info("Loading API Definitions into memory...", "dir", apiDir)
-	opts := generator.GenerateOptions{
-		APIDefinitionsDirectory: apiDir,
-		SourceDataType:          models.ResourceManagerSourceDataType,
-		Logger:                  logger,
-	}
-
-	results, err := generator.Generate(opts)
-	if err != nil {
-		return fmt.Errorf("generating docs: %v", err)
-	}
-
 	srv := &PandoraServer{
-		index: make(map[string]map[string]generator.GeneratedResource),
-		flat:  make([]generator.GeneratedResource, 0, len(results)),
+		logger:          logger,
+		dirFlag:         dirFlag,
+		refFlag:         refFlag,
+		forceUpdateFlag: forceUpdateFlag,
 	}
-
-	for _, res := range results {
-		srv.flat = append(srv.flat, res)
-		
-		armType := fmt.Sprintf("%s/%s", res.Provider, res.Resource)
-		
-		if srv.index[armType] == nil {
-			srv.index[armType] = make(map[string]generator.GeneratedResource)
-		}
-		srv.index[armType][res.Version] = res
-	}
-	logger.Info("Data loaded successfully", "total_resources", len(srv.flat))
 
 	transport := stdio.NewStdioServerTransport()
 	server := mcp.NewServer(transport, mcp.WithName("pandora"), mcp.WithVersion("1.0.0"))
@@ -110,7 +131,12 @@ func run() error {
 	}
 
 	logger.Info("Starting MCP Server over stdio")
-	return server.Serve()
+	if err := server.Serve(); err != nil {
+		return err
+	}
+
+	// Block forever. The process will be terminated by the MCP client when it closes the stdin pipe.
+	select {}
 }
 
 // ---- list_available_resources ----
@@ -120,6 +146,10 @@ type ListAvailableResourcesArgs struct {
 }
 
 func (s *PandoraServer) listAvailableResources(ctx context.Context, args ListAvailableResourcesArgs) (*mcp.ToolResponse, error) {
+	if err := s.ensureLoaded(); err != nil {
+		return mcp.NewToolResponse(mcp.NewTextContent(fmt.Sprintf("Failed to load data: %v", err))), nil
+	}
+
 	seen := make(map[string]bool)
 	var list []string
 
@@ -154,6 +184,10 @@ type GetResourceMarkdownArgs struct {
 }
 
 func (s *PandoraServer) getResourceMarkdown(ctx context.Context, args GetResourceMarkdownArgs) (*mcp.ToolResponse, error) {
+	if err := s.ensureLoaded(); err != nil {
+		return mcp.NewToolResponse(mcp.NewTextContent(fmt.Sprintf("Failed to load data: %v", err))), nil
+	}
+
 	// Case-insensitive lookup
 	var targetArmType string
 	for k := range s.index {
@@ -194,6 +228,10 @@ type FindResourceByPropertyArgs struct {
 }
 
 func (s *PandoraServer) findResourceByProperty(ctx context.Context, args FindResourceByPropertyArgs) (*mcp.ToolResponse, error) {
+	if err := s.ensureLoaded(); err != nil {
+		return mcp.NewToolResponse(mcp.NewTextContent(fmt.Sprintf("Failed to load data: %v", err))), nil
+	}
+
 	// We look for "`PropertyName`" in the markdown
 	searchStr := fmt.Sprintf("`%s`", args.PropertyName)
 	
@@ -252,6 +290,10 @@ type GetApiVersionComparisonArgs struct {
 }
 
 func (s *PandoraServer) getApiVersionComparison(ctx context.Context, args GetApiVersionComparisonArgs) (*mcp.ToolResponse, error) {
+	if err := s.ensureLoaded(); err != nil {
+		return mcp.NewToolResponse(mcp.NewTextContent(fmt.Sprintf("Failed to load data: %v", err))), nil
+	}
+
 	var targetArmType string
 	for k := range s.index {
 		if strings.EqualFold(k, args.ArmResourceType) {
@@ -291,6 +333,10 @@ type ProposeTerraformSchemaArgs struct {
 }
 
 func (s *PandoraServer) proposeTerraformSchema(ctx context.Context, args ProposeTerraformSchemaArgs) (*mcp.ToolResponse, error) {
+	if err := s.ensureLoaded(); err != nil {
+		return mcp.NewToolResponse(mcp.NewTextContent(fmt.Sprintf("Failed to load data: %v", err))), nil
+	}
+
 	var targetArmType string
 	for k := range s.index {
 		if strings.EqualFold(k, args.ArmResourceType) {
@@ -325,24 +371,53 @@ func (s *PandoraServer) proposeTerraformSchema(ctx context.Context, args Propose
 		return mcp.NewToolResponse(mcp.NewTextContent("No models found for this resource.")), nil
 	}
 
-	// Assume main model name usually matches Resource Name or similar,
-	// but we can just use the resource name directly or find a likely candidate.
+	// Smart Root Model Resolution
+	candidate := res.Resource
+	if strings.HasSuffix(candidate, "ies") {
+		candidate = strings.TrimSuffix(candidate, "ies") + "y"
+	} else if strings.HasSuffix(candidate, "es") && !strings.HasSuffix(candidate, "ates") {
+		candidate = strings.TrimSuffix(candidate, "es")
+	} else if strings.HasSuffix(candidate, "s") && !strings.HasSuffix(candidate, "ss") {
+		candidate = strings.TrimSuffix(candidate, "s")
+	}
+
 	mainModelName := res.Resource
 	if _, ok := apiRes.Models[mainModelName]; !ok {
-		// Fallback to first available model if it doesn't match
-		for k := range apiRes.Models {
-			mainModelName = k
-			break
+		if _, ok := apiRes.Models[candidate]; ok {
+			mainModelName = candidate
+		} else {
+			// Search for a model that contains the candidate name and has a 'properties' field
+			for k, m := range apiRes.Models {
+				if _, hasProps := m.Fields["properties"]; hasProps {
+					if strings.Contains(strings.ToLower(k), strings.ToLower(candidate)) {
+						mainModelName = k
+						break
+					}
+				}
+			}
+			// Absolute fallback
+			if _, ok := apiRes.Models[mainModelName]; !ok {
+				for k := range apiRes.Models {
+					mainModelName = k
+					break
+				}
+			}
 		}
 	}
 
-	code := generateGoSchemaForModel(apiRes, mainModelName, 1)
+	code := generateGoSchemaForModel(apiRes, mainModelName, 1, make(map[string]bool), true)
 
 	output := fmt.Sprintf("### Proposed Terraform Schema Skeleton: %s\n> [!NOTE]\n> This is an algorithmically generated starting point. Review against provider patterns.\n\n```go\n%s\n```", targetArmType, code)
 	return mcp.NewToolResponse(mcp.NewTextContent(output)), nil
 }
 
-func generateGoSchemaForModel(apiRes *models.APIResource, modelName string, indentLevel int) string {
+func generateGoSchemaForModel(apiRes *models.APIResource, modelName string, indentLevel int, visited map[string]bool, isRoot bool) string {
+	if visited[modelName] {
+		return "" // Prevent infinite recursion
+	}
+	visited[modelName] = true
+	defer func() { visited[modelName] = false }()
+
 	model, ok := apiRes.Models[modelName]
 	if !ok {
 		return ""
@@ -362,6 +437,12 @@ func generateGoSchemaForModel(apiRes *models.APIResource, modelName string, inde
 		field := model.Fields[fieldName]
 		tfName := toSnakeCase(fieldName)
 		
+		// Inline properties if isRoot
+		if isRoot && fieldName == "properties" && field.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType && field.ObjectDefinition.ReferenceName != nil {
+			buf.WriteString(generateGoSchemaForModel(apiRes, *field.ObjectDefinition.ReferenceName, indentLevel, visited, false))
+			continue
+		}
+
 		buf.WriteString(fmt.Sprintf("%s\"%s\": {\n", indent, tfName))
 		
 		// Determine type
@@ -375,7 +456,7 @@ func generateGoSchemaForModel(apiRes *models.APIResource, modelName string, inde
 			schemaType = "schema.TypeBool"
 		case models.ListSDKObjectDefinitionType:
 			schemaType = "schema.TypeList"
-		case models.DictionarySDKObjectDefinitionType:
+		case models.DictionarySDKObjectDefinitionType, models.TagsSDKObjectDefinitionType:
 			schemaType = "schema.TypeMap"
 		case models.ReferenceSDKObjectDefinitionType:
 			schemaType = "schema.TypeList" // Default to List for blocks
@@ -401,9 +482,30 @@ func generateGoSchemaForModel(apiRes *models.APIResource, modelName string, inde
 			buf.WriteString(fmt.Sprintf("%s\tMaxItems: 1,\n", indent))
 			buf.WriteString(fmt.Sprintf("%s\tElem: &schema.Resource{\n", indent))
 			buf.WriteString(fmt.Sprintf("%s\t\tSchema: map[string]*schema.Schema{\n", indent))
-			buf.WriteString(generateGoSchemaForModel(apiRes, *field.ObjectDefinition.ReferenceName, indentLevel+3))
+			buf.WriteString(generateGoSchemaForModel(apiRes, *field.ObjectDefinition.ReferenceName, indentLevel+3, visited, false))
 			buf.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
 			buf.WriteString(fmt.Sprintf("%s\t},\n", indent))
+		} else if field.ObjectDefinition.Type == models.ListSDKObjectDefinitionType && field.ObjectDefinition.NestedItem != nil {
+			if field.ObjectDefinition.NestedItem.Type == models.ReferenceSDKObjectDefinitionType && field.ObjectDefinition.NestedItem.ReferenceName != nil {
+				buf.WriteString(fmt.Sprintf("%s\tElem: &schema.Resource{\n", indent))
+				buf.WriteString(fmt.Sprintf("%s\t\tSchema: map[string]*schema.Schema{\n", indent))
+				buf.WriteString(generateGoSchemaForModel(apiRes, *field.ObjectDefinition.NestedItem.ReferenceName, indentLevel+3, visited, false))
+				buf.WriteString(fmt.Sprintf("%s\t\t},\n", indent))
+				buf.WriteString(fmt.Sprintf("%s\t},\n", indent))
+			} else {
+				elemType := "schema.TypeString"
+				switch field.ObjectDefinition.NestedItem.Type {
+				case models.IntegerSDKObjectDefinitionType:
+					elemType = "schema.TypeInt"
+				case models.FloatSDKObjectDefinitionType:
+					elemType = "schema.TypeFloat"
+				case models.BooleanSDKObjectDefinitionType:
+					elemType = "schema.TypeBool"
+				}
+				buf.WriteString(fmt.Sprintf("%s\tElem: &schema.Schema{\n", indent))
+				buf.WriteString(fmt.Sprintf("%s\t\tType: %s,\n", indent, elemType))
+				buf.WriteString(fmt.Sprintf("%s\t},\n", indent))
+			}
 		}
 
 		buf.WriteString(fmt.Sprintf("%s},\n", indent))

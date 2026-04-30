@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/mcp-pandora
 
-go 1.25.9
+go 1.26.2
 
 replace github.com/hashicorp/pandora/tools/data-api-repository => ../data-api-repository
 
