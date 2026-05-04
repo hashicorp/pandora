@@ -24,6 +24,8 @@ const (
 	CAMEL // This is likely the default in the context of TF and Azure?
 )
 
+var pluralizeClient = pluralize.NewClient()
+
 // GetSingular return the singular version of a given plural
 // return values are case preserved to the input.
 func GetSingular(input string) string {
@@ -43,8 +45,7 @@ func GetSingular(input string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Singular(input)
+	output := pluralizeClient.Singular(input)
 
 	return returnCased(output, casing)
 }
@@ -69,8 +70,7 @@ func GetPlural(input string) string {
 		}
 	}
 
-	pluralize := pluralize.NewClient()
-	output := pluralize.Plural(input)
+	output := pluralizeClient.Plural(input)
 
 	return returnCased(output, casing)
 }
