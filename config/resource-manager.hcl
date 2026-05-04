@@ -104,7 +104,7 @@ service "codesigning" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2024-10-01", "2025-06-01", "2025-09-01", "2025-12-01"]
+  available = ["2024-10-01", "2025-06-01", "2025-09-01", "2025-12-01", "2026-03-01"]
 }
 service "communication" {
   name      = "Communication"
