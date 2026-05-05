@@ -35,7 +35,6 @@ func TestTemplateMethodsLROCreate(t *testing.T) {
 		},
 		operationName: "Create",
 	}.longRunningOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -88,9 +87,20 @@ func (c pandaClient) Create(ctx context.Context , id PandaPop, input string) (re
 
 // CreateThenPoll performs Create then polls until it's completed
 func (c pandaClient) CreateThenPoll(ctx context.Context , id PandaPop, input string) error {
+	return c.CreateCallbackThenPoll(ctx , id, input, nil)
+}
+
+// CreateCallbackThenPoll performs Create, runs the optional callback function, then polls until it's completed
+func (c pandaClient) CreateCallbackThenPoll(ctx context.Context , id PandaPop, input string, callback func() error) error {
 	result, err := c.Create(ctx , id, input)
 	if err != nil {
 		return fmt.Errorf("performing Create: %+v", err)
+	}
+
+	if callback != nil {
+		if err := callback(); err != nil {
+			return fmt.Errorf("executing callback function: %+v", err)
+		}
 	}
 
 	if err := result.Poller.PollUntilDone(ctx); err != nil {
@@ -126,7 +136,6 @@ func TestTemplateMethodsLROReboot(t *testing.T) {
 		},
 		operationName: "Reboot",
 	}.longRunningOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -239,7 +248,6 @@ func TestTemplateMethodsLRODoesNotCallUnmarshal(t *testing.T) {
 		},
 		operationName: "Create",
 	}.longRunningOperationTemplate(input)
-
 	if err != nil {
 		t.Fatalf("err %+v", err)
 	}
@@ -293,9 +301,20 @@ func (c pandaClient) Create(ctx context.Context , id PandaPop, input Example) (r
 
 // CreateThenPoll performs Create then polls until it's completed
 func (c pandaClient) CreateThenPoll(ctx context.Context , id PandaPop, input Example) error {
+	return c.CreateCallbackThenPoll(ctx , id, input, nil)
+}
+
+// CreateCallbackThenPoll performs Create, runs the optional callback function, then polls until it's completed
+func (c pandaClient) CreateCallbackThenPoll(ctx context.Context , id PandaPop, input Example, callback func() error) error {
 	result, err := c.Create(ctx , id, input)
 	if err != nil {
 		return fmt.Errorf("performing Create: %+v", err)
+	}
+
+	if callback != nil {
+		if err := callback(); err != nil {
+			return fmt.Errorf("executing callback function: %+v", err)
+		}
 	}
 
 	if err := result.Poller.PollUntilDone(ctx); err != nil {
