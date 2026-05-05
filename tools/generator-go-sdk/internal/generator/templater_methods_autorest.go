@@ -395,7 +395,7 @@ func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
 
 	// If the method is a Create/CreateOrUpdate/Update operation, add support for optional callback function
 	// Update is included for meta resources in the azurerm provider to support the Resource ID callback.
-	if regexp.MustCompile(`^(Create(OrUpdate)?|Update)`).MatchString(c.operationName) {
+	if regexp.MustCompile(`(Create(OrUpdate)?|Update)`).MatchString(c.operationName) {
 		thenPoll = fmt.Sprintf(`
 // %[1]sThenPoll performs %[1]s then polls until it's completed
 func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
