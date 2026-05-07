@@ -182,9 +182,20 @@ func (c pandaClient) Reboot(ctx context.Context , id PandaPop) (result RebootOpe
 
 // RebootThenPoll performs Reboot then polls until it's completed
 func (c pandaClient) RebootThenPoll(ctx context.Context , id PandaPop) error {
+	return c.RebootCallbackThenPoll(ctx , id, nil)
+}
+
+// RebootCallbackThenPoll performs Reboot, runs the optional callback function, then polls until it's completed
+func (c pandaClient) RebootCallbackThenPoll(ctx context.Context , id PandaPop, callback func() error) error {
 	result, err := c.Reboot(ctx , id)
 	if err != nil {
 		return fmt.Errorf("performing Reboot: %+v", err)
+	}
+
+	if callback != nil {
+		if err := callback(); err != nil {
+			return fmt.Errorf("executing callback function: %+v", err)
+		}
 	}
 
 	if err := result.Poller.PollUntilDone(ctx); err != nil {
