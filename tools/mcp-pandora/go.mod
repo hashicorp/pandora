@@ -18,7 +18,7 @@ require (
 
 require (
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
-	github.com/buger/jsonparser v1.1.1 // indirect
+	github.com/buger/jsonparser v1.1.2 // indirect
 	github.com/fatih/color v1.18.0 // indirect
 	github.com/hashicorp/go-azure-helpers v0.76.2 // indirect
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000 // indirect
