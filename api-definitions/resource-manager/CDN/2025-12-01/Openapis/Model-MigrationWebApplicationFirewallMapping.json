@@ -1,0 +1,36 @@
+{
+  "name": "MigrationWebApplicationFirewallMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migratedFrom",
+      "name": "MigratedFrom",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migratedTo",
+      "name": "MigratedTo",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

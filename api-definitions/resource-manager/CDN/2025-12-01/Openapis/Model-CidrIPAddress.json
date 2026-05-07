@@ -1,0 +1,36 @@
+{
+  "name": "CidrIPAddress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "baseIpAddress",
+      "name": "BaseIPAddress",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "prefixLength",
+      "name": "PrefixLength",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

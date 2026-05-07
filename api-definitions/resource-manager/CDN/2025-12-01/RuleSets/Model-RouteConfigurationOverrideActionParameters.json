@@ -1,0 +1,39 @@
+{
+  "name": "RouteConfigurationOverrideActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cacheConfiguration",
+      "name": "CacheConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CacheConfiguration",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "originGroupOverride",
+      "name": "OriginGroupOverride",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OriginGroupOverride",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryRuleActionParameters",
+  "discriminatedTypeValue": "DeliveryRuleRouteConfigurationOverrideActionParameters",
+  "typeHintIn": "TypeName"
+}
