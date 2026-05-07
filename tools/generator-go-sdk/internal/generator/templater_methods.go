@@ -2,7 +2,6 @@ package generator
 
 import (
 	"fmt"
-	"regexp"
 	"sort"
 	"strings"
 
@@ -260,9 +259,8 @@ func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
 }
 `, c.operationName, data.serviceClientName, *methodArguments, argumentsCode)
 
-	// If the method is a Create/CreateOrUpdate/Update operation, add support for optional callback function
-	// Update is included for meta resources in the azurerm provider to support the Resource ID callback.
-	if regexp.MustCompile(`(Create(OrUpdate)?|Update)`).MatchString(c.operationName) {
+	// Unless the operation is a Delete, add an optional CallbackThenPoll method
+	if !strings.Contains(strings.ToLower(c.operationName), "delete") {
 		thenPoll = fmt.Sprintf(`
 // %[1]sThenPoll performs %[1]s then polls until it's completed
 func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
