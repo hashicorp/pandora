@@ -8,34 +8,32 @@ import (
 	"strings"
 )
 
-var (
-	charactersFilter = map[string]string{
-		" ":  "Space",
-		"-":  "Dash",     // note: different to below
-		"–":  "Negative", // note: different to above
-		"_":  "Underscore",
-		"[":  "SquareBraceLeft",
-		"]":  "SquareBraceRight",
-		"(":  "ParenLeft",
-		")":  "ParenRight",
-		"{":  "BraceLeft",
-		"}":  "BraceRight",
-		"@":  "At",
-		"#":  "Octothorpe",
-		"+":  "Plus",
-		",":  "Comma",
-		"/":  "Slash",
-		`\`:  "BackSlash",
-		"=":  "Equals",
-		":":  "Colon",
-		";":  "Semicolon", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"\r": "Return",    // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"\n": "NewLine",   // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
-		"$":  "Dollar",
-		"'":  "SingleQuote",
-		".":  "Period",
-	}
-)
+var charactersFilter = map[string]string{
+	" ":  "Space",
+	"-":  "Dash",     // note: different to below
+	"–":  "Negative", // note: different to above
+	"_":  "Underscore",
+	"[":  "SquareBraceLeft",
+	"]":  "SquareBraceRight",
+	"(":  "ParenLeft",
+	")":  "ParenRight",
+	"{":  "BraceLeft",
+	"}":  "BraceRight",
+	"@":  "At",
+	"#":  "Octothorpe",
+	"+":  "Plus",
+	",":  "Comma",
+	"/":  "Slash",
+	`\`:  "BackSlash",
+	"=":  "Equals",
+	":":  "Colon",
+	";":  "Semicolon", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+	"\r": "Return",    // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+	"\n": "NewLine",   // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+	"$":  "Dollar",
+	"'":  "SingleQuote",
+	".":  "Period",
+}
 
 func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 	output := filterSingleCharacterKeys(input)
@@ -483,6 +481,14 @@ func NormalizeCanonicalisation(input string) string {
 
 	if strings.EqualFold(output, "jsonwebkey") {
 		output = "JSONWebKey"
+	}
+
+	if strings.EqualFold(output, "jsonwebkeyset") {
+		output = "JSONWebKeySet"
+	}
+
+	if strings.EqualFold(output, "reruntumblingwindowtrigger") {
+		output = "RerunTumblingWindowTrigger"
 	}
 
 	// intentionally case-sensitive
