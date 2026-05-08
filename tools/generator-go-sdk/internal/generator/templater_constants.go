@@ -34,6 +34,13 @@ func (c constantsTemplater) template(data GeneratorData) (*string, error) {
 		// rollout of the new base layer, to allow us to go gradually
 		generateNormalizationFunction := data.useNewBaseLayer
 
+		// The Key Vault API requires that the EXACT casing sent in the Response is sent in the Request
+		// to remove a Key Vault Access Policy.
+		// TODO: remove this when https://github.com/Azure/azure-rest-api-specs/issues/42963 has been resolved
+		if data.servicePackageName == "keyvault" && data.packageName == "Vaults" && data.apiVersion == "2026-02-01" {
+			generateNormalizationFunction = false
+		}
+
 		// used to reduce the TLOC being output
 		usedInAResourceId := false
 		for _, id := range data.resourceIds {
