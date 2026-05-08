@@ -37,8 +37,16 @@ func (c constantsTemplater) template(data GeneratorData) (*string, error) {
 		// The Key Vault API requires that the EXACT casing sent in the Response is sent in the Request
 		// to remove a Key Vault Access Policy.
 		// TODO: remove this when https://github.com/Azure/azure-rest-api-specs/issues/42963 has been resolved
-		if data.servicePackageName == "keyvault" && data.packageName == "Vaults" && data.apiVersion == "2026-02-01" {
-			generateNormalizationFunction = false
+		if data.servicePackageName == "keyvault" && data.packageName == "vaults" && data.apiVersion == "2026-02-01" {
+			affectedConstants := map[string]struct{}{
+				"CertificatePermissions": {},
+				"KeyPermissions":         {},
+				"SecretPermissions":      {},
+				"StoragePermissions":     {},
+			}
+			if _, ok := affectedConstants[constantName]; ok {
+				generateNormalizationFunction = false
+			}
 		}
 
 		// used to reduce the TLOC being output
