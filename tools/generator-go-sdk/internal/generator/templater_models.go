@@ -321,7 +321,7 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 					output = append(output, fmt.Sprintf("\n// Fields inherited from %s", ancestorName))
 				}
 				for _, fieldName := range ancestorFieldNames[ancestorName] {
-					// skip if overwriten by child model, if fieldName exists in child model's fields
+					// skip if overwriten by child model
 					if _, ok := c.model.Fields[fieldName]; ok {
 						continue
 					}
