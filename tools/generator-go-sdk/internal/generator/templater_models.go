@@ -414,41 +414,28 @@ func (c modelsTemplater) codeForDateFunctions(data GeneratorData) (*string, erro
 		lines = append(lines, *dateFunction)
 	}
 
-	// then do the ancestor fields, if any
-	ancestorTypeNames := make([]string, 0)
+	// then do the parent fields, if any
 	if c.model.ParentTypeName != nil {
-		ancestorTypeNames = append(ancestorTypeNames, *c.model.ParentTypeName)
-		if c.model.FieldNameContainingDiscriminatedValue != nil {
-			_, foundAncestorTypeNames, err := c.findModelAncestry(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
-			if err != nil {
-				return nil, err
+		fieldsRequiringDateFunctions = make([]string, 0)
+		parent, ok := data.models[*c.model.ParentTypeName]
+		if !ok {
+			return nil, fmt.Errorf("retrieving Parent Model %q for Model %q", *c.model.ParentTypeName, c.name)
+		}
+		for fieldName, fieldDetails := range parent.Fields {
+			if fieldDetails.DateFormat != nil {
+				fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
 			}
-			ancestorTypeNames = *foundAncestorTypeNames
 		}
 
-		for _, ancestorTypeName := range ancestorTypeNames {
-			ancestor, ok := data.models[ancestorTypeName]
-			if !ok {
-				return nil, fmt.Errorf("retrieving Ancestor Model %q for Model %q", ancestorTypeName, c.name)
-			}
+		sort.Strings(fieldsRequiringDateFunctions)
+		for _, fieldName := range fieldsRequiringDateFunctions {
+			fieldDetails := parent.Fields[fieldName]
 
-			fieldsRequiringDateFunctions = make([]string, 0)
-			for fieldName, fieldDetails := range ancestor.Fields {
-				if fieldDetails.DateFormat != nil {
-					fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
-				}
+			dateFunction, err := c.dateFunctionForField(fieldName, fieldDetails)
+			if err != nil {
+				return nil, fmt.Errorf("generating Date functions for Parent field %q: %+v", fieldName, err)
 			}
-
-			sort.Strings(fieldsRequiringDateFunctions)
-			for _, fieldName := range fieldsRequiringDateFunctions {
-				fieldDetails := ancestor.Fields[fieldName]
-
-				dateFunction, err := c.dateFunctionForField(fieldName, fieldDetails)
-				if err != nil {
-					return nil, fmt.Errorf("generating Date functions for Ancestor field %q: %+v", fieldName, err)
-				}
-				lines = append(lines, *dateFunction)
-			}
+			lines = append(lines, *dateFunction)
 		}
 	}
 
