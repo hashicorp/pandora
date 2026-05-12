@@ -1,5 +1,5 @@
 {
-  "name": "Cluster",
+  "name": "StorageTask",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -21,29 +21,14 @@
       "jsonName": "identity",
       "name": "Identity",
       "objectDefinition": {
-        "type": "SystemAndUserAssignedIdentityMap",
+        "type": "LegacySystemAndUserAssignedIdentityMap",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "kind",
-      "name": "Kind",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "Kind",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
@@ -83,27 +68,27 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ClusterProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "sku",
-      "name": "Sku",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "Sku",
+        "referenceName": "StorageTaskProperties",
         "referenceNameIsCommonType": null
       },
       "optional": false,
       "readOnly": false,
       "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
       "sensitive": false
     },
     {
@@ -127,21 +112,6 @@
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "zones",
-      "name": "Zones",
-      "objectDefinition": {
-        "type": "Zones",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

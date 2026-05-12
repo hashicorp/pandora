@@ -1,44 +1,29 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "StorageTaskOperation",
   "fields": [
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "name",
       "name": "Name",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "StorageTaskOperationName",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "onFailure",
+      "name": "OnFailure",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "OnFailure",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -48,13 +33,34 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "onSuccess",
+      "name": "OnSuccess",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "OnSuccess",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,

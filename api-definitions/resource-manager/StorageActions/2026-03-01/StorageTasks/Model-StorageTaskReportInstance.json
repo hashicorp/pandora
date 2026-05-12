@@ -1,5 +1,5 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "StorageTaskReportInstance",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -38,7 +38,22 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "StorageTaskReportProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,
