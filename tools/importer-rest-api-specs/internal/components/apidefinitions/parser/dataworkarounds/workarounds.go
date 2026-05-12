@@ -28,6 +28,7 @@ var workarounds = []workaround{
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
 	workaroundDataFactory28837{},
+	workaroundDataFactory39594{},
 	workaroundDataMigration31001{},
 	workaroundDigitalTwins25120{},
 	workaroundFluidRelay39089{},

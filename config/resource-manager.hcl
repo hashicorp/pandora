@@ -88,7 +88,7 @@ service "botservice" {
 }
 service "cdn" {
   name      = "CDN"
-  available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01"]
+  available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01", "2025-12-01"]
 }
 service "certificateregistration" {
   name = "CertificateRegistration"
@@ -104,7 +104,7 @@ service "codesigning" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2024-10-01", "2025-06-01", "2025-09-01", "2025-12-01"]
+  available = ["2024-10-01", "2025-06-01", "2025-09-01", "2025-12-01", "2026-03-01"]
 }
 service "communication" {
   name      = "Communication"
@@ -417,7 +417,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2025-01-01", "2025-03-01", "2025-06-01", "2025-12-01"]
+  available = ["2025-01-01", "2025-03-01", "2025-06-01", "2025-12-01", "2026-01-01"]
 }
 service "network" {
   name      = "Network"

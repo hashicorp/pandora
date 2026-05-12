@@ -27,8 +27,11 @@ var pluralExceptions = []plural{
 	{"Sortby", "Sortby"},
 }
 
-var singularMatchers = map[string]*regexp.Regexp{}
-var pluralMatchers = map[string]*regexp.Regexp{}
+var (
+	singularMatchers = map[string]*regexp.Regexp{}
+	pluralMatchers = map[string]*regexp.Regexp{}
+	pluralizeClient = pluralize.NewClient()
+)
 
 func init() {
 	singularMatchers = make(map[string]*regexp.Regexp)
@@ -47,8 +50,7 @@ func Singularize(name string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Singular(name)
+	output := pluralizeClient.Singular(name)
 
 	return output
 }
@@ -60,8 +62,7 @@ func Pluralize(name string) string {
 		}
 	}
 
-	client := pluralize.NewClient()
-	output := client.Plural(name)
+	output := pluralizeClient.Plural(name)
 
 	return output
 }
