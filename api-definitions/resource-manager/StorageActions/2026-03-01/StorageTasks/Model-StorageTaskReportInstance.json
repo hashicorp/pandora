@@ -1,5 +1,5 @@
 {
-  "name": "ServerVulnerabilityAssessmentsSetting",
+  "name": "StorageTaskReportInstance",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -17,21 +17,6 @@
       "sensitive": false
     },
     {
-      "containsDiscriminatedTypeValue": true,
-      "jsonName": "kind",
-      "name": "Kind",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "ServerVulnerabilityAssessmentsSettingKind",
-        "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "name",
       "name": "Name",
@@ -39,6 +24,21 @@
         "type": "String",
         "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "StorageTaskReportProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -77,6 +77,5 @@
       "sensitive": false
     }
   ],
-  "IsParent": false,
-  "typeHintIn": "Kind"
+  "IsParent": false
 }

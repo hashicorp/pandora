@@ -1,27 +1,12 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "StorageTaskUpdateParameters",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "identity",
+      "name": "Identity",
       "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
-      "objectDefinition": {
-        "type": "String",
+        "type": "LegacySystemAndUserAssignedIdentityMap",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -38,7 +23,7 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "StorageTaskUpdateProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -48,10 +33,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "tags",
+      "name": "Tags",
       "objectDefinition": {
-        "type": "String",
+        "type": "Tags",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null

@@ -1,29 +1,14 @@
 {
-  "name": "ServerVulnerabilityAssessmentsSetting",
+  "name": "StorageTaskOperation",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": true,
-      "jsonName": "kind",
-      "name": "Kind",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ServerVulnerabilityAssessmentsSettingKind",
+        "referenceName": "StorageTaskOperationName",
         "referenceNameIsCommonType": null
       },
       "optional": false,
@@ -33,12 +18,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "onFailure",
+      "name": "OnFailure",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "OnFailure",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -48,12 +33,12 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
+      "jsonName": "onSuccess",
+      "name": "OnSuccess",
       "objectDefinition": {
-        "type": "SystemData",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "OnSuccess",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -63,13 +48,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "parameters",
+      "name": "Parameters",
       "objectDefinition": {
-        "type": "String",
+        "type": "Dictionary",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -77,6 +68,5 @@
       "sensitive": false
     }
   ],
-  "IsParent": false,
-  "typeHintIn": "Kind"
+  "IsParent": false
 }

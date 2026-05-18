@@ -1,29 +1,14 @@
 {
-  "name": "ServerVulnerabilityAssessmentsSetting",
+  "name": "StorageTaskProperties",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": true,
-      "jsonName": "kind",
-      "name": "Kind",
+      "jsonName": "action",
+      "name": "Action",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ServerVulnerabilityAssessmentsSettingKind",
+        "referenceName": "StorageTaskAction",
         "referenceNameIsCommonType": null
       },
       "optional": false,
@@ -33,10 +18,11 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "dateFormat": "RFC3339",
+      "jsonName": "creationTimeInUtc",
+      "name": "CreationTimeInUtc",
       "objectDefinition": {
-        "type": "String",
+        "type": "DateTime",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -48,12 +34,42 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
+      "jsonName": "description",
+      "name": "Description",
       "objectDefinition": {
-        "type": "SystemData",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProvisioningState",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -63,10 +79,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "taskVersion",
+      "name": "TaskVersion",
       "objectDefinition": {
-        "type": "String",
+        "type": "Integer",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -77,6 +93,5 @@
       "sensitive": false
     }
   ],
-  "IsParent": false,
-  "typeHintIn": "Kind"
+  "IsParent": false
 }
