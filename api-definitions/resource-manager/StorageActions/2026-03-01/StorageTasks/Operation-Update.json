@@ -1,23 +1,24 @@
 {
-  "name": "ContainerGroupsUpdate",
+  "name": "Update",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
-    200
+    200,
+    202
   ],
-  "longRunning": false,
+  "longRunning": true,
   "httpMethod": "PATCH",
-  "resourceIdName": "ContainerGroupId",
+  "resourceIdName": "StorageTaskId",
   "requestObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "ContainerGroupUpdate",
+    "referenceName": "StorageTaskUpdateParameters",
     "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "ContainerGroup",
+    "referenceName": "StorageTask",
     "referenceNameIsCommonType": null
   }
 }

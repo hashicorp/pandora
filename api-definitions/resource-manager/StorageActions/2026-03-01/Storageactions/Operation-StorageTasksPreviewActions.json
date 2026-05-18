@@ -1,23 +1,24 @@
 {
-  "name": "ContainerGroupsUpdate",
+  "name": "StorageTasksPreviewActions",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
     200
   ],
   "longRunning": false,
-  "httpMethod": "PATCH",
-  "resourceIdName": "ContainerGroupId",
+  "httpMethod": "POST",
+  "resourceIdName": "LocationId",
   "requestObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "ContainerGroupUpdate",
+    "referenceName": "StorageTaskPreviewAction",
     "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "ContainerGroup",
+    "referenceName": "StorageTaskPreviewAction",
     "referenceNameIsCommonType": null
-  }
+  },
+  "uriSuffix": "/previewActions"
 }
