@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 
-go 1.26.2
+go 1.26.3
 
 require (
 	github.com/davecgh/go-spew v1.1.1

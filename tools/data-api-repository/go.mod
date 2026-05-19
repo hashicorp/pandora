@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/data-api-repository
 
-go 1.26.2
+go 1.26.3
 
 require (
 	github.com/hashicorp/go-azure-helpers v0.76.2
