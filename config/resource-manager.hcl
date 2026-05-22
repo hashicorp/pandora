@@ -197,7 +197,7 @@ service "datashare" {
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
-  available = ["2024-04-03"]
+  available = ["2024-04-03", "2025-10-10"]
   ignore    = ["2023-09-05"]
 }
 service "devcenter" {
