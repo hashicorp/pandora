@@ -14,6 +14,11 @@ type Constant struct {
 	// Type specifies what kind of Constant this is (a StringConstant, IntegerConstant etc).
 	Type ConstantType `json:"type"`
 
+	// SkipNormalization indicates that the normalization function should not be
+	// generated for this constant. This is a workaround for API bugs where the
+	// exact casing of constant values must be preserved.
+	SkipNormalization bool `json:"skipNormalization,omitempty"`
+
 	// Values defines the possible values for this Constant
 	//
 	// > ".. why not use a `map[string]ConstantValue` here?" I hear you ask

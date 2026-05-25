@@ -18,4 +18,9 @@ type SDKConstant struct {
 	// float values.
 	// NOTE: the Constant Name is a valid Identifier.
 	Values map[string]string `json:"values"`
+
+	// SkipNormalization indicates that the normalization function should not be
+	// generated for this constant. This is a workaround for API bugs where the
+	// exact casing of constant values must be preserved.
+	SkipNormalization bool `json:"skipNormalization,omitempty"`
 }

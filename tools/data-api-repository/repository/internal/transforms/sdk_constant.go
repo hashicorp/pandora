@@ -23,8 +23,9 @@ func MapSDKConstantFromRepository(input repositoryModels.Constant) (*sdkModels.S
 		values[item.Key] = item.Value
 	}
 	return &sdkModels.SDKConstant{
-		Type:   *constantType,
-		Values: values,
+		Type:              *constantType,
+		Values:            values,
+		SkipNormalization: input.SkipNormalization,
 	}, nil
 }
 
@@ -53,9 +54,10 @@ func MapSDKConstantToRepository(constantName string, details sdkModels.SDKConsta
 	}
 
 	return &repositoryModels.Constant{
-		Name:   constantName,
-		Type:   pointer.From(constantType),
-		Values: values,
+		Name:              constantName,
+		Type:              pointer.From(constantType),
+		SkipNormalization: details.SkipNormalization,
+		Values:            values,
 	}, nil
 }
 
