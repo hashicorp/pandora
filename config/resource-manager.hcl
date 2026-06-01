@@ -363,7 +363,7 @@ service "logic" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2024-04-01", "2025-06-01", "2025-09-01"]
+  available = ["2024-04-01", "2025-06-01", "2025-09-01", "2026-03-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
