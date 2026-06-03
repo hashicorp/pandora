@@ -54,3 +54,11 @@ jobs:
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-static-identifiers.md
+
+      - name: Check for Breaking Changes
+        run: |
+          if ! grep -q "No Breaking Changes were found" outputs/resource-manager-breaking-changes.md; then
+            echo "🛑 Breaking changes detected! Please review the PR comments for details."
+            exit 1
+          fi
+
