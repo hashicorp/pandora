@@ -1,0 +1,37 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "createAfcControlPlane",
+      "required": false,
+      "field": "CreateAfcControlPlane",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AzureFirewallId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AzureFirewall",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AzureFirewall",
+    "referenceNameIsCommonType": null
+  }
+}
