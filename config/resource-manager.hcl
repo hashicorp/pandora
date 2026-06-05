@@ -646,10 +646,6 @@ service "vmware" {
   name      = "VMware"
   available = ["2022-05-01", "2024-09-01"]
 }
-service "voiceservices" {
-  name      = "VoiceServices"
-  available = ["2023-04-03", "2023-09-01"]
-}
 service "web" {
   name      = "Web"
   available = ["2016-06-01", "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01"]
