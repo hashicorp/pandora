@@ -45,6 +45,7 @@ var workarounds = []workaround{
 	workaroundPaloAltoNetworks38348{},
 	workaroundPurview22257{},
 	workaroundRecoveryServicesSiteRecovery26680{},
+	workaroundRedHatOpenShift43540{},
 	workaroundRedis22407{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
