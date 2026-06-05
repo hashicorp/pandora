@@ -1,0 +1,41 @@
+{
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "detailLevel",
+      "required": false,
+      "field": "DetailLevel",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "LoadBalancerDetailLevel"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ProviderLoadBalancerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CommonLoadBalancer",
+    "referenceNameIsCommonType": null
+  }
+}

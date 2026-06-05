@@ -1,0 +1,54 @@
+{
+  "name": "ListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "initialSkip",
+      "required": false,
+      "field": "InitialSkip",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "isDescending",
+      "required": false,
+      "field": "IsDescending",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "pageSize",
+      "required": false,
+      "field": "PageSize",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ScalingPlan",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.DesktopVirtualization/scalingPlans"
+}

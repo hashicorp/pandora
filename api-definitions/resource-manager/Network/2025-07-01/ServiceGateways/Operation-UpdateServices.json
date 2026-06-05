@@ -1,0 +1,19 @@
+{
+  "name": "UpdateServices",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServiceGatewayUpdateServicesRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/updateServices"
+}

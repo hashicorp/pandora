@@ -1,0 +1,19 @@
+{
+  "name": "DisconnectP2sVpnConnections",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualWANP2SVPNGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "P2SVpnConnectionRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/disconnectP2sVpnConnections"
+}
