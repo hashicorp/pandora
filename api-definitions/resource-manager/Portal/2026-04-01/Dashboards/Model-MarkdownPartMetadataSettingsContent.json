@@ -1,10 +1,10 @@
 {
-  "name": "Database",
+  "name": "MarkdownPartMetadataSettingsContent",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "content",
+      "name": "Content",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,8 +18,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "markdownSource",
+      "name": "MarkdownSource",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "markdownUri",
+      "name": "MarkdownUri",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,25 +48,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "subtitle",
+      "name": "Subtitle",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "DatabaseProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
-      "objectDefinition": {
-        "type": "SystemData",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -63,8 +63,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "title",
+      "name": "Title",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
