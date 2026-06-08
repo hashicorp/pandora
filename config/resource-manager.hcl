@@ -446,7 +446,7 @@ service "notificationhubs" {
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
-  available = ["2019-09-01", "2020-08-01", "2022-10-01", "2023-09-01", "2025-02-01"]
+  available = ["2019-09-01", "2020-08-01", "2022-10-01", "2023-09-01", "2025-02-01", "2025-07-01"]
 }
 service "operationsmanagement" {
   name      = "OperationsManagement"
