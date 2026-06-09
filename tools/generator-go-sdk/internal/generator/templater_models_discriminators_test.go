@@ -694,3 +694,162 @@ func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
 `, "''", "`")
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestTemplaterModelsThreeLevelDiscriminatedHierarchyWithDateTimeOnIntermediateParent(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "BlobRecord",
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
+				"BlobName": {
+					Required: true,
+					JsonName: "blobName",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
+					},
+				},
+			},
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			ParentTypeName:                        stringPointer("RetrievalRecord"),
+			DiscriminatedValue:                    stringPointer("blob"),
+		},
+	}.template(GeneratorData{
+		packageName:         "somepackage",
+		recurseParentModels: true,
+		models: map[string]models.SDKModel{
+			"ActivityRecord": {
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
+					"Id": {
+						Required: true,
+						JsonName: "id",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
+						},
+					},
+					"Type": {
+						ContainsDiscriminatedValue: true,
+						Required:                   true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+					"StartedOn": {
+						Optional:   true,
+						JsonName:   "startedOn",
+						DateFormat: stringPointer(string(models.RFC3339SDKDateFormat)),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"RetrievalRecord": {
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ActivityRecord"),
+				DiscriminatedValue:                    stringPointer("RetrievalRecord"),
+				Fields: map[string]models.SDKField{
+					"QueryTime": {
+						Optional:   true,
+						JsonName:   "queryTime",
+						DateFormat: stringPointer(string(models.RFC3339SDKDateFormat)),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
+						},
+					},
+				},
+			},
+			"BlobRecord": {
+				Fields: map[string]models.SDKField{
+					"BlobName": {
+						Required: true,
+						JsonName: "blobName",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
+						},
+					},
+				},
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("RetrievalRecord"),
+				DiscriminatedValue:                    stringPointer("blob"),
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+	"github.com/hashicorp/go-azure-sdk/sdk/nullable"
+)
+
+// acctests licence placeholder
+
+var _ ActivityRecord = BlobRecord{}
+
+type BlobRecord struct {
+	BlobName string ''json:"blobName"''
+
+	// Fields inherited from ActivityRecord
+	Id int64 ''json:"id"''
+	StartedOn *string ''json:"startedOn,omitempty"''
+	Type string ''json:"type"''
+}
+
+func (s BlobRecord) ActivityRecord() BaseActivityRecordImpl {
+	return BaseActivityRecordImpl{
+		Id: s.Id,
+		StartedOn: s.StartedOn,
+		Type: s.Type,
+	}
+}
+
+func (o *BlobRecord) GetStartedOnAsTime() (*time.Time, error) {
+	if o.StartedOn == nil {
+		return nil, nil
+	}
+	return dates.ParseAsFormat(o.StartedOn, "2006-01-02T15:04:05Z07:00")
+}
+
+func (o *BlobRecord) SetStartedOnAsTime(input time.Time) {
+	formatted := input.Format("2006-01-02T15:04:05Z07:00")
+	o.StartedOn = &formatted
+}
+
+var _ json.Marshaler = BlobRecord{}
+
+func (s BlobRecord) MarshalJSON() ([]byte, error) {
+	type wrapper BlobRecord
+	wrapped := wrapper(s)
+	encoded, err := json.Marshal(wrapped)
+	if err != nil {
+		return nil, fmt.Errorf("marshaling BlobRecord: %+v", err)
+	}
+
+	var decoded map[string]interface{}
+	if err = json.Unmarshal(encoded, &decoded); err != nil {
+		return nil, fmt.Errorf("unmarshaling BlobRecord: %+v", err)
+	}
+	decoded["type"] = "blob"
+
+	encoded, err = json.Marshal(decoded)
+	if err != nil {
+		return nil, fmt.Errorf("re-marshaling BlobRecord: %+v", err)
+	}
+
+	return encoded, nil
+}
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
