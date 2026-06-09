@@ -405,7 +405,7 @@ service "monitor" {
 }
 service "monitoringservice" {
   name      = "Monitor"
-  available = ["2023-04-03"]
+  available = ["2023-04-03", "2026-04-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
