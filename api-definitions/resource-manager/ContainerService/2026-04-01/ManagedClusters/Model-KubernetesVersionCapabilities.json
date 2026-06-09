@@ -1,0 +1,27 @@
+{
+  "name": "KubernetesVersionCapabilities",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportPlan",
+      "name": "SupportPlan",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "KubernetesSupportPlan",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
