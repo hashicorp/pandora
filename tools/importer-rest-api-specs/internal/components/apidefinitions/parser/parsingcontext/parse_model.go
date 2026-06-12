@@ -144,11 +144,11 @@ func (c *Context) detailsForField(modelName string, propertyName string, value s
 
 	field := sdkModels.SDKField{
 		Required:  isRequired,
-		Optional:  !isRequired, //TODO: re-enable readonly && !value.ReadOnly,
+		Optional:  !isRequired, // TODO: re-enable readonly && !value.ReadOnly,
 		ReadOnly:  false,       // TODO: re-enable readonly value.ReadOnly,
 		Sensitive: false,       // todo: this probably needs to be a predefined list, unless there's something we can parse
 		JsonName:  propertyName,
-		//Description: value.Description, // TODO: currently causes flapping diff in api definitions, see https://github.com/hashicorp/pandora/issues/3325
+		// Description: value.Description, // TODO: currently causes flapping diff in api definitions, see https://github.com/hashicorp/pandora/issues/3325
 	}
 
 	// first get the object definition
@@ -355,6 +355,36 @@ func (c *Context) fieldsForModel(modelName string, input spec.Schema, known pars
 
 		// whilst we could look to normalize the name we're intentionally not doing so here
 		fields[propName] = *field
+	}
+
+	// Some APIs allow an `additionalProperties` field that accepts arbitrary JSON input
+	// map this as `map[string]interface{}` in the SDK by default, but check for a nested schema
+	if input.AdditionalProperties != nil && input.AdditionalProperties.Allows {
+		additionalPropertiesField := sdkModels.SDKField{
+			ObjectDefinition: sdkModels.SDKObjectDefinition{
+				Type: sdkModels.DictionarySDKObjectDefinitionType,
+				NestedItem: &sdkModels.SDKObjectDefinition{
+					Type: sdkModels.RawObjectSDKObjectDefinitionType,
+				},
+			},
+			Optional: true,
+		}
+
+		if schema := input.AdditionalProperties.Schema; schema != nil {
+			objectDef, parseResult, err := c.ParseObjectDefinition(modelName, "AdditionalProperties", schema, result, false)
+			if err != nil {
+				return nil, nil, fmt.Errorf("parsing `additionalProperties` schema for %q: %+v", modelName, err)
+			}
+
+			if parseResult != nil {
+				if err := result.Append(*parseResult); err != nil {
+					return nil, nil, fmt.Errorf("appending nestedResult for `additionalProperties`: %+v", err)
+				}
+			}
+			additionalPropertiesField.ObjectDefinition = *objectDef
+		}
+
+		fields["AdditionalProperties"] = additionalPropertiesField
 	}
 
 	return fields, &result, nil

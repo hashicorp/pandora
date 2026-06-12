@@ -15,7 +15,7 @@ type tagsMatcher struct{}
 
 func (tagsMatcher) IsMatch(field sdkModels.SDKField, _ sdkModels.APIResource) bool {
 	nameMatches := strings.EqualFold(field.JsonName, "tags")
-	typeMatches := field.ObjectDefinition.Type == sdkModels.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem.Type == sdkModels.StringSDKObjectDefinitionType
+	typeMatches := field.ObjectDefinition.Type == sdkModels.DictionarySDKObjectDefinitionType && field.ObjectDefinition.NestedItem != nil && field.ObjectDefinition.NestedItem.Type == sdkModels.StringSDKObjectDefinitionType
 	return nameMatches && typeMatches
 }
 
