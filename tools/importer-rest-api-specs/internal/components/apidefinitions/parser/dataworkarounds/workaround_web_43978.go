@@ -11,8 +11,6 @@ import (
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-// Workaround for a type change on typespec migration
-// request/response object types changed to `string` which is problematic for go-azure-sdk
 var _ workaround = WorkaroundWeb43978{}
 
 type WorkaroundWeb43978 struct{}
