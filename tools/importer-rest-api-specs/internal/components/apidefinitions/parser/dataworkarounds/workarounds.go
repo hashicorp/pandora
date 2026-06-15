@@ -53,6 +53,7 @@ var workarounds = []workaround{
 	workaroundSubscriptions20254{},
 	workaroundWeb14529{},
 	workaroundWeb31682{},
+	WorkaroundWeb43978{},
 
 	// Special Case for Network duplicated Enum
 	workaroundNetworkProvisioningState{},
