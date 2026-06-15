@@ -12,7 +12,7 @@ var _ workaround = workaroundPaloAltoNetworks38348{}
 type workaroundPaloAltoNetworks38348 struct{}
 
 func (workaroundPaloAltoNetworks38348) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "PaloAltoNetworks" && apiVersion.APIVersion == "2025-05-23"
+	return serviceName == "PaloAltoNetworks" && apiVersion.APIVersion == "2025-10-08"
 }
 
 func (workaroundPaloAltoNetworks38348) Name() string {
