@@ -20,35 +20,35 @@ func (workaroundPaloAltoNetworks38348) Name() string {
 }
 
 func (workaroundPaloAltoNetworks38348) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["Firewalls"]
+	resource, ok := input.Resources["FirewallResources"]
 	if !ok {
-		return nil, errors.New("expected a resource named `Firewalls` but didn't get one")
+		return nil, errors.New("expected a resource named `FirewallResources` but didn't get one")
 	}
 
-    models := []string{
-        "FirewallResource",
-        "FirewallResourceUpdate",
-    }
+	models := []string{
+		"FirewallResource",
+		"FirewallResourceUpdate",
+	}
 
-    for _, modelName := range models {
-        model, ok := resource.Models[modelName]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find model `%s`", modelName)
-        }
+	for _, modelName := range models {
+		model, ok := resource.Models[modelName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find model `%s`", modelName)
+		}
 
-        identityField, ok := model.Fields["Identity"]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
-        }
+		identityField, ok := model.Fields["Identity"]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
+		}
 
-        identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
-        identityField.ObjectDefinition.ReferenceName = nil
+		identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
+		identityField.ObjectDefinition.ReferenceName = nil
 
-        model.Fields["Identity"] = identityField
-        resource.Models[modelName] = model
-    }
+		model.Fields["Identity"] = identityField
+		resource.Models[modelName] = model
+	}
 
-    input.Resources["Firewalls"] = resource
+	input.Resources["FirewallResources"] = resource
 
-    return &input, nil
+	return &input, nil
 }
