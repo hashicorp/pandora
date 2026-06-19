@@ -28,13 +28,15 @@ func (workaroundDeletedItem) Process(_, serviceName string, resources parser.Res
 	resourcesToFix := []string{
 		"DirectoryDeletedItemApplication",
 		"DirectoryDeletedItemGroup",
+		"DirectoryDeletedItemServicePrincipal",
 		"DirectoryDeletedItemUser",
 	}
 
 	operationsToFix := map[string]string{
-		"ListDeletedItemApplications": "/directory/deletedItems/microsoft.graph.application",
-		"ListDeletedItemGroups":       "/directory/deletedItems/microsoft.graph.group",
-		"ListDeletedItemUsers":        "/directory/deletedItems/microsoft.graph.user",
+		"ListDeletedItemApplications":      "/directory/deletedItems/microsoft.graph.application",
+		"ListDeletedItemGroups":            "/directory/deletedItems/microsoft.graph.group",
+		"ListDeletedItemServicePrincipals": "/directory/deletedItems/microsoft.graph.servicePrincipal",
+		"ListDeletedItemUsers":             "/directory/deletedItems/microsoft.graph.user",
 	}
 
 	for _, r := range resourcesToFix {
