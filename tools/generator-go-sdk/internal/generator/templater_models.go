@@ -187,9 +187,9 @@ func (s %[1]s) %[2]s() %[1]s {
 		out += fmt.Sprintf(`
 var _ %[1]s = %[3]s{}
 
-// %[3]s is returned when the Discriminated Value doesn't match any of the defined types
-// NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
-// and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
+// %[3]s is returned when the Discriminated Value doesn't match any of the defined types.
+// It can also be used as a Request Payload to provide a raw JSON payload, which is useful
+// for preserving arbitrary/extensible JSON properties across a round-trip.
 type %[3]s struct {
 	%[2]s %[4]s
 	Type string
@@ -198,6 +198,10 @@ type %[3]s struct {
 
 func (s %[3]s) %[1]s() %[4]s {
 	return s.%[2]s
+}
+
+func (s %[3]s) MarshalJSON() ([]byte, error) {
+	return json.Marshal(s.Values)
 }
 
 `, c.name, camelCase(c.name), implementationStructName, structName)
