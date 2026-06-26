@@ -1,14 +1,14 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "Processor",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "batch",
+      "name": "Batch",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "BatchProcessor",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -26,19 +26,19 @@
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "transformLanguage",
+      "name": "TransformLanguage",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "TransformLanguageProcessor",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -51,14 +51,14 @@
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ProcessorType",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     }
   ],

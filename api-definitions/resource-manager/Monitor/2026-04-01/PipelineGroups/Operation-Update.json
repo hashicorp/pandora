@@ -1,25 +1,24 @@
 {
-  "name": "Create",
+  "name": "Update",
   "contentType": "application/json; charset=utf-8",
   "description": "",
   "expectedStatusCodes": [
     200,
-    201,
     202
   ],
   "longRunning": true,
-  "httpMethod": "PUT",
-  "resourceIdName": "RuleSetId",
+  "httpMethod": "PATCH",
+  "resourceIdName": "PipelineGroupId",
   "requestObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "RuleSet",
+    "referenceName": "PipelineGroupUpdate",
     "referenceNameIsCommonType": null
   },
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "RuleSet",
+    "referenceName": "PipelineGroup",
     "referenceNameIsCommonType": null
   }
 }

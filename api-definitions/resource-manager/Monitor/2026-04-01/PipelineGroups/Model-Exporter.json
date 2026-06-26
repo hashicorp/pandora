@@ -1,14 +1,14 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "Exporter",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "azureMonitorWorkspaceLogs",
+      "name": "AzureMonitorWorkspaceLogs",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "AzureMonitorWorkspaceLogsExporter",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -26,24 +26,9 @@
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
@@ -51,14 +36,14 @@
       "jsonName": "type",
       "name": "Type",
       "objectDefinition": {
-        "type": "String",
+        "type": "Reference",
         "nullable": false,
-        "referenceName": null,
+        "referenceName": "ExporterType",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     }
   ],
