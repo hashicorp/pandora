@@ -1,12 +1,12 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "SyslogReceiver",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "allowSkipPriHeader",
+      "name": "AllowSkipPriHeader",
       "objectDefinition": {
-        "type": "String",
+        "type": "Boolean",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -18,13 +18,19 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
+      "jsonName": "allowedFormats",
+      "name": "AllowedFormats",
       "objectDefinition": {
-        "type": "String",
+        "type": "List",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AllowedFormats",
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,
@@ -33,27 +39,27 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "endpoint",
+      "name": "Endpoint",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transportProtocol",
+      "name": "TransportProtocol",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
+        "referenceName": "TransportProtocol",
         "referenceNameIsCommonType": null
       },
       "optional": true,

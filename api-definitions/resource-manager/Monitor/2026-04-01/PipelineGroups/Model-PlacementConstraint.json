@@ -1,60 +1,51 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "PlacementConstraint",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "capability",
+      "name": "Capability",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "name",
-      "name": "Name",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "operator",
+      "name": "Operator",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "CapabilityOperator",
         "referenceNameIsCommonType": null
       },
-      "optional": true,
+      "optional": false,
       "readOnly": false,
-      "required": false,
+      "required": true,
       "sensitive": false
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "values",
+      "name": "Values",
       "objectDefinition": {
-        "type": "String",
+        "type": "List",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
       },
       "optional": true,
       "readOnly": false,

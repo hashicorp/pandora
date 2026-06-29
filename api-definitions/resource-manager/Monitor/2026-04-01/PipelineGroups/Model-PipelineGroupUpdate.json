@@ -1,5 +1,5 @@
 {
-  "name": "AccessPolicyAssignment",
+  "name": "PipelineGroupUpdate",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -38,7 +38,37 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "AccessPolicyAssignmentProperties",
+        "referenceName": "PipelineGroupPropertiesUpdate",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "systemData",
+      "name": "SystemData",
+      "objectDefinition": {
+        "type": "SystemData",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tags",
+      "name": "Tags",
+      "objectDefinition": {
+        "type": "Tags",
+        "nullable": false,
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
       "optional": true,

@@ -1,6 +1,21 @@
 {
-  "name": "Cluster",
+  "name": "PipelineGroup",
   "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extendedLocation",
+      "name": "ExtendedLocation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureResourceManagerCommonTypesExtendedLocation",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
     {
       "containsDiscriminatedTypeValue": false,
       "jsonName": "id",
@@ -9,36 +24,6 @@
         "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "identity",
-      "name": "Identity",
-      "objectDefinition": {
-        "type": "SystemAndUserAssignedIdentityMap",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "kind",
-      "name": "Kind",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "Kind",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -83,7 +68,7 @@
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "ClusterProperties",
+        "referenceName": "PipelineGroupProperties",
         "referenceNameIsCommonType": null
       },
       "optional": true,
@@ -93,17 +78,17 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "sku",
-      "name": "Sku",
+      "jsonName": "systemData",
+      "name": "SystemData",
       "objectDefinition": {
-        "type": "Reference",
+        "type": "SystemData",
         "nullable": false,
-        "referenceName": "Sku",
+        "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -127,21 +112,6 @@
       "name": "Type",
       "objectDefinition": {
         "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "zones",
-      "name": "Zones",
-      "objectDefinition": {
-        "type": "Zones",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
