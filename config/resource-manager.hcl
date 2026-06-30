@@ -91,7 +91,7 @@ service "cdn" {
   available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01", "2025-12-01"]
 }
 service "certificateregistration" {
-  name = "CertificateRegistration"
+  name      = "CertificateRegistration"
   available = ["2023-12-01"]
 }
 service "chaos" {
@@ -363,7 +363,7 @@ service "logic" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2024-04-01", "2025-06-01", "2025-09-01"]
+  available = ["2024-04-01", "2025-06-01", "2025-09-01", "2026-03-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
