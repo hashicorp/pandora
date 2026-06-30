@@ -1,7 +1,6 @@
 package dataworkarounds
 
 import (
-	"errors"
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -22,18 +21,18 @@ func (workaroundPaloAltoNetworks38348) Name() string {
 func (workaroundPaloAltoNetworks38348) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
 	// The resource (tag) name differs between API Versions - in `2025-05-23` it's `Firewalls`
 	// whereas in `2025-10-08` it's `FirewallResources`.
-	resourceName := ""
-	for _, candidate := range []string{"Firewalls", "FirewallResources"} {
-		if _, ok := input.Resources[candidate]; ok {
-			resourceName = candidate
-			break
-		}
-	}
-	if resourceName == "" {
-		return nil, errors.New("expected a resource named `Firewalls` or `FirewallResources` but didn't get one")
+	resourceName, ok := map[string]string{
+		"2025-05-23": "Firewalls",
+		"2025-10-08": "FirewallResources",
+	}[input.APIVersion]
+	if !ok {
+		return nil, fmt.Errorf("unexpected API Version %q", input.APIVersion)
 	}
 
-	resource := input.Resources[resourceName]
+	resource, ok := input.Resources[resourceName]
+	if !ok {
+		return nil, fmt.Errorf("expected a resource named `%s` but didn't get one", resourceName)
+	}
 
 	models := []string{
 		"FirewallResource",
