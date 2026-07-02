@@ -325,6 +325,11 @@ func (c modelsTemplater) structLinesForModel(data GeneratorData, fieldNames []st
 					output = append(output, fmt.Sprintf("\n// Fields inherited from %s", ancestorName))
 				}
 				for _, fieldName := range ancestorFieldNames[ancestorName] {
+					// skip if overwriten by child model
+					if _, ok := c.model.Fields[fieldName]; ok {
+						continue
+					}
+
 					fieldDetails := ancestorFields[ancestorName][fieldName]
 
 					topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
@@ -364,7 +369,11 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 		jsonDetails += ",omitempty"
 	} else {
 		if c.fieldIsOptional(data, fieldDetails) || fieldDetails.ReadOnly {
-			fieldType = fmt.Sprintf("*%s", fieldType)
+			// do not add pointer to interface{} type if c.model is a parent type
+			// todo: not add pointer to all interface{} types
+			if !c.model.IsDiscriminatedParentType() || fieldDetails.ObjectDefinition.Type != models.RawObjectSDKObjectDefinitionType {
+				fieldType = fmt.Sprintf("*%s", fieldType)
+			}
 			jsonDetails += ",omitempty"
 		} else if fieldDetails.ObjectDefinition.Nullable {
 			fieldType = fmt.Sprintf("*%s", fieldType)
