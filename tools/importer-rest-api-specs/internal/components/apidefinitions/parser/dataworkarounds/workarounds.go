@@ -49,6 +49,7 @@ var workarounds = []workaround{
 	workaroundRedHatOpenShift43540{},
 	workaroundRedis22407{},
 	WorkaroundSecurityInsights22503{},
+	WorkaroundSecurityInsights22893{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
