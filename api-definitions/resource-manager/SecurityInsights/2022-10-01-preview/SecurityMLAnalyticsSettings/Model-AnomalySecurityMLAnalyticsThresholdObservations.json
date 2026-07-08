@@ -1,10 +1,10 @@
 {
-  "name": "FirewallResource",
+  "name": "AnomalySecurityMLAnalyticsThresholdObservations",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "id",
-      "name": "Id",
+      "jsonName": "description",
+      "name": "Description",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,10 +18,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "identity",
-      "name": "Identity",
+      "jsonName": "maximum",
+      "name": "Maximum",
       "objectDefinition": {
-        "type": "UserAssignedIdentityMap",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -33,17 +33,17 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "location",
-      "name": "Location",
+      "jsonName": "minimum",
+      "name": "Minimum",
       "objectDefinition": {
-        "type": "Location",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
       },
-      "optional": false,
+      "optional": true,
       "readOnly": false,
-      "required": true,
+      "required": false,
       "sensitive": false
     },
     {
@@ -63,25 +63,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "properties",
-      "name": "Properties",
+      "jsonName": "rerun",
+      "name": "Rerun",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "FirewallDeploymentProperties",
-        "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "systemData",
-      "name": "SystemData",
-      "objectDefinition": {
-        "type": "SystemData",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -93,10 +78,10 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "tags",
-      "name": "Tags",
+      "jsonName": "sequenceNumber",
+      "name": "SequenceNumber",
       "objectDefinition": {
-        "type": "Tags",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
@@ -108,8 +93,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "type",
-      "name": "Type",
+      "jsonName": "value",
+      "name": "Value",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
