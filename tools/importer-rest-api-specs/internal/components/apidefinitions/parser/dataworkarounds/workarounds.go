@@ -50,6 +50,7 @@ var workarounds = []workaround{
 	workaroundRedis22407{},
 	WorkaroundSecurityInsights22503{},
 	WorkaroundSecurityInsights22893{},
+	WorkaroundSecurityInsights{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
