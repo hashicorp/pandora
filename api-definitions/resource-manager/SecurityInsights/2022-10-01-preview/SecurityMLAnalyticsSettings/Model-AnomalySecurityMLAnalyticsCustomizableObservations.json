@@ -1,55 +1,10 @@
 {
-  "name": "ThreatIntelligenceAlertRuleTemplateProperties",
+  "name": "AnomalySecurityMLAnalyticsCustomizableObservations",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "description",
-      "name": "Description",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "displayName",
-      "name": "DisplayName",
-      "objectDefinition": {
-        "type": "String",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "severity",
-      "name": "Severity",
-      "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "AlertSeverity",
-        "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "tactics",
-      "name": "Tactics",
+      "jsonName": "multiSelectObservations",
+      "name": "MultiSelectObservations",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
@@ -58,7 +13,7 @@
         "nestedItem": {
           "type": "Reference",
           "nullable": false,
-          "referenceName": "AttackTactic",
+          "referenceName": "AnomalySecurityMLAnalyticsMultiSelectObservations",
           "referenceNameIsCommonType": null
         }
       },
@@ -69,17 +24,59 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "techniques",
-      "name": "Techniques",
+      "jsonName": "prioritizeExcludeObservations",
+      "name": "PrioritizeExcludeObservations",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null,
         "nestedItem": {
-          "type": "String",
+          "type": "Reference",
           "nullable": false,
-          "referenceName": null,
+          "referenceName": "AnomalySecurityMLAnalyticsPrioritizeExcludeObservations",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "singleSelectObservations",
+      "name": "SingleSelectObservations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AnomalySecurityMLAnalyticsSingleSelectObservations",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "thresholdObservations",
+      "name": "ThresholdObservations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AnomalySecurityMLAnalyticsThresholdObservations",
           "referenceNameIsCommonType": null
         }
       },

@@ -1,5 +1,5 @@
 {
-  "name": "ThreatIntelligenceAlertRuleTemplateProperties",
+  "name": "AnomalySecurityMLAnalyticsThresholdObservations",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "displayName",
-      "name": "DisplayName",
+      "jsonName": "maximum",
+      "name": "Maximum",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,34 +33,13 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "severity",
-      "name": "Severity",
+      "jsonName": "minimum",
+      "name": "Minimum",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "AlertSeverity",
-        "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "tactics",
-      "name": "Tactics",
-      "objectDefinition": {
-        "type": "List",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "AttackTactic",
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,19 +48,58 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "techniques",
-      "name": "Techniques",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
-        "type": "List",
+        "type": "String",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "String",
-          "nullable": false,
-          "referenceName": null,
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rerun",
+      "name": "Rerun",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sequenceNumber",
+      "name": "SequenceNumber",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,

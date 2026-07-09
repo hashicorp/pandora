@@ -1,5 +1,5 @@
 {
-  "name": "ThreatIntelligenceAlertRuleTemplateProperties",
+  "name": "AnomalySecurityMLAnalyticsSingleSelectObservations",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
@@ -18,8 +18,8 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "displayName",
-      "name": "DisplayName",
+      "jsonName": "name",
+      "name": "Name",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -33,34 +33,13 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "severity",
-      "name": "Severity",
+      "jsonName": "rerun",
+      "name": "Rerun",
       "objectDefinition": {
-        "type": "Reference",
-        "nullable": false,
-        "referenceName": "AlertSeverity",
-        "referenceNameIsCommonType": null
-      },
-      "optional": false,
-      "readOnly": false,
-      "required": true,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "tactics",
-      "name": "Tactics",
-      "objectDefinition": {
-        "type": "List",
+        "type": "RawObject",
         "nullable": false,
         "referenceName": null,
-        "referenceNameIsCommonType": null,
-        "nestedItem": {
-          "type": "Reference",
-          "nullable": false,
-          "referenceName": "AttackTactic",
-          "referenceNameIsCommonType": null
-        }
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
@@ -69,8 +48,23 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "techniques",
-      "name": "Techniques",
+      "jsonName": "sequenceNumber",
+      "name": "SequenceNumber",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportedValues",
+      "name": "SupportedValues",
       "objectDefinition": {
         "type": "List",
         "nullable": false,
@@ -82,6 +76,36 @@
           "referenceName": null,
           "referenceNameIsCommonType": null
         }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportedValuesKql",
+      "name": "SupportedValuesKql",
+      "objectDefinition": {
+        "type": "RawObject",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
       },
       "optional": true,
       "readOnly": false,
