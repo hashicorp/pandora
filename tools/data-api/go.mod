@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/data-api
 
-go 1.26.3
+go 1.26.5
 
 require (
 	github.com/go-chi/chi/v5 v5.2.4
