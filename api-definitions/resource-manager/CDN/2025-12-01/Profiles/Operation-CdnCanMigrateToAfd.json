@@ -1,0 +1,19 @@
+{
+  "name": "CdnCanMigrateToAfd",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ProfileId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CanMigrateResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/cdnCanMigrateToAfd"
+}

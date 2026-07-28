@@ -1,0 +1,36 @@
+{
+  "name": "ProfileChangeSkuWafMapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "changeToWafPolicy",
+      "name": "ChangeToWafPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ResourceReference",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityPolicyName",
+      "name": "SecurityPolicyName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

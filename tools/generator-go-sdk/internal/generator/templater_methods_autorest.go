@@ -375,13 +375,60 @@ func (c methodsAutoRestTemplater) longRunningOperationTemplate(data GeneratorDat
 		return nil, fmt.Errorf("building response struct template: %+v", err)
 	}
 	senderCode := c.senderLongRunningOperationTemplate(data)
+
+	thenPoll := fmt.Sprintf(`
+// %[1]sThenPoll performs %[1]s then polls until it's completed
+func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
+	result, err := c.%[1]s(ctx %[4]s)
+	if err != nil {
+		return fmt.Errorf("performing %[1]s: %%+v", err)
+	}
+	
+	if err := result.Poller.PollUntilDone(); err != nil {
+		return fmt.Errorf("polling after %[1]s: %%+v", err)
+	}
+
+	return nil
+}
+`, c.operationName, data.serviceClientName, *argumentsMethodCode, argumentsCode)
+
+	// Unless the operation is a Delete, add an optional CallbackThenPoll method
+	if !strings.Contains(strings.ToLower(c.operationName), "delete") {
+		thenPoll = fmt.Sprintf(`
+// %[1]sThenPoll performs %[1]s then polls until it's completed
+func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
+	return c.%[1]sCallbackThenPoll(ctx %[4]s, nil)
+}
+
+// %[1]sCallbackThenPoll performs %[1]s, runs the optional callback function, then polls until it's completed
+func (c %[2]s) %[1]sCallbackThenPoll(ctx context.Context %[3]s, callback func() error) error {
+	result, err := c.%[1]s(ctx %[4]s)
+	if err != nil {
+		return fmt.Errorf("performing %[1]s: %%+v", err)
+	}
+
+	if callback != nil {
+		if err := callback(); err != nil {
+			return fmt.Errorf("executing callback function: %%+v", err)
+		}
+	}
+
+	if err := result.Poller.PollUntilDone(); err != nil {
+		return fmt.Errorf("polling after %[1]s: %%+v", err)
+	}
+
+	return nil
+}
+`, c.operationName, data.serviceClientName, *argumentsMethodCode, argumentsCode)
+	}
+
 	templated := fmt.Sprintf(`
-%[7]s
-%[9]s
+%[8]s
+%[10]s
 
 // %[2]s ...
-func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[10]s, err error) {
-	req, err := c.preparerFor%[2]s(ctx %[8]s)
+func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[11]s, err error) {
+	req, err := c.preparerFor%[2]s(ctx %[9]s)
 	if err != nil {
 		err = autorest.NewErrorWithError(err, "%[3]s.%[1]s", "%[2]s", nil, "Failure preparing request")
 		return
@@ -396,24 +443,12 @@ func (c %[1]s) %[2]s(ctx context.Context %[4]s) (result %[10]s, err error) {
 	return
 }
 
-// %[2]sThenPoll performs %[2]s then polls until it's completed
-func (c %[1]s) %[2]sThenPoll(ctx context.Context %[4]s) error {
-	result, err := c.%[2]s(ctx %[8]s)
-	if err != nil {
-		return fmt.Errorf("performing %[2]s: %%+v", err)
-	}
-	
-	if err := result.Poller.PollUntilDone(); err != nil {
-		return fmt.Errorf("polling after %[2]s: %%+v", err)
-	}
-
-	return nil
-}
-
 %[5]s
 
 %[6]s
-`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, senderCode, *responseStruct, argumentsCode, *optionsStruct, *responseStructName)
+
+%[7]s
+`, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, thenPoll, *preparerCode, senderCode, *responseStruct, argumentsCode, *optionsStruct, *responseStructName)
 	return &templated, nil
 }
 

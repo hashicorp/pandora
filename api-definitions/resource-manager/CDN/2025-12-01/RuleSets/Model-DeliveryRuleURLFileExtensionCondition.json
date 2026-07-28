@@ -1,0 +1,24 @@
+{
+  "name": "DeliveryRuleURLFileExtensionCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "URLFileExtensionMatchConditionParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "UrlFileExtension",
+  "typeHintIn": "Name"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "NetworkSecurityGroupResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "evaluatedNetworkSecurityGroups",
+      "name": "EvaluatedNetworkSecurityGroups",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "EvaluatedNetworkSecurityGroup",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityRuleAccessResult",
+      "name": "SecurityRuleAccessResult",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SecurityRuleAccess",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

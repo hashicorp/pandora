@@ -1,0 +1,24 @@
+{
+  "name": "PATAuthTypeConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ConnectionPersonalAccessToken",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ConnectionPropertiesV2",
+  "discriminatedTypeValue": "PAT",
+  "typeHintIn": "AuthType"
+}

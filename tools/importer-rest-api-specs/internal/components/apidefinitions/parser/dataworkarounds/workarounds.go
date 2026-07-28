@@ -1,4 +1,4 @@
-// Copyright IBM Corp. 2021, 2025
+// Copyright IBM Corp. 2023, 2026
 // SPDX-License-Identifier: MPL-2.0
 
 package dataworkarounds
@@ -9,9 +9,9 @@ var workarounds = []workaround{
 	// Common workarounds
 	// https://github.com/Azure/azure-rest-api-specs/issues/22758
 	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2023-02-01"}, []string{"ProtectedItems"}, []string{"CreateOrUpdate", "Delete"}, nil},
-	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectedItems"}, []string{"Delete"}, nil},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-08-01"}, []string{"ProtectedItems"}, []string{"Delete"}, nil},
 	// https://github.com/Azure/azure-rest-api-specs/issues/37325
-	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectionContainers"}, []string{"Unregister"}, nil},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-08-01"}, []string{"ProtectionContainers"}, []string{"Unregister"}, nil},
 	// https://github.com/Azure/azure-rest-api-specs/issues/41432
 	commonWorkaroundIsLRO{"Web", []string{"2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01"}, []string{"Certificates"}, []string{"CreateOrUpdate"}, []int{202}},
 
@@ -24,10 +24,12 @@ var workarounds = []workaround{
 	WorkaroundAutomation42369{},
 	workaroundBatch21291{},
 	workaroundBotService27351{},
+	WorkaroundCDN44244{},
 	workaroundContainerRegistry32154{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
 	workaroundDataFactory28837{},
+	workaroundDataFactory39594{},
 	workaroundDataMigration31001{},
 	workaroundDigitalTwins25120{},
 	workaroundFluidRelay39089{},
@@ -44,13 +46,18 @@ var workarounds = []workaround{
 	workaroundPaloAltoNetworks38348{},
 	workaroundPurview22257{},
 	workaroundRecoveryServicesSiteRecovery26680{},
+	workaroundRedHatOpenShift43540{},
 	workaroundRedis22407{},
+	WorkaroundSecurityInsights22503{},
+	WorkaroundSecurityInsights22893{},
+	WorkaroundSecurityInsights{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
 	workaroundWeb14529{},
 	workaroundWeb31682{},
+	WorkaroundWeb43978{},
 
 	// Special Case for Network duplicated Enum
 	workaroundNetworkProvisioningState{},

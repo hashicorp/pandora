@@ -243,12 +243,58 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data GeneratorData
 	}
 	comment = wrapOnWordBoundary(comment, 120, "//")
 
+	thenPoll := fmt.Sprintf(`
+// %[1]sThenPoll performs %[1]s then polls until it's completed
+func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
+	result, err := c.%[1]s(ctx %[4]s)
+	if err != nil {
+		return fmt.Errorf("performing %[1]s: %%+v", err)
+	}
+
+	if err := result.Poller.PollUntilDone(ctx); err != nil {
+		return fmt.Errorf("polling after %[1]s: %%+v", err)
+	}
+
+	return nil
+}
+`, c.operationName, data.serviceClientName, *methodArguments, argumentsCode)
+
+	// Unless the operation is a Delete, add an optional CallbackThenPoll method
+	if !strings.Contains(strings.ToLower(c.operationName), "delete") {
+		thenPoll = fmt.Sprintf(`
+// %[1]sThenPoll performs %[1]s then polls until it's completed
+func (c %[2]s) %[1]sThenPoll(ctx context.Context %[3]s) error {
+	return c.%[1]sCallbackThenPoll(ctx %[4]s, nil)
+}
+
+// %[1]sCallbackThenPoll performs %[1]s, runs the optional callback function, then polls until it's completed
+func (c %[2]s) %[1]sCallbackThenPoll(ctx context.Context %[3]s, callback func() error) error {
+	result, err := c.%[1]s(ctx %[4]s)
+	if err != nil {
+		return fmt.Errorf("performing %[1]s: %%+v", err)
+	}
+
+	if callback != nil {
+		if err := callback(); err != nil {
+			return fmt.Errorf("executing callback function: %%+v", err)
+		}
+	}
+
+	if err := result.Poller.PollUntilDone(ctx); err != nil {
+		return fmt.Errorf("polling after %[1]s: %%+v", err)
+	}
+
+	return nil
+}
+`, c.operationName, data.serviceClientName, *methodArguments, argumentsCode)
+	}
+
 	templated := fmt.Sprintf(`
+%[8]s
 %[9]s
 %[10]s
-%[11]s
 
-%[12]s
+%[11]s
 func (c %[1]s) %[3]s(ctx context.Context %[4]s) (result %[3]sOperationResponse, err error) {
 	opts := %[5]s
 
@@ -279,20 +325,8 @@ func (c %[1]s) %[3]s(ctx context.Context %[4]s) (result %[3]sOperationResponse, 
 	return
 }
 
-// %[3]sThenPoll performs %[3]s then polls until it's completed
-func (c %[1]s) %[3]sThenPoll(ctx context.Context %[4]s) error {
-	result, err := c.%[3]s(ctx %[8]s)
-	if err != nil {
-		return fmt.Errorf("performing %[3]s: %%+v", err)
-	}
-
-	if err := result.Poller.PollUntilDone(ctx); err != nil {
-		return fmt.Errorf("polling after %[3]s: %%+v", err)
-	}
-
-	return nil
-}
-`, data.serviceClientName, data.baseClientPackage, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, argumentsCode, *responseStruct, *optionsStruct, requestOptionStruct, comment)
+%[12]s
+`, data.serviceClientName, data.baseClientPackage, c.operationName, *methodArguments, *requestOptions, *marshalerCode, *unmarshalerCode, *responseStruct, *optionsStruct, requestOptionStruct, comment, thenPoll)
 	return &templated, nil
 }
 

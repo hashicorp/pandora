@@ -1,0 +1,42 @@
+{
+  "name": "DeploymentRouting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mode",
+      "name": "Mode",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RoutingMode",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "models",
+      "name": "Models",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DeploymentModel",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

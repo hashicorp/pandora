@@ -1,0 +1,22 @@
+{
+  "name": "DeliveryRuleConditionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "typeName",
+      "name": "TypeName",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeliveryRuleConditionParametersType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "TypeName"
+}

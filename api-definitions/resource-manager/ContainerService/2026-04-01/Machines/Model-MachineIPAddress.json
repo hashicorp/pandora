@@ -1,0 +1,36 @@
+{
+  "name": "MachineIPAddress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "family",
+      "name": "Family",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "IPFamily",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ip",
+      "name": "IP",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

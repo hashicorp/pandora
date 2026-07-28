@@ -1,0 +1,21 @@
+{
+  "name": "FirewallPolicyTransportSecurity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateAuthority",
+      "name": "CertificateAuthority",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "FirewallPolicyCertificateAuthority",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

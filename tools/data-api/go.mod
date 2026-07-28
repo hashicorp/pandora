@@ -1,9 +1,9 @@
 module github.com/hashicorp/pandora/tools/data-api
 
-go 1.26.2
+go 1.26.5
 
 require (
-	github.com/go-chi/chi/v5 v5.2.2
+	github.com/go-chi/chi/v5 v5.2.4
 	github.com/go-chi/render v1.0.2
 	github.com/hashicorp/go-azure-helpers v0.76.2
 	github.com/hashicorp/go-hclog v1.6.3

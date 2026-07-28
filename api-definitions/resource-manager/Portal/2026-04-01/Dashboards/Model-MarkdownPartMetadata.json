@@ -1,0 +1,45 @@
+{
+  "name": "MarkdownPartMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputs",
+      "name": "Inputs",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MarkdownPartMetadataSettings",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DashboardPartMetadata",
+  "discriminatedTypeValue": "Extension/HubsExtension/PartType/MarkdownPart",
+  "typeHintIn": "Type"
+}

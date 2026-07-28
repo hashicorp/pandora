@@ -1,0 +1,24 @@
+{
+  "name": "WorkspacePurgePurge",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WorkspacePurgeBody",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "WorkspacePurgeResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/purge"
+}

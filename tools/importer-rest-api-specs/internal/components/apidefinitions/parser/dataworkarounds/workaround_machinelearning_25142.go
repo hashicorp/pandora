@@ -1,4 +1,4 @@
-// Copyright IBM Corp. 2021, 2025
+// Copyright IBM Corp. 2023, 2026
 // SPDX-License-Identifier: MPL-2.0
 
 package dataworkarounds
@@ -19,7 +19,7 @@ type workaroundMachineLearning25142 struct {
 
 func (workaroundMachineLearning25142) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
 	serviceMatches := serviceName == "MachineLearningServices"
-	apiVersionMatches := apiVersion.APIVersion == "2023-04-01"
+	apiVersionMatches := apiVersion.APIVersion == "2025-06-01"
 	return serviceMatches && apiVersionMatches
 }
 

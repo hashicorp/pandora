@@ -1,4 +1,4 @@
-// Copyright IBM Corp. 2021, 2025
+// Copyright IBM Corp. 2023, 2026
 // SPDX-License-Identifier: MPL-2.0
 
 package generator
@@ -77,7 +77,7 @@ func capitalizeFirstLetter(input string) string {
 func copyrightLinesForSource(input models.SourceDataOrigin) (*string, error) {
 	if input == models.HandWrittenSourceDataOrigin {
 		out := `
-// Copyright IBM Corp. 2021, 2025 All rights reserved.
+// Copyright IBM Corp. 2023, 2026 All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil
@@ -85,7 +85,7 @@ func copyrightLinesForSource(input models.SourceDataOrigin) (*string, error) {
 
 	if input == models.MicrosoftGraphMetaDataSourceDataOrigin {
 		out := `
-// Copyright IBM Corp. 2021, 2025 All rights reserved.
+// Copyright IBM Corp. 2023, 2026 All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil

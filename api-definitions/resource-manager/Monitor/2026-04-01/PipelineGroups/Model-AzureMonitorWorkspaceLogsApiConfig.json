@@ -1,0 +1,66 @@
+{
+  "name": "AzureMonitorWorkspaceLogsApiConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataCollectionEndpointUrl",
+      "name": "DataCollectionEndpointURL",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataCollectionRule",
+      "name": "DataCollectionRule",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schema",
+      "name": "Schema",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SchemaMap",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stream",
+      "name": "Stream",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

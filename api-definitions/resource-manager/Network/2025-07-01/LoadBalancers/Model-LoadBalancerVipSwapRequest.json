@@ -1,0 +1,27 @@
+{
+  "name": "LoadBalancerVipSwapRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frontendIPConfigurations",
+      "name": "FrontendIPConfigurations",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "LoadBalancerVipSwapRequestFrontendIPConfiguration",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

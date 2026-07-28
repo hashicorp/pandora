@@ -1,0 +1,18 @@
+{
+  "name": "ExpressRouteCircuitsGetStats",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ExpressRouteCircuitId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ExpressRouteCircuitStats",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/stats"
+}

@@ -1,0 +1,67 @@
+{
+  "name": "QuotaTierUpgradeEligibilityInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nextTierName",
+      "name": "NextTierName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "upgradeApplicableDate",
+      "name": "UpgradeApplicableDate",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeAvailabilityStatus",
+      "name": "UpgradeAvailabilityStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "UpgradeAvailabilityStatus",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeUnavailabilityReason",
+      "name": "UpgradeUnavailabilityReason",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

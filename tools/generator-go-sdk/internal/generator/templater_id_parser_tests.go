@@ -1,3 +1,6 @@
+// Copyright IBM Corp. 2023, 2026
+// SPDX-License-Identifier: MPL-2.0
+
 package generator
 
 import (
@@ -199,7 +202,7 @@ func TestSegmentsFor%[1]s(t *testing.T) {
 		uniqueNames[segment.Name] = struct{}{}
 	}
 	if len(uniqueNames) != len(segments) {
-		t.Fatalf("Expected the Segments to be unique but got %%q unique segments and %%d total segments", len(uniqueNames), len(segments))
+		t.Fatalf("Expected the Segments to be unique but got %%d unique segments and %%d total segments", len(uniqueNames), len(segments))
 	} 
 }`, structName)
 }

@@ -1,0 +1,27 @@
+{
+  "name": "AvailableProvidersList",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "countries",
+      "name": "Countries",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "AvailableProvidersListCountry",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
