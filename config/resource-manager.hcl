@@ -228,6 +228,10 @@ service "digitaltwins" {
   name      = "DigitalTwins"
   available = ["2023-01-31"]
 }
+service "discovery" {
+  name      = "Discovery"
+  available = ["2026-06-01"]
+}
 service "dns" {
   name      = "DNS"
   available = ["2018-05-01"]
