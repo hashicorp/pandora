@@ -3,7 +3,7 @@ module github.com/hashicorp/pandora/tools/generator-go-sdk
 go 1.26.5
 
 require (
-	github.com/hashicorp/go-azure-helpers v0.76.2
+	github.com/hashicorp/go-azure-helpers v0.81.1
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.5
@@ -30,8 +30,8 @@ require (
 	github.com/posener/complete v1.1.1 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
-	golang.org/x/crypto v0.47.0 // indirect
-	golang.org/x/sys v0.40.0 // indirect
+	golang.org/x/crypto v0.54.0 // indirect
+	golang.org/x/sys v0.47.0 // indirect
 )
 
 replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
