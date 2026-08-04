@@ -17,6 +17,9 @@ import (
 
 // parseAPIVersion parses the information for this APIVersion from the AvailableDataSetForAPIVersion.
 func parseAPIVersion(serviceName string, input discoveryModels.AvailableDataSetForAPIVersion, resourceProvider *string) (*sdkModels.APIVersion, error) {
+	// Apply any file-level workarounds to filter out problematic swagger files before parsing
+	input.FilePathsContainingAPIDefinitions = dataworkarounds.ApplyFileWorkarounds(serviceName, input.APIVersion, input.FilePathsContainingAPIDefinitions)
+
 	// First we need to pull out a list of each of the Resource IDs within this API Version
 	// This is required to ensure we have consistent naming of these across the API Version which
 	// makes for a better user experience

@@ -76,3 +76,11 @@ var workarounds = []workaround{
 	// These workarounds are for a specific use cases that are not API related issues
 	workaroundSqlJobExecutionsCreateNotLRO{},
 }
+
+var fileWorkarounds = []fileWorkaround{
+	// These workarounds filter out problematic swagger files before parsing begins,
+	// typically when TypeSpec-generated files conflict with legacy hand-written files.
+
+	// https://github.com/Azure/azure-rest-api-specs/issues/45213
+	workaroundInsights45213{},
+}
