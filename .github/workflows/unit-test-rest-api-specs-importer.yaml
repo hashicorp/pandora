@@ -10,6 +10,9 @@ on:
       - 'submodules/rest-api-specs'
       - 'tools/importer-rest-api-specs/**'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: custom-linux-xl

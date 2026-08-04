@@ -10,6 +10,8 @@ on:
       - 'tools/importer-msgraph/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: write
 
 concurrency:
   group: 'regendataapi-msgraph-${{ github.head_ref }}'
@@ -19,8 +21,6 @@ concurrency:
 jobs:
   regenerate-api-data:
     runs-on: custom-linux-xl
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:
