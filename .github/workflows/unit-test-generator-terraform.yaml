@@ -7,6 +7,9 @@ on:
       - '.github/workflows/unit-test-generator-terraform.yaml'
       - 'tools/generator-terraform/**'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest

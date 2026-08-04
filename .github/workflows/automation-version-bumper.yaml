@@ -2,11 +2,12 @@ name: Run the Version Bumper
 on:
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: write
+
 jobs:
   run-version-bumper:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
         with:

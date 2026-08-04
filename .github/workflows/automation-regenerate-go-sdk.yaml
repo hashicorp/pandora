@@ -9,6 +9,9 @@ on:
       - 'tools/generator-go-sdk/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: read
+
 concurrency:
   group: 'regengosdk-${{ github.head_ref }}'
   cancel-in-progress: true
