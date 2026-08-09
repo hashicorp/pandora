@@ -6,7 +6,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/gertd/go-pluralize v0.2.1
 	github.com/getkin/kin-openapi v0.146.0
-	github.com/go-git/go-git/v5 v5.19.1
+	github.com/go-git/go-git/v5 v5.19.2
 	github.com/hashicorp/go-azure-helpers v0.81.1
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/pandora/tools/data-api-repository v0.0.0-00010101000000-000000000000
