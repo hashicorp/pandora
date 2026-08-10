@@ -10,6 +10,8 @@ on:
       - 'tools/importer-rest-api-specs/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: write
 
 concurrency:
   group: 'regendataapi-resourcemanager-${{ github.head_ref }}'
@@ -19,8 +21,6 @@ concurrency:
 jobs:
   regenerate-api-data:
     runs-on: custom-linux-xl
-    permissions:
-      contents: write
     steps:
       - name: mount a ramdisk to working dir
         run: |

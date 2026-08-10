@@ -8,6 +8,9 @@ on:
       - 'api-definitions/**'
       - 'tools/data-api/**'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest

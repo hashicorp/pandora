@@ -9,6 +9,9 @@ on:
       - 'tools/generator-go-sdk/**'
       - 'tools/importer-msgraph-metadata/**'
 
+permissions:
+  contents: read
+
 concurrency:
   group: 'unit-test-graph-${{ github.head_ref }}'
   cancel-in-progress: true # Long running, always triggers, cancel if further changes are pushed

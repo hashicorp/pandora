@@ -10,6 +10,9 @@ on:
       - 'tools/generator-terraform/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: read
+
 concurrency:
   group: 'regenterraform-${{ github.head_ref }}'
   cancel-in-progress: true

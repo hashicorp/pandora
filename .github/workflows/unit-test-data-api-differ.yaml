@@ -7,6 +7,9 @@ on:
       - '.github/workflows/unit-test-data-api-differ.yaml'
       - 'tools/data-api-differ/**'
 
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
