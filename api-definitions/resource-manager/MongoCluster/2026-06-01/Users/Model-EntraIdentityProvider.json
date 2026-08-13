@@ -1,14 +1,14 @@
 {
-  "name": "RerunTumblingWindowTrigger",
+  "name": "EntraIdentityProvider",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "typeProperties",
-      "name": "TypeProperties",
+      "jsonName": "properties",
+      "name": "Properties",
       "objectDefinition": {
         "type": "Reference",
         "nullable": false,
-        "referenceName": "RerunTumblingWindowTriggerTypeProperties",
+        "referenceName": "EntraIdentityProviderProperties",
         "referenceNameIsCommonType": null
       },
       "optional": false,
@@ -18,7 +18,7 @@
     }
   ],
   "IsParent": false,
-  "discriminatedParentModelName": "Trigger",
-  "discriminatedTypeValue": "RerunTumblingWindowTrigger",
+  "discriminatedParentModelName": "IdentityProvider",
+  "discriminatedTypeValue": "MicrosoftEntraID",
   "typeHintIn": "Type"
 }
