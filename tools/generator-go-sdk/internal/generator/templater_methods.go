@@ -942,13 +942,38 @@ func (c methodsPandoraTemplater) optionsStruct(data GeneratorData) (*string, err
 	sort.Strings(headerAssignments)
 	sort.Strings(queryStringAssignments)
 
+	isDirectoryObjectFlag := isDirectoryObject(data.models, data.commonTypes.Models, getResponseRefName(c.operation.ResponseObject))
+
+	defaultFuncBody := fmt.Sprintf("return %s{}", optionsStructName)
+	// Only inject RetryFunc for primary resource GETs (no URISuffix). Navigation property GETs
+	// (e.g. /users/{id}/manager) legitimately return 404 when the relationship isn't set, and
+	// retrying those would exhaust the context deadline.
+	if isDirectoryObjectFlag && strings.EqualFold(c.operation.Method, "GET") && c.operation.FieldContainingPaginationDetails == nil && c.operation.URISuffix == nil {
+		defaultFuncBody = fmt.Sprintf(`return %[1]s{
+		RetryFunc: client.RetryOn404ConsistencyFailureFunc,
+	}`, optionsStructName)
+	} else if isDirectoryObjectFlag && strings.EqualFold(c.operation.Method, "GET") && c.operation.FieldContainingPaginationDetails != nil && c.operation.URISuffix == nil {
+		var assignments []string
+		if _, ok := c.operation.Options["ConsistencyLevel"]; ok {
+			assignments = append(assignments, `ConsistencyLevel: func() *odata.ConsistencyLevel { v := odata.ConsistencyLevelEventual; return &v }()`)
+		}
+		if _, ok := c.operation.Options["Count"]; ok {
+			assignments = append(assignments, `Count: func() *bool { v := true; return &v }()`)
+		}
+		if len(assignments) > 0 {
+			defaultFuncBody = fmt.Sprintf(`return %[1]s{
+		%[2]s,
+	}`, optionsStructName, strings.Join(assignments, ",\n\t\t"))
+		}
+	}
+
 	out := fmt.Sprintf(`
 type %[1]s struct {
 %[2]s
 }
 
 func Default%[1]s() %[1]s {
-	return %[1]s{}
+	%[6]s
 }
 
 func (o %[1]s) ToHeaders() *client.Headers {
@@ -968,6 +993,44 @@ func (o %[1]s) ToQuery() *client.QueryParams {
 %[5]s
 	return &out
 }
-`, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(odataAssignments, "\n"), strings.Join(queryStringAssignments, "\n"))
+`, optionsStructName, strings.Join(properties, "\n"), strings.Join(headerAssignments, "\n"), strings.Join(odataAssignments, "\n"), strings.Join(queryStringAssignments, "\n"), defaultFuncBody)
 	return &out, nil
+}
+
+func getResponseRefName(obj *models.SDKObjectDefinition) *string {
+	if obj == nil {
+		return nil
+	}
+	if obj.Type == models.ListSDKObjectDefinitionType && obj.NestedItem != nil {
+		return getResponseRefName(obj.NestedItem)
+	}
+	if obj.Type == models.DictionarySDKObjectDefinitionType && obj.NestedItem != nil {
+		return getResponseRefName(obj.NestedItem)
+	}
+	return obj.ReferenceName
+}
+
+func isDirectoryObject(allModels map[string]models.SDKModel, commonTypesModels map[string]models.SDKModel, refName *string) bool {
+	if refName == nil {
+		return false
+	}
+	current := *refName
+	visited := make(map[string]bool)
+	for {
+		if strings.EqualFold(current, "DirectoryObject") || strings.EqualFold(current, "microsoft.graph.directoryObject") {
+			return true
+		}
+		if visited[current] {
+			return false
+		}
+		visited[current] = true
+		m, ok := allModels[current]
+		if !ok {
+			m, ok = commonTypesModels[current]
+		}
+		if !ok || m.ParentTypeName == nil {
+			return false
+		}
+		current = *m.ParentTypeName
+	}
 }

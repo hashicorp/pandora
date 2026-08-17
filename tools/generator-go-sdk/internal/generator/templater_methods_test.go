@@ -5,6 +5,7 @@ package generator
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -689,6 +690,218 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop, options GetOperation
 }
 `
 	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplateGetMethodDirectoryObjectInjectsRetryFunc(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		models: map[string]models.SDKModel{
+			"PandaModel": {
+				ParentTypeName: stringPointer("microsoft.graph.directoryObject"),
+			},
+		},
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{200},
+			Method:              "GET",
+			Options: map[string]models.SDKOperationOption{
+				"RetryFunc": {
+					Type: models.SDKOperationOptionTypeRetryFunc,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
+				ReferenceName: stringPointer("PandaModel"),
+			},
+		},
+		operationName: "Get",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+type GetOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+	Model *PandaModel
+}
+
+type GetOperationOptions struct {
+	RetryFunc client.RequestRetryFunc
+}
+
+func DefaultGetOperationOptions() GetOperationOptions {
+	return GetOperationOptions{
+		RetryFunc: client.RetryOn404ConsistencyFailureFunc,
+	}
+}
+
+func (o GetOperationOptions) ToHeaders() *client.Headers {
+	out := client.Headers{}
+	return &out
+}
+
+func (o GetOperationOptions) ToOData() *odata.Query {
+	out := odata.Query{}
+	return &out
+}
+
+func (o GetOperationOptions) ToQuery() *client.QueryParams {
+	out := client.QueryParams{}
+	return &out
+}
+
+// Get ...
+func (c pandaClient) Get(ctx context.Context , id PandaPop, options GetOperationOptions) (result GetOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		OptionsObject: options,
+		Path: id.ID(),
+		RetryFunc: options.RetryFunc,
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
+		return
+	}
+
+	var model PandaModel
+	result.Model = &model
+	if err = resp.Unmarshal(result.Model); err != nil {
+		return
+	}
+
+	return
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplateGetMethodDirectoryObjectViaCommonTypesInjectsRetryFunc(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		models:            map[string]models.SDKModel{},
+		commonTypes: models.CommonTypes{
+			Models: map[string]models.SDKModel{
+				"Application": {
+					ParentTypeName: stringPointer("microsoft.graph.directoryObject"),
+				},
+			},
+		},
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{200},
+			Method:              "GET",
+			Options: map[string]models.SDKOperationOption{
+				"RetryFunc": {
+					Type: models.SDKOperationOptionTypeRetryFunc,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
+				ReferenceName: stringPointer("Application"),
+			},
+		},
+		operationName: "Get",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	// Verify RetryFunc is injected in the default options
+	if !strings.Contains(*actual, "RetryFunc: client.RetryOn404ConsistencyFailureFunc") {
+		t.Fatalf("expected RetryFunc injection for common-types directory object, got:\n%s", *actual)
+	}
+}
+
+func TestTemplateGetMethodNavigationPropertyDoesNotInjectRetryFunc(t *testing.T) {
+	input := GeneratorData{
+		baseClientPackage: "testclient",
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		models:            map[string]models.SDKModel{},
+		commonTypes: models.CommonTypes{
+			Models: map[string]models.SDKModel{
+				"DirectoryObject": {
+					ParentTypeName: stringPointer("microsoft.graph.directoryObject"),
+				},
+			},
+		},
+		resourceIds: map[string]models.ResourceID{
+			"PandaPop": {
+				ExampleValue: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
+			ExpectedStatusCodes: []int{200},
+			Method:              "GET",
+			URISuffix:           stringPointer("/manager"),
+			Options: map[string]models.SDKOperationOption{
+				"RetryFunc": {
+					Type: models.SDKOperationOptionTypeRetryFunc,
+				},
+			},
+			ResourceIDName: stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
+				ReferenceName: stringPointer("DirectoryObject"),
+			},
+		},
+		operationName: "GetManager",
+	}.immediateOperationTemplate(input)
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	// Navigation property GETs should NOT have RetryFunc injected because 404
+	// legitimately means the relationship is not set (e.g. user has no manager)
+	if strings.Contains(*actual, "RetryFunc: client.RetryOn404ConsistencyFailureFunc") {
+		t.Fatalf("expected NO RetryFunc injection for navigation property GET, got:\n%s", *actual)
+	}
 }
 
 func TestTemplatePutMethodWithContentTypeOption(t *testing.T) {
