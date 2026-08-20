@@ -351,7 +351,7 @@ service "liftrastronomer" {
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
-  available = ["2024-06-19"]
+  available = ["2024-06-19", "2026-04-16"]
 }
 service "loadtestservice" {
   name      = "LoadTestService"
