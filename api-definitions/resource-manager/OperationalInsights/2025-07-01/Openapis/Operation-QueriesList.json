@@ -1,0 +1,43 @@
+{
+  "name": "QueriesList",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "includeBody",
+      "required": false,
+      "field": "IncludeBody",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "$top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "QueryPackId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LogAnalyticsQueryPackQuery",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/queries"
+}

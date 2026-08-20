@@ -1,0 +1,24 @@
+{
+  "name": "SummaryLogsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SummaryLogId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SummaryLogs",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SummaryLogs",
+    "referenceNameIsCommonType": null
+  }
+}

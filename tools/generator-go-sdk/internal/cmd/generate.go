@@ -78,7 +78,7 @@ func (g GenerateCommand) Run(args []string) int {
 	case g.sourceDataType == models.ResourceManagerSourceDataType:
 		{
 			input.settings.AllowOmittingDiscriminatedValue = false
-			input.settings.DeleteExistingResourcesForVersion = false
+			input.settings.DeleteExistingResourcesForVersion = true
 			input.settings.GenerateDescriptionsForModels = false
 			input.settings.RecurseParentModels = true
 
@@ -104,7 +104,7 @@ func (g GenerateCommand) Run(args []string) int {
 	case g.sourceDataType == models.DataPlaneSourceDataType:
 		{
 			input.settings.AllowOmittingDiscriminatedValue = false
-			input.settings.DeleteExistingResourcesForVersion = false
+			input.settings.DeleteExistingResourcesForVersion = true
 			input.settings.GenerateDescriptionsForModels = false
 			input.settings.RecurseParentModels = true
 		}
@@ -148,6 +148,10 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 	data, err := client.LoadAllData(ctx, input.services)
 	if err != nil {
 		return fmt.Errorf("retrieving API Definitions: %+v", err)
+	}
+
+	if err := removeGhostDirectories(input.outputDirectory, data, input); err != nil {
+		return fmt.Errorf("removing ghost directories: %+v", err)
 	}
 
 	errCh := make(chan error, 1)
@@ -281,6 +285,84 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 		break
 	case err := <-errCh:
 		return err
+	}
+
+	return nil
+}
+
+// removeGhostDirectories attempts to remove directories that are not part of the target services from the output
+// directory. This occurs when the source data is unexpectedly changed, e.g. tags added/removed resulting in directory
+// name changes, or whole packages simply dropped.
+func removeGhostDirectories(outputDirectory string, data *v1.LoadAllDataResult, input GeneratorInput) error {
+	entries, err := os.ReadDir(outputDirectory)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return fmt.Errorf("reading output directory %q: %+v", outputDirectory, err)
+	}
+
+	targetServices := make(map[string]struct{}, len(input.services))
+	for _, s := range input.services {
+		targetServices[strings.ToLower(s)] = struct{}{}
+	}
+
+	validServices := make(map[string]models.Service, len(data.Services))
+	for name, service := range data.Services {
+		validServices[strings.ToLower(name)] = service
+	}
+
+	for _, entry := range entries {
+		if !entry.IsDir() {
+			continue
+		}
+
+		serviceDirName := entry.Name()
+		if serviceDirName == input.settings.CommonTypesPackageName {
+			continue
+		}
+
+		servicePath := filepath.Join(outputDirectory, serviceDirName)
+
+		if len(targetServices) > 0 {
+			if _, ok := targetServices[serviceDirName]; !ok {
+				continue
+			}
+		}
+
+		service, valid := validServices[serviceDirName]
+		if !valid || !service.Generate {
+			logging.Debugf("Removing ghost Service directory %q", servicePath)
+			if err := os.RemoveAll(servicePath); err != nil {
+				return fmt.Errorf("removing ghost service directory %q: %+v", servicePath, err)
+			}
+			continue
+		}
+
+		versionEntries, err := os.ReadDir(servicePath)
+		if err != nil {
+			return fmt.Errorf("reading service directory %q: %+v", servicePath, err)
+		}
+
+		validVersions := make(map[string]struct{}, len(service.APIVersions))
+		for version := range service.APIVersions {
+			validVersions[strings.ToLower(version)] = struct{}{}
+		}
+
+		for _, vEntry := range versionEntries {
+			if !vEntry.IsDir() {
+				continue
+			}
+
+			versionDirName := vEntry.Name()
+			if _, validVersion := validVersions[versionDirName]; !validVersion {
+				versionPath := filepath.Join(servicePath, versionDirName)
+				logging.Debugf("Removing ghost Version directory %q", versionPath)
+				if err := os.RemoveAll(versionPath); err != nil {
+					return fmt.Errorf("removing ghost version directory %q: %+v", versionPath, err)
+				}
+			}
+		}
 	}
 
 	return nil

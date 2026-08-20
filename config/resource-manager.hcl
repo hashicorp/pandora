@@ -141,7 +141,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01"]
+  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01", "2026-04-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -197,7 +197,7 @@ service "datashare" {
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
-  available = ["2024-04-03"]
+  available = ["2024-04-03", "2025-10-10"]
   ignore    = ["2023-09-05"]
 }
 service "devcenter" {
@@ -397,7 +397,7 @@ service "migrate" {
 }
 service "mongocluster" {
   name      = "MongoCluster"
-  available = ["2024-07-01", "2025-09-01"]
+  available = ["2024-07-01", "2025-09-01", "2026-06-01"]
 }
 service "monitor" {
   name      = "Insights"
@@ -405,7 +405,7 @@ service "monitor" {
 }
 service "monitoringservice" {
   name      = "Monitor"
-  available = ["2023-04-03"]
+  available = ["2023-04-03", "2026-04-01"]
 }
 service "msi" {
   name      = "ManagedIdentity"
@@ -417,11 +417,11 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2025-01-01", "2025-03-01", "2025-06-01", "2025-12-01", "2026-01-01"]
+  available = ["2025-01-01", "2025-03-01", "2025-06-01", "2025-12-01", "2026-01-01", "2026-05-01"]
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-05-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-05-01", "2025-07-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -446,7 +446,7 @@ service "notificationhubs" {
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
-  available = ["2019-09-01", "2020-08-01", "2022-10-01", "2023-09-01", "2025-02-01"]
+  available = ["2019-09-01", "2020-08-01", "2022-10-01", "2023-09-01", "2025-02-01", "2025-07-01"]
 }
 service "operationsmanagement" {
   name      = "OperationsManagement"
@@ -470,7 +470,7 @@ service "policyinsights" {
 }
 service "portal" {
   name      = "Portal"
-  available = ["2019-01-01-preview", "2020-09-01-preview"]
+  available = ["2019-01-01-preview", "2020-09-01-preview", "2026-04-01"]
 }
 service "postgresql" {
   name      = "PostgreSql"
@@ -645,10 +645,6 @@ service "vi" {
 service "vmware" {
   name      = "VMware"
   available = ["2022-05-01", "2024-09-01"]
-}
-service "voiceservices" {
-  name      = "VoiceServices"
-  available = ["2023-04-03", "2023-09-01"]
 }
 service "web" {
   name      = "Web"

@@ -9,14 +9,15 @@ on:
       - 'tools/data-api/**' # to detect changes when the Data API is updated
       - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   detect-changes-to-the-api-definitions:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
 
@@ -54,3 +55,11 @@ jobs:
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-static-identifiers.md
+
+      - name: Check for Breaking Changes
+        run: |
+          if ! grep -q "No Breaking Changes were found" outputs/resource-manager-breaking-changes.md; then
+            echo "🛑 Breaking changes detected! Please review the PR comments for details."
+            exit 1
+          fi
+

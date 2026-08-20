@@ -1,0 +1,25 @@
+{
+  "name": "ListGetGroupIdListForLdapUser",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VolumeId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetGroupIdListForLdapUserRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "GetGroupIdListForLdapUserResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getGroupIdListForLdapUser"
+}

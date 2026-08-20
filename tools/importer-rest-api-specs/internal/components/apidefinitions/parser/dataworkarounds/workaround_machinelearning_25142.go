@@ -19,7 +19,7 @@ type workaroundMachineLearning25142 struct {
 
 func (workaroundMachineLearning25142) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
 	serviceMatches := serviceName == "MachineLearningServices"
-	apiVersionMatches := apiVersion.APIVersion == "2023-04-01"
+	apiVersionMatches := apiVersion.APIVersion == "2025-06-01"
 	return serviceMatches && apiVersionMatches
 }
 

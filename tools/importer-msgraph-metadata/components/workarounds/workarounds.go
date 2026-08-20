@@ -33,6 +33,7 @@ var serviceWorkarounds = []serviceWorkaround{
 	workaroundBlacklist{},
 
 	// Service-specific workarounds
+	workaroundDeletedItem{},
 	workaroundSynchronizationSecrets{},
 }
 

@@ -9,9 +9,9 @@ var workarounds = []workaround{
 	// Common workarounds
 	// https://github.com/Azure/azure-rest-api-specs/issues/22758
 	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2023-02-01"}, []string{"ProtectedItems"}, []string{"CreateOrUpdate", "Delete"}, nil},
-	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectedItems"}, []string{"Delete"}, nil},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-08-01"}, []string{"ProtectedItems"}, []string{"Delete"}, nil},
 	// https://github.com/Azure/azure-rest-api-specs/issues/37325
-	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-02-01"}, []string{"ProtectionContainers"}, []string{"Unregister"}, nil},
+	commonWorkaroundIsLRO{"RecoveryServicesBackup", []string{"2025-08-01"}, []string{"ProtectionContainers"}, []string{"Unregister"}, nil},
 	// https://github.com/Azure/azure-rest-api-specs/issues/41432
 	commonWorkaroundIsLRO{"Web", []string{"2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01"}, []string{"Certificates"}, []string{"CreateOrUpdate"}, []int{202}},
 
@@ -24,6 +24,7 @@ var workarounds = []workaround{
 	WorkaroundAutomation42369{},
 	workaroundBatch21291{},
 	workaroundBotService27351{},
+	WorkaroundCDN44244{},
 	workaroundContainerRegistry32154{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
@@ -45,13 +46,19 @@ var workarounds = []workaround{
 	workaroundPaloAltoNetworks38348{},
 	workaroundPurview22257{},
 	workaroundRecoveryServicesSiteRecovery26680{},
+	workaroundRedHatOpenShift43540{},
 	workaroundRedis22407{},
+	WorkaroundSecurityInsights22503{},
+	WorkaroundSecurityInsights22893{},
+	WorkaroundSecurityInsights{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
 	workaroundWeb14529{},
 	workaroundWeb31682{},
+	workaroundWebKindApiConnection45544{},
+	WorkaroundWeb43978{},
 
 	// Special Case for Network duplicated Enum
 	workaroundNetworkProvisioningState{},
@@ -69,4 +76,12 @@ var workarounds = []workaround{
 
 	// These workarounds are for a specific use cases that are not API related issues
 	workaroundSqlJobExecutionsCreateNotLRO{},
+}
+
+var fileWorkarounds = []fileWorkaround{
+	// These workarounds filter out problematic swagger files before parsing begins,
+	// typically when TypeSpec-generated files conflict with legacy hand-written files.
+
+	// https://github.com/Azure/azure-rest-api-specs/issues/45213
+	workaroundInsights45213{},
 }

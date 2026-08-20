@@ -1,0 +1,23 @@
+{
+  "name": "QueriesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "QueryId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LogAnalyticsQueryPackQuery",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LogAnalyticsQueryPackQuery",
+    "referenceNameIsCommonType": null
+  }
+}

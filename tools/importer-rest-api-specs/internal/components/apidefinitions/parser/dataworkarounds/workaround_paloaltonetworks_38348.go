@@ -4,7 +4,6 @@
 package dataworkarounds
 
 import (
-	"errors"
 	"fmt"
 
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
@@ -15,7 +14,7 @@ var _ workaround = workaroundPaloAltoNetworks38348{}
 type workaroundPaloAltoNetworks38348 struct{}
 
 func (workaroundPaloAltoNetworks38348) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "PaloAltoNetworks" && apiVersion.APIVersion == "2025-05-23"
+	return serviceName == "PaloAltoNetworks" && (apiVersion.APIVersion == "2025-05-23" || apiVersion.APIVersion == "2025-10-08")
 }
 
 func (workaroundPaloAltoNetworks38348) Name() string {
@@ -23,35 +22,45 @@ func (workaroundPaloAltoNetworks38348) Name() string {
 }
 
 func (workaroundPaloAltoNetworks38348) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["Firewalls"]
+	// The resource (tag) name differs between API Versions - in `2025-05-23` it's `Firewalls`
+	// whereas in `2025-10-08` it's `FirewallResources`.
+	resourceName, ok := map[string]string{
+		"2025-05-23": "Firewalls",
+		"2025-10-08": "FirewallResources",
+	}[input.APIVersion]
 	if !ok {
-		return nil, errors.New("expected a resource named `Firewalls` but didn't get one")
+		return nil, fmt.Errorf("unexpected API Version %q", input.APIVersion)
 	}
 
-    models := []string{
-        "FirewallResource",
-        "FirewallResourceUpdate",
-    }
+	resource, ok := input.Resources[resourceName]
+	if !ok {
+		return nil, fmt.Errorf("expected a resource named `%s` but didn't get one", resourceName)
+	}
 
-    for _, modelName := range models {
-        model, ok := resource.Models[modelName]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find model `%s`", modelName)
-        }
+	models := []string{
+		"FirewallResource",
+		"FirewallResourceUpdate",
+	}
 
-        identityField, ok := model.Fields["Identity"]
-        if !ok {
-            return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
-        }
+	for _, modelName := range models {
+		model, ok := resource.Models[modelName]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find model `%s`", modelName)
+		}
 
-        identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
-        identityField.ObjectDefinition.ReferenceName = nil
+		identityField, ok := model.Fields["Identity"]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find the field `Identity` within model `%s`", modelName)
+		}
 
-        model.Fields["Identity"] = identityField
-        resource.Models[modelName] = model
-    }
+		identityField.ObjectDefinition.Type = sdkModels.UserAssignedIdentityMapSDKObjectDefinitionType
+		identityField.ObjectDefinition.ReferenceName = nil
 
-    input.Resources["Firewalls"] = resource
+		model.Fields["Identity"] = identityField
+		resource.Models[modelName] = model
+	}
 
-    return &input, nil
+	input.Resources[resourceName] = resource
+
+	return &input, nil
 }

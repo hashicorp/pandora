@@ -9,6 +9,9 @@ on:
       - 'tools/generator-go-sdk/**'
       - 'tools/importer-rest-api-specs/**'
 
+permissions:
+  contents: read
+
 concurrency:
   group: 'unit-test-dp-${{ github.head_ref }}'
   cancel-in-progress: true # Long running, always triggers, cancel if further changes are pushed
@@ -21,7 +24,7 @@ jobs:
         run: |
           sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
 
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
 
