@@ -460,6 +460,10 @@ service "orbital" {
   name      = "Orbital"
   available = ["2022-11-01"]
 }
+service "orbitalplanetarycomputer" {
+  name      = "OrbitalPlanetaryComputer"
+  available = ["2026-04-15"]
+}
 service "paloaltonetworks" {
   name      = "PaloAltoNetworks"
   available = ["2022-08-29", "2023-09-01", "2025-05-23", "2025-10-08"]
