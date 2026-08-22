@@ -102,8 +102,18 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 			}
 			if isScope {
-				segments = append(segments, sdkModels.NewScopeResourceIDSegment(normalizedSegment))
-				continue
+				precededByResourceType := false
+				if len(segments) > 0 {
+					previousSegment := segments[len(segments)-1]
+					if previousSegment.Type == sdkModels.StaticResourceIDSegmentType {
+						precededByResourceType = true
+					}
+				}
+
+				if !precededByResourceType {
+					segments = append(segments, sdkModels.NewScopeResourceIDSegment(normalizedSegment))
+					continue
+				}
 			}
 
 			if strings.EqualFold(normalizedSegment, "subscription") || strings.EqualFold(normalizedSegment, "subscriptionId") {

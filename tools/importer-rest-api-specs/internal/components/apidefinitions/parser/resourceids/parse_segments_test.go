@@ -388,6 +388,40 @@ func TestParseResourceIDFromOperation_UserAssignedIdentityId(t *testing.T) {
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
+func TestParseResourceIDFromOperation_UserSpecifiedResourceIdSameAsKnownSegmentsUsedForScope(t *testing.T) {
+	t.Parallel()
+	swagger := spec.NewOperation("Example_Operation")
+	// `roleAssignmentId` is listed as known segments used for scope
+	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DocumentDB/roleAssignments/{roleAssignmentId}"
+
+	parser := NewParser(nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.uriSuffix != nil {
+		t.Fatalf("expected no uriSuffix but got %q", *resourceId.uriSuffix)
+	}
+	if len(resourceId.constants) != 0 {
+		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
+	}
+	if resourceId.segments == nil {
+		t.Fatalf("expected 8 segments but got 0")
+	}
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+		sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+		sdkModels.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
+		sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.DocumentDB"),
+		sdkModels.NewStaticValueResourceIDSegment("roleAssignments", "roleAssignments"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("roleAssignmentId", "roleAssignmentId"),
+	}
+	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
+}
+
 func validateSegmentsMatch(t *testing.T, actual []sdkModels.ResourceIDSegment, expected []sdkModels.ResourceIDSegment) {
 	if len(actual) != len(expected) {
 		t.Fatalf("expected there to be %d segments but got %d", len(expected), len(actual))
