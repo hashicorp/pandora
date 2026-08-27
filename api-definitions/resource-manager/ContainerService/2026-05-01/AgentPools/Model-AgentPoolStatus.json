@@ -1,0 +1,21 @@
+{
+  "name": "AgentPoolStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningError",
+      "name": "ProvisioningError",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ErrorDetail",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
