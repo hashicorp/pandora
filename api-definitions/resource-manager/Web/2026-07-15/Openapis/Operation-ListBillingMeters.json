@@ -1,0 +1,43 @@
+{
+  "name": "ListBillingMeters",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "billingLocation",
+      "required": false,
+      "field": "BillingLocation",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "osType",
+      "required": false,
+      "field": "OsType",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BillingMeter",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Microsoft.Web/billingMeters"
+}
