@@ -392,7 +392,7 @@ func TestParseResourceIDFromOperation_UserSpecifiedResourceIdSameAsKnownSegments
 	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")
 	// `roleAssignmentId` is listed as known segments used for scope
-	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.DocumentDB/roleAssignments/{roleAssignmentId}"
+	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraRoleAssignments/{roleAssignmentId}"
 
 	parser := NewParser(nil)
 	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
@@ -407,7 +407,7 @@ func TestParseResourceIDFromOperation_UserSpecifiedResourceIdSameAsKnownSegments
 		t.Fatalf("expected 0 constants but got %d", len(resourceId.constants))
 	}
 	if resourceId.segments == nil {
-		t.Fatalf("expected 8 segments but got 0")
+		t.Fatalf("expected 10 segments but got 0")
 	}
 	expectedSegments := []sdkModels.ResourceIDSegment{
 		sdkModels.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
@@ -416,7 +416,9 @@ func TestParseResourceIDFromOperation_UserSpecifiedResourceIdSameAsKnownSegments
 		sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 		sdkModels.NewStaticValueResourceIDSegment("providers", "providers"),
 		sdkModels.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.DocumentDB"),
-		sdkModels.NewStaticValueResourceIDSegment("roleAssignments", "roleAssignments"),
+		sdkModels.NewStaticValueResourceIDSegment("databaseAccounts", "databaseAccounts"),
+		sdkModels.NewUserSpecifiedResourceIDSegment("accountName", "accountName"),
+		sdkModels.NewStaticValueResourceIDSegment("cassandraRoleAssignments", "cassandraRoleAssignments"),
 		sdkModels.NewUserSpecifiedResourceIDSegment("roleAssignmentId", "roleAssignmentId"),
 	}
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
