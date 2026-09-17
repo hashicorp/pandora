@@ -1,0 +1,23 @@
+{
+  "name": "ResourceGuardsPatch",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ResourceGuardId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PatchResourceGuardInput",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ResourceGuardResource",
+    "referenceNameIsCommonType": null
+  }
+}
