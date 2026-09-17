@@ -14,7 +14,7 @@ var _ workaround = workaroundMongoCluster38810{}
 type workaroundMongoCluster38810 struct{}
 
 func (workaroundMongoCluster38810) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "MongoCluster" && apiVersion.APIVersion == "2025-09-01"
+	return serviceName == "MongoCluster" && (apiVersion.APIVersion == "2025-09-01" || apiVersion.APIVersion == "2026-06-01")
 }
 
 func (workaroundMongoCluster38810) Name() string {

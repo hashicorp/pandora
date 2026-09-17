@@ -108,7 +108,7 @@ service "cognitiveservices" {
 }
 service "communication" {
   name      = "Communication"
-  available = ["2023-03-31", "2023-04-01", "2025-05-01"]
+  available = ["2023-03-31", "2023-04-01", "2025-05-01", "2026-03-18"]
 }
 service "compute" {
   name      = "Compute"
@@ -141,7 +141,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01", "2026-04-01"]
+  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01", "2026-04-01", "2026-05-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -189,7 +189,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01", "2025-07-01", "2025-09-01"]
+  available = ["2024-04-01", "2025-07-01", "2025-09-01", "2026-03-01", "2026-06-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -227,6 +227,10 @@ service "devtestlabs" {
 service "digitaltwins" {
   name      = "DigitalTwins"
   available = ["2023-01-31"]
+}
+service "discovery" {
+  name      = "Discovery"
+  available = ["2026-06-01"]
 }
 service "dns" {
   name      = "DNS"
@@ -351,7 +355,7 @@ service "liftrastronomer" {
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
-  available = ["2024-06-19"]
+  available = ["2024-06-19", "2026-04-16"]
 }
 service "loadtestservice" {
   name      = "LoadTestService"
@@ -460,6 +464,10 @@ service "orbital" {
   name      = "Orbital"
   available = ["2022-11-01"]
 }
+service "orbitalplanetarycomputer" {
+  name      = "OrbitalPlanetaryComputer"
+  available = ["2026-04-15"]
+}
 service "paloaltonetworks" {
   name      = "PaloAltoNetworks"
   available = ["2022-08-29", "2023-09-01", "2025-05-23", "2025-10-08"]
@@ -555,7 +563,7 @@ service "securityinsights" {
 }
 service "servicebus" {
   name      = "ServiceBus"
-  available = ["2024-01-01"]
+  available = ["2024-01-01", "2026-01-01"]
 }
 service "servicefabric" {
   name      = "ServiceFabric"
@@ -648,7 +656,7 @@ service "vmware" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01", "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01"]
+  available = ["2016-06-01", "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01", "2026-07-15"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
