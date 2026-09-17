@@ -6,6 +6,7 @@ package resourceids
 import (
 	"fmt"
 	"regexp"
+	"slices"
 	"sort"
 	"strings"
 
@@ -29,6 +30,14 @@ var knownSegmentsUsedForScope = []string{
 	"roleAssignmentId",
 	"scope",
 	"scopePath",
+}
+
+var uriCheckedForScopePreviousSegment = []string{
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/cassandraRoleAssignments/{roleAssignmentId}",
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/gremlinRoleAssignments/{roleAssignmentId}",
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/mongoMIRoleAssignments/{roleAssignmentId}",
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleAssignments/{roleAssignmentId}",
+	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/tableRoleAssignments/{roleAssignmentId}",
 }
 
 type processedResourceId struct {
@@ -63,7 +72,7 @@ func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId
 
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
-
+	fmt.Println("debug0", uri)
 	segments := make([]sdkModels.ResourceIDSegment, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -102,8 +111,18 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				}
 			}
 			if isScope {
-				segments = append(segments, sdkModels.NewScopeResourceIDSegment(normalizedSegment))
-				continue
+				precededByResourceType := false
+				if len(segments) > 0 && slices.Contains(uriCheckedForScopePreviousSegment, uri) {
+					previousSegment := segments[len(segments)-1]
+					if previousSegment.Type == sdkModels.StaticResourceIDSegmentType {
+						precededByResourceType = true
+					}
+				}
+
+				if !precededByResourceType {
+					segments = append(segments, sdkModels.NewScopeResourceIDSegment(normalizedSegment))
+					continue
+				}
 			}
 
 			if strings.EqualFold(normalizedSegment, "subscription") || strings.EqualFold(normalizedSegment, "subscriptionId") {
