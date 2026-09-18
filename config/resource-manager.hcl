@@ -437,7 +437,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2024-03-01", "2024-10-01"]
+  available = ["2024-03-01", "2024-10-01", "2026-06-01"]
   ignore    = ["2024-01-01"]
 }
 service "nginx" {
