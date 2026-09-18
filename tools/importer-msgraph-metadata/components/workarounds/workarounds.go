@@ -23,6 +23,9 @@ var workarounds = []dataWorkaround{
 	workaroundConditionalAccessPolicy{},
 	workaroundOAuth2PermissionGrant{},
 	workaroundUnifiedRoleAssignment{},
+	workaroundUnifiedRoleManagementPolicy{},
+	workaroundConnectedOrganization{},
+	workaroundCrossTenantAccessPolicyConfigurationPartner{},
 }
 
 // serviceWorkarounds make post-parsing changes to individual services and are able to make any changes to resources
