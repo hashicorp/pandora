@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/version-bumper
 
-go 1.26.5
+go 1.26.6
 
 require (
 	github.com/hashicorp/hcl/v2 v2.16.2
@@ -13,7 +13,7 @@ require (
 	github.com/google/go-cmp v0.5.9 // indirect
 	github.com/mitchellh/go-wordwrap v1.0.0 // indirect
 	github.com/zclconf/go-cty v1.13.1 // indirect
-	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/text v0.42.0 // indirect
 )
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
