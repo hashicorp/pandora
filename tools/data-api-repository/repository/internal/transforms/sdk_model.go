@@ -76,13 +76,18 @@ func mapSDKFieldsForModel(model sdkModels.SDKModel, parentModel *sdkModels.SDKMo
 	for _, fieldName := range sortedFieldNames {
 		// we should skip outputting this field if it's present on the parent
 		fieldInParent := false
+		field := model.Fields[fieldName]
+
 		if parentModel != nil {
 			// the importer flattens fields from parents/AllOf, since we don't use inheritance for that within the
 			// data layer - as such we only want to skip the fields when the parent type is output, e.g. when there's
 			// a discriminator involved
-			for name := range parentModel.Fields {
+			// keep the field if more specific than the parent field even with the same name
+			for name, parentField := range parentModel.Fields {
 				if strings.EqualFold(name, fieldName) {
-					fieldInParent = true
+					if !shouldOverwriteParentField(field, parentField) {
+						fieldInParent = true
+					}
 					break
 				}
 			}
@@ -91,7 +96,6 @@ func mapSDKFieldsForModel(model sdkModels.SDKModel, parentModel *sdkModels.SDKMo
 			continue
 		}
 
-		field := model.Fields[fieldName]
 		isTypeHint := model.FieldNameContainingDiscriminatedValue != nil && strings.EqualFold(*model.FieldNameContainingDiscriminatedValue, fieldName)
 		fieldCode, err := mapSDKFieldToRepository(fieldName, field, isTypeHint, knownData)
 		if err != nil {
@@ -102,4 +106,23 @@ func mapSDKFieldsForModel(model sdkModels.SDKModel, parentModel *sdkModels.SDKMo
 	}
 
 	return &fields, nil
+}
+
+// shouldOverwriteParentField returns true if the child field is more specific than the
+// parent field, meaning the child should be output to overwrite the parent's definition.
+// This handles the case where the parent defines a field as a raw object but the child
+// provides a more specific type for that field.
+func shouldOverwriteParentField(child, parent sdkModels.SDKField) bool {
+	return isRawObjectDefinition(parent.ObjectDefinition) && !isRawObjectDefinition(child.ObjectDefinition)
+}
+
+func isRawObjectDefinition(def sdkModels.SDKObjectDefinition) bool {
+	if def.Type == sdkModels.RawObjectSDKObjectDefinitionType {
+		return true
+	}
+	// e.g. List<RawObject> or Dictionary<RawObject>
+	if def.NestedItem != nil {
+		return isRawObjectDefinition(*def.NestedItem)
+	}
+	return false
 }
