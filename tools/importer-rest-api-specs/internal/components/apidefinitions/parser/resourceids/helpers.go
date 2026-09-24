@@ -64,3 +64,23 @@ func normalizedResourceId(segments []sdkModels.ResourceIDSegment) string {
 
 	return fmt.Sprintf("/%s", strings.Join(components, "/"))
 }
+
+// Exclusion list for some URI segments that is mistakenly identified as scope and causes naming conflict
+// https://github.com/hashicorp/pandora/pull/5486
+func segmentInScopeDenyList(segment string, uri string) bool {
+	denyList := map[string]map[string]bool{
+		"roleassignmentid": {
+			"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/cassandraroleassignments/{roleassignmentid}": true,
+			"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/gremlinroleassignments/{roleassignmentid}":   true,
+			"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/mongomiroleassignments/{roleassignmentid}":   true,
+			"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/sqlroleassignments/{roleassignmentid}":       true,
+			"/subscriptions/{subscriptionid}/resourcegroups/{resourcegroupname}/providers/microsoft.documentdb/databaseaccounts/{accountname}/tableroleassignments/{roleassignmentid}":     true,
+		},
+	}
+	if denyListForSegment, ok := denyList[strings.ToLower(segment)]; ok {
+		if denyListForSegment[strings.ToLower(uri)] {
+			return true
+		}
+	}
+	return false
+}

@@ -63,7 +63,6 @@ func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId
 
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
-
 	segments := make([]sdkModels.ResourceIDSegment, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
@@ -96,7 +95,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
 			isScope := false
 			for _, scopeSegmentAlias := range knownSegmentsUsedForScope {
-				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) {
+				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) && !segmentInScopeDenyList(normalizedSegment, uri) {
 					isScope = true
 					break
 				}
