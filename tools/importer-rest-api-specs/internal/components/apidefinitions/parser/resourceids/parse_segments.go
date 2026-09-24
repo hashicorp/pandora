@@ -18,17 +18,25 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/internal/logging"
 )
 
+// knownSegmentsUsedForScope defines path parameter names that represent a Scope segment anywhere in a path.
 var knownSegmentsUsedForScope = []string{
 	"billingScope",
 	"connectedClusterResourceUri", // HybridAKS
 	"customLocationResourceUri",   // HybridAKS
-	"denyAssignmentId",
-	"ResourceId",
 	"resourceScope",
 	"resourceUri",
-	"roleAssignmentId",
 	"scope",
 	"scopePath",
+}
+
+// knownRootSegmentsUsedForScope defines path parameter names that only represent a Scope when at the root of a URI
+// (e.g. `/{roleAssignmentId}` or `/{resourceId}`). When appearing within a resource hierarchy (such as
+// `.../sqlRoleAssignments/{roleAssignmentId}` or `.../privateLinkResources/{resourceId}`), these represent
+// user-specified resource names rather than scopes.
+var knownRootSegmentsUsedForScope = []string{
+	"denyAssignmentId",
+	"ResourceId",
+	"roleAssignmentId",
 }
 
 type processedResourceId struct {
@@ -99,6 +107,14 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) {
 					isScope = true
 					break
+				}
+			}
+			if !isScope && len(segments) == 0 {
+				for _, rootScopeAlias := range knownRootSegmentsUsedForScope {
+					if strings.EqualFold(normalizedSegment, rootScopeAlias) {
+						isScope = true
+						break
+					}
 				}
 			}
 			if isScope {
