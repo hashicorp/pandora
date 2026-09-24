@@ -737,6 +737,19 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 // TestResourceIdNamingApplicationInsightsComponentScopePath is a reference test for scope processing
 func TestResourceIdNamingApplicationInsightsComponentScopePath(t *testing.T) {
 	t.Parallel()
+	componentResourceId := sdkModels.ResourceID{
+		ConstantNames: []string{},
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftInsights", "Microsoft.Insights"),
+			sdkModels.NewStaticValueResourceIDSegment("staticComponents", "components"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("componentName", "componentName"),
+		},
+	}
 	componentScopePathResourceId := sdkModels.ResourceID{
 		ConstantNames: []string{},
 		Segments: []sdkModels.ResourceIDSegment{
@@ -752,9 +765,11 @@ func TestResourceIdNamingApplicationInsightsComponentScopePath(t *testing.T) {
 		},
 	}
 	input := []sdkModels.ResourceID{
+		componentResourceId,
 		componentScopePathResourceId,
 	}
 	expectedNamesToIds := map[string]sdkModels.ResourceID{
+		"ComponentId":         componentResourceId,
 		"ProviderComponentId": componentScopePathResourceId,
 	}
 
