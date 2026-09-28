@@ -1,0 +1,25 @@
+{
+  "name": "SqlResourcesUpdateSqlDatabaseThroughput",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ThroughputSettingsUpdateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ThroughputSettingsGetResults",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/throughputSettings/default"
+}
