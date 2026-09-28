@@ -103,7 +103,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		if strings.HasPrefix(originalSegment, "{") && strings.HasSuffix(originalSegment, "}") {
 			isScope := false
 			for _, scopeSegmentAlias := range knownSegmentsUsedForScope {
-				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) && !segmentInScopeDenyList(normalizedSegment, uri) {
+				if strings.EqualFold(normalizedSegment, scopeSegmentAlias) {
 					isScope = true
 					break
 				}
