@@ -733,3 +733,53 @@ func TestResourceIDNamingRedisDefaultId(t *testing.T) {
 		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
 	}
 }
+
+// TestResourceIdNamingApplicationInsightsComponentScopePath is a reference test for scope processing
+func TestResourceIdNamingApplicationInsightsComponentScopePath(t *testing.T) {
+	t.Parallel()
+	componentResourceId := sdkModels.ResourceID{
+		ConstantNames: []string{},
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftInsights", "Microsoft.Insights"),
+			sdkModels.NewStaticValueResourceIDSegment("staticComponents", "components"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("componentName", "componentName"),
+		},
+	}
+	componentScopePathResourceId := sdkModels.ResourceID{
+		ConstantNames: []string{},
+		Segments: []sdkModels.ResourceIDSegment{
+			sdkModels.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+			sdkModels.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			sdkModels.NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			sdkModels.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			sdkModels.NewStaticValueResourceIDSegment("staticProviders", "providers"),
+			sdkModels.NewResourceProviderResourceIDSegment("staticMicrosoftInsights", "Microsoft.Insights"),
+			sdkModels.NewStaticValueResourceIDSegment("staticComponents", "components"),
+			sdkModels.NewUserSpecifiedResourceIDSegment("componentName", "componentName"),
+			sdkModels.NewScopeResourceIDSegment("scopePath"),
+		},
+	}
+	input := []sdkModels.ResourceID{
+		componentResourceId,
+		componentScopePathResourceId,
+	}
+	expectedNamesToIds := map[string]sdkModels.ResourceID{
+		"ComponentId":         componentResourceId,
+		"ProviderComponentId": componentScopePathResourceId,
+	}
+
+	uriToParsedOperation := map[string]ParsedOperation{}
+	actualNamesToIds, err := generateNamesForResourceIds(input, uriToParsedOperation)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	if !reflect.DeepEqual(expectedNamesToIds, actualNamesToIds) {
+		t.Fatalf("expected namesToIds to be %+v but got %+v", expectedNamesToIds, actualNamesToIds)
+	}
+}
