@@ -71,7 +71,6 @@ func (p *Parser) parseSegmentsForEachOperation() (map[string]processedResourceId
 
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
-
 	segments := make([]sdkModels.ResourceIDSegment, 0)
 	result := parserModels.ParseResult{
 		Constants: map[string]sdkModels.SDKConstant{},
