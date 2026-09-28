@@ -1,0 +1,36 @@
+{
+  "name": "ActivationLinks",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "existingCloudAccountActivationLink",
+      "name": "ExistingCloudAccountActivationLink",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "newCloudAccountActivationLink",
+      "name": "NewCloudAccountActivationLink",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
