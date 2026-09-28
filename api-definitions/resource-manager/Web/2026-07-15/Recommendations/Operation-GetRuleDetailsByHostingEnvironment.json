@@ -1,0 +1,41 @@
+{
+  "name": "GetRuleDetailsByHostingEnvironment",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "recommendationId",
+      "required": false,
+      "field": "RecommendationId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "updateSeen",
+      "required": false,
+      "field": "UpdateSeen",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "HostingEnvironmentRecommendationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "RecommendationRule",
+    "referenceNameIsCommonType": null
+  }
+}

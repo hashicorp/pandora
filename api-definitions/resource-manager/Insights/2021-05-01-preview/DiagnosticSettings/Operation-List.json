@@ -5,13 +5,14 @@
   "expectedStatusCodes": [
     200
   ],
+  "fieldContainingPaginationDetails": "nextLink",
   "longRunning": false,
   "httpMethod": "GET",
   "resourceIdName": "ScopeId",
   "responseObject": {
     "type": "Reference",
     "nullable": false,
-    "referenceName": "DiagnosticSettingsResourceCollection",
+    "referenceName": "DiagnosticSettingsResource",
     "referenceNameIsCommonType": null
   },
   "uriSuffix": "/providers/Microsoft.Insights/diagnosticSettings"

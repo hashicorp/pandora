@@ -10,6 +10,9 @@ on:
       - 'tools/generator-terraform/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: read
+
 concurrency:
   group: 'regenterraform-${{ github.head_ref }}'
   cancel-in-progress: true
@@ -18,7 +21,7 @@ jobs:
   regenerate-terraform-provider:
     runs-on: custom-linux-large
     steps:
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:

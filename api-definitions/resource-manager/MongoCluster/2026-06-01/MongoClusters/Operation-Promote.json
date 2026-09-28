@@ -1,0 +1,18 @@
+{
+  "name": "Promote",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MongoClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PromoteReplicaRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/promote"
+}

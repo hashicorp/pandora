@@ -309,6 +309,80 @@ func TestParseResourceIDFromOperation_Scope(t *testing.T) {
 	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
 }
 
+func TestParseResourceIDFromOperation_RoleAssignmentIdAtRootIsScope(t *testing.T) {
+	t.Parallel()
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/{roleAssignmentId}"
+
+	parser := NewParser(nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.segments == nil {
+		t.Fatalf("expected 1 segment but got 0")
+	}
+	expectedSegments := []sdkModels.ResourceIDSegment{
+		sdkModels.NewScopeResourceIDSegment("roleAssignmentId"),
+	}
+	validateSegmentsMatch(t, *resourceId.segments, expectedSegments)
+}
+
+func TestParseResourceIDFromOperation_RoleAssignmentIdInResourceHierarchyIsUserSpecified(t *testing.T) {
+	t.Parallel()
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{accountName}/sqlRoleAssignments/{roleAssignmentId}"
+
+	parser := NewParser(nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.segments == nil {
+		t.Fatalf("expected 10 segments but got 0")
+	}
+	segments := *resourceId.segments
+	if len(segments) != 10 {
+		t.Fatalf("expected 10 segments but got %d", len(segments))
+	}
+	lastSegment := segments[len(segments)-1]
+	if lastSegment.Type != sdkModels.UserSpecifiedResourceIDSegmentType {
+		t.Fatalf("expected final segment to be UserSpecified, got %q", string(lastSegment.Type))
+	}
+	if lastSegment.Name != "roleAssignmentId" {
+		t.Fatalf("expected final segment name to be `roleAssignmentId`, got %q", lastSegment.Name)
+	}
+}
+
+func TestParseResourceIDFromOperation_ScopePathInResourceHierarchyIsScope(t *testing.T) {
+	t.Parallel()
+	swagger := spec.NewOperation("Example_Operation")
+	uri := "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/{scopePath}"
+
+	parser := NewParser(nil)
+	resourceId, err := parser.parseResourceIdFromOperation(uri, swagger)
+	if err != nil {
+		t.Fatalf("parsing Resource ID from %q: %+v", uri, err)
+	}
+
+	if resourceId.segments == nil {
+		t.Fatalf("expected 9 segments but got 0")
+	}
+	segments := *resourceId.segments
+	if len(segments) != 9 {
+		t.Fatalf("expected 9 segments but got %d", len(segments))
+	}
+	lastSegment := segments[len(segments)-1]
+	if lastSegment.Type != sdkModels.ScopeResourceIDSegmentType {
+		t.Fatalf("expected final segment to be Scope, got %q", string(lastSegment.Type))
+	}
+	if lastSegment.Name != "scopePath" {
+		t.Fatalf("expected final segment name to be `scopePath`, got %q", lastSegment.Name)
+	}
+}
+
 func TestParseResourceIDFromOperation_SubscriptionId(t *testing.T) {
 	t.Parallel()
 	swagger := spec.NewOperation("Example_Operation")

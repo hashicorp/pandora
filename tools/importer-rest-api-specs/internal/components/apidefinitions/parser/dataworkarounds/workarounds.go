@@ -50,12 +50,14 @@ var workarounds = []workaround{
 	workaroundRedis22407{},
 	WorkaroundSecurityInsights22503{},
 	WorkaroundSecurityInsights22893{},
+	WorkaroundSecurityInsights{},
 	workaroundSql33215{},
 	workaroundStorageCache32537{},
 	workaroundStreamAnalytics27577{},
 	workaroundSubscriptions20254{},
 	workaroundWeb14529{},
 	workaroundWeb31682{},
+	workaroundWebKindApiConnection45544{},
 	WorkaroundWeb43978{},
 
 	// Special Case for Network duplicated Enum
@@ -74,4 +76,12 @@ var workarounds = []workaround{
 
 	// These workarounds are for a specific use cases that are not API related issues
 	workaroundSqlJobExecutionsCreateNotLRO{},
+}
+
+var fileWorkarounds = []fileWorkaround{
+	// These workarounds filter out problematic swagger files before parsing begins,
+	// typically when TypeSpec-generated files conflict with legacy hand-written files.
+
+	// https://github.com/Azure/azure-rest-api-specs/issues/45213
+	workaroundInsights45213{},
 }

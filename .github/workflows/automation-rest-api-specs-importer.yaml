@@ -10,6 +10,8 @@ on:
       - 'tools/importer-rest-api-specs/**'
   workflow_dispatch: # for manual invocations
 
+permissions:
+  contents: write
 
 concurrency:
   group: 'regendataapi-resourcemanager-${{ github.head_ref }}'
@@ -19,14 +21,12 @@ concurrency:
 jobs:
   regenerate-api-data:
     runs-on: custom-linux-xl
-    permissions:
-      contents: write
     steps:
       - name: mount a ramdisk to working dir
         run: |
           sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
           
-      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
 

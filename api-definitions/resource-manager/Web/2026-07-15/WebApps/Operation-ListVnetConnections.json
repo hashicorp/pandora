@@ -1,0 +1,24 @@
+{
+  "name": "ListVnetConnections",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "AppServiceId",
+  "responseObject": {
+    "type": "List",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null,
+    "nestedItem": {
+      "type": "Reference",
+      "nullable": false,
+      "referenceName": "VnetInfoResource",
+      "referenceNameIsCommonType": null
+    }
+  },
+  "uriSuffix": "/virtualNetworkConnections"
+}

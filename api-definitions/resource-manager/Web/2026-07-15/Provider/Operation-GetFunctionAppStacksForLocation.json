@@ -1,0 +1,32 @@
+{
+  "name": "GetFunctionAppStacksForLocation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "stackOsType",
+      "required": false,
+      "field": "StackOsType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProviderStackOsType"
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FunctionAppStack",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/functionAppStacks"
+}

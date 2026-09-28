@@ -1,0 +1,25 @@
+{
+  "name": "ListSlotDifferencesSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SlotId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CsmSlotEntity",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SlotDifference",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/slotsdiffs"
+}

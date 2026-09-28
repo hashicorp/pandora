@@ -1,0 +1,19 @@
+{
+  "name": "ListProcessesSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SlotId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ProcessInfo",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/processes"
+}
