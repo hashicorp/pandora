@@ -44,7 +44,7 @@ service "attestation" {
 }
 service "authorization" {
   name      = "Authorization"
-  available = ["2020-10-01", "2022-04-01", "2022-05-01-preview"]
+  available = ["2020-10-01", "2022-04-01", "2022-05-01-preview", "2024-12-01-preview"]
 }
 service "automanage" {
   name      = "AutoManage"
