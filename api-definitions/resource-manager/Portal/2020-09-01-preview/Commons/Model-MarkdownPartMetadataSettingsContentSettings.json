@@ -1,10 +1,10 @@
 {
-  "name": "EndpointDetail",
+  "name": "MarkdownPartMetadataSettingsContentSettings",
   "fields": [
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "ipAddress",
-      "name": "IPAddress",
+      "jsonName": "content",
+      "name": "Content",
       "objectDefinition": {
         "type": "String",
         "nullable": false,
@@ -18,40 +18,55 @@
     },
     {
       "containsDiscriminatedTypeValue": false,
-      "jsonName": "isAccessible",
-      "name": "IsAccessible",
-      "objectDefinition": {
-        "type": "Boolean",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "latency",
-      "name": "Latency",
-      "objectDefinition": {
-        "type": "Float",
-        "nullable": false,
-        "referenceName": null,
-        "referenceNameIsCommonType": null
-      },
-      "optional": true,
-      "readOnly": false,
-      "required": false,
-      "sensitive": false
-    },
-    {
-      "containsDiscriminatedTypeValue": false,
-      "jsonName": "port",
-      "name": "Port",
+      "jsonName": "markdownSource",
+      "name": "MarkdownSource",
       "objectDefinition": {
         "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "markdownUri",
+      "name": "MarkdownUri",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subtitle",
+      "name": "Subtitle",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "title",
+      "name": "Title",
+      "objectDefinition": {
+        "type": "String",
         "nullable": false,
         "referenceName": null,
         "referenceNameIsCommonType": null
