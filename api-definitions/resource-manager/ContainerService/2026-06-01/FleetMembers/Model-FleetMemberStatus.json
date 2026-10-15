@@ -1,0 +1,36 @@
+{
+  "name": "FleetMemberStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastOperationError",
+      "name": "LastOperationError",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ErrorDetail",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastOperationId",
+      "name": "LastOperationId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

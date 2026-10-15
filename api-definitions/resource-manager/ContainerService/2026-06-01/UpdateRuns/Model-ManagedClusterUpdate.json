@@ -1,0 +1,36 @@
+{
+  "name": "ManagedClusterUpdate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodeImageSelection",
+      "name": "NodeImageSelection",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "NodeImageSelection",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgrade",
+      "name": "Upgrade",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedClusterUpgradeSpec",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
