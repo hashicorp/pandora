@@ -1,0 +1,36 @@
+{
+  "name": "PlacementV1ClusterSelectorTerm",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labelSelector",
+      "name": "LabelSelector",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MetaV1LabelSelector",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "propertySelector",
+      "name": "PropertySelector",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlacementV1PropertySelector",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
