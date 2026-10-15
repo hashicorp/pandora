@@ -314,6 +314,7 @@ func NormalizeServiceName(input string) string {
 		"engagementfabric":               "EngagementFabric",
 		"eventgrid":                      "EventGrid",
 		"eventhub":                       "EventHub",
+		"eventhubs":                      "EventHubs",
 		"extendedlocation":               "ExtendedLocation",
 		"fluidrelay":                     "FluidRelay",
 		"frontdoor":                      "FrontDoor",
