@@ -22,38 +22,37 @@ func (workaroundResourcesPolicyParameterMetadata) Name() string {
 }
 
 func (workaroundResourcesPolicyParameterMetadata) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	for resourceName, resource := range input.Resources {
-		switch resourceName {
-		case "PolicyDefinitions", "PolicyDefinitionVersions", "PolicySetDefinitions", "PolicySetDefinitionVersions":
-		default:
-			continue
-		}
-
-		model, ok := resource.Models["ParameterDefinitionsValue"]
-		if !ok {
-			return nil, fmt.Errorf("expected a model named `ParameterDefinitionsValue` in resource `%s`", resourceName)
-		}
-		field, ok := model.Fields["Metadata"]
-		if !ok {
-			return nil, fmt.Errorf("expected a field named `Metadata` in model `ParameterDefinitionsValue` in resource `%s`", resourceName)
-		}
-		if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType ||
-			field.ObjectDefinition.ReferenceName == nil ||
-			*field.ObjectDefinition.ReferenceName != "ParameterDefinitionsValueMetadata" {
-			return nil, fmt.Errorf("expected `Metadata` to reference `ParameterDefinitionsValueMetadata` in resource `%s`", resourceName)
-		}
-
-		// The importer does not preserve additionalProperties alongside named metadata properties.
-		field.ObjectDefinition = sdkModels.SDKObjectDefinition{
-			Type: sdkModels.DictionarySDKObjectDefinitionType,
-			NestedItem: &sdkModels.SDKObjectDefinition{
-				Type: sdkModels.RawObjectSDKObjectDefinitionType,
-			},
-		}
-		model.Fields["Metadata"] = field
-		resource.Models["ParameterDefinitionsValue"] = model
-		input.Resources[resourceName] = resource
+	resource, ok := input.Resources["PolicyDefinitions"]
+	if !ok {
+		return nil, fmt.Errorf("expected a Resource named `PolicyDefinitions` but didn't get one")
 	}
+
+	model, ok := resource.Models["ParameterDefinitionsValue"]
+	if !ok {
+		return nil, fmt.Errorf("expected a Model named `ParameterDefinitionsValue` but didn't get one")
+	}
+
+	field, ok := model.Fields["Metadata"]
+	if !ok {
+		return nil, fmt.Errorf("expected a Field named `Metadata` but didn't get one")
+	}
+
+	if field.ObjectDefinition.Type != sdkModels.ReferenceSDKObjectDefinitionType ||
+		field.ObjectDefinition.ReferenceName == nil ||
+		*field.ObjectDefinition.ReferenceName != "ParameterDefinitionsValueMetadata" {
+		return nil, fmt.Errorf("expected `Metadata` to reference `ParameterDefinitionsValueMetadata`")
+	}
+
+	// The importer does not preserve additionalProperties alongside named metadata properties.
+	field.ObjectDefinition = sdkModels.SDKObjectDefinition{
+		Type: sdkModels.DictionarySDKObjectDefinitionType,
+		NestedItem: &sdkModels.SDKObjectDefinition{
+			Type: sdkModels.RawObjectSDKObjectDefinitionType,
+		},
+	}
+	model.Fields["Metadata"] = field
+	resource.Models["ParameterDefinitionsValue"] = model
+	input.Resources["PolicyDefinitions"] = resource
 
 	return &input, nil
 }
