@@ -57,6 +57,7 @@ var workarounds = []workaround{
 	workaroundSubscriptions20254{},
 	workaroundWeb14529{},
 	workaroundWeb31682{},
+	workaroundWeb40128{},
 	workaroundWebKindApiConnection45544{},
 	WorkaroundWeb43978{},
 
