@@ -15,7 +15,7 @@ var _ workaround = WorkaroundCDN44244{}
 type WorkaroundCDN44244 struct{}
 
 func (WorkaroundCDN44244) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "CDN" && apiVersion.APIVersion == "2025-12-01"
+	return serviceName == "CDN" && (apiVersion.APIVersion == "2025-12-01" || apiVersion.APIVersion == "2026-10-01")
 }
 
 func (w WorkaroundCDN44244) Name() string {
