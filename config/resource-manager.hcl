@@ -349,10 +349,6 @@ service "labservices" {
   name      = "LabServices"
   available = ["2023-06-07"]
 }
-service "liftrastronomer" {
-  name      = "Astronomer"
-  available = ["2024-08-27"]
-}
 service "liftrqumulo" {
   name      = "QumuloStorage"
   available = ["2024-06-19", "2026-04-16"]
