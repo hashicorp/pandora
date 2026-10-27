@@ -349,10 +349,6 @@ service "labservices" {
   name      = "LabServices"
   available = ["2023-06-07"]
 }
-service "liftrastronomer" {
-  name      = "Astronomer"
-  available = ["2024-08-27"]
-}
 service "liftrqumulo" {
   name      = "QumuloStorage"
   available = ["2024-06-19", "2026-04-16"]
@@ -478,7 +474,7 @@ service "policyinsights" {
 }
 service "portal" {
   name      = "Portal"
-  available = ["2019-01-01-preview", "2020-09-01-preview", "2026-04-01"]
+  available = ["2019-01-01-preview", "2020-09-01-preview"]
 }
 service "postgresql" {
   name      = "PostgreSql"
