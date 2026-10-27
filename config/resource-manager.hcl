@@ -309,6 +309,10 @@ service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2022-12-01", "2024-03-31"]
 }
+service "horizondb" {
+  name      = "HorizonDB"
+  available = ["2026-10-01-preview"]
+}
 service "hybridaks" {
   name      = "HybridAzureKubernetesService"
   available = ["2024-01-01"]
