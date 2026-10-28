@@ -1,0 +1,24 @@
+{
+  "name": "ValidateCustomDomain",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AfdEndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ValidateCustomDomainInput",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ValidateCustomDomainOutput",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateCustomDomain"
+}
