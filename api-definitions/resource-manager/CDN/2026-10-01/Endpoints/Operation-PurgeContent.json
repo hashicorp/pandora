@@ -1,0 +1,19 @@
+{
+  "name": "PurgeContent",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "EndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "PurgeParameters",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/purge"
+}
