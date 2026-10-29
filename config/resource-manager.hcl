@@ -98,6 +98,10 @@ service "chaos" {
   name      = "ChaosStudio"
   available = ["2023-11-01", "2025-01-01"]
 }
+service "cloudhealth" {
+  name      = "CloudHealth"
+  available = ["2026-11-01"]
+}
 service "codesigning" {
   name      = "CodeSigning"
   available = ["2024-09-30-preview", "2025-10-13"]
