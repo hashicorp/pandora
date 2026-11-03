@@ -1,0 +1,19 @@
+{
+  "name": "ValidateAzureKeyVaultEncryptionKey",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SqlManagedInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedInstanceValidateAzureKeyVaultEncryptionKeyRequest",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/validateAzureKeyVaultEncryptionKey"
+}
