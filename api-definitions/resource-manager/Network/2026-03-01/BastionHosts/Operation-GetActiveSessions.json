@@ -1,0 +1,20 @@
+{
+  "name": "GetActiveSessions",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BastionHostId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "BastionActiveSession",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getActiveSessions"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "NatRulesListByVpnGateway",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VpnGatewayId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VpnGatewayNatRule",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/natRules"
+}

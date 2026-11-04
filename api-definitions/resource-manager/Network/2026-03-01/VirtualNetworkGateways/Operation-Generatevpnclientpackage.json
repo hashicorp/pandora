@@ -1,0 +1,25 @@
+{
+  "name": "Generatevpnclientpackage",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualNetworkGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VpnClientParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "String",
+    "nullable": false,
+    "referenceName": null,
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/generatevpnclientpackage"
+}
