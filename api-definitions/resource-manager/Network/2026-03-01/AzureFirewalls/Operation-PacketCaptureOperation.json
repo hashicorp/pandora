@@ -1,0 +1,25 @@
+{
+  "name": "PacketCaptureOperation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "AzureFirewallId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallPacketCaptureParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AzureFirewallPacketCaptureResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/packetCaptureOperation"
+}
