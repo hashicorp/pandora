@@ -218,7 +218,7 @@ service "deviceupdate" {
 }
 service "devopsinfrastructure" {
   name      = "DevOpsInfrastructure"
-  available = ["2025-01-21", "2025-09-20"]
+  available = ["2025-01-21", "2025-09-20", "2026-06-02"]
 }
 service "devtestlabs" {
   name      = "DevTestLab"
