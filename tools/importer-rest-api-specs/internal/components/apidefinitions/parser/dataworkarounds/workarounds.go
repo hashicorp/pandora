@@ -34,7 +34,6 @@ var workarounds = []workaround{
 	workaroundDigitalTwins25120{},
 	workaroundFluidRelay39089{},
 	workaroundHDInsight26838{},
-	workaroundHorizonDBParameterGroupOptional{},
 	workaroundLoadTest20961{},
 	workaroundMachineLearning25142{},
 	workaroundMachineLearning40149{},
