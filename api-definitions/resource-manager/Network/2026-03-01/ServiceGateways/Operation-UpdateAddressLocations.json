@@ -1,0 +1,24 @@
+{
+  "name": "UpdateAddressLocations",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ServiceGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServiceGatewayUpdateAddressLocationsRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ServiceGatewayActionOkResponseBody",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/updateAddressLocations"
+}

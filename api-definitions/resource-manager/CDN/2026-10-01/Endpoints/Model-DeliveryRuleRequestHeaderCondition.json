@@ -1,0 +1,24 @@
+{
+  "name": "DeliveryRuleRequestHeaderCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "RequestHeaderMatchConditionParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryRuleCondition",
+  "discriminatedTypeValue": "RequestHeader",
+  "typeHintIn": "Name"
+}

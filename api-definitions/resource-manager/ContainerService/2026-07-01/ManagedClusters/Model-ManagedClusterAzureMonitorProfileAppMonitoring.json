@@ -1,0 +1,51 @@
+{
+  "name": "ManagedClusterAzureMonitorProfileAppMonitoring",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoInstrumentation",
+      "name": "AutoInstrumentation",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoringAutoInstrumentation",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openTelemetryLogsAndTraces",
+      "name": "OpenTelemetryLogsAndTraces",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryLogsAndTraces",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openTelemetryMetrics",
+      "name": "OpenTelemetryMetrics",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ManagedClusterAzureMonitorProfileAppMonitoringOpenTelemetryMetrics",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
