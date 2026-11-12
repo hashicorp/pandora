@@ -1,11 +1,11 @@
 module github.com/hashicorp/pandora/tools/importer-msgraph-metadata
 
-go 1.26.5
+go 1.26.6
 
 require (
 	github.com/davecgh/go-spew v1.1.1
 	github.com/gertd/go-pluralize v0.2.1
-	github.com/getkin/kin-openapi v0.146.0
+	github.com/getkin/kin-openapi v0.152.0
 	github.com/go-git/go-git/v5 v5.19.2
 	github.com/hashicorp/go-azure-helpers v0.81.1
 	github.com/hashicorp/go-hclog v1.6.3
@@ -14,7 +14,7 @@ require (
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-20230809001200-97c549958463
 	github.com/jedib0t/go-pretty/v6 v6.4.6
 	github.com/mitchellh/cli v1.1.5
-	golang.org/x/text v0.40.0
+	golang.org/x/text v0.42.0
 )
 
 require (
@@ -58,19 +58,19 @@ require (
 	github.com/pjbgf/sha1cd v0.6.0 // indirect
 	github.com/posener/complete v1.1.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/santhosh-tekuri/jsonschema/v6 v6.0.2 // indirect
+	github.com/santhosh-tekuri/jsonschema/v6 v6.0.3 // indirect
 	github.com/sergi/go-diff v1.3.2-0.20230802210424-5b0b94c5c0d3 // indirect
 	github.com/shopspring/decimal v1.2.0 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/cast v1.3.1 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
 	github.com/zclconf/go-cty v1.18.1 // indirect
-	golang.org/x/crypto v0.54.0 // indirect
-	golang.org/x/mod v0.37.0 // indirect
-	golang.org/x/net v0.56.0 // indirect
-	golang.org/x/sync v0.22.0 // indirect
-	golang.org/x/sys v0.47.0 // indirect
-	golang.org/x/tools v0.47.0 // indirect
+	golang.org/x/crypto v0.57.0 // indirect
+	golang.org/x/mod v0.41.0 // indirect
+	golang.org/x/net v0.59.0 // indirect
+	golang.org/x/sync v0.23.0 // indirect
+	golang.org/x/sys v0.48.0 // indirect
+	golang.org/x/tools v0.49.0 // indirect
 	gopkg.in/warnings.v0 v0.1.2 // indirect
 )
 

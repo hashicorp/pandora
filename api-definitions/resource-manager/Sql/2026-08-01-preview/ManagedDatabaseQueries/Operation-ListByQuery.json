@@ -1,0 +1,54 @@
+{
+  "name": "ListByQuery",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "endTime",
+      "required": false,
+      "field": "EndTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "interval",
+      "required": false,
+      "field": "Interval",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "QueryTimeGrainType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "startTime",
+      "required": false,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "QueryId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "QueryStatistics",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/statistics"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "SetRole",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "DistributedAvailabilityGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DistributedAvailabilityGroupSetRole",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DistributedAvailabilityGroup",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/setRole"
+}

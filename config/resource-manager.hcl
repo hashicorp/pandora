@@ -24,7 +24,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2023-05-01", "2025-01-01", "2025-07-01"]
+  available = ["2023-05-01", "2025-01-01", "2025-07-01", "2026-07-01"]
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
@@ -88,7 +88,7 @@ service "botservice" {
 }
 service "cdn" {
   name      = "CDN"
-  available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01", "2025-12-01"]
+  available = ["2024-02-01", "2024-09-01", "2025-04-15", "2025-06-01", "2025-12-01", "2026-10-01"]
 }
 service "certificateregistration" {
   name = "CertificateRegistration"
@@ -141,11 +141,11 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01", "2026-04-01", "2026-05-01"]
+  available = ["2019-08-01", "2024-04-01", "2025-02-01", "2025-03-01", "2025-05-01", "2025-07-01", "2025-10-01", "2026-04-01", "2026-05-01", "2026-06-01", "2026-07-01"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15", "2025-10-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15", "2024-08-15", "2025-04-15", "2025-10-15", "2026-03-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -189,7 +189,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2024-04-01", "2025-07-01", "2025-09-01", "2026-03-01", "2026-06-01"]
+  available = ["2024-04-01", "2025-07-01", "2025-09-01", "2026-03-01", "2026-06-01", "2026-07-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -309,6 +309,10 @@ service "healthcareapis" {
   name      = "HealthcareApis"
   available = ["2022-12-01", "2024-03-31"]
 }
+service "horizondb" {
+  name      = "HorizonDB"
+  available = ["2026-10-01-preview"]
+}
 service "hybridaks" {
   name      = "HybridAzureKubernetesService"
   available = ["2024-01-01"]
@@ -348,10 +352,6 @@ service "kubernetesconfiguration" {
 service "labservices" {
   name      = "LabServices"
   available = ["2023-06-07"]
-}
-service "liftrastronomer" {
-  name      = "Astronomer"
-  available = ["2024-08-27"]
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
@@ -425,7 +425,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-05-01", "2025-07-01"]
+  available = ["2023-09-01", "2023-11-01", "2024-01-01", "2024-05-01", "2024-07-01", "2024-10-01", "2025-01-01", "2025-05-01", "2025-07-01", "2026-03-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -437,7 +437,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2024-03-01", "2024-10-01"]
+  available = ["2024-03-01", "2024-10-01", "2026-06-01"]
   ignore    = ["2024-01-01"]
 }
 service "nginx" {
@@ -458,7 +458,7 @@ service "operationsmanagement" {
 }
 service "oracle" {
   name      = "OracleDatabase"
-  available = ["2025-03-01", "2025-09-01"]
+  available = ["2025-03-01", "2025-09-01", "2026-06-01"]
 }
 service "orbital" {
   name      = "Orbital"
@@ -478,7 +478,7 @@ service "policyinsights" {
 }
 service "portal" {
   name      = "Portal"
-  available = ["2019-01-01-preview", "2020-09-01-preview", "2026-04-01"]
+  available = ["2019-01-01-preview", "2020-09-01-preview"]
 }
 service "postgresql" {
   name      = "PostgreSql"
@@ -518,7 +518,7 @@ service "recoveryservicessiterecovery" {
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
-  available = ["2023-09-04", "2023-11-22", "2025-07-25"]
+  available = ["2023-09-04", "2023-11-22", "2025-07-25", "2026-10-01"]
 }
 service "redis" {
   name      = "Redis"
@@ -591,7 +591,7 @@ service "solutions" {
 }
 service "sql" {
   name      = "Sql"
-  available = ["2023-08-01", "2023-08-01-preview", "2025-01-01"]
+  available = ["2023-08-01", "2023-08-01-preview", "2025-01-01", "2026-08-01-preview"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"

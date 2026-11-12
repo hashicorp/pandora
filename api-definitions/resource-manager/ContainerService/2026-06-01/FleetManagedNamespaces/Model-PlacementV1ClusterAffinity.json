@@ -1,0 +1,21 @@
+{
+  "name": "PlacementV1ClusterAffinity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "requiredDuringSchedulingIgnoredDuringExecution",
+      "name": "RequiredDuringSchedulingIgnoredDuringExecution",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PlacementV1ClusterSelector",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

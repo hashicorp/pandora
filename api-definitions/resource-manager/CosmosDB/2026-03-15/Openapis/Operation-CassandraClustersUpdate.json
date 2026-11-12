@@ -1,0 +1,24 @@
+{
+  "name": "CassandraClustersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CassandraClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ClusterResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ClusterResource",
+    "referenceNameIsCommonType": null
+  }
+}

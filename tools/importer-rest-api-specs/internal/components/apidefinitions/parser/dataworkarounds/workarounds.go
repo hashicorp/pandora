@@ -17,6 +17,7 @@ var workarounds = []workaround{
 
 	// Workarounds
 	workaroundAlertsManagement{},
+	workaroundApiCenter29502{},
 	workaroundApiManagement39054{},
 	workaroundAuthorization25080{},
 	workaroundAutomation25108{},

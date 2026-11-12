@@ -1,0 +1,24 @@
+{
+  "name": "SpringCloudEurekaComponent",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingress",
+      "name": "Ingress",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "JavaComponentIngress",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "JavaComponentProperties",
+  "discriminatedTypeValue": "SpringCloudEureka",
+  "typeHintIn": "ComponentType"
+}

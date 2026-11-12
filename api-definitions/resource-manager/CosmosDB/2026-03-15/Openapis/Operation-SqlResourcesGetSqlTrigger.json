@@ -1,0 +1,17 @@
+{
+  "name": "SqlResourcesGetSqlTrigger",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "TriggerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SqlTriggerGetResults",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "CassandraResourcesCreateUpdateCassandraRoleDefinition",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "CassandraRoleDefinitionId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CassandraRoleDefinitionResource",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CassandraRoleDefinitionResource",
+    "referenceNameIsCommonType": null
+  }
+}

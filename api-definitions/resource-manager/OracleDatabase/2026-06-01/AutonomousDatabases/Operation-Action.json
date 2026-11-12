@@ -1,0 +1,25 @@
+{
+  "name": "Action",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "AutonomousDatabaseId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AutonomousDatabaseLifecycleAction",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AutonomousDatabase",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/action"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "GetUpgradeProfile",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "AgentPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AgentPoolUpgradeProfile",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/upgradeProfiles/default"
+}

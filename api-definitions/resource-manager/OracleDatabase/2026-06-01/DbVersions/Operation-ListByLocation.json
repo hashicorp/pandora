@@ -1,0 +1,87 @@
+{
+  "name": "ListByLocation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "dbSystemId",
+      "required": false,
+      "field": "DbSystemId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "dbSystemShape",
+      "required": false,
+      "field": "DbSystemShape",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "BaseDbSystemShapes"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "isDatabaseSoftwareImageSupported",
+      "required": false,
+      "field": "IsDatabaseSoftwareImageSupported",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "isUpgradeSupported",
+      "required": false,
+      "field": "IsUpgradeSupported",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "shapeFamily",
+      "required": false,
+      "field": "ShapeFamily",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ShapeFamilyType"
+      }
+    },
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "storageManagement",
+      "required": false,
+      "field": "StorageManagement",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageManagementType"
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DbVersion",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/dbSystemDbVersions"
+}
