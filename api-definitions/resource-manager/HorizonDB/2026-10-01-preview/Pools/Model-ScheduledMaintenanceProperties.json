@@ -1,0 +1,22 @@
+{
+  "name": "ScheduledMaintenanceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "maintenanceManagementType",
+      "name": "MaintenanceManagementType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ScheduledMaintenanceManagementType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "MaintenanceManagementType"
+}
