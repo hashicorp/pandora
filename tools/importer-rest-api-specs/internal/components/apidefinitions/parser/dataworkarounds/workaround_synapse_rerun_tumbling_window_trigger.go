@@ -6,6 +6,7 @@ package dataworkarounds
 import (
 	"fmt"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	sdkModels "github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -34,7 +35,10 @@ func (workaroundSynapseRerunTumblingWindowTrigger) Process(input sdkModels.APIVe
 		return nil, fmt.Errorf("couldn't find model `RerunTumblingWindowTrigger`")
 	}
 
-	model.DiscriminatedValue = new("RerunTumblingWindowTrigger")
+	if pointer.From(model.DiscriminatedValue) == "rerunTumblingWindowTrigger" {
+		model.DiscriminatedValue = new("RerunTumblingWindowTrigger")
+	}
+
 	resource.Models["RerunTumblingWindowTrigger"] = model
 
 	input.Resources["Triggers"] = resource
