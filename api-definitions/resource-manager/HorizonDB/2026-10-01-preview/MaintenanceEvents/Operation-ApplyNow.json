@@ -1,0 +1,19 @@
+{
+  "name": "ApplyNow",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MaintenanceEventId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MaintenanceEventActionResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/applyNow"
+}

@@ -1,0 +1,24 @@
+{
+  "name": "ManagedIdentityAuthenticationSettingProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedIdentityName",
+      "name": "ManagedIdentityName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AuthenticationSettingProperties",
+  "discriminatedTypeValue": "ManagedIdentity",
+  "typeHintIn": "AuthenticationKind"
+}

@@ -1,0 +1,57 @@
+{
+  "name": "MigrationSubstateDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "currentSubState",
+      "name": "CurrentSubState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "MigrationSubstate",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dbDetails",
+      "name": "DbDetails",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DatabaseMigrationState",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationDetails",
+      "name": "ValidationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ValidationDetails",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

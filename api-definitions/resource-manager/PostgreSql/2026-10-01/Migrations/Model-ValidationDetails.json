@@ -1,0 +1,95 @@
+{
+  "name": "ValidationDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dbLevelValidationDetails",
+      "name": "DbLevelValidationDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "DbLevelValidationStatus",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverLevelValidationDetails",
+      "name": "ServerLevelValidationDetails",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ValidationSummaryItem",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ValidationState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "validationEndTimeInUtc",
+      "name": "ValidationEndTimeInUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "dateFormat": "RFC3339",
+      "jsonName": "validationStartTimeInUtc",
+      "name": "ValidationStartTimeInUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
