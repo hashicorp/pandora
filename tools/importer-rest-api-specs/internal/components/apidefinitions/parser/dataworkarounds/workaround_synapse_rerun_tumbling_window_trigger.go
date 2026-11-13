@@ -17,7 +17,7 @@ var _ workaround = workaroundSynapseRerunTumblingWindowTrigger{}
 type workaroundSynapseRerunTumblingWindowTrigger struct{}
 
 func (workaroundSynapseRerunTumblingWindowTrigger) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "Synapse" && apiVersion.APIVersion == "2019-06-01-preview"
+	return serviceName == "Synapse" && (apiVersion.APIVersion == "2021-06-01-preview" || apiVersion.APIVersion == "2019-06-01-preview")
 }
 
 func (workaroundSynapseRerunTumblingWindowTrigger) Name() string {
@@ -25,23 +25,25 @@ func (workaroundSynapseRerunTumblingWindowTrigger) Name() string {
 }
 
 func (workaroundSynapseRerunTumblingWindowTrigger) Process(input sdkModels.APIVersion) (*sdkModels.APIVersion, error) {
-	resource, ok := input.Resources["Triggers"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find API Resource `Triggers`")
+	for _, r := range []string{"Triggers", "Trigger"} {
+		resource, ok := input.Resources[r]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find API Resource `%s`", r)
+		}
+
+		model, ok := resource.Models["RerunTumblingWindowTrigger"]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find model `RerunTumblingWindowTrigger`")
+		}
+
+		if pointer.From(model.DiscriminatedValue) == "rerunTumblingWindowTrigger" {
+			model.DiscriminatedValue = new("RerunTumblingWindowTrigger")
+		}
+
+		resource.Models["RerunTumblingWindowTrigger"] = model
+
+		input.Resources[r] = resource
 	}
-
-	model, ok := resource.Models["RerunTumblingWindowTrigger"]
-	if !ok {
-		return nil, fmt.Errorf("couldn't find model `RerunTumblingWindowTrigger`")
-	}
-
-	if pointer.From(model.DiscriminatedValue) == "rerunTumblingWindowTrigger" {
-		model.DiscriminatedValue = new("RerunTumblingWindowTrigger")
-	}
-
-	resource.Models["RerunTumblingWindowTrigger"] = model
-
-	input.Resources["Triggers"] = resource
 
 	return &input, nil
 }
