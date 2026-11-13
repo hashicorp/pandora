@@ -1,0 +1,19 @@
+{
+  "name": "MigrateNetworkMode",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "FlexibleServerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MigrateNetworkStatus",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/migrateNetwork"
+}
