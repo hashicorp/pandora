@@ -1,0 +1,51 @@
+{
+  "name": "MicrosoftEntraAdministratorPropertiesForAdd",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "principalName",
+      "name": "PrincipalName",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "principalType",
+      "name": "PrincipalType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "PrincipalTypes",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tenantId",
+      "name": "TenantId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

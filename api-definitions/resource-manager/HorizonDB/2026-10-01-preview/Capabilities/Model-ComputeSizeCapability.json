@@ -1,0 +1,36 @@
+{
+  "name": "ComputeSizeCapability",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "memoryPerVCoreInMb",
+      "name": "MemoryPerVCoreInMb",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vCores",
+      "name": "VCores",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

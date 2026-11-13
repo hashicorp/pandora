@@ -1,0 +1,156 @@
+{
+  "name": "ChangeDataCaptureCapabilityProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoUpgradeExtension",
+      "name": "AutoUpgradeExtension",
+      "objectDefinition": {
+        "type": "Boolean",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "configurationCount",
+      "name": "ConfigurationCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "desiredState",
+      "name": "DesiredState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureDesiredState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destinationCount",
+      "name": "DestinationCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveState",
+      "name": "EffectiveState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureEffectiveState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "extension",
+      "name": "Extension",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureExtensionStatus",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "prerequisites",
+      "name": "Prerequisites",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCapturePrerequisiteStatus",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ProvisioningState",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicationArchitecture",
+      "name": "ReplicationArchitecture",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureReplicationArchitecture",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "ChangeDataCaptureStatus",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}
