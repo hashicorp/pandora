@@ -1,0 +1,22 @@
+{
+  "name": "SignalRecommendationConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "signalKind",
+      "name": "SignalKind",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SignalRecommendationKind",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "SignalKind"
+}

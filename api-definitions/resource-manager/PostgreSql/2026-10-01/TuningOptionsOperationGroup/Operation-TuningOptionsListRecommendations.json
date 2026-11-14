@@ -1,0 +1,32 @@
+{
+  "name": "TuningOptionsListRecommendations",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "recommendationType",
+      "required": false,
+      "field": "RecommendationType",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecommendationTypeParameterEnum"
+      }
+    }
+  ],
+  "resourceIdName": "TuningOptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ObjectRecommendation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/recommendations"
+}
