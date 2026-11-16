@@ -1,0 +1,24 @@
+{
+  "name": "FabricDestinationDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workspaceId",
+      "name": "WorkspaceId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "ChangeDataCaptureDestinationDetails",
+  "discriminatedTypeValue": "Fabric",
+  "typeHintIn": "DestinationType"
+}

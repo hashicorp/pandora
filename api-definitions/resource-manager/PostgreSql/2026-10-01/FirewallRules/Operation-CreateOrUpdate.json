@@ -1,0 +1,17 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "FirewallRuleId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallRule",
+    "referenceNameIsCommonType": null
+  }
+}

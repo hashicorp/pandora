@@ -1,0 +1,24 @@
+{
+  "name": "AddDataAnnotation",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "EntityId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AddDataAnnotationRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "DataAnnotation",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/addDataAnnotation"
+}

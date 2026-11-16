@@ -1,0 +1,27 @@
+{
+  "name": "ExternalSignalGroup",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "signals",
+      "name": "Signals",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "ExternalSignal",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

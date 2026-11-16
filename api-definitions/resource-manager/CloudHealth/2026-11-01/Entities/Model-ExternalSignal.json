@@ -1,0 +1,24 @@
+{
+  "name": "ExternalSignal",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "evaluationRules",
+      "name": "EvaluationRules",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EvaluationRule",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "SignalInstanceProperties",
+  "discriminatedTypeValue": "External",
+  "typeHintIn": "SignalKind"
+}
