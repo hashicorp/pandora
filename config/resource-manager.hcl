@@ -56,7 +56,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2024-04-13"]
+  available = ["2024-04-13", "2025-02-14"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
