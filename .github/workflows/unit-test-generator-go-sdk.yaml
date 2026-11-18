@@ -18,7 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-         submodules: recursive
+          submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
@@ -35,7 +36,6 @@ jobs:
             tools/data-api-repository/go.mod
             tools/version-bumper/go.mod
             tools/generator-terraform/go.mod
-
 
       - name: run unit tests
         run: |

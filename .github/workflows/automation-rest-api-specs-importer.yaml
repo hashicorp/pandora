@@ -1,3 +1,4 @@
+---
 name: Regenerate API Data with New Resource Manager Changes after PR Merge
 on:
   push:
@@ -11,21 +12,25 @@ on:
   workflow_dispatch: # for manual invocations
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: 'regendataapi-resourcemanager-${{ github.head_ref }}'
-  cancel-in-progress: true
-
+  group: 'regendataapi-resourcemanager-${{ github.ref }}'
+  cancel-in-progress: false
 
 jobs:
   regenerate-api-data:
+    if: github.ref == 'refs/heads/main'
     runs-on: custom-linux-xl
+    permissions:
+      contents: write
+    outputs:
+      has_changes_to_push: ${{ steps.commit-imported-data.outputs.has_changes_to_push }}
     steps:
       - name: mount a ramdisk to working dir
         run: |
-          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
-          
+          sudo mount -t tmpfs -o size=32G tmpfs "$GITHUB_WORKSPACE"
+
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
@@ -46,7 +51,6 @@ jobs:
             tools/version-bumper/go.mod
             tools/generator-terraform/go.mod
 
-
       - name: build and run importer-rest-api-specs
         id: import-data
         run: |
@@ -59,25 +63,39 @@ jobs:
       - name: then commit the diff
         id: commit-imported-data
         run: |
-          git checkout -b data/regeneration-from-${{ github.sha }}-rest-api-specs
+          git checkout -b "data/regeneration-from-${{ github.sha }}-rest-api-specs"
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest Swagger"
 
       - name: then conditionally push the branch
         id: push-branch
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
+        if: steps.commit-imported-data.outputs.has_changes_to_push == 'true'
         run: |
-          git push origin data/regeneration-from-${{ github.sha }}-rest-api-specs
+          git push origin "data/regeneration-from-${{ github.sha }}-rest-api-specs"
 
-      - name: then conditionally open a pull request
-        id: open-pr
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
+      - name: unmount ramdisk
+        if: always()
         run: |
-          gh pr create --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          cd /
+          sudo umount -l "$GITHUB_WORKSPACE" || true
+
+  open-pr:
+    needs: [regenerate-api-data]
+    if: github.ref == 'refs/heads/main' && needs.regenerate-api-data.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Conditionally open a pull request (No Checkout)
+        id: open-pr
+        run: |
+          gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
         env:
+          REPO: ${{ github.repository }}
           PR_TITLE: "Data: Rest Api Specs - regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
           PR_SOURCE: "data/regeneration-from-${{ github.sha }}-rest-api-specs"
           PR_TARGET: "main"
-          GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

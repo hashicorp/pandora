@@ -115,7 +115,7 @@ function cleanup {
 function main {
   local apiDefinitionsDirectory="./api-definitions"
   local outputDirectory="tmp/provider-azurerm"
-  local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
+  local providerRepo="https://github.com/hashicorp/terraform-provider-azurerm.git"
 
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$providerRepo"

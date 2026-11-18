@@ -1,13 +1,23 @@
+---
 name: Run the Version Bumper
 on:
   workflow_dispatch: # for manual invocations
 
 permissions:
-  contents: write
+  contents: read
+
+concurrency:
+  group: 'version-bumper-${{ github.ref }}'
+  cancel-in-progress: false
 
 jobs:
   run-version-bumper:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      has_changes_to_push: ${{ steps.commit-versions-config.outputs.has_changes_to_push }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
@@ -29,7 +39,6 @@ jobs:
             tools/version-bumper/go.mod
             tools/generator-terraform/go.mod
 
-
       - name: build and run version-bumper
         id: bump-versions
         run: |
@@ -41,25 +50,33 @@ jobs:
       - name: then commit the diff
         id: commit-versions-config
         run: |
-          git checkout -b config/regeneration-from-${{ github.sha }}
+          git checkout -b "config/regeneration-from-${{ github.sha }}"
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "config: regenerating based on the latest Swagger"
 
       - name: then conditionally push the branch
         id: push-branch
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
+        if: steps.commit-versions-config.outputs.has_changes_to_push == 'true'
         run: |
-          git push origin config/regeneration-from-${{ github.sha }}
+          git push origin "config/regeneration-from-${{ github.sha }}"
 
-      - name: then conditionally open a pull request
+  open-pr:
+    needs: [run-version-bumper]
+    if: github.ref == 'refs/heads/main' && needs.run-version-bumper.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Conditionally open a pull request (No Checkout)
         id: open-pr
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
         run: |
-          gh pr create --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
         env:
+          REPO: ${{ github.repository }}
           PR_TITLE: "Config: regenerating based on ${{ github.sha }}"
           PR_BODY: "Updating the Resource Manager configuration based on the commit ${{ github.sha }}"
           PR_SOURCE: "config/regeneration-from-${{ github.sha }}"
           PR_TARGET: "main"
-          GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

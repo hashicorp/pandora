@@ -46,7 +46,7 @@ func (c ServeCommand) Run(inputArgs []string) int {
 	r.Use(middleware.Logger)
 	r.Route("/", endpoints.Router(args.DataDirectory, args.ServiceNames))
 	logging.Infof("Data API launched at http://localhost:%d", args.Port)
-	http.ListenAndServe(fmt.Sprintf(":%d", args.Port), r)
+	http.ListenAndServe(fmt.Sprintf("127.0.0.1:%d", args.Port), r)
 	return 0
 }
 

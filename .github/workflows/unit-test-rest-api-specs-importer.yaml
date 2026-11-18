@@ -19,11 +19,12 @@ jobs:
     steps:
       - name: mount a ramdisk to working dir
         run: |
-          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
-      
+          sudo mount -t tmpfs -o size=32G tmpfs "$GITHUB_WORKSPACE"
+
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-         submodules: recursive
+          submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
@@ -41,8 +42,13 @@ jobs:
             tools/version-bumper/go.mod
             tools/generator-terraform/go.mod
 
-
       - name: run unit tests
         run: |
           cd ./tools/importer-rest-api-specs
           make test
+
+      - name: unmount ramdisk
+        if: always()
+        run: |
+          cd /
+          sudo umount -l "$GITHUB_WORKSPACE" || true
