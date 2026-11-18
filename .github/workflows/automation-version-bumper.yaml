@@ -15,13 +15,15 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     outputs:
       has_changes_to_push: ${{ steps.commit-versions-config.outputs.has_changes_to_push }}
+      branch_name: ${{ steps.commit-versions-config.outputs.branch_name }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
@@ -47,36 +49,91 @@ jobs:
           make build
           make run
 
-      - name: then commit the diff
+      - name: commit the diff and create bundle (Unprivileged)
         id: commit-versions-config
+        env:
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
+          BRANCH_NAME: "config/regeneration-from-${{ github.sha }}"
         run: |
-          git checkout -b "config/regeneration-from-${{ github.sha }}"
+          git checkout -b "$BRANCH_NAME"
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "config: regenerating based on the latest Swagger"
+          echo "branch_name=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: then conditionally push the branch
-        id: push-branch
+      - name: Upload generated git bundle
         if: steps.commit-versions-config.outputs.has_changes_to_push == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: version-bumper-bundle
+          path: ${{ runner.temp }}/pandora-changes.bundle
+          retention-days: 1
+
+  push-branch:
+    needs: [run-version-bumper]
+    if: github.ref == 'refs/heads/main' && needs.run-version-bumper.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download generated git bundle (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: version-bumper-bundle
+          path: ${{ runner.temp }}
+
+      - name: Verify bundle and push branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH_NAME: ${{ needs.run-version-bumper.outputs.branch_name }}
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
         run: |
-          git push origin "config/regeneration-from-${{ github.sha }}"
+          set -euo pipefail
+          if [[ ! "$BRANCH_NAME" =~ ^config/regeneration-from-[0-9a-f]{40}$ ]]; then
+            echo "::error::Invalid branch name format: $BRANCH_NAME"
+            exit 1
+          fi
+
+          git clone --no-checkout "https://github.com/${REPO}.git" repo
+          cd repo
+          git bundle verify "$BUNDLE_PATH"
+          git fetch "$BUNDLE_PATH" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+          # Supply-Chain Gate: Ensure commits ONLY touch expected config/ directory
+          disallowed=$(git diff --name-only "origin/main...refs/heads/${BRANCH_NAME}" | grep -Ev '^config/' || true)
+          if [[ -n "$disallowed" ]]; then
+            echo "::error::Refusing to push! Bundle modifies files outside config/:"
+            echo "$disallowed"
+            exit 1
+          fi
+
+          auth_header=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${auth_header}" \
+            push "https://github.com/${REPO}.git" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
 
   open-pr:
-    needs: [run-version-bumper]
+    needs: [run-version-bumper, push-branch]
     if: github.ref == 'refs/heads/main' && needs.run-version-bumper.outputs.has_changes_to_push == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+      actions: write
     steps:
-      - name: Conditionally open a pull request (No Checkout)
+      - name: Conditionally open a pull request and dispatch CI (No Checkout)
         id: open-pr
         run: |
-          gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          set -euo pipefail
+          if ! gh pr view "$PR_SOURCE" --repo "$REPO" >/dev/null 2>&1; then
+            gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          fi
+          gh workflow run unit-test-end-to-end-resource-manager.yaml --repo "$REPO" --ref "$PR_SOURCE"
+          gh workflow run unit-test-rest-api-specs-importer.yaml --repo "$REPO" --ref "$PR_SOURCE"
         env:
           REPO: ${{ github.repository }}
           PR_TITLE: "Config: regenerating based on ${{ github.sha }}"
           PR_BODY: "Updating the Resource Manager configuration based on the commit ${{ github.sha }}"
-          PR_SOURCE: "config/regeneration-from-${{ github.sha }}"
+          PR_SOURCE: ${{ needs.run-version-bumper.outputs.branch_name }}
           PR_TARGET: "main"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

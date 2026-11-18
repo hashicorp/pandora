@@ -7,7 +7,15 @@ set -euo pipefail
 if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
   git add --all
   git commit -m "$1"
-  echo "has_changes_to_push=true" >> "$GITHUB_OUTPUT"
+  if [[ -n "${BUNDLE_PATH:-}" ]]; then
+    echo "Creating git bundle at ${BUNDLE_PATH}.."
+    git bundle create "${BUNDLE_PATH}" "origin/main..HEAD"
+  fi
+  if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
+    echo "has_changes_to_push=true" >> "$GITHUB_OUTPUT"
+  fi
 else
-  echo "has_changes_to_push=false" >> "$GITHUB_OUTPUT"
+  if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
+    echo "has_changes_to_push=false" >> "$GITHUB_OUTPUT"
+  fi
 fi

@@ -96,6 +96,7 @@ function conditionallyCommitAndBundleGoSdk {
 
     # Microsoft Graph: conditional update of dependencies
     cd microsoft-graph/
+    go get github.com/hashicorp/go-azure-sdk/sdk@latest
     go mod tidy
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all
@@ -106,6 +107,7 @@ function conditionallyCommitAndBundleGoSdk {
 
     # Resource Manager: conditional update of dependencies
     cd resource-manager/
+    go get github.com/hashicorp/go-azure-sdk/sdk@latest
     go mod tidy
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all
@@ -116,6 +118,7 @@ function conditionallyCommitAndBundleGoSdk {
 
     # Data Plane: conditional update of dependencies
     cd data-plane/
+    go get github.com/hashicorp/go-azure-sdk/sdk@latest
     go mod tidy
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all

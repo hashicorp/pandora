@@ -23,9 +23,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: custom-linux-xl
     permissions:
-      contents: write
+      contents: read
     outputs:
       has_changes_to_push: ${{ steps.commit-imported-data.outputs.has_changes_to_push }}
+      branch_name: ${{ steps.commit-imported-data.outputs.branch_name }}
     steps:
       - name: mount a ramdisk to working dir
         run: |
@@ -34,6 +35,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
@@ -60,19 +62,25 @@ jobs:
           make import
           make import-data-plane
 
-      - name: then commit the diff
+      - name: commit the diff and create bundle (Unprivileged)
         id: commit-imported-data
+        env:
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
+          BRANCH_NAME: "data/regeneration-from-${{ github.sha }}-rest-api-specs"
         run: |
-          git checkout -b "data/regeneration-from-${{ github.sha }}-rest-api-specs"
+          git checkout -b "$BRANCH_NAME"
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest Swagger"
+          echo "branch_name=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: then conditionally push the branch
-        id: push-branch
+      - name: Upload generated git bundle
         if: steps.commit-imported-data.outputs.has_changes_to_push == 'true'
-        run: |
-          git push origin "data/regeneration-from-${{ github.sha }}-rest-api-specs"
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: rest-api-specs-bundle
+          path: ${{ runner.temp }}/pandora-changes.bundle
+          retention-days: 1
 
       - name: unmount ramdisk
         if: always()
@@ -80,22 +88,72 @@ jobs:
           cd /
           sudo umount -l "$GITHUB_WORKSPACE" || true
 
-  open-pr:
+  push-branch:
     needs: [regenerate-api-data]
+    if: github.ref == 'refs/heads/main' && needs.regenerate-api-data.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download generated git bundle (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: rest-api-specs-bundle
+          path: ${{ runner.temp }}
+
+      - name: Verify bundle and push branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH_NAME: ${{ needs.regenerate-api-data.outputs.branch_name }}
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
+        run: |
+          set -euo pipefail
+          if [[ ! "$BRANCH_NAME" =~ ^data/regeneration-from-[0-9a-f]{40}-rest-api-specs$ ]]; then
+            echo "::error::Invalid branch name format: $BRANCH_NAME"
+            exit 1
+          fi
+
+          git clone --no-checkout "https://github.com/${REPO}.git" repo
+          cd repo
+          git bundle verify "$BUNDLE_PATH"
+          git fetch "$BUNDLE_PATH" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+          # Supply-Chain Gate: Ensure commits ONLY touch expected api-definitions directories
+          disallowed=$(git diff --name-only "origin/main...refs/heads/${BRANCH_NAME}" | grep -Ev '^api-definitions/(resource-manager|data-plane)/' || true)
+          if [[ -n "$disallowed" ]]; then
+            echo "::error::Refusing to push! Bundle modifies files outside allowed api-definitions directories:"
+            echo "$disallowed"
+            exit 1
+          fi
+
+          auth_header=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${auth_header}" \
+            push "https://github.com/${REPO}.git" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+  open-pr:
+    needs: [regenerate-api-data, push-branch]
     if: github.ref == 'refs/heads/main' && needs.regenerate-api-data.outputs.has_changes_to_push == 'true'
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
+      actions: write
     steps:
-      - name: Conditionally open a pull request (No Checkout)
+      - name: Conditionally open a pull request and dispatch CI (No Checkout)
         id: open-pr
         run: |
-          gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          set -euo pipefail
+          if ! gh pr view "$PR_SOURCE" --repo "$REPO" >/dev/null 2>&1; then
+            gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          fi
+          pr_number=$(gh pr view "$PR_SOURCE" --repo "$REPO" --json number --jq '.number')
+          gh workflow run automation-data-api-differ.yaml --repo "$REPO" --ref "$PR_SOURCE" -f pr_number="$pr_number"
+          gh workflow run unit-test-data-api-v2.yaml --repo "$REPO" --ref "$PR_SOURCE"
         env:
           REPO: ${{ github.repository }}
           PR_TITLE: "Data: Rest Api Specs - regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
-          PR_SOURCE: "data/regeneration-from-${{ github.sha }}-rest-api-specs"
+          PR_SOURCE: ${{ needs.regenerate-api-data.outputs.branch_name }}
           PR_TARGET: "main"
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

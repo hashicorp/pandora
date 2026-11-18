@@ -8,6 +8,12 @@ on:
       - 'scripts/automation-determine-changes-to-api-definitions.sh' # to handle changes to the script
       - 'tools/data-api/**' # to detect changes when the Data API is updated
       - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request number to comment on'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -52,12 +58,26 @@ jobs:
 
   post-diff-comments:
     needs: [detect-changes-to-the-api-definitions]
-    if: always() && needs.detect-changes-to-the-api-definitions.result == 'success' && github.event.pull_request.head.repo.full_name == github.repository
+    if: >
+      always() &&
+      needs.detect-changes-to-the-api-definitions.result == 'success' &&
+      ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+       (github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/data/regeneration-from-')))
     runs-on: ubuntu-latest
     permissions:
       contents: read
       pull-requests: write
     steps:
+      - name: Validate PR Number
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "::error::Invalid PR number: $PR_NUMBER"
+            exit 1
+          fi
+
       - name: Download Change Reports (No Checkout)
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
@@ -68,16 +88,19 @@ jobs:
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-breaking-changes.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
       - name: Post Comment containing Changes
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-changes.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
       - name: Post Comment with New Static Identifiers
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-static-identifiers.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
       - name: Check for Breaking Changes
         run: |
