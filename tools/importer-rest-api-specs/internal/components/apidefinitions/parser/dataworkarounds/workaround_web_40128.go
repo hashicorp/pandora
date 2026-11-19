@@ -11,6 +11,8 @@ import (
 
 var _ workaround = workaroundWeb40128{}
 
+// Remove once the affected Web specifications include AzureStorageInfoValue.endpoint.
+// https://github.com/Azure/azure-rest-api-specs/issues/40128
 type workaroundWeb40128 struct{}
 
 func (workaroundWeb40128) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
@@ -19,7 +21,7 @@ func (workaroundWeb40128) IsApplicable(serviceName string, apiVersion sdkModels.
 	}
 
 	switch apiVersion.APIVersion {
-	case "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01":
+	case "2023-01-01", "2023-12-01", "2024-11-01", "2025-05-01", "2026-07-15":
 		return true
 	}
 
@@ -52,6 +54,9 @@ func (workaroundWeb40128) Process(input sdkModels.APIVersion) (*sdkModels.APIVer
 		return &input, nil
 	}
 
+	if model.Fields == nil {
+		model.Fields = make(map[string]sdkModels.SDKField)
+	}
 	model.Fields["Endpoint"] = expectedEndpoint
 	resource.Models["AzureStorageInfoValue"] = model
 	input.Resources["WebApps"] = resource
