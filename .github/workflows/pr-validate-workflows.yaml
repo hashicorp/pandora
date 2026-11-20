@@ -1,6 +1,15 @@
 ---
 name: Validate Workflows and Scripts
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/actionlint.yaml'
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - '.gitmodules'
+      - 'GNUmakefile'
   pull_request:
     types: ['opened', 'synchronize']
     paths:
@@ -38,3 +47,20 @@ jobs:
 
       - name: Run hermetic workflow & script tests
         run: ./scripts/test-workflows.sh
+
+  zizmor:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@45d7276c9ca790aabd705e31ca99c6185c3e76dd # v0.8.1
+        with:
+          # Upload SARIF on main pushes and same-repo PRs; fall back to standard output on fork PRs (where security-events is read-only)
+          advanced-security: ${{ github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository }}
