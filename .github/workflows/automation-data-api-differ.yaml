@@ -102,6 +102,19 @@ jobs:
           filePath: outputs/resource-manager-static-identifiers.md
           pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
+  check-breaking-changes:
+    needs: [detect-changes-to-the-api-definitions]
+    if: needs.detect-changes-to-the-api-definitions.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download Change Reports (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: api-definition-diff-outputs
+          path: outputs
+
       - name: Check for Breaking Changes
         run: |
           if ! grep -q "No Breaking Changes were found" outputs/resource-manager-breaking-changes.md; then

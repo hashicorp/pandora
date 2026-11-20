@@ -8,8 +8,9 @@ if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
   git add --all
   git commit -m "$1"
   if [[ -n "${BUNDLE_PATH:-}" ]]; then
-    echo "Creating git bundle at ${BUNDLE_PATH}.."
-    git bundle create "${BUNDLE_PATH}" "origin/main..HEAD"
+    current_branch=$(git symbolic-ref HEAD)
+    echo "Creating git bundle at ${BUNDLE_PATH} for ${current_branch}.."
+    git bundle create "${BUNDLE_PATH}" "origin/main..${current_branch}"
   fi
   if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
     echo "has_changes_to_push=true" >> "$GITHUB_OUTPUT"

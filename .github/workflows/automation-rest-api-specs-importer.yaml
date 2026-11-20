@@ -114,7 +114,7 @@ jobs:
             exit 1
           fi
 
-          git clone --no-checkout "https://github.com/${REPO}.git" repo
+          git clone --no-checkout --filter=blob:none "https://github.com/${REPO}.git" repo
           cd repo
           git bundle verify "$BUNDLE_PATH"
           git fetch "$BUNDLE_PATH" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
