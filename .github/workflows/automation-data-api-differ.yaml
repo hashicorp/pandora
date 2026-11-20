@@ -33,17 +33,7 @@ jobs:
         with:
           go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
+            tools/*/go.sum
 
       - name: Detect Changes
         run: |
