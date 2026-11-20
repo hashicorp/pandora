@@ -36,6 +36,6 @@ test: build
 	go test -v ./... -timeout=90m
 
 tools:
-	@go install golang.org/x/tools/cmd/goimports@latest
+	@go install golang.org/x/tools/cmd/goimports@v0.30.0
 
 .PHONY: build fmt import import-with-api test tools

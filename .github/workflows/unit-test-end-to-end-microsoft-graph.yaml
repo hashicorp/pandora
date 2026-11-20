@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: 'unit-test-graph-${{ github.head_ref }}'
+  group: 'unit-test-graph-${{ github.head_ref || github.ref }}'
   cancel-in-progress: true # Long running, always triggers, cancel if further changes are pushed
 
 jobs:
@@ -22,28 +22,18 @@ jobs:
     steps:
       - name: mount a ramdisk to working dir
         run: |
-          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
+          sudo mount -t tmpfs -o size=32G tmpfs "$GITHUB_WORKSPACE"
 
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
-
+            tools/*/go.sum
 
       - name: "Build and Run importer-msgraph-metadata"
         id: import-data
@@ -56,3 +46,9 @@ jobs:
       - name: "Run the Go SDK Generator"
         run: |
           ./scripts/automation-generate-go-sdk.sh microsoft-graph
+
+      - name: unmount ramdisk
+        if: always()
+        run: |
+          cd /
+          sudo umount -l "$GITHUB_WORKSPACE" || true

@@ -2,8 +2,7 @@
 # Copyright IBM Corp. 2023, 2026
 # SPDX-License-Identifier: MPL-2.0
 
-
-set -e
+set -euo pipefail
 
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
@@ -78,7 +77,7 @@ function prepareGoSdk {
   cd "${DIR}"
 }
 
-function conditionallyCommitAndPushGoSdk {
+function conditionallyCommitAndBundleGoSdk {
   local workingDirectory=$1
   local sha=$2
   local branch="auto-pr/$sha"
@@ -86,7 +85,7 @@ function conditionallyCommitAndPushGoSdk {
   cd "${DIR}"
   cd "$workingDirectory"
   if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
-    echo "Committing and Pushing the changes"
+    echo "Committing the changes locally"
 
     # commit the generated changes
     git checkout -b "$branch"
@@ -122,20 +121,28 @@ function conditionallyCommitAndPushGoSdk {
       git add --all
       git commit -m "data-plane: updating dependencies based on $sha"
     fi
+    cd "${DIR}"
+    cd "$workingDirectory"
 
-    # NOTE: we're intentionally force-pushing here in-case this PR is
-    # open and other changes (e.g. to the generator) get included
-    git push origin "$branch" -f
+    if [[ -n "${BUNDLE_PATH:-}" ]]; then
+      echo "Creating git bundle at ${BUNDLE_PATH}"
+      git bundle create "${BUNDLE_PATH}" "origin/main..refs/heads/${branch}"
+    fi
+
+    if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
+      echo "has_changes=true" >> "$GITHUB_OUTPUT"
+      echo "branch_name=${branch}" >> "$GITHUB_OUTPUT"
+    fi
   else
-    echo "No changes detected - skipping commit/push"
+    echo "No changes detected - skipping commit/bundle"
+    if [[ -n "${GITHUB_OUTPUT:-}" ]]; then
+      echo "has_changes=false" >> "$GITHUB_OUTPUT"
+    fi
   fi
 }
 
-function getSwaggerSubmoduleSha {
-  local submodulePath=$1
-
+function getPandoraSha {
   cd "${DIR}"
-  cd "$submodulePath"
   git rev-parse --short HEAD
 }
 
@@ -149,16 +156,15 @@ function cleanup {
 
 function main {
   local apiDefinitionsDirectory="./api-definitions"
-  local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/go-azure-sdk"
-  local sdkRepo="git@github.com:hashicorp/go-azure-sdk.git"
+  local sdkRepo="https://github.com/hashicorp/go-azure-sdk.git"
   local sha
 
   buildAndInstallDependencies
-  sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
+  sha=$(getPandoraSha)
   prepareGoSdk "$outputDirectory" "$sdkRepo"
   runWrapper "$apiDefinitionsDirectory" "$outputDirectory"
-  conditionallyCommitAndPushGoSdk "$outputDirectory" "$sha"
+  conditionallyCommitAndBundleGoSdk "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
 }
 

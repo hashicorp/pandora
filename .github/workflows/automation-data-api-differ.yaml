@@ -8,53 +8,102 @@ on:
       - 'scripts/automation-determine-changes-to-api-definitions.sh' # to handle changes to the script
       - 'tools/data-api/**' # to detect changes when the Data API is updated
       - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'Pull Request number to comment on'
+        required: true
+        type: string
 
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   detect-changes-to-the-api-definitions:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
+            tools/*/go.sum
 
       - name: Detect Changes
         run: |
           ./scripts/automation-determine-changes-to-api-definitions.sh resource-manager outputs/
 
+      - name: Upload Change Reports
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: api-definition-diff-outputs
+          path: outputs/*.md
+          retention-days: 1
+
+  post-diff-comments:
+    needs: [detect-changes-to-the-api-definitions]
+    if: >
+      always() &&
+      needs.detect-changes-to-the-api-definitions.result == 'success' &&
+      ((github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+       (github.event_name == 'workflow_dispatch' && startsWith(github.ref, 'refs/heads/data/regeneration-from-')))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Validate PR Number
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$PR_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "::error::Invalid PR number: $PR_NUMBER"
+            exit 1
+          fi
+
+      - name: Download Change Reports (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: api-definition-diff-outputs
+          path: outputs
+
       - name: Post Comment containing Breaking Changes
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-breaking-changes.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
       - name: Post Comment containing Changes
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-changes.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
 
       - name: Post Comment with New Static Identifiers
         uses: thollander/actions-comment-pull-request@fabd468d3a1a0b97feee5f6b9e499eab0dd903f6 # v2.5.0
         with:
           filePath: outputs/resource-manager-static-identifiers.md
+          pr_number: ${{ github.event.pull_request.number || inputs.pr_number }}
+
+  check-breaking-changes:
+    needs: [detect-changes-to-the-api-definitions]
+    if: needs.detect-changes-to-the-api-definitions.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Download Change Reports (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: api-definition-diff-outputs
+          path: outputs
 
       - name: Check for Breaking Changes
         run: |
@@ -62,4 +111,3 @@ jobs:
             echo "🛑 Breaking changes detected! Please review the PR comments for details."
             exit 1
           fi
-
