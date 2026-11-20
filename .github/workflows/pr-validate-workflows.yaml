@@ -1,0 +1,38 @@
+---
+name: Validate Workflows and Scripts
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/**'
+      - 'scripts/**'
+      - '.gitmodules'
+      - 'GNUmakefile'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: ./.go-version
+
+      - name: Install pinned actionlint
+        run: go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.7
+
+      - name: Run actionlint
+        run: actionlint
+
+      - name: Run shellcheck on scripts
+        run: shellcheck -S error scripts/*.sh
+
+      - name: Run hermetic workflow & script tests
+        run: ./scripts/test-workflows.sh
