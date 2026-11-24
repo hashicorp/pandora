@@ -405,7 +405,7 @@ service "migrate" {
 }
 service "mongocluster" {
   name      = "MongoCluster"
-  available = ["2024-07-01", "2025-09-01", "2026-06-01"]
+  available = ["2024-07-01", "2025-09-01", "2026-06-01", "2026-09-01"]
 }
 service "monitor" {
   name      = "Insights"
