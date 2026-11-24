@@ -1,0 +1,36 @@
+{
+  "name": "SourceTargetMap",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceEndpoint",
+      "name": "SourceEndpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "SourceEndpoint",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetEndpoint",
+      "name": "TargetEndpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "TargetEndpoint",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

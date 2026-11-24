@@ -1,0 +1,24 @@
+{
+  "name": "S3WithHmacEndpointUpdateProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "AzureKeyVaultS3WithHmacCredentials",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "EndpointBaseUpdateProperties",
+  "discriminatedTypeValue": "S3WithHMAC",
+  "typeHintIn": "EndpointType"
+}
