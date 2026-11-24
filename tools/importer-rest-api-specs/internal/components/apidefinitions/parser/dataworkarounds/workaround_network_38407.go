@@ -14,7 +14,8 @@ type workaroundNetwork38407 struct{}
 var _ workaround = workaroundNetwork38407{}
 
 func (w workaroundNetwork38407) IsApplicable(serviceName string, apiVersion sdkModels.APIVersion) bool {
-	return serviceName == "Network" && apiVersion.APIVersion == "2025-01-01"
+	// Fixed upstream for 2026-01-01 by https://github.com/Azure/azure-rest-api-specs/pull/45621.
+	return serviceName == "Network" && (apiVersion.APIVersion == "2025-01-01" || apiVersion.APIVersion == "2025-07-01")
 }
 
 func (w workaroundNetwork38407) Name() string {

@@ -1,0 +1,25 @@
+{
+  "name": "Reschedule",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MaintenanceEventId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MaintenanceEventRescheduleRequest",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MaintenanceEventActionResponse",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/reschedule"
+}

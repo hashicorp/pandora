@@ -1,0 +1,23 @@
+{
+  "name": "NetworkWatchersConnectionAnalyzersUpdateTags",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ConnectionAnalyzerId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "TagsObject",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ConnectionAnalyzer",
+    "referenceNameIsCommonType": null
+  }
+}

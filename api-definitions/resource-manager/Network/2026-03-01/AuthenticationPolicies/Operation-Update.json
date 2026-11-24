@@ -1,0 +1,23 @@
+{
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "AuthenticationPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationPolicyUpdateParameters",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AuthenticationPolicy",
+    "referenceNameIsCommonType": null
+  }
+}

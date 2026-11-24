@@ -1,0 +1,19 @@
+{
+  "name": "ListActivationLinks",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ActivationLinks",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/providers/Oracle.Database/oracleSubscriptions/default/listActivationLinks"
+}

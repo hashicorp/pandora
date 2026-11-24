@@ -1,0 +1,24 @@
+{
+  "name": "PostgreSqlFlexibleServerBackupDatasourceParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupSolutionType",
+      "name": "BackupSolutionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "BackupSolutionType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "BackupDatasourceParameters",
+  "discriminatedTypeValue": "PostgreSqlFlexibleServerBackupDatasourceParameters",
+  "typeHintIn": "ObjectType"
+}

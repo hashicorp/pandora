@@ -1,0 +1,27 @@
+{
+  "name": "SourcePortStats",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "peerings",
+      "name": "Peerings",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "Reference",
+          "nullable": false,
+          "referenceName": "PeeringHealth",
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

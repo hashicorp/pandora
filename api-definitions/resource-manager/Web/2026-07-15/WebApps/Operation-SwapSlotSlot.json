@@ -1,0 +1,19 @@
+{
+  "name": "SwapSlotSlot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SlotId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "CsmSlotEntity",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/slotsswap"
+}

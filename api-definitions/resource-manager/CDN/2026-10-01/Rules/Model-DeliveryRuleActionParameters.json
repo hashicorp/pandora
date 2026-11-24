@@ -1,0 +1,22 @@
+{
+  "name": "DeliveryRuleActionParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "typeName",
+      "name": "TypeName",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DeliveryRuleActionParametersType",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "typeHintIn": "TypeName"
+}

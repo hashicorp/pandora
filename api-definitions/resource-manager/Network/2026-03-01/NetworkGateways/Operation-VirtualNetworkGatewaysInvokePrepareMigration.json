@@ -1,0 +1,18 @@
+{
+  "name": "VirtualNetworkGatewaysInvokePrepareMigration",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualNetworkGatewayId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VirtualNetworkGatewayMigrationParameters",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/prepareMigration"
+}

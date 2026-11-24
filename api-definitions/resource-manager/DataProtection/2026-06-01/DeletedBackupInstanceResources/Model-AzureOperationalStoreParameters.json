@@ -1,0 +1,24 @@
+{
+  "name": "AzureOperationalStoreParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceGroupId",
+      "name": "ResourceGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DataStoreParameters",
+  "discriminatedTypeValue": "AzureOperationalStoreParameters",
+  "typeHintIn": "ObjectType"
+}

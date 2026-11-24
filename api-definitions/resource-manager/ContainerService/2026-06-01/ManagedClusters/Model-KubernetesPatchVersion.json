@@ -1,0 +1,27 @@
+{
+  "name": "KubernetesPatchVersion",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgrades",
+      "name": "Upgrades",
+      "objectDefinition": {
+        "type": "List",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null,
+        "nestedItem": {
+          "type": "String",
+          "nullable": false,
+          "referenceName": null,
+          "referenceNameIsCommonType": null
+        }
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

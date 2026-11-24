@@ -1,0 +1,24 @@
+{
+  "name": "AzureBackupRecoveryPointBasedRestoreRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointId",
+      "name": "RecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "nullable": false,
+        "referenceName": null,
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "AzureBackupRestoreRequest",
+  "discriminatedTypeValue": "AzureBackupRecoveryPointBasedRestoreRequest",
+  "typeHintIn": "ObjectType"
+}

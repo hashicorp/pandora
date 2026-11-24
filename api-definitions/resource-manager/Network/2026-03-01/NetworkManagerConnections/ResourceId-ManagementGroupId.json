@@ -1,0 +1,30 @@
+{
+  "name": "ManagementGroupId",
+  "commonAlias": "ManagementGroup",
+  "id": "/providers/Microsoft.Management/managementGroups/{groupId}",
+  "segments": [
+    {
+      "exampleValue": "",
+      "name": "providers",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "exampleValue": "",
+      "name": "resourceProvider",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Management"
+    },
+    {
+      "exampleValue": "",
+      "name": "managementGroups",
+      "type": "Static",
+      "value": "managementGroups"
+    },
+    {
+      "exampleValue": "groupId",
+      "name": "groupId",
+      "type": "UserSpecified"
+    }
+  ]
+}

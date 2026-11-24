@@ -1,0 +1,18 @@
+{
+  "name": "GetAuthSettings",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "AppServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SiteAuthSettings",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/config/authsettings/list"
+}

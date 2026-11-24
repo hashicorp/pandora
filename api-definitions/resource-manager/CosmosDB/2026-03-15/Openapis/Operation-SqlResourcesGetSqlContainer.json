@@ -1,0 +1,17 @@
+{
+  "name": "SqlResourcesGetSqlContainer",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ContainerId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "SqlContainerGetResults",
+    "referenceNameIsCommonType": null
+  }
+}

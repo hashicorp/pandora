@@ -1,0 +1,25 @@
+{
+  "name": "UnassignConnection",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "GoldenGateDeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AssignUnassignConnection",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AssignedConnection",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/unassignConnection"
+}

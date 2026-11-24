@@ -1,0 +1,19 @@
+{
+  "name": "LoadBalancerLoadBalancingRulesHealth",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "LoadBalancingRuleId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "LoadBalancerHealthPerRule",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/health"
+}

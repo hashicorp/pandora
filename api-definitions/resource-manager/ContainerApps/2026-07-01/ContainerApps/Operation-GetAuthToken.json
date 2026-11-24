@@ -1,0 +1,18 @@
+{
+  "name": "GetAuthToken",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ContainerAppId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ContainerAppAuthToken",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getAuthtoken"
+}

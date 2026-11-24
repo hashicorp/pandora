@@ -1,0 +1,18 @@
+{
+  "name": "GetAseV3NetworkingConfiguration",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "AppServiceEnvironmentId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "AseV3NetworkingConfiguration",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/configurations/networking"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "GetVpnclientConnectionHealth",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualNetworkGatewayId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "VpnClientConnectionHealthDetailListResult",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/getVpnClientConnectionHealth"
+}

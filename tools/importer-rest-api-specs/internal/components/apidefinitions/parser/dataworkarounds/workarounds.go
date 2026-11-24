@@ -17,6 +17,7 @@ var workarounds = []workaround{
 
 	// Workarounds
 	workaroundAlertsManagement{},
+	workaroundApiCenter29502{},
 	workaroundApiManagement39054{},
 	workaroundAuthorization25080{},
 	workaroundAutomation25108{},
@@ -63,6 +64,9 @@ var workarounds = []workaround{
 
 	// Special Case for Network duplicated Enum
 	workaroundNetworkProvisioningState{},
+
+	// These workarounds relate to generation errors that are best handled separately rather than in a global normalisation func
+	workaroundSynapseRerunTumblingWindowTrigger{},
 
 	// These workarounds relate to Terraform specific overrides we want to apply (for example for Resource Generation)
 	workaroundDevCenterIdToRequired{},

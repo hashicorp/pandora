@@ -1,0 +1,18 @@
+{
+  "name": "DiagnosticsGetRoot",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ContainerAppId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ContainerApp",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/detectorProperties/rootApi"
+}

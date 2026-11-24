@@ -1,0 +1,24 @@
+{
+  "name": "DeliveryRuleCacheKeyQueryStringAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "CacheKeyQueryStringActionParameters",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "DeliveryRuleAction",
+  "discriminatedTypeValue": "CacheKeyQueryString",
+  "typeHintIn": "Name"
+}

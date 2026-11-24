@@ -1,0 +1,37 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "afcManagedSync",
+      "required": false,
+      "field": "AfcManagedSync",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "FirewallPolicyId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallPolicy",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "FirewallPolicy",
+    "referenceNameIsCommonType": null
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "MongoMIResourcesListMongoMIRoleAssignments",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DatabaseAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "MongoMIRoleAssignmentResource",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/mongoMIRoleAssignments"
+}

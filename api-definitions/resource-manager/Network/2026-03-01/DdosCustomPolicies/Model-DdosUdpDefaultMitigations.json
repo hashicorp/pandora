@@ -1,0 +1,21 @@
+{
+  "name": "DdosUdpDefaultMitigations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "perSourceRateLimiting",
+      "name": "PerSourceRateLimiting",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "DdosUdpPerSourceRateLimitPolicy",
+        "referenceNameIsCommonType": null
+      },
+      "optional": true,
+      "readOnly": false,
+      "required": false,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false
+}

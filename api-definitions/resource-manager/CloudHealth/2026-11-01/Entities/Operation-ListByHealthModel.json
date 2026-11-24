@@ -1,0 +1,32 @@
+{
+  "name": "ListByHealthModel",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "type": "Data",
+      "optional": true,
+      "queryString": "timestamp",
+      "required": false,
+      "field": "Timestamp",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "HealthmodelId",
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "Entity",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/entities"
+}

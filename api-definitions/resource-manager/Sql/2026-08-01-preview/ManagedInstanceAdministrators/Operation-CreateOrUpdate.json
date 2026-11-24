@@ -1,0 +1,26 @@
+{
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "description": "",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "SqlManagedInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedInstanceAdministrator",
+    "referenceNameIsCommonType": null
+  },
+  "responseObject": {
+    "type": "Reference",
+    "nullable": false,
+    "referenceName": "ManagedInstanceAdministrator",
+    "referenceNameIsCommonType": null
+  },
+  "uriSuffix": "/administrators/ActiveDirectory"
+}
