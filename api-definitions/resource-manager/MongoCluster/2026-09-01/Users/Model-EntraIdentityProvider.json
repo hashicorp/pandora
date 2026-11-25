@@ -1,0 +1,24 @@
+{
+  "name": "EntraIdentityProvider",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "nullable": false,
+        "referenceName": "EntraIdentityProviderProperties",
+        "referenceNameIsCommonType": null
+      },
+      "optional": false,
+      "readOnly": false,
+      "required": true,
+      "sensitive": false
+    }
+  ],
+  "IsParent": false,
+  "discriminatedParentModelName": "IdentityProvider",
+  "discriminatedTypeValue": "MicrosoftEntraID",
+  "typeHintIn": "Type"
+}
