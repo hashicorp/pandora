@@ -112,7 +112,7 @@ func TestFormat%[1]sID(t *testing.T) {
 	expected := %[3]q
 	if actual != expected {
 		t.Fatalf("Expected the Formatted ID to be %%q but got %%q", expected, actual)
-	} 
+	}
 }
 `, structWithoutSuffix, strings.Join(arguments, ", "), expectedUri)
 	return &out, nil
@@ -137,7 +137,7 @@ func (i resourceIdTestsTemplater) generateNewFunctionTest(structWithoutSuffix st
 	out := fmt.Sprintf(`
 func TestNew%[1]sID(t *testing.T) {
 	id := New%[1]sID(%[2]s)
-	%[3]s 
+	%[3]s
 }`, structWithoutSuffix, strings.Join(arguments, ", "), strings.Join(assertions, "\n"))
 	return &out, nil
 }
@@ -168,18 +168,16 @@ func Test%[1]s(t *testing.T) {
 		%[3]s
 	}
 	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %%q", v.Input)
-
 		actual, err := %[1]s(v.Input)
 		if err != nil {
 			if v.Error {
 				continue
 			}
 
-			t.Fatalf("Expect a value but got an error: %%+v", err)
+			t.Fatalf("Testing %%q: Expect a value but got an error: %%+v", v.Input, err)
 		}
 		if v.Error {
-			t.Fatal("Expect an error but didn't get one")
+			t.Fatalf("Testing %%q: Expect an error but didn't get one", v.Input)
 		}
 
 		%[4]s
@@ -203,7 +201,7 @@ func TestSegmentsFor%[1]s(t *testing.T) {
 	}
 	if len(uniqueNames) != len(segments) {
 		t.Fatalf("Expected the Segments to be unique but got %%d unique segments and %%d total segments", len(uniqueNames), len(segments))
-	} 
+	}
 }`, structName)
 }
 
@@ -269,7 +267,7 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 	},`, fullUrl, i.resourceName, strings.Join(structMap, "\n")))
 	if !isSingleSegmentOnly && !idEndsInScopeSegment {
 		cases = append(cases, fmt.Sprintf(`{
-		// Invalid (Valid Uri with Extra segment) 
+		// Invalid (Valid Uri with Extra segment)
 		Input: "%s/extra",
 		Error: true,
 	},`, fullUrl))
@@ -308,7 +306,7 @@ func (i resourceIdTestsTemplater) getAssertions() (*string, error) {
 		default:
 			lines = append(lines, fmt.Sprintf(`
 if actual.%[1]s != v.Expected.%[1]s {
-	t.Fatalf("Expected %%q but got %%q for %[1]s", v.Expected.%[1]s, actual.%[1]s)
+	t.Fatalf("Testing %%q: Expected %%q but got %%q for %[1]s", v.Input, v.Expected.%[1]s, actual.%[1]s)
 }
 `, strings.Title(segment.Name)))
 		}
