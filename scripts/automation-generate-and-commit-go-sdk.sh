@@ -54,8 +54,10 @@ function runWrapper {
   cd "${outputDirectory}"
   make tools
 
-  echo "Running 'make imports' on the generated code"
-  make imports
+  echo "Running 'goimports' on the generated SDK directories (excluding sdk/)"
+  goimports -w ./data-plane
+  goimports -w ./microsoft-graph
+  goimports -w ./resource-manager
 }
 
 function prepareGoSdk {
@@ -84,21 +86,21 @@ function conditionallyCommitAndBundleGoSdk {
 
   cd "${DIR}"
   cd "$workingDirectory"
-  if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+  if [[ $(git status --porcelain -- data-plane microsoft-graph resource-manager | wc -l) -gt 0 ]]; then
     echo "Committing the changes locally"
 
     # commit the generated changes
     git checkout -b "$branch"
     git config user.name "hc-github-team-tf-azure"
     git config user.email "<>"
-    git add --all
+    git add --all -- data-plane microsoft-graph resource-manager
     git commit -m "Updating based on $sha"
 
     # Microsoft Graph: conditional update of dependencies
     cd microsoft-graph/
     go mod tidy
-    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
-      git add --all
+    if [[ $(git status --porcelain -- . | wc -l) -gt 0 ]]; then
+      git add --all -- .
       git commit -m "microsoft-graph: updating dependencies based on $sha"
     fi
     cd "${DIR}"
@@ -107,8 +109,8 @@ function conditionallyCommitAndBundleGoSdk {
     # Resource Manager: conditional update of dependencies
     cd resource-manager/
     go mod tidy
-    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
-      git add --all
+    if [[ $(git status --porcelain -- . | wc -l) -gt 0 ]]; then
+      git add --all -- .
       git commit -m "resource-manager: updating dependencies based on $sha"
     fi
     cd "${DIR}"
@@ -117,8 +119,8 @@ function conditionallyCommitAndBundleGoSdk {
     # Data Plane: conditional update of dependencies
     cd data-plane/
     go mod tidy
-    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
-      git add --all
+    if [[ $(git status --porcelain -- . | wc -l) -gt 0 ]]; then
+      git add --all -- .
       git commit -m "data-plane: updating dependencies based on $sha"
     fi
     cd "${DIR}"
