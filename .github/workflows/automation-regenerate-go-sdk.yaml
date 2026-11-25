@@ -6,77 +6,118 @@ on:
       - main
     paths:
       - 'api-definitions/**'
+      - 'tools/data-api/**'
+      - 'tools/data-api-repository/**'
+      - 'tools/data-api-sdk/**'
       - 'tools/generator-go-sdk/**'
+      - 'tools/sdk/**'
+      - 'tools/wrapper-automation/**'
+      - 'scripts/automation-generate-and-commit-go-sdk.sh'
   workflow_dispatch: # for manual invocations
 
 permissions:
   contents: read
 
 concurrency:
-  group: 'regengosdk-${{ github.head_ref }}'
-  cancel-in-progress: true
+  group: 'regengosdk-${{ github.ref }}'
+  cancel-in-progress: false
 
 jobs:
-  regenerate-go-sdk:
+  generate-sdk:
+    if: github.ref == 'refs/heads/main'
     runs-on: custom-linux-xl
+    outputs:
+      has_changes: ${{ steps.generate.outputs.has_changes }}
+      branch_name: ${{ steps.generate.outputs.branch_name }}
     steps:
       - name: mount a ramdisk to working dir
         run: |
-          sudo mount -t tmpfs -o size=32G tmpfs $GITHUB_WORKSPACE
+          sudo mount -t tmpfs -o size=32G tmpfs "$GITHUB_WORKSPACE"
 
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
+            tools/*/go.sum
 
-
-      - name: ensure goimports is installed
+      - name: ensure pinned goimports is installed
         run: |
-          go install golang.org/x/tools/cmd/goimports@latest
+          go install golang.org/x/tools/cmd/goimports@v0.30.0
 
-      - name: "Launch SSH Agent"
-        run: |
-          # launch an ssh agent and export it's env vars
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+      - name: "Run the Go SDK Generator (Unprivileged)"
+        id: generate
         env:
-          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
-
-      - name: "Load SSH Key"
+          BUNDLE_PATH: ${{ runner.temp }}/go-azure-sdk.bundle
         run: |
-          # load the Deployment Write Key for the Go SDK repository
-          echo "${{ secrets.GOSDK_DEPLOYMENT_WRITE_KEY }}" | ssh-add -
-        env:
-          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
-
-      - name: "Run the Go SDK Generator"
-        run: |
-          # go go gadget generator
           ./scripts/automation-generate-and-commit-go-sdk.sh
-        env:
-          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
 
-      - name: "Remove the Key from the SSH Agent"
+      - name: "Upload generated git bundle"
+        if: steps.generate.outputs.has_changes == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: go-azure-sdk-bundle
+          path: ${{ runner.temp }}/go-azure-sdk.bundle
+          retention-days: 1
+
+      - name: unmount ramdisk
         if: always()
         run: |
-          # remove the ssh key
-          ssh-add -D
-        env:
-          SSH_AUTH_SOCK: /tmp/pandora_ssh_agent.sock
+          cd /
+          sudo umount -l "$GITHUB_WORKSPACE" || true
 
-      - name: "Terminate the SSH Agent"
-        if: always()
+  push-sdk:
+    needs: [generate-sdk]
+    if: github.ref == 'refs/heads/main' && needs.generate-sdk.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    environment: automation-production
+    steps:
+      - name: "Download generated git bundle"
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: go-azure-sdk-bundle
+          path: ${{ runner.temp }}
+
+      - name: "Verify bundle and push to go-azure-sdk"
+        env:
+          DEPLOY_KEY: ${{ secrets.GOSDK_DEPLOYMENT_WRITE_KEY }}
+          BRANCH_NAME: ${{ needs.generate-sdk.outputs.branch_name }}
+          BUNDLE_PATH: ${{ runner.temp }}/go-azure-sdk.bundle
         run: |
-          pkill -9 ssh-agent
+          set -euo pipefail
+          if [[ ! "$BRANCH_NAME" =~ ^auto-pr/[0-9a-f]{7,40}$ ]]; then
+            echo "::error::Invalid branch name format: $BRANCH_NAME"
+            exit 1
+          fi
+
+          git clone --no-checkout https://github.com/hashicorp/go-azure-sdk.git repo
+          cd repo
+          git bundle verify "$BUNDLE_PATH"
+          git fetch "$BUNDLE_PATH" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+          # Supply-Chain Gate: Ensure commits ONLY touch expected generated SDK directories (excluding sdk/)
+          disallowed=$(git diff --name-only "origin/main...refs/heads/${BRANCH_NAME}" | grep -Ev '^(data-plane|microsoft-graph|resource-manager)/' || true)
+          if [[ -n "$disallowed" ]]; then
+            echo "::error::Refusing to push! Bundle modifies files outside allowed SDK directories:"
+            echo "$disallowed"
+            exit 1
+          fi
+
+          key_file=$(mktemp "${RUNNER_TEMP}/ssh_key.XXXXXX")
+          known_hosts_file=$(mktemp "${RUNNER_TEMP}/known_hosts.XXXXXX")
+          chmod 600 "$key_file" "$known_hosts_file"
+          trap 'rm -f "$key_file" "$known_hosts_file"' EXIT
+          printf '%s\n' "$DEPLOY_KEY" > "$key_file"
+
+          # Pinned GitHub SSH host keys: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints
+          cat << 'EOF' > "$known_hosts_file"
+          github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl
+          github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=
+          github.com ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCj7ndNxQowgcQnjshcLrqPEiiphnt+VTTvDP6mHBL9j1aNUkY4Ue1gvwnGLVlOhGeYrnZaMgRK6+PKCUXaDbC7qtbW8gIkhL7aCCsOr/C56SJMy/BCZfxd1nWzAOxSDPgVsmerOBYfNqltV9/hWCqBywINIR+5dIg6JTJ72pcEpEjcYgXkE2YEFXV1JHnsKgbLWNlhScqb2UmyRkQyytRLtL+38TGxkxCflmO+5Z8CSSNY7GidjMIZ7Q4zMjA2n1nGrlTDkzwDCsw+wqFPGQA179cnfGWOWRVruj16z6XyvxvjJwbz0wQZ75XK5tKSb7FNyeIEs4TT4jk+S4dhPeAUC5y+bDYirYgM4GC7uEnztnZyaVWQ7B381AK4Qdrwt51ZqExKbQpTUNn+EjqoTwvqNj4kqx5QUCI0ThS/YkOxJCXmPUWZbhjpCg56i+2aB6CmK2JGhn57K5mj0MNdBXA4/WnwH6XoPWJzK5Nyu2zB3nAZp+S5hpQs+p1vN1/wsjk=
+          EOF
+
+          GIT_SSH_COMMAND="ssh -i ${key_file} -o IdentitiesOnly=yes -o UserKnownHostsFile=${known_hosts_file} -o StrictHostKeyChecking=yes" \
+            git push git@github.com:hashicorp/go-azure-sdk.git "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}" -f

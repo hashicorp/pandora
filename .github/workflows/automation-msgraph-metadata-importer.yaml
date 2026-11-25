@@ -1,5 +1,5 @@
+---
 name: Regenerate API Data with New Microsoft Graph Changes after PR Merge
-
 on:
   push:
     branches:
@@ -7,41 +7,36 @@ on:
     paths:
       - 'config/microsoft-graph.hcl'
       - 'submodules/msgraph-metadata'
-      - 'tools/importer-msgraph/**'
+      - 'tools/importer-msgraph-metadata/**'
   workflow_dispatch: # for manual invocations
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: 'regendataapi-msgraph-${{ github.head_ref }}'
-  cancel-in-progress: true
-
+  group: 'regendataapi-msgraph-${{ github.ref }}'
+  cancel-in-progress: false
 
 jobs:
   regenerate-api-data:
+    if: github.ref == 'refs/heads/main'
     runs-on: custom-linux-xl
+    permissions:
+      contents: read
+    outputs:
+      has_changes_to_push: ${{ steps.commit-imported-data.outputs.has_changes_to_push }}
+      branch_name: ${{ steps.commit-imported-data.outputs.branch_name }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
-          go-version: '1.21.3'
+          go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
-
+            tools/*/go.sum
 
       - name: build and run importer-msgraph-metadata
         id: import-data
@@ -53,28 +48,90 @@ jobs:
         env:
           PANDORA_LOG: WARN
 
-      - name: then commit the diff
+      - name: commit the diff and create bundle (Unprivileged)
         id: commit-imported-data
+        env:
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
+          BRANCH_NAME: "data/regeneration-from-${{ github.sha }}-msgraph"
         run: |
-          git checkout -b data/regeneration-from-${{ github.sha }}-msgraph
+          git checkout -b "$BRANCH_NAME"
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
           ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest MSGraph Metadata"
+          echo "branch_name=$BRANCH_NAME" >> "$GITHUB_OUTPUT"
 
-      - name: then conditionally push the branch
-        id: push-branch
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
-        run: |
-          git push origin data/regeneration-from-${{ github.sha }}-msgraph
+      - name: Upload generated git bundle
+        if: steps.commit-imported-data.outputs.has_changes_to_push == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: msgraph-metadata-bundle
+          path: ${{ runner.temp }}/pandora-changes.bundle
+          retention-days: 1
 
-      - name: then conditionally open a pull request
-        id: open-pr
-        if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
-        run: |
-          gh pr create --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+  push-branch:
+    needs: [regenerate-api-data]
+    if: github.ref == 'refs/heads/main' && needs.regenerate-api-data.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download generated git bundle (No Checkout)
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: msgraph-metadata-bundle
+          path: ${{ runner.temp }}
+
+      - name: Verify bundle and push branch
         env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BRANCH_NAME: ${{ needs.regenerate-api-data.outputs.branch_name }}
+          BUNDLE_PATH: ${{ runner.temp }}/pandora-changes.bundle
+        run: |
+          set -euo pipefail
+          if [[ ! "$BRANCH_NAME" =~ ^data/regeneration-from-[0-9a-f]{40}-msgraph$ ]]; then
+            echo "::error::Invalid branch name format: $BRANCH_NAME"
+            exit 1
+          fi
+
+          git clone --no-checkout --filter=blob:none "https://github.com/${REPO}.git" repo
+          cd repo
+          git bundle verify "$BUNDLE_PATH"
+          git fetch "$BUNDLE_PATH" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+          # Supply-Chain Gate: Ensure commits ONLY touch expected api-definitions/microsoft-graph directory
+          disallowed=$(git diff --name-only "origin/main...refs/heads/${BRANCH_NAME}" | grep -Ev '^api-definitions/microsoft-graph/' || true)
+          if [[ -n "$disallowed" ]]; then
+            echo "::error::Refusing to push! Bundle modifies files outside api-definitions/microsoft-graph/:"
+            echo "$disallowed"
+            exit 1
+          fi
+
+          auth_header=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${auth_header}" \
+            push "https://github.com/${REPO}.git" "refs/heads/${BRANCH_NAME}:refs/heads/${BRANCH_NAME}"
+
+  open-pr:
+    needs: [regenerate-api-data, push-branch]
+    if: github.ref == 'refs/heads/main' && needs.regenerate-api-data.outputs.has_changes_to_push == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      actions: write
+    steps:
+      - name: Conditionally open a pull request and dispatch CI (No Checkout)
+        id: open-pr
+        run: |
+          set -euo pipefail
+          if ! gh pr view "$PR_SOURCE" --repo "$REPO" >/dev/null 2>&1; then
+            gh pr create --repo "$REPO" --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
+          fi
+          gh workflow run unit-test-data-api-v2.yaml --repo "$REPO" --ref "$PR_SOURCE"
+        env:
+          REPO: ${{ github.repository }}
           PR_TITLE: "Data: Microsoft Graph - regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
-          PR_SOURCE: "data/regeneration-from-${{ github.sha }}-msgraph"
+          PR_SOURCE: ${{ needs.regenerate-api-data.outputs.branch_name }}
           PR_TARGET: "main"
-          GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

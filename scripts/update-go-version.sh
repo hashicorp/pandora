@@ -64,4 +64,5 @@ for i in "${!DIRS[@]}"; do
 done
 
 echo "==> All modules successfully updated and tidied!"
+echo "==> Reminder: Verify pinned 'golang.org/x/tools/cmd/goimports@v...' in .github/workflows/ and tools/*/GNUmakefile is up to date for Go $VERSION."
 rm "$STATE_FILE"

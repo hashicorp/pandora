@@ -7,6 +7,7 @@ on:
       - '.github/workflows/unit-test-data-api-v2.yaml'
       - 'api-definitions/**'
       - 'tools/data-api/**'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,24 +18,14 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
-         submodules: recursive
+          submodules: recursive
+          persist-credentials: false
 
       - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
         with:
           go-version-file: ./.go-version
           cache-dependency-path: |
-            tools/generator-go-sdk/go.mod
-            tools/data-api-differ/go.mod
-            tools/wrapper-automation/go.mod
-            tools/data-api/go.mod
-            tools/importer-msgraph-metadata/go.mod
-            tools/data-api-sdk/go.mod
-            tools/sdk/go.mod
-            tools/importer-rest-api-specs/go.mod
-            tools/data-api-repository/go.mod
-            tools/version-bumper/go.mod
-            tools/generator-terraform/go.mod
-
+            tools/*/go.sum
 
       - name: run unit tests
         run: |
