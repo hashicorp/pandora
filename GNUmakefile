@@ -47,7 +47,7 @@ validate-workflows:
 		exit 1; \
 	fi
 	@if command -v zizmor >/dev/null 2>&1; then \
-		zizmor .github/workflows/; \
+		zizmor .; \
 	else \
 		echo "Note: optional 'zizmor' not installed; skipping zizmor check."; \
 	fi

@@ -3,13 +3,15 @@ updates:
 - package-ecosystem: "github-actions"
   directory: "/"
   schedule:
-      interval: "weekly"
+    interval: "weekly"
+  cooldown:
+    default-days: 7
   ignore:
     - dependency-name: "*"
       update-types:
         - "version-update:semver-major"
 
-- package-ecosystem: gitsubmodule
+- package-ecosystem: gitsubmodule # zizmor: ignore[dependabot-cooldown] daily upstream MSFT API spec checks required
   directory: "/"
   schedule:
     interval: daily
