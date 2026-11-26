@@ -58,6 +58,31 @@ if [[ -n "$dual_write" ]]; then
 fi
 pass "No job holds both contents: write and pull-requests: write"
 
+# Dependabot github-actions cooldown must set default-days >= 7 and avoid unsupported semver-*-days
+dependabot_file="${REPO_ROOT}/.github/dependabot.yml"
+if grep -qE 'semver-(major|minor|patch)-days:' "$dependabot_file"; then
+  fail "Unsupported semver-*-days found in .github/dependabot.yml (use default-days for non-SemVer ecosystems)"
+fi
+gha_cooldown_ok=$(awk '
+  /^[[:space:]]*-[[:space:]]*package-ecosystem:/ {
+    in_gha = ($0 ~ /github-actions/)
+    in_cd = 0
+    next
+  }
+  in_gha && /^[[:space:]]*cooldown:[[:space:]]*$/ { in_cd = 1; next }
+  in_gha && in_cd && /^  [a-zA-Z0-9_-]+:/ { in_cd = 0; next }
+  in_gha && in_cd && /^[[:space:]]*default-days:[[:space:]]*[0-9]+/ {
+    val = $2 + 0
+    if (val >= 7) ok = 1
+    in_cd = 0
+  }
+  END { if (ok) print "yes" }
+' "$dependabot_file")
+if [[ "$gha_cooldown_ok" != "yes" ]]; then
+  fail ".github/dependabot.yml github-actions ecosystem must set cooldown.default-days >= 7"
+fi
+pass "Dependabot github-actions sets cooldown.default-days >= 7 without unsupported semver-*-days"
+
 echo "==> 2. Hermetic shallow-clone bundle & 3-dot merge-base path gate tests"
 
 tmp_dir=$(mktemp -d /tmp/pandora-workflow-test.XXXXXX)
