@@ -86,9 +86,18 @@ pass "Dependabot github-actions sets cooldown.default-days >= 7 without unsuppor
 echo "==> 2. Hermetic shallow-clone bundle & 3-dot merge-base path gate tests"
 
 tmp_dir=$(mktemp -d /tmp/pandora-workflow-test.XXXXXX)
-trap 'rm -rf "$tmp_dir"' EXIT
+cleanup() {
+  local rc=$?
+  cd / || true
+  rm -rf "$tmp_dir" 2>/dev/null || rm -rf "$tmp_dir" || true
+  exit "$rc"
+}
+trap cleanup EXIT
 export GIT_CONFIG_NOSYSTEM=1
 export HOME="$tmp_dir"
+git config --global gc.auto 0
+git config --global gc.autoDetach false
+git config --global maintenance.auto false
 
 git init --bare -b main "$tmp_dir/remote.git" >/dev/null
 git clone "$tmp_dir/remote.git" "$tmp_dir/seed" >/dev/null 2>&1
