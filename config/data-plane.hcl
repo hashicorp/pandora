@@ -28,7 +28,7 @@ service "keyvault" {
 
 service "search" {
   name      = "Search"
-  available = ["2025-09-01"]
+  available = ["2025-09-01", "2026-04-01"]
 }
 
 service "synapse" {
